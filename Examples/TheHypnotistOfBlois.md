@@ -13,7 +13,6 @@ For: Z-Machine
 A person is either hypnotized or alert. A person is usually alert.
 
 Persuasion rule for asking a hypnotized person to try doing something:
-
 	persuasion succeeds.
 
 Understand "hypnotize [someone]" as hypnotizing.
@@ -21,21 +20,16 @@ Understand "hypnotize [someone]" as hypnotizing.
 Hypnotizing is an action applying to one thing.
 
 Check hypnotizing:
-
 	if the noun is hypnotized, say "Already done." instead.
 
 Carry out hypnotizing:
-
 	now the noun is hypnotized.
 
 Report hypnotizing:
-
 	say "[The noun] slips under your control."
 
 Instead of waking someone hypnotized:
-
 	now the noun is alert;
-
 	say "[The noun] returns abruptly to consciousness."
 ```
 
@@ -46,7 +40,6 @@ We will learn more about check rules for other characters shortly, but the follo
 
 ``` inform7
 {**}Check someone hypnotizing someone:
-
 	stop the action.
 
 Maison de la Magie is a room. "In a darkened room, a few hundreds of paces from the chateau of Blois, you give to tourists three shows a day: displaying to them power they do not comprehend and spectacles they do not deserve."

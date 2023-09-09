@@ -21,13 +21,9 @@ Section 1 - Procedure
 A raised supporter is a kind of supporter.
 
 For printing a locale paragraph about a raised supporter (called the high place):
-
 	if the player is on a supporter (called the riser):
-
 		say "Up on [the high place] (and only visible because you're on [the riser]) [is-are a list of things on the high place].";
-
 	otherwise:
-
 		say "The [high place] is above you."
 ```
 
@@ -38,11 +34,8 @@ Note that here we don't continue the activity because we want to completely repl
 
 ``` inform7
 {**}Definition: a thing (called target item) is out of reach:
-
 	if the player is on a supporter, no;
-
 	if the target item is on a raised supporter, yes;
-
 	no.
 ```
 
@@ -53,9 +46,7 @@ Now we also need to prevent the player from interacting with things that are out
 
 ``` inform7
 {**}Before doing something:
-
 	if the noun is out of reach or the second noun is out of reach:
-
 		say "You can't reach from down here." instead.
 ```
 
@@ -66,7 +57,6 @@ Now we also need to prevent the player from interacting with things that are out
 
 ``` inform7
 {**}Instead of putting something on a raised supporter when the player is not on a supporter:
-
 	say "You can't reach from down here."
 ```
 
@@ -77,7 +67,6 @@ And raised supporters shouldn't be searchable from the ground either:
 
 ``` inform7
 {**}Instead of searching or examining a raised supporter when the player is not on a supporter:
-
 	say "You can't see from down here."
 ```
 
@@ -90,23 +79,16 @@ Finally, we need to tackle the case where the player types ``get all from shelf`
 {**}Disallowed-all is a truth state that varies. Disallowed-all is false.
 
 Rule for deciding whether all includes an out of reach thing:
-
 	now disallowed-all is true;
-
 	it does not.
 
 Rule for printing a parser error when the latest parser error is the nothing to do error and the player is not on a supporter:
-
 	if disallowed-all is true:
-
 		say "Whatever might be up there, you can't see or reach from down here.";
-
 	otherwise:
-
 		make no decision.
 
 A first action-processing rule:
-
 	now disallowed-all is false.
 
 Section 2 - Scenario

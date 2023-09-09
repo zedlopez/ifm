@@ -16,35 +16,22 @@ Let's say we want to allow the player to enter any name they like for their char
 The player's forename is a text that varies. The player's full name is a text that varies.
 
 When play begins:
-
 	now the command prompt is "What is your name? > ".
 
 To decide whether collecting names:
-
 	if the command prompt is "What is your name? > ", yes;
-
 	no.
 
 After reading a command when collecting names:
-
 	if the number of words in the player's command is greater than 5:
-
 		say "[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let's try this again.";
-
 		reject the player's command;
-
 	now the player's full name is the player's command;
-
 	now the player's forename is word number 1 in the player's command;
-
 	now the command prompt is ">";
-
 	say "Hi, [player's forename]![paragraph break]";
-
 	say "[banner text]";
-
 	move the player to the location;
-
 	reject the player's command.
 ```
 
@@ -75,25 +62,15 @@ If we are compiling for the Z-machine, the player's input will unfortunately be 
 
 ``` inform7
 {*}After reading a command when collecting names:
-
 	if the number of words in the player's command is greater than 5:
-
 		say "[paragraph break]Who are you, a member of the British royal family? No one has that many names. Let's try this again.";
-
 		reject the player's command;
-
 	now the player's full name is the substituted form of "[the player's command in title case]";
-
 	now the player's forename is word number 1 in the player's full name;
-
 	now the command prompt is ">";
-
 	say "Hi, [player's forename]![paragraph break]";
-
 	say "[banner text]";
-
 	move the player to the location;
-
 	reject the player's command.
 ```
 

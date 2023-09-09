@@ -15,7 +15,6 @@ For instance, suppose we wanted to create a mirror in which the player would see
 
 ``` inform7
 Instead of searching the mirror:
-
 	say "You see [a random thing in the location] reflected back at you."
 ```
 
@@ -29,7 +28,6 @@ But, on a little more thought, we might want to expand on this: the mirror perha
 
 ``` inform7
 Instead of searching the mirror:
-
 	say "You see [a random visible thing] reflected back at you."
 ```
 
@@ -49,7 +47,6 @@ because, of course, the mirror is itself visible. So instead we might write
 
 ``` inform7
 Instead of searching the mirror:
-
 	say "You see [a random visible thing which is not the mirror] reflected back at you."
 
 {*}"Versailles"
@@ -61,7 +58,6 @@ The mirror is scenery in the Hall of Plywood Boards. Understand "panel" or "pane
 Some tourists are a person in the Hall of Plywood Boards. The tourists are scenery.
 
 Instead of searching the mirror:
-
 	say "You see [a random visible thing which is not the mirror] reflected back at you."
 
 Test me with "x mirror / look in mirror / g".
@@ -74,9 +70,7 @@ A final note: we use "searching" here because Inform understands both ``search t
 
 ``` inform7
 [searching the mirror]
-
 You find nothing of interest.
-
 [searching the mirror - failed the can't search unless container or supporter rule]
 ```
 

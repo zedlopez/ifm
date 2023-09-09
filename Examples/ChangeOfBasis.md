@@ -37,21 +37,16 @@ Now a few rules about changing from one state to the other:
 {**}Instead of sleeping: now the player is asleep; say "You drop off."
 
 Instead of doing something other than waking up, waiting or sleeping when the player is asleep:
-
 	say "Ssh! You're sleeping!"
 
 Instead of sleeping when the player is asleep:
-
 	say "Zzzz."
 
 Instead of waking up when the player is asleep:
-
 	now the player is awake;
-
 	say "You come to suddenly, wiping drool from your lips."
 
 Instead of doing something other than looking or sleeping when the player is awake:
-
 	say "You'd really rather just sleep through this."
 
 Test me with "wake up / sleep / look / z / sleep / wake up / look".

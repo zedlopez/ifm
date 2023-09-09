@@ -28,45 +28,26 @@ A rock is a kind of thing. A rock is usually stone. The ordinary rock is a rock.
 The description of a thing is usually "[comparison with ideal][run paragraph on]".
 
 To say comparison with ideal:
-
 	say "You observe [the noun]:[paragraph break]";
-
 	choose row with character of the player in Table of Descriptive Reporting;
-
 	follow instructions entry.
 
 This is the comparative observation rule:
-
 	let the sample be the ideal of the noun;
-
 	if the sample is not a thing:
-
 		say "Nothing special, really.";
-
 		rule succeeds;
-
 	if the material of the noun is not the material of the sample:
-
 		if the height of the noun is not the height of the sample:
-
 			if the noun is shorter than the sample, say "Unusually short at [height of the noun], and made of [material of the noun].";
-
 			otherwise say "Unusually tall at [height of the noun], and made of [material of the noun].";
-
 		otherwise:
-
 			say "Distinct mostly in being made of [material of the noun].";
-
 	otherwise:
-
 		if the height of the noun is not the height of the sample:
-
 			if the noun is shorter than the sample, say "Unusually short at [height of the noun].";
-
 			otherwise say "Unusually tall at [height of the noun].";
-
 		otherwise:
-
 			say "In every respect [a sample]."
 
 The Pleasure Garden is a room. "At the riverbank, a pleasing garden, having many curving paths and one straight."
@@ -80,17 +61,12 @@ Possessing is an action applying to one thing. Carry out possessing: now the pla
 The crane is a person in the Garden. The height of the crane is 4 feet 0 inches.
 
 Table of Descriptive Reporting
-
 character	instructions
-
 yourself	comparative observation rule
-
 crane	bird observation rule
 
 This is the bird observation rule:
-
 	if the noun is shorter than the player, say "Small, like a duck[if the color of the noun is not white]; and [color of the noun][end if].";
-
 	otherwise say "Supremely tall[if the color of the noun is not white] and [color of the noun][end if]."
 
 Test me with "examine table / examine nugget / examine willow / possess crane / examine table / examine nugget / examine willow".

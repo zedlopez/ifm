@@ -25,9 +25,7 @@ A grid location is a kind of value. (1,19) specifies a grid location. A room has
 The Gateway is a room. "For the foolhardy adventurer, the perilous labyrinth lies north, east or south." The coordinates are (6,6). The Tomb is east of the Gateway. The coordinates are (7,6). The Rockfall Cave is north of the Gateway. "This partly fallen cave may perhaps extend further north." The coordinates are (6,5). Instead of going north in the Rockfall Cave, have the player buried by a rockfall. The Archery Canyon is south of the Gateway. "No telling why this canyon is named after archery, but perhaps if you wait around you'll find out." The coordinates are (6,7). Instead of waiting in the Archery Canyon, have the player pierced by an arrow. The Rock Pool is east of the Tomb. The coordinates are (8,6). The cold mountain pool is in the Rock Pool. The cold pool is fixed in place. Instead of entering the cold mountain pool, have the player drowned.
 
 Every turn when a random chance of 1 in 10 succeeds:
-
 	say "A dwarf appears out of nowhere, and throws a nasty little knife.";
-
 	have the player slain.
 ```
 
@@ -40,19 +38,13 @@ And as compensation for these hazards:
 {**}Some silver bars are in the Tomb. The emerald is in the Rock Pool. The platinum pyramid is in the Canyon.
 
 Table of Point Values
-
 item 	  	score
-
 silver bars		3
-
 platinum pyramid	10
-
 emerald		4
 
 Report taking an item listed in the Table of Point Values:
-
 	increase the score by the score entry;
-
 	blank out the whole row.
 ```
 
@@ -63,11 +55,8 @@ We are now ready for the actual undertaking. The Table of Ghostly Presences hold
 
 ``` inform7
 {**}Table of Ghostly Presences
-
 haunted position	score at death	turns at death	manner of death	sequence
-
 a grid location		a number		a number		a demise		a number
-
 with 19 blank rows.
 ```
 
@@ -80,9 +69,7 @@ As the story file starts up, we look to see if a ghosts file already exists. If 
 {**}The File of Ghosts is called "ghosts".
 
 When play begins:
-
 	if the File of Ghosts exists, read File of Ghosts into the Table of Ghostly Presences;
-
 	sort the Table of Ghostly Presences in sequence order.
 ```
 
@@ -93,9 +80,7 @@ How will ghosts manifest themselves? Because this is only a small example, we wi
 
 ``` inform7
 {**}After looking:
-
 	repeat through the Table of Ghostly Presences in reverse sequence order:
-
 		if the haunted position entry is the coordinates of the location, say "You sense the ghostly presence of an adventurer, [manner of death entry] with a score of [score at death entry] in [turns at death entry] turns."
 ```
 
@@ -106,39 +91,22 @@ How will ghosts manifest themselves? Because this is only a small example, we wi
 
 ``` inform7
 {**}To have the player (sticky end - a demise):
-
 	let the new sequence number be 0;
-
 	repeat through the Table of Ghostly Presences:
-
 		let S be the sequence entry;
-
 		if S is greater than the new sequence number, let the new sequence number be S;
-
 	increment the new sequence number;
-
 	if the number of blank rows in the Table of Ghostly Presences is 0:
-
 		choose row 1 in the Table of Ghostly Presences;
-
 		blank out the whole row;
-
 	choose a blank row in the Table of Ghostly Presences;
-
 	now the sequence entry is the new sequence number;
-
 	now the manner of death entry is the sticky end;
-
 	now the turns at death entry is the turn count;
-
 	now the score at death entry is the score;
-
 	now the haunted position entry is the coordinates of the location;
-
 	write the File of Ghosts from the Table of Ghostly Presences;
-
 	now the latest demise is the sticky end;
-
 	end the story saying "You have been [latest demise]".
 ```
 

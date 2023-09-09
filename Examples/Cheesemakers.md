@@ -33,15 +33,12 @@ Here, using some techniques that will be discussed in the chapter on Understandi
 Understand "ask [text]" or "tell [text]" or "answer [text]" or "say [text]" as a mistake ("[talk to instead]").
 
 Instead of asking someone to try doing something:
-
 	say "[talk to instead][paragraph break]".
 
 Instead of answering someone that something:
-
 	say "[talk to instead][paragraph break]".
 
 To say talk to instead:
-
 	say "(To communicate in [story title], TALK TO a character.) "
 
 Understand "talk to [someone]" as talking to. Understand "talk to [something]" as talking to. Talking to is an action applying to one visible thing.
@@ -58,9 +55,7 @@ Now, suppose we have a situation – say, a stage play – in which it is approp
 {**}Section 1 - Prologue
 
 When play begins:
-
 	now right hand status line is "416 BC";
-
 	now left hand status line is "[location]".
 
 Prologue is a scene. Prologue begins when play begins.
@@ -70,17 +65,13 @@ The Theater of Dionysus is a room.
 The audience is a person in the Theater. "The usual audience looks on: the priests and judges in the front row, and then Athenians, metics, and foreigners." The audience can be prepared or unprepared. The description is "Have you ever seen such a company of perjurers, pathics, and thieves?" Understand "priest" or "priests" or "priest of dionysus" or "judge" or "judges" or "athenians" or "metics" or "foreigners" as the audience.
 
 Instead of talking to the player when the Prologue is happening:
-
 	say "There will be plenty of occasion for muttered asides later in the play, but for now you must prepare the audience for things to come."
 
 Instead of talking to the audience when the Prologue is happening:
-
 	say "Drawing breath, you turn to the audience, and offer them a genial, witty, colorful, and of course crude synopsis of what they are about to see; describing all the characters in unmistakable terms and not omitting the most important of them all, your august self.";
-
 	now the audience is prepared.
 
 Instead of talking to the audience when the Prologue has happened:
-
 	say "You may only direct monologues to the audience when the other actors are off-stage. Otherwise, their characters might have to notice."
 
 Prologue ends when the audience is prepared.
@@ -97,11 +88,9 @@ But there might follow a scene in which the player shouldn't talk at all:
 Parodos is a scene. Parodos begins when Prologue ends.
 
 When Parodos begins:
-
 	move the chorus to the theater.
 
 Instead of talking to someone during Parodos:
-
 	say "Sssh: this moment belongs to the chorus. They've worked so hard on it, after all."
 
 Parodos ends when the time since Parodos began is 4 minutes.
@@ -109,25 +98,16 @@ Parodos ends when the time since Parodos began is 4 minutes.
 The chorus is a person. The description is "They are dressed in exaggerated rural costume and feminine masks, as they are meant to represent a company of female cheese-makers from the Spartan-occupied deme of Dekeleia." Understand "cheesewives" or "cheese-makers" or "chorus-leader" as the chorus.
 
 Every turn during Parodos:
-
 	repeat through Table of Choral Events:
-
 		say "[output entry][paragraph break]";
-
 		blank out the whole row;
-
 		make no decision.
 
 Table of Choral Events
-
 output
-
 "The chorus now begins its entry, accompanying with anapestic song its march up the eisodos."
-
 "The chorus draws nearer, stomping and clomping and swinging their baskets of cheese."
-
 "You stand aside as the chorus fills the orchestra and dances to and fro."
-
 "The tune of the aulos-player grows more and more frenzied and then breaks off."
 ```
 
@@ -138,7 +118,6 @@ This last rule is a refinement borrowing from the Activities chapter, which give
 
 ``` inform7
 {**}Rule for writing a paragraph about the chorus during Parodos:
-
 	say "The chorus are dancing and singing their way[if the time since Parodos began is less than 3 minutes] up the long walkways onto the stage[otherwise] into position in the orchestra[end if]. [The audience] appear to be pricing their costumes to the nearest obol: woe to the producer who cheats them of their due share of spectacle."
 ```
 
@@ -153,89 +132,59 @@ And now a scene in which the player can talk several times to a character (Herac
 Episode is a scene. Episode begins when Parodos ends.
 
 When Episode begins:
-
 	move Heracles to the theater;
-
 	say "The chorus falls silent, which is the cue: Heracles bursts out of the scene building."
 
 Heracles is a man. The description is "Hard to mistake in his lion skin and boots, and carrying a formidable club." Heracles wears a lion skin and boots. He carries a formidable club. Heracles can be placid or annoyed. Heracles is placid. Heracles can be satisfied, intrigued, or unsatisfied. Heracles is unsatisfied.
 
 Instead of talking to the chorus during Episode:
-
 	say "Your improvised flirtation with the chorus raises no response but a crude gesture from the chorus-leader, who seems to be modeling the role on Iambe."
 
 Instead of talking to the player during Episode:
-
 	if Heracles is annoyed:
-
 		say "You mutter to yourself about men with more appetite than brain. The actor playing Heracles ignores you, but it's good odds he's scowling under his mask. He hates it when anyone but himself ad-libs for attention.";
-
 	otherwise:
-
 		now Heracles is annoyed;
-
 		say "'By the dog, he'll eat me if he gets a chance,' you mutter aside. [paragraph break]'What's that you say, my ignoble friend?' demands Heracles, hefting his club. He's not entirely joking: you've left the script just now."
 
 Instead of talking to Heracles when Heracles is unsatisfied during Episode:
-
 	say "'Dear Heracles, friendly Heracles,' you begin, cringing out of the way as he responds with one of his affectionate ox-killing punches to the shoulder. [paragraph break]But Heracles falls still, and looks almost thoughtful, as tell him you know how he may rout the Spartans, woo all twenty-four lactic ladies, and tame his savage gut with a bathtubful of porridge. [paragraph break]'Speak on, little man,' he says.";
-
 	now Heracles is intrigued.
 
 Instead of talking to Heracles when Heracles is intrigued during Episode:
-
 	say "It takes several exchanges for him to wrap his one-inch brain around your ten-inch plan; but in the end he embraces the scheme, the women, and your humble self.";
-
 	now Heracles is satisfied.
 
 Every turn when not talking to someone during Episode:
-
 	repeat through Table of Episodic Events:
-
 		say "[output entry][paragraph break]";
-
 		blank out the whole row;
-
 		make no decision.
 
 Table of Episodic Events
-
 output
-
 "With a fart and a roar, Heracles asks the world at large, and you in particular, where his dinner might be."
-
 "In epic diction, Heracles invites the dairy-mistresses, whey-matrons, and concubines of curd to supply him a supper from their ample baskets."
-
 "Heracles and the chorus banter about the proclivities of cheese-wives. The chorus suggest that Heracles, as a son of Zeus, must know something about the appetites of which they speak."
-
 "Heracles boasts that a man like himself can perform any feat, but only when his belly is full. Coyly, the matrons prance and dance, skip and gambol out of his grasp, singing mockingly about heads of garlic and loaves of sesame-crusted bread."
-
 "The song of the feta fanciers now turns to pots of honey and new-made wine, borrowing verses from last year's Lenaia winner, 'The Bees'. With a jolt, you realize that you've missed your cue and the chorus are filling in for you."
-
 "Playing for time, the chorus-leader elaborates a whole banquet: rabbit stew, shanks of lamb, spitted quails, eels from lake Copais. Heracles looks as near swooning as any girl fresh from Brauron."
-
 "The chorus-leader extends the list of delicacies to include ox-brains, ham-hocks, barley, mullet, carrots, pigeons, lentils, radishes, peas, and apples both wine-dark and golden. The audience shifts on the benches. An expression of gloom settles over the Priest of Dionysus in the front row."
-
 "Inspired by Euripides['] own Muse, the chorus-leader invents a mock-Alcaean hymn on the merits of chervil. This is clearly his swan-song: if you don't speak at last, the play will come to a halt."
-
 "Silence descends."
 
 Rule for writing a paragraph about Heracles during Episode:
-
 	say "[Heracles] stands at the center of the orchestra, with members of [the chorus] ranged on either side. [paragraph break][The audience] appear to be reserving their judgement, though they show signs of restiveness at the usual jokes: must there be a Heracles in [italic type]every[roman type] play?"
 
 Episode ends successfully when Heracles is satisfied.
 
 When Episode ends successfully:
-
 	say "That, of course, is your cue: you're to come back on as Pan thirty verses from now, and it takes time to put on the hooves and the woolly-legged trousers.";
-
 	end the story saying "You exit".
 
 Episode ends disastrously when the number of filled rows in the Table of Episodic Events is 0.
 
 When Episode ends disastrously:
-
 	end the story saying "The production has crashed to a halt".
 
 Test me with "ask audience about me / tell audience about me / audience, hello / audience, jump / talk to me / talk to audience / g / talk to chorus / look / x heracles / talk to me / talk to audience / z / look / talk to heracles / g".

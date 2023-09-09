@@ -49,17 +49,12 @@ The ice chest is a closed openable container in the Deck. "A very heavy ice ches
 A quantity of ice is in the Deck. "All around the boat bob chunks of glacier ice." Understand "glacier ice" as the quantity. The description is "Curiously cooled into funny-shaped chunks." The printed name of the quantity is "glacier ice".
 
 Instead of taking the quantity of ice when the player is not carrying the nets:
-
 	if the quantity of ice is handled, continue the action;
-
 	say "You are having a hard time fishing out the ice with your bare hands."
 
 Instead of taking the quantity of ice when the player is carrying the nets:
-
 	if the quantity of ice is handled or the quantity of ice is in the nets, continue the action;
-
 	now the quantity of ice is in the nets;
-
 	say "You scoop up the ice with the net."
 
 Instead of taking the chest: say "It's too heavy to lift, but you might be able to push it, and just inch it over the frame of the door."
@@ -69,13 +64,10 @@ The player is carrying a backpack. The player is wearing a pair of sunglasses. T
 The backpack is a player's holdall. The carrying capacity of the player is 3. The backpack is wearable.
 
 Instead of asking the Captain for the key:
-
 	say "'Sure, you can -- well, get me a drink first, would you?'"
 
 Instead of asking the Captain for the key when the Captain is carrying a cold Coke and the Captain is carrying the key:
-
 	move the key to the player;
-
 	say "'Here, knock yourself out.'"
 
 Instead of asking the Captain for the key when the Captain is not carrying the key: say "'I already gave it to you. You didn't lose it, did you?'"
@@ -85,31 +77,22 @@ Heat is a kind of value. The heats are cold, cool, room temperature, and warm.
 A beverage is a kind of thing. A beverage can be open or closed. A beverage can be openable or unopenable. A beverage is always edible and openable. A beverage has a heat. A beverage is usually warm. The Coke is a beverage. The beer is a beverage. The beer is in the backpack.
 
 Instead of giving or showing a beer to the Captain:
-
 	say "'I don't drink on the job, thanks,' he says. 'You can help yourself if you want it, though.'"
 
 Instead of giving or showing a Coke to the Captain:
-
 	say "'It needs chilling,' the Captain remarks, disgruntled."
 
 Instead of giving or showing a cold Coke to the Captain:
-
 	move the Coke to the Captain;
-
 	increase the score by 2;
-
 	say "'Ah, thank you,' he says. How he can drink an iced soda on a day like today is an open question, but Alaskans are special."
 
 Every turn when the quantity of ice is in the ice chest:
-
 	repeat with item running through beverages in the ice chest:
-
 		let the current heat be the heat of the item;
-
 		if the current heat is not cold, now the heat of the item is the heat before the current heat.
 
 Before printing the name of a beverage (called the drink):
-
 	say "[heat of the drink] ".
 
 Understand the heat property as describing a beverage.
@@ -117,11 +100,8 @@ Understand the heat property as describing a beverage.
 The maximum score is 5.
 
 After taking the fishing rods:
-
 	end the story finally;
-
 	increase the score by 3;
-
 	say "Success is yours! (Now if only you knew anything about fishing.)"
 
 Test me with "test first / test second / test third".

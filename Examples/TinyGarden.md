@@ -28,15 +28,10 @@ The following phrase goes through all the directions in the compass and marks th
 
 ``` inform7
 {**}To say grassy directions:
-
 	repeat with that way running through directions:
-
 		if the room that way from the location is a grassy room,
-
 			now that way is marked for listing;
-
 	say "[a list of directions which are marked for listing]";
-
 	now every direction is not marked for listing.
 
 Lawn1 is west of the Herb Garden. It contains a picnic table and a wicker basket. Lawn2 is south of Lawn1 and southeast of Lawn4. Lawn3 is southwest of Lawn1, west of Lawn2, and south of Lawn4. Lawn4 is west of Lawn1. Lawn4 contains a birdbath. The birdbath is fixed in place.

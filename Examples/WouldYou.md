@@ -29,9 +29,7 @@ Things are, in general, not edible by default, so we have to make them edible sp
 {**}The ham and the green eggs are food. The flavor of the green eggs is "Delicious!"
 
 After eating something:
-
 	if the noun provides the property flavor, say "[the flavor of the noun][paragraph break]";
-
 	otherwise say "It's [noun]-flavored."
 ```
 

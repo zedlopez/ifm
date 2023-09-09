@@ -16,17 +16,11 @@ Suppose we want to have smoke that spreads from room to room, gradually filling 
 Section 1 - The Procedure
 
 Every turn when the turn count is even:
-
 	if every room is smoky, make no decision;
-
 	let previously smoky be whether or not the location is smoky;
-
 	repeat with area running through smoky rooms:
-
 		now every room which is adjacent to the area is smoky;
-
 	if previously smoky is false and the location is smoky:
-
 		say "[The location] is filling rapidly with smoke."
 
 A room can be smoky or unsmoky.

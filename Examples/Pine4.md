@@ -32,67 +32,45 @@ Instead of waking an asleep person: say "Yes, but how?"
 Instead of waiting in the presence of an asleep person (called snorer): say "You are alone with the sound of [the snorer] snoring sonorously."
 
 Instead of attacking an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] sits bolt upright. 'Hey! Ow!' So much for that true love's kiss nonsense."
 
 Instead of kissing an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] slowly stirs to wakefulness!"
 
 Instead of throwing water at an asleep person:
-
 	now the second noun is awake;
-
 	now the noun is nowhere;
-
 	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.
 
 Table of Conversation
-
 topic	reply	quip
-
 "dream/dreams/nightmare/nightmares/sleep"	"'Sleep well?' you ask solicitously.line-so-blank'Not really,' she replies, edging away from you. So much for that angle."	"'Ghastly nightmares,' she remarks. You nod politely."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'So,' you say. 'This is a little weird since we just met, but, um. Would you like to get married?'line-so-blankShe looks at you nervously. 'Do I have to? I mean, I'd rather not.'line-so-blankWell, this could get prickly fast."	"'I, er,' she says. 'I hope I'm not supposed to marry you or something.' Uh oh."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'I was told I was going to marry you and inherit the kingdom,' you say, apologetically. 'Would that be very bad?' This could be awkward, considering your family circumstances -- you did promise your mother that everything would be better, after this --line-so-blank'Oh, it's not you -- I'm seeing someone,' she says, smiling quickly.line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend."	"'Do you think I could go look for someone? I'm seeing him, you see, and I think I've been... sick... for a while, so he might be worried.'line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend. And try not to think how awkward things would be in your family if she refuses to marry you."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'Do you think you could consider alternatives if he's no longer interested in you?' you suggest.line-so-blankShe gives you the look of a wounded squirrel. 'My father might not approve of my love for the kitchen boy, but his heart is faithful and true!' she exclaims.line-so-blank'Right; supposing that he's still around, I'm sure that his love won't have faded,' you say, considering your fingernails. Maybe you'd better come clean with her about your identity, after all: she might be more favorably inclined if she understood that you won't interfere in her base-born romances."	"'I don't expect you to understand,' she says in a low whisper. 'I know it is not considered proper for a princess to love -- and such a one as my William, who works in the kitchen --' Her glance dares you to laugh. '-- but I cannot marry you without telling you this truth.'line-so-blankRight then. Perhaps you'd better tell her your secret, in exchange?"
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'You've been up here for a hundred years,' you say. An unpleasant thought occurs to you. 'Was your young man in the castle somewhere?'line-so-blankShe shakes her head mutely."	"She goes to the window and looks out at the now-fading thicket of briar. 'That took a while to grow,' she observes. 'I've been up here longer than I thought.'line-so-blankYou shrug, uncomfortable."
 
 Instead of asking an awake beauty about a topic listed in the Table of Conversation when Marriage Proposal is happening:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]";
-
 	blank out the whole row.
 
 Instead of telling an awake beauty about something: try asking the noun about it.
 
 Instead of asking an asleep person about something:
-
 	say "[The noun] snores."
 
 Marriage Proposal ends in failure when the number of filled rows in the Table of Conversation is 0.
 
 Every turn during Marriage Proposal:
-
 	if Beauty is active and Beauty is visible:
-
 		repeat through Table of Conversation:
-
 			say "[quip entry][paragraph break]";
-
 			blank out the whole row;
-
 			make no decision.
 
 When Marriage Proposal ends in failure: end the story saying "This is going to take some explaining."
@@ -100,9 +78,7 @@ When Marriage Proposal ends in failure: end the story saying "This is going to t
 Part 2 - Flashbacks
 
 Instead of asking an awake beauty about a topic listed in the Table of Flashback Material:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]".
 
 A fact is a kind of thing. A fact can be known or unknown. A fact can be current or past.
@@ -110,11 +86,8 @@ A fact is a kind of thing. A fact can be known or unknown. A fact can be current
 The family circumstances is a fact. The secret identity is a fact. The printed name of secret identity is "secret".
 
 Table of Flashback Material
-
 topic	reply
-
 "poor/poverty/family/money/mother/circumstances" or "family circumstances" or "my family/mother"	"[if family circumstances is unknown]'I wish you'd give some thought to marrying me. You see,' you say, your jaw tensing. 'I wouldn't ask if it weren't for my [family circumstances]...'[otherwise]'I don't think you fully understand the [family circumstances],' you say.[end if]"
-
 "secret/identity/gender/girl/female/woman" or "secret identity" or "my secret" or "my secret identity" or "my gender"	"[if dramatic revelation ended in failure]'Look,' you say, trying again. 'Pay attention: I need you to understand my [secret identity].'[otherwise]You clear your throat and allow your voice to stray upward, into its natural register and out of this husky false tenor you've been affecting. 'There's, er, something you should know about my [secret identity],' you say...[end if][if dramatic revelation ended in success] She looks impatient. 'I get it, you know,' she says. 'I'm not stupid.'"
 
  After printing the name of a fact (called target): now the target is current; now the target is known.
@@ -132,7 +105,6 @@ The untidy bed is scenery in the Shack. Mother is a woman on the untidy bed. The
 The description of the letter is "Many times read over and creased, the letter explains how your father has gone away with a wealthy countess and will not return. Your mother was not able to read it herself, of course, and had to have it explained to her by the parish priest. Now she keeps it by the bed and crumples it in her fits of delirium."
 
 Instead of kissing or touching Mother for the first time:
-
 	say "You place a gentle kiss on her feverish brow. She looks up at you, her oldest -- yes, never mind that bit -- with a look of sincere trust and admiration.line-so-blank'You'll find a way through this for us,' she says, squeezing your fingers. 'I know you will.'"; increase the pity of Beauty by 3.
 
 Instead of kissing Mother: say "You have no more heart-rending memories of affection to recount; that one incident will have to serve, for rhetorical purposes."
@@ -140,7 +112,6 @@ Instead of kissing Mother: say "You have no more heart-rending memories of affec
 Instead of waiting in the Shack: say "The wind blows sharply through the walls."
 
 Instead of attacking someone in the Shack:
-
 	say "Though sometimes the conditions of your life make you grouchy and impatient, you would never dream of striking a member of your own family. But from time to time you do feel the temptation."
 
 Beauty has a number called pity. After examining something in the Woodcutter's Shack, increment the pity of Beauty. After examining mother, increase the pity of Beauty by 2. After examining the letter, increase the pity of Beauty by 3.
@@ -148,53 +119,34 @@ Beauty has a number called pity. After examining something in the Woodcutter's S
 Poverty flashback ends when waiting or the time since poverty flashback began is five minutes.
 
 When Poverty flashback ends:
-
 	now family circumstances is past;
-
 	say "...you finish describing the miserable circumstances of your home life, and allow your attention to return to the present.";
-
 	restore the player;
-
 	now Beauty is passive;
-
 	if Beauty is clever and Beauty is sympathetic:
-
 		say "'I understand,' she says slowly. 'Yes, I do. I'll do it.' She takes a deep breath and looks at you. 'We will be king together! and your family will be royalty!'";
-
 		end the story finally;
-
 	otherwise:
-
 		if Beauty is sympathetic, say "'Oh dear!' she says. 'What a dreadful life!' She wrings her hands. 'No wonder you are eager to improve your lot...! But --' Her brow clears, a new thought occurring. 'You needn't marry me, you know! We could arrange it differently! I am certain that my father would give you a large reward, instead, and then I would not be separated from my current boyfriend!'";
-
 		otherwise say "She makes a disgusted face, but she doesn't seem nearly so heart-wrung as you had hoped to make her. Tough audience, these modern princesses."
 
 Definition: Beauty is sympathetic if the pity of Beauty is greater than 4.
 
 To say attitude:
-
 	if Beauty is sympathetic, say "distressed on your behalf";
-
 	otherwise say "a little confused".
 
 Saved location is a room that varies. Locker is a container. Wardrobe is a container.
 
 To strip the player:
-
 	 now every thing carried by the player is in the locker;
-
 	now every thing worn by the player is in the wardrobe;
-
 	now saved location is location.
 
 To restore the player:
-
 	now every thing carried by the player is in the location;
-
 	now every thing in the locker is carried by the player;
-
 	now every thing in the wardrobe is worn by the player;
-
 	move the player to saved location.
 
 Part 3 - The Other Secret
@@ -211,21 +163,14 @@ This time, we're waiting for the princess either to understand or not understand
 Dramatic revelation is a recurring scene. Dramatic revelation begins when attempting confidence.
 
 To decide whether attempting confidence:
-
 	if dramatic revelation ended in success, no;
-
 	if secret identity is current, yes;
-
 	no.
 
 When dramatic revelation begins:
-
 	strip the player;
-
 	say "You reminisce about one of the many stops on the way here: you had a long journey from your homeland, and it wasn't made any easier by your poverty, the inability to afford decent inns or plentiful food or any kind of ride along the way.";
-
 	move the player to the Forest Clearing;
-
 	move the pack to the player; now the player wears the trousers; now the player wears the shirt.
 
 Forest Clearing is a room. "It's mid-autumn in your memory, the pool clear and cold, gold and red leaves floating on the surface."
@@ -235,9 +180,7 @@ The pool is scenery in the Clearing. Understand "reflection" or "surface" or "wa
 The trousers and the shirt are wearable things. The pack is a container. The pack contains ale, food, and skirt. A distraction is a kind of thing. The ale, the food, the pair of trousers, and the shirt are distractions. The description of a distraction is usually "[The item described] is not the point of this story." The shirt and the trousers are wearable. The description of the trousers is "Borrowed from your oldest brother, who is only a year younger than you. They are too long for your legs and overly snug at the hip, but no one around here pays much attention to fashion, and you're getting away with it, more or less." After examining the trousers, increment the clue count of Beauty.
 
 Instead of examining the player during dramatic revelation:
-
 	increment the clue count of Beauty;
-
 	say "You cannot see yourself without reflection, but you can feel your hair loose and unbound over your shoulders."
 
 Rule for printing the name of the skirt while taking inventory: say "one skirt you have not been able to bring yourself to part with". The description of the skirt is "Made for you by your mother, and it looks quite pretty on you. If your primary plan does not work, you may be forced to wear it again, and hope to catch a male eye... but with luck that will not be necessary." After taking inventory: increment clue count of Beauty.
@@ -245,35 +188,24 @@ Rule for printing the name of the skirt while taking inventory: say "one skirt y
 Swimming is an action applying to nothing. Understand "swim" or "dive" as swimming.
 
 Instead of swimming in the presence of the pool:
-
 	increment clue count of Beauty;
-
 	say "You consider going for a swim, but don't dare be caught unclad and unarmed, not here. There are too many men around, and any of them discovering you here would surely take advantage."
 
 Instead of searching or drinking the pool:
-
 	increment clue count of Beauty;
-
 	say "You lean over the pool and look carefully at your reflection, your hair loose and unbound, falling around your face in waves. (That should surely give it away!)"
 
 Instead of waiting during dramatic revelation: say "You wait for the penny to drop, for her to understand."
 
 Dramatic revelation ends in failure when waiting or the time since dramatic revelation began is five minutes. When dramatic revelation ends in failure:
-
 	now secret identity is past;
-
 	restore the player;
-
 	now Beauty is passive;
-
 	say "She wrinkles her nose. 'I don't understand!' she says. 'What are you trying to tell me?'line-so-blank	You could weep for womankind. But you don't quite dare spell it out in so many words, not when someone might come up the stair and overhear a chance revelation."
 
 Dramatic revelation ends in success when Beauty is clever. When dramatic revelation ends in success:
-
 	restore the player;
-
 	now Beauty is passive;
-
 	say "'You're -- a girl? Like me?'line-so-blank'Not much like you,' you say, glancing over her petite frame and pert nose. 'But female, at any rate.'"
 
 Definition: Beauty is clever if the clue count of Beauty is greater than 2.
@@ -290,23 +222,15 @@ And now, since we don't really want to return to the rest of the 'marriage propo
 Compromise proposal is a scene. Compromise proposal begins when Dramatic Revelation ends in success. When Compromise Proposal begins: now Beauty is passive.
 
 Instead of asking an awake beauty about a topic listed in the Table of Secondary Conversation when Compromise Proposal is happening:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]";
-
 	blank out the whole row.
 
 Every turn during Compromise Proposal:
-
 	if Beauty is active and Beauty is visible:
-
 		repeat through Table of Secondary Conversation:
-
 			say "[quip entry][paragraph break]";
-
 			if the number of filled rows in the Table of Secondary Conversation is greater than 1, blank out the whole row;
-
 			make no decision.
 
 Every turn: now Beauty is active.
@@ -319,25 +243,16 @@ Notice that we moved the re-activation rule down here so that the Compromise Pro
 
 ``` inform7
 {**}Table of Secondary Conversation
-
 topic	reply	quip
-
 "girls/me/women/female/truth/identity"	"'Marrying me would be no interference,' you go on. 'You could carry on whatever romances you wished, without your father noticing.' (Probably. You'll let the pragmatic details of this work themselves out later, and hope that any children she has will look vaguely like you.)"	"'Girls can't rescue people.'line-so-blank'Wrong,' you say, feeling a little annoyed. 'But you see why marrying me wouldn't be an interference. You could carry on whatever romances you wished, without your father even noticing.'"
-
 "king/man"	"'If you're thinking that a woman can't be the prince -- and then king -- well, there was a woman Pope, once.'line-so-blankShe looks awed."	"The crease in her forehead does not go away. 'But if everyone thinks you are a man... later you would be king!'line-so-blankBefore she can go on, you say, 'There was a woman Pope, once. Compared to that, a woman king is nothing.'"
-
 "decision/proposal/marriage/choice"	"'So,' you say. 'What do you think?'line-so-blank[final decision]"	"Her pretty nose twitches again, which you are coming to recognize as a sign of hard mental labor. 'I think I see,' she says. [final decision]"
 
 To say final decision:
-
 	if Beauty is sympathetic:
-
 		say "She considers the matter silently for some minutes, then says: 'I will do it. My beloved William will be so glad!' You imagine that William's feelings on the matter will be a tad more complex than that, but do not bother quashing her exuberance...";
-
 		end the story finally;
-
 	otherwise:
-
 		say "'I still don't quite understand why you would want this so badly as to go to all that trouble,' she admits uneasily. Evidently you have not explained enough to her about the poverty of your home life."
 
 Test me with "x beauty / pour water on beauty / ask beauty about sleep / tell beauty about poverty / smell pigs / x mother / x letter / kiss mother / ask beauty about marriage / tell beauty about identity / x me / look in water / i / z / ask beauty about marriage".

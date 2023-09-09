@@ -39,37 +39,21 @@ Queen Street East is east of Queen Street Middle and south of Private Alley.
 Queen Street at the Prison is east of Queen Street East.
 
 Index map with an EPS file and
-
 	Fisher's Row mapped southwest of Thames Street End,
-
 	room-size set to 50 and room-name-size set to 10,
-
 	room-name-length set to 15,
-
 	route-thickness set to 2,
-
 	room-outline set to off,
-
 	map-outline set to off,
-
 	route-colour set to "Chocolate",
-
 	room-colour set to "Burly Wood",
-
 	title set to "Port Royal, 1691",
-
 	font set to "Baskerville",
-
 	room-offset of Thames Street by the King's House set to 160&-40,
-
 	room-offset of Thames Street before Fort Carlisle set to 210&10,
-
 	room-offset of Fort Carlisle set to 210&0,
-
 	room-offset of Fort James set to -90&-20,
-
 	room-offset of Water Lane set to 0&20,
-
 	room-offset of Queen Street End set to 5&0.
 ```
 

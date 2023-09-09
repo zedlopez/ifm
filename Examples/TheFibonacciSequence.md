@@ -22,9 +22,7 @@ Instead of sequencing, say "You make a feeble attempt, sketching in the sand, bu
 Persuasion rule for asking Leonardo to try sequencing: persuasion succeeds.
 
 Report Leonardo sequencing:
-
 	let N be the number understood;
-
 	say "Leonardo scratches his head and makes self-deprecating remarks, before coming up with [the first N terms of the Fibonacci sequence]."
 ```
 
@@ -35,23 +33,14 @@ Report Leonardo sequencing:
 
 ``` inform7
 {**}To decide what list of numbers is the first (F - a number) terms of the Fibonacci sequence:
-
 	let the Fibonacci sequence be {1, 1};
-
 	let N be 3;
-
 	while N < F:
-
 		let the last term be entry (N - 1) of the Fibonacci sequence;
-
 		let the penultimate term be entry (N - 2) of the Fibonacci sequence;
-
 		let the next term be the last term plus the penultimate term;
-
 		add the next term to the Fibonacci sequence;
-
 		increment N;
-
 	decide on the Fibonacci sequence.
 
 Test me with "sequence 20 / leonardo, sequence 20".

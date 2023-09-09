@@ -37,9 +37,7 @@ The player carries a book. The description of the book is "[if the brightness of
 In the Undertomb is a lantern. It is lit. The lantern has a brightness. The lantern is blazing. The description of the lantern is "The lantern shines with a flame at [temperature of the brightness of the lantern]."
 
 After waiting in the Tortuous Alcove when the brightness of the lantern is not guttering:
-
 	now the lantern is the brightness before the brightness of the lantern;
-
 	say "You wait so long that your lantern dims a bit."
 
 Test me with "east / west / get lantern / east / west / south / north / northwest / read book / x lantern / z / x lantern / read book / look / z / x lantern / read book / look / z / x lantern / read book / look".

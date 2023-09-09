@@ -13,15 +13,12 @@ For: Z-Machine
 The X-Ray Vision Wand is carried by the player.
 
 Instead of waving the X-Ray Vision Wand:
-
 	say "Disappointingly, nothing happens."
 
 Instead of waving the X-Ray Vision Wand when the player can see someone who is concealing something:
-
 	say "The wand glows green. Immediately you see on the monitor [a list of things which are concealed by people who can be seen by the player]."
 
 After printing the name of a thing (called target) which is carried by someone while waving the wand:
-
 	say " (carried by [a random person who carries the target])"
 
 The Interrogation Chamber is a room. "Despite its gothic name, this room is a rather civilized place for your work, with large plate-glass windows and a fitted carpet."

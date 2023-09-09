@@ -16,15 +16,10 @@ We have to create a suitable action and say what it does, and to repeat what we 
 Studying the vicinity is an action applying to nothing.
 
 Report studying the vicinity:
-
 	if the location does not contain something which is scenery:
-
 		say "There's little of interest in the [location]." instead;
-
 	repeat with point of interest running through scenery in the location:
-
 		say "[point of interest]: [run paragraph on]";
-
 		try examining the point of interest.
 
 Understand "search" as studying the vicinity.
@@ -43,7 +38,6 @@ The reason for this example is to show the use of saying `"[run paragraph on]"`.
 
 ``` transcript
 >search
-
 hive: The honeycombed hive is all around you, thrumming with life.
 
 honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.

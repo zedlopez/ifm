@@ -27,13 +27,9 @@ Now we build in the instruction for what Inform should say if the player tries t
 
 ``` inform7
 {**}Instead of going nowhere:
-
 	let count of exits be the number of viable directions;
-
 	if the count of exits is 0, say "You appear to be trapped in here." instead;
-
 	if the count of exits is 1, say "From here, the only way out is [list of viable directions].";
-
 	otherwise say "From here, the viable exits are [list of viable directions]."
 ```
 

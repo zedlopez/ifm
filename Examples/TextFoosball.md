@@ -22,77 +22,49 @@ The foosball game is scenery in the Lounge. Understand "table" or "football" or 
 After printing the name of the small white ball, say " ([small white ball condition])".
 
 When play begins:
-
 	now left hand status line is "You: [score]";
-
 	now right hand status line is "Joey: [Joey's score]".
 
 Some tiny men on sticks are part of the game. Understand "handles" as the tiny men. The description is "Okay, a couple of the tiny men have had their feet broken off, and the table surface itself is a bit warped, and the ball resembles a quail egg in respect of shape and color. This makes for a game of unusual randomness, but skill is overrated."
 
 Instead of attacking or pulling or pushing the game when the ball is unreachable:
-
 	say "You give the table a good shove, and the ball moves ever-so-slightly.";
-
 	now the ball is still.
 
 Instead of taking the white ball:
-
 	say "You'd forfeit the game if you did that."
 
 Instead of turning the tiny men when the ball is unreachable:
-
 	say "The ball has somehow gotten to a mystical point on the table where it cannot be reached, no matter what. Close inspection reveals that this point has been marked in chalk with a tiny X. Not that that does any good."
 
 Instead of turning the tiny men when the ball is approaching:
-
 	if a random chance of 2 in 3 succeeds:
-
 		if a random chance of 1 in 2 succeeds, now the ball is receding;
-
 		otherwise now the ball is still;
-
 		say "[if the ball is still]Thunk. [otherwise]Thwack! [end if]You keep the ball from reaching its goal! Now it is [small white ball condition].";
-
 	otherwise:
-
 		let Joey score.
 
 To let Joey score:
-
 	now the ball is still;
-
 	now Joey's score is Joey's score + 1;
-
 	say "The ball rolls neatly into your goal, despite your efforts. ";
-
 	if Joey's score < score, say "You put the ball back in the center with a snap. No reason to worry yet; you're still ahead. Joey looks determined, though.";
-
 	otherwise say "After allowing a moment or two for Joey's gloating to pass, you replace it at the center."
 
 Instead of turning the tiny men when a random chance of 1 in 13 succeeds:
-
 	if the ball is unreachable, continue the action;
-
 	now the ball is unreachable;
-
 	say "You hit the ball off-center and it rolls sluggishly into a little dip in the surface of the foosball table. ";
-
 	if Joey's score > 7, say "'You did that on purpose!' Joey exclaims indignantly.";
-
 	otherwise say "You and Joey exchange glances. This is never good."
 
 Instead of turning the tiny men:
-
 	say "You madly rotate the tiny men on sticks! ";
-
 	if a random chance of 1 in 2 succeeds:
-
 		say "Hoorah! You hit the ball!";
-
 		now the ball is receding;
-
 	otherwise:
-
 		say "Somehow you fail to bring your monopodal player into contact with the ball."
 
 Joey is a man in the Lounge. "Joey is hunkered over the foosball handles on his side of the table." Joey can be active or inactive.
@@ -102,83 +74,48 @@ Joey's score is a number that varies.
 Every turn: now Joey is active.
 
 Every turn when the ball is approaching and Joey is active:
-
 	let total be Joey's score + score;
-
 	if total > 9, make no decision;
-
 	now Joey is inactive;
-
 	let Joey score;
-
 	rule succeeds.
 
 Every turn when the ball is unreachable and Joey is active:
-
 	let total be Joey's score + score;
-
 	if total > 9, make no decision;
-
 	now Joey is inactive;
-
 	say "Joey glares angrily at the stuck ball."
 
 Every turn when the ball is receding and Joey is active:
-
 	let total be Joey's score + score;
-
 	if total > 9, make no decision;
-
 	if the ball is unreachable, make no decision;
-
 	now Joey is inactive;
-
 	if a random chance of 1 in 2 succeeds:
-
 		if a random chance of 1 in 2 succeeds, now the ball is still;
-
 		otherwise now the ball is approaching;
-
 		say "Joey connects with your shot. Now the ball is [small white ball condition]!";
-
 	otherwise:
-
 		now the ball is still;
-
 		say "Joey tries to block, but misses! Back it goes in the center, where it is [small white ball condition].";
-
 		increment the score.
 
 Every turn when the ball is still and Joey is active:
-
 	let total be Joey's score + score;
-
 	if total > 9, make no decision;
-
 	if the ball is unreachable, make no decision;
-
 	now Joey is inactive;
-
 	if a random chance of 1 in 2 succeeds:
-
 		now the ball is approaching;
-
 		say "Joey hits the ball solidly down towards your goal. Now it is [small white ball condition].";
-
 	otherwise:
-
 		say "Joey fails to hit the ball in your direction. It remains [small white ball condition]."
 
 Every turn:
-
 	let total be Joey's score + score;
-
 	if total > 9:
-
 		if Joey's score > score, end the story saying "Rats! Joey wins!";
-
 		if Joey's score < score, end the story finally saying "Victory is yours!";
-
 		if Joey's score is score, end the story saying "A perfect tie."
 ```
 

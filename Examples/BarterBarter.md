@@ -27,7 +27,6 @@ Meriwether Lewis is a man in the Trading Post. He carries a fluffy handmade quil
 William Clark is a man in the Trading Post. He carries leather slippers, a journal, and a loaf of bread. The bread is edible. The slippers are wearable.
 
 Instead of examining someone:
-
 	say "[The noun] is carrying [the list of things carried by the noun]."
 ```
 
@@ -38,13 +37,10 @@ And now we might want to implement a way to keep track of whether the recipient 
 
 ``` inform7
 {**}Check someone trying giving something to someone (this is the sneering refusal rule):
-
 	if the second noun dislikes the noun, stop the action.
 
 Unsuccessful attempt by someone trying doing something:
-
 	if the reason the action failed is the sneering refusal rule, say "'Would you care for [the noun]?' [the person asked] asks solicitously of [the second noun].line-so-blankBut [the second noun] refuses [the noun] disdainfully.";
-
 	otherwise say "[The person asked] just appears bewildered by this improbable instruction."
 
 Distaste relates one person to various things. The verb to dislike means the distaste relation.

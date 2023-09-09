@@ -22,23 +22,15 @@ Understand "go to [any room]" as going by name. Understand "[any room]" as going
 Going by name is an action applying to one thing.
 
 Check going by name:
-
 	if the noun is the location, say "You're already in [the location]." instead.
 
 Carry out going by name:
-
 	while the player is not in the noun:
-
 		let heading be the best route from the location to the noun, using even locked doors;
-
 		if heading is not a direction, say "You can't think how to get there from here." instead;
-
 		let destination be the room heading from the location;
-
 		say "(heading [heading])[command clarification break]";
-
 		try going heading;
-
 		if the player is not in the destination, rule fails.
 
 Test me with "go to aviary / go to ostrich enclosure / african grasslands".

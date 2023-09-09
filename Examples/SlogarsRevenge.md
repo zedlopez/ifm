@@ -30,17 +30,11 @@ We can now replace the usual behavior of the carrying requirements rule (to chec
 
 ``` inform7
 {**}This is the amulet carrying rule:
-
 	if the player has the second noun:
-
 		continue the action;
-
 	say "(first picking up the amulet)[command clarification break]";
-
 	try silently taking the second noun;
-
 	if the player is not carrying the second noun:
-
 		stop the action;
 
 Section 2 - Scenario

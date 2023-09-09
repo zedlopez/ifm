@@ -24,15 +24,11 @@ The Test Kitchen is a room. "Your own personal lab, ready for scrupulously scien
 A glass dish is a kind of container. A glass dish is transparent. Three room temperature glass dishes are on the counter. Two hot glass dishes are on the counter. Two cold glass dishes are on the counter. The counter is scenery in the Test Kitchen.
 
 Instead of doing something other than examining to a hot glass dish:
-
 	say "Ow! Crikey! You swear, and Claudia makes a sympathetic hiss. 'You're going to have a mark from that for sure,' she comments.";
-
 	decrease the score by 2.
 
 Instead of doing something when a hot glass dish is the second noun:
-
 	say "You brush [the second noun], and wince, but manage to conceal that from Claudia.";
-
 	decrement the score.
 
 Before printing the name of a glass dish when the player wears the goggles: say "[heat] "
@@ -53,25 +49,18 @@ What we really want is to catch all instances of the player using the property n
 
 ``` inform7
 {**}After reading a command:
-
 	if the player wears the goggles, make no decision;
-
 	if the player's command includes "[heat]":
-
 		say "Without the IR goggles on, you cannot tell hot things from cold at sight.";
-
 		rule succeeds.
 
 Claudia is a woman in the Test Kitchen. "Your assistant Claudia stands by with [a list of things carried by Claudia]." The description of Claudia is "Infinitely patient and a very good stenographer. She is studiously avoiding giving you any sort of look that might be construed as mocking." Claudia carries a notepad, a brined chicken breast, a blowtorch, and a cup of heavy cream.
 
 Instead of asking Claudia for something which is carried by Claudia:
-
 	move the second noun to the player;
-
 	say "'Check, [second noun],' repeats Claudia, in the tone of one who has seen too many medical dramas. She does hand it over, though."
 
 Instead of asking Claudia for something:
-
 	say "She clears her throat faintly and glances at [the second noun], as though to say that it's not hers to give."
 
 Test me with "get all / drop all / look / wear goggles / look / ask claudia for cream / put cream in hot dish / put cream in cold dish / remove goggles / get hot dish".

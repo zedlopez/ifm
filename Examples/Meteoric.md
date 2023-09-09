@@ -16,9 +16,7 @@ The game below begins at half past eleven, and one turn later, it's meteor time:
 The time of day is 11:30 PM.
 
 At 11:31 PM:
-
 	now the meteor is in the great outdoors;
-
 	say "A meteor streaks across the sky.".
 
 The great outdoors is a region. The Spanish Balcony is east of the Inner Court. The Court and Balcony are in the great outdoors. Inside from the Court is the Swimming Pool.
@@ -39,15 +37,10 @@ Or for something a little slower-moving and with no after-image:
 The time of day is 4:30 PM.
 
 At 4:31 PM:
-
 	now Phobos is in the great outdoors;
-
 	say "Phobos rises from the western horizon."
-
 At 10:06 PM:
-
 	now Phobos is nowhere;
-
 	say "Phobos sets over the eastern horizon."
 
 The great outdoors is a region. The Martian Balcony is east of the Inner Court. The Court and Balcony are in the great outdoors. Inside from the Court is the Heavy Water Swimming Pool.

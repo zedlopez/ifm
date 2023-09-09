@@ -20,7 +20,6 @@ Section 1 - Procedure
 A room can be scored or unscored.
 
 Carry out going to a unvisited scored room:
-
 	increment the score.
 
 Section 2 - Scenario

@@ -25,15 +25,10 @@ The player carries a dead field mouse and a tomacco fruit.
 The sophisticated dropping rule is listed instead of the standard dropping rule in the carry out dropping rulebook.
 
 This is the sophisticated dropping rule:
-
 	if the player is on a perch (called the awkward position):
-
 		let place be the holder of the awkward position;
-
 		move the noun to the place;
-
 	otherwise:
-
 		move the noun to the holder of the player.
 
 Test me with "sit on stool / drop mouse / look / get up / look".
@@ -51,7 +46,6 @@ Of course, maybe we do want to change the way the action is reported, to make it
 {*}The sophisticated report dropping rule is listed instead of the standard report dropping rule in the report dropping rulebook.
 
 This is the sophisticated report dropping rule:
-
 	say "You drop [the noun] on [if the holder of the noun is a room]the ground[otherwise][the holder of the noun][end if]."
 ```
 

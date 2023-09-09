@@ -19,17 +19,11 @@ What follows is a rule to help with debugging safely, and a sample of how priori
 Section 1 - Procedure
 
 Before printing the locale description (this is the dump locale table rule):
-
 	say "Locale Priority list:";
-
 	repeat through Table of Locale Priorities:
-
 		let the flag be whether or not the notable-object entry is mentioned;
-
 		say "[line break]  [notable-object entry]: [locale description priority entry]";
-
 		if the flag is false, now the notable-object entry is not mentioned;
-
 	say line break.
 ```
 
@@ -42,23 +36,14 @@ Now, let's look at some items put in a specific order. Things with low priority 
 {**}A thing can be early-described, late-described, latest-described, never-described, sightline-described, or ordinarily-described. A thing is usually ordinarily-described.
 
 After choosing notable locale objects (this is the apply early and late description rule):
-
 	repeat with item running through early-described things:
-
 		if there is a notable-object of item in the Table of Locale Priorities:
-
 			set the locale priority of the item to 1; [list before everything else -- this would work with any number lower than 5 and higher than 0]
-
 	repeat with item running through late-described things:
-
 		if there is a notable-object of item in the Table of Locale Priorities:
-
 			set the locale priority of the item to 10; [list after everything else -- this would work with any number larger than 5]
-
 	repeat with item running through never-described things:
-
 		set the locale priority of the item to 0; [don't list at all]
-
 	continue the activity.
 ```
 
@@ -72,15 +57,10 @@ There are further refinements available to us: for instance, we could make some 
 
 ``` inform7
 {**}After choosing notable locale objects (this is the sightline-described things are visible from supporters rule):
-
 	if the player is not on a supporter:
-
 		repeat with item running through sightline-described things:
-
 			if there is a notable-object of item in the Table of Locale Priorities:
-
 				set the locale priority of the item to 0; [remove objects that can only be seen from higher objects.]
-
 	continue the activity.
 ```
 
@@ -96,15 +76,10 @@ In practice this is rarely useful, but should we need to change priorities in th
 {**}A thing can be tasteful or icky. A thing is usually tasteful.
 
 After choosing notable locale objects (this is the icky things next to players rule):
-
 	if the player is on the parameter-object:
-
 		repeat with item running through icky things :
-
 			if there is a notable-object of item in the Table of Locale Priorities:
-
 				set the locale priority of the item to 10; [remove objects that can only be seen from higher objects.]
-
 	continue the activity.
 ```
 
@@ -115,13 +90,9 @@ The other thing to note is that by default that final collection of generic obje
 
 ``` inform7
 {**}After choosing notable locale objects (this is the latest-described items priority rule):
-
 	repeat with item running through latest-described things:
-
 		if the item is a notable-object listed in the Table of Locale Priorities:
-
 			now the item is mentioned;
-
 			now the item is marked for late listing.
 
 The late listing rule is listed after the you-can-also-see rule in the for printing the locale description rules.
@@ -129,13 +100,9 @@ The late listing rule is listed after the you-can-also-see rule in the for print
 A thing can be marked for late listing. A thing is usually not marked for late listing.
 
 This is the late listing rule:
-
 	if something is marked for late listing:
-
 		say "Oh! And also [a list of things which are marked for late listing].";
-
 		now everything is not marked for late listing;
-
 	continue the activity.
 
 Section 2 - Scenario
@@ -156,13 +123,10 @@ In order for the priorities we just set to be interesting, let's give out some i
 
 ``` inform7
 {**}The initial appearance of the worm is "A worm inches along the ground."
-
 The initial appearance of the late edition is "Finally, the late edition lies at your feet."
 
 Rule for writing a paragraph about the early bird when the early bird is in a room: say "The early bird always appears first, and here it is."
-
 Rule for writing a paragraph about the leaf: say "Look, there's [a leaf][unless the leaf is in the location] on [the holder of the leaf][end if]!"
-
 Rule for writing a paragraph about an icky thing (called icky item) which is on something which supports the player: say "Ew, [an icky item] is right next to you."
 ```
 

@@ -27,29 +27,18 @@ It gets a little annoying to have a random event occurring every single turn of 
 
 ``` inform7
 {**}Every turn when a random chance of 1 in 3 succeeds:
-
 	reset passerby;
-
 	choose a random row in the Table of Atmospheric Events;
-
 	say "[event entry][paragraph break]"
 
 Table of Atmospheric Events
-
 event
-
 "Slowly [a passerby] strolls by, turning to look at you as she passes."
-
 "Some [passerby] nearly bumps into you."
-
 "You dodge to avoid [a passerby]."
-
 "You weave around [a passerby], who has stalled to look into a window."
-
 "There's a ruckus as one of the ubiquitous taxis nearly collides with [a passerby] crossing the street."
-
 "[The passerby] beside you waves to a friend across the street."
-
 "To your left, [a passerby] drops her purse, and swears as she retrieves it."
 
 Hair color is a kind of value. A person has hair color. the hair colors are red-headed, brunette, blonde.
@@ -59,11 +48,8 @@ Height is a kind of value. A person has height. The heights are tall, medium-hei
 Grooming is a kind of value. A person has grooming. The groomings are messy and tidy.
 
 To reset passerby:
-
 	now the hair color of the passerby is a random hair color;
-
 	now the height of the passerby is a random height;
-
 	now the grooming of the passerby is a random grooming.
 
 The passerby is a woman in Riverside Drive. The passerby is scenery. Understand "woman" or "lady" as the passerby. The printed name of the passerby is "[one of]woman[or]lady[purely at random]".
@@ -76,11 +62,8 @@ At this point we borrow some techniques from later to describe the woman with a 
 
 ``` inform7
 {**}Before printing the name of the passerby:
-
 	if a random chance of 1 in 4 succeeds, say "[height] ";
-
 	if a random chance of 1 in 4 succeeds, say "[grooming] ";
-
 	if a random chance of 1 in 4 succeeds, say "[hair color] ".
 
 Understand the hair color property as describing the passerby. Understand the height property as describing the passerby. Understand the grooming property as describing the passerby.
@@ -93,49 +76,28 @@ If we also wanted each of those combinations to mean some more specifically-desc
 
 ``` inform7
 {**}Instead of examining a passerby:
-
 	repeat through Table of Passerby Descriptions:
-
 		if hair entry is the hair color of the passerby and height entry is the height of the passerby and grooming entry is the grooming of the passerby, say "[description entry][paragraph break]".
 
 Table of Passerby Descriptions
-
 hair	height	grooming	description
-
 red-headed	tall	messy	"An older woman with long red hippie-hair poking out of a ponytail in straggles, and bent to hide how tall she is."
-
 red-headed	medium-height	messy	"A shaggy red-head with shingled hair."
-
 red-headed	short	messy	"Almost an urchin, and very young, with ginger hair and a smudged nose and far too many freckles."
-
 red-headed	tall	tidy	"A precise career woman with henna-red hair."
-
 red-headed	medium-height	tidy	"Her hair is red in the way that lollipops and fire trucks are red: not by nature but by art. The rest of her clothing is pretty ordinary, though."
-
 red-headed	short	tidy	"Thin and small in every sense, with chin-length red-hair. Even high heels do not bring her head much above your shoulder."
-
 brunette	tall	messy	"A Juno-esque woman with dark hair, wearing something resembling a tent."
-
 brunette	medium-height	messy	"An unremarkable woman with dark brown hair and the aura of needing a wash."
-
 brunette	short	messy	"There are mustard stains on the t-shirt of this short brown-haired woman. Estimated age ca. 40. Possibly homeless."
-
 brunette	tall	tidy	"A leggy brunette in business attire."
-
 brunette	medium-height	tidy	"Medium-height, brown-haired, generally nondescript."
-
 brunette	short	tidy 	"A neat little dark-haired girl."
-
 blonde	tall	messy	"A tall blonde of about thirteen who looks as though she has not yet figured out how to get her wardrobe to catch up with her rate of growth. Her t-shirt and her pants are too short."
-
 blonde	medium-height	messy	"Black leather pants and the wall-o-hair look."
-
 blonde	short	messy	"One of those shocking platinum blonde types, with a tiger-patterned skirt. Reeally trashy."
-
 blonde	tall	tidy	"Elfin and severe, with perfectly straight hair falling to the middle of the back."
-
 blonde	medium-height	tidy	"A rounded, Marilyn-esque blonde."
-
 blonde	short	tidy	 "Pin-precise in a blue-and-white striped suit and a boyish haircut."
 
 Test me with "z / z / x passerby / z / z / x passerby".

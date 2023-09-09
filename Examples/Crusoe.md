@@ -36,9 +36,7 @@ This instruction replaces a normal piece of the examine action, the standard exa
 {**}Printing the description of something is an activity.
 
 This is the fancy examining rule:
-
 	carry out the printing the description activity with the noun;
-
 	rule succeeds.
 ```
 
@@ -49,13 +47,9 @@ All we have done here is enclose what is usually just a rule inside an activity.
 
 ``` inform7
 {**}Rule for printing the description of something (called item):
-
 	if the description of the item is not "":
-
 		say "[description of item] [run paragraph on]";
-
 	otherwise:
-
 		say "You see nothing special about [the item]. [run paragraph on]".
 ```
 
@@ -66,7 +60,6 @@ All we have done here is enclose what is usually just a rule inside an activity.
 
 ``` inform7
 {**}After printing the description of something charred:
-
 	say "It is charred." instead.
 ```
 
@@ -83,7 +76,6 @@ Now, because we want to make sure that we always do get a paragraph break after 
 
 ``` inform7
 {**}Last after printing the description of something:
-
 	say paragraph break.
 
 Section 2 - The Scenario
@@ -106,7 +98,6 @@ The player's description is handled in an unusual way, and this will produce a s
 
 ``` inform7
 {**}Instead of examining the player:
-
 	say "You are sunburned and there is sand in cracks you didn't know existed."
 
 Test me with "i / x stick / x bottle / x sand / x paper / x me / burn stick / x stick / burn paper / x paper".

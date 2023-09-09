@@ -31,7 +31,6 @@ Does the player mean taking a cold potato which is not carried by the player: it
 The player carries three potatoes.
 
 After dropping a hot potato:
-
 	say "The guy from Cube B sneers at your lack of potato-holding stamina."
 
 When play begins: now a random potato is hot.

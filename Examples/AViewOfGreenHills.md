@@ -20,11 +20,8 @@ Understand "look [direction]" as facing.
 Facing is an action applying to one visible thing.
 
 Carry out facing:
-
 	let the viewed item be the room noun from the location;
-
 	if the viewed item is not a room, say "You can't see anything promising that way." instead;
-
 	try looking toward the viewed item.
 ```
 
@@ -38,7 +35,6 @@ We can at need override the default behavior, if it is not going to be appropria
 
 ``` inform7
 {**}Instead of facing up:
-
 	say "Above you is bright sky."
 
 Understand "look toward [any adjacent room]" as looking toward. Understand "examine [any adjacent room]" as looking toward.
@@ -46,7 +42,6 @@ Understand "look toward [any adjacent room]" as looking toward. Understand "exam
 Looking toward is an action applying to one visible thing.
 
 Carry out looking toward:
-
 	say "You make out [the noun] that way."
 ```
 
@@ -57,7 +52,6 @@ This design allows us to create descriptions for rooms (as seen from the outside
 
 ``` inform7
 {**}Instead of looking toward Athens:
-
 	say "Even from here you can make out the silhouette of the Acropolis."
 
 Test me with "look north / look south / look up / look east / east / look west".

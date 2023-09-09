@@ -24,23 +24,17 @@ Definition: a person is tall if its height is 6 feet 0 inches or more.
 Definition: a person is short if its height is 5 feet 4 inches or less.
 
 When play begins:
-
 	now the height of the player is a random height between 5 feet 2 inches and 6 feet 4 inches;
-
 	now the right hand status line is "[height of player]".
 
 Instead of examining the player:
-
 	say "You, Test Subject, are [height of the player] tall."
 
 The growth pill is a kind of thing. A growth pill is always edible. The description is usually "It is leaf-green and has a reassuring logo of a curling vine on the side. Nothing to worry about, nothing at all." Two growth pills are on the plate.
 
 After eating the growth pill:
-
 	increase the height of the player by 0 feet 6 inches;
-
 	say "Your spine does something frightening and painful, and you find yourself looking down on the room from a wholly new angle.";
-
 	try looking.
 
 Test me with "examine me / eat pill / examine me / eat pill / examine me".

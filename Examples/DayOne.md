@@ -13,13 +13,9 @@ For: Z-Machine
 Lecture is a scene. Lecture begins when play begins.
 
 Every turn during Lecture:
-
 	repeat through Table of Lecture Events:
-
 		say "[event entry][paragraph break]";
-
 		blank out the whole row;
-
 		rule succeeds.
 ```
 
@@ -30,23 +26,14 @@ Here we use a table (see subsequent chapters) to keep track of all the events we
 
 ``` inform7
 {**}Table of Lecture Events
-
 event
-
 "'Welcome to Precolumbian Archaeology 101,' thunders Dr Freitag from the front of the class. 'Miss-- yes, you in the back. If you can't find a free seat, how are you going to find Atlantis? Sit down or leave. Now. Thank you.'"
-
 "Freitag stands behinds his desk and lines up the pile of books there more neatly. 'It has come to my attention over previous years that there are two sorts of person who enroll in my class,' he says.line-so-blank'Some of you will be members of the swim team or women's lacrosse players who have a distribution requirement to fulfill and are under the mistaken impression that archaeology must be easier than psychology. If that description applies to you, I advise you to drop the class now rather than at the midterm break. Under absolutely no circumstances will I ever sign a withdrawal form for someone who is crying at the time. Make a note of that, please.'"
-
 "'The second sort of person,' Dr Freitag says, getting another wind. 'Yes, the second sort of person takes this class because she imagines that it is going to lead to adventure or possibly to new age encounters with dolphins.'line-so-blankHis eye moves over the class, lingering an especially long time on a girl in a patchwork skirt.line-so-blank'You should also leave now, but since you are probably lying to yourself about the reasons you're here, you will probably not heed my warning and we will be doomed to a semester of one another's company nonetheless.'"
-
 "'Whatever you may tell yourself, you are not here to gain a deeper understanding of the world or get in touch with yourself or experience another culture.'line-so-blankHe paces before the first row of desks, hammering on them one at a time. 'I know you probably wrote an admissions statement saying that that is what you hoped to do. Well, too bad. It is not inconceivable that some of you, somehow, will muddle towards a deeper understanding of something thanks to this class, but I am not holding my breath, and neither should you.'"
-
 "Freitag takes a breath. 'No, my dear freshwomen, what you are here to do is learn facts. FACTS. Facts are unpopular in this university and, I am unhappily aware, at most of the institutions of inferior preparation from which you have come. Nonetheless, facts it will be. I will expect you to learn names. I will expect you to learn dates. I will expect you to study maps and I will expect you to produce evidence of exacting geographical knowledge on the exams. I will expect you to learn shapes of pottery and memorize masonry designs. There are no principles you can learn which are more important or more useful than a truly colossal bank of facts right there in your own head.'"
-
 "'I do not ever want to hear that you do not need to learn things because you will be able to look them up. This is the greatest fallacy of your computer-semi-literate generation, that you can get anything out of Google if you need it. Not only is this demonstrably false, but it overlooks something phenomenally important: you only know to look for something if you already know it EXISTS. In short there is no way to fake knowledge, and I am not going to pretend there is.' He smiles in lupine fashion.line-so-blank'This class is likely to be the most miserable experience of your four years in university. Clear?'"
-
 "Everyone is silent."
-
 "The lecture is interrupted by the shrill of a bell."
 ```
 
@@ -69,7 +56,6 @@ And to add a few additional details:
 
 ``` inform7
 {**}Instead of doing something other than waiting, looking, listening or examining during Lecture:
-
 	say "Dr Freitag glares at you so fiercely that you are frozen into inaction."
 ```
 
@@ -80,9 +66,7 @@ Notice the careful phrasing of "doing something other than..." so that we do not
 
 ``` inform7
 {**}When Lecture ends:
-
 	now Freitag is nowhere;
-
 	say "There is a flurry of movement as your fellow students begin to put away their books. Dr Freitag makes his way to the door and is gone before anyone can ask him anything."
 
 The Classroom is a room. Dr Freitag is a man in the Classroom. "Dr Freitag paces before the blackboard."

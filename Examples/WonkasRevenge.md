@@ -19,13 +19,10 @@ Spinning is an action applying to one thing.
 Check spinning: if the noun is an open container which contains something, say "[The list of things in the noun] would fly out." instead.
 
 Carry out spinning a container:
-
 	shuffle the contents of the noun.
 
 Report spinning:
-
 	if the noun contains something, say "You rattle [if the noun is transparent][the list of things in the noun][otherwise]the stuff[end if] in [the noun].";
-
 	otherwise say "Nothing results of your shaking [the noun]."
 ```
 
@@ -36,25 +33,16 @@ Inform keeps track of the order in which things have been put into a container. 
 
 ``` inform7
 {**}To shuffle the contents of (basket - a container):
-
 	let moves be the number of things in the basket;
-
 	repeat with counter running from 1 to moves:
-
 		move a random thing in the basket to the basket.
 
 After opening the drum when we have spun the drum for the first time:
-
 	if something (called the pick) is in the drum:
-
 		try searching the drum;
-
 		say "[The pick] it is, then.";
-
 		silently try taking the pick;
-
 		if the pick is the ticket of pure gold, end the story finally;
-
 		otherwise end the story saying "Oh well, better luck next time."
 
 Test me with "open drum / look in drum / close drum / spin drum / open drum".

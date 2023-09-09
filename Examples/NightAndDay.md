@@ -25,29 +25,23 @@ Notice that our two conditions for the beginning of Night are not in conflict: i
 
 ``` inform7
 {**}When Night begins:
-
 	say "The sun falls below the horizon and the temperature drops abruptly to well below zero.";
-
 	now the description of the sun is "Currently out of sight."
 
 Dawn is a recurring scene. Dawn begins when Night ends. Dawn ends when the time since Dawn began is 1 minute.
 
 When Dawn begins:
-
 	say "The sun appears on the horizon.";
-
 	now the description of the sun is "It is tiny and weak.".
 
 Day is a recurring scene. Day begins when Dawn ends. Day ends when the time since Day began is 3 minutes.
 
 When Day begins:
-
 	say "The sun is now properly up."
 
 Dusk is a recurring scene. Dusk begins when Day ends. Dusk ends when the time since Dusk began is 1 minute.
 
 When Dusk begins:
-
 	say "The sun has passed across the sky and is on the verge of setting."
 
 Cratered Landscape is a room. "The ground here is [if Night is happening]dim silver, with the craters visible as darker splotches[otherwise]the color of dried blood; here and there it is also rippled by impact craters[end if]. The horizon curves visibly."
@@ -62,13 +56,9 @@ If we run this example and then have a look at the scenes index, we'll see that 
 
 ``` inform7
 Night (recurring)
-
 	Dawn (recurring)
-
 		Day (recurring)
-
 			Dusk (recurring)
-
 				Night
 ```
 

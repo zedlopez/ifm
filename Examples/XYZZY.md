@@ -18,17 +18,13 @@ Understand "xyzzy" or "say xyzzy" or "cast xyzzy" as casting xyzzy.
 Casting xyzzy is an action applying to nothing.
 
 Check casting xyzzy:
-
 	if the player does not wear the amulet of elocution, say "You are unable to articulate the second 'z' separately from the first, and the spell fails in a disdainful puff. Must be Parisian magic." instead;
-
 	if the player has the plate, say "The plate of cheeses twitches uncomfortably, aware that it should be doing something, but not sure what." instead.
 
 Carry out casting xyzzy:
-
 	move the plate to the player.
 
 Report casting xyzzy:
-
 	say "Under the influence of the Amulet of Elocution, you pronounce this as Xhi-zee. And lo, from nowhere, a [plate] appears!"
 
 The amulet of elocution is a wearable thing. It is carried by the player. The description is "A heavy gold ring on a chain. If heated in an ordinary house fire, it glows with the words, 'Moses Supposes His Toeses Are Roses.'"

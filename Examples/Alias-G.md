@@ -33,7 +33,6 @@ Understand "call [text]" or "phone [text]" or "dial [text]" or "telephone [text]
 Dialing it on is an action applying to one phone number and one thing.
 
 Report dialing it on:
-
 	say "You dial [the phone number understood]."
 ```
 

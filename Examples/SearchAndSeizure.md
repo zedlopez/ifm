@@ -27,11 +27,8 @@ Now, we want the character to be able to hide small things if they have some sor
 
 ``` inform7
 {**}Rule for deciding the concealed possessions of someone (called the suspect):
-
 	if the particular possession is discovered, no;
-
 	if the suspect wears something and the particular possession is small, yes;
-
 	otherwise no.
 ```
 
@@ -50,15 +47,11 @@ The tourist is a woman in the customs house. The description is "The type who wa
 Report examining someone: say "[The noun] is [if the noun is wearing something]wearing [a list of unconcealed things worn by the noun] and [end if]carrying [a list of unconcealed things carried by the noun]."
 
 Report examining someone who is concealing something contraband:
-
 	say "[The noun] looks nervous. You can just tell."
 
 Report examining someone who is carrying an unconcealed contraband thing:
-
 	say "Your eye goes at once to [the list of unconcealed contraband things carried by the noun] which [the noun] is unable to hide";
-
 	if an unconcealed licit thing is had by the noun, say ", though [if the noun is female]s[end if]he also has [a list of unconcealed licit things had by the noun]";
-
 	say "." instead.
 ```
 
@@ -69,11 +62,9 @@ Notice that we can talk about what the smuggler wears, what he carries, and what
 
 ``` inform7
 {**}Instead of searching someone:
-
 	say "[The noun] is revealed to be carrying [a list of things carried by the noun]."
 
 Instead of confiscating the dress:
-
 	say "You are not allowed to perform strip-searches in the public customs area."
 
 Understand "confiscate [something]" as confiscating.
@@ -81,17 +72,13 @@ Understand "confiscate [something]" as confiscating.
 Confiscating is an action applying to one thing.
 
 Check confiscating:
-
 	unless the noun is had by someone who is not the player:
-
 		say "You can only confiscate other people's possessions." instead.
 
 Carry out confiscating:
-
 	now the noun is carried by the player.
 
 Report confiscating:
-
 	say "Through the authority vested in you by the power of the Sovereign of Centauri Proxima, you make [the noun] your own."
 
 Test me with "x smuggler / search smuggler / x smuggler / confiscate jacket / x smuggler / confiscate rum / confiscate pistol / x smuggler / confiscate raspberries / x smuggler".

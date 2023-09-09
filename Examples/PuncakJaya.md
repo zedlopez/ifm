@@ -44,15 +44,12 @@ Based on the "representation" relation, we now devise a conditional relation tha
 Understand "[something related by indication]" as a ghost.
 
 When play begins:
-
 	now every ghost is in the concept-repository.
 
 Instead of doing something to a ghost:
-
 	say "You seem to have left [a random person which is represented by the noun] behind."
 
 Instead of doing something when the second noun is a ghost:
-
 	say "You seem to have left [a random person which is represented by the second noun] behind."
 
 The concept-repository is an open unopenable transparent container. It is part of the air. The air is a backdrop. It is everywhere.

@@ -15,15 +15,10 @@ Death Valley is a room. Luckless Luke and Dead-Eye Pete are men in the Valley. A
 A person has an action called death knell. The death knell of Luckless Luke is pulling the cactus. The death knell of Dead-Eye Pete is Luke trying dropping the cactus.
 
 Before an actor doing something:
-
 	repeat with the victim running through people in the location:
-
 		let the DK be the death knell of the victim;
-
 		if the DK is not waiting and the current action is the DK:
-
 			say "It looks as if [the DK] was the death knell for [the victim], who looks startled, then nonexistent.";
-
 			now the victim is nowhere.
 ```
 
@@ -34,7 +29,6 @@ If we leave it at that, then pulling the cactus will kill Luckless Luke but then
 
 ``` inform7
 {**}After pulling the cactus when Luckless Luke was in the location:
-
 	say "That's a real shame."
 
 Test me with "get cactus / drop cactus / luke, get cactus / luke, drop cactus / pull cactus / look".

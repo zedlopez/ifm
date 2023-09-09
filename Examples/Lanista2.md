@@ -32,9 +32,7 @@ In our simpler version of this example we set the current hit points by hand, bu
 
 ``` inform7
 {**}When play begins:
-
 	repeat with victim running through people:
-
 		now the current hit points of the victim is the maximum hit points of the victim.
 
 Definition: a person is dead if their current hit points are less than 0.
@@ -44,11 +42,9 @@ Section 2 - Diagnosis
 Diagnosing is an action applying to one visible thing. Understand "diagnose [something]" as diagnosing.
 
 Check diagnosing:
-
 	if the noun is not a person, say "Only people can have diagnoses." instead.
 
 Carry out diagnosing:
-
 	say "[if the noun is the player]You have[otherwise][The noun] has[end if] [current hit points of the noun] out of a possible [maximum hit points of the noun] hit points remaining."
 
 Section 3 - Weapons
@@ -110,35 +106,23 @@ Our new action is also a perfect place to use an action variable: we're going to
 {**}The attacking it with action has a number called the damage inflicted.
 
 Setting action variables for attacking something with something:
-
 	if the second noun is a weapon:
-
 		let the maximum attack be the maximum damage of the second noun;
-
 		now the damage inflicted is a random number between 1 and the maximum attack.
 
 Check an actor attacking something with something (this is the can't attack with something that isn't a weapon rule):
-
 	if the second noun is not a weapon:
-
 		if the actor is the player, say "[The second noun] does not qualify as a weapon.";
-
 		stop the action.
 
 Check an actor attacking something with something (this is the can't attack a non-person rule):
-
 	if the noun is not a person:
-
 		if the actor is the player, say "[The noun] has no life to lose.";
-
 		stop the action.
 
 Carry out an actor attacking something with something (this is the standard attacking it with a weapon rule):
-
 	decrease the current hit points of the noun by the damage inflicted;
-
 	if the noun is dead and the noun is not the player:
-
 		now the noun is nowhere.
 ```
 
@@ -149,37 +133,27 @@ Though our checks and carry-out rules are similar regardless of who is acting, w
 
 ``` inform7
 {**}Report attacking a dead person with something (this is the death-report priority rule):
-
 	say "You attack with [the second noun], killing [the noun]!" instead.
 
 Report attacking someone with something (this is the normal attacking report rule):
-
 	say "You attack [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead.
 
 Report someone attacking the player with something when the player is dead (this is the player's-death priority rule):
-
 	say "[The actor] attacks you with [the second noun], finishing you off!";
-
 	end the story;
-
 	stop the action
 
 Report someone attacking the player with something (this is the standard report someone attacking the player with rule):
-
 	say "[The actor] attacks you with [the second noun], causing [damage inflicted] point[s] of damage!" instead.
 
 Report someone attacking something with something (this is the standard report attacking it with rule):
-
 	say "[The actor] attacks [the noun] with [the second noun], causing [damage inflicted] point[s] of damage!" instead.
 
 When play begins:
-
 	now the left hand status line is "You: [current hit points of player]";
-
 	now the right hand status line is "Gladiator: [current hit points of gladiator]".
 
 Every turn (this is the gladiator-attack rule):
-
 	if the gladiator is not dead, try the gladiator attacking the player with a random weapon which is carried by the gladiator.
 
 Test me with "hit gladiator with mace / kill gladiator / drop mace / attack gladiator / attack gladiator with mace / g / g".

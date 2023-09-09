@@ -55,11 +55,8 @@ We could add a second instead rule as well:
 A view is a kind of backdrop.
 
 Instead of doing something other than examining when the noun is a view:
-
 	say "You are too far from [the noun] to do anything but look."
-
 Instead of doing something other than examining when the second noun is a view:
-
 	say "You are too far from [the second noun] to do anything but look."
 
 The player carries a rope.

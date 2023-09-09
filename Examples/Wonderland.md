@@ -18,35 +18,21 @@ An altitude is a kind of value. 1000 feet specifies an altitude. A room has an a
 Definition: a room is low if its altitude is 3000 feet or less. Definition: a room is high if its altitude is 5000 feet or more.
 
 Instead of going down:
-
 	if an adjacent room is lower than the location:
-
 		let the valley be the lowest adjacent room;
-
 		let the way be the best route from the location to the valley;
-
 		say "(that is, [way])[paragraph break]";
-
 		try going the way;
-
 	otherwise:
-
 		say "You're in a local valley: there's no down from here."
 
 Instead of going up:
-
 	if an adjacent room is higher than the location:
-
 		let the peak be the highest adjacent room;
-
 		let the way be the best route from the location to the peak;
-
 		say "(that is, [way])[paragraph break]";
-
 		try going the way;
-
 	otherwise:
-
 		say "You're on a local peak."
 
 Paradise is a room. Paradise has altitude 5400 feet. "A handsome parking lot, a picnic ground, and the Henry M. Jackson Memorial Visitor Center. The latter offers, for serious climbers, a hot shower; for nature enthusiasts, an interpretive museum; and for car-trippers, a gift shop selling canned slugs. All of which is a largely unsuccessful distraction from the peak of Mt. Rainier beyond."
@@ -65,7 +51,6 @@ Since Mount Rainier National Park runs to over 235,000 acres, we will omit the r
 
 ``` inform7
 {**}Instead of going up in the highest room:
-
 	say "You're standing at the summit of Mt. Rainier, the highest point in the state of Washington. There is no up."
 
 Test me with "up / up / up / down / down / up / up".

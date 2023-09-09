@@ -24,9 +24,7 @@ Reviewing Possessions is a scene. Reviewing Possessions begins when play begins.
 Escalating Danger is a scene. Reviewing Possessions ends when Escalating Danger begins. Escalating Danger begins when preparations near completion.
 
 To decide whether preparations near completion:
-
 	if at least two of the things which are carried by the player are seen, yes;
-
 	no.
 
 When Escalating Danger begins: say "Someone pounds on the door of your hideout and yells at you in Czech."

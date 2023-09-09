@@ -17,29 +17,19 @@ A room has a concentration called current concentration. A room has a concentrat
 Probability inverse is a number that varies. [This is expressed as an inverse of the actual probability of diffusion from one room to another, to avoid error.] Probability inverse is 20. [That is, any given molecule of gas has a 5% chance of leaving by a given doorway at any given minute. Probability inverse should never drop below 10, the maximum number of exits from the room.]
 
 Every turn:
-
 	follow the diffusion rules.
 
 The diffusion rules are a rulebook.
 
 A diffusion rule (this is the gas movement rule):
-
 	repeat with space running through rooms:
-
 		let sum be 0.0 ppm;
-
 		repeat with way running through directions:
-
 			let second space be the room way from the space;
-
 			if second space is a room:
-
 				let difference be the former concentration of the second space minus the former concentration of the space;
-
 				increase sum by the difference;
-
 		let sum be sum divided by probability inverse;
-
 		now current concentration of the space is the former concentration of the space plus the sum.
 ```
 
@@ -50,29 +40,19 @@ A technical note: it would be possible to write "repeat with space running throu
 
 ``` inform7
 {**}A diffusion rule (this is the resetting concentration rule):
-
 	repeat with space running through rooms:
-
 		now the former concentration of the space is the current concentration of the space.
 
 The last diffusion rule (this is the lethal dosage rule):
-
 	if the current concentration of the location is greater than LC50:
-
 		say "The concentration in the air overpowers you...";
-
 		end the story;
-
 	otherwise:
-
 		if the current concentration of the location is greater than TLV-STEL:
-
 			say "You feel extremely uncomfortable in this environment."
 
 Instead of doing something when the current concentration of the location is greater than TLV-STEL:
-
 	if going, continue the action;
-
 	say "You can't work in this environment: your eyes and nose sting and it hurts to breathe."
 ```
 
@@ -121,35 +101,22 @@ For the sake at least of seeing what's going on in the example, let's also provi
 {**}The status grid is a device carried by the player. The status grid is switched on.
 
 Every turn:
-
 	try examining the grid.
 
 Instead of examining the status grid:
-
 	say "[fixed letter spacing][bar][line break]";
-
 	say "|[state of room 1A]|[state of room 1B]|[state of room 1C]|[state of room 1D]|[state of room 1E]|[line break]";
-
 	say "[bar][line break]";
-
 	say "|[state of room 2A]|[state of room 2B]|[state of room 2C]|[state of room 2D]|[state of room 2E]|[line break]";
-
 	say "[bar][line break]";
-
 	say "|[state of room 3A]|[state of room 3B]|[state of room 3C]|[state of room 3D]|[state of room 3E]|[line break]";
-
 	say "[bar][line break]";
-
 	say "|[state of room 4A]|[state of room 4B]|[state of room 4C]|[state of room 4D]|[state of room 4E]|[line break]";
-
 	say "[bar][line break]";
-
 	say "|[state of room 5A]|[state of room 5B]|[state of room 5C]|[state of room 5D]|[state of room 5E]|[line break]";
-
 	say "[bar][variable letter spacing][line break]".
 
 To say bar:
-
 	say "----------------------------------------------".
 
 TLV is a concentration that varies. TLV is 30.0ppm. [Long-term exposure maximum, safe for 8 hours a day.]
@@ -168,15 +135,10 @@ The values set for these would depend on the type of poisonous gas in question; 
 
 ``` inform7
 {**}To say state of (space - a room):
-
 	if the space is the location, say bold type;
-
 	if current concentration of space is less than 10.0ppm, say " ";
-
 	if current concentration of space is less than 100.0ppm, say " ";
-
 	say current concentration of space;
-
 	say roman type.
 ```
 
@@ -195,29 +157,19 @@ A gas sink is a kind of thing. A gas sink has a concentration called the contrib
 Room 5E contains a gas sink called a fan. The contribution of the fan is 80.0ppm.
 
 The first diffusion rule (this is the sources and sinks rule):
-
 	follow the sources rule;
-
 	follow the sinks rule.
 
 This is the sinks rule:
-
 	repeat with item running through gas sinks:
-
 		let space be the location of the item;
-
 		decrease the former concentration of the space by the contribution of the item;
-
 		if the former concentration of the space is less than 0.0ppm, now the former concentration of the space is 0.0ppm.
 
 This is the sources rule:
-
 	repeat with second item running through gas sources:
-
 		let space be the location of the second item;
-
 		increase the former concentration of the space by the contribution of the second item;
-
 		if the former concentration of the space is less than 0.0ppm, now the former concentration of the space is 0.0ppm.
 
 Test me with "z / z / z / z / z / z / z / z".

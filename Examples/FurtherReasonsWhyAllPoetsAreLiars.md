@@ -33,39 +33,23 @@ We create an action, "pushing it over to", for pushing a box around on the floor
 Understand "push [something] to [something]" as pushing it over to. Pushing it over to is an action applying to two things.
 
 The pushing it over to action has an internal position called the old position.
-
 The pushing it over to action has an internal position called the new position.
-
 Setting action variables for pushing something over to something:
-
 	now the old position is the current box position;
-
 	now the new position is nowhere at all;
-
 	if the second noun is the window, now the new position is over by the window;
-
 	if the second noun is the bed, now the new position is near the bed;
-
 	if the second noun is the shelf, now the new position is under the shelf.
 
 Check pushing it over to:
-
 	if the noun is not the box, say "That's not something you can push." instead;
-
 	if the player is on the bed, say "You can't reach from here." instead;
-
 	if the player is on the noun, say "Not while you are standing on [the noun]." instead;
-
 	if the new position is nowhere at all, say "You can only push [the noun] to the window, the bed or the shelf." instead;
-
 	if the new position is the old position, say "The [noun] is already [new position]." instead.
-
 Carry out pushing it over to:
-
 	now the current box position is the new position.
-
 Report pushing it over to:
-
 	say "With some effort, you shove [the noun] from [old position] to [new position]."
 ```
 
@@ -76,35 +60,23 @@ Everything which remains simply provides a couple of puzzles to test this arrang
 
 ``` inform7
 {**}Euclid's Elements is on the shelf. Understand "euclid" or "book" as the Elements.
-
 Instead of taking something (called the item) which is on the shelf:
-
 	if the player is on the box and the current box position is under the shelf, continue the action;
-
 	say "You cannot reach [the item], which is up on the shelf."
 
 Instead of examining the window:
-
 	say "This window opens rather unpromisingly onto the chapel wall opposite, so even granted the moonlight it is dark in here. Still, surely there's a poem here somewhere?"
 
 Instead of examining the window when the player is on the bed:
-
 	say "Just a blank patch of chapel wall."
 
 Instead of examining the window when the player is on the box:
-
 	if the current box position is near the bed:
-
 		say "Tantalisingly, you are not quite able to spy the statue.";
-
 	otherwise if the current box position is under the shelf:
-
 		say "All you can see is the antechapel wall, and the dull silver gleam of the pealing organ.";
-
 	otherwise:
-
 		say "At last! You can just, standing on tiptoes on the box right up at the window, make out the top of the statue! Of such epiphanies are Poesy born. Let's see now... oh yes...[paragraph break]And from my pillow, looking forth by light[line break]Of moon or favouring stars, I could behold[line break]The antechapel where the statue stood[line break]Of Newton with his prism and silent face,[line break]The marble index of a mind for ever[line break]Voyaging through strange seas of Thought, alone.";
-
 		end the story finally.
 
 Test me with "get on bed / x window / get off / x window /get elements / get on box / x window / get elements / push box to shelf / get off / push box to shelf / get on box / get elements / x window / get off / push box to window / get on box / x window".

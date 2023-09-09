@@ -30,29 +30,19 @@ The cost of silk is usually $5.75 per sq yard. The cost of velvet is usually $9.
 A pattern is a kind of thing. A pattern has a material. A pattern has an area. A pattern has a price. The price of a pattern is usually $9.99. Understand "pattern" as a pattern. Understand "patterns" as the plural of a pattern.
 
 After printing the name of a pattern:
-
 	if planning:
-
 		do nothing;
-
 	otherwise:
-
 		say " pattern".
 
 To decide what price is the material price of (chosen item - pattern):
-
 	let C be the cost of the material of the chosen item;
-
 	let A be the area of the chosen item;
-
 	decide on C * A.
 
 To decide what price is the overall price of (chosen item - pattern):
-
 	let P be the price of the chosen item;
-
 	let M be the material price of the chosen item;
-
 	decide on P + M.
 
 Understand "plan [material] [pattern]" as planning it for.
@@ -60,11 +50,9 @@ Understand "plan [material] [pattern]" as planning it for.
 Planning it for is an action applying to one material and one thing.
 
 Carry out planning it for:
-
 	now the material of the second noun is the material understood.
 
 Report planning it for:
-
 	say "You lay plans for a [material understood] [second noun], running [material price of the second noun] for materials and [price of the second noun] for the pattern itself, for a total of [overall price of the second noun]."
 
 Section 2 - Scenario

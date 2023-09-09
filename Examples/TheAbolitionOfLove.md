@@ -63,21 +63,17 @@ Now we want ways to set and unset all of these relations. (In the interests of t
 Understand "infatuate [someone] with [someone]" as infatuating it with. Infatuating it with is an action applying to two visible things.
 
 Carry out infatuating it with:
-
 	now the noun loves the second noun.
 
 Report infatuating it with:
-
 	say "Now [the noun] loves [a random person loved by the noun][if the second noun loves someone], while [the second noun] loves [a random person loved by the second noun][end if]."
 
 Understand "embitter [someone] toward [someone]" as embittering it toward. Embittering it toward is an action applying to two visible things.
 
 Carry out embittering it toward:
-
 	now the noun does not love the second noun.
 
 Report embittering it toward:
-
 	say "[The noun] sees [the second noun] in a different light and no longer feels any affection."
 ```
 
@@ -95,21 +91,17 @@ One to various relations are a bit more open: we can say someone impresses multi
 Understand "commend [someone] to [someone]" as commending it to. Commending it to is an action applying to two visible things.
 
 Carry out commending it to:
-
 	now the noun impresses the second noun.
 
 Report commending it to:
-
 	say "[The second noun] takes a very decided interest in [the noun]."
 
 Understand "traduce [someone] to [someone]" as traducing it to. Traducing it to is an action applying to two visible things.
 
 Carry out traducing it to:
-
 	now the noun does not impress the second noun.
 
 Report traducing it to:
-
 	say "[The second noun], hearing your story, decides not to be at all impressed with [the noun]."
 ```
 
@@ -122,21 +114,17 @@ And because this is a one-to-various relation, we can also make statements which
 {**}Understand "celebrate [someone]" as celebrating. Celebrating is an action applying to one visible thing.
 
 Carry out celebrating:
-
 	now the noun impresses every person.
 
 Report celebrating:
-
 	say "[The list of people who are impressed by the noun] take a very decided interest in [the noun]."
 
 Understand "slander [someone]" as slandering to. Slandering to is an action applying to one visible thing.
 
 Carry out slandering to:
-
 	now every person is not impressed by the noun.
 
 Report slandering to:
-
 	say "Now [the noun] impresses [the list of people who are impressed by the noun]."
 ```
 
@@ -151,41 +139,33 @@ Note that the above unsetting is not equivalent to "now the noun does not impres
 Understand "draw the attention of [someone] to [someone]" as drawing the attention of it to. Drawing the attention of it to is an action applying to two visible things.
 
 Carry out drawing the attention of it to:
-
 	now the noun notices the second noun.
 
 Report drawing the attention of it to:
-
 	say "[The noun] glances thoughtfully in the direction of [the second noun]."
 
 Understand "distract [someone] from [someone]" as distracting it from. Distracting it from is an action applying to two visible things.
 
 Carry out distracting it from:
-
 	now the noun does not notice the second noun.
 
 Report distracting it from:
-
 	say "You distract [the noun] from [the second noun]."
 
 Understand "draw attention to [someone]" as drawing attention to. Drawing attention to is an action applying to one visible thing.
 
 Carry out drawing attention to:
-
 	now every person notices the noun.
 
 Report drawing attention to:
-
 	say "You quickly cause everyone to attend to [the noun]."
 
 Understand "outshine [someone]" as outshining. Outshining is an action applying to one visible thing.
 
 Carry out outshining:
-
 	now every person does not notice the noun.
 
 Report outshining:
-
 	say "You quickly distract everyone from [the noun]."
 
 Section 5 - Setting and Unsetting Fancying (V-V)
@@ -193,21 +173,17 @@ Section 5 - Setting and Unsetting Fancying (V-V)
 Understand "flatter [someone]" as flattering. Flattering is an action applying to one thing.
 
 Carry out flattering:
-
 	now every person fancies the noun.
 
 Report flattering:
-
 	say "You draw down universal admiration for [the noun] by casting them in a flattering light."
 
 Understand "unflatter [someone]" as unflattering. [Okay, okay, but it's four am.] Unflattering is an action applying to one thing.
 
 Carry out unflattering:
-
 	now every person does not fancy the noun.
 
 Report unflattering:
-
 	say "[The noun] gives everyone a universal disgust."
 
 Understand "admire [someone]" as admiring. Admiring is an action applying to one thing.
@@ -225,7 +201,6 @@ Report loathing: say "You take [the noun] in disgust."
 Understand "cause chaos" as causing chaos. Causing chaos is an action applying to nothing.
 
 Carry out causing chaos:
-
 	now every person fancies every person.
 
 Report causing chaos: say "Now everyone fancies everyone else, which is quite an inconvenient state of affairs."
@@ -233,7 +208,6 @@ Report causing chaos: say "Now everyone fancies everyone else, which is quite an
 Understand "relieve chaos" as relieving chaos. Relieving chaos is an action applying to nothing.
 
 Carry out relieving chaos:
-
 	now every person is fancied by no one.
 
 Report relieving chaos: say "Now no one fancies anyone, which is safe but tedious."
@@ -250,25 +224,20 @@ Our options for setting and unsetting symmetrical relations are more limited aga
 Understand "marry [someone] to [someone]" as uniting it in matrimony with. Uniting it in matrimony with is an action applying to two visible things.
 
 Carry out uniting it in matrimony with:
-
 	now the noun is married to the second noun.
 
 Report uniting it in matrimony with:
-
 	say "You perform the marriage of [the noun] to [the second noun], joining them to the family of [a list of people related to the noun]."
 
 Understand "divorce [someone] from [someone]" as divorcing it from. Divorcing it from is an action applying to two visible things.
 
 Check divorcing it from:
-
 	if the noun is not married to the second noun, say "[The noun] is not married to [the second noun] anyway." instead.
 
 Carry out divorcing it from:
-
 	now the noun is not married to the second noun.
 
 Report divorcing it from:
-
 	say "[The noun] is now not married to [the second noun]."
 ```
 
@@ -283,31 +252,25 @@ When we unset the symmetrical relation on one side, it is automatically set or u
 Understand "introduce [someone] to [someone]" as introducing it to. Introducing it to is an action applying to two visible things.
 
 Carry out introducing it to:
-
 	now the noun knows the second noun.
 
 Report introducing it to:
-
 	say "You introduce [the noun] to [the second noun]. Now [the noun] is acquainted with [the list of people who are known by the noun], and [the second noun] is acquainted with [the list of people who are known by the second noun]."
 
 Understand "announce [someone]" as announcing. Announcing is an action applying to one visible thing.
 
 Carry out announcing:
-
 	now every person knows the noun.
 
 Report announcing:
-
 	say "You announce [the noun] to the whole assembled company."
 
 Understand "ostracise [someone]" as ostracising. Ostracising is an action applying to one visible thing.
 
 Carry out ostracising:
-
 	now every person does not know the noun.
 
 Report ostracising:
-
 	say "You cause everyone present to forget and pretend not to be acquainted at all with [the noun]."
 ```
 
@@ -322,21 +285,17 @@ And finally, setting groups:
 Understand "make [someone] adopt [someone]" as forcing it to adopt. Forcing it to adopt is an action applying to two visible things.
 
 Carry out forcing it to adopt:
-
 	now the noun is related to the second noun.
 
 Report forcing it to adopt:
-
 	say "Now [the second noun] is related to [the list of people related to the second noun]."
 
 Understand "make [someone] disown [someone]" as forcing it to disown. Forcing it to disown is an action applying to two visible things.
 
 Carry out forcing it to disown:
-
 	now the second noun is not related to the noun.
 
 Report forcing it to disown:
-
 	say "Now [the second noun] is related to [the list of people who are related to the second noun], and [the noun] is related to [the list of people who are related to the noun]."
 ```
 

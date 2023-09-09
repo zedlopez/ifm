@@ -61,23 +61,17 @@ Here is the critical bit, which needs to be somewhat flexible, since the large e
 
 ``` inform7
 {**}After deciding the scope of the player while the small end is carried by the player:
-
 	let there be the holder of the large end;
-
 	place there in scope.
 
 Before searching the small end when the small end is not carried by the player:
-
 	say "(first picking up [the small end] and holding it to your eye)";
-
 	silently try taking the small end.
 
 Instead of searching the small end when the player is not carrying the small end:
-
 	say "It's too hard to look through the small end from a distance."
 
 Instead of searching the large end,
-
 	say "You see only your own reflection."
 ```
 
@@ -90,9 +84,7 @@ We also want to make sure that the player who looks through the small lense does
 {**}Definition: a thing is recognizable if it is not a lense.
 
 Instead of searching the small end:
-
 	let the far side be the holder of the large end of the telescope;
-
 	say "You peer into the little lense and through it see, in [the far side], [the list of recognizable things in the far side]."
 
 Test me with "examine lense / south / examine lense / look through lense / north / look through small lense".

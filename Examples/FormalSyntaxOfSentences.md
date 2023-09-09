@@ -15,11 +15,8 @@ Grammatical sentences do not necessarily make sense, of course. Many perfectly g
 
 ``` inform7
 The wicker basket is not in the kitchen. (*Unhelpfully negative.*)
-
 The wicker basket has been in the kitchen. (*Talks about a time which never existed.*)
-
 The wicker basket is full. (*Full of what? Too vague.*)
-
 The wicker basket is the ginger cat. (*Demonstrably false.*)
 ```
 
@@ -33,7 +30,6 @@ To define S, we break it up into subsidiary structures. The most important is th
 
 ``` inform7
 1. S = DP + VP
-
 2. VP = Verb + DP
 ```
 
@@ -44,11 +40,8 @@ where VP is another structure, the Verb Phrase. For instance:
 
 ``` inform7
 S (The horseman wears a riding helmet)
-
 	= DP (The horseman) + VP (wears a riding helmet)
-
 VP (wears a riding helmet)
-
 	= Verb (wears) + DP (a riding helmet)
 ```
 
@@ -59,11 +52,8 @@ In that example, the Verb was the single word "wears". More generally, Inform al
 
 ``` inform7
 wore
-
 carries
-
 is carried by
-
 had not been inside
 ```
 
@@ -74,7 +64,6 @@ Although we are not going through the definition of Description Phrases in detai
 
 ``` inform7
 3a. DP = DP + which + VP
-
 3b. DP = DP + who + VP
 ```
 
@@ -103,7 +92,6 @@ Thus "an open container in the Ballroom" is DP (an open container) + RP (in the 
 
 ``` inform7
 5a. RP = Preposition + DP
-
 5b. RP = Participle + DP
 ```
 
@@ -141,19 +129,12 @@ So the condition "if in the garden is a sunflower..." fails because rule 6 does 
 
 ``` inform7
 1. S = DP + VP
-
 2. VP = Verb + DP
-
 3a. DP = DP + which + VP
-
 3b. DP = DP + who + VP
-
 4. DP = DP + RP
-
 5a. RP = Preposition + DP
-
 5b. RP = Participle + DP
-
 6 (assertions only). S = RP + Verb + DP
 ```
 

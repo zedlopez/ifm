@@ -15,9 +15,7 @@ A jacket is a kind of thing. A jacket is always wearable.
 A pocket is a kind of container. A pocket is part of every jacket. The carrying capacity of a pocket is always 2.
 
 After examining a jacket:
-
 	let target be a random pocket which is part of the noun;
-
 	say "[The target] contains [a list of things in the target]."
 ```
 

@@ -21,9 +21,7 @@ Section 1 - Showing actions
 Showing action of something is an activity.
 
 Rule for showing action of something (called item):
-
 	if the item is switched on, say "[The item] is switched on.";
-
 	otherwise say "[The item] is switched off."
 ```
 
@@ -36,11 +34,8 @@ Borrowing from the rulebooks chapter, we can replace the standard "examine devic
 {**}The new described devices rule is listed instead of the examine devices rule in the carry out examining rules.
 
 This is the new described devices rule:
-
 	if the noun is a device:
-
 		carry out the showing action activity with the noun;
-
 		now examine text printed is true.
 ```
 
@@ -51,9 +46,7 @@ Thus far we have essentially replicated the original behavior, but we've made it
 
 ``` inform7
 {**}Report switching on something:
-
 	say "You flip a switch. ";
-
 	carry out the showing action activity with the noun instead.
 ```
 
@@ -68,9 +61,7 @@ This might be useful for an electric lamp kind:
 An electric lamp is a kind of device.
 
 Rule for showing action of an electric lamp (called item):
-
 	if the item is switched on, say "[The item] is lit[if the number of visible lit things is greater than 1], competing with [the list of visible lit things which are not the item][end if].";
-
 	otherwise say "[The item] is dark."
 
 Carry out switching on an electric lamp: now the noun is lit. Carry out switching off an electric lamp: now the noun is unlit.
@@ -97,9 +88,7 @@ And with our activity, we can override the flashlight's electric lamp behavior w
 
 ``` inform7
 {**}Rule for showing action of the flashlight:
-
 	if the flashlight is switched on, say "A strong, narrow beam of light shines from the flashlight.";
-
 	otherwise say "It is currently switched off."
 ```
 
@@ -110,13 +99,10 @@ And with our activity, we can override the flashlight's electric lamp behavior w
 
 ``` inform7
 {**}Rule for showing action of the radio:
-
 	if the radio is switched on, say "Through the static, you pick up pieces of discussion: a 6.7 on the Richter scale, epicenter... something about Topanga... but it crackles out again.";
-
 	otherwise say "The radio is silent. You're saving the batteries."
 
 Instead of listening in the presence of the switched on radio:
-
 	carry out the showing action activity with the radio instead.
 
 Test me with "examine light / switch light off / switch flashlight on / switch radio on / examine radio / examine flashlight".

@@ -28,15 +28,10 @@ In the following condition, we could also have written "if the location of Count
 
 ``` inform7
 {**}Every turn:
-
 	if the location of Count Dracula is not the location of the player:
-
 		let the way be the best route from the location of Count Dracula to the location of the player, using doors;
-
 		try Count Dracula going the way;
-
 	otherwise:
-
 		say "'Muhahaha,' says Count Dracula."
 
 Test me with "z / z / n / w / e / u / z / d".

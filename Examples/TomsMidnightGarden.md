@@ -18,21 +18,16 @@ A clock is a kind of device. A clock has a time called the current time. A clock
 Understand "set [clock] to [time]" as setting it by time. Setting it by time is an action applying to one thing and one time.
 
 Instead of setting a clock to something:
-
 	say "[The noun] can be set only to a time of day, such as 8:00 AM, or midnight."
 
 Carry out setting a clock by time:
-
 	now the current time of the noun is the time understood.
 
 Report setting a clock by time:
-
 	say "You set [the noun] to [time understood]."
 
 Every turn:
-
 	repeat with item running through switched on clocks:
-
 		now the current time of the item is one minute after the current time of the item.
 
 The Hall is a room. The grandfather clock is a fixed in place analog clock in the Hall. The travel clock is a switched on digital clock in the Hall.  When play begins: now the right hand status line is "[time of day]".

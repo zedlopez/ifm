@@ -18,17 +18,11 @@ A concentration is a kind of value. 200.9ppm specifies concentration. 200.9 ppm 
 A room has a concentration called current concentration. A room has a concentration called former concentration.
 
 To decide what number is the probability inverse between (space - a room) and (second space - a room):
-
 	let guess be 20;
-
 	let way be the best route from space to second space;
-
 	if way is up, let guess be 50;
-
 	if way is down, let guess be 10;
-
 	if the guess is less than 10, decide on 10;
-
 	decide on guess.
 ```
 
@@ -39,57 +33,36 @@ If we wanted, we could introduce other concerns into the calculation here: open 
 
 ``` inform7
 {**}Every turn:
-
 	follow the diffusion rules.
 
 The diffusion rules are a rulebook.
 
 A diffusion rule (this is the gas movement rule):
-
 	repeat with space running through rooms:
-
 		let sum be 0.0 ppm;
-
 		repeat with way running through directions:
-
 			let second space be the room way from the space;
-
 			if second space is a room:
-
 				let incoming be the former concentration of the second space divided by the probability inverse between second space and space;
-
 				let outgoing be the former concentration of the space divided by the probability inverse between space and second space;
-
 				let difference be incoming minus outgoing;
-
 				increase sum by the difference;
-
 		now current concentration of the space is the former concentration of the space plus the sum.
 
 A diffusion rule (this is the resetting concentration rule):
-
 	repeat with space running through rooms:
-
 		now the former concentration of the space is the current concentration of the space.
 
 The last diffusion rule (this is the lethal dosage rule):
-
 	if the current concentration of the location is greater than LC50:
-
 		say "The concentration in the air overpowers you...";
-
 		end the story;
-
 	otherwise:
-
 		if the current concentration of the location is greater than TLV-STEL:
-
 			say "You feel extremely uncomfortable in this environment."
 
 Instead of doing something when the current concentration of the location is greater than TLV-STEL:
-
 	if going, continue the action;
-
 	say "You can't work in this environment: your eyes and nose sting and it hurts to breathe."
 
 Room 1A is west of Room 1B. Room 1B is west of Room 1C. Room 1C is west of Room 1D. Room 1D is west of Room 1E.
@@ -108,47 +81,30 @@ And just for fun, this time we'll make the grid prettier, too; but this will wor
 
 ``` inform7
 {**}Every turn:
-
 	try examining the grid.
 
 	Instead of examining the status grid:
-
 	say "[unicode box drawings light down and right][top bar][unicode box drawings light down and left][line break]";
-
 	say "[unicode box drawings light vertical]";
-
 	say "[state of room 1A][state of room 1B][state of room 1C][state of room 1D][state of room 1E]   upstairs[line break]";
-
 	say "[unicode box drawings light vertical and right][middle bar][unicode box drawings light vertical and left][line break]";
-
 	say "[unicode box drawings light vertical]";
-
 	say "[state of room 2A][state of room 2B][state of room 2C][state of room 2D][state of room 2E]   downstairs[line break]";
-
 	say "[unicode box drawings light up and right][bottom bar][unicode box drawings light up and left][variable letter spacing][line break]"
 
 To say top bar:
-
 	repeat with N running from 1 to 9:
-
 		if the remainder after dividing N by 2 is 0, say "[unicode box drawings light down and horizontal]";
-
 		otherwise say "[unicode box drawings light horizontal]".
 
 To say middle bar:
-
 	repeat with N running from 1 to 9:
-
 		if the remainder after dividing N by 2 is 0, say "[unicode box drawings light vertical and horizontal]";
-
 		otherwise say "[unicode box drawings light triple dash horizontal]".
 
 To say bottom bar:
-
 	repeat with N running from 1 to 9:
-
 		if the remainder after dividing N by 2 is 0, say "[unicode box drawings light up and horizontal]";
-
 		otherwise say "[unicode box drawings light horizontal]".
 
 TLV is a concentration that varies. TLV is 30.0ppm. [Long-term exposure maximum, safe for 8 hours a day.]
@@ -162,21 +118,13 @@ LC50 is a concentration that varies. LC50 is 300.0ppm. [Concentration at which 5
 Include Basic Screen Effects by Emily Short.
 
 To say state of (space - a room):
-
 	if the current concentration of space is less than TLV, say blue letters;
-
 	if the current concentration of space is TLV, say blue letters;
-
 	if the current concentration of space is greater than TLV, say green letters;
-
 	if the current concentration of space is greater than TLV-STEL, say yellow letters;
-
 	if the current concentration of space is greater than TLV-C, say red letters;
-
 	say "[unicode square with diagonal crosshatch fill]";
-
 	say default letters;
-
 	say "[unicode box drawings light vertical]".
 
 Test me with "z / z / z / z / z / z / z / z".

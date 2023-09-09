@@ -39,7 +39,6 @@ A road is a kind of room.
 The traffic is a backdrop. It is not scenery. The initial appearance is "Dense traffic snarls the streets, making it difficult to cross even with the lights. Men on motorbikes edge between the cars, and sometimes pull up onto the sidewalks to go around." The description is "It is more or less as usual for this time of day. It's a wonder it ever dissipates, really."
 
 When play begins:
-
 	move the traffic backdrop to all accessible roads.
 
 A line of orange cones are a thing.
@@ -47,15 +46,11 @@ A line of orange cones are a thing.
 Definition: a road is accessible if the orange cones are not in it.
 
 After dropping the orange cones in a road:
-
 	say "With steely determination you begin to lay out the orange cones, blocking access to this segment of street. This produces honking and swearing -- but you persevere.";
-
 	update backdrop positions.
 
 After taking the orange cones:
-
 	say "You go around taking up the orange cones, and within moments the traffic begins to flow into the street again.";
-
 	update backdrop positions.
 ```
 
@@ -74,19 +69,14 @@ The player wears a reflective vest and a hard hat.
 The manhole cover is a door. "[if location is accessible]Under the cars in the middle of the street, you can just make out the cover of the manhole you need to get into.[otherwise]There's a promising manhole in the middle of the street.[end if]". It is closed and openable. It is below the Town Square and above the Access Tunnel.
 
 Instead of opening the manhole cover when the location is an accessible road:
-
 	say "You can't get anywhere near the manhole cover with all these cars above it."
 
 Instead of taking the orange cones in Town Square:
-
 	if the manhole cover is closed or Town Square is accessible, continue the action;
-
 	otherwise say "You'd better not let the traffic back in until you've closed the manhole. There'll be accidents otherwise."
 
 After going to the Access Tunnel:
-
 	say "With a stealthy glance left and right, you lower yourself into the access tunnel, thus accomplishing your mission for Chapter 2. To continue your adventure, see Chapter 3: The Vault of Peaquod.";
-
 	end the story finally.
 ```
 
@@ -99,7 +89,6 @@ And finally, a couple of features from the Activities chapter to make the output
 {**}Rule for writing a paragraph about the orange cones: say "A line of orange cones holds back the traffic from entering here."
 
 Rule for printing the name of the orange cones when the cones are carried by the player:
-
 	say "stack of orange cones".
 
 Test me with "x traffic / open manhole / n / x traffic / s / e / x traffic / get cones / look / x traffic / w / drop cones / look / open manhole / take cones / d".

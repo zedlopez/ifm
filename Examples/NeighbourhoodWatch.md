@@ -40,13 +40,9 @@ Now we add some instructions so that the game will not let us use this keyless u
 
 ``` inform7
 {**}Check locking keylessly:
-
 	if the noun is not a door, say "[The noun] is not something you can lock." instead;
-
 	if the noun is locked, say "[The noun] is already locked." instead;
-
 	if the player carries the brass key and the player is in the Stairwell, try locking the noun with the brass key instead;
-
 	if the player is in the Stairwell, say "You can't lock the door from this side without the key." instead.
 ```
 
@@ -63,7 +59,6 @@ Now we're reasonably sure that the player is only locking keylessly in the case 
 
 ``` inform7
 {**}Carry out locking keylessly:
-
 	now the noun is locked.
 ```
 
@@ -74,7 +69,6 @@ That's it. We've just told Inform to make the door be locked. "Now..." syntax wi
 
 ``` inform7
 {**}Report locking keylessly:
-
 	say "You flip over the deadbolt to lock [the noun]."
 ```
 
@@ -87,21 +81,15 @@ And now we have to do a similar set of things for unlocking:
 {**}Understand "unlock [something]" as unlocking keylessly. Unlocking keylessly is an action applying to one thing.
 
 Check unlocking keylessly:
-
 	if the noun is not a door, say "[The noun] is not something you can lock." instead;
-
 	if the noun is unlocked, say "[The noun] is already unlocked." instead;
-
 	if the player carries the brass key and the player is in the Stairwell, try unlocking the noun with the brass key instead;
-
 	if the player is in the Stairwell, say "You can't unlock the door from this side without the key." instead.
 
 Carry out unlocking keylessly:
-
 	now the noun is unlocked.
 
 Report unlocking keylessly:
-
 	say "You flip over the deadbolt to unlock [the noun]."
 
 Test me with "unlock door / drop key / open door / out / close door / lock door / open door / in / get key / out / close door / lock door / unlock door".

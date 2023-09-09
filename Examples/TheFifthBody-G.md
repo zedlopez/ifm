@@ -12,15 +12,12 @@ The implementation here is much like that of the previous example, except that w
 
 ``` transcript
 >write in my notebook
-
 You open your notebook and prepare to write in it.
 
 >>Am beginning to think that HT and BGG are in this together.
-
 You finish writing and fold your notebook away.
 
 >read my notebook
-
 You read:
 
 Wednesday morning
@@ -41,35 +38,25 @@ A jotter is a kind of thing. A jotter has an external file called the text file.
 The currently erased jotter is an object that varies.
 
 To erase (pad - a jotter):
-
 	now the currently erased jotter is the pad;
-
 	write "[heading of the currently erased jotter][paragraph break]" to the text file of the pad;
-
 	now the pad is fresh.
 
 To write in (pad - a jotter):
-
 	append "[the time of day]: [player's command][line break]" to the text file of the pad;
-
 	now the pad is used.
 
 To read (pad - a jotter):
-
 	say "You read: [paragraph break][text of the text file of the pad]".
 
 When play begins:
-
 	repeat with pad running through jotters:
-
 		erase the pad.
 
 Instead of examining a used jotter (called the pad):
-
 	read the pad.
 
 Instead of examining a fresh jotter (called the pad):
-
 	say "There is nothing of note in [the pad]."
 
 Target jotter is an object that varies. The target jotter is usually nothing.
@@ -77,17 +64,13 @@ Target jotter is an object that varies. The target jotter is usually nothing.
 Understand "write in [something preferably held]" as writing in. Writing in is an action applying to one thing.
 
 Check writing in:
-
 	if the noun is not a jotter, say "It would be better to write in a notebook." instead.
 
 Carry out writing in:
-
 	now the command prompt is ">>";
-
 	now the target jotter is the noun.
 
 Report writing in:
-
 	say "You open [the noun] and prepare to write in it."
 ```
 
@@ -101,31 +84,22 @@ The next code is to react to reading a command. Whatever the player types at the
 
 ``` inform7
 {**}After reading a command when target jotter is a jotter:
-
 	now the command prompt is ">";
-
 	write in target jotter;
-
 	now target jotter is used;
-
 	say "You finish writing and fold your notebook away.";
-
 	now the target jotter is nothing;
-
 	reject the player's command.
 
 Understand "erase [something preferably held]" as erasing. Erasing is an action applying to one carried thing.
 
 Check erasing:
-
 	if the noun is not a jotter, say "It's hard to see how." instead.
 
 Carry out erasing:
-
 	erase the noun.
 
 Report erasing:
-
 	say "You scrub out all the entries in [the noun]."
 
 The player carries a jotter called your notebook. The file of Player's Observations is called "notebook". The text file of your notebook is the file of Player's Observations. The heading of your notebook is "Sunday Morning".

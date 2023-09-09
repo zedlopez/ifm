@@ -20,13 +20,10 @@ Maya is a woman in the Office. "Your coworker Maya sits at her own computer, dil
 Maya's computer is scenery in the Employment Office. The description is "You can't see the screen from here, but she was perfectly happy to tell you what she was doing."
 
 Rule for deciding the concealed possessions of someone (called carrier):
-
 	if the particular possession is the chihuahua and the carrier wears the trenchcoat, yes;
-
 	otherwise no.
 
 Instead of eating something in the presence of the chihuahua:
-
 	say "[The chihuahua] yips at you! Maya looks despairingly at [the noun], which is obviously inciting it."
 
 The desk is scenery in the Office. On the desk are a multi-line telephone and a printer. The description of the printer is "Every morning, this instrument of torture spits out a list of the assignments you have to fill - professional, attractive receptionist with level three Excel certification, at $7.05 an hour; that sort of thing. You spend the ensuing three hours trying to meet its tyrannical demands." The description of the multi-line telephone is "Line three blinks urgently at you. You'll pick it up again as soon as you can remember who it was you put on hold."
@@ -45,7 +42,6 @@ Unless we somehow get the trenchcoat away from Maya, the chihuahua will not be i
 {**}The time of day is 11:45 AM.
 
 At 11:47 AM: say "Your boss pokes his head in, temporarily free of the round of conference calls that occupy all his days. 'Maya,' he says. 'Your coat?' He shakes his head, clucking sadly. 'It doesn't say professional!' But mercifully Maya manages to take it off so slowly that he doesn't glimpse her pet before her phone rings again.";
-
 	now Maya carries the trenchcoat.
 ```
 

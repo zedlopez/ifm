@@ -31,25 +31,16 @@ Now we borrow from the Activities chapter to look at the exact wording of the pl
 
 ``` inform7
 {**}After reading a command:
-
 	if the player's command includes "[R-name]",
-
 		now the R-name of Rumpelstiltskin is the R-name understood;
-
 	if the player's command includes "Rumpelstiltskin":
-
 		now Rumpelstiltskin is identified;
-
 		now Rumpelstiltskin is proper-named.
 
 Rule for printing the name of Rumpelstiltskin when Rumpelstiltskin is unidentified:
-
 	if the R-name of Rumpelstiltskin is man-thing:
-
 		say "man";
-
 	otherwise:
-
 		say "[R-name]".
 
 Test me with "x dwarf / x guy / x dude / look / x rumpelstiltskin / look / x man".

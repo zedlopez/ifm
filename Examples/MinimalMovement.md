@@ -16,7 +16,6 @@ Sometimes it would be nice to respond a little more sensitively to a vague comma
 The Doll-like House is a room. The Postage-Stamp-Sized Garden is outside from the House.
 
 Rule for supplying a missing noun while going:
-
 	now noun is outside.
 ```
 

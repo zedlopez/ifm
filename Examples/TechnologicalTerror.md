@@ -22,13 +22,9 @@ First we need to define our shooting action:
 {**}Shooting it with is an action applying to two things.
 
 Check shooting something with something:
-
 	if the player is not carrying the Ray Gun, say "You are pathetically unarmed!" instead;
-
 	if the second noun is not the Ray Gun, say "[The second noun] does not fire." instead;
-
 	if the noun is the Ray Gun, say "Nice trick if you can do it!" instead;
-
 	if the noun is the player, say "That would be disastrous!" instead.
 ```
 
@@ -57,17 +53,13 @@ Here we get to use "now..." to give it its destructive effect:
 
 ``` inform7
 {**}Carry out shooting something with something:
-
 	say "ZAP! [The noun] twinkles out of existence! [if something is part of the noun][The list of things which are part of the noun] clatter to the ground! [end if][paragraph break]";
-
 	now every thing which is part of the noun is in the location;
-
 	now the noun is nowhere.
 
 The Deathbot Assembly Line is a room. "Here is the heart of the whole operation, where your opponents are assembled fresh from scrap metal and bits of old car." The dangerous robot is a thing in the Assembly Line. "One dangerous robot looks ready to take you on!" A robotic head, a drill arm, a needle arm, a crushing leg and a kicking leg are parts of the dangerous robot.
 
 Instead of examining something when something is part of the noun:
-
 	say "[The noun] consists of [a list of things which are part of the noun]."
 
 Test me with "x robot / shoot robot / fire at kicking leg / shoot gun at drill arm / look".

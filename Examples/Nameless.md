@@ -58,7 +58,6 @@ Here we define what happens by default when we interrogate someone about somethi
 
 ``` inform7
 {**}Carry out interrogating someone about something:
-
 	say "There is no reply."
 ```
 
@@ -69,27 +68,19 @@ Now redirect all asking to a topic table, and all interrogating to an object tab
 
 ``` inform7
 {**}Instead of asking Nameless Advisor about a topic listed in the Table of Nameless Advisor Topics:
-
 	say "[reply entry][paragraph break]".
 
 Instead of interrogating Nameless Advisor about an item listed in the Table of Nameless Advisor Items:
-
 	say "[reply entry][paragraph break]".
 
 Table of Nameless Advisor Items
-
 item	reply
-
 letter	"'It is enciphered,' she remarks[if the advisor can see the letter], glancing over the contents[otherwise], after you have offered a detailed description[end if]. 'A substitution cipher of some complexity, I believe.'"
-
 Advisor	"She listens to your inquiries about her identity and parentage with a placid smile, but does not answer."
 
 Table of Nameless Advisor Topics
-
 topic	reply
-
 "cipher"	"'I know many dozens of ciphers,' she replies, smiling in a disquieting way."
-
 "substitution cipher"	"'One letter is allowed to stand for another,' she explains, folding her hands together patiently. The backs of both hands are tattooed with silvery stars."
 ```
 

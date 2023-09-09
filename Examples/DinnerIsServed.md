@@ -29,35 +29,20 @@ We replace the usual rule that says the player can never reach into a room with 
 {**}The can't reach through closed window rule is listed instead of the can't reach inside rooms rule in the reaching inside rules.
 
 This is the can't reach through closed window rule:
-
 	let reaching through the window be false;
-
 	if the container in question is a room and the container in question is not the location:
-
 		if the container in question is the Street and the location is the Olive Tree Gyro Shop:
-
 			now reaching through the window is true;
-
 		if the container in question is the Gyro Shop and the location is the Street:
-
 			now reaching through the window is true;
-
 		if reaching through the window is true:
-
 			if the window is closed:
-
 				say "You can't reach through the closed window.";
-
 				deny access;
-
 			otherwise:
-
 				allow access;
-
 		otherwise:
-
 			say "You can't reach into [the container in question] from here.";
-
 			deny access.
 ```
 
@@ -68,7 +53,6 @@ And the rest is window-dressing.
 
 ``` inform7
 {**}After looking when a room (called the next room) is adjacent:
-
 	try examining the next room.
 
 Instead of examining a supporter, say "On [the noun] [is-are a list of things on the noun]." Instead of examining an open container, say "In [the noun] [is-are a list of things in the noun]."
@@ -78,13 +62,10 @@ The window is a backdrop. It is in the Street and the Shop. The window can be op
 Understand "examine [any adjacent room]" as examining.
 
 Instead of examining a room:
-
 	say "Over in [the noun], you can see [a list of visible things in the noun]."
 
 After deciding the scope of the player:
-
 	if the player is in the Street, place the Shop in scope;
-
 	if the player is in the Shop, place the Street in scope.
 
 Test me with "examine shop / open refrigerator / open window / examine shop / open refrigerator / get beer / in / examine street / out / get gyro / close window / put gyro in refrigerator / open window / put gyro in refrigerator".

@@ -34,9 +34,7 @@ To do this, we could replace the built-in report rule with a different one.
 The loud inventory rule is listed instead of the report other people taking inventory rule in the report taking inventory rules.
 
 This is the loud inventory rule:
-
 	unless the player is the person asked:
-
 		say "[The person asked] says, 'I seem to be carrying [a list of things carried by the person asked][if the person asked is wearing something] and wearing [a list of things worn by the person asked][end if].'"
 
 Persuasion rule for asking someone to try doing something: persuasion succeeds.

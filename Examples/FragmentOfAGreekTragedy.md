@@ -16,35 +16,21 @@ Apologies to the shade of A. E. Housman.
 Understand "restart/restore/save/quit" as "[meta-command]".
 
 After reading a command:
-
 	if the player's command matches "[meta-command]", make no decision;
-
 	say line break;
-
 	repeat through Table of Current Topics:
-
 		if the player's command includes topic entry:
-
 			say "CHORUS: [reply entry][paragraph break]";
-
 			follow the advance time rule;
-
 			rule succeeds;
-
 	say "[italic type]   Pause.[roman type][line break]";
-
 	follow the advance time rule;
-
 	rule succeeds.
 
 Table of Current Topics
-
 topic	reply
-
 "journey/trip/travel/came/arrived"	"Sailing on horseback, or with feet for oars?"
-
 "horseback/legs/feet/oars"	"Beneath a shining or a rainy Zeus?"
-
 "shining/rainy/weather/zeus"	"Mud's sister, not herself, adorns thy boots."
 ```
 
@@ -55,8 +41,7 @@ This would be a bit bare if we didn't provide the player with some sort of conte
 
 ``` inform7
 {**}Before reading a command while the turn count is 1:
-
-	say "CHORUS: O suitably-attired-in-leather-bootsline-so-blank	Head of a traveller, wherefore seeking whomline-so-blank	Whence by what way how purposed art thou comeline-so-blank	To this well-nightingaled vicinity?line-so-blank	My object in inquiring is to know.line-so-blank	But if you happen to be deaf and dumbline-so-blank	And do not understand a word I say,line-so-blank	Then wave your hand, to signify as much."
+	say "CHORUS: O suitably-attired-in-leather-boots	Head of a traveller, wherefore seeking whom	Whence by what way how purposed art thou come	To this well-nightingaled vicinity?	My object in inquiring is to know.	But if you happen to be deaf and dumb	And do not understand a word I say,	Then wave your hand, to signify as much."
 ```
 
   
@@ -73,11 +58,8 @@ And then to give the whole exchange a play's format:
 The room description heading rule is not listed in the carry out looking rules.
 
 When play begins:
-
 	now the command prompt is "YOU: ";
-
 	now left hand status line is "Fragment of a Greek Tragedy";
-
 	now right hand status line is "A. E. Housman".
 ```
 

@@ -23,7 +23,6 @@ The buffet table is a supporter in Pizza Prince.
 The pizza selection is a thing on the buffet table. Understand "slice" as the pizza selection. The description is "They are all cheese-only, and all luke-warm."
 
 Rule for writing a paragraph about the buffet table:
-
 	say "On [the buffet table] is [a pizza selection]. [description of the pizza selection][line break]".
 ```
 
@@ -49,21 +48,14 @@ Whenever the player tries to take the selection, we want them to wind up holding
 
 ``` inform7
 {**}Instead of taking the pizza selection:
-
 	let chosen slice be a random pizza slice in Pizza Limbo;
-
 	if chosen slice is nothing: [That is, there were no slices remaining]
-
 		say "[manager refusal]";
-
 	otherwise:
-
 		move the chosen slice to the player;
-
 		say "Taken (gingerly)."
 
 To say manager refusal:
-
 	say "[one of]'Hey!' barks a hitherto-unseen manager from behind you. 'It's an 'all you can eat' buffet, not an 'all you can stuff down your pants' buffet.'[or]You are conscious of a disapproving huff from the manager, so you refrain.[stopping]"
 ```
 
@@ -74,19 +66,12 @@ That's fine for the case where the player is taking a new slice of pizza explici
 
 ``` inform7
 {**}Rule for implicitly taking the pizza selection:
-
 	let chosen slice be a random pizza slice in Pizza Limbo;
-
 	if chosen slice is nothing: [That is, there were no slices remaining]
-
 		say "[manager refusal]";
-
 	otherwise:
-
 		move the chosen slice to the player;
-
 		say "(helping yourself from the selection)";
-
 		now the noun is the chosen slice.
 ```
 
@@ -97,7 +82,6 @@ And finally, a bit of touch-up:
 
 ``` inform7
 {**}Rule for clarifying the parser's choice of the pizza selection while taking:
-
 	say "(from the magnificent selection before you)[line break]"
 ```
 
@@ -108,9 +92,7 @@ For tidiness, we should probably also return the consumed pizza slices to Pizza 
 
 ``` inform7
 {**}After eating a pizza slice:
-
 	move the noun to Pizza Limbo;
-
 	continue the action.
 
 Test me with "i / get pizza / g / i / get pizza / drop pizza / look / get pizza / g / look / eat pizza / g / g / g / g / get pizza / g / g / g / g / g / g / g / g / g / g / g / g / i / eat pizza / take pizza / g".

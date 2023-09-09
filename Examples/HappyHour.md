@@ -14,33 +14,19 @@ Often it is best to have an entire paragraph about the characters present in a r
 {*}"Happy Hour"
 
 Before listing nondescript items:
-
 	say "You can see [a list of people who are marked for listing] here. ";
-
 	repeat with named party running through people:
-
 		now the named party is not marked for listing;
-
 	let count be the number of visible other people who are carrying something;
-
 	if count is 0:
-
 		say paragraph break;
-
 		continue the action;
-
 	let index be count;
-
 	repeat with holder running through visible other people who are carrying something:
-
 		if index is count, say "[The holder]";
-
 		otherwise say "[the holder]";
-
 		say " has [a list of things carried by the holder]";
-
 		decrement index;
-
 		make delimiter index of count.
 ```
 
@@ -51,27 +37,17 @@ The next part could be simpler, but for rigor we will write it in such a way tha
 
 ``` inform7
 {**}To make delimiter (index - a number) of (count - a number), continuing or halting:
-
 	if index is 0:
-
 		if continuing, say ". [run paragraph on]";
-
 		otherwise say ".";
-
 	otherwise if index is 1:
-
 		if count is 2, say " and ";
-
 		otherwise say "[optional comma] and ";
-
 	otherwise:
-
 		say ", ".
 
 To say optional comma:
-
 	if the serial comma option is active:
-
 		say ",".
 ```
 
@@ -88,15 +64,10 @@ Fred, George, and Larry are men in the Banquet Hall. Fred carries a dry martini.
 Definition: a person is other if it is not the player.
 
 Every turn:
-
 	let wanderer be a random other person;
-
 	let place be the holder of the wanderer;
-
 	let next place be a random room adjacent to the place;
-
 	let the way be the best route from the place to the next place;
-
 	try the wanderer going the way.
 
 The Kitchen is west of the Banquet Hall. "Dominated by a pile of dirty plates which you imagine it will be someone's privilege to wash, later." Vanessa is a woman in the Kitchen. Vanessa carries a tray. On the tray is a salmon roll. The roll is edible.

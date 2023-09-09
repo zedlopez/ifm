@@ -34,13 +34,10 @@ And now we borrow from the Actions chapter to prevent travel without the proper 
 
 ``` inform7
 {**}Instead of going to Cambridge when the player is not on the ten-speed bike:
-
 	say "It's a long journey to Cambridge: you'll never make it on foot."
 
 After going to Cambridge:
-
 	say "You begin pedalling determinedly.";
-
 	continue the action.
 
 Test me with "e / get on ten-speed bike / e".

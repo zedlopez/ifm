@@ -62,37 +62,25 @@ Understand "tune to [channel] on [something]" or "change to [channel] on [someth
 Understand "[number]" or "channel [number]" as "[channel]".
 
 Check changing the channel of something to:
-
 	if the noun is not a television, say "[The noun] cannot be tuned to a channel." instead.
 
 Carry out changing the channel of something to:
-
 	now the channel of the noun is the number understood.
 
 Report changing the channel of something to:
-
 	say "You tune [the noun] to channel [number understood]."
 
 Instead of examining a television:
-
 	if the noun is switched off, say "[The noun] is currently turned off." instead;
-
 	let the chosen channel be the channel of the noun;
-
 	if the chosen channel is a current channel listed in the Table of Television Channels:
-
 		choose row with current channel of the chosen channel in the Table of Television Channels;
-
 		say "[output entry][paragraph break]";
-
 	otherwise:
-
 		say "Snow fills the screen of [the noun]."
 
 Table of Television Channels
-
 current channel	output
-
 0	"The screen of [the noun] is completely black."
 
 Section 2 - The Scenario
@@ -109,13 +97,9 @@ And we add the scenario-specific content to our Table of Television Channels; in
 
 ``` inform7
 {**}Table of Television Channels (continued)
-
 current channel	output
-
 4	"A gloomy female news anchor describes the latest car bomb in Baghdad: 104 dead today, and no sign of change."
-
 5	"A couple of contestants in spangled scarlet outfits are performing an energetic paso doble."
-
 13	"[one of]On-screen, Ichiro is up to bat with one man on second and no outs.[or]Ichiro has singled to first and the other man is on third.[or]The next batter is in the middle of flying out.[or]Everything looks rosy until the men in black pull off a double-play and retire the side.[or]The channel has cut to a commercial.[stopping]"
 
 Test me with "test one / test two".

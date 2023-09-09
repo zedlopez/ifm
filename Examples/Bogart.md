@@ -32,23 +32,17 @@ And now we prevent taking a lower layer off before the thing that is worn over i
 
 ``` inform7
 {**}Before taking off something which underlies something (called the impediment) which is worn by the player:
-
 say "(first removing [the impediment])[command clarification break]";
-
 silently try taking off the impediment;
-
 if the noun underlies something which is worn by the player, stop the action.
 
 Check taking off:
-
 	if the noun underlies something (called the impediment) which is worn by the player, say "[The impediment] [are] in the way." instead.
 
 Carry out taking off:
-
 	now the noun is not underlaid by anything.
 
 Report taking off something:
-
 	say "[We] [are] now wearing [a list of uppermost things worn by the player]." instead.
 
 Definition: a thing is uppermost if it is not under something.
@@ -72,27 +66,19 @@ With these definitions, we can say that a jacket should go over a shirt and a sh
 
 ``` inform7
 {**}Before wearing something when something (called the impediment) which covers the noun is worn by the player:
-
 	while the player wears something which covers the noun:
-
 		say "(first removing [the impediment])[command clarification break]";
-
 		silently try taking off the impediment;
-
 		if the player is wearing the impediment, stop the action.
 
 Carry out wearing:
-
 	if the noun covers something (called the hidden item) worn by the player, now the hidden item underlies the noun.
 
 Instead of looking under something which is worn by the player:
-
 	if something (called the underwear) underlies the noun, say "[We] [peek] at [the underwear]. Yup, still there.";
-
 	otherwise say "Just [us] in there."
 
 Instead of taking inventory:
-
 	say "[if the player carries something][We]['re] carrying [a list of things carried by the player][else][We]['re] empty-handed[end if][if the player wears something]. [We] [are] wearing [a list of uppermost things worn by the player][end if]."
 
 To peek is a verb.
@@ -124,7 +110,6 @@ If we further wanted to prevent the player from taking off clothes in inappropri
 
 ``` inform7
 Instead of taking off something in the presence of someone who is not the player:
-
 	say "[We] [are] far too modest to strip in public."
 ```
 

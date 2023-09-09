@@ -18,7 +18,6 @@ The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alle
 The player carries a can of mace and a roll of duct tape.
 
 Instead of doing something other than examining with the Capricorn Killer:
-
 	say "You wouldn't dare!"
 
 Test me with "x me / x killer / touch killer / smell mace".
@@ -37,7 +36,6 @@ The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alle
 The player carries a can of mace and a roll of duct tape.
 
 Instead of doing something other than examining with something in the presence of the Capricorn Killer:
-
 	say "You dare not attempt it!"
 
 Test me with "x me / x killer / touch killer / smell mace".
@@ -59,7 +57,6 @@ The Secluded Alley is a room. The Capricorn Killer is a man in the Secluded Alle
 The player carries a can of mace and a roll of duct tape.
 
 Instead of doing something other than looking or examining in the presence of the Capricorn Killer:
-
 	say "You dare not attempt it!"
 
 Test me with "x me / x killer / touch killer / smell mace".

@@ -21,13 +21,10 @@ Eight-Walled Chamber is a room. "A perfectly octagonal room whose walls are tint
 Understand "wall" as a direction.
 
 Definition: a direction is matched if it fits the parse list.
-
 Definition: a room is matched if it fits the parse list.
-
 Definition: a thing is matched if it fits the parse list.
 
 Rule for asking which do you mean when everything matched is direction:
-
 	say "In which direction?"
 ```
 
@@ -38,29 +35,18 @@ Checking the parse list requires a bit of behind-the-scenes work with Inform 6. 
 
 ``` inform7
 {**}To decide whether (N - an object) fits the parse list:
-
 	(- (FindInParseList({N})) -)
 
 Include (-
-
 [ FindInParseList obj i k marker;
-
 	marker = 0;
-
 	for (i=1 : i<=number_of_classes : i++) {
-
 	while (((match_classes-->marker) ~= i) && ((match_classes-->marker) ~= -i)) marker++;
-
 	k = match_list-->marker;
-
 	if (k==obj) rtrue;
-
 	}
-
 	rfalse;
-
 ];
-
 -)
 ```
 
@@ -81,29 +67,18 @@ For this purpose we may want to use the built-in "Complex Listing" extension, wh
 Wilma, Betty, and Frederica are women in the Eight-Walled Chamber. Understand "lady" or "woman" as a woman. A nose is a kind of thing. A nose is part of every person.
 
 Rule for asking which do you mean when everything matched is a nose:
-
 	prepare a list of matched things;
-
 	if your nose is an output listed in the Table of Scored Listing:
-
 		choose row with an output of your nose in the Table of Scored Listing;
-
 		now the assigned score entry is -1;
-
 	say "Whose nose do you mean, [the prepared list delimited in disjunctive style]?"
 
 Rule for printing the name of a nose (called target) while asking which do you mean :
-
 	if everything matched is a nose:
-
 		if the target is part of a person (called owner):
-
 			if the owner is the player, say "your own";
-
 			otherwise say "[the owner][apostrophe]s";
-
 	otherwise:
-
 		make no decision.
 
 Understand "own" or "mine" as your nose.

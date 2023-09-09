@@ -21,37 +21,25 @@ Understand the command "cut" as something new. Understand "cut [length] from/off
 Trimming it by is an action applying to one thing and one length.
 
 Check trimming it by:
-
 	if the length understood is 0 inches, say "You're approaching Zeno's string at this point." instead;
-
 	if the length understood is greater than the length of the noun, say "[The noun] is only [length of the noun] long to start with." instead;
-
 	if the length understood is the length of the noun, say "[The noun] is already exactly [length of the noun] long." instead.
 
 Carry out trimming it by:
-
 	now the length of the noun is the length of the noun minus the length understood;
-
 	let the other half be a random string in the string repository;
-
 	now the length of the other half is the length understood;
-
 	move the other half to the player.
 
 Report trimming it by:
-
 	reset string lengths; [we will define this in a moment; it helps guarantee that our descriptions of the strings are correct when we write the output list]
-
 	say "You now have [a list of strings carried by the player]."
 
 Understand "cut [something] in half" as halving. Halving is an action applying to one thing.
 
 Carry out halving:
-
 	let half measure be the length of the noun divided by 2;
-
 	now the length understood is half measure;
-
 	try trimming the noun by half measure.
 ```
 
@@ -82,37 +70,24 @@ Now with a bit of fiddling we can also teach Inform to recognize descriptors suc
 Definition: a string is small if its length is 2 in or less. Definition: a string is large if its length is 20 in or more.
 
 Before reading a command:
-
 	reset string lengths.
 
 To reset string lengths:
-
 	let upper measure be the length of the largest visible string;
-
 	let lower measure be the length of the smallest visible string;
-
 	repeat with item running through strings:
-
 		now the ordinariness of the item is medium;
-
 		if the length of the item is the upper measure, now the item is longest;
-
 		if the length of the item is the lower measure, now the item is shortest.
 
 After reading a command:
-
 	if the player's command includes "shorter", replace the matched text with "shortest";
-
 	if the player's command includes "longer", replace the matched text with "longest".
 
 Instead of tying a string to a string:
-
 	move the second noun to the string repository;
-
 	now the length of the noun is the length of the noun plus the length of the second noun;
-
 	decrease the length of the noun by 1 inch;
-
 	say "You end up with [a noun], as some is taken up by the knot."
 ```
 

@@ -23,17 +23,12 @@ First we make our environment and its light:
 {**}The Workroom is a room. The desk is in the Workroom. The brilliant lamp is a device on the desk.
 
 To decide whether the light level is high:
-
 	if the brilliant lamp is switched off, no;
-
 	if the player cannot see the brilliant lamp, no;
-
 	yes.
 
 To decide whether the light level is low:
-
 	if the light level is high, no;
-
 	yes.
 ```
 
@@ -55,17 +50,12 @@ And finally a couple of extra touches to make it clear why we're able to interac
 
 ``` inform7
 {**}Before printing the name of the shadow:
-
 	if the light level is high:
-
 		say "barely-visible ";
-
 	otherwise if the player encloses the shadow:
-
 		say "invisible (but tangible) "
 
 After dropping the shadow when the light level is low:
-
 	say "You let it go and it fades into the ambient gloom."
 ```
 
@@ -76,9 +66,7 @@ To handle the appearance of the object, we want to set its locale priority to 0:
 
 ``` inform7
 {**}After choosing notable locale objects:
-
 	unless the light level is high:
-
 		set locale priority of the shadow to 0.
 
 Test me with "look / get shadow / turn on lamp / look / get shadow / i / turn off lamp / i / drop shadow / look / get shadow / turn on lamp / look".

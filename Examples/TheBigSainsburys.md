@@ -15,7 +15,6 @@ Occasionally, though, we have designed a timed puzzle in which the player has a 
 
 ``` transcript
 >eat gateau
-
 (first taking the gateau...)
 ```
 
@@ -26,7 +25,6 @@ gets away with a spare move compared to the precise but naïf dupe who types
 
 ``` transcript
 >take gateau
-
 >eat gateau
 ```
 
@@ -43,13 +41,10 @@ Sainsbury's is a room.
 The crispy duck and the Guinness steak pie are edible things in Sainsbury's.
 
 Rule for implicitly taking something:
-
 	follow the advance time rule;
-
 	continue the activity.
 
 When play begins:
-
 	now the right hand status line is "[time of day]".
 
 Test me with "take crispy duck / eat crispy duck / eat steak pie".

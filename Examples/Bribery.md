@@ -27,7 +27,6 @@ As it happens, correct behavior is built into the ``give`` command once "block g
 Mood is a kind of value. The moods are hostile, suspicious, indifferent, friendly, and adoring. An animal has a mood. An animal is usually indifferent.
 
 To improve the mood of (character - an animal):
-
 	if the mood of character is less than friendly, now the mood of the character is the mood after the mood of the character.
 ```
 
@@ -38,21 +37,15 @@ Now whenever we give something to an animal, the animal will be pleased about th
 
 ``` inform7
 {**}Check giving (this is the polite refusal of unwanted objects rule):
-
 	unless the noun interests the second noun:
-
 		say "[The second noun] disdainfully refuses [the noun]." instead.
 
 To decide whether (item - a thing) interests (character - a person):
-
 	if the character has the item, no;
-
 	if the item is edible, yes;
-
 	no.
 
 Instead of showing something to someone:
-
 try giving the noun to the second noun.
 ```
 
@@ -63,7 +56,6 @@ There is already a perfectly workable report rule that will describe what happen
 
 ``` inform7
 {**}After giving something to someone:
-
 	say "You give [the noun] to [the second noun], who appears mollified and is now merely [mood of the second noun]."
 ```
 
@@ -82,11 +74,9 @@ The Very Hungry Caterpillar is a hostile animal in the Leafy Branch. "[The Cater
 The player carries an edible thing called a peanut crumb. The carrying capacity of the player is 1. After taking something, say "You lift [the noun], though it is nearly your own size."
 
 Instead of going north in the presence of a hostile caterpillar:
-
 	say "[The Caterpillar] moves to block your exit, glaring down at you with all the bristles on its skin extended to full size."
 
 Instead of going north in the presence of a suspicious caterpillar:
-
 	say "[The Caterpillar] moves to block your exit, though it might allow you past if you offered further tribute."
 
 The Leaf Face is above the branch. "The smooth and shiny surface of the leaf extends forward from here, but you have lost the scent-trail. This is not the way home."  The pear fragment is an edible thing in Leaf Face. The dead aphid is a thing in Leaf Face.
@@ -94,9 +84,7 @@ The Leaf Face is above the branch. "The smooth and shiny surface of the leaf ext
 The Twig is north of Leafy Branch. "The scent-trail is weak but not entirely gone, and you pursue it faithfully..."
 
 After going to the Twig:
-
 	say "The scent-trail is weak but not entirely gone, and you pursue it faithfully...";
-
 	end the story finally.
 
 Understand "forward-up" as up. Understand "forward" as north. Understand "backward" as south.  Understand "backward-down" as down.

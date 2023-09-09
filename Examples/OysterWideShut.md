@@ -24,9 +24,7 @@ Section 1 - Procedure
 The print standard inventory rule is not listed in any rulebook.
 
 Carry out taking inventory (this is the new print inventory rule):
-
 	say "You are carrying: [line break]";
-
 	list the contents of the player, with newlines, indented, including contents, with extra indentation.
 ```
 
@@ -37,7 +35,6 @@ This is very much like the library's standard behavior, but with the exception t
 
 ``` inform7
 {**}After printing the name of something (called target) while taking inventory:
-
 	follow the property-aggregation rules for the target.
 ```
 
@@ -48,41 +45,30 @@ Now, our property-aggregation rulebook is going to look at a given object and de
 
 ``` inform7
 {**}The property-aggregation rules are an object-based rulebook.
-
 The property-aggregation rulebook has a list of text called the tagline.
 
 A first property-aggregation rule for an openable open thing (this is the mention open openables rule):
-
 	add "open" to the tagline.
 
 A first property-aggregation rule for an openable closed thing (this is the mention closed openables rule):
-
 	add "closed" to the tagline.
 
 A property-aggregation rule for a closed transparent container which contains nothing (this is the mention empty transparent containers rule):
-
 	add "empty" to the tagline.
 
 A property-aggregation rule for an open container which contains nothing (this is the mention empty open containers rule):
-
 	add "empty" to the tagline.
 
 A property-aggregation rule for a lit thing (this is the mention lit objects rule):
-
 	add "providing light" to the tagline.
 
 A property-aggregation rule for a thing worn by the player (this is the mention worn objects rule):
-
 	add "being worn" to the tagline.
 
 The last property-aggregation rule (this is the print aggregated properties rule):
-
 	if the number of entries in the tagline is greater than 0:
-
 		say " ([tagline])";
-
 		rule succeeds;
-
 	rule fails.
 ```
 
@@ -104,7 +90,6 @@ The player carries a glowing plastic sack. The glowing plastic sack is lit and t
 The player wears a flashlight lanyard. The flashlight lanyard is a device.
 
 Carry out switching on the lanyard: now the noun is lit.
-
 Carry out switching off the lanyard: now the noun is unlit.
 
 The player carries an oyster. The oyster contains a pearl. The oyster is openable.
@@ -117,11 +102,8 @@ Now suppose that we don't want the oyster to say "closed" when it's closed. Inst
 
 ``` inform7
 {**}A property-aggregation rule for the oyster:
-
 	if the oyster is closed:
-
 		say " (clamped shut)";
-
 	rule succeeds.
 ```
 
@@ -134,11 +116,8 @@ That's fine for the oyster because "clamped shut" is the only property it'll eve
 {**}The sacklight rule is listed after the mention lit objects rule in the property-aggregation rules.
 
 A property-aggregation rule for the plastic sack (this is the sacklight rule):
-
 	if "providing light" is listed in the tagline:
-
 		remove "providing light" from the tagline;
-
 		add "gently glowing" to the tagline.
 ```
 
@@ -156,15 +135,12 @@ We might also wish to add a systematic feature across the board to include a new
 Understand "enchant [something]" as enchanting. Enchanting is an action applying to one thing.
 
 Carry out enchanting something:
-
 	now the noun is magical.
 
 Report enchanting something:
-
 	say "Ding! You turn [the noun] magical."
 
 A property-aggregation rule for a magical thing:
-
 	add "enchanted" to the tagline.
 
 Test me with "i / close oyster / i  / turn on flashlight / i / take off flashlight / i / turn off flashlight / i / close sack / i / open sack / i / take all from sack / i / close sack / i  / wear sack / i / enchant sack / i / open sack / put all in sack / i / close sack / i".
@@ -182,9 +158,7 @@ Or we could add more logic to the rules about which properties are mentioned, so
 {*}The player wears enchantment-detecting goggles.
 
 A property-aggregation rule for a magical thing:
-
 	if the player is wearing the goggles:
-
 		add "enchanted" to the tagline.
 ```
 

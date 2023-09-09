@@ -35,15 +35,10 @@ Alice appears bright-eyed and comely.
 Yourself appears sulky and gangly.
 
 Instead of looking:
-
 	say "The snub-nosed ones: [list of people who appear snub-nosed][line break]";
-
 	say "The gangly ones: [list of people who appear gangly][line break]";
-
 	say "The comely ones: [list of people who appear comely][line break]";
-
 	say "The bright-eyed ones: [list of people who appear bright-eyed][line break]";
-
 	say "The sulky ones: [list of people who appear sulky][paragraph break]".
 
 Test me with "look".

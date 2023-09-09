@@ -48,41 +48,27 @@ Ralstons Ad is a scene. Ralstons Ad begins when score is not the last score. Ral
 Include Basic Screen Effects by Emily Short.
 
 When Ralstons Ad begins:
-
 	center "*** We'll be back in just a moment! ***";
-
 	pause the game;
-
 	strip the player;
-
 	move the player to the Kitchen.
 
 When Ralstons Ad ends:
-
 	center "*** And now, back to today's exciting adventure ***";
-
 	pause the game;
-
 	restore the player.
 
 Saved location is a room that varies. Locker is a container. Wardrobe is a container.
 
 To strip the player:
-
 	now every thing carried by the player is in the locker;
-
 	now every thing worn by the player is in the wardrobe;
-
 	now saved location is location.
 
 To restore the player:
-
 	now every thing carried by the player is in the Kitchen;
-
 	now every thing in the locker is carried by the player;
-
 	now every thing in the wardrobe is worn by the player;
-
 	move the player to saved location.
 
 The Space Patrol Kitchen is a room. "The nerve center of the Space Patrol! This is where cadets fill up with their SUPER-FUEL. North leads to the astro control room, while back south is the cargo hold." A breakfast bowl is in the Kitchen. In the bowl is Ricechex. Ricechex is edible. The Ricechex can be consumed or uneaten. The Ricechex is uneaten.
@@ -94,31 +80,20 @@ Instead of examining the player when Ralstons Ad is happening: say "You are curr
 After eating the Ricechex: say "That's right folks, always start your day the SPACE PATROL way with a tasty bowl of Ricechex, Wheatchex or good hot Ralstons. Mmmm Mmmm. You just can't get enough of the sugary goodness in Ricechex, Wheatchex and good hot Ralstons."; now the ricechex is consumed.
 
 Instead of tasting the Ricechex:
-
 	say "Wow! *wolf-whistle* Man oh man oh man! Yumm-y!"
 
 To say refusal to leave:
-
 	repeat through Table of Refusals:
-
 		say "[nope entry][paragraph break]";
-
 		blank out the whole row;
-
 		rule succeeds;
-
 	say "You can't. Eat your Ricechex."
 
 Table of Refusals
-
 nope
-
 "You can't go that way in the limited universe of this sponsored message."
-
 "Or that way."
-
 "You've already tried that!"
-
 "Why would you want to walk away when you have an alluring bowl of Ricechex right here?"
 
 Test me with "n / i / x me / x dust / dig dust".

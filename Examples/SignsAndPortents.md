@@ -26,27 +26,19 @@ In order to interact with the signpost, we will need to make use of some action 
 
 ``` inform7
 {**}Instead of examining the signpost:
-
 	say "[The signpost] currently puts you on the road to [italic type][the destination of the signpost][roman type], but it swiftly alters again.";
-
 	now the destination of the signpost is the destination after the destination of the signpost.
 
 Instead of turning the signpost:
-
 	now the destination of the signpost is the destination after the destination of the signpost;
-
 	say "With a hand's touch you turn the signpost to mark your way for [italic type][the destination of the signpost][roman type]."
 
 Instead of going north in Seven Dials when the destination of the signpost is Hell:
-
 	say "It is a path that goes gently ever down and down with no stumbling block or any distraction at either side; there are no bandits and no tolls.";
-
 	end the story.
 
 Instead of going north in Seven Dials when the destination of the signpost is Low Noon:
-
 	say "A long road whose scenery does not change, nor anything on the horizon move but the sun. When at last you come to Noon, she hangs above your head like a hat.";
-
 	end the story finally.
 
 Test me with "x signpost / n / turn signpost / n / turn signpost / n / turn signpost / n / turn signpost / n".

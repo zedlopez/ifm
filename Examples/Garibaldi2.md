@@ -21,19 +21,12 @@ Include Basic Screen Effects by Emily Short.
 The security readout is a device. The description of the readout is "The screen is blank."
 
 Instead of examining the switched on security readout:
-
 	say "The screen reads: [fixed letter spacing]";
-
 	say line break;
-
 	repeat with item running through doors:
-
 		say line break;
-
 		say "  [item] ([front side of the item]/[back side of the item]): [if the item is locked][green letters]LOCKED[default letters][otherwise][red letters]UNLOCKED[default letters][end if]";
-
 	say variable letter spacing;
-
 	say paragraph break.
 
 The player carries the security readout.

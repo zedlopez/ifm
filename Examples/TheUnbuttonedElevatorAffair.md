@@ -20,13 +20,9 @@ Del Floria's Tailor Shop is a room. "Only trained anti-THRUSH agents recognise t
 The Secret Elevator is east of UNCLE Headquarters. The Secret Elevator is east of Del Floria's Tailor Shop.
 
 After going to the Secret Elevator:
-
 	say "The doors automatically close, there is a rush of motion, and they open again.";
-
 	if UNCLE Headquarters is mapped west of the Secret Elevator, now Del Floria's Tailor Shop is mapped west of the Secret Elevator;
-
 	otherwise now UNCLE Headquarters is mapped west of the Secret Elevator;
-
 	continue the action.
 
 Test me with "east / west / east / west".

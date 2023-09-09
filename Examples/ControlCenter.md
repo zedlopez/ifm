@@ -14,7 +14,6 @@ It is straightforward to make a rule that anything with parts must mention all t
 {*}"Control Center"
 
 After examining a thing when something is part of the noun:
-
 	say "[The noun] includes [a list of things which are part of the noun]."
 
 The Control Center is a room. "Here you are at the Control Center of the universe."

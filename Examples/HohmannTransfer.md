@@ -15,7 +15,6 @@ If we don't specify otherwise, Inform will describe our surroundings in a dark r
 
 ``` inform7
 Darkness
-
 It is pitch dark, and you can't see a thing.
 ```
 
@@ -34,11 +33,9 @@ The Eastern Hemisphere is west of the Western Hemisphere. The Eastern Hemisphere
 Use full-length room descriptions.
 
 Rule for printing the description of a dark room:
-
 	say "It's night on this side of the planet, so you can make out only the glow of urbanized areas along the seacoasts."  instead.
 
 Rule for printing the name of a dark room:
-
 	say "Dark Side" instead.
 ```
 
@@ -49,19 +46,15 @@ And now a few minor refinements so that we can see what happens when one room be
 
 ``` inform7
 {**}Carry out going:
-
 	say "You fire the thrusters and loop around to the other side of the planet before settling into a new geosynchronous orbit. Six months and one minute later..."
 
 The time of day is 4:55 PM.
 
 At 5 PM:
-
 	now the Eastern Hemisphere is dark;
-
 	now the Western Hemisphere is lit.
 
 Rule for printing the announcement of darkness:
-
 	say "The planet abruptly spins itself over, exposing its cool underbelly to the sun."
 
 Test me with "e / z / z / w / z / z / e".

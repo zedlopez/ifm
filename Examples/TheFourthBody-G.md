@@ -19,23 +19,16 @@ We'll first invent a general system for writing text into notebooks, by creating
 A jotter is a kind of thing. A jotter has an external file called the text file. A jotter can be fresh or used. A jotter is usually fresh. A jotter has a text called the heading.
 
 The currently erased jotter is an object that varies.
-
 To erase (pad - a jotter):
-
 	now the currently erased jotter is the pad;
-
 	write "[heading of the currently erased jotter][paragraph break]" to the text file of the pad;
-
 	now the pad is fresh.
 
 To write in (pad - a jotter):
-
 	append "[the time of day]: [topic understood][line break]" to the text file of the pad;
-
 	now the pad is used.
 
 To read (pad - a jotter):
-
 	say "You read: [paragraph break][text of the text file of the pad]".
 ```
 
@@ -49,9 +42,7 @@ We want to erase any jotters when play begins, as otherwise text left over from 
 
 ``` inform7
 {**}When play begins:
-
 	repeat with pad running through jotters:
-
 		erase the pad.
 ```
 
@@ -62,39 +53,31 @@ Now we need to create rules to allow the player to control reading, writing and 
 
 ``` inform7
 {**}Instead of examining a used jotter (called the pad):
-
 	read the pad.
 
 Instead of examining a fresh jotter (called the pad):
-
 	say "There is nothing of note in [the pad]."
 
 Understand "write [text] in [something preferably held]" as writing it in. Understand "write [text]" as writing it in. Writing it in is an action applying to a topic and one thing. Rule for supplying a missing second noun while writing: if a jotter (called the pad) is carried, now the second noun is the pad; otherwise say "You will have to specify what to write that it."
 
 Check writing it in:
-
 	if the second noun is not a jotter, say "It would be better to write in a notebook." instead.
 
 Carry out writing it in:
-
 	write in the second noun.
 
 Report writing it in:
-
 	say "Under the current time, you write '[the topic understood]' into [the second noun]."
 
 Understand "erase [something preferably held]" as erasing. Erasing is an action applying to one carried thing.
 
 Check erasing:
-
 	if the noun is not a jotter, say "It's hard to see how." instead.
 
 Carry out erasing:
-
 	erase the noun.
 
 Report erasing:
-
 	say "You scrub out all the entries in [the noun]."
 ```
 
@@ -115,7 +98,6 @@ Havers is carrying a jotter called Barbara's notebook. The file of Barbara's Obs
 The time of day is 6:32 AM.
 
 Instead of examining your notebook when your notebook is fresh:
-
 	say "Your notebook is blank. Back in the office, of course, there are a stack of others. But you brought a fresh notebook in a kind of weary hope. You're going to pretend, just for now, that this body might be unrelated to the graphic string of murders you're already investigating."
 ```
 

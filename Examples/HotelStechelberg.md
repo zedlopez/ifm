@@ -14,13 +14,9 @@ The following rule appends a paragraph to every room description. We need not wo
 {*}"Hotel Stechelberg"
 
 After looking:
-
 	say "Yellow arms on the signpost point:-[line break]";
-
 	repeat with destination running through interesting rooms:
-
 		let the way be the best route from the location to the destination;
-
 		if the way is a direction, say "  [way] for [the destination]: [number of moves from the location to the destination] Std."
 
 Hotel Stechelberg is a room. "The wooden hiking inn at the end of the road, with flowerboxes, canton flags, outdoor tables and a triangular paddock for the cows contesting the annual Miss Stechelberg competition. Otto and Marianne do cheerful innkeeper things, while the sun blazes from a gentian-blue sky."
@@ -41,19 +37,13 @@ With a bit more work, the result might be:
 
 ``` inform7
 Hotel Stechelberg
-
 The wooden hiking inn at the end of the road, with flowerboxes, canton flags, outdoor tables and a triangular paddock for the cows contesting the annual Miss Stechelberg competition. Otto and Marianne do cheerful innkeeper things, while the sun blazes from a gentian-blue sky.
 
 Yellow arms on the signpost point:-
-
 	north for Lauterbrunnen: 2 Std.
-
 	west for Sefinental: 2 Std.
-
 	west for Schilthorn: 6 Std.
-
 	southeast for Trachsellauenen: 1 Std.
-
 	southeast for Oberhornsee: 3 Std.
 ```
 

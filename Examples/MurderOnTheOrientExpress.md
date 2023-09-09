@@ -37,11 +37,9 @@ Given this, we can then set up elaborate rules:
 
 ``` inform7
 {**}Instead of showing something to a person who suspects the player:
-
 	say "'You would say that,' remarks [the second noun] darkly.".
 
 Instead of showing something which exculpates the player to someone:
-
 	say "'How striking!' says [the second noun]. 'Almost I begin to distrust myself.'".
 
 Test me with "show the letter to miss marple / show the silver bullet to holmes".

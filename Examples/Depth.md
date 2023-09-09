@@ -18,11 +18,8 @@ A length is a kind of value. 10 cm specifies a length. An area is a kind of valu
 A thing has a length called height. A thing has a length called width. A thing has a length called depth. The height of a thing is usually 10 cm. The width of a thing is usually 10 cm. The depth of a thing is usually 10 cm.
 
 To decide what volume is the exterior volume of (item - a thing):
-
 	let base area be the height of the item multiplied by the width of the item;
-
 	let base volume be the base area multiplied by the depth of the item;
-
 	decide on the base volume.
 ```
 
@@ -33,41 +30,25 @@ In order to see how these shapes might fit together spatially, we need to work o
 
 ``` inform7
 {**}To decide what length is the largest dimension of (item - a thing):
-
 	let long side be the height of item;
-
 	if the width of the item is greater than the long side, now the long side is the width of the item;
-
 	if the depth of the item is greater than the long side, now the long side is the depth of the item;
-
 	decide on the long side.
 
 To decide what length is the middling dimension of (item - a thing):
-
 	let longer side be the height of item;
-
 	let shorter side be the width of item;
-
 	if the width of the item is greater than the height of the item:
-
 		let shorter side be the height of item;
-
 		let longer side be the width of item;
-
 	if the depth of the item is greater than the longer side, decide on the longer side;
-
 	if the depth of the item is less than the shorter side, decide on the shorter side;
-
 	decide on the depth of the item.
 
 To decide what length is the shortest dimension of (item - a thing):
-
 	let short side be the height of item;
-
 	if the width of the item is less than the short side, now the short side is the width of the item;
-
 	if the depth of the item is less than the short side, now the short side is the depth of the item;
-
 	decide on the short side.
 ```
 
@@ -78,9 +59,7 @@ When testing this example, the author made use of the following: it's no longer 
 
 ``` inform7
 {**}To test the dimensions of (item - a thing):
-
 	say "[the item] - height [height of the item], width [width of the item], depth [depth of the item].";
-
 	say "largest side [largest dimension of the item], middling [middling dimension of the item], smallest [shortest dimension of the item]."
 ```
 
@@ -95,17 +74,12 @@ We now introduce a new kind: a measured container, which not only has exterior d
 There is an imaginary cuboid.
 
 To imagine the interior of (receptacle - a measured container) as a cuboid:
-
 	now the height of the imaginary cuboid is the interior height of the receptacle;
-
 	now the width of the imaginary cuboid is the interior width of the receptacle;
-
 	now the depth of the imaginary cuboid is the interior depth of the receptacle.
 
 To decide what volume is the interior volume of (receptacle - a measured container):
-
 	imagine the interior of the receptacle as a cuboid;
-
 	decide on the exterior volume of the imaginary cuboid.
 ```
 
@@ -116,15 +90,10 @@ If we assume that we could always pack items into a measured container with perf
 
 ``` inform7
 {**}To decide what volume is the available volume of (receptacle - a measured container):
-
 	let the remaining space be the interior volume of the receptacle;
-
 	repeat with item running through things in the receptacle:
-
 		decrease the remaining space by the exterior volume of the item;
-
 	if the remaining space is less than 0 cu cm, decide on 0 cu cm;
-
 	decide on the remaining space.
 ```
 
@@ -135,17 +104,11 @@ If we only constrained volume, a 140 cm-long fishing rod could fit into a 12 cm 
 
 ``` inform7
 {**}Check inserting something (called the item) into a measured container (called the receptacle):
-
 	if the exterior volume of the item is greater than the interior volume of the receptacle, say "[The item] will never fit inside [the receptacle]." instead;
-
 	if the exterior volume of the item is greater than the available volume of the receptacle, say "[The item] will not fit into [the receptacle] with [the list of things in the receptacle]." instead;
-
 	imagine the interior of the receptacle as a cuboid;
-
 	if the largest dimension of the item is greater than the largest dimension of the imaginary cuboid, say "[The item] is too long to fit into [the receptacle]." instead;
-
 	if the middling dimension of the item is greater than the middling dimension of the imaginary cuboid, say "[The item] is too wide to fit into [the receptacle]." instead;
-
 	if the shortest dimension of the item is greater than the shortest dimension of the imaginary cuboid, say "[The item] is too bulky to fit into [the receptacle]." instead.
 ```
 
@@ -162,13 +125,9 @@ The box is a measured container. The interior height is 10 cm. The interior dept
 A pebble is a kind of thing. The height is usually 2 cm. The depth is usually 2 cm. The width is usually 2 cm. The player carries 25 pebbles.
 
 A red rubber ball is carried by the player. The depth is 5 cm. The width is 5 cm. The height is 5 cm.
-
 An arrow is carried by the player. The height is 40 cm. The width is 1 cm. The depth is 1 cm.
-
 A crusty baguette is carried by the player. The height is 80 cm. The width is 4 cm. The depth is 5 cm.
-
 A child's book is carried by the player. The height is 1 cm. The width is 9 cm. The depth is 9 cm.
-
 A featureless white cube is carried by the player. The height is 6 cm. The width is 6 cm. The depth is 6 cm.
 
 Test me with "put arrow in box / put book in box / put cube in box / put ball in box / put baguette in box / put pebbles in box".

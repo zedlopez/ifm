@@ -41,13 +41,10 @@ Now we define what greetings are going to look like:
 
 ``` inform7
 {**}Check waving hands:
-
 	unless the player can see someone who is not the player, say "You are alone." instead.
 
 Carry out waving hands:
-
 	say "You nod hello to [the list of ungreeted people who can be seen by the player].";
-
 	now every ungreeted person who can be seen by the player is greeted.
 
 The report waving hands rule is not listed in the report waving hands rulebook.
@@ -73,31 +70,23 @@ And now the scenario:
 Lester carries a bowler hat.
 
 Instead of speech in the presence of someone:
-
 	describe poor reception.
 
 Definition: a person is other if it is not the player.
 
 At 9:01 AM:
-
 	move Phineas to the location; say "A mime called Phineas appears from the non-existent bathroom."
 
 Phineas is a man.
 
 A persuasion rule:
-
 	describe poor reception;
-
 	persuasion fails.
 
 To describe poor reception:
-
 	if the player is in the Invisible box,
-
 		say "Everyone convulses with silent laughter as you try to shout from within the invisible box.";
-
 	otherwise
-
 		say "You attempt to convey your meaning with gesture and interpretive dance, but [the list of visible other people] scorn[if the number of visible other people is 1]s[end if] your performance, refusing to respond."
 
 Test me with "ask lester about work / lester, east / ask lester for bowler / lester, nice not talking to you / get in box / ask lester for hat / phineas, east".

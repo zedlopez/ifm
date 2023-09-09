@@ -22,9 +22,7 @@ Indication relates a model (called X) to a thing (called Y) when Y is shown by X
 Understand "actual" or "original" as "[actual]". Understand "[actual]" as something when the item described is not a model.
 
 Definition: a thing is suitable:
-
 	if the player's command includes "[actual]", no;
-
 	yes.
 
 Understand "[something related by indication]" as a model.
@@ -43,23 +41,17 @@ Now our duplication command – for the sake of simplicity, we'll suppose that i
 The duplicating action has an object called the selected model.
 
 Setting action variables for duplicating:
-
 	let N be a random model in the model-repository;
-
 	now the selected model is N.
 
 Check duplicating:
-
 	if the selected model is nothing, say "You're out of power." instead.
 
 Carry out duplicating:
-
 	now the noun is shown by the selected model;
-
 	move the selected model to the player.
 
 Report duplicating:
-
 	say "You concentrate and manifest [a selected model]."
 ```
 
@@ -75,17 +67,13 @@ The way around this is to remember that activities stack: we're printing the nam
 {**}The virtual-context is a truth state that varies. The virtual-context is false.
 
 Before printing the name of a model:
-
 	now virtual-context is true.
 
 After printing the name of a model:
-
 	now virtual-context is false.
 
 Before printing the name of something (called target) while asking which do you mean:
-
 	if the target is not a model and virtual-context is false:
-
 		say "actual ".
 
 Forest is a room. It contains a deer and a daisy. The deer is an animal.

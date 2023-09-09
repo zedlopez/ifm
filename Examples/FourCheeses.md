@@ -23,13 +23,10 @@ The verb to reach means the connection relation.
 Calling it on is an action applying to one visible thing and one thing.
 
 Check calling it on:
-
 	if the second noun is not a telephone, say "[The second noun] is unlikely to be much use in that respect." instead;
-
 	if the second noun is the noun, say "You get a busy signal." instead.
 
 Carry out calling it on:
-
 	if a person (called the listener) can see the noun, now the player reaches the listener.
 ```
 
@@ -40,7 +37,6 @@ Because we've said that connection is a reciprocal, one-to-one relationship, Inf
 
 ``` inform7
 {**}Report calling it on:
-
 	say "'Hello?' says [the other party of the player]."
 ```
 
@@ -51,19 +47,13 @@ To avoid annoyance, we should also let the player use ``call`` #### as well as `
 
 ``` inform7
 {**}Rule for supplying a missing second noun while calling something on:
-
 	assign a phone.
 
 To assign a phone:
-
 	if the player can touch a telephone (called the current phone):
-
 		say "(on [the current phone])[line break]";
-
 		now the second noun is the current phone;
-
 	otherwise:
-
 		say "You don't have a phone handy."
 ```
 
@@ -83,25 +73,19 @@ Understand "call [any known person]" as calling it by name on.
 Understand "call [any known person] on [something]" as calling it by name on.
 
 Rule for supplying a missing second noun while calling something by name on:
-
 	assign a phone.
 
 Calling it by name on is an action applying to one visible thing and one thing.
 
 Check calling it by name on:
-
 	if the noun is in the location, say "[The noun] is right here." instead.
 
 Carry out calling it by name on:
-
 	if the noun can touch a telephone (called the link), try calling the link on the second noun;
-
 	otherwise say "You can't reach [the noun]." instead.
 
 Before calling something on something when the player reaches someone:
-
 	say "(first ending your conversation with [the other party of the player])[command clarification break]";
-
 	end current conversation.
 
 Understand "hang up [something]" as hanging up.
@@ -109,23 +93,17 @@ Understand "hang up [something]" as hanging up.
 Hanging up is an action applying to one thing.
 
 Check hanging up:
-
 	if the noun is not a telephone, say "You can't hang up [the noun]." instead;
-
 	if the player does not reach someone, say "You're not on the line with anyone." instead.
 
 Carry out hanging up:
-
 	now the player does not reach anyone.
 
 Report hanging up:
-
 	say "You put down [the noun], cutting the connection."
 
 Before going somewhere when the player reaches someone:
-
 	say "(first hanging up on [the other party of the player])[command clarification break]";
-
 	end current conversation.
 ```
 
@@ -140,19 +118,14 @@ And finally we want to make sure that calling random other numbers produces a se
 Understand "call 911" or "call 999" or "call police" or "call fire department" as a mistake ("After strict warnings, you've given up making prank calls to emergency services.").
 
 Before misdialling when the player reaches someone:
-
 	say "(first ending your conversation with [the other party of the player])[command clarification break]";
-
 	end current conversation.
 
 To end current conversation:
-
 	let the current phone be a random telephone which can be touched by the player;
-
 	silently try hanging up the current phone.
 
 After deciding the scope of the player while the player reaches someone:
-
 	place the other party of the player in scope, but not its contents.
 ```
 
@@ -169,23 +142,16 @@ First, we should specifically disallow the player from looking at the person on 
 
 ``` inform7
 {**}To decide whether acting through the line:
-
 	if the noun is something and the location of the noun is not the location of the player:
-
 		yes;
-
 	if the second noun is something and the location of the second noun is not the location of the player:
-
 		yes;
-
 	no.
 
 Visibility rule when acting through the line:
-
 	there is insufficient light.
 
 Rule for printing a refusal to act in the dark when acting through the line:
-
 	say "You're not on a video phone, so you can only hear." instead.
 ```
 
@@ -196,11 +162,8 @@ Second, though the existing reaching inside rules are adequate to stop us from t
 
 ``` inform7
 {**}A rule for reaching inside a room (called destination):
-
 	if the other party of the player is enclosed by the destination:
-
 		say "Though you're on the line with [the other party of the player], you can't physically reach to [the destination].";
-
 		deny access.
 
 Section 2 - Conversation over the Phone, In General
@@ -213,27 +176,21 @@ This portion supplies a simple method of conversation; but we could substitute s
 
 ``` inform7
 {**}Instead of listening to a telephone when the player reaches someone:
-
 	say "You can hear [the other party of the player] breathing."
 
 Before listening to someone when the player cannot touch the noun:
-
 	say "[The noun] is waiting for you to carry on the conversation." instead.
 
 A person has a table name called chatter.
 
 Before telling someone about something:
-
 	try asking the noun about it instead.
 
 Before answering someone that something:
-
 	say "Best to confine your conversation to questions and answers." instead.
 
 Before asking someone about something:
-
 	if the topic understood is a topic listed in the chatter of the noun, say "[reply entry][paragraph break]" instead;
-
 	otherwise say "[The noun] does not reply." instead.
 
 Section 3 - The Scenario
@@ -260,51 +217,31 @@ Potter's Pizza is a room. The pizza delivery boy is a known man in Pizza. A tele
 The chatter of the boss is the Table of Boss Conversation. The chatter of the delivery boy is the Table of Pizza Conversation. The chatter of the ninja is the Table of Ninja Conversation.
 
 After calling the red telephone on something for the first time:
-
 	say "'Yes?' asks the boss. Her voice is especially husky this evening. Maybe that night of passion isn't so far off after all."
 
 Table of Boss Conversation
-
 topic	reply
-
 "love/passion/tonight/night" or "night of passion"	"'...Sorry, what?' she asks. 'I wasn't listening.' Oh. Maybe she'd go for some pizza, though."
-
 "pizza"	"'I'd love some. No pepperoni, though,' she says, sounding dreamy. Yes, this is definitely time for a call to your old friend, the pizza boy."
-
 "imminent ninja attack"	"'Don't worry about it,' says the boss crisply. 'I have everything under control.'"
 
 Table of Pizza Conversation
-
 topic	reply
-
 "pizza"	"'Pepperoni special tonight!' he says proudly."
-
 "pepperoni"	"'Pepperoni is included free on ALL our pizzas,' he says proudly."
-
 "no pepperoni"	"'Well, I don't see why you'd want that,' replies the boy sniffily. 'It's free!'"
-
 "jalapeno"	"'Sorry, we're out of jalapenos this evening. There was a run on them.'"
-
 "sausage"	"'Sausage, sure, we can do you sausage.'"
-
 "canadian bacon"	"'There's currently an embargo on Canadian pig products.'"
-
 "cheese"	"'We use four kinds,' says the boy, then lowers his voice confidentially. 'Actually, two of them are the same. Nobody ever counts. The stringy one, the one that comes in dollops and the orangey one. You know.'"
-
 "pineapple"	"'We could put pineapple on there, sure,' says the delivery boy, in a tone that lets you know his opinion of people who order fruit-based pizzas."
-
 "pineapple and garlic"	"'What kind of crazy combination is that?' demands the delivery boy, finally losing all self-control."
-
 "delivery"	"'Well, I don't know,' says the boy in a worried voice. 'Last time I came there were attack dogs. And ninjas.'"
-
 "massive gratuity"	"'There's no use in a big tip you don't live to spend,' says the delivery boy quite firmly."
 
 Table of Ninja Conversation
-
 topic	reply
-
 "imminent attack"	"'Yes, still on for tonight,' confirms the voice at the other end of the line."
-
 "pizza delivery boy"	"The voice, in tones of velvet, indicates that it cannot guarantee the safety of any delivery persons whomsoever."
 
 Test me with "call 2802 / examine boss / ask boss about night of passion / ask boss about pizza / listen to telephone / call delivery boy on telephone / ask boy about cheese / tell boy about no pepperoni / ask boy about delivery / tell boy about massive gratuity / attack boy".

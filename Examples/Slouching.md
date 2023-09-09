@@ -29,157 +29,102 @@ Posture-permission relates various things to various postures. The verb to allow
 Understand the commands "stand" and "sit" and "lie" as something new.
 
 Understand "sit on/in [something]" as sitting on.
-
 Understand "lie on/in [something]" as lying on.
-
 Understand "stand on/in [something]" as standing up on.
 
 Sitting on is an action applying to one thing.
-
 Lying on is an action applying to one thing.
-
 Standing up on is an action applying to one thing.
 
 Carry out an actor sitting on:
-
 	if the holder of the actor is not the noun, silently try the actor entering the noun;
-
 	if the holder of the actor is the noun:
-
 		if the actor is not seated, try the actor taking position seated;
-
 		otherwise follow the report taking position rules.
 
 Carry out an actor lying on:
-
 	if the holder of the actor is not the noun, silently try the actor entering the noun;
-
 	if the holder of the actor is the noun:
-
 		if the actor is not reclining, try the actor taking position reclining;
-
 		otherwise follow the report taking position rules.
 
 Carry out an actor standing up on:
-
 	if the holder of the actor is not the noun, silently try the actor entering the noun;
-
 	if the holder of the actor is the noun:
-
 		if the actor is not standing, try the actor taking position standing;
-
 		otherwise follow the report taking position rules.
 
 Understand "lie down" as lying down.
-
 Understand "sit down" or "sit" or "sit up" as sitting down.
-
 Understand "stand" or "stand up" as standing up.
 
 Lying down is an action applying to nothing.
-
 Sitting down is an action applying to nothing.
-
 Standing up is an action applying to nothing.
 
 Taking position is an action applying to one posture.
 
 Instead of an actor lying down:
-
 	try the actor taking position reclining; rule succeeds.
-
 Instead of an actor sitting down:
-
 	try the actor taking position seated; rule succeeds.
-
 Instead of an actor standing up:
-
 	try the actor taking position standing; rule succeeds.
 
 Check an actor taking position:
-
 	if the holder of the actor is not a room and the holder of the actor does not allow the posture understood:
-
 		if the actor is the player:
-
 			say "You can't take that position [in-on the holder of the actor].";
-
 		otherwise if the actor is visible:
-
 			say "[The actor] can't take that position.";
-
 		stop the action.
 
 Check an actor taking position:
-
 	if the posture understood is the posture of the actor:
-
 		if the actor is the player:
-
 			say "You are already [the posture understood].";
-
 		otherwise:
-
 			if the actor is visible, say "[The actor] is already [the posture understood].";
-
 		stop the action.
 
 Carry out an actor taking position:
-
 	now the posture of the actor is the posture understood.
 
 Report someone taking position (this is the position-report rule):
-
 	say "[The actor] is now [the posture of the actor][if the holder of the actor is not the location of the actor] [in-on the holder of the actor][end if]."
 
 Report taking position:
-
 	say "You are now [the posture of the player][if the holder of the player is not the location] [in-on the holder of the player][end if]."
 
 To say in-on (item - a thing):
-
 	if the item is a container, say "in [the item]";
-
 	otherwise say "on [the item]".
 
 Carry out an actor exiting (this is the departure-posture rule):
-
 	let N be the holder of the actor;
-
 	if N is a container or N is a supporter,
-
 		now the posture of the actor is the posture of N;
-
 	otherwise now the posture of the actor is standing.
 
 The departure-posture rule is listed after the standard exiting rule in the carry out exiting rulebook.
-
 The departure-posture rule is listed after the standard getting off rule in the carry out getting off rulebook.
 
 Carry out an actor entering something (this is the arrival-posture rule):
-
 	if the noun is a container or the noun is a supporter,
-
 		now the posture of the actor is the posture of the noun.
 
 The arrival-posture rule is listed after the standard entering rule in the carry out entering rulebook.
 
 Check an actor going somewhere:
-
 	if the actor is in a room and the actor is not standing:
-
 		say "([if the actor is not the player][the actor] [end if]first standing up)[command clarification break]";
-
 		silently try the actor taking position standing;
-
 		if the actor is not standing, stop the action.
 
 Section 2 - Some Generic Kinds
 
 A chair is a kind of supporter. A chair is always enterable. Every chair allows seated and standing. A chair is usually seated.
-
 A sofa is a kind of supporter. A sofa is always enterable. Every sofa allows seated, standing and reclining. A sofa is usually seated.
-
 A hammock is a kind of container. A hammock is always enterable. Every hammock allows seated and reclining. A hammock is usually reclining.
 
 Section 3 - The Scenario
@@ -191,11 +136,9 @@ The banana hammock is a hammock in the Resort. The stone bench is a sofa in the 
 Clark is a man in the Resort. A persuasion rule: persuasion succeeds.
 
 Rule for writing a paragraph about someone (called target):
-
 	say "[The target] is [posture] [if the holder of the target is the location]nearby[otherwise][in-on the holder of the target][end if]."
 
 Rule for writing a paragraph about something which encloses an unmentioned person (called target):
-
 	carry out the writing a paragraph about activity with the target instead.
 
 Test me with "sit on bench / stand on bench / get up / lie on hammock / sit up / g / clark, sit on bench / look / clark, lie down / g / look / clark, get up / look / clark, lie down / look / enter bench".

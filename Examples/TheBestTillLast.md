@@ -30,55 +30,35 @@ The block burning rule is not listed in any rulebook.
 A thing has some text called the burn description.
 
 Check burning something:
-
 	if the player carries the lighter:
-
 		try burning the noun with the lighter;
-
 	else:
-
 		try burning the noun with the noun.
 
 Check burning something with something when the second noun is not the lighter:
-
 	say "Your trusty lighter is the best flame source available to you." instead.
 
 Check burning something with something:
-
 	if the burn description of the noun is "":
-
 		say "Best not." instead.
 
 Carry out burning something with something:
-
 	now the noun is nowhere.
 
 Report burning something with something:
-
 	say "[burn description of the noun][line break]".
 
 A multiple action processing rule when the action name part of the current action is the burning it with action (this is the orderly burn rule):
-
 	let L be the multiple object list;
-
 	let dull list be a list of objects;
-
 	let fun list be a list of objects;
-
 	repeat with item running through L:
-
 		if the burn description of the item is "":
-
 			add item to dull list;
-
 		else:
-
 			add item to fun list;
-
 	let F be the dull list;
-
 	add fun list to F;
-
 	alter the multiple object list to F.
 
 Test me with "burn all with lighter".

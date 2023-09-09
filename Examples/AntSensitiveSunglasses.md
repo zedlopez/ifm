@@ -29,13 +29,9 @@ A slightly more flexible method is to use a substitution that calls out to a say
 The Kitchen is a room. "[kitchen-description]"
 
 To say kitchen-description:
-
 	if the player is wearing the sunglasses:
-
 		say "Are ants coming out of the sink? No, probably no.";
-
 	otherwise:
-
 		say "A small kitchen tucked into a corner of the vacation house. There is storage space for five or six cups, a sink, a two-ring stove; nothing else to speak of."
 ```
 
@@ -61,7 +57,6 @@ and then write a rule that applies to multiple rooms at once, like:
 
 ``` inform7
 Rule for printing the room-description of a room when the player wears the sunglasses:
-
 	say "The walls look like they're covered with ants. Just a coincidence, I'm sure."
 ```
 
@@ -72,7 +67,6 @@ Inform's usual rule-ranking also means that more-specific rules will override le
 
 ``` inform7
 	Rule for printing the room-description of the Kitchen when the player wears the sunglasses:
-
 	say "Are ants coming out of the sink? No, probably not."
 ```
 
@@ -123,13 +117,9 @@ Now, by default, we want to print the description property; we just want the opt
 
 ``` inform7
 {**}Rule for printing the description of something (called item):
-
 	if the description of the item is not "":
-
 		say "[description of item][paragraph break]";
-
 	otherwise:
-
 		say "You see nothing special about [the item].".
 ```
 
@@ -142,9 +132,7 @@ Next, we need the standard examining rule to look at our printing-the-descriptio
 {**}The activity-based examining rule is listed instead of the standard examining rule in the carry out examining rules.
 
 This is the activity-based examining rule:
-
 	carry out the printing the description activity with the noun;
-
 	rule succeeds.
 ```
 
@@ -159,13 +147,9 @@ Now we do the same thing to room descriptions.
 Printing the room-description of something is an activity.
 
 Rule for printing the room-description of a room (called item):
-
 	if the description of the item is not "":
-
 		say "[description of item][paragraph break]";
-
 	otherwise:
-
 		do nothing instead.
 
 The activity-based room description body text rule is listed instead of the room description body text rule in the carry out looking rules.
@@ -181,35 +165,20 @@ But all of those details are re-copied from the standard rules, and the importan
 
 ``` inform7
 {**}This is the activity-based room description body text rule:
-
 	if the visibility level count is 0:
-
 		if set to abbreviated room descriptions, continue the action;
-
 		if set to sometimes abbreviated room descriptions and
-
 			abbreviated form allowed is true and
-
 			darkness witnessed is true,
-
 			continue the action;
-
 		begin the printing the description of a dark room activity;
-
 		if handling the printing the description of a dark room activity,
-
 			say "It is pitch dark, and you can't see a thing.";
-
 		end the printing the description of a dark room activity;
-
 	otherwise if the visibility ceiling is the location:
-
 		if set to abbreviated room descriptions, continue the action;
-
 		if set to sometimes abbreviated room descriptions and abbreviated form
-
 			allowed is true and the location is visited, continue the action;
-
 		carry out the printing the room-description activity with the location.
 
 Section 3 - Device Description
@@ -217,25 +186,18 @@ Section 3 - Device Description
 Showing action of something is an activity.
 
 Rule for showing action of something (called item):
-
 	if the item is switched on, say "[The item] is switched on.";
-
 	otherwise say "[The item] is switched off."
 
 The activity-based described devices rule is listed instead of the examine devices rule in the carry out examining rules.
 
 This is the activity-based described devices rule:
-
 	if the noun is a device:
-
 		carry out the showing action activity with the noun;
-
 		now examine text printed is true.
 
 Report switching on something:
-
 	say "You flip a switch. ";
-
 	carry out the showing action activity with the noun instead.
 
 Part 2 - Scenario
@@ -247,23 +209,18 @@ The microwave is a device in the Kitchen.
 South of the Kitchen is the Living Area. The description of the Living area is "A whitewashed living/dining/reclining area in what used to be a shepherd's stone hut, but now costs vacationers 600 euros a week. It offers no mod cons, only a straight view of the Mediterranean and a wobbly writing table."
 
 Rule for printing the room-description of a room when the player wears the sunglasses:
-
 	say "The walls look like they're covered with ants. Just a coincidence, I'm sure[antsy]."
 
 Rule for printing the room-description of the Kitchen when the player wears the sunglasses:
-
 	say "Are ants coming out of the sink? No, probably not[antsy]."
 
 Rule for printing the description of something (called the item) when the player wears the sunglasses:
-
 	say "[The item] [are] [one of]ant-colored[or]ant-legged[or]covered in ants[at random][antsy]."
 
 Rule for showing action of the microwave:
-
 	say "The microwave hums meaningfully to itself."
 
 Rule for showing action of the microwave when the player wears the sunglasses:
-
 	say "The microwave hums as though inhabited by a billion ants[antsy]."
 
 The player carries sunglasses of freakiness and an apple. The apple is edible. The sunglasses are wearable.
@@ -271,15 +228,11 @@ The player carries sunglasses of freakiness and an apple. The apple is edible. T
 ant-paranoia is a number that varies.
 
 To say antsy:
-
 	increase ant-paranoia by 1;
 
 Every turn:
-
 	if the ant-paranoia is greater than 3:
-
 		say "Augh! AUUUGH! GET THEM OFF--";
-
 		end the story saying "You have lost your mind."
 
 Test me with "look / turn on microwave / turn off microwave / x apple / x sunglasses / s / wear sunglasses / look / x apple / n / turn on microwave".

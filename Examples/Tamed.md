@@ -53,9 +53,7 @@ This last bit is an entirely unnecessary bit of local color, but if we're going 
 
 ``` inform7
 {**}Every turn when the player is in the cage:
-
 	if a random chance of 1 in 2 succeeds, say "The lion eyes you with obvious discontent.";
-
 	otherwise say "Though the lion does not move, you are aware that it is watching you closely."
 ```
 

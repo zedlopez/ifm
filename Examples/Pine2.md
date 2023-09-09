@@ -25,23 +25,16 @@ Instead of waking an awake person: say "Redundant."
 Instead of waking an asleep person: say "Yes, but how?"
 
 Instead of attacking an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] sits bolt upright. 'Hey! Ow!' So much for that true love's kiss nonsense."
 
 Instead of kissing an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] slowly stirs to wakefulness!"
 
 Instead of throwing water at an asleep person:
-
 	now the second noun is awake;
-
 	now the noun is nowhere;
-
 	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.
@@ -54,23 +47,15 @@ So much, we had before. Now, suppose we want a conversation style which allows t
 
 ``` inform7
 {**}Table of Conversation
-
 topic	reply	quip
-
 "dream/dreams/nightmare/nightmares/sleep"	"'Sleep well?' you ask solicitously.line-so-blank'Not really,' she replies, edging away from you. So much for that angle."	"'Ghastly nightmares,' she remarks. You nod politely."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'So,' you say. 'This is a little weird since we just met, but, um. Would you like to get married?'line-so-blankShe looks at you nervously. 'Do I have to?'"	"'I, er,' she says. 'I hope I'm not supposed to marry you or something.'"
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'I was told I was going to marry you and inherit the kingdom,' you say, apologetically. 'Would that be very bad?'line-so-blank'Oh, it's not you -- I'm seeing someone,' she says, smiling quickly.line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend."	"'Do you think I could go look for someone? I'm seeing him, you see, and I think I've been... sick... for a while, so he might be worried.'line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'You've been up here for a hundred years,' you say. An unpleasant thought occurs to you. 'Was your young man in the castle somewhere?'line-so-blankShe shakes her head mutely."	"She goes to the window and looks out at the now-fading thicket of briar. 'That took a while to grow,' she observes. 'I've been up here longer than I thought.'line-so-blankYou shrug, uncomfortable."
 
 Instead of asking an awake beauty about a topic listed in the Table of Conversation:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]";
-
 	blank out the whole row.
 ```
 
@@ -83,21 +68,15 @@ The "now Beauty is passive" line prevents her from making any conversation of he
 {**}Instead of telling an awake beauty about something: try asking the noun about it.
 
 Instead of asking an asleep person about something:
-
 	say "[The noun] snores."
 
 Marriage Proposal ends when the number of filled rows in the Table of Conversation is 0.
 
 Every turn during Marriage Proposal:
-
 	if Beauty is active:
-
 		repeat through Table of Conversation:
-
 			say "[quip entry][paragraph break]";
-
 			blank out the whole row;
-
 			make no decision.
 ```
 

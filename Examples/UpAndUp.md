@@ -25,7 +25,6 @@ And now we borrow from the instructions on Actions to create our actual message.
 
 ``` inform7
 {**}Before going to the Endless Tower:
-
 	say "You climb... and climb... and climb... The sun sets. The moon rises. The wind begins to blow. You continue to climb..."
 
 The player carries a bit of harness. The description of the harness is "A strip of worked leather and a loop of metal, scavenged from one of the skeletons on the plain. Without it, you might think your entire quest was in vain."

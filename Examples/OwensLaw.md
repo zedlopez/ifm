@@ -19,67 +19,41 @@ We start by encoding these rules as definitions:
 A room can be indoors or outdoors. A room is usually indoors.
 
 Definition: a room is outward:
-
 	if it is not adjacent, no;
-
 	if it is indoors and the location is outdoors, no;
-
 	if it is outdoors and the location is indoors, yes;
-
 	if the number of rooms adjacent to it is greater than the number of rooms adjacent to the location, yes;
-
 	otherwise no.
 
 Definition: a room is inward:
-
 	if it is not adjacent, no;
-
 	if it is outdoors and the location is indoors, no;
-
 	if it is indoors and the location is outdoors, yes;
-
 	if the number of rooms adjacent to it is less than the number of rooms adjacent to the location, yes;
-
 	otherwise no.
 
 Instead of going nowhere when the noun is outside: try exiting.
 
 Instead of exiting when the player is in a room:
-
 	if at least one room is outward:
-
 		let the destination be a random outward room;
-
 		let the way be the best route from the location to	 the destination;
-
 		say "(that is, [way])[command clarification break]";
-
 		try going the way instead;
-
 	otherwise:
-
 		say "It's not entirely obvious which way you mean. ";
-
 		carry out the listing available exits activity.
 
 Instead of going inside when the room inside from the location is not a room and at least one room is inward:
-
 	if more than one room is inward:
-
 		carry out the listing available exits activity;
-
 	otherwise:
-
 		let the destination be a random inward room;
-
 		let the way be the best route from the location to the destination;
-
 		say "(that is, [way])[command clarification break]";
-
 		try going the way instead.
 
 Instead of going nowhere:
-
 	carry out the listing available exits activity.
 ```
 
@@ -92,29 +66,19 @@ This "listing available exits" is a refinement borrowed from a future chapter, w
 {**}Listing available exits is an activity.
 
 Rule for listing available exits:
-
 	if going inside and an adjacent room is inward:
-
 		say "From here 'in' could reasonably mean [a list of adjacent inward rooms].";
-
 		rule succeeds;
-
 	if exiting and an adjacent room is outward:
-
 		say "From here 'out' could reasonably mean [a list of outward adjacent rooms].";
-
 		rule succeeds;
-
 	say "From here you can go [a list of adjacent rooms]."
 
 Before printing the name of a room (called the target) while listing available exits:
-
 	let aim be the best route from the location to the target;
-
 	say "[aim] to the ".
 
 Rule for printing the name of an unvisited room which is not the location:
-
 	say "unknown location".
 
 Dune is an outdoors room. "Hundreds of feet of dune stretch west to the beach, crisscrossed with dune-buggy tracks and the footprints of birds. To the east is a low-lying, boxy concrete installation."

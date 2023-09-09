@@ -28,19 +28,14 @@ To sniff is a verb. To smell is a verb. The verb sniff describes the smelling ac
 To jump is a verb. To leap is a verb. To pirouette is a verb. The verb jump describes the jumping action. The verb leap describes the jumping action. The verb pirouette describes the jumping action.
 
 After an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):
-
 	say "[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].";
-
 	rule succeeds.
 
 After an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):
-
 	say "[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].";
-
 	rule succeeds.
 
 To decide which text is the rendering of (V - verb) (this is verb rendering):
-
 	decide on "[adapt V]".
 
 Section 2 - Scenario

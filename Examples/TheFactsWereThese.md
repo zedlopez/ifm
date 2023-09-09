@@ -55,9 +55,7 @@ This is for record-keeping purposes so that we can print an attractive list of w
 
 ``` inform7
 {**}First check multiply-giving it to:
-
 	if already gave at the office is true:
-
 		stop the action.
 
 Already gave at the office is a truth state that varies.
@@ -70,9 +68,7 @@ Already gave at the office is a truth state that varies.
 
 ``` inform7
 {**}Check multiply-giving something to the player:
-
 		now already gave at the office is true;
-
 		say "You can hardly bribe yourself.[paragraph break]" instead;
 ```
 
@@ -83,41 +79,23 @@ The following rule is longish because it processes the entire list at once, gene
 
 ``` inform7
 {**}Check multiply-giving it to:
-
 	let L be the multiple object list;
-
 	let bribe-price be $0;
-
 	repeat with item running through L:
-
 		if the player does not carry the item:
-
 			abide by the ungivability rules for the item;
-
 			carry out the implicitly taking activity with the item;
-
 			if the player does not carry the item:
-
 				now already gave at the office is true;
-
 				say "You can't include [the item] in your bribe, since you're not holding [them]![paragraph break]" instead;
-
 		increase bribe-price by the price of item;
-
 	if the number of entries in the recently-collected list is greater than 0:
-
 		repeat with item running through the recently-collected list:
-
 			now item is marked for listing;
-
 		say "You pick up [the list of marked for listing things] and make your offer. [run paragraph on]";
-
 		now everything is unmarked for listing;
-
 	if the bribe-price is less than the price of the second noun:
-
 		now already gave at the office is true;
-
 		say "[The second noun] angrily rejects your piffling bribe.[paragraph break]" instead.
 ```
 
@@ -128,19 +106,13 @@ The bit about making some items "marked for listing", above, rather than printin
 
 ``` inform7
 {**}Carry out multiply-giving it to:
-
 	let L be the multiple object list;
-
 	repeat with item running through L:
-
 		now the second noun carries the item;
-
 		now the item is given;
-
 	now already gave at the office is true;
 
 Report multiply-giving it to:
-
 	say "[The second noun] rather shamefacedly tucks [the list of given things] away into a pocket.[paragraph break]".
 ```
 
@@ -156,53 +128,36 @@ Because of the way this works, we will want to be careful: if we have any "inste
 {**}The ungivability rules are an object-based rulebook.
 
 An ungivability rule for a person:
-
 	now already gave at the office is true;
-
 	say "Slavery is illegal.[paragraph break]" instead.
 
 An ungivability rule for something (called the item) which is enclosed by someone who is not the player:
-
 	now already gave at the office is true;
-
 	say "[The item] [aren't] yours to give.[paragraph break]" instead.
 
 An ungivability rule for something which encloses the player:
-
 	now already gave at the office is true;
-
 	say "You don't want to end up as part of the gift.[paragraph break]" instead;
 
 An ungivability rule for something (called the item) which is part of something:
-
 	now already gave at the office is true;
-
 	say "[The item] [are] attached to [a random thing which incorporates the item][paragraph break]" instead.
 
 An ungivability rule for something (called the item) which is scenery:
-
 	now already gave at the office is true;
-
 	say "[The item] [are] unremovable.[paragraph break]" instead.
 
 An ungivability rule for something (called the item) which is fixed in place:
-
 	now already gave at the office is true;
-
 	say "[The item] [are] fixed in place.[paragraph break]" instead.
 
 An ungivability rule for a direction (called the item):
-
 	now already gave at the office is true;
-
 	say "[The item] [are] not susceptible to giving.[paragraph break]" instead.
 
 Rule for implicitly taking something (called target) while multiply-giving:
-
 	silently try taking the target;
-
 	if the player carries the target:
-
 		add the target to the recently-collected list.
 
 The recently-collected list is a list of objects that varies.
@@ -217,15 +172,10 @@ And since we don't want to list the individual objects separately:
 {**}The selectively announce items from multiple object lists rule is listed instead of the announce items from multiple object lists rule in the action-processing rules.
 
 This is the selectively announce items from multiple object lists rule:
-
 	if multiply-giving:
-
 		do nothing;
-
 	otherwise:
-
 		if the current item from the multiple object list is not nothing:
-
 			say "[current item from the multiple object list]: [run paragraph on]".
 ```
 
@@ -236,9 +186,7 @@ And now, since this ought to work symmetrically if the player provides just one 
 
 ``` inform7
 {**}Check giving something to someone:
-
 	if the price of the noun is less than the price of the second noun:
-
 		say "[The second noun] angrily rejects your piffling bribe." instead.
 ```
 
@@ -253,7 +201,6 @@ As we've seen elsewhere, the giving action by default returns a refusal, but is 
 The new report giving rule is listed instead of the standard report giving rule in the report giving it to rules.
 
 This is the new report giving rule:
-
 	say "[The second noun] rather shamefacedly tucks [the noun] away into a pocket."
 ```
 
@@ -266,11 +213,8 @@ After each instance of the multiply-giving action, we need to clear the variable
 {**}The before-generation rule is listed before the generate action rule in the turn sequence rules.
 
 This is the before-generation rule:
-
 	now every thing is ungiven;
-
 	now already gave at the office is false;
-
 	truncate the recently-collected list to 0 entries.
 
 Section 2 - Scenario

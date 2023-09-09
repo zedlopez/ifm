@@ -19,9 +19,7 @@ This is divided into several parts. The first part is the system of rules for ge
 Part 1 - General Rules
 
 When play begins:
-
 	say "Have you played interactive fiction before? >";
-
 	if the player consents, now novice mode is false.
 ```
 
@@ -34,99 +32,75 @@ The rationale for asking the question this way, and not another, is that novices
 {**}Novice mode is a truth state that varies. Novice mode is true.
 
 Stopping novice mode is an action out of world.
-
 Starting novice mode is an action out of world.
 
 Understand "novice mode off" or "novice off" as stopping novice mode.
-
 Understand "novice mode on" or "novice on" as starting novice mode.
 
 Carry out stopping novice mode: now novice mode is false.
-
 Carry out starting novice mode: now novice mode is true.
 
 Report stopping novice mode: say "Novice mode is now off."
-
 Report starting novice mode: say "Novice mode is now on."
 
 Before reading a command when novice mode is true:
-
 	say "[line break]Some options to try:[line break]";
-
 	follow the novice suggestion rules.
 
 The novice suggestion rules is a rulebook.
 
 The previous action is an action that varies.
-
 Before doing anything, now the previous action is the current action.
 
 A novice suggestion rule (this is the suggestion that they look rule):
-
 	unless the previous action is looking or the previous action is going, say "  [bold type]look[roman type]".
 
 A novice suggestion rule (this is the suggestion that they check inventory rule):
-
 	if the player carries something and we are not taking inventory, say "  [bold type]inventory[roman type] (I)".
 
 A novice suggestion rule (this is the suggestion that they put things on rule):
-
 	if the player carries something and a free-standing supporter is relevant, say "  [bold type]put[roman type] something [bold type]on[roman type] [the list of relevant supporters]".
 
 A novice suggestion rule (this is the suggestion that they take things rule):
-
 	if a gettable thing is relevant, say "  [bold type]take[roman type] [the list of gettable relevant things]".
 
 A novice suggestion rule (this is the suggestion that they examine things rule):
-
 	if an unexamined thing is relevant, say "  [bold type]examine[roman type] (X) [the list of unexamined relevant things]".
 
 A novice suggestion rule (this is the suggestion that they enter things rule):
-
 	if a relevant thing is worth entering, say "  [bold type]enter[roman type] [the list of worth entering relevant things], or [bold type]get out[roman type]".
 
 A novice suggestion rule (this is the suggestion that they open things rule):
-
 	if an unlocked openable thing is relevant, say "  [bold type]open[roman type] or [bold type]close[roman type] [the list of unlocked openable relevant things]".
 
 A novice suggestion rule (this is the suggestion that they lock things rule):
-
 	if a closed lockable thing is relevant, say "  [bold type]lock[roman type] or [bold type]unlock[roman type] [the list of closed lockable relevant things]".
 
 A novice suggestion rule (this is the suggestion that they eat things rule):
-
 	if the player carries an edible relevant thing, say "  [bold type]eat[roman type] [the list of edible relevant things carried by the player]".
 
 A novice suggestion rule (this is the suggestion that they wear things rule):
-
 	if the player carries a wearable relevant thing, say "  [bold type]wear[roman type] [the list of wearable relevant things carried by the player]".
 
 A novice suggestion rule (this is the suggestion that they turn things on rule):
-
 	if a device is relevant, say "  [bold type]turn on[roman type] or [bold type]turn off[roman type] [the list of relevant devices]".
 
 A novice suggestion rule (this is the suggestion that they go places rule):
-
 	if a room is adjacent, say "  [bold type]go[roman type][exit list][if in darkness] or try other directions in the dark[otherwise]".
 
 A novice suggestion rule (this is the suggestion that they enter doors rule):
-
 	if an open door is relevant, say "  [bold type]go through[roman type] [the list of relevant open doors]".
 
 A novice suggestion rule (this is the suggestion that they interact with people rule):
-
 	if another person is relevant, say "  [bold type]kiss[roman type] or [bold type]wake[roman type] [the list of relevant other people][if the player carries something], or [bold type]give[roman type] things [bold type]to[roman type] someone[end if]".
 
 A novice suggestion rule (this is the suggestion that they ask for help rule):
-
 	say "  [bold type]help[roman type] to see a more complete set of instructions".
 
 A novice suggestion rule (this is the suggestion that they turn off help rule):
-
 	say "  [bold type]novice mode off[roman type] to turn off this guidance".
 
 Last novice suggestion rule:
-
 	say "[line break]".
 ```
 
@@ -147,15 +121,11 @@ A thing can be seen or unseen. A thing is usually unseen.
 Definition: a thing is relevant if it is seen and it is visible. Before printing the name of something (called the target): now the target is seen; if novice mode is true, say "[bold type]". After printing the name of something: say "[roman type]".
 
 Definition: a supporter is worth entering:
-
 	if the player carries it, no;
-
 	if it is enterable, yes.
 
 Definition: a container is worth entering:
-
 	if the player carries it, no;
-
 	if it is enterable and it is open, yes.
 
 Definition: a person is other if it is not the player. Definition: a person is another if it is other.
@@ -163,33 +133,20 @@ Definition: a person is other if it is not the player. Definition: a person is a
 Definition: a thing is free-standing if it is in a room.
 
 To say exit list:
-
 	let place be location;
-
 	let count be 0;
-
 	repeat with way running through directions:
-
 		let place be the room way from the location;
-
 		if place is a room:
-
 			increment count;
-
 			say "[if count is greater than 1] or[end if] [bold type][way][roman type]".
 
 Definition: a thing is gettable:
-
 	if it is scenery, no;
-
 	if it is fixed in place, no;
-
 	if it is a person, no;
-
 	if the player is carrying it, no;
-
 	if the player is wearing it, no;
-
 	yes.
 
 Part 2 - On the Ground

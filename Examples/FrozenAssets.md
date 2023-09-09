@@ -23,37 +23,26 @@ Now we assume a simple shopping model in which the player can't take anything wi
 
 ``` inform7
 {**}Definition: a thing is free if the price of it is $0.00.
-
 Definition: a thing is for sale if it is not free.
 
 Instead of taking something for sale:
-
 	say "You'll have to pay for that."
 
 Before buying something for sale when the money is not in the wallet:
-
 	say "You're broke." instead.
 
 Before buying something for sale when the money is free:
-
 	say "You're broke." instead.
 
 Before buying something for sale when the price of the money is less than the price of the noun:
-
 	say "Your funds do not run to the price of [the noun]." instead.
 
 Instead of buying something:
-
 	decrease the price of the money by the price of the noun;
-
 	say "You fork over [the price of the noun] for [the noun], leaving yourself with [the price of the money].";
-
 	if the money is free:
-
 		now the money is nowhere;
-
 	now the price of the noun is $0.00;
-
 	now the player is carrying the noun.
 ```
 
@@ -66,15 +55,12 @@ The player's money object is going to be a bit unusual, because it has value but
 {**}The player carries a wallet. The wallet contains money. The price of the money is $4.50. The printed name of the money is "[price of the money] in cash". Understand "cash" as the money.
 
 Instead of taking the money:
-
 	say "Best to leave it alone until you need to buy something."
 
 Instead of buying something free:
-
 	say "[The noun] is yours already."
 
 Instead of buying the money:
-
 	say "The money belongs to you; you buy things with it."
 ```
 

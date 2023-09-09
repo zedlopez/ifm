@@ -26,15 +26,11 @@ The Table of Final Question Options determines what options are to be given to t
 
 ``` inform7
 {**}When play begins:
-
 	choose row with a final response rule of immediately undo rule in the Table of Final Question Options;
-
 	blank out the final question wording entry.
 
 Instead of jumping:
-
 	say "If you insist.";
-
 	end the story.
 ```
 

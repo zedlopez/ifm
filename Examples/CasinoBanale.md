@@ -45,15 +45,10 @@ Now, we also need a way to tell Inform to introduce certain new facts when the r
 {**}Following relates various facts to various facts. The verb to follow means the following relation.
 
 To say (new fact - a fact):
-
 	say "[narration of the new fact]";
-
 	now the new fact is known;
-
 	repeat with possible outcome running through facts which follow the new fact:
-
 		if every fact which is followed by possible outcome is known:
-
 			now the possible outcome is ready to learn.
 ```
 
@@ -64,23 +59,16 @@ Next we need a way for the game to introduce these new facts. Let's say we want 
 
 ``` inform7
 {**}After examining something which conveys an interesting fact (called discovery):
-
 	say "[discovery][paragraph break]".
 
 After choosing notable locale objects:
-
 	repeat through the Table of Locale Priorities:
-
 		if the notable-object entry is narratively significant:
-
 			set the locale priority of the notable-object entry to 1.
 
 For writing a paragraph about a narratively significant thing (called item):
-
 	now the item is mentioned;
-
 	let chosen fact be a random interesting fact which is conveyed by the item;
-
 	say "[chosen fact][paragraph break]".
 ```
 
@@ -106,45 +94,29 @@ Tim is a man in the Casino. The description is "You don't know Tim well. Kind of
 Penny is a woman in the Casino. The description is "Loud. Brash. Hot, probably, if you can look past the loud and brash."
 
 Rule for writing a paragraph about a narratively dull person:
-
 	let is-are-n be "is";
-
 	if the number of unmentioned narratively dull people is not 1:
-
 		let is-are-n be "are";
-
 	say "[A list of unmentioned narratively dull people] [is-are-n] [one of]watching the croupier[or]following the spin of the roulette[or]chattering[at random][one of] breathlessly[or] impatiently[or][at random]."
 
 Penny-annoying is a fact.
-
 	It is ready to learn.
-
 	The narration is "[if looking]Penny grimaces at you-- [end if]Penny is the same woman who stepped on your toe in the buffet line. The third time, she blurted, 'You have big shoes, don't you?'"
-
 	Penny conveys penny-annoying.
 
 lipstick-smudges is a fact.
-
 	It is ready to learn.
-
 	The narration is "There are a couple of smudges of coral-colored lipstick on the collar."
-
 	The ludicrous shirt conveys lipstick-smudges.
 
 penny-wears-coral is a fact.
-
 	It follows penny-annoying.
-
 	The narration is "[if looking]Penny catches your eye again. [end if]The bright coral lipstick was really not a wise choice."
-
 	Penny conveys penny-wears-coral.
 
 Affair-with-penny is a fact.
-
 	It follows lipstick-smudges and penny-wears-coral.
-
 	The narration is "You avoid [if examining Frince]his[otherwise]Frince's[end if] eye. You need some time to adjust to the image of him making out with Penny in a storage closet before you can talk to him without appalled giggling."
-
 	Frince conveys affair-with-Penny.
 
 Test me with "x penny / x frince / x shirt / look".

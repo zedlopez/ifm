@@ -16,37 +16,25 @@ The following example makes fairly ample use of material that we haven't seen ye
 A battery is a kind of thing. A battery has a number called charge. The charge of a battery is usually 15.
 
 Every turn:
-
 	repeat with hollow running through battery compartments:
-
 		if the hollow is part of a switched on device (called the machine):
-
 			if a battery (called cell) is in the hollow:
-
 				decrement the charge of the cell;
-
 				carry out the warning about failure activity with the machine;
-
 				if the cell is discharged, carry out the putting out activity with the machine;
-
 			otherwise:
-
 				carry out the putting out activity with the machine.
 
 Warning about failure of something is an activity.
 
 Rule for warning about failure of a device (called the machine):
-
 	if a random battery compartment which is part of the machine contains a battery (called the power source):
-
 		if the charge of the power source is 2, say "[The machine] is obviously going to go out quite soon."
 
 Putting out something is an activity.
 
 Rule for putting out a device (called the machine):
-
 		say "[The machine] loses power and switches off![line break]";
-
 		silently try switching off the machine.
 
 A battery compartment is a kind of container. A battery compartment is usually closed and openable. One battery compartment is part of every device. Instead of inserting something which is not a battery into a battery compartment, say "Only batteries should go in a battery compartment."
@@ -71,19 +59,14 @@ Understand "put [something] in [container]" as inserting it into.
 Instead of opening a device, try opening a random battery compartment which is part of the noun. Instead of closing a device, try closing a random battery compartment which is part of the noun. Instead of inserting a battery into a device, try inserting the noun into a random battery compartment which is part of the second noun.
 
 Instead of switching on an empty device:
-
 	say "Nothing happens, perhaps because there isn't a charged battery in [the noun]."
 
 Instead of switching on a battery compartment which is part of a device (called the power user), try switching on the power user.
 
 Definition: a device is empty:
-
 	if a random battery compartment which is part of it contains a battery (called the power source):
-
 		if the power source is discharged, yes;
-
 		no;
-
 	yes.
 
 Definition: a battery is discharged if its charge < 1.
@@ -95,9 +78,7 @@ The flashlight is a light source. A D battery is a battery carried by the player
 The cassette recorder is a device. Every turn: if the cassette recorder is switched on, say "The cassette recorder hisses faintly."
 
 Rule for warning about failure of the cassette recorder:
-
 	if a random battery compartment which is part of the cassette recorder contains a battery (called the power source):
-
 		if the charge of the power source is 2, say "The hiss from [the cassette recorder] begins to warble ominously."
 
 The player wears a backpack. The backpack is openable. In the backpack is the flashlight and the cassette recorder.
@@ -137,13 +118,9 @@ We also need to deal with commands like ``put battery`` IN ``flashlight``, where
 
 ``` inform7
 {**}Does the player mean inserting into a battery compartment:
-
 	if the noun is nothing:
-
 		it is very likely;
-
 	otherwise:
-
 		make no decision.
 
 Does the player mean inserting a battery compartment into: it is very unlikely.

@@ -37,7 +37,6 @@ Now the scenario for testing:
 
 ``` inform7
 {**}When play begins:
-
 	say "You are cornered by a pack of zombie wolves, armed only with a torch and a pair of pinking shears. This may be your last moment on earth, unless you can think fast!"
 
 Cleft is a room. "You're backed into a cleft in the granite: behind you are only steep, high faces of stone, and before you a narrow passage."
@@ -45,9 +44,7 @@ Cleft is a room. "You're backed into a cleft in the granite: behind you are only
 The plural of zombie wolf is zombie wolves. A zombie wolf is a kind of animal. Four zombie wolves are in Cleft.
 
 Rule for writing a paragraph about zombie wolves:
-
 	say "The good news is that there isn't much space in which for the zombie wolves to attack.";
-
 	now every zombie wolf is mentioned.
 
 A steep high face of stone is scenery in Cleft. Understand "rock" as the stone. The description is "Now that you look more closely, there appear to be pitons driven into the rock."
@@ -59,15 +56,11 @@ Instead of climbing the stone, try going up. Instead of climbing the pitons, try
 Above the Cleft is Clifftop.
 
 Every turn when the location is Cleft:
-
 	say "Alas, your time has run out. The alpha wolf springs--";
-
 	end the story.
 
 Every turn when the location is Clifftop:
-
 	say "After a breathless climb, you emerge at last onto the open clifftop.";
-
 	end the story finally.
 
 Test me with "x me / x stone / x pitons / climb pitons".

@@ -33,9 +33,7 @@ We should reject movement to the player's current location, or to anywhere they 
 
 ``` inform7
 {**}Check going by name:
-
 	if the noun is the location, say "You're already in [the location]." instead;
-
 	if the noun is not adjacent and the noun is unvisited, say "That noun did not make sense in this context." instead.
 ```
 
@@ -49,15 +47,10 @@ Now for the travel itself. The simplest way to ensure that the usual movement ru
 
 ``` inform7
 {**}Carry out going by name:
-
 	let aim be the best route from the location to the noun, using doors;
-
 	if aim is not a direction, say "You can't think how to get there from here." instead;
-
 	say "(heading [aim])[command clarification break]";
-
 	try going aim;
-
 	if the location is not the noun, say "You'll have to stop here."
 ```
 
@@ -82,7 +75,6 @@ And in keeping with the original, we might add to our scenario a rule or two abo
 {**}The player carries a plover egg and a platinum pyramid. The description of the egg is "Plover's eggs, by the way, are quite large." The printed name of the egg is "emerald the size of a plover's egg". Understand "emerald" as the egg. The description of the pyramid is "The platinum pyramid is 8 inches on a side!"
 
 Instead of going to the Plover Room from the Alcove when the player carries something which is not the plover egg:
-
 	say "Something you're carrying won't fit through the tunnel with you. You'd best take inventory and drop something."
 
 Test me with "go to misty cavern / go to dark corridor / go to plover room / go to alcove / go to dark corridor / drop pyramid / go to dark corridor / g / go to alcove / g / go to misty cavern".

@@ -16,7 +16,6 @@ We need to designate certain rooms as roads. Since the status of being a road wi
 A road is a kind of room. Definition: a room is offroad if it is not a road.
 
 Instead of going by a vehicle (called the auto) to somewhere offroad:
-
 	say "You can't drive [the auto] off-road."
 
 Trafalgar Square is a road. "The Square is overlooked by a pillared statue of Admiral Lord Horatio Nelson (no relation), naval hero and convenience to pigeons since 1812."

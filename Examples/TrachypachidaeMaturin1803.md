@@ -21,21 +21,17 @@ Understand "uncork [something]" as uncorking.
 Corking is an action applying to one thing.
 
 Check corking:
-
 	if the noun is not a bottle, say "[The noun] cannot be corked." instead.
 
 Carry out corking:
-
 	try closing the noun.
 
 Uncorking is an action applying to one thing.
 
 Check uncorking:
-
 	if the noun is not a bottle, say "[The noun] cannot be uncorked." instead.
 
 Carry out uncorking:
-
 	try opening the noun.
 
 Understand "close [something] with [something preferably held]" as corking it with.
@@ -45,59 +41,42 @@ Understand "cork [something] with [something preferably held]" as corking it wit
 Corking it with is an action applying to one thing and one carried thing.
 
 Check corking it with:
-
 	if the noun is not a bottle, say "[The noun] cannot be corked." instead;
-
 	if the second noun is not a cork, say "[The second noun] will not fit in [the noun]." instead.
 
 Carry out corking it with:
-
 	try inserting the second noun into the noun instead.
 
 Instead of closing a bottle:
-
 	if a cork (called the item) is carried by the player, try inserting the item into the noun instead;
-
 	otherwise say "You need a stopper of some kind."
 
 Instead of opening a bottle:
-
 	if a cork (called the item) is in the noun, try taking the item instead;
-
 	otherwise say "[The noun] has no stopper."
 
 Carry out inserting a cork into a bottle:
-
 	now the second noun is closed.
 
 After inserting a cork into a bottle:
-
 	say "You stopper [the second noun] with [the noun]."
 
 Before taking a cork when the noun is in a closed bottle (called the item):
-
 	now the item is open.
 
 Instead of taking a cork when the noun is in a bottle (called the item):
-
 	move the noun to the player;
-
 	say "You pull [the noun] from [the item]." instead.
 
 Before printing the name of a bottle (called target) while not inserting, taking, searching, or removing:
-
 	if the target is closed, say "sealed ";
-
 	otherwise say "now open ".
 
 After printing the name of a bottle (called target) while not inserting, searching, examining, or removing:
-
 	if the target contains a noncork thing, say " containing [a list of noncork things in the target]";
-
 	omit contents in listing.
 
 Instead of examining a bottle:
-
 	say "[The noun] contains [a list of noncork things in the noun]."
 
 Definition: a thing is noncork if it is not a cork.

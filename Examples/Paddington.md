@@ -18,27 +18,20 @@ A blade is a kind of thing.
 Understand "cut [something] with [something]" as cutting it with.
 
 Instead of cutting something:
-
 	if a blade (called the edge) is held by the player,
-
 		try cutting the noun with the edge;
-
 	otherwise say "Your fingernails are not sharp enough."
 
 Cutting it with is an action applying to two things.
 
 Check cutting it with:
-
 	if the noun is a person, say "That would hurt." instead;
-
 	if the second noun is not a blade, say "[The second noun] has not got enough of a blade." instead.
 
 Carry out cutting it with:
-
 	increment the count of rips of the noun.
 
 Report cutting it with:
-
 	say "You slash [the noun] with [the second noun]."
 ```
 
@@ -67,9 +60,7 @@ So far, so good. But suppose that we'd like cutting also to make containers be p
 
 ``` inform7
 {**}Carry out cutting a container with something:
-
 	now the noun is open;
-
 	now the noun is unopenable.
 ```
 
@@ -80,11 +71,9 @@ Now our rule will occur whenever a container is cut, but play will still go on t
 
 ``` inform7
 {**}Carry out cutting something which is part of something with something:
-
 	move the noun to the player.
 
 Carry out cutting the quilt with something:
-
 	now the description of the quilt is "Horribly tattered."
 ```
 
@@ -95,9 +84,7 @@ For that matter, we might want to add a report rule as well, to occur after the 
 
 ``` inform7
 {**}Report cutting it with:
-
 	if the noun is open and the noun contains something,
-
 		say "Visible within [is-are a list of things in the noun]."
 ```
 
@@ -123,7 +110,6 @@ Here is a final nicety to get rid of the "which is closed" statement on our clos
 
 ``` inform7
 {**}After printing the name of a closed unopenable container:
-
 	omit contents in listing.
 
 Test me with "cut quilt with bear / cut quilt with switchblade / examine quilt / cut bear with switchblade / again / examine bear / cut head with switchblade / get diamonds / mourn loss of innocence".

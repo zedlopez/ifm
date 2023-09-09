@@ -35,43 +35,26 @@ Now, we're going to describe the higher numbers as face cards, so it helps to wr
 
 ``` inform7
 {**}To say (count - a number) as a card value:
-
 	choose row count in the Table of Value Names;
-
 	say "[term entry]".
 
 Rule for printing the name of a card (called target):
-
 	say "[rank of the target as a card value] of [suit of the target]"
 
 Table of Value Names
-
 term	value	topic
-
 "ace"	"1"	"ace/A/one"
-
 "deuce"	"2"	"deuce/two"
-
 "three"	"3"	"three"
-
 "four"	"4"	"four"
-
 "five"	"5"	"five"
-
 "six"	"6"	"six"
-
 "seven"	"7"	"seven"
-
 "eight"	"8"	"eight"
-
 "nine"	"9"	"nine"
-
 "ten"	"10"	"ten"
-
 "jack"	"11"	"jack/knave/J"
-
 "queen"	"12"	"queen/Q"
-
 "king"	"13"	"king/K"
 ```
 
@@ -82,19 +65,12 @@ This is enough already to let inform understand things like "ten clubs", but we 
 
 ``` inform7
 {**}After reading a command:
-
 	if the player's command includes "of [suit]":
-
 		while the player's command includes "of":
-
 			cut the matched text;
-
 	repeat through the Table of Value Names:
-
 		while the player's command includes topic entry:
-
 			replace the matched text with value entry.
-
 	[This allows Inform to understand "ace", "deuce", "king", etc., as numerical ranks.]
 ```
 
@@ -108,27 +84,17 @@ Now to set up the deck at the outset. With some intelligent looping, we avoid ha
 
 ``` inform7
 {**}When play begins:
-
 	reconstitute deck.
 
 To reconstitute deck:
-
 	let current suit be hearts;
-
 	now every card is in the card repository;
-
 	while a card is in the card repository:
-
 		repeat with current rank running from 1 to 13:
-
 			let item be a random card in card repository;
-
 			now rank of item is current rank;
-
 			now suit of item is current suit;
-
 			now item is in the deck of cards;
-
 		now current suit is the suit after the current suit.
 ```
 
@@ -147,13 +113,9 @@ The deck of cards is in the Empty Room. It is a closed unopenable container. The
 The discard pile is a closed unopenable container. The description is "Cards in this game are discarded face-down, so the discard pile is not very interesting to see. All you can observe is that it currently contains [if the number of cards which are in the discard pile is less than ten][the number of cards which are in the discard pile in words][otherwise]about [the rounded number of cards which are in the discard pile in words][end if] card[s]."
 
 To decide what number is the rounded number of (described set - a description of objects):
-
 	let N be the number of members of the described set;
-
 	let R be N divided by 5;
-
 	let total be R times 5;
-
 	decide on total.
 ```
 
@@ -184,41 +146,31 @@ Understand "take [text]" or "get [text]" or "drop [text]" as a mistake ("Here, y
 Understand "draw" or "draw card" or "draw a card" as drawing. Drawing is an action applying to nothing. The drawing action has an object called the card drawn.
 
 Setting action variables for drawing:
-
 	now the card drawn is a random card which is in the deck of cards.
 
 Check drawing:
-
 	if the card drawn is nothing, say "The deck is completely depleted." instead.
 
 Check drawing:
-
 	if the number of cards carried by the player is greater than four,
-
 		say "This is a five-card game; you must discard something before drawing anything further." instead.
 
 Carry out drawing:
-
 	move the card drawn to the player.
 
 Report drawing:
-
 	say "You draw [a card drawn]."
 
 Understand "discard [card]" as discarding. Discarding is an action applying to one thing.
 
 Check discarding:
-
 	if the player does not carry the noun, say "You can only discard cards from your own hand." instead.
 
 Carry out discarding:
-
 	now the noun is in the discard pile;
-
 	if the discard pile is not visible, move the discard pile to the location.
 
 Report discarding:
-
 	say "You toss [the noun] nonchalantly onto the discard pile."
 
 Seeding is an action out of world. Understand "seed" as seeding. Carry out seeding: seed the random-number generator with 5681.

@@ -30,17 +30,13 @@ Use scoring.
 Explaining relates one thing to various things. The verb to explain means the explaining relation.
 
 Instead of hinting about something when something unexamined (called the clue) explains the noun:
-
 	say "You're still missing some information that might be useful to understanding the problem. [More]";
-
 	if player consents, try hinting about the clue.
 
 Requiring relates one thing to various things. The verb to require means the requiring relation.
 
 Instead of hinting about something when the noun requires something (called the implement) which is not carried by the player:
-
 	say "You're missing an object that might be useful to resolving this problem. [More]";
-
 	if player consents, try hinting about the implement.
 
 Hinting about is an action applying to one visible thing. Understand "hint about [any thing]" as hinting about.
@@ -53,15 +49,10 @@ This allows us to create the most absolutely generic sort of hint – boring, pe
 
 ``` inform7
 {**}Carry out hinting about:
-
 	if something explains the noun, say "You might want to review [the list of things which explain the noun]. ";
-
 	if the noun requires something:
-
 		say "You should be sure that you have [the list of things required by the noun]. ";
-
 	otherwise:
-
 		say "Sorry, I can't advise you further on that.".
 ```
 
@@ -72,19 +63,13 @@ These things cover hinting about objects that are themselves puzzles. But what i
 
 ``` inform7
 {**}Carry out hinting about something which explains something (called target):
-
 	if target is unseen, say "[The noun] might prove useful information, sooner or later." instead;
-
 	otherwise say "You could examine [the noun]." instead.
 
 Carry out hinting about something which is required by something:
-
 	say "[The noun] might be useful to have. [More]";
-
 	if player consents:
-
 		if a seen thing requires the noun, say "[The noun] may help with [the list of seen things which require the noun]." instead;
-
 		otherwise say "There are [number of things which require the noun in words] problems for which [the noun] might come in handy." instead.
 ```
 
@@ -95,61 +80,37 @@ Now we have these general hints written, but we want to pre-empt them if the pla
 
 ``` inform7
 {**}Instead of hinting about something unseen:
-
 	if the noun is visible:
-
 		now the noun is seen;
-
 		continue the action;
-
 	say "Perhaps you should explore further. ";
-
 	if the ultimate location of the noun is an unvisited room:
-
 		try hinting about the ultimate location of the noun;
-
 	otherwise:
-
 		if the ultimate location of the noun is the location:
-
 			say "You're in the correct room right now[if the visible shell of the noun is a thing]. Try further exploring [the visible shell of the noun][end if].";
-
 		otherwise:
-
 			try hinting about the ultimate location of the noun.
 
 Instead of hinting about a visited room:
-
 	say "There's a room you've visited, but you haven't exhausted all there is to see there. [More]";
-
 	if player consents:
-
 		say "Try going back to [the noun]. [More]";
-
 		if player consents, direct player to the noun.
 
 Instead of hinting about an unvisited room:
-
 	say "There's a room you haven't yet visited.  [More]";
-
 	if player consents, direct player to the noun.
 
 To direct player to (goal - a room):
-
 	let way be the best route from location to the goal, using even locked doors;
-
 	if way is a direction, say "Try going [way] to start your explorations.";
-
 	otherwise say "Sorry, the route is an indirect one.".
 
 Instead of hinting about a portable seen thing which is not visible:
-
 	if the noun is scenery, continue the action;
-
 	say "You have seen the item you need to solve this problem, but it's not in sight at the moment.  [More]";
-
 	if player consents:
-
 		try hinting about the ultimate location of the noun.
 ```
 
@@ -181,29 +142,19 @@ In practice, there might be other ways of getting vital facts, and in a more sop
 
 ``` inform7
 {**}To decide what room is the ultimate location of (item - a thing):
-
 	let place be the holder of the item;
-
 	while the place is a thing:
-
 		let the place be the holder of the place;
-
 	if the place is a room, decide on the place.
 
 To decide what thing is the visible shell of (item - a thing):
-
 	if item is visible, decide on the item;
-
 	let place be the holder of the item;
-
 	while place is a thing and place is not visible:
-
 		let place be the holder of the place;
-
 	if the place is visible, decide on the place.
 
 To say more:
-
 	say "[paragraph break]Shall I go on? > ".
 ```
 
@@ -214,43 +165,31 @@ That covers most of the generic hints, but let's also add some slightly more pre
 
 ``` inform7
 {**}Carry out hinting about a locked lockable thing:
-
 	say "You could unlock [the noun] with [the matching key of the noun]." instead.
 
 Instead of hinting about a locked thing when the matching key of the noun is not carried by the player:
-
 	if the player can see the matching key of the noun:
-
 		say "Perhaps [the matching key of the noun] would help.";
-
 	otherwise:
-
 		say "[The noun] is locked. There must be a key around somewhere. [More]";
-
 		if player consents, try hinting about the matching key of the noun.
 
 Carry out hinting about a closed openable unlocked thing:
-
 	say "You could open [the noun]." instead.
 
 Carry out hinting about an open door:
-
 	say "You could enter [the noun]." instead.
 
 Carry out hinting about an unexamined thing:
-
 	say "You might find out something if you examine [the noun]." instead.
 
 Carry out hinting about an edible thing:
-
 	say "You could eat [the noun]." instead.
 
 Carry out hinting about a wearable thing:
-
 	say "You could wear [the noun]." instead.
 
 Carry out hinting about a pushable between rooms thing:
-
 	say "You could push [the noun] some direction." instead.
 ```
 
@@ -272,7 +211,6 @@ Notice that we used the bracketed tomb here: the tomb is scenery, and if we do n
 {**}The tomb is scenery in the Crypt. The tomb is openable and closed. The silver dagger is a thing in the tomb. Understand "tombs" as the tomb. The description of the silver dagger is "Gleaming in a soft light all its own. Its blade is figured with running deer and its hilt is made of horn." The wight requires the silver dagger. The tomb requires the pry bar.
 
 Instead of opening the tomb when the player does not carry the pry bar:
-
 	say "The lids are stone, too heavy for you to raise without some implement."
 ```
 
@@ -283,7 +221,6 @@ Now we can add specific hints to replace the generic ones:
 
 ``` inform7
 {**}Carry out hinting about the tomb:
-
 	say "The lids are heavy, but you can open them when you carry the pry bar."
 ```
 
@@ -300,17 +237,13 @@ Instead of unlocking something with the pry bar, try opening the noun.
 The wight is a man in the Crypt. "[The wight] lurks near the south exit." The description of wight is "Old English [italic type]wiht[roman type]: a thing, a creature. It is little more than the memory of a life ill-lived, but it lingers here." Understand "wiht" or "creature" or "ghost" as the wight.
 
 Instead of going south in the presence of wight:
-
 	say "The wight breathes chill into your face.line-so-blankYour head swims, and you are aware that you no longer have the willpower to go in that direction."
 
 Fresh Air is south from the Crypt.
 
 After going to Fresh Air:
-
 	increment the score;
-
 	say "Congratulations, you have escaped!";
-
 	end the story finally.
 
 The inscription is fixed in place in the Crypt. "Someone has painstakingly carved [an inscription] into the wall above the door." The description is "Squinting, you decipher the Latin text: [italic type]Silver causes harm to those that live though dead[roman type]." The inscription explains wight.
@@ -320,39 +253,28 @@ The Treasure Chamber is north of the Crypt. "The walls are thick, the high windo
 The pry bar is in the Treasure Chamber. "One of the window bars, rusted from its place, lies in a puddle of water." Understand "window" or "bars" as the pry bar. The description of the pry bar is "A few feet long, and not entirely rusted into uselessness yet."
 
 Instead of giving the dagger to wight:
-
 	say "The wight recoils, appalled."
 
 Carry out hinting about wight:
-
 	say "You will have to find some way to get wight to come in physical contact with the silver dagger, which he will certainly not do willingly. [More]";
-
 	if player consents, say "You could, for instance, throw it at him." instead;
-
 	otherwise stop the action.
 
 Understand "touch [something] with [something]" as putting it on (with nouns reversed). Understand "hit [someone] with [something]" as putting it on (with nouns reversed).
 
 Instead of attacking the wight:
-
 	say "You can't force yourself to approach close enough for hand to hand combat: if, indeed, the wight has hands."
 
 Instead of putting the dagger on wight:
-
 	say "The wight fades out of your way without ever coming into contact with the dagger. Perhaps a more projectile method would work better."
 
 Instead of putting something on wight:
-
 	say "The wight dodges you."
 
 Instead of throwing the dagger at wight:
-
 	now the wight is nowhere;
-
 	move the dagger to the location;
-
 	increment the score;
-
 	say "The dagger passes through its airy form with a rending like the rip of silk. The fragments dissipate at once."
 
 The maximum score is 2.

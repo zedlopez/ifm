@@ -16,23 +16,14 @@ We begin with the idea that each person comes with their own table of things to 
 A person has a table name called conversation.
 
 Instead of asking someone about something:
-
 	let the source be the conversation of the noun;
-
 	if topic understood is a topic listed in source:
-
 		if there is a turn stamp entry:
-
 			say "[The noun] has already told you that [summary entry].";
-
 		otherwise:
-
 			now turn stamp entry is the turn count;
-
 			say "[reply entry][paragraph break]";
-
 	otherwise:
-
 		say "[The noun] stares at you blankly."
 ```
 
@@ -43,7 +34,6 @@ For the sake of simplicity, we'll conflate asking and telling here, though it wo
 
 ``` inform7
 {**}Instead of telling someone about something:
-
 	try asking the noun about it.
 ```
 
@@ -67,27 +57,16 @@ Since we've been recording the turn count of each conversation bit, we can even 
 
 ``` inform7
 {**}Carry out recalling conversations:
-
 	repeat with speaker running through other people:
-
 		let source be the conversation of the speaker;
-
 		sort source in turn stamp order;
-
 		say "[The speaker] has so far told you: [line break]";
-
 		let index be 0;
-
 		repeat through source:
-
 			if there is a turn stamp entry:
-
 				let index be 1;
-
 				say "  [summary entry][line break]";
-
 		if index is 0, say "  absolutely nothing[line break]";
-
 		say conditional paragraph break.
 ```
 
@@ -104,23 +83,15 @@ Tina is a woman in the Farewell Bend Cafe. The conversation of Tina is the Table
 George is a man in the Farewell Bend Cafe. The conversation of George is the Table of George's Chatter. "There is also a large man at table five. The tattoo on his arm says George. For the moment we will assume that it is his own name and not someone else's."
 
 Table of Tina's Chatter
-
 topic	reply	summary	turn stamp
-
 "aasvogel"	"'Oh, it's a vulture.'"	"that an aasvogel is a vulture"	a number
-
 "acaudate"	"She shrugs, mid-pour. 'Means something doesn't have a tail.'"	"that acaudate means 'tailless'"	--
-
 "absorptiometer"	"'It's a thing that measures the solubility of gases in a liquid,' she explains gently, as to a child."	"that an absorptiometer measures solubility of gasses in a liquid"	--
 
 Table of George's Chatter
-
 topic	reply	summary	turn stamp
-
 "baccaceous"	"'Something that has or bears berries,' says George, without looking up."	"that baccaceous means berry-bearing or berry-like"	a number
-
 "bagheera"	"'Oh, that'd be a velvet-like textile.'"	"that bagheera is a velvet-like textile"	--
-
 "balistarius"	"'That's a crossbow-man,' George replies instantly."	"that a balistarius is a crossbow-man"	--
 ```
 
@@ -134,9 +105,7 @@ As always, we can override specific words, too:
 
 ``` inform7
 {**}Instead of asking Tina about "advertisement" for the first time:
-
 	say "Tina looks embarrassed. 'Of course! I almost forgot.' She hands you a brochure.";
-
 	move the brochure to the player.
 
 The encyclopedia sales brochure is a thing. The description is "A glossy flyer indicating that you can receive a free Volume A-Aalto of the New Idahoan Encyclopedia Set if you send back the business reply card, and then have the option of purchasing the remaining volumes at a very very reasonable price."

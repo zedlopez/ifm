@@ -15,7 +15,6 @@ The trick here is that leaving items completely undescribed leads to rather dull
 
 ``` transcript
 >x table
-
 You see nothing special about the table.
 ```
 

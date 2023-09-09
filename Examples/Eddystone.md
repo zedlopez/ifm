@@ -29,7 +29,6 @@ will give us
 
 ``` transcript
 >turn light northeast
-
 You must name something more substantial.
 ```
 
@@ -61,19 +60,12 @@ And now that's done, we have a little fun calculating where the beam hits:
 
 ``` inform7
 {**}Carry out reorienting it to:
-
 	now the heading of the light is the second noun;
-
 	let way be the heading of the light;
-
 	let place be the room way from the Lighthouse;
-
 	while place is a room and place is lower than Lighthouse:
-
 		let place be the room way from the place;
-
 	if place is not a room, now the beam is nowhere;
-
 	otherwise move beam to the place.
 
 Report reorienting it to: say "The light now points [heading of the light][if the beam is in a room], spotlighting [the holder of the beam][otherwise], into empty space[end if]."
@@ -91,15 +83,10 @@ North of the Lighthouse is the Uphill Road. The altitude of Uphill Road is 75 ft
 Northeast of the Lighthouse is Open Field. East of the Lighthouse is Stanley Creek Valley. The description of Stanley Creek is "This place used to have some other name meaning Ghost Valley in the aboriginal language, but it was piously renamed by missionaries." Train Trestle is east of the Stanley Creek Valley. "The now-abandoned track of the Bush Pacific Railway runs here, above Stanley Creek." The altitude of Train Trestle is 100 ft.
 
 Before going from a room (called source) to a room (called destination):
-
 	if source is lower than destination:
-
 		say "It's an uphill climb...";
-
 	otherwise:
-
 		if destination is lower than source, say "You're heading downhill now...";
-
 		otherwise say "It's a straight shot."
 
 Test me with "turn lamp / turn lamp down / turn lamp east / e / e".

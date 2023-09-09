@@ -12,7 +12,6 @@ The parser error "That noun did not make sense in this context" arises instead o
 
 ``` inform7
 Understand "go to [any room]" as going directly to.
-
 Understand "talk about [any subject]" as discussing.
 ```
 
@@ -34,11 +33,9 @@ John F Kennedy, Elvis, Ralph Nader, Tony Blair, and single-origin chocolate are 
 Understand "talk about [any thing]" or "discuss [any thing]" as discussing. Discussing is an action applying to one visible thing.
 
 Carry out discussing:
-
 	say "You babble for a while about your [one of]interest in[or]hatred of[or]passionate devotion to[or]conspiracy theory concerning[or]mother's secret love affair with[as decreasingly likely outcomes] [the noun]."
 
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
-
 	say "For once, you're at a loss for anything to say."
 
 Test me with "discuss Elvis / discuss Kennedy / discuss chocolate / discuss narratology vs ludology debate".
@@ -51,13 +48,9 @@ Note that this solution works as simply as it does because we only have one comm
 
 ``` inform7
 Rule for printing a parser error when the latest parser error is the noun did not make sense in that context error:
-
 if the player's command includes "go":
-
 	say "There's no such place you know how to get to.";
-
 otherwise:
-
 	say "For once, you're at a loss for anything to say."
 ```
 

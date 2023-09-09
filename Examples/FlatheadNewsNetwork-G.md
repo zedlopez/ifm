@@ -21,9 +21,7 @@ The file of RSS Requests is called "rssrequest".
 The file of RSS Responses (owned by project "RSS-SCRIPT") is called "rssreply".
 
 To request (RSS feed address - text):
-
 	mark the file of RSS Responses as not ready to read;
-
 	write the RSS feed address to the file of RSS Requests.
 
 Newsroom is a room. "This is the secret nerve-centre of FNN, the Flathead News Network."
@@ -37,9 +35,7 @@ The WHO button is in the Newsroom. Instead of pushing the WHO button: say "Bing!
 A screen is in the Newsroom.
 
 Instead of examining the screen:
-
 	if ready to read the file of RSS Responses, say "From the screen you read:[line break][text of the file of RSS Responses]";
-
 	otherwise say "The screen remains blank for now."
 ```
 
@@ -53,57 +49,31 @@ Now for the ``rss``-``script`` program. The following provides a crude but worka
 
 ``` inform7
 for (;;) { # repeat forever:
-
 	system("sleep 1"); # wait 1 second
-
 	open REQUEST, "rssrequest.glkdata" or next;
-
 	# the request file has been detected:
-
 	$header_line = <REQUEST>; # the header line
-
 	$rss_feed = <REQUEST>; # the actual content - the RSS feed URL
-
 	close REQUEST;
-
 	if ($header_line =~ m/^\*/) { # if the request file is marked ready
-
 		$rss = system("curl $rss_feed >rawrss.txt"); # download the RSS feed
-
 		# read the RSS XML into a single Perl string:
-
 		open RAWRSS, "rawrss.txt" or next;
-
 		$raw = "";
-
 		while ($nl = <RAWRSS>) {
-
 			$raw = $raw." ".$nl;
-
 		}
-
 		close RAWRSS;
-
 		# look for the title and description of the first item:
-
 		if ($raw =~ m/\<item\>\<title.*?\>(.*?)\<\/title\>.*?\<description.*?\>(.*?)\<\/description\>/) {
-
 			# write the reply:
-
 			open REPLY, ">rssreply.glkdata" or next;
-
 			print REPLY "* //RSS-SCRIPT// rssreply\n", $1, "\n", $2, "\n";
-
 			close REPLY;
-
 			# request safely dealt with, so we can remove it:
-
 			system("rm 'rssrequest.glkdata'");
-
 		}
-
 	}
-
 }
 ```
 

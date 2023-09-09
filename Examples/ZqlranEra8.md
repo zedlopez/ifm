@@ -18,11 +18,9 @@ The Barren Lavender Surface of Zql is a room. "It is late twilight on Zql. Overh
 A Zqlran date is a kind of value. 14-88 specifies a Zqlran date with parts zqls and frbs. Current zqlran date is a zqlran date that varies. The current zqlran date is 8-22. Previous zqlran date is a zqlran date that varies. The previous zqlran date is 8-20.
 
 When play begins:
-
 	now left hand status line is "[current zqlran date], or [current zqlran date in words]".
 
 To say (Zqlra - a Zqlran date) in words:
-
 	say "[zqls part of Zqlra] Z, [frbs part of Zqlra] f."
 ```
 
@@ -38,29 +36,18 @@ Next, we need to meddle with time advancement so that time is tracked in Zqlran 
 {**}The Zqlran time rule is listed instead of the advance time rule in the turn sequence rules.
 
 This is the Zqlran time rule:
-
 	increment turn count;
-
 	now the previous zqlran date is current zqlran date;
-
 	increase the current zqlran date by 0-02;
-
 	repeat through the Table of Zql Schedule:
-
 		if era entry is greater than previous zqlran date and era entry is not greater than current zqlran date:
-
 			say event entry;
-
 			say paragraph break;
-
 			blank out the whole row.
 
 Table of Zql Schedule
-
 era	event
-
 8-24	"A wisp-thin cloud blows rapidly across the face of Nepenthe, the lesser of the two green moons."
-
 8-28	"The cloud across Nepenthe clears."
 ```
 

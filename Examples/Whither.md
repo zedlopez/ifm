@@ -29,17 +29,12 @@ As an added touch, we respond also to the case where the player postulates a doo
 
 ``` inform7
 {**}Rule for printing a parser error when the player's command includes "[non-door direction] door":
-
 	say "There is no door in that direction." instead.
 
 Definition: a direction (called direction D) is non-door:
-
 	let the target be the room-or-door direction D from the location;
-
 	if the target is a door:
-
 		no;
-
 	yes;
 
 Test me with "examine west door / x east door / w / x w door / x e door / tie me to the west door / tie the west door to me / push the west door east / push the east door west".

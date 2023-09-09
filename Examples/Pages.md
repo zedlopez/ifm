@@ -12,17 +12,11 @@ Suppose we have a book that the player must consult page-by-page, and we want to
 
 ``` transcript
 >READ BOOK (to choose a random page and read it)
-
 >read page 1 in book
-
 >read page 2
-
 >read the last page of the book
-
 >read the next page
-
 >read previous page in book
-
 >read the first page
 ```
 
@@ -48,23 +42,17 @@ Understand "read [number] in/from/of [something]" or "read page [number] in/from
 Named page is a kind of value. The named pages are first page, last page, next page, previous page.
 
 To decide what number is the effective value of (L - last page):
-
 	decide on the length of the book.
 
 To decide what number is the effective value of (F - first page):
-
 	decide on 1.
 
 To decide what number is the effective value of (N - next page):
-
 	let X be the last page read of the book plus 1;
-
 	decide on X.
 
 To decide what number is the effective value of (P - previous page):
-
 	let X be the last page read of the book minus 1;
-
 	decide on X.
 
 Understand "read [named page] in/from/of [something]" or "read the [named page] in/from/of [something]" as reading it relatively in. Reading it relatively in is an action applying to one named page and one thing, requiring light.
@@ -72,81 +60,53 @@ Understand "read [named page] in/from/of [something]" or "read the [named page] 
 Does the player mean reading something in the sinister book: it is very likely.
 
 This is the book requirement rule:
-
 	if the player is not carrying the sinister book, say "You're not reading anything." instead.
 
 Check reading it relatively in:
-
 	if the second noun is not the sinister book, say "There are no pages in [the second noun]." instead;
-
 	abide by the book requirement rule.
 
 Carry out reading it relatively in:
-
 	let N be the effective value of the named page understood;
-
 	now the number understood is N;
-
 	try reading N in the book.
 
 Check reading it in:
-
 	if the second noun is not the sinister book, say "There are no pages in [the second noun]." instead;
-
 	abide by the book requirement rule.
 
 Check reading it in:
-
 	if the number understood is greater than the length of the sinister book, say "There are only [length of sinister book in words] pages in the book." instead;
-
 	if the number understood is less than 1, say "The page numbering begins with 1." instead.
 
 Carry out reading it in:
-
 	read page number understood.
 
 Check reading:
-
 	if the noun is not the sinister book, say "There are no pages in [the noun]." instead;
-
 	abide by the book requirement rule.
 
 Carry out reading:
-
 	let N be a random number between 1 and the length of the sinister book; now the number understood is N;
-
 	say "You flip the pages randomly and arrive at page [the number understood]:[paragraph break]";
-
 	try reading the number understood in the sinister book.
 
 Table of Book Contents
-
 page	content
-
 2	"dhuma jyotih salila marutam / samnipatah kva meghah / samdes arthah kva patukaranaih / pranibhih prapaniyah"
-
 13	"amathesteron pws eipe kai saphesteron"
-
 50	"Rrgshilz maplot..."
 
 To read page (N - a number):
-
 	now the last page read of the sinister book is N;
-
 	if there is a content corresponding to a page of N in the Table of Book Contents:
-
 		choose row with a page of N in the Table of Book Contents;
-
 		say "You read: '[content entry]'[paragraph break]";
-
 	otherwise:
-
 		say "Page [N] appears to be blank."
 
 To read page (N - 47):
-
 	say "Your eyes burn; your ears ring. Beneath your gaze, the dreadful sigils writhe, reminding you of that which lies outside the edges of the universe...";
-
 	end the story saying "You have lost your remaining sanity".
 
 Test me with "read from the sinister book / read the book / read the next page / read page 2 / read previous page / g / read the first page / read the last page of the book / read the next page / read 47 in book".

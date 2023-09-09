@@ -20,9 +20,7 @@ Heathrow Baggage Claim is a room. The carousel is a container in Heathrow. "The 
 The circle of misery is a list of objects that varies.
 
 When play begins:
-
 	now all the luggage items are in the carousel;
-
 	add the list of luggage items to the circle of misery.
 ```
 
@@ -33,21 +31,15 @@ The list "circle of misery" is our ring, in which entry 1 is considered to be th
 
 ``` inform7
 {**}Every turn when the number of entries in the circle of misery is not 0:
-
 	rotate the circle of misery;
-
 	let the bag be entry 1 of the circle of misery;
-
 	say "The carousel trundles on, bringing [a bag] to within reach."
 
 After taking a luggage item (called the bag):
-
 	remove the bag from the circle of misery, if present;
-
 	say "Taken."
 
 Before doing something with a luggage item (called the bag) which is in the carousel:
-
 	if the bag is not entry 1 of the circle of misery, say "[The bag] is maddeningly out of range. You'll have to wait for it to come round." instead.
 
 Instead of inserting something into the carousel, say "In recent years, the authorities have tended to frown upon depositing bags in random places at airports."

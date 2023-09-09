@@ -38,7 +38,6 @@ Next, we'll teach Inform some vocabulary to distinguish between the player and e
 Definition: a thing is selfish if it is part of the player and the player can see an other person.
 
 Instead of examining a selfish nose:
-
 	say "You cross your eyes, but can't get a good look."
 ```
 
@@ -60,7 +59,6 @@ And this part is just for decoration:
 
 ``` inform7
 {**}Rule for writing a paragraph about Rudolph:
-
 	say "The reindeer are already harnessed and waiting impatiently. The brilliance of [Rudolph]'s nose casts an eerie red glow over [the list of unmentioned animals in the location]."
 
 Test me with "x nose / x my nose / x santa's nose / in / x nose / out / s / x my nose / x nose / x rudolph's nose / x donner's nose".

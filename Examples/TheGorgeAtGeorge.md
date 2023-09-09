@@ -17,11 +17,9 @@ The motorcyclist is a man in the Dusty Lot. "A man clad in [a list of things wor
 Understand "talk to [someone]" as a mistake ("To start a conversation, try to ASK [the noun] ABOUT something or TELL [the noun] ABOUT something.").
 
 Instead of asking the motorcyclist about something:
-
 	say "He smirks cryptically."
 
 Instead of telling the motorcyclist about something:
-
 	say "This does not seem to interest him much."
 
 Test me with "talk to motorcyclist / ask motorcyclist about himself / tell motorcyclist about me".

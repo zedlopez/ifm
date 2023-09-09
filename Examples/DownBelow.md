@@ -52,7 +52,6 @@ Finally, we need to deal with a special case. In general, the player cannot inte
 
 ``` inform7
 {**}After deciding the scope of the player when the location is the Terrifying Basement:
-
 	place the light switch in scope.
 
 Upstairs is above the Terrifying Basement.

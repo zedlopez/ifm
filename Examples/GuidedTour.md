@@ -14,9 +14,7 @@ It may sometimes be helpful to prompt the player with a list of exits printed up
 {*}"Guided Tour"
 
 When play begins:
-
 	now left hand status line is "Nearby: [if a room is adjacent][the list of adjacent rooms][end if][if a room is adjacent and a door is visible] and [end if][if a door is visible][the list of visible doors][end if]";
-
 	now right hand status line is "".
 ```
 
@@ -27,9 +25,7 @@ Of course, we may not want to tell the player what glories are to be found in lo
 
 ``` inform7
 {**}Rule for printing the name of an unvisited room (called the target) while constructing the status line:
-
 	let aim be the best route from the location to the target;
-
 	say "something [aim]".
 ```
 
@@ -40,9 +36,7 @@ Even when we have seen a room, we might still want a reminder about how to get t
 
 ``` inform7
 {**}After printing the name of a visited room (called the target) while constructing the status line:
-
 	let aim be the best route from the location to the target;
-
 	say " ([aim])".
 ```
 
@@ -53,37 +47,22 @@ We may also find that printing out full directions makes the status line unpleas
 
 ``` inform7
 {**}Rule for printing the name of a direction (called the aim) while constructing the status line:
-
 	choose row with a heading of the aim in the Table of Abbreviation;
-
 	say "[shortcut entry]".
 
 Table of Abbreviation
-
 heading	shortcut
-
 north	"N"
-
 northeast	"NE"
-
 northwest	"NW"
-
 east	"E"
-
 southeast	"SE"
-
 south	"S"
-
 southwest	"SW"
-
 west	"W"
-
 up	"U"
-
 down	"D"
-
 inside	"in"
-
 outside	"out"
 ```
 

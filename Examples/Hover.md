@@ -29,7 +29,6 @@ Here's the tricky part, which relies on material from the chapters on Activities
 {**}The container interior rule is listed before the room description body text rule in the carry out looking rules.
 
 This is the container interior rule:
-
 	if the actor is the player and the player is in an enterable thing (called current cage), carry out the describing the interior activity with the current cage.
 
 Describing the interior of something is an activity.
@@ -42,7 +41,6 @@ Now we've done that, we can write a "rule for describing the interior" of someth
 
 ``` inform7
 {**}Rule for describing the interior of the hover-bubble:
-
 	say "The hover-bubble is transparent, but tints everything outside very faintly lavender."
 ```
 
@@ -53,7 +51,6 @@ In fact, as a special refinement, we could even say:
 
 ``` inform7
 {**}Rule for describing the interior of the hover-bubble when the hover-bubble contains more than one thing:
-
 	say "The hover-bubble is transparent, but tints everything outside very faintly lavender. Beside you you can see [a list of other things in the hover-bubble]."
 
 Definition: a thing is other if it is not the player.

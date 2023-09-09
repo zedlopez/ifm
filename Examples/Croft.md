@@ -18,17 +18,13 @@ The dropping action has an object called the container dropped into (matched as 
 The dropping action has an object called the supporter dropped onto (matched as "onto").
 
 Rule for setting action variables for dropping:
-
 	if the actor is in a container (called C), now the container dropped into is C;
-
 	if the actor is on a supporter (called C), now the supporter dropped onto is C.
 
 Report dropping a heavy thing onto a metallic thing:
-
 	say "You drop [the noun], and [the supporter dropped onto] clangs protestingly." instead.
 
 Report someone dropping a heavy thing onto a metallic thing:
-
 	say "[The actor] drops [the noun] onto [the supporter dropped onto], which clangs protestingly." instead.
 
 A thing can be heavy or light. A thing can be metallic or ordinary. A thing is usually ordinary. A thing is usually light.
@@ -44,13 +40,9 @@ The wood platform is an ordinary platform in the Temple. The player is on the wo
 Persuasion rule: persuasion succeeds.
 
 The entering action has an object called the place left (matched as "from").
-
 	Check entering a platform from a platform:
-
 		if actor is the player, say "You leap into midair to cross the distance...";
-
 	otherwise say "[The actor] leaps gracefully across the distance...";
-
 	move the actor to the holder of the noun, without printing a room description.
 ```
 
@@ -61,27 +53,21 @@ Because this rule occurs before the "implicitly pass through other barriers rule
 
 ``` inform7
 {**}Rule for setting action variables for entering:
-
 	now the place left is the holder of the actor.
 
 Report entering a platform from a platform:
-
 	say "You land in a cat-like crouch on [the noun]." instead.
 
 Report Lara entering a platform from a platform:
-
 	say "Lara lands soundlessly on [the noun][if the noun supports the player] beside you[end if]." instead.
 
 Report entering a platform from the location:
-
 	say "You jump, catch the edge of [the noun] in your hands, and -- exerting considerable upper-body strength -- pull yourself up onto it." instead.
 
 Report Lara entering a platform from a location:
-
 	say "Lara jumps, catches the edge of [the noun], and is standing upright on it, all in less time than it takes to tell."
 
 Instead of examining a person who is not the player:
-
 	say "[The noun] carries [list of things carried by the noun] and wears [list of things worn by the noun]."
 
 Instead of climbing a platform, try entering the noun.

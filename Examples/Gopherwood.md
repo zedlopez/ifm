@@ -16,11 +16,8 @@ Suppose that we want a character who starts out with a general epithet ("the bea
 The Ark is a room. A bearded man is in the Ark.
 
 Instead of examining the bearded man for the first time:
-
 	now the printed name of the bearded man is "Japheth";
-
 	now the bearded man is proper-named;
-
 	say "You peer at him a bit more closely and realize that it's Japheth."
 ```
 

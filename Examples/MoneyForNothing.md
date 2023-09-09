@@ -27,43 +27,26 @@ Understand "offer [price] for [something]" as offering it for.
 After taking inventory, say "You have [the wealth of the player]."
 
 Check offering it for:
-
 	if the price understood is greater than the wealth of the player, say "You don't have that kind of cash." instead;
-
 	if the second noun is not carried by someone, say "There's no one in a position to sell you [the second noun]." instead;
-
 	if the second noun is carried by the player, say "[The second noun] is already yours." instead;
-
 	if the minimum value of the second noun is greater than the price understood, say "[The holder of the second noun] cackles disdainfully. 'If yer just here to insult me you can take your business elsewhere!' he says." instead;
-
 	if the desired value of the second noun is greater than the price understood:
-
 		let difference be the desired value of the second noun minus the price understood;
-
 		let difference be difference divided by two;
-
 		decrease the desired value of the second noun by difference;
-
 		now the last object offered is the second noun;
-
 		say "'How about [desired value of the second noun]?' suggests [the holder of the second noun]." instead;
-
 	otherwise:
-
 		unless the desired value of the second noun is the price understood:
-
 			say "From the avaricious gleam in the eye of [the holder of the second noun], you guess you could've gotten this purchase for less..."
 
 Carry out offering it for:
-
 	increase the wealth of the holder of the second noun by the price understood;
-
 	decrease the wealth of the player by the price understood;
-
 	move the second noun to the player.
 
 Report offering it for:
-
 	say "You spend [the price understood], and now you possess [the second noun]."
 
 When play begins: now right hand status line is "Your funds: [wealth of the player]".
@@ -78,27 +61,17 @@ Now, since the man does make counter-offers, it would be reasonable to let the p
 {**}The last object offered is a thing that varies.
 
 Instead of saying yes when the last object offered is carried by a person (called seller) who is not the player:
-
 	if the seller is not visible:
-
 		continue the action;
-
 	otherwise:
-
 		now the price understood is the desired value of the last object offered;
-
 		try offering the desired value of the last object offered for the last object offered.
 
 Instead of saying no when the last object offered is carried by a person (called seller) who is not the player:
-
 	if the seller is not visible:
-
 		continue the action;
-
 	otherwise:
-
 		now the last object offered is the player;
-
 		say "You reject the offer firmly."
 ```
 

@@ -25,7 +25,6 @@ This doesn't cover the case where the player just types ``down``, and we don't w
 
 ``` inform7
 {**}Instead of going down when the player is on a supporter:
-
 	try exiting.
 
 Test me with "down / enter pillar / get down / down / get down".

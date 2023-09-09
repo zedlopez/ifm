@@ -21,177 +21,102 @@ Instead of taking off the slinky dress: say "Rowr! Not that kind of movie, babe.
 Instead of taking off the pants: say "That's not your job, whatever the society pages might suggest."
 
 Unsuccessful attempt by Clark doing something:
-
 	repeat through table of Clark Retorts:
-
 		if the reason the action failed is the cause entry:
-
 			say "[response entry][paragraph break]";
-
 			rule succeeds;
-
 	say "'I don't think that's in the script,' says Clark dubiously."
 
 Table of Clark Retorts
-
 cause	response
-
 can't take yourself rule	"'I'm always self-possessed,' Clark remarks. You've heard that line before, but it sounds so much more convincing from him."
-
 can't take other people rule	"'I don't think it would be appreciated if I tried to do that to [the noun],' he rumbles."
-
 can't take component parts rule	"'I don't want to rip [the noun] out,' Clark remarks."
-
 can't take people's possessions rule	"'I don't cotton to acting like a thief,' Clark replies. 'It ain't proper.'"
-
 can't take what you're inside rule	"'Do you see where I am, babe?' Clark demands."
-
 can't take what's already taken rule	"[already done]"
-
 can't take scenery rule	"'I'm not the stunt man, darling,' he says with a wry twinkle."
-
 can't take what's fixed in place rule	"'I'm not the stunt man, darling,' he says with a wry twinkle."
-
 can't exceed carrying capacity rule	"Clark grins. 'I've only got so many hands, darling,' he says."
-
 can't insert into closed containers rule	"[physical impossibility]"
-
 can't go that way rule	"[physical impossibility]"
-
 can't go through closed doors rule	"[physical impossibility]"
-
 can't enter closed containers rule	"[physical impossibility]"
-
 can't exit closed containers rule	"[physical impossibility]"
-
 can't drop yourself rule	"'We're inseparable, me and me,' Clark replies, with a smile."
-
 can't drop what's already dropped rule	"[already done]"
-
 can't drop what's not held rule	"'Not under my control, [the noun],' replies Clark."
-
 can't drop clothes being worn rule	"[salacious retort]"
-
 can't put something on itself rule	"'I lack the dexterity,' says Clark. Oh, he's so modest."
-
 can't put onto what's not a supporter rule	"'[The second noun] won't support a thing,' says Clark reprovingly."
-
 can't put clothes being worn rule	"[salacious retort]"
-
 can't insert clothes being worn rule	"[salacious retort]"
-
 can't give worn items rule	"[salacious retort]"
-
 can't wear what's not clothing rule	"'Costuming just gets stranger every year,' says Clark. 'In short: no.'"
-
 can't wear what's already worn rule	"[already done]"
-
 can't eat unless edible rule	"'What're you trying to do, poison me?'"
-
 can't eat clothing without removing it first rule	"[salacious retort]"
-
 can't take off what's not worn rule	"[already done]"
-
 can't close what's already closed rule	"[already done]"
-
 can't open what's already open rule	"[already done]"
-
 can't switch off what's already off rule	"[already done]"
-
 can't switch on what's already on rule	"[already done]"
-
 can't unlock what's already unlocked rule	"[already done]"
-
 can't lock what's already locked rule	"[already done]"
 
 To say already done:
-
 	repeat through Table of Clark's Bored Remarks:
-
 		say "[response entry]";
-
 		blank out the whole row;
-
 		rule succeeds;
-
 	say "'Already done.' "
 
 Table of Clark's Bored Remarks
-
 response
-
 "'I have anticipated your every demand.'"
-
 "'We've been through this part of the script already,' Clark remarks, with just a hint of creeping tedium."
-
 "'Right right, already taken care of...'"
-
 "'I'm a believer in rehearsal,' Clark says, sounding more bored than ever, 'but we really have got all this done already.'"
 
 To say salacious retort:
-
 	repeat through Table of Clark's Flirtatious Remarks:
-
 		say "[response entry]";
-
 		blank out the whole row;
-
 		rule succeeds;
-
 	say "Clark, driven past the point of endurance, seizes you in his arms and kisses you.";
-
 	end the story finally.
 
 Table of Clark's Flirtatious Remarks
-
 response
-
 "Clark allows his mustache to quirk at the suggestion."
-
 "Clark wiggles his eyebrows at you."
-
 "'That kind of thing isn't in my contract, sweetie,' says Clark. 'If you're interested you'll have to ask off-camera.'"
-
 "'I'd feel so... bare,' Clark says, with a sidelong look at you."
-
 "'You first,' says Clark."
-
 "Clark's stare is intense. You may be on the verge of breaking him."
 
 To say physical impossibility:
-
 	repeat through Table of Clark's Frustrated Denials:
-
 		say "[response entry]";
-
 		blank out the whole row;
-
 		rule succeeds;
-
 	say "Clark makes a helpless gesture about his ability to move himself, or parts of himself, through solid objects. "
 
 Table of Clark's Frustrated Denials
-
 response
-
 "Clark frowns. 'I can't reach through things -- unless you were planning a special effect?'"
-
  "'Look,' says Clark. 'If you want a stage magician, hire one.'"
-
 "Clark just groans."
-
 "Clark says drily, 'Is this in the script, or are we doing improvisation now?'"
 
 The block giving rule is not listed in the check giving it to rules. The block showing rule is not listed in the check showing it to rules. The report smelling rule is not listed in the report smelling rules. The report listening rule is not listed in the report listening to rules.
 
 Carry out listening to something:
-
 	do nothing.
 
 Report listening to something: say "Your attention bears no interesting result."
 
 Carry out smelling something:
-
 	do nothing.
 
 Report smelling something:  say "Your attention bears no interesting result."
@@ -205,15 +130,10 @@ Instead of asking someone for something: try asking the noun to try giving the s
 Carry out showing something to someone: say "You reveal [the noun] to [the second noun]."
 
 Carry out Clark showing something to someone:
-
 	if the second noun is the player:
-
 		say "Clark shows you [the noun]. [run paragraph on]";
-
 		try examining the noun;
-
 	otherwise:
-
 		say "Clark reveals [the noun] to [the second noun]."
 
 Instead of asking someone to try saying yes: try saying yes. Instead of asking someone to try saying no: try saying no. Instead of asking someone to try saying sorry, try saying sorry.
@@ -237,19 +157,14 @@ There are quite a few actions for which no automatic other-character behavior is
 {**}Burning something is useless action. Waking up is useless action. Thinking is useless action. Cutting is useless action. Jumping is useless action. Tying something to something is useless action. Drinking something is useless action. Swinging is useless action.  Rubbing is useless action. Setting something to something is useless action. Waving hands is useless action. Buying is useless action. Climbing is useless action. Sleeping is useless action. Kissing is useless action. Throwing something at something is useless action. Attacking is useless action. Asking something about something is useless action. Telling something about something is useless action. Answering something that something is useless action. Waking something is useless action.
 
 A persuasion rule for asking people to try useless action:
-
 	say "Clark Gable frowns. 'I don't mean to be difficult, but I can't see any point in that.'";
-
 	persuasion fails.
 
 A persuasion rule for asking Clark to try taking off the pants:
-
 	say "He gives you a look of mocking exasperation. Apparently you'll have to take a (slightly) more subtle approach.";
-
 	persuasion fails.
 
 	Check someone giving something to someone (this is the can't give worn items rule):
-
 		if the person asked wears the noun, stop the action.
 ```
 

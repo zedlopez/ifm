@@ -48,17 +48,11 @@ If we're compiling to the Z-machine, however, we'll have to resort to some manip
 
 ``` inform7
 {**}After reading a command:
-
 	let N be "[the player's command]";
-
 	replace the text "north" in N with "n";
-
 	replace the text "east" in N with "e";
-
 	replace the text "south" in N with "s";
-
 	replace the text "west" in N with "w";
-
 	change the text of the player's command to N.
 ```
 
@@ -75,13 +69,10 @@ The Empty Field is north-northwest of the Deserted Road.
 A crop-dusting plane is a backdrop. It is not scenery. It is in the Deserted Road and Empty Field. The initial appearance of the crop-dusting plane is "[one of]In the distance[or]Approaching faster and faster[or]Flying ominously low and directly towards you[or]Immediately overhead[or]Circling around for another approach[cycling] is a standard crop-dusting plane."
 
 After looking:
-
 	say "From here you can run to [the list of adjacent rooms]."
 
 Rule for printing the name of a room (called the target) which is not the location while looking:
-
 	let chosen direction be the best route from the location to the target;
-
 	say "[chosen direction]".
 
 Test me with "sse / north-northwest".

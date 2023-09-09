@@ -24,7 +24,6 @@ The Pumping House is a room.
 A well is a fixed in place container in the Pumping House.
 
 Instead of examining the well:
-
 	say "[if something is in the well]On the surface of the water you can see [a list of things in the well][otherwise]There is nothing on the surface of the water, nor can you see into the depths[end if]."
 
 The well bottom is a container.
@@ -40,53 +39,33 @@ The rubber ring is inflated.
 The flotation rules are an object-based rulebook.
 
 A flotation rule for the cork: rule succeeds.
-
 A flotation rule for an inflated thing: rule succeeds.
-
 A flotation rule when the big switch is switched on: rule fails.
 
 After inserting something into the well:
-
 	follow the flotation rules for the noun;
-
 	if the rule succeeded:
-
 		say "[The noun] bobs on the surface.";
-
 	otherwise:
-
 		move the noun to the well bottom;
-
 		say "[The noun] sinks out of sight."
 
 A thing can be sinking, rising, or static. A thing is usually static.
 
 Definition: a thing is wet:
-
 	if it is in the well, yes;
-
 	if it is in the well bottom, yes;
-
 	no.
 
 Every turn:
-
 	now every thing is static;
-
 	repeat with item running through wet things:
-
 		follow the flotation rules for the item;
-
 		if the rule failed and the item is in the well, now the item is sinking;
-
 		if the rule succeeded and the item is in the well bottom, now the item is rising;
-
 	now every rising thing is in the well;
-
 	now every sinking thing is in the well bottom;
-
 	if something is rising, say "[The list of rising things] rise[if the number of rising things is 1]s[end if] to the surface of the well.";
-
 	if something is sinking, say "[The list of sinking things] sink[if the number of sinking things is 1]s[end if] out of sight."
 ```
 
@@ -97,11 +76,9 @@ And finally a few description rules to make things look prettier:
 
 ``` inform7
 {**}Rule for writing a paragraph about the well when the well contains something:
-
 	say "The chief feature of the room is a concrete-sided well in which there float[if the number of things in the well is 1]s[end if] [a list of things in the well]."
 
 Rule for writing a paragraph about the well:
-
 	say "The chief feature of the room is a concrete-sided well full of water."
 ```
 

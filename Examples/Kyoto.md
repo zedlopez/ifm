@@ -12,13 +12,9 @@ Suppose we want to expand the function of the existing ``throw something`` AT co
 
 ``` inform7
 Throwing something at something (past tense thrown it at)
-
 	"drop [something held] at/against/on/onto [something]"
-
 	check	an actor throwing something at	implicitly remove thrown clothing rule
-
 	check	an actor throwing something at	futile to throw things at inanimate objects rule
-
 	check	an actor throwing something at	block throwing at rule
 ```
 
@@ -47,7 +43,6 @@ But it's not enough to ignore it, the way we did the "futile" rule. Since we are
 {**}The block throwing at people rule is listed instead of the block throwing at rule in the check throwing it at rules.
 
 This is the block throwing at people rule:
-
 	if the second noun is a person, say "That might be construed as an attack." instead.
 ```
 
@@ -67,11 +62,9 @@ If we're actually going to allow throwing, we might want to add a couple of extr
 
 ``` inform7
 {**}Check throwing it at (this is the block juggling rule):
-
 	if the player is carrying the second noun, say "It would be difficult to throw at something you are yourself holding." instead.
 
 Check throwing it at (this is the avoid throwing things into themselves rule):
-
 	if the second noun is within the noun, say "That would be a nice magic trick." instead.
 ```
 
@@ -82,13 +75,9 @@ And then the rules for the action itself:
 
 ``` inform7
 {**}Carry out throwing it at (this is the check aerodynamics rule):
-
 	if the noun is flat:
-
 		move noun to location;
-
 		say "[The noun], unwieldy, flutters to the ground.";
-
 		rule succeeds.
 ```
 
@@ -99,29 +88,18 @@ That "rule succeeds" ends the action here, if the noun is flat. If not, Inform g
 
 ``` inform7
 {**}Carry out throwing it at (this is the contact rule):
-
 	say "[The noun] hits [the second noun].[paragraph break]";
-
 	if the second noun is fragile and the noun is hard:
-
 		destroy the second noun.
 
 Carry out throwing it at (this is the landing rule):
-
 	let destination be the location;
-
 	if the second noun is on a supporter (called endtable), let destination be the endtable;
-
 	if the second noun is a supporter, let destination be the second noun;
-
 	move the noun to the destination;
-
 	if the noun is fragile and the second noun is hard:
-
 		destroy the noun;
-
 		rule succeeds;
-
 	say "[The noun] lands [if the destination is the location]nearby[otherwise]on [the destination][end if]."
 ```
 
@@ -134,19 +112,12 @@ These rules are assuming some backup information, so let's provide that as well:
 {**}Reliance relates a thing (called X) to a thing (called Y) when X is part of Y or X is in Y or X is on Y. The verb to be relying on means the reliance relation.
 
 To destroy (item - a thing):
-
 	let home be the holder of the item;
-
 	if the item is part of something (called the superstructure), let home be the holder of the superstructure;
-
 	if the item is visible:
-
 		say "[The item] breaks[if something is relying on the item], leaving [a list of things which are relying on the item] behind[end if].";
-
 	if something is relying on the item,
-
 		now all the things which are relying on the item are in the home;
-
 	now the item is nowhere.
 ```
 
@@ -157,15 +128,11 @@ Now suppose we'd like to add some further cases for what happens if the player b
 
 ``` inform7
 {**}To destroy (item - a door):
-
 	now the item is open;
-
 	now the item is unopenable;
-
 	say "[The item] smashes."
 
 Rule for printing the name of an unopenable open door while not throwing something at something:
-
 	say "open doorway".
 
 Understand "door" or "doorway" as a door.
@@ -178,15 +145,10 @@ This works, except that objects will continue to "strike" open, unopenable doors
 
 ``` inform7
 {**}This is the flying through doorways rule:
-
 	if the second noun is an open door:
-
 		let the distant room be the other side of the second noun;
-
 		move the noun to the distant room;
-
 		say "[The noun] flies out of sight into [the distant room].";
-
 		rule succeeds.
 ```
 

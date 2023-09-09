@@ -18,27 +18,20 @@ Section 1 - In Which our Terms are Defined
 Underlying relates various things to one thing. The verb to underlie means the underlying relation. The verb to be under means the underlying relation. The verb to be beneath means the underlying relation.
 
 Instead of looking under a thing which is underlaid by something (called the lost object):
-
 	say "You find [the list of things which underlie the noun]!";
-
 	now every thing which underlies the noun is carried by the player;
-
 	now every thing which underlies the noun does not underlie the noun.
 
 Hiding it under is an action applying to one carried thing and one thing. Understand "put [something preferably held] under [something]" as hiding it under. Understand "hide [something preferably held] under [something]" as hiding it under. Understand the commands "shove" and "conceal" and "stick" as "hide".
 
 Check hiding it under:
-
 	if the second noun is not fixed in place, say "[The second noun] wouldn't be a very effective place of concealment." instead.
 
 Carry out hiding it under:
-
 	now the noun is nowhere;
-
 	now the noun underlies the second noun.
 
 Report hiding it under:
-
 	say "You shove [the noun] out of sight beneath [the second noun]."
 
 Section 2 - In Which They are Put To Use

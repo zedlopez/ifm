@@ -18,45 +18,29 @@ The Temporal Prism is a room. "A room of angled mirrors, in whose surfaces you c
 The mysterious box is in the Temporal Prism. It is an openable closed container.
 
 To assess the box:
-
 	if the box was not open, say "The box was not open.";
-
 	if the box was open, say "The box was open.";
-
 	if the box had not been open, say "The box had not been open.";
-
 	if the box had been open, say "The box had been open.";
-
 	if the box is not open, say "The box is not open.";
-
 	if the box is open, say "The box is open.";
-
 	if the box has not been open, say "The box has not been open.";
-
 	if the box has been open, say "The box has been open."
 
 Before opening the mysterious box:
-
 	say "You are about to open the box.";
-
 	assess the box.
 
 Before closing the mysterious box:
-
 	say "You are about to close the box.";
-
 	assess the box.
 
 After opening the mysterious box:
-
 	say "You now open the box.";
-
 	assess the box.
 
 After closing the mysterious box:
-
 	say "You now close the box.";
-
 	assess the box.
 ```
 
@@ -70,9 +54,7 @@ The past ("if the box was...") and past perfect ("if the box had been...") are e
 
 ``` inform7
 {**}After taking the mysterious box:
-
 	if the box had not been carried by the player, say "You lift the mysterious box for the first time.";
-
 	if the box had been carried by the player, say "You again pick up the mysterious box."
 
 Test me with "open box / close box / open box / take box / drop box / take box".

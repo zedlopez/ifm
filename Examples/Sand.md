@@ -14,23 +14,15 @@ The above example does not quite work when we want the player to be allowed to t
 {*}"Sand"
 
 Before inserting something which is not carried by the player into something:
-
 	if the noun is in the second noun, say "Already done." instead;
-
 	say "(first taking [the noun]) ";
-
 	silently try taking the noun;
-
 	if the player is not holding the noun, stop the action.
 
 Before putting something which is not carried by the player on something:
-
 	if the noun is on the second noun, say "Already done." instead;
-
 	say "(first taking [the noun])[line break]";
-
 	silently try taking the noun;
-
 	if the player is not holding the noun, stop the action.
 
 Understand "put [things] in [something]" as inserting it into. Understand "put [things] on [something]" as putting it on.

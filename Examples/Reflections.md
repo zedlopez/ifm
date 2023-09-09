@@ -25,21 +25,16 @@ Understand "blow out [something]" or "blow [something]" or "extinguish [somethin
 Carry out blowing out: say "Futile."
 
 Instead of blowing out the torch:
-
 	now brightness of torch is the brightness before the brightness of the torch;
-
 	say "The light of the torch dies to [brightness of torch]."
 
 Instead of blowing out the guttering torch:
-
 	say "Fool! Do you want to put it out entirely?"
 
 Rule for writing a paragraph about a shiny thing:
-
 	say "The [brightness of the torch] light of [the torch] reflects in the surface[if the number of shiny things in the location > 1]s[end if] of [the list of shiny things in the location]."
 
 Before printing the name of the torch while writing a paragraph about something:
-
 	if the torch is in the location, say "fallen ".
 
 Test me with "drop ball / look / blow torch / look / drop torch / look".

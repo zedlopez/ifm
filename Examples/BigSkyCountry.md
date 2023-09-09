@@ -20,9 +20,7 @@ When play begins: say "There's a bit of a drive over from Anaconda, Montana, and
 Entrance to Devil's Canyon is a room. "You are at the top of a steep road, which proceeds down into the canyon proper." A sign is in Devil's Canyon. It is fixed in place. "An ominous sign has been put up by the local sheriff's office." The description is "PROCEED AT OWN RISK - NO RESCUES!"
 
 Instead of going down when a random chance of 1 in 3 succeeds:
-
 	say "Whoooops, your footing is not as secure as you thought...";
-
 	end the story.
 
 Dusty Path is below Entrance. "A dusty path, with grey-brown thorny bushes on either side. Immediately to your right is a sheer drop; far below you can see the rusting remains of a Model T that some fool tried to drive by here."
@@ -45,21 +43,16 @@ In a fuller implementation of this game, we might make it possible to get by the
 At the Spot is below Crooked Path. "This'll be it: a bare patch of ground that might as well have an X painted right on it."
 
 Rule for supplying a missing noun while digging:
-
 	now noun is the location.
 
 Understand "dig" or "dig hole/here" or "dig in ground/dirt/earth" as digging. Digging is an action applying to one thing.
 
 Instead of digging at the spot:
-
 	say "You dig and dig, and after a half hour or so, sure enough, you do turn up a big box of gold! You're going to be richer than God and Bill Gates put together.";
-
 	increase the score by 5;
-
 	end the story finally.
 
 Instead of digging at the spot when the player does not carry the shovel:
-
 	say "What, without your shovel? That won't work too well."
 
 The player carries a walking stick. The player wears a hat, a whistle, and a daypack. The daypack contains a mylar blanket, a granola bar, a cellular phone, a water bottle, a folding shovel, and a photocopied map. The granola bar is edible. Instead of drinking the water, say "You quench your thirst, for the time being." The description of the map is "The map shows the winding path of Devil's Canyon, with a large X down by the south end. That would be where your uncle Jesse buried the gold from the train robbery."
@@ -67,19 +60,12 @@ The player carries a walking stick. The player wears a hat, a whistle, and a day
 The maximum score is 5.
 
 When play ends when the story has not ended finally:
-
 	say "Oh dear, that ought to be fatal! However, if you like I can get you out of it...line-so-blank	Shall I? >";
-
 	if the player consents:
-
 		repeat with item running through things had by the player:
-
 			move the item to a random visited room;
-
 		say "A strong wind picks you up and sets you back at [the location], though perhaps minus a few of your things.";
-
 		resume the story;
-
 		try looking.
 ```
 

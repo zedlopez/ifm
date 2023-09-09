@@ -19,17 +19,12 @@ For instance, if we wanted to liven up our previous Clark Kent example:
 Escaping is an action applying to nothing.
 
 Carry out someone escaping:
-
 	let space be the holder of the person asked;
-
 	let place be a random room which is adjacent to the space;
-
 	let way be the best route from the space to the place;
-
 	try the person asked going way.
 
 Every turn:
-
 	if Clark Kent can see kryptonite, try Clark Kent escaping.
 
 The Daily Planet Newsroom is a room.
@@ -41,33 +36,21 @@ The Supply Closet is east of the Newsroom. The Elevator Bank is north of the New
 Clark Kent is a man in the Newsroom. "Clark [if Clark can see the kryptonite]looks a bit ill[otherwise]is here, frowning as he revises his latest article[end if]."
 
 Report Clark Kent going a direction (called the way):
-
 	say "[one of]With a particularly weak excuse[or]Muttering[at random] about [random excuse subject], Clark heads [way]." instead.
 
 To say random excuse subject:
-
 	choose a random row in the Table of Lame Excuses; say "[reply entry]".
 
 Table of Lame Excuses
-
 reply
-
 "needing a paper-clip"
-
 "wanting an English-Tuvalu dictionary"
-
 "walking a neighbor's dog"
-
 "hearing air-raid sirens"
-
 "having drunk too much coffee"
-
 "thinking he smells smoke"
-
 "wondering where Lois got to"
-
 "needing to speak to Jimmy"
-
 "noticing the Good Year blimp"
 
 Test me with "west / get box / east / close box / east / west / north / south / west".

@@ -31,15 +31,12 @@ The prefer sometimes abbreviated room descriptions rule is not listed in the car
 The prefer abbreviated room descriptions rule is not listed in the carry out preferring abbreviated room descriptions rulebook.
 
 Carry out preferring unabbreviated room descriptions:
-
 	say "[story title] always provides full-length descriptions for your reading pleasure."
 
 Carry out preferring sometimes abbreviated room descriptions:
-
 	say "For your playing protection, [story title] provides only full-length room descriptions."
 
 Carry out preferring abbreviated room descriptions:
-
 	try preferring sometimes abbreviated room descriptions instead.
 
 The standard report preferring abbreviated room descriptions rule is not listed in the report preferring abbreviated room descriptions rulebook.

@@ -18,13 +18,9 @@ Understand "find [any thing]" as finding.
 Finding is an action applying to one visible thing.
 
 Carry out finding:
-
 	if the player is carrying the noun:
-
 		say "You're holding [the noun]!";
-
 	otherwise:
-
 		say "You left [the noun] [if the noun is on a supporter]on[otherwise]in[end if] [the holder of the noun]."
 ```
 
@@ -44,9 +40,7 @@ The silver key unlocks the display case.
 A jade vase, a teak chest, a bronze teakettle, and a child's burial casket are openable closed containers in the Exhibition Room.
 
 After taking the pearl:
-
 	say "The pearl rolls into your hand, gleaming in the oblique light; your fortune is made.";
-
 	end the story finally.
 ```
 
@@ -57,13 +51,10 @@ If we want to have the key found in different places when the game is replayed:
 
 ``` inform7
 {**}When play begins:
-
 	let the space be a random container which is not the display case;
-
 	move the silver key to the space.
 
 Every turn:
-
 	say "Your watch ticks with maddening loudness."
 
 The time of day is 1:02 AM.

@@ -34,11 +34,8 @@ Now: we're going to want many of the items in our kitchen to have switches, and 
 {**}Inclusion relates a thing (called X) to a thing (called Y) when Y is part of X. The verb to include means the inclusion relation.
 
 A stove is a kind of supporter. It is usually scenery.
-
 An oven is a kind of container. An oven is usually openable and closed. One oven is a part of every stove.
-
 A switch is a kind of device. A switch is part of every stove. A switch is part of every oven.
-
 Understand "[something related by reversed incorporation] switch" as a switch.
 ```
 
@@ -49,25 +46,18 @@ What follows is fairly straightforward, but notice that we are somewhat obsessiv
 
 ``` inform7
 {**}Setting action variables for opening a stove (this is the stove-opening rule):
-
 	let relevant oven be a random oven which is part of the noun;
-
 	now the noun is the relevant oven.
 
 Setting action variables for switching on something which includes a switch (this is the redirecting switches for switching on rule):
-
 	let relevant switch be a random switch which is part of the noun;
-
 	now the noun is the relevant switch.
 
 Setting action variables for switching off something which includes a switch (this is the redirecting switches for switching off rule):
-
 	let relevant switch be a random switch which is part of the noun;
-
 	now the noun is the relevant switch.
 
 Before printing the name of a switch (called target) (this is the switch identification rule):
-
 	say "[random thing which includes the target] ".
 
 A sink is a kind of container. A sink is usually fixed in place and scenery. A tap is a kind of switch. A tap is part of every sink. Understand "faucet" or "taps" as a tap. Understand "[something related by reversed incorporation] tap/faucet/taps" as a tap.
@@ -75,15 +65,12 @@ A sink is a kind of container. A sink is usually fixed in place and scenery. A t
 Instead of opening a tap, try switching on the noun. Instead of closing a tap, try switching off the noun.
 
 Report switching on a tap (this is the standard report switching taps on rule):
-
 	say "You turn on [the noun]." instead. [since "switch on" sounds weird in this context.]
 
 Report switching off a tap (this is the standard report switching taps off rule):
-
 	say "You turn off [the noun]." instead.
 
 After examining something which includes a switched on tap (called relevant tap) (this is the report flowing water rule):
-
 	say "The water is flowing from [the relevant tap]."
 
 A drain is a kind of container. A drain is part of every sink. Understand "plughole" as the drain. Understand "[something related by reversed incorporation] drain/plughole" as a drain.
@@ -101,21 +88,15 @@ A particularly conservative author might even want to make it turn out that the 
 
 ``` inform7
 {**}A cabinet is a kind of container. A cabinet is usually openable and closed. It is scenery.
-
 	Understand "cupboard" or "cupboards" or "cabinets" as a cabinet.
 
 A counter is a kind of supporter. It is scenery.
-
 	Understand "countertop" as a counter.
 
 A cabinet is in every kitchen.
-
 A counter is in every kitchen.
-
 A refrigerator is in every kitchen.
-
 A sink is in every kitchen.
-
 A stove is in every kitchen.
 
 Section 2 - Bathrooms
@@ -127,11 +108,8 @@ A toilet is a kind of supporter. Understand "john" as a toilet. A toilet is usua
 A bath is a kind of container. A bath is usually a fixed in place and enterable and scenery. A tap is part of every bath. A drain is part of every bath. Understand "bathtub" or "shower" as a bath.
 
 A sink is in every bathroom.
-
 A toilet is in every bathroom.
-
 A bath is in every bathroom.
-
 A cabinet is in every bathroom.
 ```
 
@@ -146,11 +124,9 @@ If we were feeling particularly ambitious and inclined toward interior decoratio
 Understand "take shower" or "take bath" or "bathe" or "wash" as bathing. Bathing is an action applying to nothing.
 
 Check bathing (this is the restrict baths to bathrooms rule):
-
 	if the location is not a bathroom, say "This isn't the place." instead.
 
 Check bathing (this is the block bathing rule):
-
 	say "You haven't time for a bath." instead.
 
 Washing is an action applying to one thing. Understand "clean [something]" or "wet [something]" or "wash [something]" as washing.
@@ -158,11 +134,9 @@ Washing is an action applying to one thing. Understand "clean [something]" or "w
 Instead of washing the player, try bathing.
 
 Check washing (this is the restrict washing to the proximity of sinks rule):
-
 	unless the player can touch a sink, say "This isn't the place." instead.
 
 Check washing (this is the block washing rule):
-
 	say "It doesn't seem worth the bother." instead.
 ```
 
@@ -213,11 +187,8 @@ sort of rule for those objects they wanted to describe specially; or they might 
 
 ``` inform7
 When play begins:
-
 	let N be a random stove in the Industrial Kitchen;
-
 	move the boiling pot to N;
-
 	change the description of N to...
 ```
 

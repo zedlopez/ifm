@@ -21,7 +21,6 @@ than
 
 ``` inform7
 repeat with offended party running through people:
-
 	now the offended party is angry.
 ```
 
@@ -36,7 +35,6 @@ Repeat comes in handy when we have something a bit more complicated to do with e
 A person can be alert or occupied. A person is usually alert.
 
 When play begins:
-
 	now the player is occupied.
 
 Dance is a kind of value. The dances are waltzes, polkas, cha-chas, charlestons, fox-trots, tangos, lambadas, and two-steps.
@@ -48,25 +46,15 @@ Manner is a kind of value. The manners are swiftly, primly, energetically, suave
 Every turn: now the current round is a random dance.
 
 Every turn:
-
 	repeat with dancer running through people who are not the player:
-
 		if dancer is alert:
-
 			now dancer is occupied;
-
 			let partner be a random alert person who is not the dancer;
-
 			if partner is a person:
-
 				now partner is occupied;
-
 				say "[The dancer] [the current round][if a random chance of 1 in 5 succeeds] [a random manner][end if] with [partner]. ";
-
 			otherwise:
-
 				say "[paragraph break][The dancer] is forced to be a wallflower. Poor [dancer]. ";
-
 	say paragraph break.
 ```
 

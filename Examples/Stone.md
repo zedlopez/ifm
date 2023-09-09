@@ -22,47 +22,28 @@ So:
 A food is a kind of thing that is edible. A food has a rule called the food effect.
 
 Carry out eating a food:
-
 	if a food is part of the noun:
-
 		repeat with item running through things which are part of the noun:
-
 			if item is a food, follow the food effect of the item;
-
 	follow the food effect of the noun.
 
 Report eating a food:
-
 	say "You eat [the noun]. [diagnosis of the player]";
-
 	stop the action.
 
 To say diagnosis of (victim - a person):
-
 	if the victim is ill:
-
 		say "You are ill.";
-
 		rule succeeds;
-
 	otherwise:
-
 		say "You are healthy. ";
-
 	if the victim is awake, say "You are wide awake. ";
-
 	otherwise say "You are sleepy. ";
-
 	if the victim is bright-eyed, say "Your eyesight is clear. ";
-
 	otherwise say "Your eyesight is dim. ";
-
 	if the victim is weak, say "You are weak. ";
-
 	otherwise say "You are strong. ";
-
 	if the victim is hungry, say "You are hungry.";
-
 	otherwise say "You are well-fed."
 ```
 
@@ -97,9 +78,7 @@ The broth is in the kettle. The kettle is on the fire. The fire is in the Cleari
 The player carries the hambone, the potatoes, and the carrots. The ivy is in the clearing.
 
 Instead of examining the broth:
-
 	if something is part of the broth, say "In the broth, [a list of things that are part of the broth] float[if exactly one thing is part of the broth]s[end if].";
-
 	otherwise say "It is just a thin broth with no other ingredients."
 
 Instead of inserting something into the broth: try inserting the noun into the holder of the broth.
@@ -116,9 +95,7 @@ And the following is a relatively unimportant nicety:
 {**}To sink is a verb.
 
 After inserting a food which is not the broth into a container which contains the broth:
-
 	now the noun is part of the broth;
-
 	say "[The noun] [sink] into [the second noun], making the broth richer."
 
 Test me with "x broth / eat hambone / put hambone in kettle / x broth / put potatoes in broth / x broth / eat carrots / eat broth / put ivy in kettle / eat ivy".

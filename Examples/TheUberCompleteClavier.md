@@ -40,19 +40,12 @@ The description of Alphabet Soup is "A bewildering place of glyphs, sigils and s
 The Greek Alphabet, the Cyrillic Alphabet, the Hebrew alphabet, and the embossed plaque are in Alphabet Soup. The description of the Greek alphabet is "αβγδεζηθικλμνξοπρςστυφχψω.". The description of the Hebrew alphabet is "אבגדהוזחטיךכלםמןנסעףפץצקרשת.". The description of the Cyrillic alphabet is "абвгдежзийклмнопрстуфхцчшщъыьэюя.".
 
 Instead of examining the plaque:
-
 	say "It seems to be a sign in Braille: ";
-
 	say unicode Braille pattern dots-24, " (I), ",
-
 		unicode Braille pattern dots-1345, " (N), ",
-
 		unicode Braille pattern dots-124, " (F), ",
-
 		unicode Braille pattern dots-135, " (O), ",
-
 		unicode Braille pattern dots-1235, " (R), ",
-
 		unicode Braille pattern dots-134, " (M)."
 
 The Gaming Lounge is south of Alphabet Soup. The chess position and the book of puzzle canons are in the Gaming Lounge.
@@ -66,39 +59,23 @@ The description of the book of canons is "A typical fugue is no. 13 (Tovey: [uni
 The empty square text is text that varies. To say empty: say the empty square text.
 
 To display the board:
-
 	say empty, empty, empty, empty, empty, empty, unicode black chess king, empty, line break;
-
 	say empty, empty, empty, unicode black chess queen, empty, empty, unicode black chess pawn, empty, line break;
-
 	say unicode black chess pawn, empty, empty, unicode black chess bishop, unicode black chess pawn, empty, empty, unicode black chess pawn, line break;
-
 	say empty, empty, empty, unicode black chess pawn, empty, unicode black chess rook, empty, empty, line break;
-
 	say empty, unicode black chess pawn, empty, unicode white chess pawn, unicode black chess pawn, empty, empty, empty, line break;
-
 	say empty, empty, empty, unicode black chess bishop, unicode white chess queen, empty, unicode white chess pawn, unicode white chess pawn, line break;
-
 	say unicode white chess pawn, unicode white chess pawn, empty, unicode white chess bishop, empty, unicode black chess rook, unicode white chess bishop, empty, line break;
-
 	say empty, unicode white chess knight, empty, empty, unicode white chess rook, empty, unicode white chess rook, unicode white chess king, line break.
 
 Instead of examining the chess position:
-
 	say "Fritz Saemisch - Aron Nimzowitsch, Copenhagen 1923: the Immortal Zugzwang Game. Nimzowitsch (black), observing that white will very soon have to play a terrible move, has just advanced his h pawn for no reason other than to wait. So it is white to play...";
-
 	say "[fixed letter spacing]......k. [line break]...q..p. [line break]p..bp..p [line break]...p.r.. [line break].p.Pp... [line break]...bQ.PP [line break]PP.B.rB. [line break].N..R.RK [variable letter spacing][line break]";
-
 	say "'White must, willy-nilly, eventually throw himself upon the sword', in Nimzowitsch's commentary. ";
-
 	say "We will now try to display the same position using chess-piece symbols in a Unicode font.";
-
 	say fixed letter spacing;
-
 	now the empty square text is " ";
-
 	display the board;
-
 	say variable letter spacing.
 
 The Astrological Observatory is above Alphabet Soup.

@@ -37,25 +37,15 @@ Now to make use of the special object. If the player types ``examine paintings``
 
 ``` inform7
 {**}A multiple action processing rule when the current action is examining (this is the examine kinds rule):
-
 	let L be the multiple object list;
-
 	let F be L;
-
 	let the painting count be 0;
-
 	repeat with item running through L:
-
 		if the item is a painting:
-
 			increment the painting count;
-
 			remove the item from F;
-
 	if the painting count is greater than one:
-
 		add the painting-collective to F;
-
 		alter the multiple object list to F.
 ```
 

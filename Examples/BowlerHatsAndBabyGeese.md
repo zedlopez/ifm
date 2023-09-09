@@ -21,7 +21,6 @@ Section 1 - The Procedure
 A scene can be restricted or free.
 
 Instead of going somewhere during a restricted scene:
-
 	say "Better to stay here for the moment and find out what is going to happen next."
 ```
 
@@ -38,7 +37,6 @@ The Broad Lawn is a room. "A sort of fun fair has been set up on this broad lawn
 The House is scenery in the Broad Lawn. The description is "A cautious vagueness about the nature of the inhabitants is generally considered a good idea. They might be gods, or minor demons, or they might be aliens from space, or possibly they are embodiments of physical principles, or expressions of universal human experience, or... at any rate they can run time backward and forward so it warbles like an old cassette. And they're always about when somebody dies. Other than that, they're very good neighbors and no one has a word to say against."
 
 Instead of entering the House:
-
 	say "You can't go in, of course. It's not a house for people."
 
 The Gazebo is north of the Broad Lawn. "The gazebo is sometimes used for bands, but at the moment has been appropriated for the distribution of lemonade."
@@ -63,45 +61,30 @@ There is a Spanish omelet. The description of the Spanish omelet is "Exquisitely
 The Clown Performance is a restricted scene. Clown Performance begins when the turn count is 3.
 
 When Clown Performance begins:
-
 	move the clown to the location.
 
 Every turn during Clown Performance:
-
 	repeat through the Table of Clowning:
-
 		say "[event description entry][paragraph break]";
-
 		blank out the whole row;
-
 		stop.
 
 When Clown Performance ends:
-
 	now the eggs are nowhere;
-
 	now the clown carries the omelet.
 
 Clown Performance ends when the number of filled rows in the Table of Clowning is 0.
 
 Table of Clowning
-
 event description
-
 "A clown with a purple polka-dot bowler hat strides into the vicinity and begins to juggle baby geese."
-
 "While the clown juggles, the baby geese visibly grow older and larger. The clown becomes unnerved."
-
 "In an attempt to resolve the problem, the clown reverses the direction of his juggling. The geese revert to goslings."
-
 "The goslings become smaller and smaller until the clown is juggling goose eggs[replace eggs]."
-
 "The clown throws all the eggs into the air at once and catches them in the bowler hat. He takes a bow; the audience applauds. As a final gesture, he upends his hat to release a perfectly cooked omelet."
 
 To say replace eggs:
-
 	now the supply of baby geese is nowhere;
-
 	now the clown carries the eggs.
 
 Free Time is a scene. Free Time begins when Clown Performance Ends.

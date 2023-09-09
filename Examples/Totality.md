@@ -14,33 +14,23 @@ First we define the events, and then we create a phrase to schedule them:
 {*}"Totality"
 
 At the time when the penumbra appears:
-
 	say "The sunlight dies away to an eerie, brownish penumbra."
 
 At the time when the eclipse begins:
-
 	say "The moon passes across the disc of the sun, plunging the world into darkness.";
-
 	now the Chamber is dark.
 
 At the time when the eclipse ends:
-
 	say "The moon passes away from the sun, and a gloomy penumbral light returns.";
-
 	now the Chamber is lighted.
 
 At the time when normal sunlight returns:
-
 	say "The sun shines once more bright in the sky, not to be eclipsed again on this spot for another thirty-seven years."
 
 To schedule an eclipse for (totality - a time):
-
 	the penumbra appears at two minutes before totality;
-
 	the eclipse begins at totality;
-
 	the eclipse ends at three minutes after totality;
-
 	normal sunlight returns at five minutes after totality.
 ```
 

@@ -21,7 +21,6 @@ then, in the corresponding graph, each "vertex" will have at most one arrow lead
 
 ``` inform7
 Meeting relates people to each other.
-
 Marriage relates one person to another.
 ```
 

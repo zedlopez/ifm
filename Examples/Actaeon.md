@@ -20,11 +20,8 @@ Understand "follow [any person]" as following. Understand the commands "chase" a
 Following is an action applying to one visible thing.
 
 Check following:
-
 	if the noun is the player, say "Wherever you go, there you are." instead;
-
 	if the noun is visible, say "[The noun] is right here." instead;
-
 	if the last location of the noun is not the location, say "It's not clear where [the noun] has gone." instead.
 ```
 
@@ -35,15 +32,10 @@ Here again the best route comes in handy:
 
 ``` inform7
 {**}Carry out following:
-
 	let the destination be the location of the noun;
-
 	if the destination is not a room, say "[The noun] isn't anywhere you can follow." instead;
-
 	let aim be the best route from the location to the destination;
-
 	say "(heading [aim])[line break]";
-
 	try going aim.
 
 Corinth is a room. Athens is east of Corinth. Epidaurus is southeast of Corinth and east of Mycenae. Mycenae is south of Corinth. Olympia is west of Mycenae. Argos is south of Mycenae. Thebes is northwest of Athens. Pylos is south of Olympia. Sparta is east of Pylos and south of Argos. Delphi is northwest of Thebes.
@@ -58,21 +50,14 @@ We do also have to make sure that whenever we move a person from room to room, w
 
 ``` inform7
 {**}To move (pawn - a person) tidily to (target - a room):
-
 	now the last location of the pawn is the holder of the pawn;
-
 	move the pawn to the target.
 
 Every turn:
-
 	let current location be the location of Artemis;
-
 	let next location be a random room which is adjacent to the current location;
-
 	if Artemis is visible, say "Artemis heads to [the next location].";
-
 	move Artemis tidily to next location;
-
 	if Artemis is visible, say "Artemis arrives from [the current location]."
 
 Test me with "wait / follow artemis / follow artemis / follow artemis".

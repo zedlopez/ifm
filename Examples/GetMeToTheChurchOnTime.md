@@ -37,15 +37,12 @@ And now the rule itself, borrowed from a later chapter:
 
 ``` inform7
 {**}Instead of wearing a pair of pants when the player is wearing a pair of pants (called the wrong trousers):
-
 	say "You'll have to take off [the wrong trousers] first."
 
 Instead of wearing a shirt when the player is wearing a shirt (called the wrong top):
-
 	say "You'll have to take off [the wrong top] first."
 
 When play begins:
-
 	say "From the other side of the door, you hear the organist move on from his instrumental interpretation of 'I Wanna Hold Your Hand' to a somewhat more spirited rendition of 'Help! I Need Somebody!'. Okay, okay, but you've been rushing things along since the 16th fairway, and you can't be more than a half-hour late... Surely that mother of hers can't blame you for that?"
 
 Test me with "i / x trousers / wear trousers / x golf pants / take off golf pants / wear trousers / x frilly shirt / x polo shirt / wear frilly shirt / doff polo shirt / wear frilly shirt".

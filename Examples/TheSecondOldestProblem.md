@@ -17,17 +17,11 @@ The problem alluded to is that the player is forbidden to walk between two dark 
 {*}"THE SECOND OLDEST PROBLEM"
 
 The going action has a number called the dark terminus count.
-
 Setting action variables for going:
-
 	now the dark terminus count is 0;
-
 	if in darkness, increment the dark terminus count.
-
 The last carry out going rule:
-
 	if in darkness, increment the dark terminus count;
-
 	if the dark terminus count is 2, end the story saying "YOU FELL INTO A PIT AND BROKE EVERY BONE IN YOUR BODY!" instead.
 ```
 
@@ -46,7 +40,6 @@ AWKWARD CANYON is west of DEBRIS ROOM. "YOU ARE IN AN AWKWARD SLOPING EAST/WEST 
 DEBRIS ROOM and AWKWARD CANYON are dark.
 
 Rule for printing the name of a dark room: say "DARKNESS" instead.
-
 Rule for printing the description of a dark room: say "IT IS NOW PITCH BLACK. IF YOU PROCEED YOU WILL LIKELY FALL INTO A PIT." instead.
 
 Test me with "w / e / w / w".

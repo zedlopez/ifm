@@ -18,13 +18,10 @@ Fitting relates various things to one thing (called the home). The verb to fit m
 A collective is a kind of thing.
 
 Before doing something to something which is part of a collective:
-
 	let space be the holder of the home of the noun;
-
 	move the noun to the space.
 
 Instead of examining a collective:
-
 	say "[The noun] consists of [the list of things which are part of the noun]."
 ```
 
@@ -37,51 +34,31 @@ Now the real work begins. One reason to make this an activity is that we might e
 {**}Collecting something is an activity.
 
 Every turn:
-
 	repeat with item running through collectives:
-
 		carry out the collecting activity with the item.
 
 To remove (item - a thing) when empty:
-
 	let space be the holder of the item;
-
 	if the number of things which are part of the item is 0:
-
 		now the item is nowhere;
-
 	if the number of things which are part of the item is 1:
-
 		let the last thing be a random thing which is part of the item;
-
 		move the last thing to the space;
-
 		now the item is nowhere.
 
 Before collecting a thing (called the item):
-
 	remove item when empty;
-
 	let space be the holder of the item;
-
 	if space is not a thing and space is not a room:
-
 		if something (called the other space) contains at least two things which fit the item, move item to the other space;
-
 		if a room (called the other space) contains at least two things which fit the item, move item to the other space;
-
 		if someone (called the owner) carries at least two things which fit the item, move item to the owner.
 
 Rule for collecting a thing (called the item):
-
 	let space be the holder of the item;
-
 	if space is a thing or space is a room:
-
 		repeat with component running through things held by the space:
-
 			if the component fits the item, now the component is part of the item;
-
 		remove item when empty.
 ```
 
@@ -103,11 +80,9 @@ Let's have the Encyclopedia describe itself differently depending on whether it'
 
 ``` inform7
 {**}After printing the name of the Set when something missing fits the Set:
-
 	say " (missing [a list of missing things which fit the Set])"
 
 Before printing the name of the Set when the number of missing things which fit the set is 0:
-
 	say "complete ".
 
 Test me with "get aarhus-aaron / look / inventory / get aam-aardvark / look / get gnu-zygote / look / get aarp-gnosis / look / inventory / drop set / look / get set / get a-aalto / inventory".

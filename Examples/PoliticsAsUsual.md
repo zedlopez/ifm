@@ -14,7 +14,6 @@ Suppose a game with a large map entirely subdivided into regions. We could defin
 {*}"Politics as Usual"
 
 When play begins:
-
 	now the right hand status line is "[map region of the location]".
 
 Washington is west of Idaho.

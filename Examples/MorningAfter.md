@@ -16,13 +16,10 @@ Suppose we want to make the player's life slightly easier by examining everythin
 A thing can be examined or unexamined.
 
 After taking something unexamined:
-
 	say "Taken. [run paragraph on]";
-
 	try examining the noun.
 
 Carry out examining something:
-
 	now the noun is examined.
 ```
 

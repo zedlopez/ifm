@@ -16,15 +16,11 @@ If we wanted to define a brand new verb that did affect a specific object, we mi
 Understand "hydrolyze [something]" as hydrolyzing. Hydrolyzing is an action applying to one thing.
 
 Carry out hydrolyzing:
-
 	say "[The noun] cannot be hydrolyzed."
 
 Instead of hydrolyzing the xylan:
-
 	move the xylose to the holder of the xylan;
-
 	now the xylan is nowhere;
-
 	say "At once the xylan becomes xylose."
 
 Plant Cell Wall is a room.

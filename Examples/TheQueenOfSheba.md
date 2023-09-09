@@ -22,19 +22,12 @@ After asking someone about something: respond to the question. After answering s
 After telling someone about something: say "You're here to ask questions and test Solomon's wisdom, not to give him a sample of your own."
 
 Table of Wise Answers
-
 topic	question type	reply
-
 "rain/weather/clouds/cloud/rains"	what	"'Clouds are a disturbance made by the paths of birds,' Solomon replies. 'The air beaten by their wings becomes agitated, as when a river is stirred and the mud churns up.'"
-
 "rain/weather/clouds/cloud/rains"	where	"'Weather is contained in a great silk bag which holds in the heavens,' replies Solomon."
-
 "hunger/food/eating"	when	"'Sorry, are you getting hungry?' he says, and rings a bell to summon servants."
-
 "hunger/food/eating"	why	"'Men were made to need food in order that they must farm and cook and dine together,' Solomon replies. 'Otherwise, they might live apart, each sufficient in himself. But no man can feed himself alone all through his life.'"
-
 "Solomon/he/himself"	who	"'As you see,' he says, holding out his arms to each side."
-
 "Solomon/he/himself"	what	"'I am an ordinary man,' he answers."
 ```
 
@@ -56,11 +49,8 @@ If Solomon is to live up to his reputation at all, his wisdom table will have to
 {**}The Hall of Almug Tree Pillars is a room. "The pillars of the room are made of almug tree, the ceiling made of silk and the floor of glass." Solomon is a man in the Hall of Almug Tree Pillars. Solomon has a number called wisdom. The wisdom of Solomon is 0.
 
 Every turn:
-
 	if the wisdom of Solomon is 3:
-
 		say "Truly, Solomon has answered all your questions, and his wisdom is even as great as you had heard!";
-
 		end the story saying "Your heart beats strangely fast".
 
 When play begins, say "'Oh, you've arrived,' says Solomon."
@@ -76,25 +66,16 @@ Now, this last bit requires some trickery from later chapters, particularly thos
 
 ``` inform7
 {**}After reading a command:
-
 	if the player's command includes "[interrogative]", now the current question is the interrogative understood.
 
 To respond to the question:
-
 	repeat through the Table of Wise Answers:
-
 		if the topic understood includes topic entry:
-
 			if the current question is the question type entry:
-
 				say "[reply entry][paragraph break]";
-
 				increment the wisdom of Solomon;
-
 				rule succeeds;
-
 	say "Solomon looks blank, appalled by a question for which he was not prepared.";
-
 	end the story saying "You have befuddled Solomon!"
 
 Understand "ask [someone] [text]" as asking it about.

@@ -34,11 +34,8 @@ Now we define, based on these relations, an "in-place" adjective, which will ide
 
 ``` inform7
 {**}Definition: a thing (called prop) is in-place:
-
 	if the prop is in the location and the prop is room-placed in the location, yes;
-
 	if the holder of the prop is a thing and the prop is placed in the holder of the prop, yes;
-
 	no.
 
 Definition: a thing is out-of-place if it is not in-place.
@@ -51,7 +48,6 @@ With that done, removing these items automatically from the room description is 
 
 ``` inform7
 {**}Before listing nondescript items:
-
 	now every marked for listing in-place thing is not marked for listing.
 ```
 
@@ -71,15 +67,10 @@ A quiet supporter is one that is never mentioned itself and which only mentions 
 
 ``` inform7
 {**}Rule for writing a paragraph about a quiet supporter (called chosen table):
-
 	if an out-of-place thing is on the chosen table:
-
 		if an in-place thing is on the chosen table,
-
 			say "On [the chosen table], in addition to [the list of in-place things on the chosen table], [is-are a list of out-of-place things which are on the chosen table].";
-
 		otherwise say "On [a chosen table] [is-are a list of out-of-place things which are on the chosen table].";
-
 	now the chosen table is mentioned.
 ```
 
@@ -110,17 +101,11 @@ The sparkling diamond is in the Sand-floored Chamber. The sparkling diamond is r
 The Hexagonal Temple is north of the Sand-Floored Chamber. "The temple walls are great ashlar blocks rising to a hundred feet overhead, perhaps more; the roof is a scarlet awning only, through which the sun filters down in blood hues. Overseeing all is a sculpture in stone and ivory[if the sparkling diamond is in the idol's eye], in whose single eye a vast diamond gleams[end if][mat-and-incense text].".
 
 To say mat-and-incense text:
-
 	if the mat is in the Temple and the incense stick is on the pedestal:
-
 		say ". A prayer mat at the idol's feet, and an incense stick still burning on the pedestal, indicate that someone was only recently consigning her grievances to the care of the deity";
-
 	otherwise if the mat is in the Temple:
-
 		say ". At the idol's feet, some worshipper has left a prayer mat";
-
 	otherwise if the incense stick is on the pedestal:
-
 		say ". At the idol's side is a pedestal, on which incense still smolders".
 ```
 

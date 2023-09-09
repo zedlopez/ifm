@@ -18,13 +18,9 @@ Waiting more is an action applying to one number.
 Understand "wait [a time period]" or "wait for [a time period]" or "wait for a/an [a time period]" or "wait a/an [a time period]" as waiting more.
 
 Carry out waiting more:
-
 	let the target time be the time of day plus the time understood;
-
 	decrease the target time by one minute;
-
 	while the time of day is not the target time:
-
 		follow the turn sequence rules.
 ```
 
@@ -35,7 +31,6 @@ The one nuance here is that after our wait command occurs, the turn sequence rul
 
 ``` inform7
 {**}Report waiting more:
-
 	say "It is now [time of day + 1 minute]."
 ```
 
@@ -46,7 +41,6 @@ And if we want to ensure that the player doesn't (accidentally or intentionally)
 
 ``` inform7
 {**}Check waiting more:
-
 	if the time understood is greater than one hour, say "You really haven't got that kind of patience." instead.
 
 The Specialist's Office is a room. The secretary is a woman in the Office. Instead of asking the secretary about "[appointment]", say "'Hang on just five more minutes,' she says, in a distracted manner."

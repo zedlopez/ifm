@@ -29,11 +29,8 @@ Using our "part of every person..." line, we've conveniently assigned one body p
 {**}Spirit-possession relates one person to one body. The verb to be owner of means the spirit-possession relation.
 
 When play begins:
-
 	repeat with victim running through people:
-
 		let the corpse be a random body which is part of the victim;
-
 		now the victim is owner of the corpse.
 ```
 
@@ -44,11 +41,9 @@ When Lydia is alive, we want >``touch lydia``'S ``body`` to mean the same thing 
 
 ``` inform7
 {**}Setting action variables when the noun is a body which is part of a person (called owner):
-
 	now the noun is the owner.
 
 Setting action variables when the second noun is a body which is part of a person (called owner):
-
 	now the second noun is the owner.
 ```
 
@@ -62,7 +57,6 @@ Along similar lines, once Lydia is dead, we want >``move lydia`` to mean >``move
 
 ``` inform7
 {**}Setting action variables when the noun is a dead person and the noun is owner of a visible body (called the mortal remains):
-
 	now the noun is the mortal remains.
 ```
 
@@ -84,7 +78,6 @@ It's also possible that the player will type something like >X ``lydia`` when Ly
 
 ``` inform7
 {**}Before doing something to a dead person:
-
 	say "[The noun] is dead; or had you blocked that out?" instead.
 ```
 
@@ -98,13 +91,9 @@ Now we define the attack itself, which should discard the body, move the spirit 
 
 ``` inform7
 {**}Instead of attacking someone:
-
 	let the corpse be a random body which is part of the noun;
-
 	move the corpse to the location;
-
 	move the noun to the spirit-world;
-
 	say "With a single blow, you rid the world of [the noun]."
 ```
 

@@ -24,15 +24,12 @@ We start by borrowing some of the same ideas from the Bogart example, but we're 
 Underlying relates various garment-elements to various garment-elements with fast route-finding. The verb to underlie means the underlying relation. The verb to be under implies the underlying relation.
 
 Check taking off:
-
 	if the noun underlies something (called the impediment) which is worn by the player, say "[The impediment] [are] in the way." instead.
 
 Carry out taking off:
-
 	now the noun is not underlaid by anything.
 
 Report taking off something:
-
 	say "[We] [are] now wearing [a list of uppermost things worn by the player]." instead.
 
 Definition: a garment-element is uppermost if it is not under something opaque.
@@ -45,13 +42,9 @@ Here we've expanded on the previous ideas of 'uppermost' because it is possible 
 
 ``` inform7
 {**}Before taking off something which underlies something which is worn by the player:
-
 	while the noun underlies something (called the impediment) which is worn by the player:
-
 		say "(first removing [the impediment])[command clarification break]";
-
 		silently try taking off the impediment;
-
 		if the noun underlies the impediment, stop the action.
 
 Overlying relates various garment-elements to various garment-elements. The verb to overlie means the overlying relation.
@@ -59,29 +52,20 @@ Overlying relates various garment-elements to various garment-elements. The verb
 Covering relates a garment-element (called A) to a garment-element (called B) when the number of steps via the overlying relation from A to B is greater than 0. The verb to cover means the covering relation.
 
 Before wearing something when a garment which covers the noun is worn by the player:
-
 	while the player wears a garment (called the impediment) which covers the noun:
-
 		say "(first removing [the impediment])[command clarification break]";
-
 		silently try taking off the impediment;
-
 		if the player is wearing the impediment, stop the action.
 
 Carry out wearing:
-
 	repeat with hidden item running through things worn by the player:
-
 		if the noun covers the hidden item, now the hidden item underlies the noun.
 
 Instead of looking under something which is worn by the player:
-
 	if something (called the underwear) underlies the noun, say "[We] [peek] at [the underwear]. Yup, still there.";
-
 	otherwise say "Just [us] in there."
 
 Instead of taking inventory:
-
 	say "[if the player carries something][We]['re] carrying [a list of things carried by the player][else][We]['re] empty-handed[end if][if the player wears something]. [We] [are] wearing [a list of uppermost garments worn by the player][end if]."
 
 To peek is a verb.
@@ -96,17 +80,11 @@ Here we draw in the idea that different clothes go over different areas of the b
 
 ``` inform7
 {**}Before wearing something:
-
 	let N be the layering depth of the noun;
-
 	repeat with item running through things worn by the player:
-
 		if the layering depth of the item is N and the item covers a body-part which is covered by the noun:
-
 			say "(first taking off [the item])[command clarification break]";
-
 			silently try taking off the item;
-
 			if the player wears the item, stop the action.
 ```
 
@@ -117,13 +95,9 @@ This may seem like overkill, but it allows us to create garments that cover diff
 
 ``` inform7
 {**}To decide what number is the layering depth of (chosen garment - a thing):
-
 	let N be 0;
-
 	if the chosen garment covers a body-part (called base):
-
 		let N be the number of steps via the overlying relation from the chosen garment to the base;
-
 	decide on N.
 ```
 
@@ -158,25 +132,15 @@ The plural of pair of pants is pairs of pants. The plural of pair of underpants 
 A pair of pants, a pair of underpants, a foundation garment, a pair of socks, a pair of shoes, a jacket, a hat, a dress, and a shirt are usually wearable.
 
 When play begins:
-
 	now every pair of socks overlies every pair of feet;
-
 	now every pair of shoes overlies every pair of socks;
-
 	now every pair of underpants overlies every seat;
-
 	now every pair of pants overlies every pair of underpants;
-
 	now every foundation garment overlies every torso;
-
 	now every jacket overlies every shirt;
-
 	now every jacket overlies every dress;
-
 	now every hat overlies every head;
-
 	now every dress overlies every pair of underpants;
-
 	now every dress overlies every foundation garment.
 
 Section 2 - The Scenario
@@ -186,19 +150,12 @@ The Dressing Room is a room.
 The player carries some capris, some jeans, a corset, a plunge bra, a thong, boy-shorts, black satin D'Orsay pumps, brown leather boots, a camisole, a cocktail dress, a bolero, a cashmere shrug, a sheer wrap, and a linen tunic.
 
 The woolly socks are a pair of socks.
-
 The D'Orsay pumps and the brown leather boots are pairs of shoes.
-
 The thong and the boy-shorts are pairs of underpants.
-
 The capris and the jeans are pairs of pants.
-
 The tunic is a shirt.
-
 The camisole, the corset, and the plunge bra are foundation garments.
-
 The cocktail dress is a dress.
-
 The bolero, the cashmere shrug, and the sheer wrap are jackets. The shrug and the wrap are transparent.
 
 Test me with "wear capris / wear jeans / i / wear thong / i / wear dress / wear corset / wear dress / i / wear wrap / i / wear boots / wear pumps / i".

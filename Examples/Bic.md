@@ -16,11 +16,8 @@ It may occasionally be useful to check whether all objects in our game have a gi
 Section 1 - Testing descriptions - Not for release
 
 When play begins (this is the run property checks at the start of play rule):
-
 	repeat with item running through things:
-
 		if description of the item is "":
-
 			say "[item] has no description."
 
 Section 2 - Story

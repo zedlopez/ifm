@@ -17,47 +17,34 @@ Heat is a kind of value. The heats are whole, damp, and flaming. A thing has a h
 A thing has a number called endurance. The endurance of a thing is usually 5. A thing has a number called turns of burning. A thing can be flammable or flame-retardant.
 
 Before printing the name of something flaming:
-
 	say "flaming ".
 
 Before burning something when the player is not carrying something flaming:
-
 	if a flaming portable thing (called the lighter) is touchable:
-
 		say "(with [the lighter], which you first take)[command clarification break]";
-
 		try taking the lighter.
 
 Instead of burning something when the player is not carrying something flaming:
-
 	say "You would first need a fire source."
 
 Instead of burning something flame-retardant:
-
 	say "[The noun] is not the sort of thing that catches fire."
 
 Instead of burning something flammable when the player is carrying something flaming (called the flame source):
-
 	say "You light [the noun] with [the flame source].";
-
 	now the heat of the noun is flaming.
 
 Instead of burning something when the player is in the noun:
-
 	say "That seems dangerous given that you yourself are in [the noun]."
 
 Instead of burning something when the player is on the noun:
-
 	say "That seems dangerous given that you yourself are on [the noun]."
 
 Instead of examining something:
-
 	say "Hm, the [printed name] appears to be [heat]."
 
 Before taking a flaming thing:
-
 	let turns remaining be the endurance of the noun minus the turns of burning of the noun;
-
 	if turns remaining is less than two, say "There's no portion of [the noun] sufficiently cool for you to pick up." instead.
 ```
 
@@ -68,47 +55,30 @@ But that's only a small part of the battle. The thing about fire is that it keep
 
 ``` inform7
 {**}Every turn when something is flaming:
-
 	follow the fire rules.
 
 The fire rules is a rulebook.
 
 A fire rule (this is the can't hold flaming objects rule):
-
 	repeat with item running through flaming things:
-
 		if the item is held by the player:
-
 			let turns remaining be the endurance of the item minus the turns of burning of the item;
-
 			if turns remaining is less than two:
-
 				say "[The item] becomes too hot to hold! ";
-
 				try dropping the item;
-
 				if the item is held by the player, say "This is certainly painful."
 
 A fire rule (this is the flames spread rule):
-
 	repeat with item running through flaming things:
-
 		if the turns of burning of the item is one:
-
 			spread the flames from the item.
 
 A fire rule (this is the fire destroys things rule):
-
 	now started printing is false;
-
 	repeat with item running through flaming things:
-
 		increment the turns of burning of the item;
-
 		if the turns of burning of the item is greater than the endurance of the item, destroy the item;
-
 	if started printing is true, say "[paragraph break]";
-
 	now started printing is false.
 ```
 
@@ -142,91 +112,59 @@ Having these at our disposal makes it much tidier to write what happens next:
 
 ``` inform7
 {**}To spread the flames from (item - a thing):
-
 	now started printing is false;
-
 	if the item is joined to a flammable whole thing (called the sacrifice):
-
 		if the sacrifice is visible:
-
 			now started printing is true;
-
 			say "Flames engulf [the list of flammable whole things which are joined to the item].";
-
 		now all the flammable whole things joined to the item are flaming.
 
 Started printing is a truth state that varies. Started printing is false.
 
 To destroy (item - a thing):
-
 	let home be the holder of the item;
-
 	if the item is part of something (called the superstructure), let home be the holder of the superstructure;
-
 	if the item is visible:
-
 		now started printing is true;
-
 		say "[The item] burns away[if something is relying on the item], leaving [a list of things which are relying on the item] behind[end if]. ";
-
 	if something is relying on the item,
-
 		now all the things which are relying on the item are in the home;
-
 	now the item is nowhere;
-
 	now the item is damp;
-
 	now every flaming thing which is part of the item is damp.
 
 To destroy (item - a door):
-
 	let home be the holder of the item;
-
 	if item is visible:
-
 		now started printing is true;
-
 		say "[The item] burns away[if something flame-retardant is part of the item], leaving [a list of flame-retardant parts of the item] behind[end if]. ";
-
 	if home is a room, now all of the flame-retardant parts of the item are in the home;
-
 	now the item is damp;
-
 	now the item is open;
-
 	now the item is unopenable.
 
 Before printing the name of a damp door:
-
 	say "burnt-out frame of ".
 
 Instead of opening or closing a damp door:
-
 	say "[The noun] can no longer be opened or closed in any meaningful sense."
 
 Instead of doing something other than examining or dropping to a flaming thing when the turns of burning of the noun is greater than 1:
-
 	say "Fire has too thoroughly engulfed [the noun] for that to be a good idea."
 
 Instead of taking something when the noun is in a flaming thing (called the receptacle):
-
 	say "You don't quite dare reach into [the receptacle]."
 
 Instead of touching something which is within a flaming thing (called the receptacle):
-
 	say "It seems a little risky since [the receptacle] is on fire."
 
 Instead of turning something when the noun is contained in a flaming thing (called the receptacle):
-
 	say "It seems a little risky since [the receptacle] is on fire."
 
 Instead of pushing or pulling something when the noun is inside a flaming thing (called the receptacle):
-
 	say "[The receptacle] deters you."
 
 Before burning something which is in a container when the holder of the noun contains the player:
-
 	say "This could make things toasty for you..."
 ```
 
@@ -245,7 +183,6 @@ The desk is a flammable supporter in the Library. A drawer is part of the desk. 
 A box is in the Library. A metal hinge is part of the box. The hinge is flame-retardant. The box is open, flammable, and openable. The shroud of Laertes is a flammable thing in the box.
 
 Instead of examining something when something is part of the noun:
-
 	say "You note [the list of things which are part of the noun]."
 
 The world's last manuscript of the Psychagogoi by Aeschylus is on the desk. The manuscript is flammable. The manuscript has endurance 1.
@@ -264,21 +201,14 @@ We can then add a special fire rule to handle the trapdoor, which will be called
 
 ``` inform7
 {**}A fire rule:
-
 	if the trapdoor is flaming and a random chance of 1 in 3 succeeds:
-
 		let the caught thing be a random flammable whole thing which can be touched by the trapdoor;
-
 		if the caught thing is a thing:
-
 			say "A spark from [the trapdoor] catches [the caught thing]!";
-
 			now the caught thing is flaming.
 
 Instead of going to the Plaza:
-
 	say "Out at last!";
-
 	end the story finally.
 
 Test me with "get manuscript / get shroud / light desk / look / g / open drawer / look / g / g / g / get sack / put shroud in sack / put manuscript in sack / close sack / light trapdoor / look / g / g / g / g / g / g / g / g / g / g / g / g / g / g / up".

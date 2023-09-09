@@ -16,19 +16,12 @@ Suppose we would like to allow the player to view the status of all the doors fu
 The security readout is a device. The description of the readout is "The screen is blank."
 
 Instead of examining the switched on security readout:
-
 	say "The screen reads: [fixed letter spacing]";
-
 	say line break;
-
 	repeat with item running through doors:
-
 		say line break;
-
 		say "  [item] ([front side of the item]/[back side of the item]): [if the item is locked]LOCKED[otherwise]UNLOCKED[end if]";
-
 	say variable letter spacing;
-
 	say paragraph break.
 ```
 

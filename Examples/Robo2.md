@@ -23,7 +23,6 @@ Section 1 - The Programs Themselves
 The hard drive is a container. A program is a kind of thing. 15 programs are in hard drive. A program has some text called the starter command. A program has a list of stored actions called the script. Understand the starter command property as describing a program.
 
 Rule for printing the name of a program (called the target) which is not blank:
-
 	say "[starter command of the target in upper case]".
 
 Definition: a program is blank if the number of entries in its script is 0.
@@ -42,35 +41,24 @@ Now, we want to let Robo learn new programs; for this purpose, we'll emulate the
 Understand "learn [text]" as learning. Learning is an action applying to one topic.
 
 Check learning:
-
 	say "You have already learned all you need to know. Robo, however, remains to be trained." instead.
 
 Check Robo learning:
-
 	if Robo is watching, say "Robo is already recording '[the current instruction name]'." instead.
 
 Carry out Robo learning:
-
 	truncate the current instruction set to 0 entries;
-
 	now the current instruction name is the topic understood;
-
 	now Robo is watching.
 
 Report Robo learning:
-
 	say "'Learning [the current instruction name in upper case],' Robo replies."
 
 After doing something when Robo is watching and Robo can see the player:
-
 	now the actor is Robo;
-
 	add the current action to the current instruction set;
-
 	now the actor is the player;
-
 	say "Robo watches you [the current action][one of], its yellow eyes lamp-like and observant[or]. In its metal head, gears whirr[or], its brushed-copper handlebar moustaches twitching[or] impassively[at random].";
-
 	continue the action.
 ```
 
@@ -85,35 +73,24 @@ Of course, we also need to be able to switch learning mode off, and store any sc
 Understand "stop" as stopping. Stopping is an action applying to nothing.
 
 Check stopping:
-
 	say "The command is useful only for Robo." instead.
 
 Check Robo stopping:
-
 	if Robo is standing by, stop the action.
 
 Carry out Robo stopping when Robo is watching:
-
 	let N be a random blank program;
-
 	if N is a program:
-
 		now the starter command of N is the current instruction name;
-
 		now the script of N is the current instruction set;
-
 		say "'Stored [current instruction name in upper case].'";
-
 	otherwise:
-
 		say "FAILURE: no program slots remaining."
 
 Carry out Robo stopping:
-
 	now Robo is standing by.
 
 Report Robo stopping:
-
 	say "Robo is now standing by."
 ```
 
@@ -128,49 +105,32 @@ Next, we need to be able to play these programs back again. We'll give Robo a "c
 Understand "run [any program]" as running. Running is an action applying to one visible thing.
 
 Check running:
-
 	say "Only Robo can perform Robo's programs." instead.
 
 Check Robo running:
-
 	if Robo is not standing by, stop the action.
 
 Unsuccessful attempt by Robo running:
-
 	say "'ERROR: Robo can launch new programs only when on standby.'"
 
 Carry out Robo running:
-
 	now the current program of Robo is the noun;
-
 	now the stage of Robo is 1;
-
 	now Robo is replaying.
 
 Report Robo running:
-
 	say "'Running [the starter command in upper case],' Robo confirms."
 
 Every turn when Robo is replaying:
-
 	let the chosen script be the script of the current program of Robo;
-
 	let maximum be the number of entries in the chosen script;
-
 	let N be the stage of Robo;
-
 	let the next step be entry N of the chosen script;
-
 	try the next step;
-
 	increment the stage of Robo;
-
 	if the stage of Robo is greater than the maximum:
-
 		say "Robo's program ends, and it reverts to stand-by mode.";
-
 		now Robo is standing by;
-
 		now the stage of Robo is 1.
 ```
 
@@ -185,21 +145,17 @@ For the player's sanity, we should also provide a way to find out which programs
 Understand "list programs" as requesting program list. Requesting program list is an action applying to nothing.
 
 Check requesting program list:
-
 	say "You will have to ask Robo to list programs." instead.
 
 Carry out Robo requesting program list:
-
 	say "'The available program[if more than one program is not blank]s[end if] [is-are list of programs which are not blank].'".
 
 Understand "describe [any program]" or "list [any program]" as requesting script of. Requesting script of is an action applying to one visible thing.
 
 Check requesting script of:
-
 	say "You will have to ask Robo to give you the script." instead.
 
 Carry out Robo requesting script of:
-
 	say "The script of [noun] is: [script of the noun]."
 ```
 
@@ -214,25 +170,19 @@ And to complete the suite, in case the player runs into Robo's fifteen-program l
 Understand "delete [any program]" as deleting. Deleting is an action applying to one visible thing. Understand the command "erase" as "delete".
 
 Check deleting:
-
 	say "You will have to instruct Robo to delete [the noun]." instead.
 
 Check Robo deleting (this is the can't delete except in standby rule):
-
 	if Robo is not standing by, stop the action.
 
 Unsuccessful attempt by Robo deleting:
-
 	say "'ERROR: programs may only be deleted while Robo is in stand-by mode.'" instead.
 
 Carry out Robo deleting:
-
 	truncate the script of the noun to 0 entries;
-
 	now the starter command of the noun is "".
 
 Report Robo deleting:
-
 	say "'Program deleted.'"
 ```
 
@@ -253,15 +203,12 @@ Persuasion rule: persuasion succeeds.
 The red block and the blue cylinder are things in the Experimentation Chamber. The counter is a supporter in the Experimentation Chamber. The counter is scenery.
 
 Report Robo examining Robo:
-
 	say "Robo examines each of its hands in turn, then each of its legs (bending over mostly double in the middle to do this)." instead.
 
 Report Robo examining the player:
-
 	say "Robo stares at you, unblinkingly, for several seconds together[if a random chance of 1 in 7 succeeds]. Its left moustache-bar twitches infinitesimally upward[end if]." instead.
 
 Report Robo taking the cylinder:
-
 	say "[one of][Robo] needs several attempts to get its metal fingers around [the cylinder] -- they are not designed for grasping small objects elegantly. But at last it succeeds[or]Once again, Robo struggles a bit before picking up [the cylinder][stopping]." instead.
 
 Test me with "test chocolate / test vanilla".
@@ -278,11 +225,8 @@ We could also have written this so that Robo learns new scripts by accepting the
 
 ``` transcript
 >robo, learn library theft
-
 >robo, take book
-
 >robo, east
-
 >robo, stop
 ```
 
@@ -293,13 +237,10 @@ We could also have written this so that Robo learns new scripts by accepting the
 
 ``` inform7
 Before Robo doing something other than stopping when Robo is watching:
-
 	add the current action to the current instruction set;
-
 	say "'CHECK: [current action] added to script,' says Robo." instead.
 
 Unsuccessful attempt by Robo doing something when Robo is watching:
-
 	say "He does not actually perform the action."
 ```
 

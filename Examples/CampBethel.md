@@ -64,7 +64,6 @@ Another frequent use of text alternatives is to give characters a bit of variety
 
 ``` inform7
 {**}Instead of telling Jeremy about something:
-
 	say "Jeremy looks [one of]surprised[or]intrigued[or]nonplussed[at random]. '[one of]You don't say[or]That's very interesting[or]Do go on[or]I wish I'd known that sooner[at random]!'".
 ```
 
@@ -75,9 +74,7 @@ Or, with somewhat more complexity:
 
 ``` inform7
 {**}Instead of asking Jeremy about something:
-
 	say "'[one of]Sorry,[or]I'm afraid[or]Hm,[at random] [one of]I don't know much about that[or]you've got me there[or]I haven't the faintest[at random],' Jeremy [one of]drawls[or]replies[or]comments[or]exclaims[at random]";
-
 	say "[one of][or] huskily[or] throatily[or] silkily[or] in a deep manly voice[as decreasingly likely outcomes]."
 ```
 

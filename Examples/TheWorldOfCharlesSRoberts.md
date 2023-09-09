@@ -24,15 +24,10 @@ But hexes are tricky for IF, not least because English lacks words for "the dire
 {*}"The World of Charles S. Roberts"
 
 Forward is a direction. Forward has opposite backward. Understand "f" as forward.
-
 Backward is a direction. Backward has opposite forward. Understand "b" and "back" as backward.
-
 Forward left is a direction. Forward left has opposite backward right. Understand "fl" as forward left.
-
 Forward right is a direction. Forward right has opposite backward left. Understand "fr" as forward right.
-
 Backward left is a direction. Backward left has opposite forward right. Understand "bl" as backward left.
-
 Backward right is a direction. Backward right has opposite forward left. Understand "br" as backward right.
 ```
 
@@ -95,15 +90,11 @@ The landscape is much easier to navigate with a little diagram:
 
 ``` inform7
 {**}To say legend (D - direction):
-
 	let destination hex be the room D from the location;
-
 	if the destination hex is nothing, say "  ";
-
 	otherwise say the destination hex.
 
 Carry out looking:
-
 	say "[fixed letter spacing]   \ [legend forward] /[line break][legend forward left]  ----  [legend forward right][line break]   /    \[line break]--<  [location]  >--[line break]   \    /[line break][legend backward left]  ----  [legend backward right][line break]   / [legend backward] \[variable letter spacing][line break]".
 ```
 

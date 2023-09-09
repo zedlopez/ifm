@@ -39,17 +39,13 @@ Now we need to give every character some sort of idle activity. By default, we'l
 {**}A person has an action name called the current idle. The current idle of a person is usually the waiting action.
 
 Rule for writing a paragraph about someone  (called chosen person) when a verb describes the current idle of the chosen person:
-
 	say "[The chosen person] [are] here, [present participle of a random verb that describes (the current idle of the chosen person)]."
 
 Instead of someone doing something:
-
 	now the current idle of the person asked is (the action name part of the current action);
-
 	continue the action.
 
 A persuasion rule:
-
 	persuasion succeeds.
 
 Section 2 - Scenario
@@ -64,9 +60,7 @@ And just to give past participles a test-drive as well, let's make Clark a bit o
 
 ``` inform7
 {**}After Clark doing something when a verb describes (the action name part of the current action):
-
 	say "'Fine, have it your way!' Clark exclaims. 'But I have [past participle of a random verb that describes (the action name part of the current action)] for the last time!'";
-
 	rule succeeds.
 
 Test me with "look / Clark, jump / look / Clark, look / look / Clark, wait".

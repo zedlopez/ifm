@@ -14,9 +14,7 @@ As mentioned in this section, the "implicitly taking" activity does not allow us
 {*}"Lollipop Guild"
 
 The carrying requirements rule does nothing when showing something to the guardian.
-
 The can't show what you haven't got rule does nothing when showing something to the guardian.
-
 The block showing rule does nothing.
 
 Candyland is a room. "A fizzing, popping wonderland of sugary delights. A path tiled with butterscotch sweets leads to the horizon."
@@ -32,21 +30,16 @@ The guardian is a man in Candyland. "Right beside you is a guardian in a mint-co
 A thing can be sweet. The butterscotch path, the lollipop, and the gumdrop are sweet.
 
 Carry out showing a sweet thing to the guardian:
-
 	say "The guardian shrieks! You don't understand its language, but from its ululations you understand the idea of decay. There may have been a bit in there about a root canal." instead.
 
 Carry out showing something to the guardian:
-
 	say "The guardian nods approvingly at the unsweetened [noun]." instead.
 
 Report eating a sweet thing in the presence of the guardian:
-
 	say "The guardian looks mournful, but unholsters his tube of paste and begins applying it to the toothbrush, as though to say that he really did not want to have to do this...";
-
 	end the story saying "Everything goes minty" instead.
 
 Report eating something:
-
 	say "You consume [the noun] with gusto." instead.
 
 Test me with "x guardian / x toothbrush / show gumdrop to guardian / show path to guardian / show tuna to guardian / look  / eat gumdrop".

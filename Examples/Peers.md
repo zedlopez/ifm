@@ -22,21 +22,15 @@ The House of Lords is a room. Maltravers, Pollifax, Omnium and St Vincent are pe
 Ennobling is an action applying to one thing and one title.
 
 Check ennobling:
-
 	if the noun is the player, say "The Sovereign is the fountain of honour, and may not be ennobled." instead;
-
 	if the noun is not a peer, say "Commoners should remain so." instead;
-
 	if the title of the noun is the title understood, say "But that is his title already." instead;
-
 	if the title of the noun is greater than the title understood, say "As he is already of the rank of [title of the noun], any such letters patent are liable to be deemed invalid, following the precedent of the Buckhurst Peerage Case (1876). Best not." instead.
 
 Carry out ennobling:
-
 	now the title of the noun is the title understood.
 
 Report ennobling:
-
 	say "'Whereas Our Parliament for arduous and urgent affairs concerning Us the state and defence of Our United Kingdom and the Church is now met at Our City of Westminster We strictly enjoining Command you upon the faith and allegiance by which you are bound to Us that the weightness of the said affairs and imminent perils considered (waiving all excuses) you be at the said day and place personally present with Us and with the said Prelates Great Men and Peers to treat and give your counsel upon the affairs aforesaid And this as you regard Us and Our honour and the safety and defence of the said Kingdom and Church and dispatch of the said affairs in nowise do you omit Witness Ourself at Westminster the Fifth day of November in the 43rd year of Our Reign,' you say, with unpunctuated serenity. The new [noun] bows stiffly."
 
 Understand "dub [someone] a/an [title]" as ennobling.

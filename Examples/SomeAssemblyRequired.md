@@ -16,63 +16,40 @@ We now have the mechanisms in place to do some fairly sophisticated renaming of 
 Garment type is a kind of value. The garment types are vest, t-shirt, polo shirt, mandarin blouse, button-down, shell, experiment.
 
 Every turn:
-
 	assign identities.
 
 When play begins: assign identities.
 
 To assign identities:
-
 	repeat with item running through torsos:
-
 		reassess item.
 
 To reassess (item - a torso):
-
 	if the number of things which are part of the item is 0:
-
 		now garment type of the item is vest;
-
 		rule succeeds;
-
 	if exactly two short sleeves are part of the item:
-
 		if a collar is part of the item,
-
 			now garment type of the item is polo shirt;
-
 		otherwise now garment type of the item is t-shirt;
-
 		rule succeeds;
-
 	if exactly two long sleeves are part of the item:
-
 		if a collar is part of the item,
-
 			now garment type of the item is button-down;
-
 		otherwise now garment type of the item is mandarin blouse;
-
 		rule succeeds;
-
 	if a collar is part of the item and the number of sleeves which are part of the item is 0, now garment type of the item is shell;
-
 	otherwise now garment type of the item is experiment.
 
 Before cutting something which is worn by the player:
-
 	try taking off the noun.
 
 Instead of cutting something when something is part of the noun:
-
 	say "You cut up [the noun], snipping off [a list of things which are part of the noun].";
-
 	now every thing which is part of the noun is held by the holder of the noun.
 
 Instead of cutting something which is part of something:
-
 	say "You carefully snip [the noun] free.";
-
 	now the player carries the noun.
 
 Rule for printing the name of a torso: say "[garment type]".
@@ -84,9 +61,7 @@ Understand "sew [something] to [something]" as affixing it to. Affixing it to is
 Instead of affixing something to something when the second noun is worn: say "You're wearing [the second noun]!"
 
 Instead of affixing a torso to something:
-
 	if the second noun is a torso, say "Couture for Siamese twins is a daring field, but a bit of a niche market.";
-
 	otherwise try affixing the second noun to the noun.
 
 Instead of affixing a sleeve to something when at least two sleeves are part of the second noun: say "[The second noun] already sports [a list of sleeves that are part of the second noun]."

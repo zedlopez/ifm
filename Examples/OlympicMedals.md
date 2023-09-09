@@ -16,27 +16,16 @@ Let's start with results from the 2020 Summer Olympic Games:
 The Tally Room is a room. "Here we count the event results as they come in and update that most important table of all, the Table of Olympic Medals."
 
 Table of Olympic Medals
-
 Country	Gold	Silver	Bronze
-
 "Australia"	17	7	22
-
 "China"	38	32	19
-
 "France"	10	12	11
-
 "Germany"	10	11	16
-
 "Great Britain"	22	20	22
-
 "Italy"	10	10	20
-
 "Japan"	27	14	17
-
 "Netherlands"	10	12	14
-
 "ROC"	20	28	23
-
 "United States"	39	41	33
 ```
 
@@ -47,37 +36,22 @@ Olympic medal results are conventionally listed according to the number of gold 
 
 ``` inform7
 {**}To decide which number is the ranked medal comparison of (T - table name) rows (X - a number) and (Y - a number) (this is ranked medal comparison):
-
 	if gold in row Y of T > gold in row X of T:
-
 		decide on 1;
-
 	if gold in row Y of T < gold in row X of T:
-
 		decide on -1;
-
 	if silver in row Y of T > silver in row X of T:
-
 		decide on 1;
-
 	if silver in row Y of T < silver in row X of T:
-
 		decide on -1;
-
 	if bronze in row Y of T > bronze in row X of T:
-
 		decide on 1;
-
 	if bronze in row Y of T < bronze in row X of T:
-
 		decide on -1;
-
 	decide on 0;
 
 When play begins:
-
 	sort Table of Olympic Medals with ranked medal comparison;
-
 	showme the contents of the Table of Olympic Medals;
 ```
 
@@ -88,21 +62,14 @@ But this isn't great for Italy–are France's two more silver medals really so m
 
 ``` inform7
 {**}To decide which number is the total medal comparison of (T - table name) rows (X - a number) and (Y - a number) (this is total medal comparison):
-
 	choose row X in T;
-
 	let total X be the gold entry + silver entry + bronze entry;
-
 	choose row Y in T;
-
 	let total Y be the gold entry + silver entry + bronze entry;
-
 	decide on total Y - total X;
 
 When play begins:
-
 	sort Table of Olympic Medals with total medal comparison;
-
 	showme the contents of the Table of Olympic Medals;
 ```
 

@@ -34,15 +34,12 @@ Appearance is a kind of value. The appearances are muddy, scruffy, fluffy, and d
 A grooming tool is a kind of thing. Understand "use [a grooming tool] on [something]" as grooming it with (with nouns reversed). Grooming it with is an action applying to two things. Understand "groom [something] with [something]" as grooming it with.
 
 Carry out grooming it with:
-
 	if the appearance of the noun is less than dapper, now the appearance of the noun is the appearance after the appearance of the noun.
 
 Report grooming it with:
-
 	say "You attend diligently to the appearance and hygiene of [the noun]."
 
 Instead of using a grooming tool in the presence of the brown llama:
-
 	try grooming the brown llama with the noun.
 
 The player carries some nail nippers, a slicker brush, and an apple. The apple is edible. The brush and the nippers are grooming tools. The player wears a sombrero.

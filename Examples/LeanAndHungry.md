@@ -19,7 +19,6 @@ The Limestone Cave is a room. "Not very big, and it doesn't go back far, but you
 The sinister gentleman is a man in the Cave. "Leaning against the wall is a sinister gentleman in a threadbare waistcoat." The description is "He looks as though he might once have been quite well off."
 
 After examining the gentleman:
-
 	say "[The noun] smiles back at you in an unnerving fashion."
 ```
 
@@ -30,13 +29,10 @@ Now we make the rule that governs the gentleman's behavior. Here we're going to 
 
 ``` inform7
 {**}Every turn:
-
 	if the sinister gentleman can touch something valuable (called the treasure) which is not carried by a person:
-
 		try the gentleman taking the treasure.
 
 Report the gentleman taking something:
-
 		say "[The gentleman] slyly acquires [the noun] and tucks it into his pocket." instead.
 ```
 

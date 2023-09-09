@@ -30,33 +30,22 @@ Before printing the name of a read letter: say "[tone] ".
 Before printing the name of an ungrouped letter: say "random ".
 
 Before printing the plural name of a letter (called the subject):
-
 	if the subject is grouped:
-
 		say "[tone] ";
-
 	otherwise if the number of unread letters which are next to the subject is 0:
-
 		say "unsorted ".
 
 After printing the plural name of a letter (called the subject):
-
 	if the number of read letters which are next to the subject is 0, say " (all unread, at the moment)" instead;
-
 	if the number of unread letters which are next to the subject is greater than 0, say " (some as yet unread)" instead.
 
 Proximity relates a thing (called X) to a thing (called Y) when the holder of X is the holder of Y. The verb to be next to means the proximity relation.
 
 Definition: a letter is grouped:
-
 	if it is unread, no;
-
 	if the number of unread letters next to it is greater than 0, no;
-
 	repeat with item running through letters which are next to it:
-
 		if the tone of item is not the tone of it, no;
-
 	yes.
 
 Definition: a letter is ungrouped if it is not grouped.
@@ -77,9 +66,7 @@ Now, there's a good bit of interaction to streamline. We intend that the player 
 
 ``` inform7
 {**}Does the player mean examining a letter (called the subject):
-
 	if we have examined the subject, it is very unlikely;
-
 	it is very likely.
 ```
 
@@ -90,19 +77,13 @@ The rules about taking are more subtle: the player is more likely to want to tak
 
 ``` inform7
 {**}Does the player mean taking a letter (called subject) which is grouped:
-
 	if the player carries the subject, it is very unlikely;
-
 	if the subject is in the satchel, it is possible;
-
 	it is unlikely.
 
 Does the player mean taking a letter (called subject) which is ungrouped:
-
 	if the player carries the subject, it is very unlikely;
-
 	if the subject is in the satchel, it is very likely;
-
 	it is possible.
 ```
 
@@ -113,9 +94,7 @@ And finally, we will assume by default that anything other than examining or tak
 
 ``` inform7
 {**}Does the player mean doing something other than examining or taking with a letter (called the subject):
-
 	if we have examined the subject, it is likely;
-
 	it is unlikely.
 ```
 
@@ -128,11 +107,8 @@ And we would also like to understand properties under the same circumstances as 
 {**}Understand the tone property as referring to a letter when the item described is grouped. Understand "random" as a letter when the item described is ungrouped.
 
 When play begins:
-
 	now every mailbox is part of the mail wall;
-
 	repeat with switch count running from 1 to 5:
-
 		move a random letter to the satchel.
 
 Test me with "inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i".

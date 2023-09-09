@@ -11,13 +11,9 @@ For: Z-Machine
 {*}"Zorn of Zorna"
 
 Visibility rule:
-
 	if examining:
-
 		if the detail of the noun is fine and the number of visible lit candles is less than 5, there is insufficient light;
-
 		if the detail of the noun is ordinary and the number of visible lit candles is less than 3, there is insufficient light;
-
 	there is sufficient light.
 
 Detail is a kind of value. The details are fine, ordinary, and gross. A thing has detail.
@@ -31,25 +27,17 @@ Understand "blow out [something]" or "extinguish [something]" or "put out [somet
 Understand "burn [unlit candle]" as burning.
 
 Instead of blowing out a candle:
-
 	now the noun is unlit;
-
 	say "You put out [the noun]."
 
 Rule for printing a refusal to act in the dark:
-
 	if we are examining something, say "The details of [the noun] are too fine to make out in the light of only [the number of visible lit candles in words] candle[s]." instead.
 
 Every turn when the Todal is visible:
-
 	if the number of visible lit candles is greater than 1:
-
 		say "The brightness of the room wakens the Todal from slumber, and with you unarmed...";
-
 		end the story;
-
 	otherwise:
-
 		say "Todal sleeps fitfully, troubled by even that faint light."
 
 A room is usually dark.
@@ -67,15 +55,12 @@ The Zig-Zag Hallway is north of the Palace. "The Hallway goes left, then right, 
 Todal is an animal in the Zig-Zag Hallway.
 
 Rule for printing the description of a dark room when the Todal is in the location:
-
 	try listening.
 
 Instead of listening when in darkness and the Todal is in the location:
-
 	say "In the darkness something softly gleeps."
 
 Instead of going north from the Hallway when in darkness:
-
 	say "You stumble and cannot find your way."
 
 North of the Hallway is Freedom. Instead of going to Freedom: say "You make it out into the cool night air at last!"; end the story finally.

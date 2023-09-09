@@ -31,27 +31,17 @@ After that, we can use "the topic understood" to refer to the text we read:
 
 ``` inform7
 {**}Carry out getting help about:
-
 	if the topic understood is a topic listed in the Table of Standard Help:
-
 		say "[explanation entry][paragraph break]";
-
 	otherwise:
-
 		say "You're out of ideas."
 
 Table of Standard Help
-
 topic	title	summary	explanation
-
 "sushi"	"sushi"	"Really it's just vinegary rice"	"Popular misconception says that sushi inevitably entails raw fish, but it is in fact just rice with rice vinegar on it.  It's just that the really good kinds have raw fish in."
-
 "cucumber roll" or "cucumber"	"Cucumber roll"	"Sushi for people who are afraid of sushi"	"It is just rice and slivers of cucumber in the middle, and as long as you don't go too crazy with the wasabi, all should be well."
-
 "california roll" or "california"	"California roll"	"Travesty of the sushi concept"	"It's. Fake. Crab."
-
 "monkfish liver"	"monkfish liver"	"Expert eaters only"	"The odds of Ichiro's having this unusual delicacy is near zero."
-
 "microdot"	"microdot"	"What you came here to deliver"	"There'll be time enough for that later. If Fowler ever turns up. Where is she, anyway?"
 ```
 
@@ -64,11 +54,8 @@ Since the player may not know what all the help options are, we might as well le
 {**}Understand "help" as summoning help.  Summoning help is an action applying to nothing.
 
 Carry out summoning help:
-
 	say "Help is available about the following topics.  Typing HELP followed by the name of a topic will give further information.[paragraph break]";
-
 	repeat through the Table of Standard Help:
-
 		say "  [title entry]: [summary entry][line break]".
 
 Test me with "help / help about microdot / help cucumber / help california roll".

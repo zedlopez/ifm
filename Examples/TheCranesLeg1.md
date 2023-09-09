@@ -60,37 +60,21 @@ Now each of these types has one ideal representative which has the fundamental a
 {**}The description of a thing is usually "[comparison with ideal][run paragraph on]".
 
 To say comparison with ideal:
-
 	let the sample be the ideal of the noun;
-
 	if the sample is not a thing:
-
 		say "Perfectly conforming to your expectations of its type.";
-
 		rule succeeds;
-
 	if the material of the noun is not the material of the sample:
-
 		if the height of the noun is not the height of the sample:
-
 			if the noun is shorter than the sample, say "Unusually short at [height of the noun], and made of [material of the noun].";
-
 			otherwise say "Unusually tall at [height of the noun], and made of [material of the noun].";
-
 		otherwise:
-
 			say "Distinct mostly in being made of [material of the noun].";
-
 	otherwise:
-
 		if the height of the noun is not the height of the sample:
-
 			if the noun is shorter than the sample, say "Unusually short at [height of the noun].";
-
 			otherwise say "Unusually tall at [height of the noun].";
-
 		otherwise:
-
 			say "In every respect [a sample]."
 
 The Pleasure Garden is a room. "At the riverbank, a pleasing garden, having many curving paths and one straight."

@@ -23,21 +23,15 @@ An enclosure is a kind of thing. A container is a kind of enclosure. A supporter
 Understand "zap [something]" as zapping. Zapping is an action applying to one thing. The Zapping action has a list of things called the remnants.
 
 Carry out zapping an enclosure:
-
 	if the noun holds something:
-
 		now the remnants is the list of things held by the noun;
-
 		repeat with N running through the remnants:
-
 			move N to the holder of the noun.
 
 Carry out zapping:
-
 	now the noun is nowhere.
 
 Report zapping:
-
 	say "You zap [the noun], destroying [them][if the remnants is not empty] and leaving [the remnants with indefinite articles] behind[end if]."
 
 Section 2 - Scenario

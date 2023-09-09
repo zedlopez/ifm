@@ -41,31 +41,23 @@ Understand "photograph [something] with [camera]" as photographing. Understand "
 The photographing action has an object called the selected film.
 
 Setting action variables for photographing:
-
 	let N be a random photograph in the film roll;
-
 	now the selected film is N.
 
 Check photographing:
-
 	if the second noun is not the camera, say "You need a camera for that purpose." instead.
 
 Check photographing:
-
 	if the noun is the camera, say "Sadly impossible." instead.
 
 Check photographing:
-
 	if the selected film is nothing, say "You're out of film." instead.
 
 Carry out photographing:
-
 	now the noun is shown by the selected film;
-
 	move the selected film to the player.
 
 Report photographing:
-
 	say "Your camera instantly spits out [a selected film]."
 ```
 
@@ -76,15 +68,11 @@ Now we use two activities from the Activities chapter to describe the photograph
 
 ``` inform7
 {**}After printing the name of a photograph (called target):
-
 	say " of [a random thing which is shown by the target]".
 
 After printing the plural name of a photograph (called target):
-
 	let N be the holder of the target;
-
 	say " of [a list of things which are shown by photographs which are held by N]";
-
 	if the number of things which are shown by photographs which are held by N is greater than one, say " (variously)".
 ```
 

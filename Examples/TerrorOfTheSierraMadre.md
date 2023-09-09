@@ -39,9 +39,7 @@ At the end of every turn we will use the 'now the player is...' phrase. (This lo
 
 ``` inform7
 {**}Every turn:
-
 	if the player is Maleska, now the player is Teresa;
-
 	otherwise now the player is Maleska.
 ```
 
@@ -61,11 +59,8 @@ In this small example, strength is not used for anything, except that we will di
 
 ``` inform7
 {**}When play begins:
-
 	now the command prompt is "[bold type][player][roman type] > ";
-
 	now the left hand status line is "[player]";
-
 	now the right hand status line is "STR: [strength of the player]".
 ```
 

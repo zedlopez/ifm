@@ -20,11 +20,9 @@ Toxicity is a kind of value. The toxicities are safe and poisonous. A piece of c
 The Porch is a room. The player carries the Halloween bag.
 
 After eating a poisonous piece of candy:
-
 	say "Oh, that didn't taste right at all. Oh well!"
 
 When play begins:
-
 	now a random piece of candy is poisonous.
 
 Test me with "eat candy / g / g / g".

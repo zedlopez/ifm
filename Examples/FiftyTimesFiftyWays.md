@@ -18,7 +18,6 @@ The Beekeeper's Palace is a room. Wasp is a woman in the palace. Drone is a man 
 A person can be fierce or mellow. Wasp is fierce. Drone is mellow. A person can be calm or angry. A person is usually calm. A person has some text called  insult. The insult of a person is usually "Grasshopper". The insult of Wasp is "Larva".
 
 Instead of kissing someone:
-
 	say "'[denial for the noun], [insult for the noun]! [boast]!'";
 ```
 
@@ -29,7 +28,6 @@ Now to provide some meaning to these bracketed forms. We'll start with the easy 
 
 ``` inform7
 {**}To say boast:
-
 	say "I have ferocious allies".
 ```
 
@@ -43,9 +41,7 @@ To say phrases can be more complex, as well, since we can have them incorporate 
 
 ``` inform7
 {**}To say insult for (speaker - a person):
-
 	if speaker is angry, say "[the insult of the noun]";
-
 	otherwise say "small one".
 ```
 
@@ -62,23 +58,15 @@ Our instructions can also get arbitrarily complex:
 
 ``` inform7
 {**}To say denial for (speaker - a person):
-
 	if speaker is calm:
-
 		say "You must not";
-
 	otherwise if speaker is female:
-
 		say "Stand back";
-
 	otherwise:
-
 		say "You forget yourself".
 
 Instead of attacking someone:
-
 	now the noun is angry;
-
 	say "'Get away, [insult]!'"
 
 Test me with "kiss wasp / hit wasp / kiss wasp / kiss drone / hit drone / kiss drone".

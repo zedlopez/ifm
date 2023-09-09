@@ -26,7 +26,6 @@ Now we have a "bedroom window" object which can be entered. Now, to catch the ca
 
 ``` inform7
 {**}Instead of searching the window:
-
 	say "Through the window, you make out [the other side of the window]."
 ```
 
@@ -40,7 +39,6 @@ Next we want to cover the case where we climb through the window:
 
 ``` inform7
 {**}Instead of climbing the window:
-
 	try entering the window.
 ```
 
@@ -60,7 +58,6 @@ Now the final piece: Inform will already keep the player from going through a cl
 
 ``` inform7
 {**}Instead of going through the closed window:
-
 	say "The window is shut: you'd break the glass."
 
 Test me with "look through window / climb through window / open window / climb through window / look through window / close window / e / open window / e".

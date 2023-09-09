@@ -24,21 +24,13 @@ Section 1 - Procedure
 The light-meter is a privately-named scenery thing.
 
 Definition: a room (called the target room) is light-filled:
-
 	if the target room is lighted:
-
 		yes;
-
 	move the light-meter to the target room;
-
 	let the answer be false;
-
 	if the light-meter can see a lit thing:
-
 		now the answer is true;
-
 	now the light-meter is nowhere;
-
 	decide on the answer.
 ```
 
@@ -61,13 +53,9 @@ The Crash Site is above the Upward Path. "The ceiling has wholly caved in here, 
 A candle is a kind of thing. A candle is usually lit. The player carries four candles.
 
 After looking when the location is not the Crash Site:
-
 	if the best route from the location to the Crash Site through light-filled rooms is a direction (called next way):
-
 		say "It looks like there's a safe, lit path [if the number of moves from the location to the Crash Site through light-filled rooms is 1]straight[otherwise]if you go[end if] [next way].";
-
 	otherwise:
-
 		say "It looks like there is no fully lit path from here to the Crash Site."
 
 Test me with "up / drop candle / down / up / take the candle / open sarcophagus / put candle in sarcophagus / down / up / close sarcophagus / d".

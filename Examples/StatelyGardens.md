@@ -20,19 +20,12 @@ A room can be indoors or outdoors.
 Use full-length room descriptions.
 
 After deciding the scope of the player:
-
 	repeat with the way running through directions:
-
 		let first step be the room the way from the location;
-
 		if the first step is a room:
-
 			place the first step in scope;
-
 			let second step be the room the way from the first step;
-
 			if the second step is a room, place the second step in scope;
-
 	place the obelisk in scope.
 ```
 
@@ -54,29 +47,17 @@ Now, we set things up so that the surrounding areas are described automatically 
 {**}Building description is a truth state that varies. Building description is false.
 
 After looking when the location is an outdoors room:
-
 	now count of sentences is 0;
-
 	now building description is true;
-
 	repeat with way running through directions:
-
 		let space be the room way from the location;
-
 		if space is an outdoors room, silently try looking toward space;
-
 	if the obelisk is not in the location and the obelisk is unmentioned:
-
 		let the way be the best route from location to the Upper Terrace;
-
 		if the way is a direction, say "[The obelisk] is proudly visible on [the way] horizon. [run paragraph on]";
-
 		increment the count of sentences;
-
 	now building description is false;
-
 	unless the count of sentences is 0:
-
 		say paragraph break.
 ```
 
@@ -87,11 +68,9 @@ But perhaps there are a few rooms where we do not wish that to happen, so we'll 
 
 ``` inform7
 {**}After looking in the rose garden:
-
 	say "Otherwise, you are quite cut off.".
 
 After looking in the Ha-ha:
-
 	do nothing.
 ```
 
@@ -106,19 +85,13 @@ And suppose we want to allow the player to look in any direction:
 Facing is an action applying to one visible thing.
 
 Carry out facing:
-
 	let the viewed item be the room noun from the location;
-
 	if the viewed item is not a room:
-
 		if the location is indoors, say "Your view is restricted by the lack of doors or windows in that direction." instead;
-
 		otherwise say "You can't see anything promising that way." instead;
-
 	try looking toward the viewed item.
 
 Instead of facing up:
-
 	say "Above you is bright sky."
 ```
 
@@ -133,47 +106,27 @@ We also need to tell distant rooms how to describe themselves.
 Looking toward is an action applying to one visible thing.
 
 Check looking toward a room which does not contain something mentionable:
-
 	if building description is false:
-
 		say "You can't make out anything of interest that way." instead.
 
 Carry out looking toward:
-
 	now every thing is unmentioned;
-
 	now the chosen direction is the best route from the location to the noun;
-
 	now the second noun is the room the chosen direction from the noun;
-
 	if the noun contains something mentionable:
-
 		repeat with item running through mentionable things in the noun:
-
 			carry out the writing a distant paragraph about activity with the item;
-
 	if the noun contains something mentionable:
-
 		increment the count of sentences;
-
 		choose row count of sentences in the Table of Distance Sentences;
-
 		if the second noun is an outdoors room and the second noun contains something mentionable, say "[both entry] [run paragraph on]";
-
 		otherwise say "[here entry] [run paragraph on]";
-
 	otherwise:
-
 		if the second noun is an outdoors room and the second noun contains something mentionable:
-
 			increment the count of sentences;
-
 			choose row count of sentences in the Table of Distance Sentences;
-
 			say "[there entry] [run paragraph on]";
-
 	if building description is false:
-
 		say paragraph break.
 ```
 
@@ -184,17 +137,11 @@ And again, some exception needs to be made for seeing what's in the dip in the g
 
 ``` inform7
 {**}Instead of looking toward the Ha-ha:
-
 	now the chosen direction is the best route from the location to the noun;
-
 	now the second noun is the room the chosen direction from the noun;
-
 	if the second noun is an outdoors room and the second noun contains something mentionable:
-
 		increment the count of sentences;
-
 		choose row count of sentences in the Table of Distance Sentences;
-
 		say "[there entry] [run paragraph on]".
 ```
 
@@ -218,23 +165,14 @@ The following is arguably an unnecessary refinement, but the listing of items in
 Count of sentences is a number that varies.
 
 Table of Distance Sentences
-
 both	here	there
-
 "From here, you make out [a list of mentionable things in the noun] a little way [chosen direction], and, further on, [a list of mentionable things in the second noun]."	"From here, you make out [a list of mentionable things in the noun] [if the noun is not adjacent to the location]some distance [end if]to [the chosen direction]."	"From here, you make out [a list of mentionable things in the second noun] some distance [chosen direction]."
-
 "To [the chosen direction] there [is-are a list of mentionable things in the noun], partly obscuring your further view of [a list of mentionable things in the second noun]."	"To [the chosen direction] there [is-are a list of mentionable things in the noun]."	"Quite a way [chosen direction] [is-are a list of mentionable things in the second noun]."
-
 "Then [chosen direction] [is-are a list of mentionable things in the noun], and beyond [a list of mentionable things in the second noun]."	"Meanwhile, to [the chosen direction] [is-are a list of mentionable things in the noun]."	"Meanwhile, [chosen direction] in the middle distance [is-are a list of mentionable things in the second noun]."
-
 "When you turn [chosen direction], you see [a list of mentionable things in the noun], and somewhat further on [a list of mentionable things in the second noun]."	"When you turn [chosen direction], you see [a list of mentionable things in the noun]."	"If you turn [chosen direction], you see [a list of mentionable things in the second noun] some way off."
-
 "Somewhere generally [chosen direction] [is-are a list of mentionable things in the noun], beyond which, [a list of mentionable things in the second noun]."	"Roughly [chosen direction] [is-are a list of mentionable things in the noun]."	"Moreover, in the [chosen direction] distance [is-are a list of mentionable things in the second noun]."
-
 "[The chosen direction] shows [a list of mentionable things in the noun] and then [a list of mentionable things in the second noun]."	"And to [the chosen direction] [a list of mentionable things in the noun]."	"Meanwhile, [chosen direction] in the middle distance [is-are a list of mentionable things in the second noun]."
-
 "Then, [chosen direction], [is-are a list of mentionable things in the noun], and beyond [a list of mentionable things in the second noun]."	"Meanwhile, to [the chosen direction] [is-are a list of mentionable things in the noun]."	"Meanwhile, [chosen direction] in the middle distance [is-are a list of mentionable things in the second noun]."
-
 "Finally, [chosen direction], [is-are a list of mentionable things in the noun], somewhat nearer than [a list of mentionable things in the second noun]."	"Finally, to [the chosen direction] [is-are a list of mentionable things in the noun]."	"Finally, [chosen direction] in the middle distance [is-are a list of mentionable things in the second noun]."
 ```
 
@@ -261,37 +199,22 @@ Definition: a thing is monumental if it is taller than 25 feet 0 inches.
 Definition: a thing is mentionable if it stands tall enough to see.
 
 To decide whether (item - a thing) stands tall enough to see:
-
 	if the item is in the Rose Garden and the item is shorter than the roses, no;
-
 	if the item is mentioned, no;
-
 	if the item is in an adjacent room and item is taller than 2 feet 0, yes;
-
 	if the item is taller than 4 feet 0, yes;
-
 	no.
 
 Instead of examining something which is within a room (called the space) which is not the location:
-
 	if the location is adjacent to the space:
-
 		if the noun is tiny, say "It is too far from here for you to make out much detail about [the noun]." instead;
-
 		let way be the best route from the location to the space;
-
 		if the way is a direction, say "You gaze off [way] at [the noun]...";
-
 		continue the action;
-
 	otherwise:
-
 		if the noun is short, say "It is too far from here for you to make out much detail about [the noun]." instead;
-
 		let way be the best route from the location to the space;
-
 		if the way is a direction, say "You gaze off [way] into the distance at [the noun]...";
-
 		continue the action.
 ```
 
@@ -304,29 +227,20 @@ We might also want to be able to override, manually, the way distant things are 
 {**}Writing a distant paragraph about something is an activity.
 
 Rule for writing a distant paragraph about the lily pond:
-
 	if the second noun is a room and something mentionable is in the second noun, say "A [lily pond], [chosen direction], patchily reflects [a list of mentionable things in the second noun] on the far side. [run paragraph on]";
-
 	otherwise say "To [the chosen direction], [a lily pond] shimmers in the sunlight. [run paragraph on]"
 
 Rule for writing a distant paragraph about the roses:
-
 	if something in the Rose Garden is taller than the roses,
-
 		say "Over the tops of [the roses], [chosen direction], you see [a list of mentionable things in the rose garden]. [run paragraph on]";
-
 	otherwise say "Immediately [chosen direction] is [the roses]. [run paragraph on]"
 
 Rule for writing a distant paragraph about the obelisk:
-
 	if a mentionable thing in the Upper Terrace is shorter than the obelisk,
-
 		say "A stupidly grand [obelisk], [chosen direction], towers over [a list of mentionable things in the Upper Terrace]. [run paragraph on]";
-
 	otherwise say "To [the chosen direction], you can't help noticing [the obelisk], which is much larger than any object really needs to be. [run paragraph on]".
 
 After writing a distant paragraph about something:
-
 	increment the count of sentences.
 ```
 
@@ -337,21 +251,14 @@ Moreover, proximate things might have special descriptions too.
 
 ``` inform7
 {**}Rule for writing a paragraph about something tiny when the location is outdoors:
-
 	if the location is the Gravel Circle,
-
 		say "Abandoned in the gravel [is-are a list of unmentioned tiny things in the location]. [run paragraph on]";
-
 	otherwise say "Half trampled into the grass, and easy to miss, [is-are a list of unmentioned tiny things in the location]. [run paragraph on]"
 
 Before doing something other than examining or approaching to something which is not within the location:
-
 	if the player has the noun, continue the action;
-
 	say "(first going over to [the noun])[line break]";
-
 	try approaching the noun;
-
 	if the noun is not within the location, stop the action.
 
 Understand "go toward/to/towards/near [something]" or "approach [something]" as approaching.
@@ -359,37 +266,23 @@ Understand "go toward/to/towards/near [something]" or "approach [something]" as 
 Approaching is an action applying to one visible thing.
 
 Check approaching:
-
 	if the player is in something, say "You'll have to get up." instead;
-
 	if the noun is within the location, say "You're as close to [the noun] as you can get." instead;
-
 	let space be the location of the noun;
-
 	if the space is not a room, say "You don't quite see how to get there." instead;
-
 	let way be the best route from the location to the space;
-
 	unless way is a direction,
-
 		say "You can't see how to get over there from here." instead.
 
 To head to (space - a room):
-
 	let the way be the best route from the location to the space;
-
 	if the space is adjacent to the location,
-
 		try going way;
-
 	otherwise silently try going way.
 
 Carry out approaching:
-
 	let space be the location of the noun;
-
 	while the space is not the location:
-
 		head to space.
 ```
 
@@ -402,35 +295,25 @@ This is a bit primitive, since if we had an occasion where going was blocked, we
 {**}Going state is a truth state that varies. Going state is false.
 
 Check going:
-
 	now going state is true.
 
 The description of a room is usually "[if going state is true]You drift [noun] across the open lawn[direction relative to obelisk]. [end if]An absolutely phenomenal quantity of manicured turf stretches from where you stand in almost every direction."
 
 Before reading a command:
-
 	now going state is false.
 
 To say direction relative to obelisk:
-
 	if obelisk is in the location:
-
 		say ", as though drawn magnetically to the foot of the monument";
-
 	otherwise:
-
 		let way be the best route from the location to the Upper Terrace;
-
 		if way is the noun, say ", drawn towards [the obelisk]";
-
 		if the way is the opposite of the noun, say ", keeping [the obelisk] more or less at your back".
 
 Chapter 3 - The Grounds
 
 When play begins:
-
 	now the left hand status line is "Idyllic";
-
 	now the right hand status line is " ".
 
 The Gravel Circle, the Ha-ha, the Sheep Field, the Open Lawn, the Croquet Ground, the Rose Garden, the Upper Terrace, the Middle Terrace, and the Lower Terrace are outdoors.
@@ -452,7 +335,6 @@ Instead of going northwest in the Upper Terrace, try going north.
 The Ha-ha is north of the Gravel Circle and northwest of the Upper Terrace. The description of the Ha-ha is "[if going state is true]The land dips here so suddenly that you do not know the dip is there until you're in it; but it prevents livestock from crossing barriers, and that is the important thing[otherwise]You are at the base of a steep-sided depression, so the lawn continues north and south more or less at the level of your head[end if].line-so-blankThe tip of [the obelisk] is the only thing you can make out from this depression, off to the southeast.". North of the Ha-ha is the Sheep Field. In the Sheep Field is an animal called a black sheep. The black sheep stands 4 feet 3 inches."A black sheep grazes placidly nearby." The description of the black sheep is "It reminds you of your Uncle Tim."
 
 Before going from the Ha-ha:
-
 	say "It's a bit of a scramble to get back up the side of the depression, and you keep slipping in the damp grass. But you manage at last."
 
 The Rose Garden is  southwest of the Lower Terrace. The thicket of red roses is a fixed in place thing in the Rose Garden. The thicket stands 4 feet 2 inches."Heavy red roses grow over a roughly horseshoe-shaped wall around you. Over this barrier, the head of [the marble anteater] is visible to the northwest, and the tip of [the obelisk] in the distance."
@@ -462,7 +344,6 @@ The description of the Rose Garden is "[if going state is true]You slip [noun] i
 Instead of smelling the rose garden: try smelling the roses. Instead of smelling the roses, say "The smell tickles the back of your throat and makes you want to cough."
 
 Instead of listening to the rose garden:
-
 	say "You can't hear anything at all."
 
 The Open Lawn is north of the Rose Garden, west of the Lower Terrace, and southwest of the Middle Terrace. The Croquet Ground is north of the Open Lawn, west of the Middle Terrace, southwest of the Upper Terrace, and northwest of the Lower Terrace.

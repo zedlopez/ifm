@@ -31,7 +31,6 @@ As the descriptions make clear, the ferris wheel should be visible from everywhe
 
 ``` inform7
 {**}After deciding the scope of the player:
-
 	if the location is in Fairground, place the ferris wheel in scope.
 ```
 
@@ -63,9 +62,7 @@ This may not be quite what we want, but we can replace this text with our own re
 
 ``` inform7
 {**}Rule for reaching inside a room:
-
 	say "You can only look from this distance.";
-
 	deny access.
 ```
 
@@ -76,7 +73,6 @@ And because our accessibility rules are considered before the "Instead" phase, w
 
 ``` inform7
 {**}Instead of touching the ferris wheel:
-
 	say "You don't dare: it's spinning too fast."
 
 Test me with "x ferris wheel / touch ferris wheel / se / x ferris wheel / touch ferris wheel".

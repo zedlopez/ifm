@@ -17,9 +17,7 @@ Understand "about" as asking for information. Asking for information is an actio
 Carry out asking for information: say "An implementation of the following creative brief:line-so-blankPeople wander around some small map, on errands. One, sad to tell, has Gelato's Syndrome, a tragic condition turning one's skin the colour of a random flavour of ice cream (raspberry ripple, neapolitan, etc.). When two people are in the same room, there's a 1/3 chance that an infected person will infect a non-infected one. The player can cure any single person: victory condition - to stamp out the disease."
 
 When play begins:
-
 	say "Gelato's Syndrome. It's struck, and it's struck hard. In these sticky summer months, there's no telling who will contract the disease next.";
-
 	now the command prompt is "[if the destination of the player is not blank](heading to [destination of the player]) [end if]>".
 
 Section 1 - Errands
@@ -27,15 +25,11 @@ Section 1 - Errands
 The current actor is a person which varies. The current owner is a person which varies.
 
 Every turn:
-
 	if player is active, follow the character movement rules.
 
 Every turn:
-
 	now the last person named is the player;
-
 	now the last thing named is the player;
-
 	now every person is active.
 
 A person can be active or passive. The player is passive.
@@ -43,43 +37,27 @@ A person can be active or passive. The player is passive.
 The character movement rules are a rulebook.
 
 The first character movement rule:
-
 	now group size is 1;
-
 	now the last person named is the player;
-
 	now the last thing named is the player;
-
 	now the player is passive.
 
 A character movement rule:
-
 	repeat with mover running through innocent people:
-
 		now the current actor is the mover;
-
 		follow the shopper rules;
-
 		now the current actor is passive;
-
 	follow the movement reporting rule.
 
 A character movement rule:
-
 	repeat with next mover running through mercantile people:
-
 		now the current owner is the next mover;
-
 		follow the shopowner rules;
-
 		now the current owner is passive;
-
 	follow the infection rule.
 
 To decide whether movement has not yet occurred:
-
 	if the player is passive, no;
-
 	yes.
 
 Definition: a person is mercantile if it owns a room. Definition: a person is innocent if it is not mercantile and it is not the player.
@@ -87,69 +65,48 @@ Definition: a person is mercantile if it owns a room. Definition: a person is in
 The shopowner rules is a rulebook.
 
 A shopowner rule:
-
 	let the shop be a random room owned by the current owner;
-
 	if the shop is air-conditioned and an open door (called the escape) protects the shop, try the current owner closing the escape instead.
 
 Report someone closing a door when the person asked owns the location:
-
 	say "[The person asked], muttering darkly about air-conditioning and electricity, closes [the noun]." instead.
 
 Report Vanessa closing the metal door when the metal door is visible:
-
 	if Vanessa is visible, say "Vanessa watches serenely as the metal door slides automatically back in place, sealing Cold Comfort." instead;
-
 	otherwise say "The metal door slides heavily back into place." instead.
 
 A shopowner rule:
-
 	if the location of the current owner encloses a submitted artwork (called the target):
-
 		try the current owner filing the target.
 
 Filing is an action applying to one thing.
 
 Before someone filing something which is not carried by the person asked:
-
 	try the person asked taking the noun instead.
 
 Carry out someone filing:
-
 	if the person asked does not carry the noun and the person asked is visible, say "[The person asked] tries unsuccessfully to get [the noun]." instead;
-
 	now the noun is nowhere.
 
 Report someone filing:
-
 	say "[The person asked] registers [the noun] and files it away."
 
 The shopper rules is a rulebook.
 
 A shopper rule:
-
 	if the current actor carries something (called the problem), try the current actor resolving the problem instead.
 
 A shopper rule:
-
 	if the current actor is not in the pool hall and the air conditioner is switched on:
-
 		try the current actor approaching the pool hall;
-
 	otherwise:
-
 		let way be a random direction;
-
 		try the current actor going the way.
 
 Definition: a room is air-conditioned:
-
 	if it is outdoors, no;
-
 	if it is the Pool Hall and the air conditioner is switched off, no;
-
 	if it is protected by a door, yes;
-
 	no.
 
 Protection relates a door (called X) to a room (called Y) when the front side of X is Y or the back side of X is Y. The verb to protect means the protection relation.
@@ -163,17 +120,13 @@ An artwork is a kind of thing. Before printing the name of an artwork, say itali
 A book is a kind of artwork.
 
 Before someone resolving a book when the person asked is not in the Public Library:
-
 	try the person asked approaching the Public Library instead.
 
 Carry out someone resolving a book:
-
 	move the noun to the Public Library;
-
 	now the noun is submitted.
 
 Report someone resolving a book:
-
 	say "[The person asked] turns in [the noun]."
 
 Before listing contents: group books together.
@@ -183,47 +136,34 @@ Before grouping together books: say "books entitled ".
 A stamped envelope is a kind of thing.
 
 Before someone resolving a stamped envelope when the person asked is not in the Post Office:
-
 	try the person asked approaching the Post Office instead.
 
 Carry out someone resolving a stamped envelope:
-
 	now the noun is nowhere.
 
 Report someone resolving a stamped envelope:
-
 	say "[The person asked] slips [a noun] into the outgoing mail slot."
 
 Instead of someone resolving a stamped envelope when the person asked carries at least two stamped envelopes:
-
 	if the person asked is visible, say "[The person asked] shoves into the mail slot [a list of stamped envelopes carried by the person asked].";
-
 	repeat with item running through stamped envelopes carried by the person asked:
-
 		now the item is nowhere.
 
 A DVD is a kind of artwork.
 
 Before someone resolving a DVD when the person asked is not in the Rental Store:
-
 	try the person asked approaching the Rental Store instead.
 
 Carry out someone resolving a DVD:
-
 	now the noun is submitted;
-
 	move the noun to the Movie Rental Store.
 
 Report someone resolving a DVD:
-
 	say "[The person asked] returns [the noun]."
 
 Instead of someone resolving a DVD when the person asked carries at least two DVDs:
-
 	if the person asked is visible, say "[The person asked] turns in [a list of DVDs carried by the person asked].";
-
 	now every DVD carried by the person asked is submitted;
-
 	now every DVD carried by the person asked is in the location of the person asked.
 
 Before listing contents: group DVDs together.
@@ -233,55 +173,38 @@ Before grouping together DVDs: say "DVDs of ".
 Approaching is an action applying to one thing.
 
 Carry out someone approaching:
-
 	let the way be the best route from the location of the person asked to the noun, using doors;
-
 	if the way is a direction, try the person asked going the way;
-
 	otherwise stop the action.
 
 A coupon is a kind of thing.
 
 Carry out someone resolving a coupon:
-
 	try the person asked giving the noun to Vanessa.
 
 The block giving rule is not listed in any rulebook.
 
 Check giving something to someone (this is the block player giving rule):
-
 	abide by the block giving rule.
 
 Before someone resolving a coupon when the person asked is not in Cold Comfort:
-
 	try the person asked approaching Cold Comfort instead.
 
 After someone giving a coupon to Vanessa:
-
 	let the reward be a random ice cream cone;
-
 	let the new flavor be a random infection color;
-
 	now the infection color of the reward is the new flavor;
-
 	move the reward to the person asked;
-
 	now the noun is nowhere;
-
 	if Vanessa is visible, say "[The person asked] trades in [the noun] and receives [a reward] from Vanessa."
 
 Infection color is a kind of value. The infection colors are french vanilla, whole-bean vanilla, mint, chocolate, dark chocolate, chocolate chip, chocolate fudge, mint chocolate chip, chocolate chocolate chip, triple chocolate, white chocolate, white chocolate chip, aztec cocoa-chili, raspberry ripple, neapolitan, rum raisin, dulce de leche, strawberry chunk, rocky road, blackberry sorbet, lemon sherbet, lime ice, caramel swirl, mango, saffron silk, and cookie dough cream.
 
 To say list of flavors:
-
 	let current color be french vanilla;
-
 	while current color is not cookie dough cream:
-
 		say "[current color], ";
-
 		now current color is the infection color after the current color;
-
 	say "and [current color]".
 
 Understand "ask vanessa for [flavored ice cream]" as buying the flavor. Understand "buy [flavored ice cream]" as buying the flavor.
@@ -289,9 +212,7 @@ Understand "ask vanessa for [flavored ice cream]" as buying the flavor. Understa
 Buying the flavor is an action applying to one infection color.
 
 Check buying the flavor:
-
 	unless the player can see Vanessa:
-
 		say "It would help if you were in the presence of an ice cream salesperson." instead.
 
 Carry out buying the flavor: say "'Do you have a coupon?' Vanessa demands. You admit you do not. 'No [infection color understood] for you!'"
@@ -303,35 +224,27 @@ Understand "[infection color]" or "[infection color] [ice cream]" as "[flavored 
 An ice cream cone is a kind of thing. An ice cream cone is always edible. An ice cream cone has an infection color. An ice cream cone can be half-eaten or fresh. Understand the infection color property as referring to an ice cream cone.
 
 Carry out someone resolving an ice cream cone:
-
 	try the person asked eating the noun instead.
 
 Instead of someone eating a fresh ice cream cone:
-
 	now the noun is half-eaten;
-
 	if the person asked is visible, say "[The person asked] licks [the noun]."
 
 Report someone eating an ice cream cone:
-
 	say "[The person asked] pops the end of [the noun] into [if the person asked is female]her[otherwise]his[end if] mouth and swallows." instead.
 
 Before printing the name of an ice cream cone:
-
 	say "[if half-eaten]half-eaten [end if][infection color] ".
 
 Section 2 - Infection Rules
 
 This is the infection rule:
-
 	if an infected person (called typhoid mary) can see a clean person (called random bystander) and a random chance of 1 in 3 succeeds:
-
 		try typhoid mary sneezing on the random bystander.
 
 A person can be infected or clean. A person has an infection color.
 
 Every turn:
-
 	if the player is infected, say "You feel itchy."
 
 Definition: a person is other if it is not the player. Definition: a person is another if it is other.
@@ -339,39 +252,28 @@ Definition: a person is other if it is not the player. Definition: a person is a
 When play begins: now right hand status line is "Sick: [number of infected people]/[number of people]".
 
 Every turn:
-
 	if every person is infected, end the story saying "Everyone succumbs";
-
 	if every person is clean, end the story finally saying "The Syndrome is eradicated".
 
 Understand "sneeze on [something]" as sneezing on. Sneezing on is an action applying to one thing.
 
 Check sneezing on:
-
 	if the player is clean, say "You're not sickly." instead;
-
 	if the noun is the player, say "Ew." instead;
-
 	if the noun is not a person, say "[The noun] cannot be infected." instead.
 
 Carry out sneezing on:
-
 	now the noun is infected;
-
 	now the infection color of the noun is a random infection color.
 
 Carry out someone sneezing on:
-
 	now the noun is infected;
-
 	now the infection color of the noun is a random infection color.
 
 Report sneezing on:
-
 	say  "Unable to control yourself, you sneeze on [noun].".
 
 Report someone sneezing on:
-
 	say "[The person asked] sneezes on [if the noun is the player]you[otherwise][noun][end if]!".
 
 Understand "inject [someone] with [something]" as injecting it with. Understand "inject [someone] with [syringe]" as injecting it with. Understand "use [syringe] on [someone]" as injecting it with. Understand the commands "innoculate" and "vaccinate" as "inject".
@@ -379,13 +281,9 @@ Understand "inject [someone] with [something]" as injecting it with. Understand 
 Injecting it with is an action applying to two things.
 
 Check injecting it with:
-
 	if the second noun is not the syringe, say "[The second noun] cannot inject anything." instead;
-
 	if the noun is clean:
-
 		if the noun is the player, say "You're not infected yet." instead;
-
 		say "[The noun] is not infected, and the syringe contains a cure, not a vaccine." instead.
 
 Carry out injecting it with: now the noun is clean.
@@ -405,49 +303,33 @@ A person has a room called the destination.
 Going toward is an action applying to one thing.
 
 Check going toward:
-
 	if the noun is the location, say "You're already in [the location]." instead.
 
 Carry out going toward:
-
 	now the destination of the player is the noun;
-
 	let heading be the best route from the location to the noun, using even locked doors;
-
 	if heading is not a direction, say "You can't think how to get there from here." instead;
-
 	try going heading;
-
 	if the location is the destination of the player, now the destination of the player is blank.
 
 Instead of waiting when the destination of the player is not blank:
-
 	if the destination of the player is the location:
-
 		now the destination of the player is blank;
-
 	otherwise:
-
 		try going toward destination of the player;
-
 		if the location is the destination of the player, now the destination of the player is blank.
 
 Understand "stop" or "cease" as stopping. Stopping is an action applying to nothing. Carry out stopping: now the destination of the player is blank. Report stopping: say "You stop in your tracks."
 
 After going to an air-conditioned room:
-
 	say "You step into the mercifully air-conditioned surroundings of...";
-
 	continue the action.
 
 After going from an air-conditioned room:
-
 	say "You emerge from the air-conditioning into heat like a wall...";
-
 	continue the action.
 
 Instead of listening to an air-conditioned room:
-
 	say "The air-conditioning hums softly."
 
 The Alfred Cralle Pool Hall is a room. "The town's most popular gathering-place, the pool hall is decorated in honor of the inventor of the ice cream scoop." The air conditioner is a device in the Pool Hall. "[if switched off]An air conditioner sits in the corner, unhappily inert[otherwise]The air conditioner hums briskly[end if]."
@@ -455,7 +337,6 @@ The Alfred Cralle Pool Hall is a room. "The town's most popular gathering-place,
 The felt door is west of the Pool Hall. The felt door is a door. The felt door is open. The felt door is lockable and unlocked. The key to the city unlocks the felt door. The description of the felt door is "It has a prominent lock, designed for an old-fashioned key."
 
 After locking a door with something in the presence of an other person (called audience):
-
 	say "[The audience] looks a little non-plussed when you lock [the noun], but shrugs."
 
 Nancy Johnson Memorial Square is west of the felt door. The description of Nancy Johnson Memorial Square is "Waves of August heat rise from the pavement: more than once you've had the fancy that your shoes are simply going to stick. At the center of the square, rubbed to a brownish polish by many adoring hands, is the statue of Mrs. Nancy Johnson of New Jersey."
@@ -469,17 +350,11 @@ Hamwi Street is northeast of an iron gate. "A U-shaped street running from Main 
 The iron gate is northeast of Nancy Johnson Memorial Square. The iron gate is a door. It is lockable and unlocked.
 
 Before printing the name of the iron gate while not opening or closing or locking or unlocking:
-
 	if the person asked is the player:
-
 		if the gate is open, say "open ";
-
 	otherwise if the gate is locked:
-
 		say "locked ";
-
 	otherwise if the gate is closed:
-
 		say "closed ".
 
 Cold Comfort Ice Cream is north of a metal door. The metal door is north of Hamwi Street. A poster is fixed in place in Cold Comfort. "A poster fills one wall with the blazing promise of treats to come." The description of the poster is "Coming soon! Thai ice creams! Durian, jackfruit, taro, and coconut flavors!"
@@ -507,61 +382,35 @@ A room can be indoors or outdoors. The Post Office, the Alfred Cralle Pool Hall,
 Use full-length room descriptions.
 
 After looking in an outdoors room:
-
 	let started printing be false;
-
 	now every proximate door is not mentioned;
-
 	if an indoors room is adjacent:
-
 		let started printing be true;
-
 		say "From here you can head into [the list of adjacent indoors rooms][if a proximate door is not mentioned], or go through [the list of proximate doors which are not mentioned][end if]. [run paragraph on]";
-
 	if an outdoors room is adjacent:
-
 		say "You could[if started printing is true] also[end if] go ";
-
 		let count be the number of adjacent outdoors rooms;
-
 		let index be count;
-
 		repeat with next room running through adjacent outdoors rooms:
-
 			let way be the best route from the location to the next room;
-
 			say "[way] to [the next room]";
-
 			decrement index;
-
 		make delimiter index of count, continuing;
-
 	if a proximate door is not mentioned:
-
 		let started printing be true;
-
 		say "[if started printing is true]Also available[otherwise]Your available exits[end if] [is-are the list of proximate doors which are not mentioned].";
-
 	otherwise:
-
 		if started printing is true, say paragraph break.
 
 Definition: a door is proximate:
-
 	if the front side of it is the location, yes;
-
 	if the back side of it is the location, yes;
-
 	no.
 
 Before exiting when the player is in an indoors room:
-
 	if the player can see a door (called nearest exit), try entering the nearest exit instead;
-
 	repeat with way running through directions:
-
 		let next room be the room way from the location;
-
 		if the next room is a room, try going way instead.
 
 Blank is a room. The destination of the player is Blank. Blank contains 15 ice cream cones.
@@ -610,29 +459,18 @@ This is a light variation of a previous example, but we use it here because it i
 A person has a table name called conversation.
 
 Instead of asking someone about something:
-
 	let the source be the conversation of the noun;
-
 	if topic understood is a topic listed in source:
-
 		if there is a turn stamp entry:
-
 			say "You have already heard that [summary entry].";
-
 		otherwise:
-
 			now turn stamp entry is the turn count;
-
 			now the character entry is the noun;
-
 			say "[reply entry][paragraph break]";
-
 	otherwise:
-
 		say "[The noun] stares at you blankly.".
 
 Instead of telling someone about something:
-
 	try asking the noun about it.
 
 Understand "recap" or "recall" or "review" as recalling conversations.
@@ -640,69 +478,42 @@ Understand "recap" or "recall" or "review" as recalling conversations.
 Recalling conversations is an action applying to nothing.
 
 Carry out recalling conversations:
-
 	repeat with speaker running through other people:
-
 		let source be the conversation of the speaker;
-
 		sort source in turn stamp order;
-
 		say "[The speaker] has so far told you: [line break]";
-
 		let index be 0;
-
 		repeat through source:
-
 			if there is a turn stamp entry and the speaker is character entry:
-
 				let index be 1;
-
 				say "  [summary entry][line break]";
-
 		if index is 0, say "  absolutely nothing[line break]";
-
 		say line break.
 
 The conversation of a person is usually Table of General ChitChat.
 
 Table of General ChitChat
-
 topic	reply	summary	turn stamp	character
-
 "weather/heat/warmth"	"'It's appalling, isn't it? You'd think we didn't pay our taxes.'"	"that the weather is appalling"	a number	a person
-
 "sun/sunlight"	"'Good thing the town mostly switched to solar power, har, har.'"	"that the town is mostly relying on solar power"
-
 "rain"	"'Nope, there isn't going to be rain for 132 days,' replies [the noun]."	"that rain is not expected for another 132 days"
-
 "snow/hail/ice"	"This hilarious sally is greeted with hoots of laughter only."	"that the concept of snow is downright laughable"
-
 "disease/sickness/illness/syndrome"	"You get a cold, fixed stare in response. 'That's not funny,' [the noun] replies finally."	"that discussing the disease is more or less taboo"
-
 "cold comfort"	"'If you haven't tried it, you should,' says [the noun]. 'Best ice cream in town, and that's saying something, you bet.'"	"that Cold Comfort has the best ice cream in town"
-
 "town/city/village"	"'Yeah, it's a mite odd,' allows [the noun]. 'Not to everyone's taste, like...' [the noun as pronoun] considers for a moment. 'Like ginger ice cream. Big pieces of crystallized ginger... not everyone likes that.'"	"that the town is a mite odd"
-
 "forecast/weatherman" or "weather forecast/man"	"'Oh, the weather man's gotten a lot more reliable since the gummint started making it for us,' says [the noun]. 'Now he just reads off the schedule on the air every morning. Pretty much takes the fun right out of the news, if you ask me.'"	"that the weather is all generated by schedule"
-
 "taxes/tax" or "weather tax"	"A snort. 'You'd think for the rates we pay we'd get something a little pleasanter, don't you?'"	"that the weather tax really ought to be paying for something nicer than what you get"
-
 "job/employment/work"	"'[if the noun owns a room (called the shop)]I own [the shop],' replies [the noun][otherwise]Work at the creamery, like most folk around here,' answers [the noun]."	"this and that about employment in town"
-
 "book/books/reading"	"'The Public Library has a good selection, excepting only the cookbook section,' says [the noun]. 'That got censored way back when-- well, way back.'"	"that the Public Library has a good collection, except for the cookbook section"
 
 The conversation of Vanessa is the Table of Vanessa Chatter.
 
 Table of Vanessa Chatter
-
 topic	reply	summary	turn stamp	character
-
 "ice cream" or "sorbet/sherbet/flavor/flavors/flavour/flavours/ice/ices"	"'The flavors are [list of flavors],' she responds promptly, without needing to draw breath."	"that the flavors are [list of flavors]"	a number	a person
 
 After reading a command:
-
 	while player's command includes "the":
-
 		cut the matched text.
 ```
 
@@ -720,313 +531,177 @@ Now we try something a bit unusual. Inform on its own will report each action on
 A person has some text called walk style. The walk style of a man is usually "stride". The walk style of a woman is usually "strut". The walk style of Gene is "[one of]wander[or]stroll[purely at random]". The walk style of Francine is "waddle". The walk style of Antony is "scamper". The walk style of Rhoda is "sashay".
 
 Table of Visible Exits
-
 character	second	third	heading chosen	total
-
 a person	a person	a person	a direction	a number
-
 with 10 blank rows.
 
 Table of Visible Entrances
-
 character	second	third	heading chosen	total
-
 a person	a person	a person	a direction	a number
-
 with 10 blank rows.
 
 To clear (current table - a table name):
-
 	repeat through current table:
-
 		blank out the whole row.
 
 To tidy departures of (current table - a table name):
-
 	let next direction be up;
-
 	repeat through current table:
-
 		if heading chosen entry is next direction:
-
 			let accomplice be character entry;
-
 			choose row with heading chosen of next direction in the current table;
-
 			if total entry is 1:
-
 				now second entry is accomplice;
-
 				now total entry is 2;
-
 			if total entry is 2:
-
 				unless the second entry is accomplice:
-
 					now third entry is accomplice;
-
 					now total entry is 3;
-
 			choose row with character of accomplice in the current table;
-
 			blank out the whole row;
-
 		otherwise:
-
 			let next direction be heading chosen entry.
 
 A door has a person called last opener.
 
 Report someone opening a door:
-
 	now group size is 1;
-
 	now the last opener of the noun is the person asked;
-
 	if the person asked is visible, say "[The person asked] opens [the noun]. [run paragraph on]" instead;
-
 	otherwise say "[The noun] opens from the other side. [run paragraph on]" instead.
 
 Report someone going through a door (called route):
-
 	if the person asked is not the last opener of the route, continue the action;
-
 	if the person asked is the last person named, say "[The person asked as pronoun]";
-
 	otherwise say "[The person asked]";
-
 	say " [if the person asked is in the location]comes[otherwise]goes[end if] through[if the last thing named is not the route] [the route][end if]." instead.
 
 The last thing named is a thing that varies. Before printing the name of something (called target) which is not a person: now the last thing named is the target.
 
 Report someone going a direction:
-
 	if the person asked is in the location,
-
 		choose a blank row in the table of visible entrances;
-
 	otherwise choose a blank row in the table of visible exits;
-
 	now character entry is the person asked;
-
 	now total entry is 1;
-
 	if the person asked is in the location,
-
 		now heading chosen entry is the opposite of the noun;
-
 	otherwise now heading chosen entry is the noun;
-
 	stop the action.
 
 This is the movement reporting rule:
-
 	sort the Table of Visible Entrances in heading chosen order;
-
 	tidy departures of the table of visible entrances;
-
 	sort the Table of Visible exits in heading chosen order;
-
 	tidy departures of the table of visible exits;
-
 	let total row count be the number of filled rows in the Table of Visible Entrances plus the number of filled rows in the Table of Visible Exits;
-
 	if total row count is 0, rule succeeds;
-
 	generate descriptions from the Table of Visible Entrances;
-
 	generate descriptions from the Table of Visible Exits;
-
 	clear the Table of Visible Entrances; clear the Table of Visible Exits.
 
 To generate descriptions from (current table - a table name):
-
 	let count be the number of filled rows in the current table;
-
 	if count is 0, rule succeeds;
-
 	let index be count;
-
 	repeat through the current table:
-
 		let accomplice be character entry;
-
 		if character entry is a person, now character entry is marked for listing;
-
 		if there is a second entry and second entry is a person, now second entry is marked for listing;
-
 		if there is a third entry and third entry is a person, now third entry is marked for listing;
-
 		let target be the room the heading chosen entry from the location;
-
 		if total entry is 3, say "[The character entry], [the second entry][optional comma] and [the third entry] ";
-
 		if total entry is 2, say "[The character entry] and [the second entry] ";
-
 		if total entry is 1:
-
 			if the character entry is the last person named, say "[The character entry as pronoun] ";
-
 			otherwise say "[The character entry] ";
-
 		if total entry is 1, say "[walk style of the character entry]s ";
-
 		otherwise say "walk[if total entry is 1]s[end if] ";
-
 		if the character entry is in the location:
-
 			if location is indoors and target is indoors, say "over from ";
-
 			if location is outdoors and target is indoors, say "out of ";
-
 			if location is indoors and target is outdoors, say "in from ";
-
 			if location is outdoors and target is outdoors, say "over from ";
-
 		otherwise:
-
 			if location is indoors and target is indoors, say "over to ";
-
 			if location is outdoors and target is indoors, say "into ";
-
 			if location is indoors and target is outdoors, say "out [if a door is visible][the random visible door][end if] to ";
-
 			if location is outdoors and target is outdoors, say "over to ";
-
 		if target is outdoors, say "[the heading chosen entry]";
-
 		otherwise say "[the target]";
-
 		if the total entry is 1 and count is 1 and accomplice carries something, say ", carrying [a list of things carried by the accomplice]";
-
 		decrement index;
-
 		make delimiter index of count, continuing;
-
 		now group size is total entry;
-
 	if a marked for listing person is infected:
-
 		[eliminate the case in which we have already seen this description because we just typed LOOK and the patient was in the room at the time]
-
 		if looking and a marked for listing person is not in the location:
-
 			clear marked people;
-
 			say paragraph break;
-
 		otherwise:
-
 			describe patients;
-
 	otherwise:
-
 		clear marked people;
-
 		say paragraph break.
 
 The last person named is a person that varies. Before printing the name of a person (called target): now the last person named is the target. Group size is a number that varies. Group size is 1.
 
 To clear marked people:
-
 	repeat with named party running through people:
-
 		now the named party is not marked for listing.
 
 Before listing nondescript items:
-
 	if the number of people who are marked for listing is 0, make no decision;
-
 	say "You can see [a list of people who are marked for listing] here. ";
-
 	now group size is the number of people who are marked for listing;
-
 	describe patients;
-
 	now every marked for listing person is not marked for listing.
 
 To describe patients:
-
 	if every marked for listing person is infected and at least three people are marked for listing:
-
 		say "They are all sick as dogs, every one.";
-
 		clear marked people;
-
 		rule succeeds;
-
 	otherwise:
-
 		if the number of people who are marked for listing is greater than two and the number of infected people who are marked for listing is greater than the number of clean people who are marked for listing:
-
 			say "Only [the list of clean people who are marked for listing] currently remain[if the number of clean people who are marked for listing is 1]s[end if] untainted.";
-
 			clear marked people;
-
 			rule succeeds;
-
 	let count be the number of marked for listing other people who are infected;
-
 	if count is 0:
-
 		say paragraph break;
-
 		make no decision;
-
 	let index be count;
-
 	repeat with patient running through marked for listing other people who are infected:
-
 		if index is count:
-
 			if count is 1 and the patient is the last person named:
-
 				say "[The patient as pronoun]";
-
 			otherwise:
-
 				say "[The patient]";
-
 		otherwise:
-
 			say "[the patient]";
-
 		say " [looks as though dipped in for index] [infection color of the patient]";
-
 		decrement index;
-
 		make delimiter index of count;
-
 	clear marked people.
 
 To say (named character - a man) as pronoun:
-
 	if group size is 1, say "He"; if group size is 2, say "The latter"; if group size is greater than 2, say "The last".
 
 To say (named character - a woman) as pronoun: if group size is 1, say "She"; if group size is 2, say "The latter"; if group size is greater than 2, say "The last".
 
 To say looks as though dipped in for (index - a number):
-
 	let divider be the number of filled rows in the Table of Dipping Phrases;
-
 	if index is greater than 4, let index be the remainder after dividing index by divider;
-
 	choose row index in the Table of Dipping Phrases;
-
 	say dipping entry.
 
 Table of Dipping Phrases
-
 dipping
-
 "looks as though dipped in"
-
 "could have been rolling in"
-
 "has a bad case of"
-
 "suffers from"
-
 "contracted a virulent"
 
 A door is usually scenery.
@@ -1039,27 +714,17 @@ The next part could be simpler, but for rigor we will write it in such a way tha
 
 ``` inform7
 {**}To make delimiter (index - a number) of (count - a number), continuing or halting:
-
 	if index is 0:
-
 		if continuing, say ". [run paragraph on]";
-
 		otherwise say ".";
-
 	otherwise if index is 1:
-
 		if count is 2, say " and ";
-
 		otherwise say "[optional comma] and ";
-
 	otherwise:
-
 		say ", ".
 
 To say optional comma:
-
 	if the serial comma option is active:
-
 		say ",".
 
 Test me with "go to cold comfort / z / z / z / z / ask vanessa for french vanilla / ask vanessa for chocolate / ask vanessa about flavors / ask vanessa for chocolate chocolate chip".

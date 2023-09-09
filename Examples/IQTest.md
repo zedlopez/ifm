@@ -22,19 +22,14 @@ The Donut Shop contains a transparent closed openable locked lockable container 
 The matching key of the case is a silver key. The silver key is carried by Ogg.
 
 A persuasion rule for asking someone to try doing something:
-
 	persuasion succeeds.
 
 Before someone opening a locked thing (called the sealed chest):
-
 	if the person asked is carrying the matching key of the sealed chest, try the person asked unlocking the sealed chest with the matching key of the sealed chest;
-
 	if the sealed chest is locked, stop the action.
 
 Before someone taking something which is in a closed container (called the shut chest):
-
 	try the person asked opening the shut chest;
-
 	if the shut chest is closed, stop the action.
 
 The block giving rule is not listed in the check giving it to rules.

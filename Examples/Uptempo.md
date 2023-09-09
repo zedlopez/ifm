@@ -16,9 +16,7 @@ Suppose a game in which all actions take a very long time. Here's a simple imple
 The fast time rule is listed instead of the advance time rule in the turn sequence rules.
 
 This is the fast time rule:
-
 	increment the turn count;
-
 	increase the time of day by 15 minutes.
 
 When play begins: now the right hand status line is "[time of day]".
@@ -35,19 +33,15 @@ This works fine as it stands, but we may run into some difficulty with it if we 
 
 ``` inform7
 {*}At 9:30 AM:
-
 	say "Two turtles run by, almost too fast to see."
 
 At 9:37 AM:
-
 	say "A snail blitzes past."
 
 At 9:42 AM:
-
 	say "The grass grows."
 
 At 9:50 AM:
-
 	say "Several flowers burst open."
 ```
 
@@ -64,9 +58,7 @@ The fast time rule is listed before the timed events rule in the turn sequence r
 The advance time rule is not listed in the turn sequence rules.
 
 This is the fast time rule:
-
 	increment the turn count;
-
 	increase the time of day by 15 minutes.
 
 When play begins: now the right hand status line is "[time of day]".
@@ -74,19 +66,15 @@ When play begins: now the right hand status line is "[time of day]".
 The Temporal Hot Spot is a room.
 
 At 9:30 AM:
-
 	say "Two turtles run by, almost too fast to see."
 
 At 9:37 AM:
-
 	say "A snail blitzes past."
 
 At 9:42 AM:
-
 	say "The grass grows."
 
 At 9:50 AM:
-
 	say "Several flowers burst open."
 
 Test me with "z / z / z / z".

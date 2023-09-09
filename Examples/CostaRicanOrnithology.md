@@ -16,11 +16,9 @@ The following relies on quite a number of features we haven't met yet: tables, r
 A book is a kind of thing. Understand "book" as a book. A book has a table name called the contents.
 
 Instead of consulting a book about a topic listed in the contents of the noun:
-
 	say "[reply entry][paragraph break]".
 
 Report consulting a book about:
-
 	say "You flip through [the noun], but find no reference to [the topic understood]." instead.
 ```
 
@@ -43,11 +41,8 @@ We will come back to the idea of tables and table names later, but for now the i
 
 ``` inform7
 {**}Table of Listed Birds
-
 topic	reply
-
 "[red]" or "[red] bird/macaw"	"You flip through the Guide for a while and eventually discover a reference to the [scarlet macaw], which appears to correspond with what you see before you."
-
 "quetzal/trogon" or "resplendent trogon"	"The entry on the quetzal is quite lyrical, describing its brilliant plumage, flashing and igniting in the sunshine, which is supposedly sufficient to lure birdwatchers from all over the world. Unfortunately, the quetzal is described as being bright emerald in color, with a pink fuzz on its head and a long soft tail 'like a feather boa'. None of these describes your visitor."
 ```
 
@@ -79,7 +74,6 @@ The scarlet macaw is an animal in the veranda. "A vibrantly-colored [scarlet mac
 A thing can be known or unknown.
 
 Before printing the name of the scarlet macaw while consulting:
-
 	now the scarlet macaw is known.
 
 Rule for printing the name of the unknown scarlet macaw: if the macaw is unknown, say "red-orange bird of unknown species".

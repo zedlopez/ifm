@@ -21,33 +21,21 @@ After telling someone about something: say "You're here to ask questions."
 Country is a kind of value. The countries are Czechoslovakia, Georgia, Sweden, Italy, Spain.
 
 Table of Information
-
 topic	date	place	definition
-
 "velvet revolution"	1989	Czechoslovakia	"A bloodless revolution in Czechoslovakia, in which popular protests led to the resignation of the communist president Gustav Husak, and the election of Vaclav Havel in his place."
-
 "rose revolution"	2003	Georgia		"A revolution in which President Eduard Shevardnadze was interrupted by protesters in the middle of his speech, and forced to flee."
-
 "spanish revolution"	1936	Spain	"An anarchist and socialist movement during the Spanish civil war."
 
 After reading a command:
-
 	if the player's command includes "[interrogative]", now the current question is the interrogative understood.
 
 To respond to the question:
-
 	repeat through the Table of Information:
-
 		if the topic understood includes topic entry:
-
 			if the current question is what or the current question is who, say definition entry appropriately;
-
 			if the current question is when, say date entry appropriately;
-
 			if the current question is where, say place entry appropriately;
-
 			rule succeeds;
-
 	say "[The noun] shrugs."
 
 Understand "ask [someone] [text]" as asking it about.
@@ -55,89 +43,52 @@ Understand "ask [someone] [text]" as asking it about.
 Comprehension is a kind of value. The comprehensions are vague, erroneous, and correct.
 
 Table of Understanding
-
 character	years	geography	general comprehension
-
 Dr Tweedy	correct	correct	correct
-
 Ms Finch	erroneous	erroneous	correct
-
 Ms Clarion	vague	vague	erroneous
 
 When play begins:
-
 	say "Here you are in the first class cabin, but no matter how fancy the seats are, you can still get bored circling over Zurich for three hours on end. To kill time, you and the other passengers are playing a trivia game, and the final topic is your specialty: revolutions."
 
 First Class Cabin is a room. Dr Tweedy is a man in First Class. Ms Finch and Ms Clarion are women in First Class.
 
 To say (year - a number) appropriately:
-
 	choose row with character of the noun in the Table of Understanding;
-
 	if years entry is correct:
-
 		say "'[year],' replies [the noun] promptly.";
-
 		increment the quiz score of the noun;
-
 	if years entry is erroneous:
-
 		let guess be a random number between 1900 and 2005;
-
 		say "'[guess]?' guesses [the noun], with an air of diffidence[if guess is the year]. Which is right, as it happens[end if].";
-
 		if guess is the year, increment the quiz score of the noun;
-
 	if years entry is vague:
-
 		let offset be a random number between -5 and 5;
-
 		let year be year + offset;
-
 		say "'I think [year]. About then. Close, anyway,' replies [the noun][if the offset is 0], getting it right[end if].";
-
 		if offset is 0, increment the quiz score of the noun.
 
 To say (spot - a country) appropriately:
-
 	choose row with character of the noun in the Table of Understanding;
-
 	if geography entry is correct:
-
 		say "'[spot],' replies [the noun] promptly.";
-
 		increment the quiz score of the noun;
-
 	if geography entry is erroneous:
-
 		let guess be a random country;
-
 		say "'Er... [guess]?' says [the noun][if guess is the spot]. Which is of course correct[end if].";
-
 		if guess is the spot, increment the quiz score of the noun;
-
 	if geography entry is vague, say "'Europe,' replies [the noun] with confidence."
 
 To say (explanation - some text) appropriately:
-
 	choose row with character of the noun in the Table of Understanding;
-
 	if general comprehension entry is correct:
-
 		say "'[explanation]'[paragraph break]";
-
 		increment the quiz score of the noun;
-
 	otherwise:
-
 		choose a random row in the Table of Information;
-
 		say "'[definition entry]'[paragraph break]";
-
 		if the definition entry is explanation:
-
 			say "[A random other person who is not the noun] looks surprised that this came out right.";
-
 			increment the quiz score of the noun.
 
 A person has a number called quiz score. The quiz score of Tweedy is 48. The quiz score of Finch is 2. The quiz score of Clarion is 4.
@@ -145,9 +96,7 @@ A person has a number called quiz score. The quiz score of Tweedy is 48. The qui
 Definition: a person is other if it is not the player.
 
 When play begins:
-
 	now left hand status line is "T: [quiz score of Tweedy]   F: [quiz score of Finch]   C: [quiz score of Clarion]";
-
 	now right hand status line is "[time of day]".
 
 Test me with "dr tweedy, where was the velvet revolution located / ms finch, when was the rose revolution / ms finch, what was the rose revolution / ms clarion, when was the spanish revolution / g / g / ms finch, when was the spanish revolution".

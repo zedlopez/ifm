@@ -29,27 +29,20 @@ A lid is a kind of supporter. A lid is part of every chest. The specification of
 {**}Section 2 - Opening and closing
 
 Before opening a lid which is part of a chest (called the item):
-
 	try opening the item instead.
 
 Before closing a lid which is part of a chest (called the item):
-
 	try closing the item instead.
 
 Before opening a chest (called the box) when something is on a lid (called the obstruction) which is part of the box:
-
 	repeat with item running through things on the obstruction:
-
 		say "(first removing [the item])";
-
 		try taking the item.
 
 Instead of opening a chest when something is on a lid (called the item) which is part of the noun:
-
 	say "You'd have to remove [the list of things on the item] from the lid first." instead.
 
 Instead of looking under a lid which is part of a chest (called the item):
-
 	try opening the item.
 ```
 
@@ -62,11 +55,9 @@ We may also want to be able to deal with "put in" and "put on" appropriately, ev
 {**}Section 3 - Insertion and Support
 
 Before inserting something into a lid which is part of a chest (called the item):
-
 	try inserting the noun into the item instead.
 
 Before putting something on a chest when a lid (called the item) is part of the second noun:
-
 	try putting the noun on the item instead.
 ```
 
@@ -77,13 +68,10 @@ Furthermore, we don't want the player to be able to put things on the lid while 
 
 ``` inform7
 {**}Before putting something on a lid which is part of an open chest (called the item):
-
 	say "(first closing [the item])";
-
 	try closing the item.
 
 Instead of putting something on a lid which is part of an open chest (called the item):
-
 	say "[The item] would need to be closed first."
 ```
 
@@ -96,15 +84,11 @@ And then we may also want a couple of rules for describing our assembled object 
 {**}Section 4 - Description in Rooms
 
 Instead of examining a closed chest when something is on a lid (called the top) which is part of the noun:
-
 	say "[The noun] is closed, and there [is-are a list of things on the top] on top."
 
 After printing the name of a chest (called the item) while listing contents of a room:
-
 	if a lid (called the second item) which supports something is part of the item:
-
 		say " (on which [is-are a list of things on the second item])";
-
 		omit contents in listing.
 ```
 

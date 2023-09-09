@@ -44,19 +44,12 @@ Now a rule to control what happens to all our sliding and rolling objects:
 
 ``` inform7
 {**}Every turn:
-
 	repeat with item running through spherical things which are in sloping rooms:
-
 		let the current space be the holder of the item;
-
 		let the final space be a random room which is overlooked by the current space;
-
 		if the player can see the item and the item is a marble, say "[The item] rolls out of the room toward [the final space].[line break]";
-
 		if the player is the item, say "You keep sliding...";
-
 		move the item to the final space;
-
 		if the player can see the item and the item is a marble, say "[The item] rolls into the room from [the current space].[line break]".
 ```
 
@@ -67,9 +60,7 @@ Since the Ski-jump overlooks the Landing Bowl, the marble will be able to fly th
 
 ``` inform7
 {**}Instead of jumping in a sloping room:
-
 	say "You leap...";
-
 	move the player to a random room overlooked by the location.
 ```
 

@@ -32,17 +32,13 @@ Note that we haven't given the sailboat any movement sound at all.
 
 ``` inform7
 {**}After going somewhere by a vehicle (called cart):
-
 	if the movement sound of the cart is not "", say "[the movement sound of the cart][paragraph break]";
-
 	continue the action.
 
 Instead of exiting when the player is in a vehicle and the location is not the Boathouse:
-
 	say "You're not dressed for a swim."
 
 Instead of going somewhere when the player is not in a vehicle:
-
 	say "You'd rather not try to make this journey by swimming alone."
 
 Test me with "n / get in sailboat / n / get out / s / get in motorboat / n / n".

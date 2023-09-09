@@ -20,13 +20,10 @@ Social clump is a kind of value. The social clumps are vacancy, lone person, cou
 A room has a social clump. Understand the social clump property as describing a room.
 
 Before printing the name of a room:
-
 	say "a [social clump] ".
 
 After looking:
-
 	assign clumping;
-
 	say "Elsewhere in the room, you can see [the list of rooms which are not the location]."
 
 Understand "go to [any room]" as joining. Joining is an action applying to one visible thing. Carry out joining: move player to the noun. Report joining: do nothing.
@@ -36,17 +33,11 @@ Understand "examine [any room]" as looking toward. Looking toward is an action a
 When play begins: assign clumping. Every turn: assign clumping.
 
 To assign clumping:
-
 	repeat with space running through rooms:
-
 		now the social clump of the space is vacancy;
-
 		if the space contains exactly 1 person, now the social clump of the space is Lone person;
-
 		if the space contains exactly 2 people, now the social clump of the space is Couple;
-
 		if the space contains more than 2 people and the space contains fewer than 5 people, now the social clump of the space is cluster;
-
 		if the space contains more than 4 people, now the social clump of the space is group.
 
 The room description heading rule is not listed in the carry out looking rules.
@@ -56,33 +47,19 @@ A person has a number called longevity. The longevity of a person is usually 0. 
 Definition: a person is other if it is not the player.
 
 Every turn:
-
 	repeat with mover running through other people:
-
 		now the mover is active;
-
 		increment the longevity of mover;
-
 		if longevity of mover is greater than 3 or the mover is bored:
-
 			assign value of spaces for the mover;
-
 			let destination be the nicest room;
-
 			if the destination is not the location of the mover:
-
 				if the player can see the mover, say "[The mover] makes excuses and drifts off to join [the destination].[paragraph break]";
-
 				move the mover to the destination;
-
 				now the mover is complacent;
-
 				now the longevity of the mover is 0;
-
 				if the player can see the mover, say "[The mover] wanders over.[paragraph break]";
-
 				assign clumping;
-
 				now mover is passive.
 
 A room has a number called attractiveness.
@@ -90,19 +67,12 @@ A room has a number called attractiveness.
 Definition: a room is nice if its attractiveness is 1 or more.
 
 To assign value of spaces for (mover - a person):
-
 	repeat with space running through rooms:
-
 		now attractiveness of the space is 0;
-
 		repeat with figure running through people in the space:
-
 			if the mover is bored, decrease attractiveness of the space by 2;
-
 			if the mover likes the figure, increment attractiveness of the space;
-
 			if the mover dislikes the figure, decrement attractiveness of the space;
-
 			if the mover desires the figure, increase attractiveness of the space by 2.
 
 Liking relates various people to various people. The verb to like means the liking relation.
@@ -136,11 +106,8 @@ Mrs Bates likes Miss Bates.
 A person can be complacent or bored.
 
 When play begins:
-
 	repeat with character running through other people:
-
 		let space be a random room;
-
 		move character to space.
 ```
 
@@ -151,45 +118,29 @@ And now we use writing a paragraph about... to describe character behavior in gr
 
 ``` inform7
 {**}Rule for writing a paragraph about Frank Churchill:
-
 	if the location contains a woman (called flirt) who is desired by Frank:
-
 		say "[Frank Churchill] is talking with great animation and slightly more than becoming warmth to [the flirt][if an unmentioned other person is in the location], while [the list of unmentioned other people in the location] look on with varying degrees of amusement or irritation[end if].";
-
 		repeat with character running through people in the location:
-
 			if the character is not Churchill and the character is not the flirt, now the character is bored.
 
 Rule for writing a paragraph about Mr Elton:
-
 	if the location contains an unmentioned woman (called flirt) who is desired by Elton:
-
 		say "[Mr Elton] hangs on the sleeve of [the flirt], offering an assortment of studied gallantries that make you wonder about his good sense.";
-
 		repeat with character running through people in the location:
-
 			if the character is not Elton and the character is not the flirt, now the character is bored.
 
 Rule for writing a paragraph about Harriet Smith:
-
 	if the location contains Emma and Emma is unmentioned:
-
 		say "[Harriet] and [Emma] are conversing in low tones -- Harriet, apparently, being too shy to speak so that everyone can hear her."
 
 Rule for writing a paragraph about Mr Knightley:
-
 	if the location contains an unmentioned man (called the listener) who is not Mr Knightley:
-
 		say "[Mr Knightley] is speaking with [the listener] about agricultural matters.";
-
 		now the listener is complacent.
 
 Rule for writing a paragraph about Miss Bates:
-
 	say "[Miss Bates] is giggling about the weather[if an unmentioned other person is in the location]. This does not seem to compel the interest of [the list of unmentioned other people in the location][end if].";
-
 	repeat with character running through people in the location:
-
 		if the character is not Miss Bates and character is not Mrs Bates, now the character is bored.
 ```
 

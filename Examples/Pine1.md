@@ -31,23 +31,16 @@ Instead of waking an awake person: say "Redundant."
 Instead of waking an asleep person: say "Yes, but how?"
 
 Instead of attacking an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] sits bolt upright. 'Hey! Ow!' So much for that true love's kiss nonsense."
 
 Instead of kissing an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] slowly stirs to wakefulness!"
 
 Instead of throwing water at an asleep person:
-
 	now the second noun is awake;
-
 	now the noun is nowhere;
-
 	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.

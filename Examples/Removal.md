@@ -25,15 +25,12 @@ The previous locale could in theory be either a thing or a room, so we make it "
 
 ``` inform7
 {**}Setting action variables for taking:
-
 	now previous locale is the holder of the noun.
 
 Report taking something from the location:
-
 	say "You pick up [the noun] from the ground." instead.
 
 Report taking something:
-
 	say "You take [the noun] from [the previous locale]." instead.
 
 Test me with "get all".

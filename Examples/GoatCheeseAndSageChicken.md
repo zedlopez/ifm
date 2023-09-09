@@ -18,47 +18,30 @@ Use scoring.
 The story headline is "An interactive recipe"
 
 Table of Tasks Achieved
-
 Points	Citation	Time
-
 3	"sauteeing onions"	a time
-
 3	"reconstituting apricots"
-
 1	"flattening chicken"
-
 1	"unwrapping goat cheese"
 
 To record (T - text) as achieved:
-
 	choose row with a citation of T in the Table of Tasks Achieved;
-
 	if there is no time entry:
-
 		now time entry is the time of day;
-
 		increase the score by the points entry.
 
 Requesting the full score is an action out of world. Understand "full" or "full score" as requesting the full score.
 
 Carry out requesting the full score:
-
 	if the score is 0, say "You have achieved nothing towards supper." instead;
-
 	repeat through the Table of Tasks Achieved in reverse time order:
-
 		say "[time entry]: [citation entry] ([points entry])."
 
 Table of Rankings
-
 Score	Rank
-
 0	"Rank Amateur"
-
 2	"would-be Bobby Flay"
-
 5	"Alton Brown"
-
 8	"Julia Child"
 
 The Kitchen is a room. The description of the Kitchen is "Equipped with many familiar friends: refrigerator, stove, oven; countertop; cabinet for pans and bowls, and a drawer for your tools."
@@ -68,15 +51,12 @@ The stove is scenery in the kitchen. It is a supporter. The oven is a container.
 A thing can be heatproof.
 
 Instead of putting something which is not heatproof on the stove when the stove's switch is switched on:
-
 	say "You catch yourself just at the last minute: not a good idea to put [the noun] directly on the stove while it's turned on."
 
 Instead of switching on the stove, try switching on the stove's switch. Instead of switching off the stove, try switching off the stove's switch. Instead of switching on the oven, try switching on the oven's dial. Instead of switching off the oven, try switching off the oven's dial.
 
 Before switching on the oven's dial when the oven is open:
-
 	say "(closing the oven so that it will heat properly)[command clarification break]";
-
 	try closing the oven.
 
 The frying pan is a heatproof unopenable open container on the stove.
@@ -110,27 +90,20 @@ The description of the Thurston Wolfe is "A Washington State Pinot Gris-Viognier
 Understand the commands "wash" and "rinse" as "clean".
 
 Instead of rubbing the unwashed sage:
-
 	now the sage is clean;
-
 	say "You rinse off the sage. There -- ready to slice."
 
 Instead of cutting the sage:
-
 	say "You'd need to have a knife in hand, first."
 
 Instead of cutting the clean sage when the player is carrying the butcher knife:
-
 	now the sage is julienned;
-
 	say "You slice the sage into thin strips."
 
 Instead of cutting the unwashed sage:
-
 	say "It came from the garden, so it won't have any strange chemicals on it, but you should still give it a rinse for dirt and bugs and so on before using it."
 
 Instead of doing something other than examining or rubbing with the unwashed sage:
-
 	say "It needs to be washed off."
 
 Understand "peel [something]" as peeling.
@@ -138,103 +111,74 @@ Understand "peel [something]" as peeling.
 Peeling is an action applying to one thing.
 
 Instead of peeling the unpeeled onions:
-
 	now the onions are peeled;
-
 	say "You tear away the shining outer skin of the onions, leaving them pale and nekkid. Poor things."
 
 Instead of cutting the diced onions:
-
 	say "That seems unnecessary now."
 
 Instead of cutting the sauteed onions:
-
 	say "Too late; you're well past that stage."
 
 Instead of cutting the burnt onions:
-
 	say "There's no rescuing 'em -- the carbon isn't going to flake off, you know."
 
 Instead of cutting the unpeeled onions:
-
 	say "It would help to peel them first."
 
 Instead of cutting the peeled onions:
-
 	say "You'd need to have a knife in hand, first."
 
 Instead of cutting the peeled onions when the player is carrying the butcher knife:
-
 	now the onions are diced;
-
 	say "You dice the onions neatly. Your own skill brings tears to your eyes."
 
 Instead of opening the goat cheese:
-
 	try peeling the goat cheese instead.
 
 Instead of peeling the unwrapped goat cheese:
-
 	say "The goat cheese is already unwrapped. (Stay focused, stay focused...)"
 
 Before peeling the wrapped goat cheese when the shears are held by the player:
-
 	try cutting the goat cheese.
 
 Instead of peeling the snipped open goat cheese:
-
 	now the goat cheese is unwrapped;
-
 	record "unwrapping goat cheese" as achieved;
-
 	say "Ah, success. The goat cheese is now free of its packet."
 
 Instead of peeling the wrapped goat cheese:
-
 	say "It would help to have a pair of scissors or something -- the packet resists being torn."
 
 Instead of cutting the goat cheese:
-
 	say "No need, at this point."
 
 Before cutting the wrapped goat cheese when the shears are not held by the player and the shears are visible:
-
 	say "(first picking up the shears)[command clarification break]";
-
 	try taking the shears.
 
 Instead of cutting the wrapped goat cheese:
-
 	say "Something to cut with would be useful."
 
 Instead of cutting the wrapped goat cheese when the shears are held by the player:
-
 	now the goat cheese is snipped open;
-
 	say "You neatly snip through the packaging with the shears."
 
 Instead of examining the whole chicken breast:
-
 	say "It is still entire and has yet to be pounded flat."
 
 Instead of examining the flattened chicken breast:
-
 	say "It has been hammered to a thickness of about a half inch. (The recipe said a quarter inch but you're pretty sure it was joking. You have never been able to achieve a quarter inch.)"
 
 Instead of attacking the whole chicken breast:
-
 	say "You need something heavy enough to flatten it with."
 
 Instead of attacking the whole chicken breast when the player is holding the wooden mallet:
-
 	now the chicken breast is flattened;
-
 	record "flattening chicken" as achieved;
-
 	say "You hammer away at the chicken breast, turning all your aggressions into culinary goodness. Several minutes pass. When you are done you have a broad flat chickeny pancake suitable for wrapping about a stuffing."
 
 Before printing the name of onions:
-
 	say "[onions condition] ".
 
 The drawer is an openable closed container. It is part of the counter.
@@ -242,7 +186,6 @@ The drawer is an openable closed container. It is part of the counter.
 A tool is a kind of thing. A spatula, a spoon, a wooden mallet, some shears, and a ball of twine are tools in the drawer. A butcher knife is a tool carried by the player. Understand "scissors" as the shears.
 
 Instead of burning something:
-
 	say "You'll have to do that the hard way."
 
 Some steam is fixed in place. "Dense clouds of steam fill the room."
@@ -254,7 +197,6 @@ Sauteeing Onions is a scene. Sauteeing Onions begins when the diced onions are i
 Definition: a container is hot if it is on the stove and the stove's switch is switched on.
 
 Instead of touching the hot pan:
-
 	say "Ow!"
 
 Scorching Onions is a scene.
@@ -266,49 +208,38 @@ Definition: a oven's dial is heating if the oven's dial has been switched on for
 Preheating the Oven ends when the time since Preheating the Oven began is five minutes.
 
 When Preheating the Oven begins:
-
 	say "The oven begins to warm up."
 
 When Preheating the Oven ends:
-
 	say "The oven beeps to inform you that it has reached the desired hotness."
 
 Every turn during Sauteeing Onions:
-
 	say "The onions sizzle in the pan."
 
 Every turn during Scorching Onions:
-
 	say "The onions are past their prime and are getting blacker by the moment."
 
 Every turn during Hearing the Kettle Whistle:
-
 	say "The kettle continues to whistle."
 
 Instead of listening to during Hearing the Kettle Whistle:
-
 	say "The only thing you can really hear just at the moment is the kettle."
 
 Instead of smelling the Kitchen during Sauteeing Onions:
-
 	try smelling the onions.
 
 Instead of smelling the onions during Sauteeing Onions:
-
 	say "The onions smell marvelous."
 
 Instead of opening the oven during Preheating the Oven:
-
 	say "It'll never heat if you open it up while it's warming."
 
 Heating Kettle is a scene. Heating Kettle begins when the hot kettle contains cool water.
 
 Before printing the name of the kettle when the kettle is hot:
-
 	say "hot "
 
 When Heating Kettle begins:
-
 	say "The kettle begins to heat up."
 
 Heating Kettle ends when the time since Heating Kettle began is 7 minutes.
@@ -316,13 +247,10 @@ Heating Kettle ends when the time since Heating Kettle began is 7 minutes.
 Hearing the Kettle Whistle is a scene. Hearing the Kettle Whistle begins when Heating Kettle ends. Hearing the Kettle Whistle ends when the kettle is not hot.
 
 When Hearing the Kettle Whistle begins:
-
 	now the water is boiling;
-
 	say "The kettle begins to burble and whistle shrilly."
 
 When Hearing the Kettle Whistle ends:
-
 	say "The kettle's screaming dies off."
 
 Idling is a scene. Idling begins when play begins. Idling ends when Sauteeing Onions begins.
@@ -336,19 +264,14 @@ Definition: a thing is alone if it is in a container which contains exactly one 
 Sauteeing Onions ends in mixture when the sauteed onions are not alone.
 
 When Sauteeing Onions ends in mixture:
-
 	say "The mixture of things in [the holder of the onions] stops them cooking quite so fast."
 
 When Sauteeing Onions ends in success:
-
 	say "Nice work with the onions."
 
 Every turn:
-
 	if diced onions have been in a hot pan for ten turns:
-
 		say "The onions are starting to look ready.";
-
 		now the onions are sauteed.
 
 Scorching Onions begins when Sauteeing Onions ends in disaster. Scorching Onions begins when the alone sauteed onions are in a hot container.
@@ -356,27 +279,20 @@ Scorching Onions begins when Sauteeing Onions ends in disaster. Scorching Onions
 Scorching Onions ends horribly when the time since Scorching Onions began is three minutes. Scorching Onions ends in reprieve when the sauteed onions are not in a hot container.  Scorching Onions ends in mixture when the sauteed onions are not alone.
 
 When Scorching Onions ends in mixture:
-
 	record "sauteeing onions" as achieved;
-
 	say "The mixture of things in [the holder of the onions] stops them cooking quite so fast."
 
 When Scorching Onions ends horribly:
-
 	move smoke to Kitchen;
-
 	now the onions are burnt.
 
 When Scorching Onions ends in reprieve:
-
 	record "sauteeing onions" as achieved;
-
 	say "You've got the onions off heat before they can scorch -- a good sign."
 
 Instead of taking the onions when the onions are in the pan: try taking the pan.
 
 Instead of smelling in the presence of the smoke:
-
 	say "The scent of the late disaster lingers in the air."
 
 Reconstituting the Apricots is a scene.
@@ -384,19 +300,14 @@ Reconstituting the Apricots is a scene.
 Reconstituting the Apricots begins when the dried apricots are in a container which contains boiling water.
 
 When Reconstituting the Apricots begins:
-
 	say "The apricots slowly begin to plump up again."
 
 Reconstituting the Apricots ends when the dried apricots are not in a container which contains boiling water.
 
 Every turn:
-
 	if dried apricots have been in a container which contains boiling water for ten turns:
-
 		say "The apricots have turned plump(ish).";
-
 		now the apricots are reconstituted;
-
 		record "reconstituting apricots" as achieved.
 
 Test sautee with "peel onions / cut onions / get onions / put onions in pan / get sage / wash sage / cut sage / wait / wait / wait / wait / wait / wait / wait / get pan".

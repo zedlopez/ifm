@@ -51,33 +51,20 @@ Here we include "Basic Screen Effects" because it will allow us to pause the gam
 The chapter counter is a number that varies.
 
 First when a scene (called the current scene) which is not the Entire Game begins:
-
 	if chapter counter is greater than 0:
-
 		pause the game;
-
 	increment chapter counter;
-
 	say "[bold type]Chapter [chapter counter]: [current scene][roman type]";
 
 Last when a scene (called the current scene) which is not the Entire Game begins:
-
 	repeat with item running through the scenery props of the current scene:
-
 		move the item to the starting location of the current scene;
-
 	repeat with item running through the inventory props of the current scene:
-
 		move the item to the player;
-
 	if the location is not the starting location of the current scene:
-
 		if the current scene is location-loud:
-
 			move the player to the starting location of the current scene;
-
 		otherwise:
-
 			move the player to the starting location of the current scene, without printing a room description.
 ```
 
@@ -88,11 +75,8 @@ At the end of each scene, we strike the set and remove all the loose objects fro
 
 ``` inform7
 {**}When a scene (called the current scene) ends:
-
 	repeat with item running through things which are not fixed in place:
-
 		if the item is not the player:
-
 			now the item is nowhere.
 
 Part 2 - Scenario
@@ -114,19 +98,14 @@ A kidnapper is a person. "Your kidnapper is watching you from the corner with hi
 The trolley is an enterable fixed in place container. "The 'train' on which you arrived is really just a single car, more like a trolley than a proper train." Understand "car" or "train" as the trolley. The description is "It has a glass front, so you can see ahead while riding: an innovation among trains."
 
 Arrival is a location-silent scene. "After many days['] journey, you have arrived at last in Entrevaux, a walled medieval town now chiefly of interest to tourists and crusade re-enactors."
-
 	The starting location of Arrival is the Entrevaux Station.
-
 	The scenery props of Arrival are { re-enactors, trolley }.
-
 	The inventory props of Arrival are { the used ticket, one-euro coin }.
 
 Arrival begins when play begins. Arrival ends when the time since Arrival began is 2 minutes.
 
 Abduction is a location-loud scene. "You check into the Hotel Vauban and sleep deeply enough; it was a long and sticky trip to get here.line-so-blankThen in the middle of the night something confusing happens. You have the impression of strangers in your room, and then a searing pain, and you don't come back to yourself until midmorning of the following day..."
-
 	The starting location of Abduction is the Hillside Tower.
-
 	The scenery props of Abduction are { kidnapper }.
 
 Abduction begins when Arrival ends.

@@ -23,7 +23,6 @@ Here we record where the player has been before moving them; by calling this the
 
 ``` inform7
 {**}First carry out going rule:
-
 	now the former location is the location.
 
 Understand "go back" as retreating. Understand "back" or "return" or "retreat" as retreating.
@@ -31,11 +30,8 @@ Understand "go back" as retreating. Understand "back" or "return" or "retreat" a
 Retreating is an action applying to nothing.
 
 Carry out retreating:
-
 	let way be the best route from the location to the former location, using doors;
-
 	if way is a direction, try going way;
-
 	otherwise say "You can't see an open way back."
 ```
 

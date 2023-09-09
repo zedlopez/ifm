@@ -20,15 +20,12 @@ Instead of asking the Sybil to try saying no: try saying no. Instead of asking t
 Instead of answering the Sybil that "yes", try saying yes. Instead of answering the Sybil that "no", try saying no. Instead of answering the Sybil that "sorry", try saying sorry.
 
 Instead of saying yes in the presence of the Sybil:
-
 	say "She looks interested."
 
 Instead of saying no in the presence of the Sybil:
-
 	say "She looks annoyed."
 
 Instead of saying sorry in the presence of the Sybil:
-
 	say "She looks bored."
 ```
 

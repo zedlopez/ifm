@@ -21,13 +21,9 @@ Section 1 - Descriptive Functionality
 Describing relates various verbs to various action names. The verb to describe means the describing relation.
 
 Table of Action Results
-
 related action	relation
-
 the taking action	the carrying relation
-
 the wearing action	the wearing relation
-
 the taking off action	the carrying relation
 
 To take is a verb. To acquire is a verb. To get is a verb.
@@ -45,35 +41,22 @@ To don is a verb. The verb don describes the wearing action.
 To doff is a verb. The verb doff describes the taking off action.
 
 After an actor doing something when the noun is nothing and a verb describes (the action name part of the current action) (this is the apply random verbs to describing nounless actions rule):
-
 	say "[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)].";
-
 	rule succeeds.
 
 After an actor doing something to something when a verb describes (the action name part of the current action) (this is the apply random verbs to describing actions rule):
-
 	let current action name be the action name part of the current action;
-
 	if a random chance of 1 in 2 succeeds and the current action name is a related action listed in the Table of Action Results:
-
 		choose a row with the related action of current action name in the Table of Action Results;
-
 		let R be the relation entry;
-
 		let subject be the actor;
-
 		let chosen object be the noun;
-
 		say "[The subject] [are] now [present participle of a random verb that means R] [the chosen object].";
-
 	else:
-
 		say "[The actor] [verb rendering applied to a random verb that describes (the action name part of the current action)] [the noun].";
-
 	rule succeeds.
 
 To decide which text is the rendering of (V - verb) (this is verb rendering):
-
 	decide on "[adapt V]".
 
 To say infinitive of (V - a verb): (- {V}(1); -).

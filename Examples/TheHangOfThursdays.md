@@ -17,15 +17,10 @@ A weekday is a kind of value. The weekdays are Saturday, Sunday, Monday, Tuesday
 A time period is a kind of value. The time periods are morning, afternoon, evening, night. The current time period is a time period that varies. The current time period is afternoon.
 
 This is the new advance time rule:
-
 	if the current time period is less than night:
-
 		now the current time period is the time period after the current time period;
-
 	otherwise:
-
 		now the current time period is morning;
-
 		now the current weekday is the weekday after the current weekday.
 ```
 

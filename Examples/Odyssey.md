@@ -22,35 +22,21 @@ Athena will proceed, unless delayed, through a list of locations stored in a sim
 
 ``` inform7
 {**}Table of Athena's Movement
-
 destination
-
 Thebes
-
 Delphi
-
 Thebes
-
 Athens
-
 Corinth
-
 Mycenae
 
 Every turn when Athena is active:
-
 	repeat through the Table of Athena's Movement:
-
 		let last space be the location of Athena;
-
 		if Athena can be seen by the player, say "Athena heads to [the destination entry].";
-
 		move Athena to destination entry;
-
 		if Athena can be seen by the player, say "Athena arrives from [the last space].";
-
 		blank out the whole row;
-
 		break.
 ```
 
@@ -66,17 +52,13 @@ Since we want the player to be able to talk to Athena, we need a way to stall he
 {**}Athena can be active or passive. Athena is active.
 
 Before doing something to Athena:
-
 	now Athena is passive;
-
 	say "Athena waits around patiently, though you can tell she would like to leave..."
 
 Instead of telling Athena about something:
-
 	say "She watches you patiently as though to say that she already knows."
 
 Instead of asking Athena about something:
-
 	say "Her response is inscrutably ancient and Greek. Afterwards you remember only the flash of bright eyes."
 ```
 
@@ -87,7 +69,6 @@ Finally, we do need to wake Athena up again if she has become passive. The follo
 
 ``` inform7
 {**}Every turn when Athena is passive:
-
 	now Athena is active.
 
 Test me with "east / northwest / wait / examine athena / wait".

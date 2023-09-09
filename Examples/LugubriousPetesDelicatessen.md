@@ -25,15 +25,10 @@ Two processes compete here: one that fills the queue, the other which will empty
 
 ``` inform7
 {**}Every turn when a woman is in the Supermarket and a random chance of 2 in 3 succeeds (this is the customer arriving rule):
-
 	let the customer be a random woman in the Supermarket;
-
 	now the customer is in the Delicatessen;
-
 	if the player is in the Supermarket, say "[The customer] walks into the Delicatessen.";
-
 	if the player is in the Delicatessen, say "[The customer] comes in from the Supermarket, and [if the number of entries in the deli queue is 0]can't believe her luck. The counter is free![otherwise]resignedly queues behind [the deli queue].";
-
 	add the customer to the deli queue.
 ```
 
@@ -44,15 +39,10 @@ The competing process is the one which serves shoppers and thus gets rid of them
 
 ``` inform7
 {**}Every turn when the number of entries in the deli queue is not 0 and a random chance of 1 in 3 succeeds (this is the customer being served rule):
-
 	let the customer be entry 1 of the deli queue;
-
 	if the player is in the Delicatessen, say "Pete gives a droopy expression as he serves [customer], who nevertheless brightens and leaves.";
-
 	if the player is in the Supermarket, say "[customer] emerges cheerfully from the Delicatessen Counter, and goes about her regular shopping.";
-
 	now the customer is in the Supermarket;
-
 	remove entry 1 from the deli queue.
 
 Instead of waiting in the Delicatessen when the number of entries in the deli queue is not 0, say "Time passes, for [deli queue] quite as much as for yourself."
@@ -76,21 +66,13 @@ We could then rewrite the service rule like so:
 
 ``` inform7
 Every turn when the number of entries in the deli queue is not 0 and a random chance of 1 in 3 succeeds (this is the customer being served rule):
-
 	let Pete's preference be the deli queue;
-
 	sort Pete's preference in reverse modesty order;
-
 	let the customer be entry 1 of Pete's preference;
-
 	let the first in line be entry 1 of the deli queue;
-
 	if the player is in the Delicatessen, say "[if the customer is the first in line]Pete gives a droopy expression as he serves [the customer], who nevertheless brightens and leaves.[otherwise]Outrageously, Pete scans the queue, notices [the customer] in her [modesty of the customer] clothes, and serves her next, while [the first in line] glares at him.";
-
 	if the player is in the Supermarket, say "[The customer] emerges cheerfully from the Delicatessen Counter, and goes about her regular shopping.";
-
 	now the customer is in the Supermarket;
-
 	remove the customer from the deli queue.
 ```
 

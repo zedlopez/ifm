@@ -49,37 +49,25 @@ Ownership relates one person (called the owner) to various things. The verb to o
 Definition: a thing is owned if the player owns it.
 
 Instead of buying something which is owned by the player:
-
 	say "You already own [the noun]."
 
 Instead of going somewhere when the player encloses something (called the stolen goods) which is not owned by the player:
-
 	if the owner of the stolen goods is not a person:
-
 		now the player owns the stolen goods;
-
 		continue the action;
-
 	if the owner of the stolen goods can see the player,
-
 		say "'Hey there buddy, not so fast,' says [the owner of the stolen goods]. 'You going to buy [the stolen goods] first, or am I gonna call the cops?'";
-
 	otherwise continue the action.
 
 After taking inventory:
-
 	say "Altogether, you've got [the player's cash] on your person."
 
 To decide what price is the player's cash:
-
 	let sum be the total price of money enclosed by the player;
-
 	decide on sum.
 
 To decide what price is the sum in (item - a container):
-
 	let sum be the total price of the money in the item;
-
 	decide on sum.
 
 When play begins: now every thing carried by the player is owned by the player.
@@ -95,7 +83,6 @@ Rule for printing room description details of something (called target) which is
 Before listing contents: group money together giving articles.
 
 Instead of examining a for sale thing (this is the describe things by price rule):
-
 	say "[The noun] costs [the price of the noun], payable to [the owner of the noun]."
 ```
 
@@ -110,79 +97,45 @@ The cashbox is a theoretical construct, not something the player will ever encou
 The block buying rule is not listed in the check buying rules.
 
 Check buying something:
-
 	if the noun is not for sale, say "[The owner of the noun] does not want to sell you [the noun]." instead;
-
 	if the player's cash is less than the price of the noun, say "You can't afford the asking price of [the price of the noun] for [the noun]." instead.
 
 Carry out buying something:
-
 	let sum paid be $0.00;
-
 	while sum paid is less than the price of the noun:
-
 		let current target be the price of the noun minus the sum paid;
-
 		let bill offered be the best money from the player for the current target;
-
 		if the bill offered is money:
-
 			move the bill offered to the owner of the noun;
-
 			now the bill offered is spent;
-
 			increase the sum paid by the price of the bill offered;
-
 			let current target be the price of the noun minus the sum paid;
-
 	say "You hand [the owner of the noun] [a list of spent money]. [run paragraph on]";
-
 	let change be $0.00;
-
 	if the sum paid is greater than the price of the noun:
-
 		now the change is the sum paid minus the price of the noun;
-
 	if change is greater than the sum in the cashbox:
-
 		now the player carries every spent money;
-
 		now every spent thing is fresh;
-
 		say "'Whoa,' says [the owner of the noun], handing the cash back to you. 'I can't make change for that, man, sorry.'" instead;
-
 	now every spent thing is in the cashbox;
-
 	now every spent thing is fresh;
-
 	while change is greater than $0.00:
-
 		let change bill be the best money from the cashbox for change;
-
 		decrease change by the price of the change bill;
-
 		now change bill is spent;
-
 		move change bill to player;
-
 	if money is spent, say "[The owner of the noun] makes change with [a list of spent money]. [run paragraph on]";
-
 	now every spent thing is fresh;
-
 	if the noun is not enclosed by the player and the owner of the noun can touch the noun:
-
 		say "'Here ya go,' says [the owner of the noun], handing [the noun] to you. [run paragraph on]";
-
 		move the noun to the player;
-
 	now the player owns the noun.
 
 Money can be spent or fresh.
 
 Report buying something:
-
 	if the player owns the noun,
-
 		say "Your transaction is now complete, leaving you with [the player's cash]."
 ```
 
@@ -200,29 +153,17 @@ We also assume that all money "enclosed by the buyer" – that is, somewhere in 
 Functional relation is a kind of value. The functional relations are overpayment, underpayment and irrelevant. Money has a functional relation.
 
 To decide what money is the best money from (buyer - a thing) for (cost - a price):
-
 	repeat with bill offered running through money:
-
 		if the bill offered is enclosed by the buyer:
-
 			if the price of the bill offered is the cost, decide on the bill offered;
-
 			if the price of the bill offered is greater than the cost, now the functional relation of bill offered is overpayment;
-
 			otherwise now the functional relation of the bill offered is underpayment;
-
 		otherwise:
-
 			now the functional relation of the bill offered is irrelevant;
-
-	[say "underpayment: [a list of underpayment money]line-so-blank	overpayment: [a list of overpayment money]";]
-
+	[say "underpayment: [a list of underpayment money]	overpayment: [a list of overpayment money]";]
 	if the total price of underpayment money is less than the cost:
-
 		decide on the cheapest money which is overpayment;
-
 	otherwise:
-
 		decide on the costliest money which is underpayment.
 ```
 
@@ -233,7 +174,6 @@ Notice the "say underpayment/overpayment section..." noted out, above. This is f
 
 ``` inform7
 {**}Instead of giving money to someone:
-
 	say "Best to keep the transaction simple by buying whatever you want."
 
 Section 4 - The Scenario
@@ -257,9 +197,7 @@ A paperback novel is on the stand. The price of the paperback novel is $7.99.
 A packet of trading cards is on the stand. The price of the packet is $0.99.
 
 When play begins:
-
 	now every thing on the stand is owned by the newspaper man;
-
 	now every thing on the stand is for sale.
 ```
 
@@ -274,45 +212,30 @@ We could have done all that by hand, but the initialization requires a little le
 The description of the light is "In the whole of your recollection, the ticket machine has actually had change a total of twice. Usually, as now, the no-change light gleams angrily, daring you to put in more than you owe." A cash return button is part of the ticket machine. Instead of pushing the cash return button: say "The ticket machine regurgitates [the list of things in the ticket machine]."; now every thing in the ticket machine is carried by the player. Instead of taking something which is in the ticket machine: say "The ticket machine has swallowed your money, but it can be retrieved (you hope) with the cash return button."
 
 Instead of inserting a hundred-dollar bill into the ticket machine:
-
 	say "What, are you nuts?"
 
 To decide what price is the remaining ticket total:
-
 	let absolute cost be $2.25;
-
 	let remaining cost be absolute cost minus the total price of things in the ticket machine;
-
 	if remaining cost is less than $0.00, decide on $0.00;
-
 	decide on remaining cost.
 
 Instead of inserting something which is not money into the ticket machine: say "The ticket machine only accepts money, not other tokens of your esteem and regard."
 
 Instead of inserting a penny into the ticket machine:
-
 	say "The penny rattles out again mockingly: not even the ticket machine thinks these are worth anything."
 
 A subway pass is a kind of thing. 15 subway passes are in the cashbox. The description of a subway pass is usually "A rectangle of thick lavender paper with a black magnetic stripe running up the back side. It is good for one trip on the subway."
 
 After inserting something into the ticket machine:
-
 	if the remaining ticket total is $0.00:
-
 		let purchased ticket be a random subway pass in the cashbox;
-
 		if purchased ticket is not a subway pass, say "The ticket machine grunts disobligingly and then the unwelcome word MALFUNCTION parades across the LED screen, three letters at a time." instead;
-
 		repeat with item running through things in the machine:
-
 			now the item is nowhere;
-
 		move purchased ticket to player;
-
 		say "The ticket machine beeps obligingly and disgorges a single subway pass.";
-
 	otherwise:
-
 		say "The ticket machine beeps obligingly and adjusts its price down to [remaining ticket total]."
 ```
 
@@ -323,7 +246,6 @@ And because even though the ticket machine is a container, we don't want to say 
 
 ``` inform7
 {**}Rule for printing room description details of the ticket machine:
-
 	do nothing instead.
 
 Test me with "buy novel / n / get dollar / s / buy novel".

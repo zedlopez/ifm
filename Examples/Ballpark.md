@@ -14,13 +14,9 @@ Sometimes it is more sensible to describe numbers roughly than in exact terms. F
 {*}"Ballpark"
 
 To say (count - a number) in round numbers:
-
 	repeat through the Table of Numerical Approximation:
-
 		if count is less than threshold entry:
-
 			say "[approximation entry]";
-
 			rule succeeds.
 ```
 
@@ -31,21 +27,13 @@ Phrases will be explained more thoroughly in a later chapter, but as we have alr
 
 ``` inform7
 {**}Table of Numerical Approximation
-
 threshold	approximation
-
 1	"no"
-
 2	"one"
-
 3	"a couple of"
-
 6	"a few"
-
 11	"some"
-
 21	"many"
-
 1000	"lots and lots of"
 ```
 

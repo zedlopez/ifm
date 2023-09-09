@@ -21,11 +21,8 @@ The player carries a magic mirror. The magic mirror has a text called the mirror
 To erase the mirror: now mirror vision of the mirror is "The mirror is polished clean, and has no impression upon it."
 
 To say current room description: try looking.
-
 To expose the mirror:
-
 	say "The mirror shines momentarily with a dazzling light.[paragraph break]";
-
 	now mirror vision of the mirror is the substituted form of "The hazy image in the mirror preserves a past sight:[line break][current room description]All is distorted and yet living, as though the past and present are coterminous in the mirror."
 
 Understand "hold up [something preferably held]" or "hold [something preferably held] up" as holding aloft. Holding aloft is an action applying to one carried thing. Report holding aloft: say "You hold [the noun] aloft."

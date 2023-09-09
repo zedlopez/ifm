@@ -22,11 +22,8 @@ The actual number chosen in this definition is pretty much irrelevant: the main 
 
 ``` inform7
 {**}To decide which thing is cyclically random (collection - a description of objects):
-
 	let choice be the oldest member of the collection;
-
 	now the last use of the choice is the turn count;
-
 	decide on choice.
 ```
 
@@ -37,7 +34,6 @@ This phrase will select, from the collection of objects passed to it, the one th
 
 ``` inform7
 {**}After taking inventory:
-
 	say "You stare morosely at [the cyclically random thing carried by the player], wondering what you're ever going to find to do with it."
 ```
 

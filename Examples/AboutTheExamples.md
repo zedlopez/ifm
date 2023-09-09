@@ -27,11 +27,8 @@ Each example is loosely graded by difficulty: if they were exercises in a textbo
 
 ``` inform7
 ///asterisk.png/// - A simple example, fairly easily guessed.
-
 ///asterisk.png/// ///asterisk.png/// - A complicated or surprising example.
-
 ///asterisk.png/// ///asterisk.png/// ///asterisk.png/// - An example needing detailed knowledge of many aspects of the system.
-
 ///asterisk.png/// ///asterisk.png/// ///asterisk.png/// ///asterisk.png/// - A complete scenario, containing material not necessarily relevant to the topic being demonstrated.
 ```
 

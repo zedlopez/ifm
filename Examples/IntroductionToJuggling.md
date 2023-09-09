@@ -38,17 +38,13 @@ Because we're allowing the player to order things that they can't currently see,
 Ordering is an action applying to one visible thing.
 
 Check ordering:
-
 	if the cost of the noun is greater than the price of the player, say "You only have [price of the player], while [the noun] would cost [cost of the noun]." instead.
 
 Carry out ordering:
-
 	move the noun to the player;
-
 	decrease the price of the player by the cost of the noun.
 
 Report ordering:
-
 	say "You order [a noun], which is delivered instantly."
 ```
 
@@ -59,7 +55,6 @@ We should also handle the situation where the player orders another of something
 
 ``` inform7
 {**}Instead of buying something:
-
 	say "You already have [a noun]."
 ```
 
@@ -79,21 +74,13 @@ Difficulty is a kind of value. The difficulties are easy, moderate, hard. The pl
 The plural of toy is toys. A toy is a kind of thing. Some toys are defined by the Table of Juggling Equipment.
 
 Table of Juggling Equipment
-
 toy	cost	restriction	description	difficulty	outcome
-
 an economy bounce ball set	$10.00	"comes in set of three"	"A fairly ordinary rubber ball, solid color."	moderate	"You create of the balls a cascade of moving color."
-
 an acrylic contact ball	$14.00	"should be bought with ball polish"	"A large clear ball, not for throwing but for using in various hand tricks."	hard	"You rotate the ball between your fingers and pass it over the backs of your hands."
-
 a UV-reactive contact ball	$55.00	"appears to glow in dark rooms"	"Similar to the ordinary acrylic contact ball, but UV-reactive."	hard	"The ball glows as it passes between your fingers and over the backs of your hands, rolls up to your wrist, snaps through the air-- all apparently of its own accord."
-
 a ball polish set	$10.00	"useful only with acrylic contact balls"	"Three bottles of polish and a rag for keeping acrylic contact balls scratch-free."	hard	"You juggle the polish bottles with difficulty, since they are full of sloshing liquid."
-
 a teaching beanbag set	$8.00	"set of three"	"Soft, easily-juggled bag."	easy	"You juggle the beanbags with basic competence."
-
 a stage ball set	$13.50	"comes in set of three"	"Not much different in appearance from the economy bounce ball, but larger so as to be visible from a stage."	moderate	"You create of the balls a cascade of moving color, visible from quite a distance."
-
 a fireball set	$33.00	"will not be sold to minors"	"A ball has wicking and a fuel-source inside so that it will burn while being juggled."	hard	"You juggle the fireballs rapidly, careful never to hold any of them a moment longer than necessary."
 ```
 
@@ -108,17 +95,12 @@ Notice that we are allowed to define "description" and other already-known prope
 The Juggling Equipment Catalog is a thing in Backstage.
 
 Instead of examining the Catalog:
-
 	say "You read through the offerings, including: [paragraph break]";
-
 	repeat through Table of Juggling Equipment:
-
 		say "[bold type][toy entry][roman type]: [description entry] [cost entry], [restriction entry]. [paragraph break]".
 
 When play begins:
-
 	now right hand status line is "Budget: [price of the player]";
-
 	now left hand status line is "[location], feeling [if the difficulty of player is easy]incompetent[end if][if the difficulty of player is moderate]moderately skilled[end if][if the difficulty of player is hard]highly skilled[end if]".
 ```
 
@@ -133,25 +115,18 @@ And of course this will be no fun unless the player is allowed to use the equipm
 Juggling is an action applying to one thing.
 
 Check juggling:
-
 	if the noun is not a toy listed in the Table of Juggling Equipment, say "You can't juggle [a noun]!" instead;
-
 	if the difficulty of the noun is greater than the difficulty of the player, say "You're not quite ready to juggle something like [the noun]. Better to start with an easier toy." instead.
 
 Carry out juggling:
-
 	if a random chance of 1 in 3 succeeds:
-
 		if the difficulty of the player is less than hard and the difficulty of the player is the difficulty of the noun:
-
 			now the difficulty of the player is the difficulty after the difficulty of the player.
 
 Report juggling:
-
 	say "[outcome of the noun][paragraph break]".
 
 Instead of burning the fireball set:
-
 	say "It will flame by itself when you use it."
 
 Test me with "read catalog / buy economy / buy beanbag / juggle economy / juggle beanbag / juggle beanbag / juggle beanbag / juggle beanbag / juggle beanbag / juggle beanbag / juggle economy / juggle economy / juggle economy / buy fireball set / juggle fireball".

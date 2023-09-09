@@ -21,7 +21,6 @@ That has the right effect, but it just isn't sneaky enough. Instead let us quiet
 
 ``` inform7
 Check saving the game: increment the number of saves.
-
 When play ends: if the number of saves is 0, increment the score.
 ```
 

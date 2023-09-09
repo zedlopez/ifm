@@ -50,9 +50,7 @@ Moreover, we can ourselves check what the state of the descriptions is, with
 
 ``` inform7
 if set to sometimes abbreviated room descriptions: ...
-
 if set to unabbreviated room descriptions: ...
-
 if set to abbreviated room descriptions: ...
 ```
 

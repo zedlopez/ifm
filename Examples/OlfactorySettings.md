@@ -26,7 +26,6 @@ Instead of smelling something: say "[Our] nose [regarding nothing][are] too weak
 Instead of smelling the bouquet: say "[regarding the noun][They]['re] lovely."
 
 Instead of tasting something:
-
 	say "Whew, [regarding the noun][are] [those] ever nasty!"
 
 Test me with "x ticket / eat it / eat them / touch it / touch them / smell it / smell them / taste it / taste them / x papers / eat it / eat them / touch them / smell them / taste them / x bouquet / eat it / eat them / touch them / smell them / taste them".

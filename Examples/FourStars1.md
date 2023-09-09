@@ -15,19 +15,15 @@ A thing has some text called sound. The sound of a thing is usually "silence".
 The report listening rule is not listed in the report listening to rules.
 
 Carry out listening to something:
-
 	say "From [the noun] you hear [the sound of the noun]."
 
 Instead of listening to a room:
-
 	if an audible thing can be touched by the player, say "You hear [the list of audible things which can be touched by the player].";
-
 	otherwise say "A merciful peace prevails."
 
 Definition: a thing is audible if the sound of it is not "silence".
 
 Before printing the name of something audible while listening to a room:
-
 	say "[sound] from the "
 
 A thing has some text called scent. The scent of a thing is usually "nothing".
@@ -35,13 +31,10 @@ A thing has some text called scent. The scent of a thing is usually "nothing".
 The report smelling rule is not listed in the report smelling rulebook.
 
 Carry out smelling something:
-
 	say "From [the noun] you smell [scent of the noun]."
 
 Instead of smelling a room:
-
 	if a scented thing can be touched by the player, say "You smell [the list of scented things which can be touched by the player].";
-
 	otherwise say "The place is blissfully odorless."
 
 Definition: a thing is scented if the scent of it is not "nothing".
@@ -77,19 +70,15 @@ Rule for printing the description of a dark room: try listening; try smelling; r
 Instead of examining an audible thing while in darkness: try listening to the noun. Instead of examining something while in darkness: try touching the noun.
 
 Before touching something when in darkness:
-
 	say "You grope about..."
 
 After inserting the plant into something:
-
 	say "You unceremoniously dump [the noun] into [the second noun], hoping it sustains no important damage thereby."
 
 Before printing the name of a dark room: if the player can touch an audible thing, say "Noisy "; if the player can touch a scented thing, say "Perfumed ".
 
 Visibility rule when in darkness:
-
 	if examining something, there is sufficient light;
-
 	there is insufficient light.
 
 Rule for printing the announcement of darkness: say "It is now pleasantly lightless in here." instead.
@@ -97,33 +86,24 @@ Rule for printing the announcement of darkness: say "It is now pleasantly lightl
 Rule for deciding the scope of the player while in darkness: place the location in scope.
 
 To decide whether in daylight:
-
 	if in darkness, no;
-
 	yes.
 
 Instead of sleeping when in daylight:
-
 	say "You've never been able to sleep with the light on."
 
 Instead of sleeping when the player can touch an audible thing (called the irritant):
-
 	say "The steady [sound of the irritant] from [the irritant] prevents your slumber."
 
 Instead of sleeping when the player can touch a scented thing (called the irritant):
-
 	if the irritant is chocolate, say "The smell of chocolate continues to tantalize you, keeping you from sleep.";
-
 	otherwise say "You sniffle. [The irritant] is probably acting on your allergies."
 
 Instead of sleeping:
-
 	say "You slip easily into the arms of Morpheus.";
-
 	end the story finally saying "At last..."
 
 When play begins:
-
 	say "You have at last escaped from the airport and gotten through customs; survived an unnerving taxi ride over icy highways; stared down the impertinent concierge; endured the bellhop's catalog of features in your room; and achieved, finally, a moment of peace. Time for a good night's slumber!"
 
 Test me with "x dreamcatcher / switch lamp off / look / sleep / eat chocolate / sleep / get plant / examine plant / open suitcase / put plant in suitcase / close suitcase / sleep / look / examine bose / switch bose off / sleep".

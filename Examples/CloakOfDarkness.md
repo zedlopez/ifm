@@ -74,11 +74,8 @@ We could if we wished use a number to indicate how many times the player has ste
 
 ``` inform7
 {**}Instead of examining the message:
-
 	increment score;
-
 	say "The message, neatly marked in the sawdust, reads...";
-
 	end the story finally.
 ```
 
@@ -89,9 +86,7 @@ This second rule takes precedence over the first one whenever the message is tra
 
 ``` inform7
 {**}Instead of examining the trampled message:
-
 	say "The message has been carelessly trampled, making it difficult to read. You can just distinguish the words...";
-
 	end the story saying "You have lost".
 ```
 
@@ -102,15 +97,11 @@ This command advances the state of the message from neat to scuffed and from scu
 
 ``` inform7
 {**}Instead of doing something other than going in the bar when in darkness:
-
 	if the message is not trampled, now the neatness of the message is the neatness after the neatness of the message;
-
 	say "In the dark? You could easily disturb something."
 
 Instead of going nowhere from the bar when in darkness:
-
 	now the message is trampled;
-
 	say "Blundering around in the dark isn't a good idea!"
 ```
 
@@ -123,29 +114,22 @@ This defines an object which is worn at the start of play. Because we have said 
 {**}The player wears a velvet cloak. The cloak can be hung or unhung. Understand "dark" or "black" or "satin" as the cloak. The description of the cloak is "A handsome cloak, of velvet trimmed with satin, and slightly splattered with raindrops. Its blackness is so deep that it almost seems to suck light from the room."
 
 Carry out taking the cloak:
-
 	now the bar is dark.
 
 Carry out putting the unhung cloak on something in the cloakroom:
-
 	now the cloak is hung;
-
 	increment score.
 
 Carry out putting the cloak on something in the cloakroom:
-
 	now the bar is lit.
 
 Carry out dropping the cloak in the cloakroom:
-
 	now the bar is lit.
 
 Instead of dropping or putting the cloak on when the player is not in the cloakroom:
-
 	say "This isn't the best place to leave a smart cloak lying around."
 
 When play begins:
-
 	say "[paragraph break]Hurrying through the rainswept November night, you're glad to see the bright lights of the Opera House. It's surprising that there aren't more people about but, hey, what do you expect in a cheap demo game...?"
 
 Understand "hang [something preferably held] on [something]" as putting it on.

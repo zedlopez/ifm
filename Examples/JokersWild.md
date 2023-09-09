@@ -16,111 +16,58 @@ Suppose we want a deck of cards which the player can shuffle and draw from. Our 
 Suit is a kind of value. The suits are hearts, clubs, diamonds, and spades.
 
 Table of Cards
-
 suit	value
-
 diamonds	1
-
 diamonds	2
-
 diamonds	3
-
 diamonds	4
-
 diamonds	5
-
 diamonds	6
-
 diamonds	7
-
 diamonds	8
-
 diamonds	9
-
 diamonds	10
-
 diamonds	11
-
 diamonds	12
-
 diamonds	13
-
 spades	1
-
 spades	2
-
 spades	3
-
 spades	4
-
 spades	5
-
 spades	6
-
 spades	7
-
 spades	8
-
 spades	9
-
 spades	10
-
 spades	11
-
 spades	12
-
 spades	13
-
 hearts	1
-
 hearts	2
-
 hearts	3
-
 hearts	4
-
 hearts	5
-
 hearts	6
-
 hearts	7
-
 hearts	8
-
 hearts	9
-
 hearts	10
-
 hearts	11
-
 hearts	12
-
 hearts	13
-
 clubs	1
-
 clubs	2
-
 clubs	3
-
 clubs	4
-
 clubs	5
-
 clubs	6
-
 clubs	7
-
 clubs	8
-
 clubs	9
-
 clubs	10
-
 clubs	11
-
 clubs	12
-
 clubs	13
 ```
 
@@ -131,39 +78,23 @@ We're going to describe the higher numbers as face cards, so it helps to write a
 
 ``` inform7
 {**}To say (count - a number) as a card value:
-
 	choose row with a value of count in the Table of Value Names;
-
 	say "[term entry]".
 
 Table of Value Names
-
 value	term
-
 1	"ace"
-
 2	"deuce"
-
 3	"three"
-
 4	"four"
-
 5	"five"
-
 6	"six"
-
 7	"seven"
-
 8	"eight"
-
 9	"nine"
-
 10	"ten"
-
 11	"jack"
-
 12	"queen"
-
 13	"king"
 ```
 
@@ -176,13 +107,10 @@ Now we get the shuffling of the deck from "sort in random order", so:
 {**}Understand "shuffle" as shuffling. Shuffling is an action applying to nothing.
 
 Carry out shuffling:
-
 	sort the Table of Cards in random order;
-
 	say "You expertly rearrange the cards.".
 
 When play begins:
-
 	sort the Table of Cards in random order.
 ```
 
@@ -197,21 +125,14 @@ This will continue to work properly even as the deck is partially depleted. Spea
 Tossing is an action applying to nothing.
 
 Check tossing:
-
 	if the number of filled rows in the Table of Cards is 0, say "The deck is empty." instead.
 
 Carry out tossing:
-
 	repeat through the Table of Cards:
-
 		let new value be value entry;
-
 		let new suit be suit entry;
-
 		say "You throw the [value entry as a card value] of [suit entry] at the top hat, and [if a random chance of 1 in 3 succeeds]hit[otherwise]miss[end if].";
-
 		blank out the whole row;
-
 		rule succeeds.
 ```
 

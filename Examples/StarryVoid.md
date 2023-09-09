@@ -25,11 +25,9 @@ Here we've arranged for the booth to be described in the initial room descriptio
 
 ``` inform7
 {**}Instead of examining the magician's booth in the Center Ring:
-
 	say "It is dark blue and glittering with gold stars. [if the booth is open]The door currently stands open[otherwise]It has been firmly shut[end if]."
 
 Instead of examining the magician's booth in the Starry Void:
-
 	say "The booth door is [if the magician's booth is open]wide open[otherwise]shut, admitting only a thin crack of light[end if]."
 ```
 
@@ -60,9 +58,7 @@ A final nice touch, if we're so inclined, is to borrow from the Basic Actions ch
 
 ``` inform7
 {*} Before going through the closed magician's booth:
-
 	say "(first opening the door of the booth)[command clarification break]";
-
 	silently try opening the booth.
 ```
 

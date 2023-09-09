@@ -74,15 +74,11 @@ Before printing the name of an apple while asking which do you mean: say "[consu
 The player carries three apples.
 
 Instead of eating a pristine apple (called the fruit):
-
 	say "You take a satisfying bite.";
-
 	now the fruit is bitten.
 
 Instead of eating a bitten apple (called the fruit):
-
 	say "You consume the apple entirely.";
-
 	now the fruit is nowhere.
 ```
 
@@ -95,17 +91,12 @@ Inform will also separate the bitten from the pristine apples in inventory listi
 {**}Before listing contents: group apples together.
 
 Rule for grouping together an apple (called target):
-
 	let source be the holder of the target;
-
 	say "[number of apples held by the source in words] apple[s], some bitten".
 
 Before printing the plural name of an apple (called target):
-
 	let source be the holder of the target;
-
 	if every apple held by the source is bitten, say "bitten ";
-
 	if every apple held by the source is pristine, say "pristine ".
 
 Test me with "i / eat apple / i / eat apple / pristine / i / eat apple / pristine / i".

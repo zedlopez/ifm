@@ -22,11 +22,8 @@ Understand "ask [someone] about [any subject]" as asking it about the subject. U
 Asking it about the subject is an action applying to one thing and one visible thing.
 
 Carry out asking it about the subject:
-
 	say "'Hmm, [the second noun],' says [the noun]. ";
-
 	relate the current subject with the second noun;
-
 	now the current subject is the second noun.
 ```
 
@@ -37,7 +34,6 @@ And if we wanted to offer the player some hints about angles they could pursue:
 
 ``` inform7
 {**}Instead of thinking:
-
 	say "You contemplate [a list of things suggested by the current subject]."
 ```
 
@@ -48,25 +44,17 @@ For that matter, we could use the same system to have characters make sense of a
 
 ``` inform7
 {**}Instead of showing something which suggests the current subject to someone:
-
 	say "[The second noun] nods impatiently."
 
 Instead of showing something to someone:
-
 	let the next subject be the next step via the suggestion relation from the noun to the current subject;
-
 	if the next subject is a subject:
-
 		try asking the second noun about the subject the next subject;
-
 	otherwise:
-
 		say "[The second noun] shrugs."
 
 When play begins:
-
 	now the left hand status line is "Discussing: [current subject]";
-
 	now the right hand status line is " ".
 
 Broughton Hall is a room. Lady Uckfield is a woman in Broughton Hall. "Lady Uckfield sits at her desk, looking wholly composed."
@@ -87,33 +75,20 @@ Now we can define what gets said when the subject is changed, regardless of whet
 
 ``` inform7
 {**}To relate (initial - a subject) with (next - a subject):
-
 	repeat through Table of Remarks:
-
 		if the initial is starting entry and the next is the final entry:
-
 			say "[comment entry][paragraph break]";
-
 			blank out the whole row;
-
 			rule succeeds;
-
 	say paragraph break.
 
 Table of Remarks
-
 starting	final	comment
-
 divorce	love	"'As it seems to me, all the love is on one side,' she says crisply. 'And that rarely works.'"
-
 divorce	love	"'Stop making that plea: it won't work.'"
-
 divorce	infidelity	"'Frankly, I rather think there would have been cause enough for divorce without the perversely plentiful evidence of unfaithfulness.'"
-
 divorce	money	"'If you mean that the divorce will be expensive, I know it,' she says. 'But I can think of no happier investment.'"
-
 marriage	money	"'If you wish me to understand that it was a marriage for money, you could have spared your energy. That was patent from the outset.'"
-
 infidelity	money	"'I'm sorry, but I don't see how having married for money excuses a subsequent infidelity.'"
 ```
 
@@ -127,9 +102,7 @@ Of course, we can override specific instances, if we want the character always t
 
 ``` inform7
 {**}Instead of asking Lady Uckfield about the subject penmanship:
-
 	now the current subject is penmanship;
-
 	say "She sighs. 'So few people write really beautifully these days.'"
 
 Test me with "think / ask lady about infidelity / show nasty letter to lady / show note to lady / think / ask lady about divorce / ask lady about love / ask lady about marriage / ask lady about divorce / ask lady about love / ask lady about penmanship".

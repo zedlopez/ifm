@@ -18,9 +18,7 @@ A thing can be large or small.
 Before touching a large thing when in darkness: say "You grope for [the noun]..."
 
 After deciding the scope of the player:
-
 	repeat with item running through large things in the location:
-
 		place item in scope.
 
 Some generic surroundings are backdrop. They are everywhere. Understand "walls" or "wall" or "ceiling" or "ground" or "floor" or "area" or "room" or "here" as the generic surroundings. Instead of touching the generic surroundings: say "You encounter nothing extraordinary." Instead of touching the generic surroundings when in darkness: say "You try feeling your way around and reach [a list of large things in the location]." After deciding the scope of the player when in darkness: place the surroundings in scope.
@@ -51,7 +49,6 @@ Mr Steed's Flat is a room.
 Understand "ask about [any subject]" as inquiring about. A subject is a kind of thing. The skintight catsuit is a subject. Inquiring about is an action applying to one visible thing.
 
 Carry out inquiring about something:
-
 	say "'What can you tell me about [the noun]?' you demand. Mr Steed raises his eyebrows, but does not reply."
 
 Test me with "ask about catsuit / x catsuit".

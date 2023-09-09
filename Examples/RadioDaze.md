@@ -17,7 +17,6 @@ The long couch is an enterable scenery supporter in the living room. Instead of 
 The radio is a device in the living room. The radio is switched off. "[if switched on]The radio burbles on[otherwise]The radio is off[end if]." Check switching off the radio when the player is on the long couch: say "You can't reach the radio from here." instead.
 
 Every turn when the radio is switched on:
-
 	say "[one of]Two characters in the radio play have begun an argument[or]The argument continues[or]The play continues[stopping]: [one of]'Did not!'[or]'Did too!'[or]'Did I?'[or]'You did!'[or]'I couldn't have, Martha!'[or]'But you did, Tom!'[cycling]"
 
 Test me with "sit on couch / turn on radio / sit on couch/ listen / g / g / g / g / g".

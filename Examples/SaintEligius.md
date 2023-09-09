@@ -16,13 +16,11 @@ A not-infrequent desire in IF is to provide a few lines of comment when the play
 The first look rule is listed after the room description paragraphs about objects rule in the carry out looking rules. A room can be commented or uncommented. A room is usually uncommented.
 
 This is the first look rule:
-
 	if the location is uncommented, carry out the gawking at activity with the location.
 
 Gawking at something is an activity.
 
 Rule for gawking at the Diamond Market:
-
 	say "Your throat closes and your eyes begin to sting. You have long disdained pomp and luxury, and railed against the oppression that brings such wealth to some men at the cost of the lives of others; you were not prepared for the magnificence."
 
 After gawking at a room (called the target): now the target is commented.
@@ -37,9 +35,7 @@ And now the scene itself:
 {**}The Cobbled Alley is a room. "The Alley has never been made into a proper street: the buildings on either side are simply too important to tear down. For all that, there isn't much sign of the magnificence nearby. The entrance you seek is set below street level, four grimy steps down to a half-basement."
 
 After going to Diamond Market:
-
 	say "You descend the steps quickly and step into the small foyer, allowing yourself to be searched for weapons, before going on to...";
-
 	continue the action.
 
 Diamond Market is down from Cobbled Alley. "The roof is vaulted and painted in allegorical images representing Plenty, the Riches of the Earth, and Saint Eligius, patron of goldsmiths and jewelers.line-so-blankUnder their watchful eye, dozens of men in sober black robes sit; and on the tables before them are rubies, emeralds, sapphires from oversea, but most of all diamonds, both raw and cut."

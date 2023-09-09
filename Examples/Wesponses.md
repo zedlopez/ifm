@@ -21,17 +21,11 @@ The Office is a room. Barry Kripke is a man in the Office.
 The response inhibition is initially false.
 
 Rule for issuing the response text of a response (called R) when response inhibition is false:
-
 	now response inhibition is true;
-
 	let output be "[text of R]";
-
 	now response inhibition is false;
-
 	replace the text "r" in output with "w";
-
 	replace the text "R" in output with "W";
-
 	say "[output]".
 
 Test me with "i / x barry / listen / waffle / jump"
@@ -47,13 +41,9 @@ It would also not work to try to give our parser a nervous personality by simply
 
 ``` inform7
 Rule for issuing the response text of a response (called R) when response inhibition is false:
-
 	now response inhibition is true;
-
 	let output be "Um, [text of R]";
-
 	now response inhibition is false;
-
 	say "[output]".
 ```
 
@@ -64,7 +54,6 @@ but here is what the room description would say as a result:
 
 ``` inform7
 Office
-
 Um, You Um, can see Barry KripkeUm,  here
 ```
 

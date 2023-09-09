@@ -33,33 +33,19 @@ Now our rule for the actual attack. We want first to calculate how much damage t
 
 ``` inform7
 {**}Instead of attacking someone:
-
 	let the damage be a random number between 2 and 10;
-
 	say "You attack [the noun], causing [damage] points of damage!";
-
 	decrease the current hit points of the noun by the damage;
-
 	if the current hit points of the noun is less than 0:
-
 		say "[line break][The noun] expires, and is immediately carried away by the Arena slaves!";
-
 		now the noun is nowhere;
-
 		end the story finally;
-
 		stop the action;
-
 	let the enemy damage be a random number between 2 and 10;
-
 	say "[line break][The noun] attacks you, causing [enemy damage] points of damage!";
-
 	decrease the current hit points of the player by the enemy damage;
-
 	if the current hit points of the player is less than 0:
-
 		say "[line break]You expire!";
-
 		end the story.
 ```
 
@@ -70,9 +56,7 @@ This last bit is a refinement to help the player keep track of how the contest i
 
 ``` inform7
 {**}When play begins:
-
 	now the left hand status line is "You: [current hit points of player]";
-
 	now the right hand status line is "Gladiator: [current hit points of gladiator]".
 
 Test me with "hit gladiator / g / g / g".

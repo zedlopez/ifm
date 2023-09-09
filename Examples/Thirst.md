@@ -13,7 +13,6 @@ For: Z-Machine
 The player carries a waterskin. The waterskin can be full, partly drained, or empty. The waterskin is full. Understand "water" as the waterskin.
 
 Instead of drinking the waterskin when the waterskin is empty:
-
 	say "There is no water left."
 
 Instead of drinking the waterskin: if the waterskin is partly drained, now the waterskin is empty; if the waterskin is full, now the waterskin is partly drained; say "You drink a long draught."
@@ -31,13 +30,11 @@ Your campfire is scenery in the Campsite. Instead of pushing, pulling, turning, 
 The description of the stars is "You invent constellations for them. The slingshot. The scroll. The heart (upside down)."
 
 Instead of going nowhere when the player is in Campsite:
-
 	say "Now is not the time for wandering, alone in the dark. Better to keep here[if your campfire is visible], by the fire[end if]."
 
 Singing is an action applying to nothing. Understand "sing" as singing.
 
 Instead of singing:
-
 	say "You sing, deep and low, a song from home. It is a good night for singing and the song raises your spirits."
 
 Test me with "i / drink water / i / drink water / i".

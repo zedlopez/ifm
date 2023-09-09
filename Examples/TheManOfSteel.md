@@ -19,17 +19,12 @@ This is particularly useful for creating abstract or general actions for when we
 Escaping is an action applying to nothing.
 
 Carry out someone escaping:
-
 	let space be the holder of the person asked;
-
 	let place be a random room which is adjacent to the space;
-
 	let way be the best route from the space to the place;
-
 	try the person asked going way.
 
 Every turn:
-
 	if Clark Kent can see kryptonite, try Clark Kent escaping.
 
 The Daily Planet Newsroom is a room.

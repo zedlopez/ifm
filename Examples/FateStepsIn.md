@@ -23,11 +23,8 @@ Every turn: try fate tripping.
 Tripping is an action applying to nothing.
 
 Carry out someone tripping:
-
 	if something dangerous (called the trap) is in the location:
-
 		say "Lise chooses this moment to lick her fingers -- it's not gross, it's natural, you decide -- stand up, and head for the door. Unfortunately, her path crosses directly over [the trap]. There is a vaudevillesque moment where you try to warn or catch her; the next moment she's on the floor, looking shocked and also in quite a lot of pain. 'I'm not sure,' she says to you steadily but with unfocused gaze, 'but I think I might have broken my tailbone.'";
-
 		end the story saying "Well, she's paying attention to you now".
 
 Before someone tripping when the location does not contain a dangerous thing: try the person asked making a mess instead.
@@ -35,29 +32,20 @@ Before someone tripping when the location does not contain a dangerous thing: tr
 Making a mess is an action applying to nothing.
 
 Carry out someone making a mess:
-
 	let calamitous object be a random visible supporter which supports at least three things;
-
 	if calamitous object is a supporter:
-
 		say "[The calamitous object] tips over, spilling [the list of things on calamitous object] all over the place.";
-
 		move the calamitous object to the location;
-
 		now every thing on the calamitous object is in the location.
 
 Definition: a thing is dangerous if it is not the carton and it is not the table and it is not a person.
 
 Before someone making a mess when a safe supporter (called target) is visible:
-
 	if Lise carries something, try Lise putting a random thing carried by Lise on the target instead.
 
 Instead of someone making a mess when the tray is on the table:
-
 	say "Just at that moment, a large blond man-thing in a red jacket walks more or less through you, and you come into violent contact with the table, knocking [the list of the things on the table] onto the floor.";
-
 	now every thing on the table is in the location;
-
 	now every thing on the tray is in the location instead.
 
 Definition: a supporter is safe if the number of things on it is less than two.
@@ -69,13 +57,11 @@ The table is scenery in the dining hall. The table is a supporter.
 Lise Fitzwallace is a woman in the Dining Hall. "Lise is at the nearest table, not apparently paying any attention to you." The description of Lise is "A capella singer, women's rugby champion, general object of attention from all genders. Unlikely to notice you unless fate smiles broadly." Lise carries a fork, a napkin, an empty glass, and a plate of half-eaten eggplant parmesan.
 
 Report Lise putting something on something:
-
 	say "Lise, still deep in thought, absently puts [the noun] on [the second noun]." instead.
 
 The carrying capacity of the player is 2. The carton of chocolate milk is in the Hall. "There's a carton of milk beside you, which you set down for a moment -- but you do want it."
 
 Instead of taking something when the player carries the tray:
-
 	say "You've got both hands full with this tray."
 
 The player carries the tray. On the tray is some macaroni and some overdone chicken. The macaroni and the chicken are edible. The tray is portable.

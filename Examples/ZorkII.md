@@ -16,7 +16,6 @@ All we need to do is select the player's destination at random:
 The Carousel Room is a room.
 
 Instead of going from the Carousel Room:
-
 	move the player to a random adjacent room.
 ```
 
@@ -58,7 +57,6 @@ And then
 
 ``` inform7
 {**}Instead of going from the Carousel Room when the spinning machine is switched on:
-
 	move the player to a random adjacent room.
 
 The Games of Chance is north of the Carousel Room. The Haunted Funhouse is northwest of the Carousel Room. The Ferris Wheel is east of the Carousel Room. The Topsy-Turvy is northeast of the Carousel Room. The Reproduction Henge is south of the Carousel Room. The Women's Toilet is southwest of the Carousel Room. The Men's Toilet is southeast of the Carousel Room. The Cotton Candy Shop is west of the Carousel Room.

@@ -29,45 +29,26 @@ For brevity, we will ignore the existence of mothers. It is a sad world.
 Family relates a person (called A) to a person (called B) when A is married to B or A engenders B or B engenders A or A is sibling to B. The verb to be related to means the family relation.
 
 A person can be known or unknown. After printing the name of an unknown person (called the alien):
-
 	if a known person (called the contact) is related to the alien:
-
 		say " ([relation between alien and contact] of [the contact])";
-
 		now the alien is known;
-
 		rule succeeds.
 
 To say relation between (first party - a person) and (second party - a person):
-
 	if the first party is married to the second party:
-
 		if the first party is female, say "wife";
-
 		otherwise say "husband";
-
 		rule succeeds;
-
 	if the first party is sibling to the second party:
-
 		if the first party is female, say "sister";
-
 		otherwise say "brother";
-
 		rule succeeds;
-
 	if the first party engenders the second party:
-
 		say "father";
-
 		rule succeeds;
-
 	if the second party is the father of the first party:
-
 		if the first party is female, say "daughter";
-
 		otherwise say "son";
-
 		rule succeeds.
 
 Pere Blanchard's Hut is a room. Percival Blakeney is a known man in the Hut. Marguerite is a woman in the Hut. Percival is married to Marguerite. Outside from the Hut is the Garden. Louise is a woman in the Garden. The Road to Paris is west of the Garden. Armand St Just is a man in the Road. Louise is married to Armand. Monsieur St Just is a man. He engenders Armand and Marguerite.

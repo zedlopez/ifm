@@ -21,7 +21,6 @@ In mathematics, the properties most often looked for in a relation are that it s
 
 ``` inform7
 Meeting relates people to each other.
-
 Marriage relates one person to another.
 ```
 

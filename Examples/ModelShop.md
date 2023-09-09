@@ -16,7 +16,6 @@ Suppose we're particularly mechanically-minded and would like a game in which al
 An on/off button is a kind of thing.
 
 Instead of pushing an on/off button which is part of a switched off device (called the machine):
-
 	try switching on the machine.
 ```
 
@@ -30,15 +29,12 @@ A set of three more rules will complete our instructions about using buttons to 
 
 ``` inform7
 {**}Instead of pushing an on/off button which is part of a switched on device (called the machine):
-
 	try switching off the machine.
 
 Instead of switching on an on/off button which is part of a device (called the machine):
-
 	try switching on the machine.
 
 Instead of switching off an on/off button which is part of a device (called the machine):
-
 	try switching off the machine.
 ```
 
@@ -53,11 +49,9 @@ Then we hand out buttons with a free hand:
 The Model Shop is a room. A model train is a fixed in place device in the Model Shop. A toy elephant is a device in the Model Shop.
 
 Every turn when the model train is switched on:
-
 	say "The model train circles your feet, blowing small puffs of steam."
 
 Every turn when the toy elephant is switched on:
-
 	say "The toy elephant waves its trunk at you."
 
 Test me with "push model train's button / push elephant's button / g / switch off model train's button".

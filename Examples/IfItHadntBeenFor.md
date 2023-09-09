@@ -16,15 +16,11 @@ We start out by giving ourselves a capacious recording device:
 The digital recorder is a device. The description is "A noise-activated recorder, which time-stamps each recording segment. It has space for about 60 short recordings."
 
 Every turn:
-
 	if the digital recorder is switched on and the number of blank rows in the Table of Recorded Content is 0, now the recorder is switched off.
 
 Table of Recorded Content
-
 time stamp	sound
-
 a time	some text
-
 with 60 blank rows.
 ```
 
@@ -38,61 +34,43 @@ The thing to note here is that the recording happens as part of Carry out, not a
 
 ``` inform7
 {**}Carry out opening something in the presence of the switched on recorder:
-
 	record "A creaking noise, as of something being opened."
 
 Carry out someone opening something when the switched on recorder can see the noun:
-
 	record "A creaking noise, as of something being opened."
 
 Carry out closing something in the presence of the switched on recorder:
-
 	record "A creaking followed by a slam."
 
 Carry out someone closing something in the presence of the switched on recorder:
-
 	record "A creaking followed by a slam."
 
 Carry out someone going to a room (called destination) in the presence of the switched on recorder:
-
 	if the destination is the holder of the recorder, record "Footsteps, growing louder.";
-
 	otherwise record "Footsteps, fading out."
 
 Carry out going to a room (called destination) in the presence of the switched on recorder:
-
 	if the destination is the holder of the recorder, record "Footsteps, growing louder.";
-
 	otherwise record "Footsteps, fading out."
 
 Carry out someone eating something in the presence of the switched on recorder:
-
 	record "Loud uncouth chewing sounds."
 
 Carry out eating something in the presence of the switched on recorder:
-
 	record "Distant muffled chewing sounds."
 
 To record (noise - some text):
-
 	if the number of blank rows in the Table of Recorded Content is 0, rule succeeds;
-
 	choose a blank row in the Table of Recorded Content;
-
 	now time stamp entry is the time of day;
-
 	now sound entry is noise.
 
 Understand "play [something]" as listening.
 
 Instead of listening to the recorder:
-
 	if the number of filled rows in the Table of Recorded Content is 0, say "The recorder remains blank." instead;
-
 	repeat through the Table of Recorded Content:
-
 		say "[line break][time stamp entry]: [sound entry]";
-
 	say paragraph break.
 
 The Haunted House is a room. The squeaky cupboard is an openable enterable closed fixed in place container in the House. The ghost is a man in the cupboard. The Lawn is outside from the Haunted House.
@@ -100,25 +78,18 @@ The Haunted House is a room. The squeaky cupboard is an openable enterable close
 Instead of opening the closed cupboard when the ghost is in the cupboard: say "The cupboard stubbornly refuses to open."
 
 Every turn when the player is not in the House:
-
 	if the ghost is in the cupboard:
-
 		try the ghost exiting;
-
 	otherwise if the cupboard is open:
-
 		try the ghost closing the cupboard.
 
 Before someone exiting when the person asked is in a closed container (called the trap):
-
 	try the person asked opening the trap.
 
 Before someone entering a closed container: try the person asked opening the noun.
 
 Before going to the House when the House contains the ghost:
-
 	try the ghost entering the cupboard;
-
 	try the ghost closing the cupboard.
 
 The player carries the recorder, chips, and a sandwich. The sandwich is edible. The chips are edible.

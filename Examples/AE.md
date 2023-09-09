@@ -22,9 +22,7 @@ Instead of going to Film Set when the player does not carry the VIP Pass: say "A
 The VIP Pass is in the garbage can. The garbage can is in Sloping Street.
 
 After going to the Film Set:
-
 	say "Success! At last you are inside the set of 'Prouder and More Prejudiced'. Next step: locating Mr Firth.";
-
 	end the story finally.
 
 Test me with "e / n / e / get pass / e".

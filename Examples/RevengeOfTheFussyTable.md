@@ -54,147 +54,90 @@ Before printing the name of a drippy thing: say "drippy ". Before printing the n
 Section 3 - What the Player Can Do About It
 
 After putting a cold thing on a scalding thing:
-
 	say "[The noun] meets [the second noun]; both shriek in pain. But the necessary heat transfer occurs.";
-
 	now the heat of the noun is luke-warm;
-
 	now the heat of the second noun is luke-warm.
 
 After putting a scalding thing on a cold thing:
-
 	say "[The noun] meets [the second noun]; both shriek in pain. But the necessary heat transfer occurs.";
-
 	now the heat of the noun is luke-warm;
-
 	now the heat of the second noun is luke-warm.
 
 After taking a scalding thing:
-
 	say "'Right,' you say. 'I'll just hold onto [the noun], shall I? Because that won't be in the least uncomfortable for me.'"
 
 After taking a drippy thing:
-
 	say "With a sense of martyrdom, you retrieve [the noun], which dribbles water down your cuffs."
 
 After entering a chair when the player is wearing a spiky thing (called the clog):
-
 	say "You sit on [the noun], lifting [the list of spiky things worn by the player] so that the parquet is no longer affronted."
 
 Section 4 - In Which the Furnishings Complain
 
 An every turn rule:
-
 	follow the complaint rules.
 
 The complaint rules is a rulebook.
 
 A complaint rule:
-
 	if something (called the offending item) on the table is drippy:
-
 		say "'Help! Get me a coaster!' screams the table[if the table is visible], its veneer squirming under [the offending item][otherwise] from the Dining Room[end if].";
-
 		rule succeeds;
-
 	if something (called the offending item) on the red chair is drippy:
-
 		say "'Oh dear,' murmurs the red chair, as [the offending item] drips into its velvety seat. 'Oh dear, I will have a damp spot. This is so very -- what will people think?'";
-
 		rule succeeds;
-
 	if something (called the offending item) on the visible armchair is drippy:
-
 		say "[The offending item] visibly begins degrading the suede where it sits. The armchair is tactfully silent.";
-
 		rule succeeds;
-
 	if a drippy thing (called the offending item) is in the location and the player is in the Dining Room:
-
 		say "'Cripes,' says the parquet. 'No one mind me at all. Just leave that [offending item] right here. You know I'm the most valuable thing in the room?'";
-
 		rule succeeds.
 
 A complaint rule:
-
 	if a cold dry thing (called the offending item) is on the table:
-
 		say "The table shivers under [the offending item].";
-
 		rule succeeds.
 
 A complaint rule:
-
 	if something (called the offending item) on the table is scalding:
-
 		say "'Hey!' protests the table, practically smoking at [the offending item]. 'Heard of a trivet?'";
-
 		rule succeeds;
-
 	if something (called the offending item) on the armchair is scalding:
-
 		say "The armchair doesn't complain about [the offending item]; it just begins, quietly, to give off warm sweet clouds of blue steam, as though its inner opium-nature had been released.";
-
 		rule succeeds;
-
 	if something (called the offending item) in the Dining Room is scalding:
-
 		say "'Yes indeed,' [if the location is the Dining Room]says[otherwise]bellows[end if] the parquet. 'That [offending item] won't leave any sort of mark what-so-ever.'";
-
 		rule succeeds.
 
 A complaint rule:
-
 	if something (called the offending item) on the table is spiky:
-
 		say "The table holds very very very still lest [the offending item] mar its finish. But its resentment is palpable.";
-
 		rule succeeds;
-
 	if something (called the offending item) on the velvet chair is spiky:
-
 		say "[The offending item] stabs the velvet of the red velvet chair, which draws itself up even more sharply in a pose of dutiful martyrdom.";
-
 		rule succeeds;
-
 	if something (called the offending item) which is spiky is on the ceramic tile:
-
 		say "'[The offending item] itches!' cries the ceramic tile.";
-
 		rule succeeds;
-
 	if something (called the offending item) in the location is spiky:
-
 		say "'[The offending item] should not be on a parquet floor,' sings the parquet floor sadly.";
-
 		rule succeeds;
-
 	if someone (called the offending person) in the location is wearing something spiky and the location is the Dining Room:
-
 		say "The parquet floor mutters about the things people wear to walk on parquet floors these days.";
-
 		rule succeeds.
 
 A complaint rule:
-
 	if the table supports something which supports a drippy thing (called the offending item),
-
 		say "'[The offending item] could still theoretically dribble down here,' says the table nonchalantly. 'It's possible.'";
-
 	if the velvet chair supports a concerned thing (called the friend),
-
 		say "'[The friend] seems a little worried,' remarks the velvet chair helpfully."
 
 A complaint rule:
-
 	if the concerned table can see a supporter (called the object of envy) which is not concerned:
-
 		say "The table looks jealously at [the object of envy]. 'Some people have such an easy life.'";
-
 		rule succeeds.
 
 Instead of going to an adjacent room when the player is in the Dining Room:
-
 	say "'You're not leaving!?' whimpers the table at once."
 ```
 
@@ -213,57 +156,36 @@ Instead of drinking the glass of ice water, say "It's not yours, it's for Alison
 Alison carries the kettle, the tile, the platter, and the glass.
 
 An every turn rule:
-
 	follow the behavior rules.
 
 The behavior rules is a rulebook.
 
 A behavior rule:
-
 	if ice water is carried by Alison and the player is in the Dining Room and almost all of the supporters are not concerned:
-
 		let the next victim be a random fixed in place contented supporter;
-
 		move the ice water to the next victim;
-
 		say "Humming to herself, Alison brings in [an ice water] and sets it down smack on [the next victim], then goes back out.";
-
 		rule succeeds.
 
 A behavior rule:
-
 	if platter is carried by Alison and the player is in the Dining Room and almost all of the supporters are not concerned:
-
 		let the next victim be the red velvet chair;
-
 		move the platter to the next victim;
-
 		say "Whistling a jaunty tune, Alison brings in a hot platter and deposits it on [the next victim], then returns to the kitchen.";
-
 		rule succeeds.
 
 A behavior rule:
-
 	if the tile is carried by Alison and the player is in the Dining Room and almost all of the supporters are not concerned:
-
 		let the next victim be a random contented chair;
-
 		move the tile to the next victim;
-
 		say "Humming to herself, Alison brings in [the tile] and sets it down smack on [the next victim], then goes back out.";
-
 		rule succeeds.
 
 A behavior rule:
-
 	if kettle is carried by Alison and the player is in the Dining Room and at least three fixed in place supporters are contented:
-
 		let the next victim be the fussy table;
-
 		move the kettle to the next victim;
-
 		say "Just then the kettle boils in the kitchen. Whistling chirpily, Alison brings it in and sets it down smack on [the next victim], then goes back out.";
-
 		rule succeeds.
 ```
 
@@ -276,23 +198,16 @@ And just so that the player knows where they stand at the end of each turn:
 {**}Section 6 - General Assessment
 
 An every turn rule:
-
 	if some of the things are concerned, say "You sense some resentment from [the list of concerned things]."
 
 An every turn rule:
-
 	if the player is carrying more than one scalding thing:
-
 		let the dropped item be a random scalding thing carried by the player;
-
 		say "You can't hang onto so many burning hot things, and lose your grip on [the dropped item].[line break]";
-
 		silently try dropping the dropped item.
 
 An every turn rule:
-
 	if almost all of the supporters are concerned,
-
 		say "'I hope everything is going well,' bellows Alison from the other room."
 ```
 
@@ -305,13 +220,9 @@ Finally, we need some rules to decide when the player is, in fact, finished.
 {**}Section 7 - Scoring
 
 An every turn rule:
-
 	now score is 5 minus the number of concerned things;
-
 	if the location is concerned, decrement the score;
-
 	if all of the supporters are concerned and the location is concerned, end the story;
-
 	if none of the supporters are concerned and the location is not concerned, end the story finally.
 
 The maximum score is 5.

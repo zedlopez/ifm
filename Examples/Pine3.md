@@ -34,65 +34,44 @@ Instead of waking an awake person: say "Redundant."
 Instead of waking an asleep person: say "Yes, but how?"
 
 Instead of attacking an asleep person:
-
 now the noun is awake;
-
 	say "[The noun] sits bolt upright. 'Hey! Ow!' So much for that true love's kiss nonsense."
 
 Instead of kissing an asleep person:
-
 	now the noun is awake;
-
 	say "[The noun] slowly stirs to wakefulness!"
 
 Instead of throwing water at an asleep person:
-
 	now the second noun is awake;
-
 	now the noun is nowhere;
-
 	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.
 
 Table of Conversation
-
 topic	reply	quip
-
 "dream/dreams/nightmare/nightmares/sleep"	"'Sleep well?' you ask solicitously.line-so-blank'Not really,' she replies, edging away from you. So much for that angle."	"'Ghastly nightmares,' she remarks. You nod politely."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'So,' you say. 'This is a little weird since we just met, but, um. Would you like to get married?'line-so-blankShe looks at you nervously. 'Do I have to?'"	"'I, er,' she says. 'I hope I'm not supposed to marry you or something.'"
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'I was told I was going to marry you and inherit the kingdom,' you say, apologetically. 'Would that be very bad?' This could be awkward, considering your family circumstances -- you did promise your mother that everything would be better, after this --line-so-blank'Oh, it's not you -- I'm seeing someone,' she says, smiling quickly.line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend."	"'Do you think I could go look for someone? I'm seeing him, you see, and I think I've been... sick... for a while, so he might be worried.'line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend. And try not to think how awkward things would be in your family if she refuses to marry you."
-
 "marriage/love/wedding/boyfriend/beau/lover"	"'You've been up here for a hundred years,' you say. An unpleasant thought occurs to you. 'Was your young man in the castle somewhere?'line-so-blankShe shakes her head mutely."	"She goes to the window and looks out at the now-fading thicket of briar. 'That took a while to grow,' she observes. 'I've been up here longer than I thought.'line-so-blankYou shrug, uncomfortable."
 
 Instead of asking an awake beauty about a topic listed in the Table of Conversation:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]";
-
 	blank out the whole row.
 
 Instead of telling an awake beauty about something: try asking the noun about it.
 
 Instead of asking an asleep person about something:
-
 	say "[The noun] snores."
 
 Marriage Proposal ends when the number of filled rows in the Table of Conversation is 0.
 
 Every turn during Marriage Proposal:
-
 	if Beauty is active and Beauty is visible:
-
 		repeat through Table of Conversation:
-
 			say "[quip entry][paragraph break]";
-
 			blank out the whole row;
-
 			make no decision.
 
 Every turn: now Beauty is active.
@@ -109,9 +88,7 @@ So far we haven't much of a chance to affect matters and make them better. Suppo
 {**}Part 2 - Flashbacks
 
 Instead of asking an awake beauty about a topic listed in the Table of Flashback Material:
-
 	now Beauty is passive;
-
 	say "[reply entry][paragraph break]".
 
 A fact is a kind of thing. The family circumstances is a fact. A fact can be known or unknown. A fact can be current or past.
@@ -124,9 +101,7 @@ Once known, a fact remains known permanently – this could be useful if we want
 
 ``` inform7
 {**}Table of Flashback Material
-
 topic	reply
-
 "poor/poverty/family/money/mother/circumstances" or "family circumstances" or "my family/mother"	"[if family circumstances is unknown]'I wish you'd give some thought to marrying me. You see,' you say, your jaw tensing. 'I wouldn't ask if it weren't for my [family circumstances]...'[otherwise]'I don't think you fully understand the [family circumstances],' you say.[end if]"
 
  After printing the name of a fact (called target): now the target is current; now the target is known.
@@ -158,7 +133,6 @@ The untidy bed is scenery in the Shack. Mother is a woman on the untidy bed. The
 The description of the letter is "Many times read over and creased, the letter explains how your father has gone away with a wealthy countess and will not return. Your mother was not able to read it herself, of course, and had to have it explained to her by the parish priest. Now she keeps it by the bed and crumples it in her fits of delirium."
 
 Instead of kissing or touching Mother for the first time:
-
 	say "You place a gentle kiss on her feverish brow. She looks up at you, her oldest -- yes, never mind that bit -- with a look of sincere trust and admiration.line-so-blank'You'll find a way through this for us,' she says, squeezing your fingers. 'I know you will.'"; increase the pity of Beauty by 3.
 
 Instead of kissing Mother: say "You have no more heart-rending memories of affection to recount; that one incident will have to serve, for rhetorical purposes."
@@ -166,7 +140,6 @@ Instead of kissing Mother: say "You have no more heart-rending memories of affec
 Instead of waiting in the Shack: say "The wind blows sharply through the walls."
 
 Instead of attacking someone in the Shack:
-
 	say "Though sometimes the conditions of your life make you grouchy and impatient, you would never dream of striking a member of your own family. But from time to time you do feel the temptation."
 
 Beauty has a number called pity. After examining something in the Woodcutter's Shack, increment the pity of Beauty. After examining mother, increase the pity of Beauty by 2. After examining the letter, increase the pity of Beauty by 3.
@@ -174,25 +147,17 @@ Beauty has a number called pity. After examining something in the Woodcutter's S
 Poverty flashback ends when waiting or the time since poverty flashback began is five minutes.
 
 When Poverty flashback ends:
-
 	now family circumstances is past;
-
 	say "...you finish describing the miserable circumstances of your home life, and allow your attention to return to the present.";
-
 	restore the player;
-
 	now Beauty is passive;
-
 	if Beauty is sympathetic, say "'Oh dear!' she says. 'What a dreadful life!' She wrings her hands. 'No wonder you are eager to improve your lot...! But --' Her brow clears, a new thought occurring. 'You needn't marry me, you know! We could arrange it differently! I am certain that my father would give you a large reward, instead, and then I would not be separated from my current boyfriend!'";
-
 	otherwise say "She makes a disgusted face, but she doesn't seem nearly so heart-wrung as you had hoped to make her. Tough audience, these modern princesses."
 
 Definition: Beauty is sympathetic if the pity of Beauty is greater than 4.
 
 To say attitude:
-
 	if Beauty is sympathetic, say "distressed on your behalf";
-
 	otherwise say "a little confused".
 ```
 
@@ -205,21 +170,14 @@ And the following is the same as in the Space Patrol example as well: we need a 
 {**}Saved location is a room that varies. Locker is a container. Wardrobe is a container.
 
 To strip the player:
-
 	 now every thing carried by the player is in the locker;
-
 	now every thing worn by the player is in the wardrobe;
-
 	now saved location is location.
 
 To restore the player:
-
 	now every thing carried by the player is in the location;
-
 	now every thing in the locker is carried by the player;
-
 	now every thing in the wardrobe is worn by the player;
-
 	move the player to saved location.
 
 Test me with "x beauty / wake beauty / pour water on beauty / ask beauty about sleep / tell beauty about poverty / smell pigs / x mother / x letter / kiss mother / ask beauty about marriage / z / z".

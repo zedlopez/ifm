@@ -16,7 +16,6 @@ We can use these substitutions to put together fairly complicated variations wit
 The Beekeeper's Palace is a room. Wasp is a woman in the palace. Drone is a man in the palace.
 
 Instead of kissing someone:
-
 	say "'[denial], [insult]! [boast]!'";
 ```
 
@@ -40,7 +39,6 @@ And then it would be trivial to insert further rules using these responses:
 
 ``` inform7
 {**}Instead of attacking someone:
-
 	say "'Get away, [insult]!'"
 
 Test me with "kiss wasp / hit wasp / hit drone / kiss drone".

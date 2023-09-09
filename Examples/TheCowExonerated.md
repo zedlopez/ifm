@@ -36,11 +36,8 @@ rather than
 
 ``` inform7
 A match goes out.
-
 A match goes out.
-
 A match goes out.
-
 A match goes out.
 ```
 
@@ -63,35 +60,25 @@ Understand the command "light" as "burn".
 A thing can be flammable or impervious. A thing is usually impervious.
 
 Check burning something with something (this is the burn only with flaming matches rule):
-
 	if the second noun is not a strikable-match, say "You can only light things with matches." instead;
-
 	if the second noun is not flaming, say "[The second noun] needs to be burning first." instead.
 
 Check burning something with something (this is the burn only flammable things rule):
-
 	if the noun is impervious, say "[The noun] cannot be burned." instead.
 
 Check burning something with something (this is the burn only things not held rule):
-
 	say "[one of]It occurs to you to set down [the noun] before burning, just for safety's sake. [or]Again, you decide to put down [the noun] prior to burning. [or]You try setting down [the noun] as usual. [stopping][run paragraph on]";
-
 	silently try the player dropping the noun;
-
 	if the player encloses the noun, stop the action.
 
 Carry out burning something with something (this is the simplistic burning rule):
-
 	now the noun is nowhere.
 
 Report burning something with something:
-
 	say "You burn up [the noun]."
 
 Rule for implicitly taking the second noun while burning something with something which is not a strikable-match:
-
 	say "You can only light things with matches.";
-
 	stop the action.
 
 Section 2 - Matches
@@ -108,7 +95,6 @@ The word "matches" is used by Inform to compare snippets of text (see "Reading a
 A strikable-match has a number called duration. The duration of a strikable-match is usually 3.
 
 Rule for printing the name of a strikable-match: say "match".
-
 Rule for printing the plural name of a strikable-match: say "matches".
 
 Understand "match" as a strikable-match. Understand "matches" as a strikable-match.
@@ -118,33 +104,22 @@ Flame-state is a kind of value. The flame-states are burnt, flaming, and new. Un
 A strikable-match has a flame-state. A strikable-match is usually new. Understand the flame-state property as describing a strikable-match.
 
 Before printing the name of a strikable-match while asking which do you mean:
-
 	say "[flame-state] ".
 
 Before printing the name of a strikable-match while taking inventory:
-
 	say "[flame-state] ".
-
 Before printing the plural name of a strikable-match while taking inventory:
-
 	say "[flame-state] ".
 
 Before printing the name of a strikable-match while clarifying the parser's choice of something:
-
 	if not taking inventory, say "[flame-state] ".
 
 After printing the name of a strikable-match (called special-target) while clarifying the parser's choice of something:
-
 	if the player carries the special-target:
-
 		say " you're carrying";
-
 	otherwise if the special-target is in the location:
-
 		say " on the ground";
-
 	otherwise:
-
 		say " [if the holder of the special-target is a container]in[otherwise]on[end if] [the holder of the special-target]".
 
 Understand "strike [something]" as attacking.
@@ -154,93 +129,61 @@ Understand "strike [strikable-match]" as striking. Striking is an action applyin
 Understand "burn [strikable-match]" as striking.
 
 Does the player mean striking a new strikable-match:
-
 	it is very likely.
 
 Does the player mean striking a burnt strikable-match:
-
 	it is unlikely.
 
 Check striking a strikable-match (this is the strike only new matches rule):
-
 	if the noun is burnt, say "[The noun] has already burnt down and cannot be relit." instead;
-
 	if the noun is flaming, say "[The noun] is already burning." instead.
 
 Carry out striking a strikable-match (this is the standard striking rule):
-
 	now the noun is flaming;
-
 	now the noun is lit.
 
 Report striking a strikable-match (this is the standard report striking rule):
-
 	say "You light [the noun]."
 
 Before burning something with a new strikable-match (this is the prior lighting rule):
-
 	say "(first [if the player does not carry the second noun]taking and [end if]lighting [the second noun])[command clarification break]";
-
 	silently try striking the second noun;
-
 	if the second noun is not flaming, stop the action.
 
 Rule for implicitly taking a strikable-match (called target) while striking:
-
 	try silently taking the target.
 
 Does the player mean burning something with a flaming strikable-match:
-
 	it is very likely.
 
 Does the player mean burning something with a new strikable-match:
-
 	it is likely.
 
 Does the player mean burning something with a burnt strikable-match:
-
 	it is unlikely.
 
 Instead of burning a burnt strikable-match with something:
-
 	say "[The noun] is completely consumed and cannot be relit."
 
 Section 3 - Putting the Matches Out
 
 Every turn:
-
 	let N be 0; [here we track how many matches are being put out during this turn, so that we don't have to mention each match individually if several go out during the same move]
-
 	repeat with item running through flaming s-matches:
-
 		decrement the duration of the item;
-
 		if the duration of the item is 0:
-
 			now the item is burnt;
-
 			now the item is unlit;
-
 			if the item is visible, increment N;
-
 	if N is 1:
-
 		say "[if the number of visible flaming s-matches is greater than 0]One of the matches [otherwise if the number of burnt visible s-matches is greater than 1]Your last burning match [otherwise]The match [end if]goes out.";
-
 	otherwise if N is greater than 1:
-
 		let enumeration be "[N in words]";
-
 		if N is the number of visible s-matches:
-
 			if N is two, say "Both";
-
 			otherwise say "All [enumeration]";
-
 		otherwise:
-
 			say "[enumeration in title case]";
-
 		say " matches go out[if a visible strikable-match is flaming], leaving [number of visible flaming s-matches in words] still lit[end if]."
 
 Section 4 - Scenario
@@ -252,9 +195,7 @@ The player carries a flammable thing called a log. Understand "wooden" and "wood
 The player carries two s-matches. The matchbox is an open openable container. It contains five s-matches. The player carries the matchbox.
 
 When play begins:
-
 	now every strikable-match carried by the player is flaming;
-
 	now every strikable-match carried by the player is lit.
 
 Test me with "i / burn match / i / i / burn log with match / burn matchbox with match / i".

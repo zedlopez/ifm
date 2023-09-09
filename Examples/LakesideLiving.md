@@ -22,53 +22,33 @@ The fluid capacity of a fluid container is usually 12.0 fl oz. The current volum
 Liquid is a kind of value. The liquids are water, absinthe, and iced tea. A fluid container has a liquid.
 
 Instead of examining a fluid container:
-
 	if the noun is empty,
-
 		say "You catch just a hint of [the liquid of the noun] at the bottom.";
-
 	otherwise
-
 		say "[The noun] contains [current volume of the noun in rough terms] of [liquid of the noun]."
 
 To say (amount - a volume) in rough terms:
-
 	if the amount is less than 0.5 fl oz:
-
 		say "a swallow or two";
-
 	otherwise if tenths part of amount is greater than 3 and tenths part of amount is less than 7:
-
 		let estimate be ounces part of amount;
-
 		say "[estimate in words] or [estimate plus 1 in words] fluid ounces";
-
 	otherwise:
-
 		if tenths part of amount is greater than 6, increase amount by 1.0 fl oz;
-
 		say "about [ounces part of amount in words] fluid ounce[s]".
 
 Before printing the name of a fluid container (called the target) while not drinking or pouring:
-
 	if the target is empty:
-
 		say "empty ";
-
 	otherwise:
-
 		do nothing.
 
 After printing the name of a fluid container (called the target) while not examining or pouring:
-
 	unless the target is empty:
-
 		say " of [liquid of the target]";
-
 		omit contents in listing.
 
 Instead of inserting something into a fluid container:
-
 	say "[The second noun] has too narrow a mouth to accept anything but liquids."
 
 Definition: a fluid container is empty if the current volume of it is 0.0 fl oz. Definition: a fluid container is full if the current volume of it is the fluid capacity of it.
@@ -76,17 +56,11 @@ Definition: a fluid container is empty if the current volume of it is 0.0 fl oz.
 Understand "drink from [fluid container]" as drinking.
 
 Instead of drinking a fluid container:
-
 	if the noun is empty:
-
 		say "There is no more [liquid of the noun] within." instead;
-
 	otherwise:
-
 		decrease the current volume of the noun by 0.2 fl oz;
-
 		if the current volume of the noun is less than 0.0 fl oz, now the current volume of the noun is 0.0 fl oz;
-
 		say "You take a sip of [the liquid of the noun][if the noun is empty], leaving [the noun] empty[end if]."
 
 Part 2 - Filling
@@ -120,37 +94,23 @@ Understand "pour [something] in/into/on/onto [something]" as pouring it into. Un
 Pouring it into is an action applying to two things.
 
 Check pouring it into:
-
 	if the noun is not a fluid container, say "You can't pour [the noun]." instead;
-
 	if the second noun is not a fluid container, say "You can't pour liquids into [the second noun]." instead;
-
 	if the noun is the second noun, say "You can hardly pour [the noun] into itself." instead;
-
 	if the liquid of the noun is not the liquid of the second noun:
-
 		if the second noun is empty, now the liquid of the second noun is the liquid of the noun;
-
 		otherwise say "Mixing [the liquid of the noun] with [the liquid of the second noun] would give unsavory results." instead;
-
 	if the noun is empty, say "No more [liquid of the noun] remains in [the noun]." instead;
-
 	if the second noun is full, say "[The second noun] cannot contain any more than it already holds." instead.
 
 Carry out pouring it into:
-
 	let available capacity be the fluid capacity of the second noun minus the current volume of the second noun;
-
 	if the available capacity is greater than the current volume of the noun, now the available capacity is the current volume of the noun;
-
 	increase the current volume of the second noun by available capacity;
-
 	decrease the current volume of the noun by available capacity.
 
 Report pouring it into:
-
 	say "[if the noun is empty][The noun] is now empty;[otherwise][The noun] now contains [current volume of the noun in rough terms] of [liquid of the noun]; [end if]";
-
 	say "[the second noun] contains [current volume of the second noun in rough terms] of [liquid of the second noun][if the second noun is full], and is now full[end if]."
 
 Understand the liquid property as describing a fluid container. Understand "of" as a fluid container.
@@ -174,7 +134,6 @@ We want filling things from liquid sources to work the same way as usual, with t
 
 ``` inform7
 {**}After pouring a liquid source into a fluid container:
-
 	say "You fill [the second noun] up with [liquid of the noun] from [the noun]."
 ```
 
@@ -185,11 +144,8 @@ On the other hand, pouring liquids into a liquid source needs to work completely
 
 ``` inform7
 {**}Instead of pouring a fluid container into a liquid source:
-
 	if the noun is empty, say "[The noun] is already empty." instead;
-
 	now the current volume of the noun is 0.0 fl oz;
-
 	say "You dump out [the noun] into [the second noun]."
 ```
 
@@ -202,7 +158,6 @@ A couple of minor refinements:
 {**}Swimming is an action applying to nothing. Understand "swim" or "dive" as swimming.
 
 Instead of swimming in the presence of a liquid source:
-
 	say "You don't feel like a dip just now."
 
 Before inserting something into a liquid source: say "[The noun] would get lost and never be seen again." instead.

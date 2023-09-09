@@ -13,7 +13,6 @@ For: Z-Machine
 The player carries a waterskin. The waterskin can be full, partly drained, or empty. The waterskin is full. Understand "water" as the waterskin.
 
 Instead of drinking the waterskin when the waterskin is empty:
-
 	say "There is no water left."
 
 Instead of drinking the waterskin: if the waterskin is partly drained, now the waterskin is empty; if the waterskin is full, now the waterskin is partly drained; say "You drink a long draught."
@@ -31,33 +30,26 @@ Your campfire is scenery in the Campsite. Instead of pushing, pulling, turning, 
 The description of the stars is "You invent constellations for them. The slingshot. The scroll. The heart (upside down)."
 
 Instead of going nowhere when the player is in Campsite:
-
 	say "Now is not the time for wandering, alone in the dark. Better to keep here[if your campfire is visible], by the fire[end if]."
 
 Singing is an action applying to nothing. Understand "sing" as singing.
 
 Instead of singing:
-
 	say "You sing, deep and low, a song from home. It is a good night for singing and the song raises your spirits."
 
 The player carries a tinderbox. The tinderbox contains a flint, a steel, some tinder, and a patch of carbonized cloth. The description of the flint is "A flat grey stone with flaked edges." The description of the steel is "Curved so that you can hold it over the knuckles of your right hand and strike it against the flint. There is a knack to it. Those without the knack end up with bloody knuckles and no fire." The steel is wearable. The description of the tinder is "Dried grass and similar." The description of the cloth is "The little, precious, spark-preserving scraps without which the fire would never begin."
 
 Instead of attacking the flint when the steel is not worn by the player:
-
 	say "You must wear the steel over your knuckles, in order to hit the flint at the best angle."
 
 Instead of attacking the flint when the steel is worn and the cloth is not in the location:
-
 	say "Though you strike the flint sharply with the steel and throw sparks, they have nothing to catch on, since the patch of cloth does not lie beneath."
 
 Instead of attacking the flint when the steel is worn and the cloth is in the location and the cloth is not unlit:
-
 	say "The patch of cloth has already caught."
 
 Instead of attacking the flint:
-
 	now the cloth is glowing;
-
 	say "You strike the flint against the steel and throw sparks onto the patch of cloth; they make tiny circles of orange there, which will only prosper if blown into flame."
 ```
 
@@ -72,55 +64,35 @@ Realistically, we ought to attach a randomization to this so that each step of t
 Blowing on is an action applying to one thing. Understand "breathe on [something]" or "blow on [something]" as blowing on.
 
 Instead of blowing on the whole cloth:
-
 	say "There is no point, since no sparks have caught there."
 
 Instead of blowing on the fading cloth:
-
 	now the cloth is flaming;
-
 	say "You blow on the faint sparks on the cloth and turn them into the beginnings of flame."
 
 Instead of burning the whole tinder:
-
 	if the cloth is not flaming:
-
 		say "The patch of cloth must catch flame before you can light anything with it.";
-
 	otherwise:
-
 		now the tinder is flaming;
-
 		now the cloth is nowhere;
-
 		say "You light the tinder with the patch of cloth, and have the elements of a fire."
 
 Every turn:
-
 	unless the cloth is flaming or the cloth is whole:
-
 		now the ignition of the cloth is the ignition before the ignition of the cloth;
-
 		say "Now the patch of cloth is [ignition of the cloth]."
 
 Some kindling is in the campsite.
 
 Instead of burning the whole kindling:
-
 	if the tinder is not flaming:
-
 		say "You need the tinder to be flaming, first.";
-
 	otherwise:
-
 		now the tinder is nowhere;
-
 		now the kindling is nowhere;
-
 		move the campfire to the location;
-
 		say "You succeed in lighting yourself a proper campfire.";
-
 		now the printed name of Campsite is "By The Campfire".
 
 Test me with "i / drink water / i / drink water / i / wear steel / get flint / get cloth / drop cloth / get tinder / hit flint / blow on cloth / burn tinder / burn kindling / look".
