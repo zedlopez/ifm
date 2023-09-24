@@ -7,7 +7,6 @@
 
 The Recipe Book assumes that the reader already knows the basics covered in Chapters 1 and 2 of *Writing with Inform*: enough to get simple projects working in the Inform application. It's helpful, but not necessary, to have some familiarity with the main ingredients of Inform. For instance, the reader who can play and test the following source text, and who can take a guess at what it ought to do, should be fine:
 
-
 ``` inform7
 "The Power of the Keys"
 
@@ -1163,6 +1162,8 @@ Clark is unable to do that.
 Before and After offer alternative easy forms of modification; the chapter on [Basic Actions] explains all three.
 
 Changing the way an action works in all cases is usually better addressed by changing the main rulebook, rather than with one (or many) instead rules. We may add new check, carry out, and report rules to existing action rulebooks. The chapter on [Advanced Actions] describes these, and ends with some guidelines on when to use before, instead, and after, and when to use check, carry out, and report.
+
+[ZL: https://inform7.atlassian.net/browse/I7-2205 ]::
 
 Similarly, we may delete, move, or replace rules that are already present (see the chapter on [Rulebooks]). This is handy if we decide that an action has restrictions that we dislike and want to abolish. If the restriction we need to change is part of the accessibility rules–those which check whether the player can take, see, and touch items–we may need to look at Changing reachability or Changing visibility in the chapter on [Advanced Actions] (to revise what is allowed), at Deciding the scope of something in the chapter on [Activities] (to influence what can be seen when).
 
