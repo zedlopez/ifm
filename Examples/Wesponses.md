@@ -5,6 +5,7 @@ Index: Altering response text programmatically
 Description: Parser messages that are delivered with a speech impediment.
 For: Z-Machine
 
+[ZL: https://inform7.atlassian.net/browse/I7-2388 ]::
   
 If we want to change individual responses to player action, then the best thing to do is to use the response facility to modify those selections, as shown in the chapter on Responses.
 

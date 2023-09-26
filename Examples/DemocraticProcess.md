@@ -5,7 +5,8 @@ Index: PUT and INSERT automatically TAKE first
 Description: Make PUT and INSERT commands automatically take objects if the player is not holding them.
 For: Z-Machine
 
-  
+[ZL: https://inform7.atlassian.net/browse/I7-2348 ]::
+
 "Stop" and "Continue" are most useful when we need to write rules that will have to stop the action some of the time but at other times let it pass; so for instance:
 
   

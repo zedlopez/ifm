@@ -5,6 +5,7 @@ Index: PUT and INSERT automatically TAKE first even with multiples
 Description: Extend PUT and INSERT handling to cases where multiple objects are intended at once.
 For: Z-Machine
 
+[ZL: https://inform7.atlassian.net/browse/I7-2348 ]::
   
 The above example does not quite work when we want the player to be allowed to take multiple objects at once before putting them somewhere: we also need to add a couple of "understand" rules borrowed from many chapters later. While the reasons may not be immediately clear, we include the demonstration here for the sake of thoroughness:
 

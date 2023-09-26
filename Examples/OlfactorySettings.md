@@ -8,7 +8,7 @@ For: Z-Machine
   
 While this isn't very interesting as IF, it runs through most of the adaptive-text tricks.
 
-  
+[ZL: https://inform7.atlassian.net/browse/I7-2121 only mention of ambiguously plural; it gets no explanation ]::
 
 ``` inform7
 {*}"Olfactory Settings"

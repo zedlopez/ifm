@@ -5,7 +5,9 @@ Index: Map region listed in status line
 Description: Have the status line indicate the current region of the map.
 For: Z-Machine
 
-  
+
+[ZL: only mention of map region https://inform7.atlassian.net/browse/I7-2120]::
+
 Suppose a game with a large map entirely subdivided into regions. We could define:
 
   

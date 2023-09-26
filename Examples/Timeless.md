@@ -5,6 +5,7 @@ Index: Instant EXAMINE and LOOK
 Description: A set of actions which do not take any game time at all.
 For: Z-Machine
 
+[ZL: https://inform7.atlassian.net/browse/I7-2402 ]::
   
 In a game with tight timing, it is sometimes friendliest to the player to let them ``look`` and ``examine`` as much as necessary without being penalized.
 

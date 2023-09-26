@@ -127,6 +127,8 @@ Lastly, the icon ![help](doc_images/help.png) hints that there is a relevant pag
 
 ## The Skein
 
+[ZL: possibly outdated; I don't know. https://inform7.atlassian.net/browse/I7-1945 ]::
+
 ^^{user interface: Skein panel} ^^{Skein panel+ui+}^^{user interface: Replay button} ^^{Replay button+ui+}
 The Replay button demonstrates that Inform must be quietly remembering the commands typed into the last run through the story. In fact it remembers, and automatically organises, *every* previous run.
 
@@ -999,6 +1001,8 @@ Backdrops can be put in regions as well as rooms, and if so, then they are prese
 The Outdoors Area is a region. The Moon is a backdrop. The Moon is in the Outdoors Area. The Moon is in the Skylight Room.
 ```
 
+[ZL: mention map region? https://inform7.atlassian.net/browse/I7-2120 ]
+
 The special place "everywhere" can be given as the location of a backdrop to make it omnipresent:
 
 ``` inform7
@@ -1254,6 +1258,9 @@ The Standard Rules don't make people behave differently according to their gende
 
 ^^{articles}^^{definite articles: when creating things}^^{indefinite articles: when creating things}^^{mass nouns}^^{`some: article}^^{`a / an / the --> a: in defining things} ^^{`an / a / the --> an: in defining things} ^^{`the / a / an --> the: in defining things}^^{singular-named / plural-named (thing)+prop+} ^^{plural-named / singular-named (thing)+prop+} ^^{singular-named (thing)+propcat+} ^^{plural-named (thing)+propcat+}^^{proper-named / improper-named (thing)+prop+} ^^{improper-named / proper-named (thing)+prop+} ^^{improper-named (thing)+propcat+} ^^{proper-named (thing)+propcat+}^^{indefinite article of (object)+prop+} ^^{indefinite article of (object)+propcat+}
 Suppose we have said that:
+
+[ZL: perhaps refer to ambigously plural if only to say that it *doesn't* have to do with these?]::
+
 
 ``` inform7
 In the Ballroom is a man called Mr Darcy.
@@ -1523,6 +1530,8 @@ The chapter began with the twelve directions built into Inform:
 north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside
 ```
 
+[ZL: an alterate set of directions seems pretty intense for end of ch. 3]::
+
 But the built-in set is not always appropriate. Sometimes this is too many; if we wanted to write about a Flatland, for instance, then up and down ought to go. But in practice it is better not to abolish them as directions but instead to forbid travelling in them. (See the Recipe Book for examples.)
 
 But away from our familiar Earth, the usual frame of reference loses its meaning. Terry Pratchett's "Discworld" comedies, set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. On board a Zeppelin airship, which constantly changes its course, the cockpit has no fixed compass bearing from the passenger cabin: it is not very naturally "north". In zero gravity, there is no up or down. Mars does not have a magnetic core, so a compass doesn't work there.
@@ -1562,6 +1571,8 @@ off magnetic north.
 ```
 
 # Kinds
+
+[ZL: something somewhere should stress always naming kinds in the singular https://inform7.atlassian.net/browse/I7-2289 ]::
 
 ## New kinds {NEWKINDS}
 
@@ -2292,9 +2303,13 @@ That concludes our tour through the design of the initial state of a simulated w
 
 But that is about all. There is as yet no element of surprise, no aim or sense of progress to be earned, and no narrative thread. We have painted the backcloth, and laid out the properties, but the actors have yet to take the stage.
 
+[ ZL: it would be *really, really* nice to have an additional section here with a short reference recapping all the object/property creation/assignment assertion syntax options from chapters 3-4 ]::
+
 # Text
 
 ## Text with substitutions {PM_TSWithPunctuation}
+
+[ZL: we don't hear about "empty" for text until adjectives in chapter on definitions; should be here, should mention text with adaptive text is never empty and that one may want to use `is ""` preferentially ]::
 
 ^^{text <-- strings of characters}^^{text: displaying}^^{text substitutions: text}^^{descriptions (displayed): room descriptions with substituted text}^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions}^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}
 In the previous chapter, [Kinds], we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform's most useful devices: text substitution. The following gives a more complete example:
@@ -3024,6 +3039,8 @@ This is no longer the case: no such inclusion need now be made, and indeed, thos
 
 ## Displaying quotations
 
+[ZL: address that the only place where this will turn out as described (or, in fact, will not turn out something other than ugly) is in non-Glk Z-code terps, which is to say none of: Parchment/iplayif , Lectrote, Spatterlight, Gargoyle, or any of the IDEs https://inform7.atlassian.net/browse/I7-2434 ]
+
 ^^{quotations, displaying in boxes}^^{boxed quotations}^^{Inform 6 equivalent: `box}
 Text is normally printed in between the typed commands of the player, rolling upwards from the bottom of the screen, as if a dialogue is being typed by an old-fashioned teletype. But it can also be displayed in a bolder way, floating above the main text, and this is sometimes used to display quotations.
 
@@ -3502,6 +3519,8 @@ The bird feed is on the sundial.
 ```
 
 ...then "if the bird feed is in the sundial" won't be true: the relationship here is one called support (being on top of, in effect), not containment. But there's no confusion because "on" and "in" are different words, so it's no problem that they have different meanings.
+
+[ZL: mention map region https://inform7.atlassian.net/browse/I7-2120 ]::
 
 **Meaning 2.** Much less common. If X is "in" Y and Y is a region, then the meaning is slightly different. Suppose the Garden Area is a region, and contains several rooms – the Croquet Lawn, the Terrace and so on. Then
 
@@ -4159,6 +4178,8 @@ Relative location can also be important: relative to other people, that is –
 ``` inform7
 Instead of eating something in the presence of Lady Bracknell, say "Lady Bracknell disapproves thoroughly of gentlemen who snack between meals, and there are few disapprovals in this world quite so thorough as Lady Bracknell's."
 ```
+
+[ZL: ...is in scope... ]::
 
 As might be guessed, this applies when the action takes place in the same location as the person named: and of course that person can also be described more vaguely ("... in the presence of a woman", say), and can just as easily be an inanimate thing ("... in the presence of the radio set").
 
@@ -4970,6 +4991,8 @@ then "the number of colours" would evaluate to 7. As with other ways of talking 
 ^^{siblings, in containment hierarchy}^^{containment+rel+: hierarchy, low-level interface}^^{Inform 6 equivalent: `child}^^{Inform 6 equivalent: `parent}^^{Inform 6 equivalent: `sibling}^^{held by: first thing held by (object)+phr+}^^{held by: next thing held after (object)+phr+}
 The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where. It should be a last resort to use the following more primitive way to inspect the world.
 
+[ZL: holder of's inclusion of incorporation and the others' exclusion of it is worth mentioning]::
+
 > phrase: {ph_holder} holder of (object) ... object
 >
 > This phrase produces the container, supporter, carrier, wearer or room in which the object resides.
@@ -4991,6 +5014,8 @@ It's sometimes useful to go the other way. When something has possessions, we ca
 > is then the string of pearls.
 
 ## Randomness
+
+[ZL: address range limits, esp. for z-machine https://inform7.atlassian.net/browse/I7-2380 ]::
 
 ^^{randomness: seeding the generator}^^{randomness: random numbers}^^{randomness: value kinds}^^{randomness: enumerated values}^^^{randomness <-- chance <-- numbers: random numbers}
 Sometimes we want to introduce random behaviour into play. We usually do this by generating random values, and then acting differently depending on what they are. The following:
@@ -6859,6 +6884,8 @@ The following flow chart shows the natural course of events when Inform deals wi
 
 ![achart](doc_images/achart.png)
 
+[ZL: somewhere we need a finer-grained version that includes all the many rules and rulebooks that are also a part of the action sequence...]::
+
 The coloured boxes on this chart represent "rulebooks", that is, collections of rules with a common purpose. The orange boxes for Before, Instead and After were covered in the chapter on [Basic Actions], but the blue boxes are new. The orange boxes are where we put rules to handle unusual situations, or unexpected events: special rules to cover the opening of a container which happens to be booby-trapped, or walking through a doorway into a room where a surprise party is about to be sprung.
 
 Blue boxes hold the mundane, everyday rules – the generic ways that particular actions behave. Every action provides these: "Check" rules, to see if it makes sense – for instance, to see that the player is not trying to take their own body, or a whole room, or something they already have; then "Carry out" rules, to actually do what the action is supposed to do – in the case of taking, to move an object into the player's possession; and finally "Report" rules, which tell the player what has happened – perhaps printing up "Taken."
@@ -6871,6 +6898,9 @@ In subsequent chapters, we will see ways to intervene at almost every point in t
 
 ^^{actions: instructing other people}^^^{characters (people) <-- actors <-- other people}^^^{characters (people) <-- NPC <-- people}^^^{characters (people) <-- person+kind+: characters}^^{characters (people): giving instructions to other characters}^^{instructing other characters} ^^{ordering other characters}^^{asking (actor) to try+action+ <-- +to+try (action): in (asking) action+sourcepart+}^^{person asked (- object)+glob+}^^{actor (- person)+actvar+}^^{player: as opposed to the actor}
 So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the "person" kind, that is, which includes all the men, women and animals in the story, and not only the player.
+
+[ZL: I suggest some acknowledgement that `asking it to` is a weird pseudo-action, or at least consequences thereof, like that it can't have check, carry out, report rules. I think it would be very worthwhile to have somewhere the complete life-cycle of request action in terms of the action sequence]::
+
 
 In interactive fiction, players conventionally ask other characters to do something with commands like so:
 
@@ -7006,6 +7036,8 @@ Unsuccessful attempt by Will going:
 	otherwise say "Will blunders around going nowhere, as usual."
 ```
 
+[ZL: should the below be ``rules`` instead of ``actions`` ?]::
+
 The value "reason the action failed" is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory – at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored – and can be found out either using ``actions`` or by consulting the Actions index.
 
 Finally, note that "unsuccessful attempt" rules apply only when the person in question is being asked to perform the action by somebody else – as in the examples above.
@@ -7073,6 +7105,8 @@ Occasionally, when writing general rules about actions, it can be useful to find
 >
 > This condition is true if the action being processed is one which can only be performed if the actor has light to see by. For example, it's true for "examining", but false for "dropping".
 
+[ZL: deserves more emphasis! present it as functionally mandatory. stress that while references to the action name per se must be always be `scraping it with`, before/instead/after must never use "it", but check/carry out/report may . https://mastodon.gamedev.place/@drpeterbatesuk/110118139731229015 https://inform7.atlassian.net/browse/I7-2320 ]::
+
 As further examples, here we create "blinking" and "scraping X with Y". Note the use of "it" to indicate that the name of an object should go here.
 
 ``` inform7
@@ -7119,13 +7153,13 @@ Squicking is an action with past participle squacked, applying to one thing.
 ^^{actions: rules for new actions}^^{rules: for new actions}^^{rulebooks: for new actions}^^{check (action)+rb+}^^{carry out (action)+rb+}^^{report (action)+rb+}^^{(instead), to stop the action+sourcepart+}
 The normal behaviour of an action is specified by its three associated rulebooks – check, carry out and report. In the case of our "photographing" example, these rulebooks will be:
 
-``` inform7
+[ZL: had been in block previously]::
+
 **Check photographing**. Here, for instance, we need to verify that the player has the camera. If any of our checks fail, we should say why and stop the action. If they succeed, we say nothing.
 
 **Carry out photographing**. At this stage no further checking is needed (or allowed): the action now definitively takes place. At this point we might, for instance, deduct one from the number of exposures left on the film in the camera, or award the player points for capturing something interesting for posterity. But we should say nothing.
 
 **Report photographing**. At this stage no further activity is needed (or allowed): whatever effect the action had, it has happened and is now over. All we can do is to say what has taken place.
-```
 
 So far we have not really gone into the business of what rulebooks are, and we don't do so here either – suffice to say that we can now create whatever rules we need:
 
@@ -7375,10 +7409,8 @@ An example of rules applying to given objects is provided by the way that Inform
 
 The player will be able to examine the granule but not to take it, as that would require reaching through glass. Suppose the player does type ``take granule``: then Inform looks for potential barriers between the player and the granule, and of course finds the conical flask. If, as in this case, the thing to be touched is on the inside, then Inform asks the "reaching inside" rules for permission. There are two reaching inside rules built in to Inform:
 
-``` inform7
-can't reach inside rooms rule
-can't reach inside closed containers rule
-```
+- `can't reach inside rooms rule`
+- `can't reach inside closed containers rule`
 
 and in fact the second of these rules will cause the taking action to fail, because the conical flask is a closed container. (The other rule has to do with a player in one room able to see another room through, say, a telescope – merely having a line of sight doesn't give the ability to reach into the frame.)
 
@@ -7401,11 +7433,13 @@ Taking inventory is an action applying to nothing.
 
 Actions can involve up to two different things. We can place additional requirements on any of these things by describing them as a "visible thing", "touchable thing" or "carried thing". (If we simply say "thing" or "things", as in the second example, Inform assumes the requirement to be "touchable".) These three conditions are increasingly strong:
 
-- To be "visible", something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.
+[ZL: was block previously. "visible thing"'s explanation is problematic ]::
 
-- To be "touchable", the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.
+To be **visible**, something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.
 
-- To be "carried", the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something "carried", like ``wear hat``, the thing in question – the hat – will sometimes be picked up automatically. This is called "implicit taking", and results in text like "(first taking the top hat)" being printed.)
+To be **touchable**, the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.
+
+To be **carried**, the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something "carried", like ``wear hat``, the thing in question – the hat – will sometimes be picked up automatically. This is called "implicit taking", and results in text like "(first taking the top hat)" being printed.)
 
 If an action involves two things, they need not have the same requirement as each other:
 
@@ -7413,7 +7447,7 @@ If an action involves two things, they need not have the same requirement as eac
 Waving it at is an action applying to one carried thing and one visible thing.
 ```
 
-Thus to "wave magic wand at banyan tree", the player must be holding the wand, but need only be able to see the tree.
+Thus to ``wave magic wand at banyan tree``, the player must be holding the wand, but need only be able to see the tree.
 
 Note one special case. Requirements on touchability are waived in the case of "try" actions applied to people other than the player where the things they would need to touch are doors or backdrops. (This is a compromise to avoid difficulties arising from the ambiguous locations of such items.)
 
@@ -7472,7 +7506,7 @@ A visibility rule must always conclude "there is sufficient light", or "there is
 
 It is a possibly unexpected fact that "looking" does not require light, but instead behaves differently in darkness – it prints a pseudo-room-description such as
 
-``` inform7
+``` transcript
 **Darkness**
 It is pitch dark, and you can't see a thing.
 ```
@@ -7521,7 +7555,7 @@ Before doing something in the presence of the bearded psychiatrist: say "'Zo, th
 
 will produce text such as: 
 
-``` inform7
+``` transcript
 "So, the subject vishes to engage in rubbing the fireman's pole. Zis is very interesting."
 ```
 
@@ -7639,11 +7673,9 @@ The next question is: does the effect kick in after the hoped-for action has tak
 
 That leaves us a choice of two rulebooks if the effect takes place when the merest impulse towards the action is felt: "Before" and "Instead". Which to use? In cases of doubt, choose "Instead". But if the effect is intended to absolutely suppress all such impulses – for instance, in a silent examination room there must be no talking – then "Before" might be more appropriate. We could imagine that someone about to say something first has a mental impulse to speak, then opens their mouth so that it becomes visible to others that some talking is about to go on, and finally utters words. Here are three possible responses:
 
-``` inform7
-"You cannot contemplate breaking this smothering silence." (*Before*)
-"The invigilator stares you down through her horn-rimmed glasses." (*Instead*)
-"Everyone turns, appalled, as the silence is broken like the surface of a swimming pool by a falling elephant." (*After*)
-```
+- "You cannot contemplate breaking this smothering silence." (*Before*)
+- "The invigilator stares you down through her horn-rimmed glasses." (*Instead*)
+- "Everyone turns, appalled, as the silence is broken like the surface of a swimming pool by a falling elephant." (*After*)
 
 **4. Generic situations: work with action rules (or sometimes Before).**
 
@@ -7670,6 +7702,8 @@ Remember that "Instead", "Before" and "After" do not apply: so use "check" rules
 **Finally...**
 
 These are only guidelines. The system is designed to be flexible in order to give the author the widest possible range of options, and nobody should feel ashamed of making use of them.
+
+[ZL: TODO...]::
 
 # Relations
 
@@ -7706,10 +7740,8 @@ Which cannot be arranged because the past cannot be changed.
 
 Verbs also turn up inside the more complicated descriptions. For instance,
 
-``` inform7
-things which are in the teapot
-people who can see the mouse
-```
+- `things which are in the teapot`
+- `people who can see the mouse`
 
 are both descriptions, not sentences, but they contain "to be" and "to be able to see" respectively.
 
@@ -7741,17 +7773,15 @@ Relations are what sentences express. They are yes/no questions about pairs of t
 
 Inform comes with a number of relations built in, almost all of which have been used in previous chapters already. The following table names some of the more useful ones, giving examples of sentences to bring them about:
 
-``` inform7
-containment relation - The coin is in the purse.
-support relation - The coin is on the table.
-incorporation relation - The coin is part of the sculpture.
-carrying relation - The coin is carried by Peter.
-wearing relation - The jacket is worn by Peter.
-possession relation - if Mr Darcy has a rapier...
-adjacency relation - The Study is east of the Hallway.
-visibility relation - if Darcy can see Elizabeth...
-touchability relation - if Darcy can touch Elizabeth...
-```
+- **containment** relation - `The coin is in the purse.`
+- ** support ** relation - `The coin is on the table.`
+- **incorporation** relation - The coin is part of the sculpture.`
+- **carrying** relation - The coin is carried by Peter.`
+- **wearing** relation - The jacket is worn by Peter.`
+- **possession** relation - if Mr Darcy has a rapier...`
+- **adjacency** relation - The Study is east of the Hallway.`
+- **visibility** relation - if Darcy can see Elizabeth...`
+- **touchability** relation - if Darcy can touch Elizabeth...`
 
 These relation names do not trip off the tongue, but they relatively seldom need to be referred to.
 
@@ -7770,13 +7800,11 @@ all of which boil down to saying that the coin and purse satisfy the containment
 ^^{containment+rel+ <-- containment+relcat+ <-- in+relverb+} ^^{containment+relcat+}^^{support+rel+} ^^{support+relcat+}^^{incorporation+rel+ <-- incorporation+relcat+} ^^{incorporation+relcat+}^^{carrying+rel+ <-- carrying+relcat+} ^^{carrying+relcat+}^^{wearing+rel+ <-- worn+relverb+} ^^{wearing+relcat+}^^{possession+rel+ <-- has+relverb+} ^^{possession+relcat+}^^{concealment+rel+ <-- concealment+relcat+} ^^{concealment+relcat+}^^^{containment+rel+ <-- containers+kind+: containment relation}^^^{support+rel+ <-- supporters+kind+: support relation}^^^{incorporation+rel+ <-- components: incorporation relation}^^^{supporters+kind+ <-- support+relcat+}^^^{containment+rel+ <-- inside+relverb+ <-- within+relverb+}^^^{containment+rel+ <-- held in+relverb+}^^^{containers+kind+ <-- containment+relcat+}^^^{components <-- incorporation+relcat+}^^^{support+rel+ <-- on+relverb+ <-- on top of+relverb+}
 Inform has altogether five mutually exclusive ways in which one thing can be physically joined to another one:
 
-``` inform7
-containment relation - The coin is in the purse.
-support relation - The coin is on the table.
-incorporation relation - The coin is part of the sculpture.
-carrying relation - The coin is carried by Peter.
-wearing relation - The jacket is worn by Peter.
-```
+- **containment** relation - `The coin is in the purse.`
+- **support** relation - `The coin is on the table.`
+- **incorporation** relation - `The coin is part of the sculpture.`
+- **carrying** relation - `The coin is carried by Peter.`
+- **wearing** relation - `The jacket is worn by Peter.`
 
 This is why we cannot have
 
@@ -7828,6 +7856,8 @@ what we are saying is that only people love; that they only love people; and tha
 
 The "various" part comes in because, for instance, we might have:
 
+[ZL:: this *loving relation* thing looks like code and is confusing. I've seen people who thought it should work as written. ]::
+
 > Verenka *loving relation* Stankevich
 > Liubov *loving relation* Stankevich
 
@@ -7850,6 +7880,8 @@ Pet-ownership relates various animals (called the pet) to one person.
 because "the pet of Flaubert" would be ambiguous: he might have owned dozens.
 
 ## Making reciprocal relations
+
+[ZL: I suggest saying "symmetric" rather than "reciprocal"... as is, we're never actually told when we get to "symmetric" that it means the same thing as the reciprocal mentioned here...]::
 
 ^^{reciprocal relations}^^{relations: reciprocal relations}^^{(each other), in defining relations+sourcepart+}^^{(another), in defining relations+sourcepart+}^^{`called: in defining relations}
 The relationships described in this chapter so far are by no means always reciprocated. For instance, if a stone is on a table, then it is never true that the table is also on the stone. And the question may not even be meaningful to ask. If Peter wears a jacket, the jacket does not even have the possibility of wearing Peter.
@@ -7917,16 +7949,16 @@ But this is a phrase – not a typed command.
 ^^{relations: relationship to sentence verbs}^^{sentence verbs: predefined}^^{`is}^^{equality+rel+ <-- `is: equality relation <-- comparisons: equality} ^^{equality+relcat+}^^{provision+rel+ <-- `provides: provision relation}^^{adjacency+rel+} ^^{adjacency+relcat+}^^{rooms+kind+: adjacent}
 It is all very well to define new relations, but this does nothing if there is no way to assert that they are true, or to ask whether they are true or false. That requires a verb: in fact, a relation is nothing more than what Inform uses as the "meaning" of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:
 
-``` inform7
-**Verb - Relation**
-to be - equality relation
-to have - possession relation
-to contain - containment relation
-to support - support relation
-to carry - carrying relation
-to wear - wearing relation
-to incorporate - incorporation relation
-```
+[ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognizing that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
+
+> **Verb - Relation**
+> to be - equality relation
+> to have - possession relation
+> to contain - containment relation
+> to support - support relation
+> to carry - carrying relation
+> to wear - wearing relation
+> to incorporate - incorporation relation
 
 Two of Inform's built-in relations are expressed using prepositions instead:
 
@@ -8003,6 +8035,8 @@ With that defined, these two sentences have identical meanings:
 Mr Wickham sports a Tory rosette.
 A Tory rosette graces Mr Wickham.
 ```
+
+[ZL: I think it's *key* to discuss that there are 'for saying only' and 'for meaning only' (my coinage for things that can be used in sentences in your code but not in a say statement) verbs. single-word verbs like `to grace` are both, but when you assert a meaning for a single-word verb, you *also* get the for-meaning-only verbs "to be gracing" and "to be graced by", which means the reversed relation; with verbs longer than a single word (or whose meaning is a reversed relation), there are no bonus verbs and you have to create them yourself if you want them.]:: 
 
 Reversed in this sense means that the things related – the subject and object of the verb – are the other way round.
 
@@ -8101,6 +8135,8 @@ Here we're making use of:
 >
 > The result is 0 if the two endpoints are the same, or -1 if no route exists.
 
+[ZL:: dated. maybe worth not removing, just noting: dated ]::
+
 Another example would be the "six degrees of separation" game, where it is claimed that any two people on Earth are connected by a sequence of up to six acquaintances. In an Inform implementation, we might talk about "the next step via the friendship relation from George Bush to Saddam Hussein", for instance, a phrase likely to evaluate to Donald Rumsfeld, and then
 
 ``` inform7
@@ -8189,11 +8225,16 @@ We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible 
 ^^{relations: defining}^^{defining: relations}^^{(relation) relates...+assert+ --> relates}^^{relations: involving values}^^{values: in relations}^^{lists}^^{(relates), for finding related values+sourcepart+}^^^{+to+(name of kind) that/which/who relates to (value) by (relation of values to values) --> that/which/who relates to}^^^{+to+(name of kind) that/which/whom (value) relates to by (relation of values to values) --> that/which/whom relates to by}^^^{+to+(name of kind) to which/whom (value) relates by (relation of values to values) --> to which/whom relates by}
 Although most of the examples in this chapter have involved objects, relations can connect almost any values together. We can create relations in groups, one to various relations, various to one relations, one to one relations, and various to various relations for any combination of kinds. For example:
 
+
+[ZL: these would be clearer with unlike types]::
+
 ``` inform7
 Partnership relates various texts to various texts.
 
 The verb to belong with means the
 partnership relation.
+
+[ZL: these examples would be easier to follow with unlike kinds on the sides of the relationship]::
 
 "cheese" belongs with "crackers".
 "clam" belongs with "chowder".
@@ -8278,6 +8319,8 @@ For efficiency reasons, there are no guarantees about what order these lists hav
 ^^{kinds: of relation}^^{relations: kinds of relation}^^{relations: used as values}^^{values: relations as values}^^{type-checking: of relation types}^^{(relates), for arbitrary relation conditions+sourcepart+}^^{empty / non-empty+adj+: for relations} ^^{non-empty / empty+adj+: for relations}^^{relations: empty / non-empty+adj+}^^{symmetric (relation)+adj+}^^{equivalence (relation)+adj+}^^{one-to-one (relation)+adj+}^^{one-to-various (relation)+adj+}^^{various-to-one (relation)+adj+}^^{various-to-various (relation)+adj+}
 As we've seen, most relations have names – "containment relation", for instance. These are themselves values in Inform, though there are a few restrictions on how they are used. (Relations can contain a colossal amount of data, so we don't want to have to copy them casually.)
 
+[ZL: it would be good to mention relations as properties; apparently, a bunch of power users were surprised it was possible when I did it on IntFiction recently]::
+
 Consider these two examples:
 
 ``` inform7
@@ -8309,6 +8352,8 @@ now R does not relate X to Y;
 to test, set and unset a relation R between two values. (Inform checks that the values X and Y have the right kind and produces a problem message if not.)
 
 Several useful adjectives can be applied to relations:
+
+[ZL: I suggest making it more clear that of these, only empty is a function of the contents of the relation currently and the others are more like relation-properties; reading this, one doesn't know whether symmetric comes back true if the current contents of the relation happen to be symmetric]:: 
 
 ``` inform7
 "empty" - nothing relates to anything else
@@ -8743,13 +8788,13 @@ say "Every possession is a worry. I wonder if [regarding things carried by the p
 
 So if the player carries just a single coin, say, this automatically becomes:
 
-``` inform7
+``` transcript
 Every possession is a worry. I wonder if it still looks okay in your pocket?
 ```
 
 but if the player carries a pair of scissors (a single plural-named item) or a coin and an iPhone, it becomes:
 
-``` inform7
+``` transcript
 Every possession is a worry. I wonder if they still look okay in your pocket?
 ```
 
@@ -8875,9 +8920,12 @@ You were pinned down by Dr Zarkov's force field. You weren't free to move. You c
 ^^{sentence verbs: as values}^^{verbs: as values}^^{verbs: meaningful / meaningless+adj+}^^{verbs: modal / non-modal+adj+}^^{modal / non-modal (verb)+adj+}^^{non-modal / modal (verb)+adj+}^^{meaningful / meaningless (verb)+adj+}^^{meaning+rel+} ^^{meaning+relcat+}
 Each verb known to Inform is actually a value of the kind "verb". To refer to a verb as a value, we have to put the word "verb" in front, as in these examples:
 
-``` inform7
-the verb contain, the verb might, the verb provoke
-```
+[ZL: document that this isn't "infinitive beyond 'to'" and it's not `verb be`, it's `verb are`]::
+
+
+- `the verb contain`
+- `the verb might`
+- `the verb are`
 
 all of which appear in the Standard Rules.
 
@@ -8892,7 +8940,7 @@ showme the meaning of the verb provoke;
 
 produces:
 
-``` inform7
+``` transcript
 "meaning of the verb contain" = relation of objects: containment relation
 "meaning of the verb provoke" = relation of objects: equality relation
 ```
@@ -8913,7 +8961,7 @@ the list of verbs meaning the containment relation
 
 which, unless any non-Standard Rules definitions have been added, produces:
 
-``` inform7
+``` transcript
 list of verbs: {verb contain}
 ```
 
@@ -8969,7 +9017,7 @@ When play begins:
 
 produces:
 
-``` inform7
+``` transcript
 "my rendering applied to the list of meaningful verbs" = list of texts: {"had not had", "had not related", "had not meant", "had not provided", "had not contained", "had not supported", "had not incorporated", "had not enclosed", "had not carried", "had not held", "had not worn", "had not been able to see", "had not been able to touch", "had not concealed", "had not unlocked"}
 ```
 
@@ -9294,10 +9342,13 @@ logarithm of -10
 >
 > This text substitution writes out the number in scientific form, but rounding to the accuracy given.
 
+
 ## Arithmetic
 
 ^^{numbers: arithmetic}^^{real numbers: arithmetic}^^{calculation: arithmetic}^^{calculation: rounding to the nearest multiple}^^{comparisons: of numbers}^^{greater than+relverb+}^^{less than+relverb+}^^{at least+relverb+}^^{at most+relverb+}^^{roots, of numbers}^^^{+to+(arithmetic value) plus (arithmetic value) --> plus}^^^{+to+(arithmetic value) + (arithmetic value) --> +}^^^{+to+(arithmetic value) minus (arithmetic value) --> minus}^^^{+to+(arithmetic value) - (arithmetic value) --> -}^^^{+to+(arithmetic value) multiplied by (arithmetic value) --> multiplied by}^^^{+to+(arithmetic value) times (arithmetic value) --> times}^^^{+to+(arithmetic value) * (arithmetic value) --> *}^^^{+to+(arithmetic value) divided by (arithmetic value) --> divided by}^^^{+to+(arithmetic value) / (arithmetic value) --> /}^^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest}^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}
 We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, \* and /, or can spell them out in words as "plus", "minus", "times" (or "multiplied by"), and "divided by". Definitively:
+
+[ZL: warn about unpredictable associativity and precedence and even that operators and their verbal equivalents differ]::
 
 > phrase: {ph_plus} (arithmetic value) + (arithmetic value) ... value & (arithmetic value) plus (arithmetic value) ... value
 >
@@ -9800,6 +9851,8 @@ But nobody would say it that way: they'd say "The lead pig weighs 45kg." So what
 
 We have already created new verbs, but none of those methods are quite convenient for this. We want to relate something tangible (the lead pig) to something intangible (45kg), and there's no convenient relation to express this; if we set it up as a condition, we'd get something we couldn't assert, only test. Instead, we'll do something different this time:
 
+[ZL: this is the only mention of this feature and it's kind of buried here and lots of people are surprised to be told of it. It has a big effect on the expressivity of descriptions and warrants more prominence]::
+
 ``` inform7
 The verb to weigh means the weight property.
 ```
@@ -10188,6 +10241,8 @@ The balance platform is 10m by 8m, giving it an area of 80 sq m.
 And having told Inform that lengths multiply to area, we could also divide an area by a length to get a length: no further instructions would be needed.
 
 The built-in "Metric Units" extension includes all of the standard ways that physical quantities are multiplied, and a good way to see these is to try out one of the Metric Units examples and look at the Kinds index, which includes a table showing how all of this works.
+
+[ZL: TODO]::
 
 # Tables
 
@@ -11674,6 +11729,8 @@ A concept is a kind of object. A concept can be privately-named or publicly-name
 
 ## Changing the meaning of pronouns
 
+[ZL: mention ambigously plural https://inform7.atlassian.net/browse/I7-2121 ]::
+
 ^^{pronouns: setting pronouns}^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+}^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+}^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+}^^{(HER), in player commands+commandpart+}
 The pronouns IT, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take`` IT on the next, and IT will be understood as meaning whatever ``necklace`` meant last turn.
 
@@ -12813,6 +12870,8 @@ It's best to avoid situations where an item has a locale priority which is highe
 ^^{scope}^^{`in the presence of}^^{`presence of}^^{containment+rel+: placing the contents of something in scope}^^{Inform 6 equivalent: scope rules}^^{Inform 6 Designer's Manual+title+}
 **1. When it happens.** "Scope" is a term of art in interactive fiction programming: it means the collection of things which can be interacted with at any given moment, which depends on who you are and where you are. Commands typed by the player will only be allowed to go forward into actions if the things they refer to are "in scope". Inform also needs to determine scope at other times, too: for instance, when deciding whether a rule conditional on being "in the presence of" something is valid. It is a bad idea to say anything during this activity.
 
+[ZL: it would be nice to spell out the rules and to not refer to the DM4 ]::
+
 **2. The default behaviour.** Is complicated: see the Inform Designer's Manual, 4th edition, page 227. Briefly, the scope for someone consists of everything in the same place as them, unless it is dark.
 
 **3. Examples.** (a) We very rarely want to forbid the player to refer to things close at hand, but often want to allow references to distant ones. For instance, a mirage of something which is not present at all:
@@ -13033,8 +13092,6 @@ Note that "replace" and "cut" can only be used in "after reading a command" rule
 ("Snippet" is actually a kind of value, so we could say "Ah, you typed '[the player's command]'!" or some such if we liked. But in practice only three snippets are likely to be useful: the two mentioned above, `player's command` and `matched text`, and the `topic understood`, used when matching the `"[text]"` token in command grammar.)
 
 (e) Finally, we can make still more detailed alterations to the text of the command using the techniques presented in the chapter on [Advanced Text]. For instance:
-
-[ZL: TODO]::
 
 > phrase: {ph_changecommand} change the text of the player's command to (text)
 >
@@ -13947,6 +14004,8 @@ Finally, we can "anonymously abide":
 
 This is only useful in complicated situations where one rulebook uses another which... and so on. Its effect is exactly the same as "abide", except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it's used as the source of the value "reason the action failed" (see the chapter on [Advanced Actions]).
 
+[ZL: https://inform7.atlassian.net/browse/I7-2324 ]::
+
 ## Two rulebooks used internally {rules_internal}
 
 ^^{actions: processing sequence}^^{turns: turn sequence}^^{action processing+rb+}^^{turn sequence+rb+}^^{when play begins+rb+}^^{rules: run at beginning of story}^^{when play ends+rb+}^^{rules: run at end of story}
@@ -13991,17 +14050,17 @@ Sorting is done by comparing rules in pairs to decide which is more specific. We
 
 **Law II – When/while requirement**. A rule with a when/while restriction beats one without.
 
-**Law ``iii`` – Action requirement**. A rule with a more specific action requirement beats one with a more general action requirement. (Or similarly, for value based rulebooks, a rule with a more specific parameter requirement beats a more general one.) Details are given below.
+**Law III – Action requirement**. A rule with a more specific action requirement beats one with a more general action requirement. (Or similarly, for value based rulebooks, a rule with a more specific parameter requirement beats a more general one.) Details are given below.
 
 **Law IV – Scene requirement**. A rule with a scene restriction ("during") beats one without.
 
-Details of Law ``iii`` now follow:
+Details of Law III now follow:
 
-**Law ``iii``.1 – Object To Which Rule Applies**. For value based rulebooks only: the more specific value requirement wins.
+**Law III.1 – Object To Which Rule Applies**. For value based rulebooks only: the more specific value requirement wins.
 
-**Law ``iii``.2.1 – Action/Where/Going In Exotic Ways**. A more specific combination of "...pushing...", "... by ...", and "... through ..." clauses in a "going" action beats a less specific. (Placing conditions on all three of these clauses beats placing conditions on any two, which beats any one, which beats none at all.) In cases where X and Y each place, let's say, two such conditions, they are considered in the order "...pushing...", "...by..." and then "...through..." until one wins. (The idea here is that pushing something from room to room is rarer than travelling in a vehicle, which in turn is rarer than going through a door. The rarer action goes first, as more specific.)
+**Law III.2.1 – Action/Where/Going In Exotic Ways**. A more specific combination of "...pushing...", "... by ...", and "... through ..." clauses in a "going" action beats a less specific. (Placing conditions on all three of these clauses beats placing conditions on any two, which beats any one, which beats none at all.) In cases where X and Y each place, let's say, two such conditions, they are considered in the order "...pushing...", "...by..." and then "...through..." until one wins. (The idea here is that pushing something from room to room is rarer than travelling in a vehicle, which in turn is rarer than going through a door. The rarer action goes first, as more specific.)
 
-**Law ``iii``.2.2 – Action/Where/Room Where Action Takes Place**. A more specific combination of conditions on the room in which the action starts, and in which it ends, beats a less specific. For all actions other than "going", there is no combination to be considered, and what we do is to look at the specificity of the "... in ..." clause. (So "Before looking in the Taj Mahal" beats "Before looking".)
+**Law III.2.2 – Action/Where/Room Where Action Takes Place**. A more specific combination of conditions on the room in which the action starts, and in which it ends, beats a less specific. For all actions other than "going", there is no combination to be considered, and what we do is to look at the specificity of the "... in ..." clause. (So "Before looking in the Taj Mahal" beats "Before looking".)
 
 For "going" actions, there are strictly speaking three possible room clauses: "... in ...", "... from ..." and "... to ...". However, "... in ..." and "... from ..." cannot both be present, so that in practice a "going" rule constraining two rooms beats a "going" rule constraining only one.
 
@@ -14009,25 +14068,27 @@ If both the room gone from (the "...in..." or "...from..." room, whichever is gi
 
 Giving a place as a specific room beats giving only the name of a region; if region R is entirely within region S, then a rule applying in R beats a rule applying in S. (Note that regions can only overlap if one is contained in the other, so this does not lead to ambiguity.)
 
-**Law ``iii``.2.3 – Action/Where/In The Presence Of**. A more specific "...in the presence of..." clause beats a less specific one. (This is again a constraint on where the action can take place, but it's now a potentially a constraint which could be passed in many different places at different times, so it's the most likely to be achieved and therefore the last to be considered of the Laws on Where.)
+**Law III.2.3 – Action/Where/In The Presence Of**. A more specific "...in the presence of..." clause beats a less specific one. (This is again a constraint on where the action can take place, but it's now a potentially a constraint which could be passed in many different places at different times, so it's the most likely to be achieved and therefore the last to be considered of the Laws on Where.)
 
-**Law ``iii``.3.1 – Action/What/Second Thing Acted On**. A more specific constraint on the second noun beats a less specific. Thus "putting something in the wooden box" beats "putting something in a container".
+**Law III.3.1 – Action/What/Second Thing Acted On**. A more specific constraint on the second noun beats a less specific. Thus "putting something in the wooden box" beats "putting something in a container".
 
-**Law ``iii``.3.2 – Action/What/Thing Acted On**. A more specific constraint on the first noun beats a less specific. Thus "taking a container which is on a supporter" beats "taking a container".
+**Law III.3.2 – Action/What/Thing Acted On**. A more specific constraint on the first noun beats a less specific. Thus "taking a container which is on a supporter" beats "taking a container".
 
 In the case of "going" actions, the first noun is a direction. The special constraint "going nowhere" (which means: a direction in which the actor's location has no map connection) is considered more general than any other constraint placed on the first noun, but more specific than having no constraint at all. Thus "Instead of going north" beats "Instead of going nowhere" which beats "Instead of going".
 
-**Law ``iii``.3.3 – Action/What/Actor Performing Action**. A more specific constraint on the actor beats a less specific.
+**Law III.3.3 – Action/What/Actor Performing Action**. A more specific constraint on the actor beats a less specific.
 
-**Law ``iii``.4.1 – Action/How/What Happens**. A more specific set of actions beats a less specific. For instance, "taking" beats "taking or dropping" beats "doing something other than looking" beats "doing something". A named kind of action (such as "behaving badly") is more specific than "doing something", but considered less specific than any explicitly spelled out list of actions.
+**Law III.4.1 – Action/How/What Happens**. A more specific set of actions beats a less specific. For instance, "taking" beats "taking or dropping" beats "doing something other than looking" beats "doing something". A named kind of action (such as "behaving badly") is more specific than "doing something", but considered less specific than any explicitly spelled out list of actions.
 
-**Law ``iii``.5.1 – Action/When/Duration**. An action with a constraint on its history ("for the fifth time", say, or "for the fifth turn") beats one without. If both rules place constraints on history, then the one occurring on the smaller number of possible turns wins (thus "for the third to seventh time" – 5 possible turns of applicability – beats "for less than the tenth turn" – 9 possible turns).
+**Law III.5.1 – Action/When/Duration**. An action with a constraint on its history ("for the fifth time", say, or "for the fifth turn") beats one without. If both rules place constraints on history, then the one occurring on the smaller number of possible turns wins (thus "for the third to seventh time" – 5 possible turns of applicability – beats "for less than the tenth turn" – 9 possible turns).
 
-**Law ``iii``.5.2 – Action/When/Circumstances**. A more specific condition under "...when..." beats a less specific one. These conditions could potentially be complex: Inform judges how specific they are by counting the clauses found in them. The more clauses, the more specific the condition, it is assumed.
+**Law III.5.2 – Action/When/Circumstances**. A more specific condition under "...when..." beats a less specific one. These conditions could potentially be complex: Inform judges how specific they are by counting the clauses found in them. The more clauses, the more specific the condition, it is assumed.
 
-**Law ``iii``.6.1 – Action/Name/Is This Named**. A rule with a name ("the apple blossom rule", say) beats a rule without.
+**Law III.6.1 – Action/Name/Is This Named**. A rule with a name ("the apple blossom rule", say) beats a rule without.
 
 # Advanced Text
+
+[ZL: could stand some more emphasis on things here: https://intfiction.org/t/most-common-mistakes-and-crutches-for-those-starting-out-with-inform-7/55818/17 , https://intfiction.org/t/most-common-mistakes-and-crutches-for-those-starting-out-with-inform-7/55818/22 ]::
 
 ## Changing texts
 
@@ -16703,6 +16764,9 @@ When Inform begins writing a table, or text, to a file, it initially marks the f
 
 In order to write non-story-file programs as B, communicating with story files as A, we need to know the file format used by Inform. An Inform file is currently a Unix text file (with 10 as the line division character), encoded as ASCII Latin-1. (We would like to use Unicode at some point in the future, but the Glk and Glulx layers are still not fully converted to Unicode.) It opens with a single header line in the form:
 
+[ZL: https://inform7.atlassian.net/browse/I7-1828 ]::
+
+
 ``` inform7
 * //IFID// leafname
 ```
@@ -18046,6 +18110,8 @@ But most writers of extensions do so to contribute to the Inform community, and 
 
 However, the Inform project does recognise some extensions as "public". Public extensions are the ones archived on the Inform website for the free use of all Inform writers. Those who wish to contribute an extension as a public one are obliged to follow a number of guidelines, which are mostly stylistic points intended to make the range of extensions easier to work with. Extension writers are asked to join in the spirit of these rules and help make the whole cooperative enterprise work harmoniously. Extensions which do play by these rules are also accepted into the Public Library, which makes them easy for all Inform users everywhere to find and obtain them.
 
+[ ZL: nothing Inform has ever said about CC-BY is true. https://intfiction.org/t/attribution-etiquette-question-when-updating-changing-someone-elses-extension/60201/4 and I think it's misinformation that's ultimately dangerous to the community ]::
+
 Writers who wish to make their extensions public on the Inform website should also be clear that by doing so, they are donating their work to the community on the basis of the broadest form of Creative Commons license: that is, they retain copyright and the right to be identified as the author (and as we shall see they are automatically credited in any work of IF which uses their extension), but are giving unlimited permission to use, circulate and republish their extensions in any form, even as part of commercial works (should that arise). To publish a public extension is a public-spirited act, done for only the reward of a modest acknowledgement.
 
 If the author of an extension has not made it public, or indicated in some other way that it is free to be used without the need for permission, then it would be both polite and prudent to check with the author before publishing something which incorporates their work.
@@ -18116,7 +18182,7 @@ But Mary and John deserve their credits too: see the next section for how to giv
 ## A simple example extension {PM_ExtMultipleBeginsHere} {PM_ExtBeginsAfterEndsHere} {PM_ExtMultipleEndsHere} {PM_ExtNoBeginsHere} {PM_ExtNoEndsHere}
 
 ^^{extensions: writing: example}^^{>VERSION}
-Extensions are plain text files, and can be created with any text editor. (It is sometimes said that "there is no such thing as plain text", there being so many ways to represent exotic characters: so to be precise, an extension is a text file with the Unicode UTF-8 encoding, either with or without a ``bom`` marker, using any of the possible forms of line-ending (Unix, Windows, Macintosh, or Unicode line divider). This is a detail which will only matter if the extension contains accented letters or other exotica.)
+Extensions are plain text files, and can be created with any text editor. (It is sometimes said that "there is no such thing as plain text", there being so many ways to represent exotic characters: so to be precise, an extension is a text file with the Unicode UTF-8 encoding, either with or without a BOM marker, using any of the possible forms of line-ending (Unix, Windows, Macintosh, or Unicode line divider). This is a detail which will only matter if the extension contains accented letters or other exotica.)
 
 Extensions look very much like passages of Inform source, because except for a special introductory and concluding sentence, and one convention, that is all they are:
 
@@ -18238,6 +18304,9 @@ Inform therefore provides a way for extensions to declare the formats they are c
 Version 2 of Basic Screen Effects (for Z-Machine version 8 only) by ^{@Emily Short} begins here.
 ```
 
+[ZL: https://inform7.atlassian.net/browse/I7-2172 ]::
+
+
 Other examples might be "(for Glulx only)", or "(for Z-machine only)". If no such proviso is given, the extension is assumed to be compatible with every story file format.
 
 Extensions are also able to include material which is only used on some story file formats and not others – in principle, this might allow the same facilities to be provided to the author whatever story file format is used, but to achieve these effects differently depending on the current Settings. The convention here is exactly like "not for release": if a heading or subheading in the source text contains a bracketed proviso, then the material under that heading (and under its dependent subheadings) will be ignored if the current story file format does not match. For example:
@@ -18354,7 +18423,7 @@ As described in the chapter on [Source Text] above, whenever an extension is ins
 In order to be recognised as documentation, this text should appear at the foot of the extension file, *after* the compulsory end sentence. The first paragraph must have exactly the following form, with a skipped line before and after:
 
 ``` inform7
----- DOCUMENTATION ----
+---- Documentation ----
 ```
 
 For instance, the "Ducking Action" example might end:
