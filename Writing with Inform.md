@@ -7703,8 +7703,6 @@ Remember that "Instead", "Before" and "After" do not apply: so use "check" rules
 
 These are only guidelines. The system is designed to be flexible in order to give the author the widest possible range of options, and nobody should feel ashamed of making use of them.
 
-[ZL: TODO...]::
-
 # Relations
 
 ## Sentence verbs {VERBS} {PM_PropForBadKOV} {PM_RelationWithBadProperty} {PM_RelationWithEitherOrProperty} {PM_BadRelation} {PM_EveryWrongSide} {PM_KindRelatedToValue}
@@ -7774,14 +7772,14 @@ Relations are what sentences express. They are yes/no questions about pairs of t
 Inform comes with a number of relations built in, almost all of which have been used in previous chapters already. The following table names some of the more useful ones, giving examples of sentences to bring them about:
 
 - **containment** relation - `The coin is in the purse.`
-- ** support ** relation - `The coin is on the table.`
-- **incorporation** relation - The coin is part of the sculpture.`
-- **carrying** relation - The coin is carried by Peter.`
-- **wearing** relation - The jacket is worn by Peter.`
-- **possession** relation - if Mr Darcy has a rapier...`
-- **adjacency** relation - The Study is east of the Hallway.`
-- **visibility** relation - if Darcy can see Elizabeth...`
-- **touchability** relation - if Darcy can touch Elizabeth...`
+- **support** relation - `The coin is on the table.`
+- **incorporation** relation - `The coin is part of the sculpture.`
+- **carrying** relation - `The coin is carried by Peter.`
+- **wearing** relation - `The jacket is worn by Peter.`
+- **possession** relation - `if Mr Darcy has a rapier...`
+- **adjacency** relation - `The Study is east of the Hallway.`
+- **visibility** relation - `if Darcy can see Elizabeth...`
+- **touchability** relation - `if Darcy can touch Elizabeth...`
 
 These relation names do not trip off the tongue, but they relatively seldom need to be referred to.
 
@@ -7951,22 +7949,20 @@ It is all very well to define new relations, but this does nothing if there is n
 
 [ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognizing that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
 
-> **Verb - Relation**
-> to be - equality relation
-> to have - possession relation
-> to contain - containment relation
-> to support - support relation
-> to carry - carrying relation
-> to wear - wearing relation
-> to incorporate - incorporation relation
+**Verb - Relation**
+- to be - equality relation
+- to have - possession relation
+- to contain - containment relation
+- to support - support relation
+- to carry - carrying relation
+- to wear - wearing relation
+- to incorporate - incorporation relation
 
 Two of Inform's built-in relations are expressed using prepositions instead:
 
-``` inform7
 **Preposition - Relation**
-to be part of - (reversed) incorporation relation
-to be adjacent to - adjacency relation
-```
+- to be part of - (reversed) incorporation relation
+- to be adjacent to - adjacency relation
 
 It would be easy to make verbs for these if we wanted ("to adjoin", say) using the techniques of the next section.
 
@@ -8208,14 +8204,15 @@ Materiality relates a thing (called X) to a material (called Y) when Y is the ma
 which enables us to write:
 
 ``` inform7
-if the cube is made of wood, ...
-say "The carpenter looks at [the list of things which are made of wood].";
+if the cube is made of wood, say "The carpenter looks at [the list of things which are made of wood].";
 ```
 
 And here is a mathematical one:
 
 ``` inform7
-Divisibility relates a number (called N) to a number (called M) when the remainder after dividing M by N is 0. The verb to divide means the divisibility relation. The verb to be a factor of means the divisibility relation.
+Divisibility relates a number (called N) to a number (called M) when the remainder after dividing M by N is 0.
+The verb to divide means the divisibility relation.
+The verb to be a factor of means the divisibility relation.
 ```
 
 We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible by 3" are all true. Again, we are only really gaining a nice form of words, but improving the clarity of the source text is never a bad thing.
@@ -8231,8 +8228,7 @@ Although most of the examples in this chapter have involved objects, relations c
 ``` inform7
 Partnership relates various texts to various texts.
 
-The verb to belong with means the
-partnership relation.
+The verb to belong with means the partnership relation.
 
 [ZL: these examples would be easier to follow with unlike kinds on the sides of the relationship]::
 
@@ -8355,15 +8351,13 @@ Several useful adjectives can be applied to relations:
 
 [ZL: I suggest making it more clear that of these, only empty is a function of the contents of the relation currently and the others are more like relation-properties; reading this, one doesn't know whether symmetric comes back true if the current contents of the relation happen to be symmetric]:: 
 
-``` inform7
-"empty" - nothing relates to anything else
-"symmetric" - by definition X relates to Y if and only if Y relates to X
-"equivalence" - this is a relation "in groups", or an "equivalence relation"
-"one-to-one" - it relates one K to one L
-"one-to-various" - similarly
-"various-to-one" - similarly
-"various-to-various" - similarly
-```
+- **empty** - nothing relates to anything else
+- **symmetric** - by definition X relates to Y if and only if Y relates to X
+- **equivalence** - this is a relation "in groups", or an "equivalence relation"
+- **one-to-one** - it relates one K to one L
+- **one-to-various** - similarly
+- **various-to-one** - similarly
+- **various-to-various** - similarly
 
 So for example it's possible to ask
 
@@ -8566,7 +8560,7 @@ Something else to be careful with is the use of lists. If we write this:
 
 then Inform is likely to print:
 
-``` inform7
+``` transcript
 The condensers and the V-ray is smashed by Voltan's birdmen.
 ```
 
@@ -8578,7 +8572,7 @@ because it looks at the most recently named object – the V-ray, singular – t
 
 Because Inform constructs the list itself, it's able to appreciate that the things listed are jointly the subject of the verb, and it uses that information to decide on "is" or "are". So:
 
-``` inform7
+``` transcript
 The condensers and the V-ray are smashed by Voltan's birdmen.
 The Atomic Furnace shovel is smashed by Voltan's birdmen.
 ```
@@ -8614,7 +8608,9 @@ say "[The actor] [put] [the noun] on [the second noun]."
 
 And this can make either:
 
-``` inform7
+[ ZL: outside of the context of history texts about his treason in support of slavery, the fewer references to General Lee, the better ]::
+
+``` transcript
 You put the revolver on the table.
 General Lee puts the revolver on the table.
 ```
@@ -8624,7 +8620,7 @@ General Lee puts the revolver on the table.
 ^^{+to+say "[we]"} ^^{+tosay+"[we]" --> we}^^{+to+say "[us]"} ^^{+tosay+"[us]" --> us}^^{+to+say "[our]"} ^^{+tosay+"[our]" --> our}^^{case sensitivity: in text substitutions with pronouns}^^{plurals: plural convention for adaptive pronouns}^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}^^{you, adaptive pronouns in displayed text}^^{actor (- person)+actvar+}
 In second-person-singular IF, the player is always "you". Many messages look like so:
 
-``` inform7
+``` transcript
 "You have twenty minutes remaining."
 ```
 
@@ -8632,13 +8628,11 @@ where the subject, or the object, of the sentence is "you". But what if we want 
 
 The solution is to use the following:
 
-``` inform7
-"[We]" or "[we]"
-"[Us]" or "[us]"
-"[Our]" or "[our]"
-"[Ours]" or "[ours]"
-"[Ourselves]" or "[ourselves]"
-```
+- `"[We]"` or `"[we]"`
+- `"[Us]"` or `"[us]"`
+- `"[Our]"` or `"[our]"`
+- `"[Ours]"` or `"[ours]"`
+- `"[Ourselves]"` or `"[ourselves]"`
 
 The capitalised and uncapitalised versions are identical except, of course, that the initial letter of the resulting text is upper case in one but not the other. As examples of these:
 
@@ -8688,7 +8682,7 @@ This isn't always needed:
 
 works fine, because printing `"[the noun]"` changes the subject to that, and then `"[they]"` agrees with it automatically. The text might come out, for example, as:
 
-``` inform7
+``` transcript
 I had a look at Peter Rabbit, but he was just too big.
 You have a look at the chessmen, but they are just too big.
 We have a look at ourselves, but we are just too big.
@@ -8696,20 +8690,17 @@ We have a look at ourselves, but we are just too big.
 
 We have a family of five text substitutions here, matching those in the previous section:
 
-``` inform7
-"[They]" or "[they]"
-"[Them]" or "[them]"
-"[Their]" or "[their]"
-"[Theirs]" or "[theirs]"
-"[Themselves]" or "[themselves]"
-```
+
+- `"[They]"` or `"[they]"`
+- `"[Them]"` or `"[them]"`
+- `"[Their]"` or `"[their]"`
+- `"[Theirs]"` or `"[theirs]"`
+- `"[Themselves]"` or `"[themselves]"`
 
 There's also the peculiar impersonal non-object for English sentences like "It is raining" or "There are books":
 
-``` inform7
-"[It]" or "[it]"
-"[There]" or "[there]"
-```
+- `"[It]"` or `"[it]"`
+- `"[There]"` or `"[there]"`
 
 These look pointless – but consider the two texts
 
@@ -8720,10 +8711,8 @@ These look pointless – but consider the two texts
 
 The first one risks printing "We took the scissors. It rain harder.", because it makes `"[rain]"` agree with "scissors", which are plural. But the second text makes `"[rain]"` agree with `"[it]"`. And, as a convenience:
 
-``` inform7
-"[It's]" or "[it's]"
-"[There's]" or "[there's]"
-```
+- `"[It's]"` or `"[it's]"`
+- `"[There's]"` or `"[there's]"`
 
 do the obvious thing using the current story tense.
 
@@ -8773,7 +8762,7 @@ This time we want:
 
 which might adapt to, say,
 
-``` inform7
+``` transcript
 Our height is just too great.
 Alice's height will be just too great.
 ```
@@ -8800,10 +8789,8 @@ Every possession is a worry. I wonder if they still look okay in your pocket?
 
 Once again these text substitutions are available in capitalised and uncapitalised forms:
 
-``` inform7
-"[Those]" or "[those]"
-"[Possessive]" or "[possessive]"
-```
+- `"[Those]"` or `"[those]"`
+- `"[Possessive]"` or `"[possessive]"`
 
 In fact `"[Those]"` and `"[those]"` do subtly different things, besides the capital letter, because `"[Those]"` expects to be the subject of the sentence and `"[those]"` the object, and this makes a difference if the noun in question is a person. If the noun is an odious person called Tilly then
 
@@ -8814,10 +8801,8 @@ In fact `"[Those]"` and `"[those]"` do subtly different things, besides the capi
 
 would come out as "She is unacceptable" – so `"[Those]"` becomes "She" – but "You've never liked her" – so `"[those]"` becomes "her". If we need these in different cases, we can explicitly ask for that:
 
-``` inform7
-"[those in the nominative]"
-"[Those in the accusative]"
-```
+- `"[those in the nominative]"`
+- `"[Those in the accusative]"`
 
 ## Can, could, may, might, must, should, would
 
@@ -8832,23 +8817,15 @@ Inform supports the use of modal verbs in text substitutions. For example,
 
 would in the present tense come out as "Fred might go to school.", but could alternatively be "Fred might have gone to school." As this example shows, all that's needed is to take a verb we'll call V – this case, "go" – and we can write any of these:
 
-``` inform7
-"[can V]" or "[cannot V]" or "[can't V]"
-"[could V]" or "[could not V]" or "[couldn't V]"
-"[may V]" or "[may not V]" or "[mayn't V]"
-"[might V]" or "[might not V]" or "[mightn't V]"
-"[must V]" or "[must not V]" or "[mustn't V]"
-"[should V]" or "[should not V]" or "[shouldn't V]"
-"[would V]" or "[would not V]" or "[wouldn't V]"
-```
+ `"[can V]"` or `"[cannot V]"` or `"[can't V]"`
+ `"[could V]"` or `"[could not V]"` or `"[couldn't V]"`
+ `"[may V]"` or `"[may not V]"` or `"[mayn't V]"`
+ `"[might V]"` or `"[might not V]"` or `"[mightn't V]"`
+ `"[must V]"` or `"[must not V]"` or `"[mustn't V]"`
+ `"[should V]"` or `"[should not V]"` or `"[shouldn't V]"`
+ `"[would V]"` or `"[would not V]"` or `"[wouldn't V]"`
 
-That helps us to handle informal usages like this one:
-
-``` inform7
-"You can't go that way."
-```
-
-To make this message adaptive, we write:
+That helps us to handle informal usages like "You can't go that way.". To make this message adaptive, we write:
 
 ``` inform7
 "[We] [can't go] that way."
@@ -8893,12 +8870,10 @@ This is exactly like "[Those]['re] hardly portable" except that if the plural is
 
 Only a few English verbs have contracted negative forms, beyond those already mentioned. Inform knows these informal forms:
 
-``` inform7
-"[aren't]"
-"[don't]"
-"[haven't]"
-"[won't]"
-```
+- `"[aren't]"`
+- `"[don't]"`
+- `"[haven't]"`
+- `"[won't]"`
 
 For example,
 
@@ -8909,7 +8884,7 @@ Instead of taking something:
 
 can produce variations like these:
 
-``` inform7
+``` transcript
 The condensers are pinned down by Dr Zarkov's force field. They aren't free to move. They can't move. They won't move. They haven't a chance to move. Anyhow, they don't move.
 
 You were pinned down by Dr Zarkov's force field. You weren't free to move. You couldn't move. You wouldn't move. You hadn't a chance to move. Anyhow, you didn't move.
@@ -8925,7 +8900,7 @@ Each verb known to Inform is actually a value of the kind "verb". To refer to a 
 
 - `the verb contain`
 - `the verb might`
-- `the verb are`
+- `the verb provoke`
 
 all of which appear in the Standard Rules.
 
@@ -10242,9 +10217,9 @@ And having told Inform that lengths multiply to area, we could also divide an ar
 
 The built-in "Metric Units" extension includes all of the standard ways that physical quantities are multiplied, and a good way to see these is to try out one of the Metric Units examples and look at the Kinds index, which includes a table showing how all of this works.
 
-[ZL: TODO]::
-
 # Tables
+
+[ZL: we are in desperate need of a definition / explanation of "table entry", syntactically ]::
 
 ## Laying out tables {TABLES} {PM_TableCoincidesWithKind} {PM_TableColumnEmptyLists} {PM_TablePlayerEntry} {PM_TableVariableEntry} {PM_TableDescriptionEntry} {PM_TableUnknownEntry} {PM_TableIncompatibleEntry} {PM_TableMisnamed} {PM_TableNameDuplicate} {PM_TableNameAmbiguous} {PM_TableTooManyColumns} {PM_TableColumnArticle} {PM_TableColumnAlready} {PM_TableWithoutRows} {PM_TableUndefined} {PM_TableOfQuantifiedKind} {PM_TableOfBuiltInKind} {PM_TableOfExistingKind} {PM_TableDefiningObject} {PM_TableWithBlankNames} {PM_TableEntryGeneric} {PM_TableKindlessColumn}  {PM_TableColumnBrackets} {PM_TableRowFull}
 
@@ -10490,6 +10465,8 @@ To list the succession:
 		say "[accession entry]: [name entry] ([family entry])."
 ```
 
+[ZL: call out that it's just `through` and not `running through` ? ]::
+
 We can simply use this instead:
 
 > phrase: {ph_repeattable} repeat through (table name):
@@ -10550,6 +10527,8 @@ Element		Symbol	Atomic number	Atomic weight
 "Zinc"		--		30				65
 "Uranium"	"U"		92				238
 ```
+
+[ZL: this should emphasize that trying to read from a blank entry generates a runtime error, that these are like null pointers and not like unassigned values which get a default value for their kind. "useful to check" is understatement ]::
 
 In effect, blank entries don't exist. "--" is not a value, but only a hole where a value might be. It can be useful to check for this:
 
@@ -10938,6 +10917,8 @@ You exchange dictionaries, lexically crossing the Atlantic. Did you know that ac
 
 ## Defining things with tables {PM_TableDefiningNothing} {PM_TableDefiningTheImpossible}
 
+[ZL: I suggest either re-titling this defining objects with tables or emphasizing that this applies to any subkind of object, not just things, or both]::
+
 ^^{tables: creating multiple things with a table}^^{things+kind+: creating: multiple things with a table}^^{properties: defining properties with a table}^^{defining: things: multiply using tables}^^{tables: defining multiple kinds with a table}^^{kinds: defining: multiple kinds with a table}^^{defining: kinds: multiply using tables}
 Suppose we need to create a collection of items which differ in their properties, but are basically part of a larger pattern. For instance, here we set up what we need to make a collection of coloured shirts:
 
@@ -10966,11 +10947,13 @@ a green jersey		1953				"highest point scorer on sprints"
 a white jersey		1975				"best cyclist aged 25 or less"
 ```
 
+[ZL: "that particular property is simply not set for that particular item"... not really. They get the default value for its kind *unlike* other blank entries in other tables]::
+
 The first column provides names for the new things to be created. Subsequent columns provide property values. Note that we did not need to say that jerseys have a number called "year established" because Inform is able to infer this from the column heading and the presence of numbers in the column; similarly for "citation". Lastly, note that if any entry is blank (written "--") then that particular property is simply not set for that particular item.
 
 Note that Inform reads articles such as "the" or "a" in the first column just as it would when something is created with any other sentence.
 
-[ZL: link it?]::
+[ZL: it'd be nice to have more discussion and an example here of defining subkinds. also, link Reliques?]::
 
 It's even possible to define kinds this way, though it's rare to need to create many kinds at once. (See the worked example [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph). There's no special syntax needed: rather than saying "Some jerseys are defined by..." we would say "Some kinds of jersey are defined by...")
 
