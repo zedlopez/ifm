@@ -12021,6 +12021,7 @@ One produces a single object, the other produces two. Inform gives precedence to
 ## What are activities? {ACTIVITIES} {kind_activity} {PM_BadActivityName}
 
 ^^{activities}^^{activities: not the same as actions}^^{actions: not the same as activities}
+
 It is poor form to define with negatives, but the first thing to say about activities is that they are *not* actions. This needs saying because Inform often seems to treat them as if they are, by allowing us to write rules like so:
 
 ``` inform7
@@ -12028,6 +12029,8 @@ Before printing the name of a woman, say "Ms ".
 ```
 
 With this rule in place, someone called "Daphne" will always be described as "Ms Daphne", and so on. The language looks as if we were imposing a rule on an action called "printing the name of", but there is no such action: instead, it is an "activity". To spell out the difference:
+
+[ZL: "for a fictional actor such as the protagonist" ? ]::
 
 ``` inform7
 An action is a simulated task for the fictional protagonist.
@@ -12039,7 +12042,10 @@ Activities allow us to influence or change some of the standard habits of Inform
 
 ## How activities work
 
+[ZL: none of the built-in activities last beyond a turn, but there's nothing stopping other activities from doing so ]::
+
 ^^{activities}^^{going on (activity)+adj+}^^{activities: golden rules for constructing}
+
 All activities start, continue for a while and then finish: however, no activity ever runs on for more than a single turn. Several activities can be going on at the same time. For instance, suppose the following is printed as part of the description of a grocery:
 
 ``` inform7
