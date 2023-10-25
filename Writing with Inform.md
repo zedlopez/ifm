@@ -5,6 +5,7 @@
 ## Preface
 
 ^^{Inform 6}
+
 Welcome to Inform, a design system for interactive fiction based on natural language.
 
 Interactive fiction is a literary form which involves programming a computer so that it presents a reader with a text which can be explored. Inform aims to make the burden of learning to program such texts as light as possible. It is a tool for writers intrigued by computing, and computer programmers intrigued by writing. Perhaps these are not so very different pursuits, in their rewards and pleasures.
@@ -41,7 +42,8 @@ The original development of Inform 7 was a long haul, and I would particularly l
 
 ## The facing pages
 
-^^{user interface <-- interface <-- IDE interface}^^{user interface: facing pages layout}
+^^{user interface <-- interface <-- IDE interface} ^^{user interface: facing pages layout}
+
 {OSX:}This Public Beta of Inform 7 runs on Mac OS X through the graphical user interface created by Andrew Hunter and Toby Nelson.
 
 {Windows:}This Public Beta of Inform 7 runs on Windows through the graphical user interface created by David Kinder.
@@ -67,6 +69,7 @@ The exception is the Settings panel, which contains some preference settings for
 ## The Go! button {PM_StartsOutsideRooms} {PM_NoStartRoom}
 
 ^^{user interface: Go button} ^^{Go button+ui+}
+
 Clicking the Go button translates the text in the Source panel into a computer program which enacts the interactive fiction, and automatically sets it going (in the Story panel, which opens as needed).
 
 If the Source is empty of text, Inform will be unable to create anything: it needs at least one name of a location where the drama can unfold. For reasons of tradition, such locations are normally called "rooms", though people have used them to represent anything from grassy fields to states of mind and other metaphorical places.
@@ -92,6 +95,7 @@ Clicking Go with this text in the Source panel will result in a short delay, aft
 ## The Replay button
 
 ^^{user interface: Replay button} ^^{Replay button+ui+}
+
 Replay works identically to Go, except that it does something further: once the story is created, it automatically plays through the same commands as were typed into the previous version. For instance: suppose we click Go to bring Midsummer Day into being, and find ourselves playing the story. We type "look" and find that there is not much to see. Going back to the source, we add
 
 ``` inform7
@@ -112,7 +116,8 @@ Instead of clicking Go, we click Replay, and can sit back and watch what has cha
 
 ## The Index and Results panels
 
-^^{user interface: Index panel} ^^{Index panel+ui+}^^{user interface: Results panel} ^^{Results panel+ui+}
+^^{user interface: Index panel} ^^{Index panel+ui+} ^^{user interface: Results panel} ^^{Results panel+ui+}
+
 If, when Go! is clicked, the text in the Source panel is not fully understood, then Inform will generate a report of the problems it found, which will open in the "Errors" panel. (Other information is also available in "Errors", but most of it is used for debugging Inform, and can be ignored.)
 
 On the other hand, if the text was fully understood then another new panel will become available: the "Index". This is a cross-referenced index of the source, or rather, of the interactive fiction which has been generated. The Index is only an optional convenience, but becomes more and more helpful as the fiction grows larger. Its exact format does not matter for now.
@@ -129,7 +134,8 @@ Lastly, the icon ![help](doc_images/help.png) hints that there is a relevant pag
 
 [ZL: possibly outdated; I don't know. https://inform7.atlassian.net/browse/I7-1945 ]::
 
-^^{user interface: Skein panel} ^^{Skein panel+ui+}^^{user interface: Replay button} ^^{Replay button+ui+}
+^^{user interface: Skein panel} ^^{Skein panel+ui+} ^^{user interface: Replay button} ^^{Replay button+ui+}
+
 The Replay button demonstrates that Inform must be quietly remembering the commands typed into the last run through the story. In fact it remembers, and automatically organises, *every* previous run.
 
 Inform's approach to testing interactive fiction is to treat it as being like the analysis of other turn-based games, such as chess. It would be prohibitively difficult to work out every possible combination of moves: instead, we analyse those which go somewhere, and look for significant choices. Every Queen's Gambit begins with the same first three moves (1. d4, d5; 2. c4), but then there is a choice, as the next move decides whether we have a Queen's Gambit Accepted (dxc4) or Declined (e6). Books about chess often contain great tables of such openings, which run together for a while but eventually diverge. To learn chess, one must explore all of these variations.
@@ -144,7 +150,8 @@ The user interface for the Skein looks slightly different on different versions 
 
 ## Creating the world {PM_NoSuchVerb} {PM_NoSuchVerbComma} {PM_NegatedVerb1} {PM_TwoLikelihoods} {PM_CantAssertAdjective} {PM_CantAssertNegatedEverywhere} {PM_CantAssertNegatedRelations} {PM_CantAssertNonKind} {PM_CantAssertQuantifier}
 
-^^{`is <-- to be}^^{initial state of the world <-- beginning of story <-- introduction} ^^{starting conditions} ^^{assertions}^^^{initial state of the world <-- story structure: beginning}
+^^{`is <-- to be} ^^{initial state of the world <-- beginning of story <-- introduction} ^^{starting conditions} ^^{assertions}^^^{initial state of the world <-- story structure: beginning}
+
 Designing an interactive fiction can be divided into two related activities. One is the creation of the world as it appears at the start of play: where and what everything is. The other is to specify the rules of play, which shape how the player interacts with that initially created world. A new Inform project is void and without form, so to speak, with nothing created: but it starts with hundreds of standard rules already in place.
 
 The same division between creating things, and laying down rules, is visible in Inform source text. The creation of the world is done by making unconditional factual statements about it. For example,
@@ -165,7 +172,8 @@ The world described by these assertions is the starting condition of the story: 
 
 ## Making rules
 
-^^{rules: defining} ^^{defining: rules}^^^{defining <-- creating}^^{+to+if (a condition)}^^{+to+now (a condition)}^^{Phrases page of Index panel+ui+} ^^{user interface: Index panel: Phrases page} ^^{Index panel+ui+: Phrases page}
+^^{rules: defining} ^^{defining: rules}^^^{defining <-- creating} ^^{+to+if (a condition)} ^^{+to+now (a condition)} ^^{Phrases page of Index panel+ui+} ^^{user interface: Index panel: Phrases page} ^^{Index panel+ui+: Phrases page}
+
 The other kind of sentence tells Inform what should happen in certain circumstances, and reads like an instruction issued to someone:
 
 ``` inform7
@@ -195,7 +203,8 @@ Every one of the built-in phrases has a definition somewhere in this book. The f
 
 ## Punctuation {PM_UnendingQuote} {PM_UnendingComment} {PM_TooMuchQuotedText} {PM_WordTooLong} {PM_EnigmaticPronoun} {PM_EnigmaticThey}
 
-^^{punctuation}^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks}^^^{punctuation: full stop <-- full stop <-- period}^^^{punctuation: full stop <-- punctuation: period}^^^{punctuation: square brackets <-- square brackets}^^{punctuation: square brackets: comments} ^^{`[ ]: comments}^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions}^^{punctuation: question mark, ending sentences <-- question mark} ^^{(?), ending sentences+sourcepart+}^^{punctuation: exclamation mark, ending sentences <-- exclamation mark} ^^{(!), ending sentences+sourcepart+}^^{punctuation: apostrophe, meaning quotation mark <-- apostrophe} ^^{('), meaning (")+sourcepart+}^^^{punctuation: quotation marks <-- quotation marks}^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}^^{comments: in source text}^^{line breaks: produced by sentence-ending punctuation}
+^^{punctuation} ^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks}^^^{punctuation: full stop <-- full stop <-- period}^^^{punctuation: full stop <-- punctuation: period}^^^{punctuation: square brackets <-- square brackets} ^^{punctuation: square brackets: comments} ^^{`[ ]: comments} ^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions} ^^{punctuation: question mark, ending sentences <-- question mark} ^^{(?), ending sentences+sourcepart+} ^^{punctuation: exclamation mark, ending sentences <-- exclamation mark} ^^{(!), ending sentences+sourcepart+} ^^{punctuation: apostrophe, meaning quotation mark <-- apostrophe} ^^{('), meaning (")+sourcepart+}^^^{punctuation: quotation marks <-- quotation marks} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts} ^^{comments: in source text} ^^{line breaks: produced by sentence-ending punctuation}
+
 An example rule from the previous section demonstrates one of Inform's conventions about punctuation, and is worth pausing to look at again.
 
 ``` inform7
@@ -286,6 +295,7 @@ As these examples begin to show, Inform source imitates the conventions of print
 ## Problems
 
 ^^{error messages: for source text} ^^{problem messages: for source text}
+
 The language used in the source reads as if it were English aimed at a human reader (and this is intentional: the designer, after all, is a human reader and needs to be able to understand their own source), but in reality Inform can only understand a very modest range of sentences and will complain if its limits are passed. Subtler problems arise if the source contains contradictions. For instance, the following "Problem" might be produced:
 
 ``` problems
@@ -300,7 +310,8 @@ This is a rather discursive error message, and if a similar problem were to occu
 
 ## Headings {HEADINGS} {PM_HeadingOverLine} {PM_HeadingStopsBeforeEndOfLine} {PM_BadTitleSentence}
 
-^^{headings} ^^{subheadings} ^^{source text: subdivisions}^^{title+biblio+}^^{author+biblio+}^^{bibliographic data}^^{(volume)+ofsource+ --> volume}^^{(book)+ofsource+ --> book}^^{(part)+ofsource+ --> part}^^{(chapter)+ofsource+ --> chapter}^^{(section)+ofsource+ --> section}
+^^{headings} ^^{subheadings} ^^{source text: subdivisions} ^^{title+biblio+} ^^{author+biblio+} ^^{bibliographic data} ^^{(volume)+ofsource+ --> volume} ^^{(book)+ofsource+ --> book} ^^{(part)+ofsource+ --> part} ^^{(chapter)+ofsource+ --> chapter} ^^{(section)+ofsource+ --> section}
+
 {OSX:}Once the source grows beyond 1000 words or so, it can all too easily become disorganised, and by the time it reaches the size of a novella it can be difficult to find things (though the Mac OS X user interface provides a Find function, Command-F).
 
 {Windows:}Once the source grows beyond 1000 words or so, it can all too easily become disorganised, and by the time it reaches the size of a novella it can be difficult to find things (though the Windows user interface provides a Find function, Ctrl-F).
@@ -333,7 +344,8 @@ Headings can be written in any format, provided they start with one of the five 
 
 ## Why using headings is a good idea
 
-^^{headings <-- index+ofsource+} ^^{subheadings} ^^{source text: subdivisions}^^{outline+ofsource+}^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page}^^{disambiguation: of source text}
+^^{headings <-- index+ofsource+} ^^{subheadings} ^^{source text: subdivisions} ^^{outline+ofsource+} ^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page} ^^{disambiguation: of source text}
+
 Reports of problems, as we have seen, often quote back the source to justify themselves. Rather than quoting line numbers ("Midsummer Day, line 2017" or something similar) Inform uses the ![Reveal](doc_images/Reveal.png) icon. The down side of this is that a glance at the list of problems might give little hint of whereabouts in the source the difficulties lie. Inform therefore makes use of headings to give a general indication:
 
 ``` problems
@@ -358,7 +370,8 @@ and not have the pillow mysteriously turn up on the camp bed, which hasn't been 
 
 ## The ``showme`` command
 
-^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME}^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}^^{user interface: Release button} ^^{Release button+ui+}
+^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page} ^^{user interface: Release button} ^^{Release button+ui+}
+
 Problem messages are generated when the source text does not make sense to Inform. Even if it does make sense, though, there is no guarantee that it does what the author intends, and the only way to find out is to test the result by playing through it (or asking others to). For the most part one plays as if one were the eventual reader of the work, but sometimes it is highly convenient to have the god-like powers which are an author's prerogative. These are provided by the testing commands, which are present at every stage until the final release version (generated by the Release button). They will be introduced in this manual as they become relevant: here is the first.
 
 The testing command ``showme`` prints out a brief summary about a room or thing, and any contents or parts it may have. Typing ``showme`` on its own shows the current room, but any item or room in the story, however distant, can be named instead. For instance:
@@ -386,7 +399,8 @@ Much of this can be seen, and seen more easily, in the World tab of the Index pa
 
 ## The ``test`` command {PM_TestMultiWord} {PM_TestDuplicate} {PM_TestBadRequirements} {PM_TestContainsUndo} {PM_TestCommandTooLong} {PM_TestDoubleWith} {PM_UnknownInternalTest}
 
-^^{TEST+testcmd+} ^^{testing commands: >TEST}^^{transcripts: creating with the TEST command}^^{test (test name) with (commands)+assert+}^^{PURLOIN+testcmd+} ^^{testing commands: >PURLOIN}
+^^{TEST+testcmd+} ^^{testing commands: >TEST} ^^{transcripts: creating with the TEST command} ^^{test (test name) with (commands)+assert+} ^^{PURLOIN+testcmd+} ^^{testing commands: >PURLOIN}
+
 The only way to thoroughly test a work of IF is to run a complete solution through it, and carefully check the resulting transcript of dialogue. The Skein and Transcript tools of the Inform application are provided for exactly this purpose.
 
 All the same, most works of interactive fiction contain occasional vignettes, either in terms of short scenes of narrative, or in the behaviour of particular things or rooms, which we would like to test without the fuss of using the full story-level Skein tool. The examples in the documentation are like this: in almost every example, typing ``test me`` puts the story through its paces.
@@ -440,7 +454,8 @@ This can also make test scripts shorter, but of course it's important to make su
 
 ## Material not for release
 
-^^{release version (of the story)}^^{test version (of the story) <-- debug version (of the story)}^^{omitting code, for release version}^^{`not for release}^^{`for release only}^^{testing commands <-- debugging commands}^^{testing commands: defining} ^^{defining: testing commands}^^{headings} ^^{subheadings} ^^{source text: subdivisions}
+^^{release version (of the story)} ^^{test version (of the story) <-- debug version (of the story)} ^^{omitting code, for release version} ^^{`not for release} ^^{`for release only} ^^{testing commands <-- debugging commands} ^^{testing commands: defining} ^^{defining: testing commands} ^^{headings} ^^{subheadings} ^^{source text: subdivisions}
+
 Special testing commands, like ``test`` and ``showme``, are automatically excluded from the story if it is exported from the Inform application using the Release button. We sometimes want to write our own for-testing-purposes-only code, though, and for this purpose we are allowed to designate whole headings as being "not for release":
 
 ``` inform7
@@ -466,7 +481,8 @@ That is, it marks material included only in a Release version.
 
 ## Installing extensions {PM_BogusExtension}
 
-^^{extensions: installing}^^{files (compiling): extensions}^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
+^^{extensions: installing} ^^{files (compiling): extensions} ^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
+
 The original Inform of 1993 provided no special facilities for "extensions" – in effect, additional packets of rules providing extra features – but the creation and circulation of these extensions soon became a flourishing part of Inform culture. Today's Inform actively promotes sharing of such extensions, both to bring writers together and to support good practice. For the user of an extension, the advantage is clear: why go to great trouble to (say) work out how to make doors open automatically as needed, when somebody else has already perfected this? For the writer of an extension, there is the satisfaction of producing a good solution to a ticklish problem, and contributing to the public good.
 
 Newcomers will probably not need extensions for quite some while, but there is nothing difficult about using them, so a few brief notes are worth giving here. (The final chapter of the documentation, [Extensions] covers the writing of new extensions.)
@@ -509,7 +525,8 @@ Each time that Inform translates any source text, it performs a quick check of t
 
 ## Including extensions {PM_IncludeExtQuoted} {PM_ExtVersionMalformed} {PM_ExtMiswordedBeginsHere} {PM_ExtInadequateVM} {PM_ExtMisidentifiedEnds}
 
-^^{extensions: using}^^{include (extension) by (extension author)+assert+}^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
+^^{extensions: using} ^^{include (extension) by (extension author)+assert+} ^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
+
 We talk about "including" such an extension into a work of IF because the process merges rules and behaviours from the extension with those we have described ourselves. It's not uncommon for contributions by five or six different people to be pooled together this way.
 
 Including an extension is only a matter of writing a single sentence in the source. For instance:
@@ -524,7 +541,8 @@ Many extensions come with their own documentation. Again, follow the "Installed 
 
 ## Use options {PM_UONotNumerical} {PM_UnknownUseOption} {OPTIONS}
 
-^^{use options}^^{use (options...)+assert+}^^{punctuation: comma: displaying serial comma} ^^^{punctuation: comma <-- comma}^^{`,: displaying serial comma}^^{scoring: enabling}^^{descriptions (displayed): full-length room descriptions / abbreviated room descriptions}^^{rooms+kind+: descriptions}^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+}^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+}^^{use options: catalogue: `scoring} ^^{scoring+useopt+}^^{use options: catalogue: `full-length room descriptions} ^^{full-length room descriptions+useopt+}^^{use options: catalogue: `abbreviated room descriptions} ^^{abbreviated room descriptions+useopt+}^^{use options: catalogue: `VERBOSE room descriptions} ^^{VERBOSE room descriptions+useopt+}^^{use options: catalogue: `BRIEF room descriptions} ^^{BRIEF room descriptions+useopt+}^^{use options: catalogue: `SUPERBRIEF room descriptions} ^^{SUPERBRIEF room descriptions+useopt+}^^{use options: catalogue: `undo prevention} ^^{undo prevention+useopt+}^^{>UNDO}
+^^{use options} ^^{use (options...)+assert+} ^^{punctuation: comma: displaying serial comma} ^^^{punctuation: comma <-- comma} ^^{`,: displaying serial comma} ^^{scoring: enabling} ^^{descriptions (displayed): full-length room descriptions / abbreviated room descriptions} ^^{rooms+kind+: descriptions} ^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+} ^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+} ^^{use options: catalogue: `scoring} ^^{scoring+useopt+} ^^{use options: catalogue: `full-length room descriptions} ^^{full-length room descriptions+useopt+} ^^{use options: catalogue: `abbreviated room descriptions} ^^{abbreviated room descriptions+useopt+} ^^{use options: catalogue: `VERBOSE room descriptions} ^^{VERBOSE room descriptions+useopt+} ^^{use options: catalogue: `BRIEF room descriptions} ^^{BRIEF room descriptions+useopt+} ^^{use options: catalogue: `SUPERBRIEF room descriptions} ^^{SUPERBRIEF room descriptions+useopt+} ^^{use options: catalogue: `undo prevention} ^^{undo prevention+useopt+} ^^{>UNDO}
+
 One more preliminary. Inform has a small number of optional settings which affect the result of translating the source. The sentence:
 
 ``` inform7
@@ -580,7 +598,8 @@ brings about both of these changes.
 
 ## Administering classroom use {OPTIONSFILE}
 
-^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+}^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+}^^{use options: catalogue: `telemetry recordings} ^^{telemetry recordings+useopt+}^^{Options.txt} ^^{files (compiling): Options.txt}
+^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+} ^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+} ^^{use options: catalogue: `telemetry recordings} ^^{telemetry recordings+useopt+} ^^{Options.txt} ^^{files (compiling): Options.txt}
+
 Inform is increasingly used in education, where teachers sometimes need to install it on a whole room of computers at once, and want to monitor their students' progress. There is no special "classroom" version of Inform, but a couple of small administration features in the standard Inform – usually never needed – might be helpful to teachers.
 
 When Inform starts up, it now looks for a file called Options.txt inside the user's home folder for Inform. (On Mac OS X, this is "~/Library/Inform"; on Windows, "My Documents\Inform", and so on.) If the file is present, then the text in it is added to the source text of everything Inform translates.
@@ -622,7 +641,8 @@ Now Mr Lebling's class won't be confronted with English spellings, and so on. An
 
 ## Limits and the Settings panel {PM_BadICLIdentifier} {STORYFILES}
 
-^^{limits: of Inform 6 compiler}^^{limits: of story file}^^{memory limits}^^{memory economy+useopt+}^^{Inform 6}^^{Z-machine}^^{Glulx}^^{virtual machine}^^{Z-machine: memory limits}^^{Glulx: memory limits}^^{virtual machine: memory limits}^^{use options: catalogue: `memory economy}^^{use options: catalogue: Inform 6 memory limits}
+^^{limits: of Inform 6 compiler} ^^{limits: of story file} ^^{memory limits} ^^{memory economy+useopt+} ^^{Inform 6} ^^{Z-machine} ^^{Glulx} ^^{virtual machine} ^^{Z-machine: memory limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits} ^^{use options: catalogue: `memory economy} ^^{use options: catalogue: Inform 6 memory limits}
+
 No computer has unlimited capacity, and a large, complex project may eventually bump its head against the ceiling.
 
 Inform is a system for translating textual descriptions of interactive fiction into "story files". No single format of story file is standard to the IF community. The formats developed over the history of IF differ in three key respects:
@@ -655,7 +675,8 @@ The ultimate memory-saving device, of course, is the one used by book publishers
 
 ## What to do about a bug
 
-^^{bugs in Inform}^^{error messages: abject failures of Inform} ^^{problem messages: abject failures of Inform}^^{inform7.com+web+}
+^^{bugs in Inform} ^^{error messages: abject failures of Inform} ^^{problem messages: abject failures of Inform} ^^{inform7.com+web+}
+
 All software has bugs, and Inform is no exception. The most obvious bugs are the ones which Inform catches itself, when it confesses that it has halted in failure, or translated the source text into a program which cannot be compiled further. But sometimes it will also happen that Inform will issue a misleading Problem message, or appear to work normally but to produce a story which does not do what it should have done.
 
 It is very helpful for users to report faults, so that the program can be improved for everyone else. To report a fault, please first check with the Inform home page to make sure that the version of Inform you have used to detect the fault is the latest version available. You can find always find the latest versions at the [Inform 7 downloads page](http://inform7.com/downloads/).
@@ -666,7 +687,8 @@ It may be that someone else has already identified the bug and even that a worka
 
 ## Does Inform really understand English?
 
-^^{English: really understanding}^^{natural language, really understanding}
+^^{English: really understanding} ^^{natural language, really understanding}
+
 No. No computer does, and Inform does not even try to read the whole wide range of text: it is a practical tool for a particular purpose, and it deals only with certain forms of sentence useful to that purpose. Inform source text may look like "natural language", the language we find natural among ourselves, but in the end it is a computer programming language. Many things which seem reasonable to the human reader are not understood by Inform. For instance, Inform understands
 
 ``` inform7
@@ -715,7 +737,8 @@ That disclaimer completes the groundwork, and we are ready to begin on simulatin
 
 ## Descriptions
 
-^^{initial state of the world} ^^{starting conditions} ^^{assertions}^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}^^{rooms+kind+: creating} ^^{defining: rooms}^^{things+kind+: creating} ^^{defining: things}^^^{rooms+kind+ <-- places <-- locations} ^^^{things+kind+ <-- objects}^^{player: initial location} ^^{initial location of player}
+^^{initial state of the world} ^^{starting conditions} ^^{assertions} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts} ^^{rooms+kind+: creating} ^^{defining: rooms} ^^{things+kind+: creating} ^^{defining: things}^^^{rooms+kind+ <-- places <-- locations} ^^^{things+kind+ <-- objects} ^^{player: initial location} ^^{initial location of player}
+
 At its simplest, the interactive fiction will be simulating a physical world to explore. The forerunner of today's IF is generally agreed to be a computer simulation by ^{@Will Crowther} of the exploration of a cave system in the Mammoth and Flint Ridge chain of caves in Kentucky, a part of which might be described in Inform thus:
 
 ``` inform7
@@ -755,7 +778,8 @@ then the first room to be created will actually be the Y2 Rock Room, so that's w
 
 ## Rooms and the map {kind_room} {MAP} {PM_SameKindEquated} {PM_DescriptionsEquated}
 
-^^{rooms+kind+: connections between rooms}^^{connections between rooms <-- exits}^^{index map <-- map}^^{directions+kind+ <-- compass directions}^^{`called: in creating rooms}^^{`from: inside / outside from} ^^{`inside from} ^^{`outside from}^^{use options: catalogue: `unabbreviated object names} ^^{unabbreviated object names+useopt+}^^{abbreviations: object names}
+^^{rooms+kind+: connections between rooms} ^^{connections between rooms <-- exits} ^^{index map <-- map} ^^{directions+kind+ <-- compass directions} ^^{`called: in creating rooms} ^^{`from: inside / outside from} ^^{`inside from} ^^{`outside from} ^^{use options: catalogue: `unabbreviated object names} ^^{unabbreviated object names+useopt+} ^^{abbreviations: object names}
+
 Rooms are joined together at their edges by "map connections", most of which are pathways in one of the eight cardinal compass directions: north, northeast (written without a hyphen), east, southeast, south, southwest, west, northwest. We also have up and down, suitable for staircases or ladders. In real life, people are seldom conscious of their compass bearing when walking around buildings, but it makes a concise and unconfusing way for the player to say where to go next, so is generally accepted as a convention of the genre.
 
 Two more directions are provided by Inform: "inside" and "outside". These are best used when one location is, say, a meadow and the other is a woodcutter's hut in the middle of it; we might then say
@@ -808,7 +832,8 @@ is ordinarily read by Inform as constructing three rooms (Kitchen, Roaring Range
 
 ## One-way connections
 
-^^{rooms+kind+: one-way connections between rooms}^^{connections between rooms: one-way}^^{one-way connections}^^{connections between rooms: inconsistent directions}^^{connections between rooms: to nowhere}^^{`nowhere: in removing room connections}
+^^{rooms+kind+: one-way connections between rooms} ^^{connections between rooms: one-way} ^^{one-way connections} ^^{connections between rooms: inconsistent directions} ^^{connections between rooms: to nowhere} ^^{`nowhere: in removing room connections}
+
 Connections are ordinarily two-way, but do not have to be. One of the map connections in the Mammoth Cave simulation was made by the sentence:
 
 ``` inform7
@@ -846,7 +871,8 @@ Inform makes guesses about the first sentence, and makes a two-way connection; b
 
 ## Regions and the index map {kind_region} {REGIONS} {PM_ExistingRegion} {PM_RegionInTwoRegions} {PM_RegionRelation}
 
-^^{kinds: catalogue: region} ^^{regions+kind+ <-- kinds: catalogue: region}^^{rooms+kind+: grouping into regions}^^{index map}^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+^^{kinds: catalogue: region} ^^{regions+kind+ <-- kinds: catalogue: region} ^^{rooms+kind+: grouping into regions} ^^{index map} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+
 Rooms represent individual places to which one can go, but we tend to think of the world around us in larger pieces: we think of a house and a garden, rather than each of the single rooms of the house and all corners of its garden. To Inform a collection of rooms is called a "region", and we can create one like so:
 
 ``` inform7
@@ -873,7 +899,8 @@ but they are not allowed to overlap other than by one being entirely inside the 
 
 ## Kinds {KINDS} {PM_BothRoomAndSupporter} {PM_CantContainAndSupport} {PM_MiseEnAbyme} {PM_KindsIncompatible}
 
-^^{kinds}^^{kinds: catalogue: room} ^^{rooms+kind+ <-- kinds: catalogue: room}^^{kinds: catalogue: supporter} ^^{supporters+kind+ <-- kinds: catalogue: supporter}^^{kinds: catalogue: container} ^^{containers+kind+ <-- kinds: catalogue: container}^^{kinds: catalogue: thing} ^^{things+kind+ <-- kinds: catalogue: thing}^^{kinds: catalogue: direction} ^^{directions+kind+}^^{`called: in creating things}
+^^{kinds} ^^{kinds: catalogue: room} ^^{rooms+kind+ <-- kinds: catalogue: room} ^^{kinds: catalogue: supporter} ^^{supporters+kind+ <-- kinds: catalogue: supporter} ^^{kinds: catalogue: container} ^^{containers+kind+ <-- kinds: catalogue: container} ^^{kinds: catalogue: thing} ^^{things+kind+ <-- kinds: catalogue: thing} ^^{kinds: catalogue: direction} ^^{directions+kind+} ^^{`called: in creating things}
+
 The following description runs to only 33 words, but makes a surprisingly intricate design. It not only places things within rooms, but also places them very specifically with respect to each other:
 
 ``` inform7
@@ -912,7 +939,8 @@ In the Treehouse is a container called the cardboard box.
 
 ## Either/or properties
 
-^^{properties}^^{properties: either/or properties} ^^{either/or properties}^^{immobile things: `fixed in place} ^^{things+kind+: immobile: `fixed in place}^^{containers+kind+: open / closed}^^{containers+kind+: transparent / opaque}^^{containers+kind+: enterable}^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+}^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+}^^{openable / unopenable (container)+prop+} ^^{unopenable / openable (container)+prop+} ^^{openable (container)+propcat+} ^^{unopenable (container)+propcat+}^^{enterable (container)+prop+} ^^{enterable (container)+propcat+}^^{transparent / opaque (container)+prop+} ^^{opaque / transparent (container)+prop+} ^^{transparent (container)+propcat+} ^^{opaque (container)+propcat+}
+^^{properties} ^^{properties: either/or properties} ^^{either/or properties} ^^{immobile things: `fixed in place} ^^{things+kind+: immobile: `fixed in place} ^^{containers+kind+: open / closed} ^^{containers+kind+: transparent / opaque} ^^{containers+kind+: enterable} ^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+} ^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+} ^^{openable / unopenable (container)+prop+} ^^{unopenable / openable (container)+prop+} ^^{openable (container)+propcat+} ^^{unopenable (container)+propcat+} ^^{enterable (container)+prop+} ^^{enterable (container)+propcat+} ^^{transparent / opaque (container)+prop+} ^^{opaque / transparent (container)+prop+} ^^{transparent (container)+propcat+} ^^{opaque (container)+propcat+}
+
 Some containers, like bottles, can be opened: others, like buckets, cannot. If they can be opened, then sometimes they will be open, and sometimes closed. These are examples of properties, which can change during play. The following source sets some properties:
 
 ``` inform7
@@ -931,7 +959,8 @@ With a really large cardboard box, we might imagine that the player could get in
 
 ## Properties depend on kind {PM_PropertyNotPermitted}
 
-^^{properties}^^{properties: dependence on kind}^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+}^^{immobile things: supporters made automatically immobile}^^{things+kind+: immobile: because they're supporters}^^{supporters+kind+: default immobility}
+^^{properties} ^^{properties: dependence on kind} ^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+} ^^{immobile things: supporters made automatically immobile} ^^{things+kind+: immobile: because they're supporters} ^^{supporters+kind+: default immobility}
+
 Properties depend very much on kind. It makes no sense to ask whether a room is transparent or opaque, for instance, so Inform will not allow this either to be specified or queried.
 
 Another way that kind influences properties can be seen from an earlier example:
@@ -948,7 +977,8 @@ The table is portable.
 
 ## Scenery
 
-^^{scenery (thing)+prop+} ^^{scenery (thing)+propcat+}^^{immobile things: `scenery}^^{things+kind+: immobile: `scenery}^^{hiding things from room descriptions by making them scenery <-- concealment+rel+: in a room}^^{descriptions (displayed): hiding things from room descriptions}^^{supporters+kind+: mentioned because of supported things}
+^^{scenery (thing)+prop+} ^^{scenery (thing)+propcat+} ^^{immobile things: `scenery} ^^{things+kind+: immobile: `scenery} ^^{hiding things from room descriptions by making them scenery <-- concealment+rel+: in a room} ^^{descriptions (displayed): hiding things from room descriptions} ^^{supporters+kind+: mentioned because of supported things}
+
 As we have just seen, making something "fixed in place" will prevent it from being picked up or moved. But it remains substantial enough to be described in its own paragraph of text when the player visits its location. This can be unfortunate if it has also been described already in the body of the main description for that location. For instance, if we wrote:
 
 ``` inform7
@@ -982,7 +1012,8 @@ If the player takes the candlestick and the Times, the teak table will disappear
 
 ## Backdrops {kind_backdrop} {PM_EverywhereNonBackdrop} {PM_CantChangeEverywhere} {PM_EverywhereMisapplied}
 
-^^{kinds: catalogue: backdrop} ^^{backdrops+kind+ <-- kinds: catalogue: backdrop}^^{scenery (thing)+prop+: backdrops made automatically scenery}^^{rooms+kind+: things in more than one room}^^{things+kind+: in more than one room}^^{regions+kind+: backdrops in regions}^^{(everywhere), placing backdrops+sourcepart+}^^{`nowhere: placing backdrops}
+^^{kinds: catalogue: backdrop} ^^{backdrops+kind+ <-- kinds: catalogue: backdrop} ^^{scenery (thing)+prop+: backdrops made automatically scenery} ^^{rooms+kind+: things in more than one room} ^^{things+kind+: in more than one room} ^^{regions+kind+: backdrops in regions} ^^{(everywhere), placing backdrops+sourcepart+} ^^{`nowhere: placing backdrops}
+
 It is a cardinal rule that nothing can be in more than one place at the same time, but rules were made to be broken, and an exception is allowed for a special kind of thing called a "backdrop". For instance:
 
 ``` inform7
@@ -1017,7 +1048,8 @@ Inform assumes that backdrops are also scenery unless told otherwise, so this wi
 
 ## Properties holding text
 
-^^{properties: value properties} ^^{value properties}^^{properties: holding text}^^{description of (room)+prop+} ^^{description of (room)+propcat+}^^{text: in properties}
+^^{properties: value properties} ^^{value properties} ^^{properties: holding text} ^^{description of (room)+prop+} ^^{description of (room)+propcat+} ^^{text: in properties}
+
 The properties we have seen so far have all been either/or: either open or closed, either transparent or opaque, either fixed in place or portable, either openable or not openable. However, some properties can have a much wider range of possibilities. For instance, the "description" of a room is the text revealed when the player first enters it, or types "look". This needs to be textual: Inform would complain if, for instance, we tried to set the description of something to the number 42. We have already seen a concise way to set the description of a room:
 
 ``` inform7
@@ -1038,7 +1070,8 @@ The Painted Room is north of the Undertomb. The description is "This is the Pain
 
 ## Two descriptions of things {PM_TwoAppearances} {PM_TextWithoutSubject}
 
-^^{description of (room)+prop+} ^^{description of (room)+propcat+}^^{description of (thing)+prop+} ^^{description of (thing)+propcat+}^^{initial appearance of (thing)+prop+} ^^{initial appearance of (thing)+propcat+}^^{handled (thing)+prop+} ^^{handled (thing)+propcat+}^^{descriptions (displayed): initial appearance of thing}^^^{descriptions (displayed) <-- appearance}^^{Inform 6 equivalent: `initial}
+^^{description of (room)+prop+} ^^{description of (room)+propcat+} ^^{description of (thing)+prop+} ^^{description of (thing)+propcat+} ^^{initial appearance of (thing)+prop+} ^^{initial appearance of (thing)+propcat+} ^^{handled (thing)+prop+} ^^{handled (thing)+propcat+} ^^{descriptions (displayed): initial appearance of thing}^^^{descriptions (displayed) <-- appearance} ^^{Inform 6 equivalent: `initial}
+
 The player's first sight of something is the text used as its "initial appearance":
 
 ``` inform7
@@ -1061,7 +1094,8 @@ The description of the plain ring is "No better than the loops of metal the old 
 
 ## Doors {kind_door} {PM_BothWaysDoor} {PM_DoorUnconnected} {PM_DoorOverconnected} {PM_DoorToNonRoom} {PM_DoorInThirdRoom} {PM_RoomMissingDoor} {PM_BadMapCell}
 
-^^{kinds: catalogue: door} ^^{doors+kind+ <-- kinds: catalogue: door}^^{connections between rooms: doors}^^{through+relverb+}
+^^{kinds: catalogue: door} ^^{doors+kind+ <-- kinds: catalogue: door} ^^{connections between rooms: doors} ^^{through+relverb+}
+
 The map of an interactive fiction is the layout of rooms and the entrances and exits which connect them. So far, these map connections have always run from one room to another, like so:
 
 ``` inform7
@@ -1084,7 +1118,6 @@ The Undertomb is east of the Orchard. The heavy iron grating is east of the Orch
 
 then Inform would say that this is a contradiction: we said the Undertomb was east of the Orchard, but then we said that the grating was east of the Orchard.
 Inform's "door" kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin's beguiling novel "The Tombs of Atuan", from which the above rooms are stolen, it is not a grating which interposes, but: ^^{@Le Guin, Ursula K.}
-
 ``` inform7
 The red rock stair is east of the Orchard and above the Undertomb. The stair is an open door. The stair is not openable.
 ```
@@ -1139,7 +1172,8 @@ More often, we are dealing with a door and want to know what it leads to, but th
 
 ## Locks and keys
 
-^^{doors+kind+: locked}^^{containers+kind+: locked}^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+}^^{locked / unlocked (container/door)+prop+} ^^{unlocked / locked (container/door)+prop+} ^^{locked (container/door)+propcat+} ^^{unlocked (container/door)+propcat+}^^{lockable (container/door)+prop+} ^^{lockable (container/door)+propcat+}^^{matching key of (container/door)+prop+} ^^{matching key of (container/door)+propcat+}^^{unlocks+relverb+}^^{Inform 6 equivalent: `with_key}
+^^{doors+kind+: locked} ^^{containers+kind+: locked} ^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+} ^^{locked / unlocked (container/door)+prop+} ^^{unlocked / locked (container/door)+prop+} ^^{locked (container/door)+propcat+} ^^{unlocked (container/door)+propcat+} ^^{lockable (container/door)+prop+} ^^{lockable (container/door)+propcat+} ^^{matching key of (container/door)+prop+} ^^{matching key of (container/door)+propcat+} ^^{unlocks+relverb+} ^^{Inform 6 equivalent: `with_key}
+
 It seems unwise for a door in Notting Hill to be unlocked, so:
 
 ``` inform7
@@ -1164,7 +1198,8 @@ Containers can also have locks, in exactly the same way, and are allowed to have
 
 ## Devices and descriptions {kind_device}
 
-^^{kinds: catalogue: device} ^^{devices+kind+}^^{switched on / off (device)+prop+} ^^{switched on (device)+propcat+} ^^{switched off (device)+propcat+}^^{Inform 6 equivalent: `switchable}^^{turning devices on / off}^^{descriptions (displayed): varying with properties}^^{text substitutions <-- text: substitutions}
+^^{kinds: catalogue: device} ^^{devices+kind+} ^^{switched on / off (device)+prop+} ^^{switched on (device)+propcat+} ^^{switched off (device)+propcat+} ^^{Inform 6 equivalent: `switchable} ^^{turning devices on / off} ^^{descriptions (displayed): varying with properties} ^^{text substitutions <-- text: substitutions}
+
 A "device" is another of the standard kinds of thing, and should be used for anything which can be switched on or off: a light switch, say, or a slide projector. Devices are generally machines, clockwork or electrical. A device is always either "switched on" or "switched off", but is switched off unless we specify otherwise.
 
 That makes three kinds of thing which will likely change their appearance according to which of their two possible states they are in: doors and containers, which can be open or closed; and devices, which can be switched on or switched off. We would like to produce text accordingly, and we can do this using Inform's ability to make (almost) any piece of text change with circumstances. For instance:
@@ -1181,7 +1216,8 @@ We could use a similar trick to make the appearance of a device change "if switc
 
 ## Light and darkness
 
-^^{light} ^^{darkness <-- light: lack of}^^{lighted / dark (room)+prop+} ^^{dark / lighted (room)+prop+} ^^{lighted (room)+propcat+} ^^{dark (room)+propcat+}^^{lit / unlit (thing)+prop+} ^^{unlit / lit (thing)+prop+} ^^{lit (thing)+propcat+} ^^{unlit (thing)+propcat+}^^{containers+kind+: open / closed}^^{containers+kind+: transparent / opaque}^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+}^^{transparent / opaque (container)+prop+} ^^{opaque / transparent (container)+prop+} ^^{transparent (container)+propcat+} ^^{opaque (container)+propcat+}
+^^{light} ^^{darkness <-- light: lack of} ^^{lighted / dark (room)+prop+} ^^{dark / lighted (room)+prop+} ^^{lighted (room)+propcat+} ^^{dark (room)+propcat+} ^^{lit / unlit (thing)+prop+} ^^{unlit / lit (thing)+prop+} ^^{lit (thing)+propcat+} ^^{unlit (thing)+propcat+} ^^{containers+kind+: open / closed} ^^{containers+kind+: transparent / opaque} ^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+} ^^{transparent / opaque (container)+prop+} ^^{opaque / transparent (container)+prop+} ^^{transparent (container)+propcat+} ^^{opaque (container)+propcat+}
+
 Rooms can be "dark" or "lighted", though they are lighted by default, and are lighted in all the examples we have seen so far.
 
 ``` inform7
@@ -1204,7 +1240,8 @@ It is possible to adjust the way darkness behaves, and we will see more on this 
 
 ## Vehicles and pushable things {kind_vehicle}
 
-^^{kinds: catalogue: vehicle} ^^{vehicles+kind+}^^{containers+kind+: vehicle as kind of container}^^{enterable (container)+prop+: vehicles made automatically enterable}^^{pushing things} ^^{things+kind+: pushable between rooms}^^{pushable between rooms (thing)+prop+} ^^{pushable between rooms (thing)+propcat+}^^{animals+kind+: rideable}^^{Rideable Vehicles+ext+} ^^{extensions: specific extensions: Rideable Vehicles}
+^^{kinds: catalogue: vehicle} ^^{vehicles+kind+} ^^{containers+kind+: vehicle as kind of container} ^^{enterable (container)+prop+: vehicles made automatically enterable} ^^{pushing things} ^^{things+kind+: pushable between rooms} ^^{pushable between rooms (thing)+prop+} ^^{pushable between rooms (thing)+propcat+} ^^{animals+kind+: rideable} ^^{Rideable Vehicles+ext+} ^^{extensions: specific extensions: Rideable Vehicles}
+
 Next in the tour of standard kinds is the "vehicle". This behaves like (indeed, is) an enterable container, except that it will not be portable unless this is specified.
 
 ``` inform7
@@ -1235,7 +1272,8 @@ Include Rideable Vehicles by Graham Nelson.
 
 ## Men, women and animals {kind_person}
 
-^^{kinds: catalogue: person} ^^{person+kind+ <-- people <-- kinds: catalogue: person}^^{kinds: catalogue: man} ^^{man+kind+ <-- men+kind+}^^{kinds: catalogue: woman} ^^{woman+kind+}^^{kinds: catalogue: animal} ^^{animals+kind+}^^{pronouns}^^{male / female / neuter (person)+prop+} ^^{female / male / neuter (person)+prop+} ^^{neuter / male / female (person)+prop+}^^{male (person)+propcat+} ^^{female (person)+propcat+} ^^{neuter (person)+propcat+}
+^^{kinds: catalogue: person} ^^{person+kind+ <-- people <-- kinds: catalogue: person} ^^{kinds: catalogue: man} ^^{man+kind+ <-- men+kind+} ^^{kinds: catalogue: woman} ^^{woman+kind+} ^^{kinds: catalogue: animal} ^^{animals+kind+} ^^{pronouns} ^^{male / female / neuter (person)+prop+} ^^{female / male / neuter (person)+prop+} ^^{neuter / male / female (person)+prop+} ^^{male (person)+propcat+} ^^{female (person)+propcat+} ^^{neuter (person)+propcat+}
+
 Rounding out the standard kinds provided by Inform are four for living things: "person", which is a kind of thing, and "man", "woman" and "animal", all kinds of person. For instance:
 
 ``` inform7
@@ -1256,7 +1294,8 @@ The Standard Rules don't make people behave differently according to their gende
 
 ## Articles and proper names
 
-^^{articles}^^{definite articles: when creating things}^^{indefinite articles: when creating things}^^{mass nouns}^^{`some: article}^^{`a / an / the --> a: in defining things} ^^{`an / a / the --> an: in defining things} ^^{`the / a / an --> the: in defining things}^^{singular-named / plural-named (thing)+prop+} ^^{plural-named / singular-named (thing)+prop+} ^^{singular-named (thing)+propcat+} ^^{plural-named (thing)+propcat+}^^{proper-named / improper-named (thing)+prop+} ^^{improper-named / proper-named (thing)+prop+} ^^{improper-named (thing)+propcat+} ^^{proper-named (thing)+propcat+}^^{indefinite article of (object)+prop+} ^^{indefinite article of (object)+propcat+}
+^^{articles} ^^{definite articles: when creating things} ^^{indefinite articles: when creating things} ^^{mass nouns} ^^{`some: article} ^^{`a / an / the --> a: in defining things} ^^{`an / a / the --> an: in defining things} ^^{`the / a / an --> the: in defining things} ^^{singular-named / plural-named (thing)+prop+} ^^{plural-named / singular-named (thing)+prop+} ^^{singular-named (thing)+propcat+} ^^{plural-named (thing)+propcat+} ^^{proper-named / improper-named (thing)+prop+} ^^{improper-named / proper-named (thing)+prop+} ^^{improper-named (thing)+propcat+} ^^{proper-named (thing)+propcat+} ^^{indefinite article of (object)+prop+} ^^{indefinite article of (object)+propcat+}
+
 Suppose we have said that:
 
 [ZL: perhaps refer to ambigously plural if only to say that it *doesn't* have to do with these?]::
@@ -1308,7 +1347,8 @@ Finally, we can override these settings, if they still come out not as we intend
 
 ## Carrying capacity
 
-^^{containers+kind+: carrying capacity}^^{supporters+kind+: carrying capacity}^^{person+kind+: carrying capacity}^^{player: carrying capacity}^^{carrying capacity of (container/supporter/person)+prop+} ^^{carrying capacity of (container/supporter/person)+propcat+}
+^^{containers+kind+: carrying capacity} ^^{supporters+kind+: carrying capacity} ^^{person+kind+: carrying capacity} ^^{player: carrying capacity} ^^{carrying capacity of (container/supporter/person)+prop+} ^^{carrying capacity of (container/supporter/person)+propcat+}
+
 The containers and supporters created so far have been boundlessly capacious: or rather, though we seldom notice the difference, have had a maximum carrying capacity of 100 items. This is clearly unrealistic for a small purse or a modest mantelpiece. We can impose upper limits with sentences like so:
 
 ``` inform7
@@ -1335,7 +1375,8 @@ The player will be able to remove all three items, but only put two of them back
 
 ## Possessions and clothing
 
-^^{possessions}^^{carrying+rel+} ^^{carrying+relcat+}^^{wearing+rel+} ^^{wearing+relcat+}^^^{wearing+rel+ <-- clothing}^^{wearable (thing)+prop+} ^^{wearable (thing)+propcat+}^^{Inform 6 equivalent: `clothing}^^{worn (thing)+adj+}^^{carried (thing)+adj+}^^{held (thing)+adj+}
+^^{possessions} ^^{carrying+rel+} ^^{carrying+relcat+} ^^{wearing+rel+} ^^{wearing+relcat+}^^^{wearing+rel+ <-- clothing} ^^{wearable (thing)+prop+} ^^{wearable (thing)+propcat+} ^^{Inform 6 equivalent: `clothing} ^^{worn (thing)+adj+} ^^{carried (thing)+adj+} ^^{held (thing)+adj+}
+
 We have seen how to place objects in rooms, and in containers or on supporters. But what about people? Perhaps it could be said that they "contain" the fillings in their teeth, or "support" a top hat, but this is not very natural. Inform therefore never speaks of things being "in" or "on" people. Instead, they have two sorts of possessions: the things they carry, and the things they wear. (Body parts, such as arms and legs, are different again: see "parts" below for a clue to how to do these.) Thus:
 
 ``` inform7
@@ -1370,7 +1411,8 @@ The player carries a scarlet gown. The gown is wearable.
 
 ## The player's holdall {kind_player's}
 
-^^{hold-all <-- sack object}^^{kinds: catalogue: player's holdall} ^^{player's holdall+kind+}^^{Inform 6 equivalent: `SACK_OBJECT}^^{possessions: a hold-all for the player's posessions}^^{carrying capacity of (container/supporter/person)+prop+: avoid overflowing player's capacity using a hold-all}
+^^{hold-all <-- sack object} ^^{kinds: catalogue: player's holdall} ^^{player's holdall+kind+} ^^{Inform 6 equivalent: `SACK_OBJECT} ^^{possessions: a hold-all for the player's posessions} ^^{carrying capacity of (container/supporter/person)+prop+: avoid overflowing player's capacity using a hold-all}
+
 When the player has only limited carrying capacity, play is likely to be tiresome, but we can make life easier by providing a way for the player to carry endless items without dozens of free hands to hold them all:
 
 ``` inform7
@@ -1393,7 +1435,8 @@ Of course, if the carrying capacity of the player is never reached then there wi
 
 ## Food
 
-^^{food}^^{eating+action+}^^{edible / inedible (thing)+prop+} ^^{inedible / edible (thing)+prop+} ^^{edible (thing)+propcat+} ^^{inedible (thing)+propcat+}
+^^{food} ^^{eating+action+} ^^{edible / inedible (thing)+prop+} ^^{inedible / edible (thing)+prop+} ^^{edible (thing)+propcat+} ^^{inedible (thing)+propcat+}
+
 We have nearly reached the end of the chapter on Things, but one either/or property for things remains: every thing is either "edible" or "inedible". Unless we say otherwise, things are inedible. But for instance we might write:
 
 ``` inform7
@@ -1404,7 +1447,8 @@ The player carries a Macintosh apple. The Macintosh is edible.
 
 ## Parts of things {PM_PartOfRoom} {PM_RoomOrDoorAsPart}
 
-^^{incorporation+rel+ <-- part of+relverb+} ^^{incorporation+relcat+}^^{components}^^{things+kind+: parts of things}
+^^{incorporation+rel+ <-- part of+relverb+} ^^{incorporation+relcat+} ^^{components} ^^{things+kind+: parts of things}
+
 Everything has one and only one kind. This is both good and bad: good for clarity, bad if something needs to behave in two different ways at once. How might we simulate a car with an ignition key, given that no single thing can be both a "vehicle" and a "device" at the same time?
 
 The Inform world model takes the view that such a car is too complicated to be simulated with a single thing. Instead it should be simulated as a vehicle (the car) which has a device (the ignition) attached. This is done using a third kind of containment to those seen so far ("in..." and "on..."): "part of".
@@ -1431,7 +1475,8 @@ Note that rooms and regions are not allowed to have parts. (Rooms are already pa
 
 ## Concealment
 
-^^{concealment+rel+} ^^{concealment+relcat+}^^{concealed (thing)+adj+}^^{hiding things carried by other characters}^^{concealed possessions} ^^{deciding the concealed possessions of something+activity+} ^^{deciding the concealed possessions of something+activitycat+}^^{possessions: deciding the concealed possessions of something+activity+}^^{particular possession (- thing)+glob+}^^{described / undescribed (thing)+prop+} ^^{undescribed / described (thing)+prop+} ^^{described (thing)+propcat+} ^^{undescribed (thing)+propcat+}^^{yourself (- person)+const+}
+^^{concealment+rel+} ^^{concealment+relcat+} ^^{concealed (thing)+adj+} ^^{hiding things carried by other characters} ^^{concealed possessions} ^^{deciding the concealed possessions of something+activity+} ^^{deciding the concealed possessions of something+activitycat+} ^^{possessions: deciding the concealed possessions of something+activity+} ^^{particular possession (- thing)+glob+} ^^{described / undescribed (thing)+prop+} ^^{undescribed / described (thing)+prop+} ^^{described (thing)+propcat+} ^^{undescribed (thing)+propcat+} ^^{yourself (- person)+const+}
+
 Though realism can become tiresome in interactive fiction, there are times when we cannot go along with Inform's normal assumption that all of a person's possessions are visible to everybody else. People are not like containers, which either show all of their holdings or not, according to whether they are open or transparent. If a man is carrying a fishing rod and a wallet, one will be on open show, the other not. Some clothing is outwardly visible, but not all.
 
 Whether or not something is concealed is not like the either/or properties we have seen so far – such as being "open" or "closed" – because it is not really a property of the thing itself, but depends on the habitual behaviour of its current owner. To talk about behaviour we have to use sentences of a kind not seen so far, and which will not fully be explained for some chapters to come.
@@ -1464,7 +1509,8 @@ Note that the "undescribed" property is automatically removed from anything carr
 
 ## The location of something
 
-^^{non-existence: starting things out of play}^^{things+kind+: starting out of play}^^{out of play}^^{things+kind+: location of}^^{enclosure+rel+} ^^{enclosure+relcat+}^^{indirect containment}^^{containment+rel+: indirect}^^{location (- object)+glob+}^^{Inform 6 equivalent: `IndirectlyContains}
+^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play} ^^{things+kind+: location of} ^^{enclosure+rel+} ^^{enclosure+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{location (- object)+glob+} ^^{Inform 6 equivalent: `IndirectlyContains}
+
 The model world created by Inform is partitioned into rooms. This means that everything which exists in the model world, exists in one of the rooms. If we write a sentence such as
 
 ``` inform7
@@ -1509,7 +1555,8 @@ because they are too vague. Inform needs to know exactly where the fob watch and
 
 ## Directions {kind_direction} {PM_TooManyDirections} {PM_ImproperlyMadeDirection} {PM_DirectionTooLong} {PM_NamelessDirection}
 
-^^{kinds: catalogue: direction} ^^{directions+kind+}^^{opposite of (direction)+prop+} ^^{opposite of (direction)+propcat+}^^{directions+kind+: defining} ^^{defining: directions}^^{index map}^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+^^{kinds: catalogue: direction} ^^{directions+kind+} ^^{opposite of (direction)+prop+} ^^{opposite of (direction)+propcat+} ^^{directions+kind+: defining} ^^{defining: directions} ^^{index map} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+
 "Direction" is a kind which is quite unlike most of those seen so far. While it has to do with the physical world, a direction does not exactly belong to it. One cannot find "southeast" sitting on a shelf. "Direction" is not a kind of thing, nor a kind of room: it is a kind in its own right.
 
 Every direction has an "opposite" property, which is always another direction. These occur in matched pairs. The opposite of north is south, just as the opposite of south is north. The opposite of southeast is northwest, the opposite of inside is outside, and so on. When Inform reads a sentence like...
@@ -1576,7 +1623,8 @@ off magnetic north.
 
 ## New kinds {NEWKINDS}
 
-^^{kinds <-- types}^^{kinds: defining} ^^{defining: kinds}^^{kinds: hierarchy of kinds}^^{kinds: of value}^^{kinds: of thing}^^{kinds: defining: kinds of thing}^^{defining: kinds of thing}^^{things+kind+: kinds of}^^{rooms+kind+}^^{things+kind+}^^{directions+kind+}^^{regions+kind+}^^{animals+kind+}^^{man+kind+}^^{woman+kind+}^^{Inform 6 equivalent: classes}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+^^{kinds <-- types} ^^{kinds: defining} ^^{defining: kinds} ^^{kinds: hierarchy of kinds} ^^{kinds: of value} ^^{kinds: of thing} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{rooms+kind+} ^^{things+kind+} ^^{directions+kind+} ^^{regions+kind+} ^^{animals+kind+} ^^{man+kind+} ^^{woman+kind+} ^^{Inform 6 equivalent: classes} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+
 Values are to Inform what nouns are to English sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because they have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort all of these different ideas out. That's the main aim of Inform's concept of "kind".
 
 Every value has a kind. The kind of 10 is "number"; the kind of 11:30 PM is "time"; the kind of "jinxed wizards pluck ivy from my quilt" is "text"; and so on. The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.
@@ -1643,7 +1691,8 @@ We will see more of these later. (This isn't specialising anything – "value" i
 
 ## Using new kinds
 
-^^{descriptions (displayed): default descriptions using new kinds}^^{kinds: defining: kinds of thing}^^{defining: kinds of thing}^^{things+kind+: kinds of}^^{kinds: uses of new kinds}^^{kinds: must define before using}
+^^{descriptions (displayed): default descriptions using new kinds} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{kinds: uses of new kinds} ^^{kinds: must define before using}
+
 This seems a good point to see what we can do with new kinds. Here we invent a new kind to provide a new sort of room:
 
 ``` inform7
@@ -1678,7 +1727,8 @@ without knowing that "coffer" is a kind, it simply makes a thing called "open co
 
 ## Degrees of certainty
 
-^^{(always / never), in assertions+sourcepart+}^^{(never / always), in assertions+sourcepart+}^^{(usually / seldom), in assertions+sourcepart+}^^{(seldom / usually), in assertions+sourcepart+}^^{default properties of kinds}^^{kinds: default properties}
+^^{(always / never), in assertions+sourcepart+} ^^{(never / always), in assertions+sourcepart+} ^^{(usually / seldom), in assertions+sourcepart+} ^^{(seldom / usually), in assertions+sourcepart+} ^^{default properties of kinds} ^^{kinds: default properties}
+
 When we write:
 
 ``` inform7
@@ -1701,7 +1751,8 @@ then Inform would not have permitted any exception to be made, and would have re
 
 ## Plural assertions {PM_PluralOfQuoted} {PM_PluralIsQuoted}
 
-^^{assertions: plural}^^{defining: things: using plurals}^^{things+kind+: creating: using plurals}^^{kinds: defining: kinds of thing}^^{defining: kinds of thing}^^{things+kind+: kinds of}^^{`plural of: in source text}^^{plurals: defining}^^{defining: plurals}^^{English: defining plural forms}
+^^{assertions: plural} ^^{defining: things: using plurals} ^^{things+kind+: creating: using plurals} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{`plural of: in source text} ^^{plurals: defining} ^^{defining: plurals} ^^{English: defining plural forms}
+
 As the following examples show, sentences can make several assertions at once by using the plural. Suppose we have defined a kind called "high-up fixture", for instance like so:
 
 ``` inform7
@@ -1736,7 +1787,8 @@ We are allowed to define more than one plural for the same singular text, and fo
 
 ## Kinds of value {KINDSVALUE}
 
-^^{kinds: of value <-- `enumerated value}^^{kinds: defining: kinds of value}^^{defining: kinds of value}^^{values: kinds of value}^^{kinds: enumerated values}^^{units of measure}
+^^{kinds: of value <-- `enumerated value} ^^{kinds: defining: kinds of value} ^^{defining: kinds of value} ^^{values: kinds of value} ^^{kinds: enumerated values} ^^{units of measure}
+
 So much for making new and more specialised kinds of object – for example, new kinds of room, or new kinds of animal. This allows us to describe the physical world in elegant ways, but what about concepts which aren't so physical?
 
 Without getting into philosophy, we can probably agree that numbers like 1, 2, 3, ..., and texts like "Jackdaws love my big sphinx of quartz", are not physical. Inside Inform, those are values, but not objects. Inform already has a good stock of this sort of concept built in, so it may not immediately seem clear why we need to create new ones. But in fact this is very useful. To describe the physical world, we need concepts like (for example) distance and brightness. We want to say that two armchairs are 12 feet apart, or that a given light-bulb is very dim. Here, "twelve feet" and "very dim" are clearly not physical objects; they need to be values, but not objects.
@@ -1769,7 +1821,8 @@ The difference here is not the way we create the kind, but the way we tell Infor
 
 ## Properties again {PM_ValueCantHaveProperties} {PM_ValueCantHaveVProperties}
 
-^^{properties}^^{relations}^^{properties: either/or properties} ^^{either/or properties}^^{properties: value properties} ^^{value properties}^^{properties: holding text}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}^^{even / odd (number)+adj+} ^^{odd / even (number)+adj+}
+^^{properties} ^^{relations} ^^{properties: either/or properties} ^^{either/or properties} ^^{properties: value properties} ^^{value properties} ^^{properties: holding text} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page} ^^{even / odd (number)+adj+} ^^{odd / even (number)+adj+}
+
 So now we have seen two fundamental ideas: "value" and "kind". We have seen how to make a source text which refers to many values – for example, Growler the Bengal tiger, 23kg, "Collapsed Dead End", blazing, 7, all values of different kinds.
 
 But we don't just want a way to refer to values, we want to lay out facts about them. Inform understands two sorts of fact, which it calls properties and relations. Properties are about single values in isolation: Growler is male. Relations are about how values interact with each other: Growler likes Bambi. (Or would like to eat Bambi, anyway.) Relations are really the central organising idea of Inform, and we've seen them many times already:
@@ -1792,7 +1845,8 @@ The Kinds index shows which kinds of object are allowed to have properties. Ever
 
 ## New either/or properties {PM_EitherOrAsValue} {PM_QualifiedCanBe} {PM_NonObjectCanBe} {PM_MiscellaneousEOProblem} {PM_ThisIsEitherOr}
 
-^^{properties: either/or properties: defining} ^^{either/or properties: defining}^^{defining: either/or properties}^^{Inform 6 equivalent: attributes}
+^^{properties: either/or properties: defining} ^^{either/or properties: defining} ^^{defining: either/or properties} ^^{Inform 6 equivalent: attributes}
+
 Properties can't be handed out completely freely. In the previous chapter, [Things], we saw that we were allowed to make a chair "portable" and to make a room "dark". But if we try this the other way round, Inform produces a Problem message. This is because every property must be created in a way which lays out what values are allowed to have it. The Standard Rules built into Inform say that
 
 ``` inform7
@@ -1837,7 +1891,8 @@ And now the umbrella, which is a thing and not a door or container, can also hav
 
 ## New value properties {PM_PropertyOfKind1} {PM_PropertyCalledArticle} {PM_PropertyCalledPresence} {PM_PropertyNameForbidden} {PM_PropertyUninitialisable} {PM_BadVisibilityWhen} {PM_PropertyTooSpecific} {PM_PropertyKindUnknown} {PM_PropertyKindVague} {PM_PropertyKindClashes} {PM_BadProvides} {PM_RedundantThatVaries}
 
-^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties}^^{(has), for defining properties+sourcepart+}^^{kinds: default values of kinds}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}^^{Inform 6 equivalent: properties}
+^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties} ^^{(has), for defining properties+sourcepart+} ^^{kinds: default values of kinds} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page} ^^{Inform 6 equivalent: properties}
+
 So much for either/or properties. Now we move on to properties which have values attached. The same principles apply, but the wording is different. For example,
 
 ``` inform7
@@ -1872,7 +1927,8 @@ If there are no instructions at all about the value of a property, Inform fills 
 
 ## Using new kinds of value in properties
 
-^^{kinds: defining: kinds of value}^^{defining: kinds of value}^^{values: kinds of value}^^{kinds: enumerated values}^^{text substitutions: new kinds of value} ^^{values: displaying}^^{text substitutions: enumerated values}^^{properties: holding a new kind of value}^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties}^^{(of), for properties+sourcepart+}
+^^{kinds: defining: kinds of value} ^^{defining: kinds of value} ^^{values: kinds of value} ^^{kinds: enumerated values} ^^{text substitutions: new kinds of value} ^^{values: displaying} ^^{text substitutions: enumerated values} ^^{properties: holding a new kind of value} ^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties} ^^{(of), for properties+sourcepart+}
+
 It turns out to be very useful to create a new kind of value, and then create a property to hold it. So useful, in fact, that Inform provides two shortened forms for doing so. Here is the first, and the second (making "conditions") is in the section following.
 
 Suppose we go back to our example of the candle lantern whose brightness we have to measure. It's clear that what we want to do is to define:
@@ -1939,7 +1995,8 @@ The description of the lantern is "The lantern shines with a flame at [temperatu
 
 ## Conditions of things {PM_EitherOnThree}
 
-^^{kinds: defining: kinds of value}^^{defining: kinds of value}^^{values: kinds of value}^^{kinds: enumerated values}^^{properties: holding a new kind of value}^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties}^^{(condition), naming properties+sourcepart+}
+^^{kinds: defining: kinds of value} ^^{defining: kinds of value} ^^{values: kinds of value} ^^{kinds: enumerated values} ^^{properties: holding a new kind of value} ^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties} ^^{(condition), naming properties+sourcepart+}
+
 Now for an even more abbreviated way to create a new kind of value, and at the same time create a property to hold it. Suppose we have something, say a wine cask, which we know is always in one of three different states. We can write:
 
 ``` inform7
@@ -1991,7 +2048,8 @@ And now the resulting property and kind of value would be called "squishiness".
 
 ## Default values of kinds
 
-^^{kinds: default values of kinds <-- default properties of kinds}^^{values: kinds of value: default values}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+^^{kinds: default values of kinds <-- default properties of kinds} ^^{values: kinds of value: default values} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+
 Just about every kind has a "default value". Inform needs this when it knows that something has to be a value of a given kind, but it hasn't been told what the value is. For example, in the previous chapter, [Things] we saw that every thing has a "description" text, but we also created plenty of things without describing them. So if Inform reads
 
 ``` inform7
@@ -2032,7 +2090,8 @@ It's sometimes useful to be able to refer to the default value of a kind without
 
 ## Values that vary {var_location} {VARIABLES} {PM_EmptyKind}
 
-^^{variables: global <-- values: varying <-- global variables}^^{defining: global variables}^^{Inform 6 equivalent: global variable}^^{(that varies), in defining global variables+sourcepart+}^^{(which varies), in defining global variables+sourcepart+}^^{(initially), in defining global variables+sourcepart+}^^{location (- object)+glob+}^^{kinds: default values of kinds}^^{type-checking: for global variables}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+^^{variables: global <-- values: varying <-- global variables} ^^{defining: global variables} ^^{Inform 6 equivalent: global variable} ^^{(that varies), in defining global variables+sourcepart+} ^^{(which varies), in defining global variables+sourcepart+} ^^{(initially), in defining global variables+sourcepart+} ^^{location (- object)+glob+} ^^{kinds: default values of kinds} ^^{type-checking: for global variables} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
+
 Sometimes a value important to the simulated world will not naturally belong to any thing or room, and should not be kept in a property. In fact, we have seen a value that varies already: "location", which holds the room in which the story is presently taking place. Here's how we might make a new one:
 
 ``` inform7
@@ -2100,7 +2159,8 @@ thus telling Inform exactly what is intended.
 
 ## Values that never vary
 
-^^{constant values <-- values: constant <-- global constants}^^{defining: constant values}^^{Inform 6 equivalent: constants}^^{(always), in defining constant values+sourcepart+}
+^^{constant values <-- values: constant <-- global constants} ^^{defining: constant values} ^^{Inform 6 equivalent: constants} ^^{(always), in defining constant values+sourcepart+}
+
 It's sometimes useful to name even values which don't change. For example, suppose the story involves driving, and the same speed limit value comes up in many places. Rather than typing "55" (say) every time it comes up, we might prefer to write:
 
 ``` inform7
@@ -2139,7 +2199,8 @@ description: "He is a dude."
 
 ## Duplicates {PM_TooManyDuplicates}
 
-^^{duplicates <-- multiple copies of things}^^{things+kind+: creating: multiple identical things with counts}^^{defining: things: multiply with counts}^^{use options: catalogue: `maximum things understood at once} ^^{maximum things understood at once+useopt+}
+^^{duplicates <-- multiple copies of things} ^^{things+kind+: creating: multiple identical things with counts} ^^{defining: things: multiply with counts} ^^{use options: catalogue: `maximum things understood at once} ^^{maximum things understood at once+useopt+}
+
 Although it is only useful to a limited extent, we can make any number of copies of something:
 
 ``` inform7
@@ -2194,7 +2255,8 @@ Finally: numbers up to twelve may be written out in words in the source text, bu
 
 ## Assemblies and body parts {PM_AssemblyLoop} {PM_AssemblyRegress} {PM_ComplexEvery}
 
-^^{assemblies}^^{components: for kinds}^^{things+kind+: parts of}^^{incorporation+rel+} ^^{incorporation+relcat+}^^{body parts}^^{`every: creating assemblies}^^{defining: things: using relations}^^{things+kind+: creating: using relations}^^{relations: creating things in relation to}
+^^{assemblies} ^^{components: for kinds} ^^{things+kind+: parts of} ^^{incorporation+rel+} ^^{incorporation+relcat+} ^^{body parts} ^^{`every: creating assemblies} ^^{defining: things: using relations} ^^{things+kind+: creating: using relations} ^^{relations: creating things in relation to}
+
 In the previous chapter, [Things], we saw that it was possible to make sub-parts of things. For instance,
 
 ``` inform7
@@ -2252,7 +2314,8 @@ Now we're telling Inform that every time a colour is made, a new person is also 
 
 ## Names made in assembly
 
-^^{`called: in creating assemblies}^^{`every: creating assemblies}^^{defining: things: using relations}^^{things+kind+: creating: using relations}^^{relations: creating things in relation to}
+^^{`called: in creating assemblies} ^^{`every: creating assemblies} ^^{defining: things: using relations} ^^{things+kind+: creating: using relations} ^^{relations: creating things in relation to}
+
 Something skated over in the previous section is the question of how Inform gives names to objects (or other values) it creates in an assembly. The standard thing naming combines the names of what's being assembled. For example:
 
 ``` inform7
@@ -2311,7 +2374,8 @@ But that is about all. There is as yet no element of surprise, no aim or sense o
 
 [ZL: we don't hear about "empty" for text until adjectives in chapter on definitions; should be here, should mention text with adaptive text is never empty and that one may want to use `is ""` preferentially ]::
 
-^^{text <-- strings of characters}^^{text: displaying}^^{text substitutions: text}^^{descriptions (displayed): room descriptions with substituted text}^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions}^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}
+^^{text <-- strings of characters} ^^{text: displaying} ^^{text substitutions: text} ^^{descriptions (displayed): room descriptions with substituted text} ^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}
+
 In the previous chapter, [Kinds], we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform's most useful devices: text substitution. The following gives a more complete example:
 
 ``` inform7
@@ -2330,7 +2394,8 @@ Thus the description of the Collapsed Dead End is "This is a dead end. You'll ha
 
 ## How Inform reads quoted text
 
-^^{text substitutions: punctuation}^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions}^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}^^{punctuation: apostrophe, meaning quotation mark} ^^{('), meaning (")+sourcepart+}^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks}^^{punctuation: exclamation mark, ending sentences} ^^{(!), ending sentences+sourcepart+}^^{punctuation: question mark, ending sentences} ^^{(?), ending sentences+sourcepart+}^^{line breaks: produced by sentence-ending punctuation}^^{+to+say "[']"} ^^{+tosay+"[']"}
+^^{text substitutions: punctuation} ^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts} ^^{punctuation: apostrophe, meaning quotation mark} ^^{('), meaning (")+sourcepart+} ^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks} ^^{punctuation: exclamation mark, ending sentences} ^^{(!), ending sentences+sourcepart+} ^^{punctuation: question mark, ending sentences} ^^{(?), ending sentences+sourcepart+} ^^{line breaks: produced by sentence-ending punctuation} ^^{+to+say "[']"} ^^{+tosay+"[']"}
+
 Text is so fundamental to Inform that the basics had to be covered back in the [Source Text] chapter, so let's begin this new chapter with a recap.
 
 Literal text is written in double-quotation marks. It's mostly true that what you see is what you get: the literal text "The Hands of the Silversmith" means just
@@ -2422,7 +2487,8 @@ would come out quite differently – this doesn't affect the appearance of the t
 
 ## Text which names things
 
-^^{text substitutions: numbers} ^^{numbers: displaying}^^{text substitutions: values} ^^{values: displaying}^^{text substitutions: things} ^^{things+kind+: displaying}^^{definite articles: when displaying things}^^{indefinite articles: when displaying things}^^{`a / an / the --> a: in displaying things} ^^{`an / a / the --> an: in displaying things} ^^{`the / a / an --> the: in displaying things}^^{case sensitivity: in text substitutions with objects}^^^{+tosay+"[(sayable value)]" --> sayable value}^^^{+tosay+"[(number)]" --> number}^^^{+tosay+"[a (object)]" --> a object}^^^{+tosay+"[A (object)]" --> A object}^^^{+tosay+"[the (object)]" --> the object}^^^{+tosay+"[The (object)]" --> The object}
+^^{text substitutions: numbers} ^^{numbers: displaying} ^^{text substitutions: values} ^^{values: displaying} ^^{text substitutions: things} ^^{things+kind+: displaying} ^^{definite articles: when displaying things} ^^{indefinite articles: when displaying things} ^^{`a / an / the --> a: in displaying things} ^^{`an / a / the --> an: in displaying things} ^^{`the / a / an --> the: in displaying things} ^^{case sensitivity: in text substitutions with objects}^^^{+tosay+"[(sayable value)]" --> sayable value}^^^{+tosay+"[(number)]" --> number}^^^{+tosay+"[a (object)]" --> a object}^^^{+tosay+"[A (object)]" --> A object}^^^{+tosay+"[the (object)]" --> the object}^^^{+tosay+"[The (object)]" --> The object}
+
 We can put almost any description of a value in square brackets in text, and Inform will work out what kind of value it is and print something accordingly. (Only almost any, because we aren't allowed to use commas or more quotation marks inside a square-bracketed substitution.)
 
 > phrase: {ph_say} say "[(sayable value)]"
@@ -2491,7 +2557,8 @@ might produce replies like "You find a solid rubber ball.", "You find an ink-sta
 
 ## Text with numbers
 
-^^{text substitutions: numbers} ^^{numbers: displaying}^^{plurals: displaying}^^{English: displaying simple plurals}^^{English: displaying numbers in words}^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+}^^{turn count (- number)+glob+}
+^^{text substitutions: numbers} ^^{numbers: displaying} ^^{plurals: displaying} ^^{English: displaying simple plurals} ^^{English: displaying numbers in words} ^^{use options: catalogue: `American dialect} ^^{American dialect+useopt+} ^^{turn count (- number)+glob+}
+
 When a numerical value is given in a square-bracketed substitution, it is ordinarily printed out in digits. Thus:
 
 ``` inform7
@@ -2528,7 +2595,8 @@ This only solves one case, but it's memorable, and the case is one which turns u
 
 ## Text with lists
 
-^^{text substitutions: lists} ^^{lists: displaying}^^{punctuation: comma: displaying serial comma}^^{`,: displaying serial comma}^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+}^^{definite articles: when displaying lists}^^{indefinite articles: when displaying lists}^^{`a / an / the --> a: in displaying lists} ^^{`an / a / the --> an: in displaying lists} ^^{`the / a / an --> the: in displaying lists}^^{case sensitivity: in text substitutions with lists}
+^^{text substitutions: lists} ^^{lists: displaying} ^^{punctuation: comma: displaying serial comma} ^^{`,: displaying serial comma} ^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+} ^^{definite articles: when displaying lists} ^^{indefinite articles: when displaying lists} ^^{`a / an / the --> a: in displaying lists} ^^{`an / a / the --> an: in displaying lists} ^^{`the / a / an --> the: in displaying lists} ^^{case sensitivity: in text substitutions with lists}
+
 We often want running text to include lists of items.
 
 > phrase: {phs_listof} say "[list of (description of objects)]"
@@ -2632,7 +2700,8 @@ which is wrong. We can get around this with careful wording and a slightly diffe
 
 ## Text with variations {PM_SayIfNested} {PM_SayOtherwiseWithoutIf} {PM_SayEndIfWithoutSayIf}
 
-^^{text substitutions: variations}^^{line breaks}^^{paragraph breaks <-- breaks}^^{punctuation: full stop: before text substitutions} ^^{`.: before text substitutions}
+^^{text substitutions: variations} ^^{line breaks} ^^{paragraph breaks <-- breaks} ^^{punctuation: full stop: before text substitutions} ^^{`.: before text substitutions}
+
 Text sometimes needs to take different forms in different circumstances. Perhaps it needs an extra sentence if something has happened, or perhaps only one altered word.
 
 > phrase: {phs_if} say "[if (a condition)]"
@@ -2701,7 +2770,8 @@ The "item described" value can similarly be used in any textual property of a ro
 
 ## Text with random alternatives {PM_ComplicatedSayStructure} {PM_ComplicatedSayStructure2} {PM_ComplicatedSayStructure5} {PM_ComplicatedSayStructure4} {PM_ComplicatedSayStructure3}
 
-^^{text substitutions: random variations}^^{text substitutions: sequential variations}^^{randomness: text variations}
+^^{text substitutions: random variations} ^^{text substitutions: sequential variations} ^^{randomness: text variations}
+
 Sometimes we would like to provide a little quirky variation in text, especially in messages which will be seen often. We can achieve this with the "[one of]... [or] ... [or] ..." construction.
 
 > phrase: {phs_oneof} say "[one of]"
@@ -2806,7 +2876,8 @@ This looks good for some purposes, but may not cycle in the sequence expected, a
 
 ## Line breaks and paragraph breaks
 
-^^{line breaks}^^{line breaks: produced by sentence-ending punctuation}^^{paragraph breaks}^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks}
+^^{line breaks} ^^{line breaks: produced by sentence-ending punctuation} ^^{paragraph breaks} ^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks}
+
 Inform controls the flow of text being said so that it will read, to the player, in a natural way. There are two principles:
 
 (a) pieces of text ending with full stop, exclamation or question marks will be followed by line breaks (or "new lines", as some computer programming languages would call them); and
@@ -2906,7 +2977,8 @@ Finally, there are two special sorts of paragraph break for special circumstance
 
 ## Text with type styles
 
-^^{proportional-spaced text}^^{monospaced text}^^{fonts: fixed-width / variable-width}^^{fonts: italic / bold / roman}
+^^{proportional-spaced text} ^^{monospaced text} ^^{fonts: fixed-width / variable-width} ^^{fonts: italic / bold / roman}
+
 Inform does not go in for the use of fonts: a work of IF will be rendered with different fonts on different machines anyway, from tiny personal organisers up to huge workstations. However, it does allow for a modest amount of styling.
 
 > phrase: {phs_bold} say "[bold type]"
@@ -2942,6 +3014,7 @@ Whichever effect we use, we should be careful to ensure that we return to normal
 ## Accented letters
 
 ^^{characters (letters): special / accented}^^^{characters (letters) <-- letters <-- accented letters}^^^{characters (letters) <-- symbols}
+
 Inform 7 is infused by the English language, so it's a challenge using it to write a work of IF in any other language. (With that said, extensions do exist which have made considerable progress on this problem: nil desperandum.) But even a book in English contains occasional quotations or words borrowed from other tongues, so we are going to need more than plain A to Z.
 
 The world has a bewildering range of letters, accents, diacritics, markers and signs. Inform tries to support the widest range possible, but the works of IF produced by Inform are programs which then have to be run on a (virtual) computer whose abilities are more constrained: few players will have an Ethiopian font installed, after all. So a degree of caution is called for.
@@ -2986,7 +3059,8 @@ Moreover, the player is not allowed to type these characters in commands during 
 
 ## Unicode characters {PM_SayUnicode} {PM_MidTextUnicode} {PM_UnicodeOutOfRange}
 
-^^{characters (letters): Unicode (arbitrary symbols)}^^{characters (letters) <-- Unicode}^^^{+tosay+"[(unicode character)]" --> unicode character}
+^^{characters (letters): Unicode (arbitrary symbols)} ^^{characters (letters) <-- Unicode}^^^{+tosay+"[(unicode character)]" --> unicode character}
+
 As we have seen, Inform allows us to type a wide range of characters into the source text, although the more exotic ones may only appear inside quotation marks. But they become more and more difficult to type as they become more obscure. Inform therefore allows us to describe a letter using a text substitution rather than typing it directly.
 
 Unicode characters can be named (or numbered) directly in text. For example:
@@ -3041,7 +3115,8 @@ This is no longer the case: no such inclusion need now be made, and indeed, thos
 
 [ZL: address that the only place where this will turn out as described (or, in fact, will not turn out something other than ugly) is in non-Glk Z-code terps, which is to say none of: Parchment/iplayif , Lectrote, Spatterlight, Gargoyle, or any of the IDEs https://inform7.atlassian.net/browse/I7-2434 ]
 
-^^{quotations, displaying in boxes}^^{boxed quotations}^^{Inform 6 equivalent: `box}
+^^{quotations, displaying in boxes} ^^{boxed quotations} ^^{Inform 6 equivalent: `box}
+
 Text is normally printed in between the typed commands of the player, rolling upwards from the bottom of the screen, as if a dialogue is being typed by an old-fashioned teletype. But it can also be displayed in a bolder way, floating above the main text, and this is sometimes used to display quotations.
 
 > phrase: {ph_boxed} display the boxed quotation (text)
@@ -3063,7 +3138,8 @@ Note that exotic accented characters, such as the "Ł" in "Łodz", can't be disp
 
 ## Making new substitutions
 
-^^{text substitutions: defining}^^{defining: text substitutions}^^{to say (substitution)...+assert+}^^{case sensitivity: in text substitutions}
+^^{text substitutions: defining} ^^{defining: text substitutions} ^^{to say (substitution)...+assert+} ^^{case sensitivity: in text substitutions}
+
 If we have some textual effect which needs to occur in several different messages, we might want to create a new text substitution for it. For instance:
 
 ``` inform7
@@ -3092,7 +3168,8 @@ And now Inform will act on `"[Security Notice]"` differently from `"[security no
 
 ## What are descriptions? {DESCRIPTIONS}
 
-^^{descriptions (references to things)}^^{things+kind+: references to (descriptions)}^^{+tosay+"[list of (description)]" --> list of}^^{+to+say "[list of (description)]"}
+^^{descriptions (references to things)} ^^{things+kind+: references to (descriptions)} ^^{+tosay+"[list of (description)]" --> list of} ^^{+to+say "[list of (description)]"}
+
 It is in describing circumstances that Inform really capitalises on the concise, expressive power of natural language, and this chapter brings together the facts about "descriptions".
 
 The simplest descriptions consist of a noun alone. Some refer to single things ("lantern", or "wine cask"), others to kinds of thing ("dead end" or "container"). But we have also seen adjectives alone:
@@ -3137,7 +3214,8 @@ It is because descriptions are so widely useful that they deserve a chapter of t
 
 ## Adjectives and nouns
 
-^^{descriptions (references to things): syntax}^^{nouns, in descriptions}^^{adjectives: in descriptions}^^{quantifiers: existential}^^{existence: descriptions of any such thing}^^{pronouns: `something, anything...}^^{`someone: in descriptions}^^{`something: in descriptions}^^{(somewhere), in descriptions+sourcepart+}^^{(anyone), in descriptions+sourcepart+}^^{(anything), in descriptions+sourcepart+}^^{(anywhere), in descriptions+sourcepart+}^^{(somebody), in descriptions+sourcepart+}^^{(anybody), in descriptions+sourcepart+}
+^^{descriptions (references to things): syntax} ^^{nouns, in descriptions} ^^{adjectives: in descriptions} ^^{quantifiers: existential} ^^{existence: descriptions of any such thing} ^^{pronouns: `something, anything...} ^^{`someone: in descriptions} ^^{`something: in descriptions} ^^{(somewhere), in descriptions+sourcepart+} ^^{(anyone), in descriptions+sourcepart+} ^^{(anything), in descriptions+sourcepart+} ^^{(anywhere), in descriptions+sourcepart+} ^^{(somebody), in descriptions+sourcepart+} ^^{(anybody), in descriptions+sourcepart+}
+
 Descriptions can contain a noun, but need not, and can contain any number of adjectives:
 
 [ZL: list? ]::
@@ -3165,7 +3243,8 @@ So for instance "anybody male" or "somewhere dark" are valid descriptions. These
 
 ## Sources of adjectives
 
-^^{adjectives}^^{properties: value properties: used as adjectives} ^^{value properties: used as adjectives}^^{properties: either/or properties: used as adjectives} ^^{either/or properties: used as adjectives}
+^^{adjectives} ^^{properties: value properties: used as adjectives} ^^{value properties: used as adjectives} ^^{properties: either/or properties: used as adjectives} ^^{either/or properties: used as adjectives}
+
 We have seen two sorts of adjectives so far: those which refer to either/or properties, like "open" and "closed", and those which come out of new kinds of value. If we define
 
 ``` inform7
@@ -3178,7 +3257,8 @@ In addition to these adjectives, we can create new ones (as we shall see), and a
 
 ## Defining new adjectives {PM_DefinitionBadCondition} {PM_DefinitionWithoutCondition} {PM_AdjDomainSlippery} {PM_AdjDomainSurreal} {PM_AdjDomainUnknown} {PM_ArticleAsAdjective}
 
-^^{adjectives: defining}^^{defining: adjectives}^^{definition+assert+}^^{(rather than), in defining adjectives+sourcepart+}^^{`called: in defining adjectives}^^{descriptions (references to things): defining adjectives for descriptions}^^{punctuation: colon} ^^{`:}
+^^{adjectives: defining} ^^{defining: adjectives} ^^{definition+assert+} ^^{(rather than), in defining adjectives+sourcepart+} ^^{`called: in defining adjectives} ^^{descriptions (references to things): defining adjectives for descriptions} ^^{punctuation: colon} ^^{`:}
+
 Suppose we want to coin a word for supporters currently supporting something. We can do so with the following sentence:
 
 ``` inform7
@@ -3229,7 +3309,8 @@ Definition: a direction is viable if the room it from the location is a room.
 
 ## Defining adjectives for values
 
-^^{adjectives: for values} ^^{defining: adjectives: for values}^^{definition+assert+: for values}^^{empty / non-empty+adj+: for texts} ^^{non-empty / empty+adj+: for texts}^^{text: empty / non-empty+adj+}^^{even / odd (number)+adj+} ^^{odd / even (number)+adj+}^^{positive / negative (number)+adj+} ^^{negative / positive (number)+adj+}^^{descriptions (references to things): adjectives for values}
+^^{adjectives: for values} ^^{defining: adjectives: for values} ^^{definition+assert+: for values} ^^{empty / non-empty+adj+: for texts} ^^{non-empty / empty+adj+: for texts} ^^{text: empty / non-empty+adj+} ^^{even / odd (number)+adj+} ^^{odd / even (number)+adj+} ^^{positive / negative (number)+adj+} ^^{negative / positive (number)+adj+} ^^{descriptions (references to things): adjectives for values}
+
 In general, any noun can have adjectives applied to it, and this means that values can have adjectives just as objects can. We have already seen that they can (in some cases, at least) have either/or properties, and this gives them adjectives just as for objects. But we can also write out definitions which apply to values:
 
 ``` inform7
@@ -3283,7 +3364,8 @@ The first definition of "subtle" takes precedence, of course, since it has the m
 
 ## Whereabouts on a scale?
 
-^^{numbers: adjectives describing magnitude}^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities}^^{definition+assert+: for numeric quantities}^^{descriptions (references to things): adjectives for magnitude}^^{properties: numeric magnitudes, adjectives for} ^^{value properties: numeric magnitudes, adjectives for}^^{`or more / less}
+^^{numbers: adjectives describing magnitude} ^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities} ^^{definition+assert+: for numeric quantities} ^^{descriptions (references to things): adjectives for magnitude} ^^{properties: numeric magnitudes, adjectives for} ^^{value properties: numeric magnitudes, adjectives for} ^^{`or more / less}
+
 Adjectives are often used in English to give a sense of where something is on a sliding scale. We talk about "a tall man" and "a short man", but without meaning that all men are either tall or short. If pushed, we might say that tall means about 6 feet and up, short means about 5 feet 6 and down, but we more often compare one person's height against another's.
 
 Inform allows us to use adjectives in the same way. For example, every container has a number called its "carrying capacity". We can define:
@@ -3326,7 +3408,8 @@ creates a man 72 inches tall and a woman 68 inches tall.
 
 ## Comparatives {PM_ComparativeMisapplied} {PM_GradingCalled} {PM_GradingMisphrased} {PM_GradingNonLiteral} {PM_GradingUnknownProperty} {PM_GradingUnless} {PM_GradingWrongKOV} {PM_MultiwordGrading}
 
-^^{numbers: adjectives comparing magnitude}^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities}^^{comparisons: of numbers using adjectives}^^{same (property) as+sourcearg+}^^{definition+assert+: for numeric quantities}^^{descriptions (references to things): comparative adjectives}^^{properties: numeric comparatives, adjectives for} ^^{value properties: numeric comparatives, adjectives for}^^{`or more / less}
+^^{numbers: adjectives comparing magnitude} ^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities} ^^{comparisons: of numbers using adjectives} ^^{same (property) as+sourcearg+} ^^{definition+assert+: for numeric quantities} ^^{descriptions (references to things): comparative adjectives} ^^{properties: numeric comparatives, adjectives for} ^^{value properties: numeric comparatives, adjectives for} ^^{`or more / less}
+
 The special definitions in the previous section have a further effect. When we define:
 
 ``` inform7
@@ -3358,7 +3441,8 @@ if the carrying capacity of the basket is the carrying capacity of the thimble .
 
 ## Superlatives
 
-^^{numbers: adjectives comparing magnitude}^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities}^^{superlatives: of numbers using adjectives}^^{English: simple superlative forms}^^{definition+assert+: for numeric quantities}^^{descriptions (references to things): superlative adjectives}^^{properties: numeric superlatives, adjectives for} ^^{value properties: numeric superlatives, adjectives for}^^{`or more / less}
+^^{numbers: adjectives comparing magnitude} ^^{adjectives: for numeric quantities} ^^{defining: adjectives: for numeric quantities} ^^{superlatives: of numbers using adjectives} ^^{English: simple superlative forms} ^^{definition+assert+: for numeric quantities} ^^{descriptions (references to things): superlative adjectives} ^^{properties: numeric superlatives, adjectives for} ^^{value properties: numeric superlatives, adjectives for} ^^{`or more / less}
+
 Lastly, if we define an adjective in this calibrating way, we also automatically benefit from the use of the superlative form. That is, if we define
 
 ``` inform7
@@ -3379,7 +3463,8 @@ Note that Inform constructs comparatives and superlatives by a pretty simplistic
 
 ## Which and who
 
-^^{descriptions (references to things): complex phrases}^^{(which), in description clauses+sourcepart+}^^{(who), in description clauses+sourcepart+}^^{(that), in description clauses+sourcepart+}^^{descriptions (references to things): relative}
+^^{descriptions (references to things): complex phrases} ^^{(which), in description clauses+sourcepart+} ^^{(who), in description clauses+sourcepart+} ^^{(that), in description clauses+sourcepart+} ^^{descriptions (references to things): relative}
+
 A description can not only talk about things in terms of themselves, but also in terms of their relationships to the rest of the world. For instance,
 
 [ZL: lists? ]::
@@ -3425,7 +3510,8 @@ Pedants who flinch when "which" is used to introduce a restrictive clause are we
 
 ## Existence and there {PM_OutOfPlay}
 
-^^{(there is), declaring existence+sourcepart+}^^{(nobody), testing that no such person exists+sourcepart+}^^{`nothing: testing that no such thing exists}^^{descriptions (references to things): existence}^^{descriptions (references to things): non-existence}^^{existence: testing that such a thing exists}^^{non-existence: testing that no such thing exists}^^{non-existence: starting things out of play}^^{things+kind+: starting out of play}^^{out of play}
+^^{(there is), declaring existence+sourcepart+} ^^{(nobody), testing that no such person exists+sourcepart+} ^^{`nothing: testing that no such thing exists} ^^{descriptions (references to things): existence} ^^{descriptions (references to things): non-existence} ^^{existence: testing that such a thing exists} ^^{non-existence: testing that no such thing exists} ^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play}
+
 "There" is a curious word in English, which mostly refers to some place which is being talked about – but which can sometimes mean the whole world. In ^{@Ian Fleming}'s novel "From Russia With Love", a chapter narrating a committee meeting of SMERSH officers in Istanbul ends with one of the Russians saying:
 
 ``` inform7
@@ -3489,7 +3575,8 @@ if there is nothing on the mantelpiece, ...
 
 ## A word about in
 
-^^{containment+rel+} ^^{containment+relcat+}^^{regional-containment+rel+} ^^{regional-containment+relcat+}^^{indirect containment}^^{containment+rel+: indirect}^^{regions+kind+: things in regions}^^{regions+kind+: regional containment}^^{rooms+kind+: grouping into regions}
+^^{containment+rel+} ^^{containment+relcat+} ^^{regional-containment+rel+} ^^{regional-containment+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{regions+kind+: things in regions} ^^{regions+kind+: regional containment} ^^{rooms+kind+: grouping into regions}
+
 What does "in" mean? It's worth just a brief diversion to cover this, because "in" has two subtly different meanings.
 
 **Meaning 1.** Usually, if X is "in" Y then this is because of containment. A croquet ball is "in" a croquet box, which is "in" the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:
@@ -3558,7 +3645,8 @@ because "regionally in" is always meaning 2 of "in".
 
 ## A word about nothing
 
-^^{`nothing: as a value}^^{`nothing: testing that no such thing exists}^^{descriptions (references to things): non-existence}^^{non-existence: testing that no such thing exists}
+^^{`nothing: as a value} ^^{`nothing: testing that no such thing exists} ^^{descriptions (references to things): non-existence} ^^{non-existence: testing that no such thing exists}
+
 Like "in", "nothing" has two slightly different meanings, though here there's much less potential for confusion.
 
 **Meaning 1.** "Nothing" as "no thing". This is the meaning in sentences like:
@@ -3581,7 +3669,8 @@ The "matching key" property of a container is always an object, but is allowed t
 
 ## To be able to see and touch
 
-^^{visibility+rel+ <-- visibility+relcat+} ^^{visibility+relcat+}^^{touchability+rel+ <-- touchability+relcat+} ^^{touchability+relcat+}^^^{visibility+rel+ <-- able to see+relverb+ <-- see+relverb+}^^^{touchability+rel+ <-- able to touch+relverb+}^^{visible / invisible (thing)+adj+} ^^{invisible / visible (thing)+adj+}^^{touchable / untouchable (thing)+adj+} ^^{untouchable / touchable (thing)+adj+}^^{light} ^^{darkness}^^{yourself (- person)+const+}
+^^{visibility+rel+ <-- visibility+relcat+} ^^{visibility+relcat+} ^^{touchability+rel+ <-- touchability+relcat+} ^^{touchability+relcat+}^^^{visibility+rel+ <-- able to see+relverb+ <-- see+relverb+}^^^{touchability+rel+ <-- able to touch+relverb+} ^^{visible / invisible (thing)+adj+} ^^{invisible / visible (thing)+adj+} ^^{touchable / untouchable (thing)+adj+} ^^{untouchable / touchable (thing)+adj+} ^^{light} ^^{darkness} ^^{yourself (- person)+const+}
+
 Two of the adjectives built into Inform are:
 
 - "visible" - the player can see this
@@ -3620,7 +3709,8 @@ The exact definitions of visibility and touchability are complicated, because th
 
 ## Adjacent rooms and routes through the map
 
-^^{rooms+kind+: adjacent}^^{adjacency+rel+} ^^{adjacency+relcat+}^^{mapping (direction)+rel+} ^^{mapping (direction)+relcat+}^^{adjacent (room)+adj+}^^{use options: catalogue: `fast route-finding} ^^{fast route-finding+useopt+}^^{use options: catalogue: `slow route-finding} ^^{slow route-finding+useopt+}^^{pathfinding}^^{route-finding, fast/slow}^^{distance: measuring with (number of moves)+sourcepart+}^^{(using doors), in route-finding+sourcepart+}^^{directions+kind+: finding adjacent rooms}^^{counting: moves along a route}
+^^{rooms+kind+: adjacent} ^^{adjacency+rel+} ^^{adjacency+relcat+} ^^{mapping (direction)+rel+} ^^{mapping (direction)+relcat+} ^^{adjacent (room)+adj+} ^^{use options: catalogue: `fast route-finding} ^^{fast route-finding+useopt+} ^^{use options: catalogue: `slow route-finding} ^^{slow route-finding+useopt+} ^^{pathfinding} ^^{route-finding, fast/slow} ^^{distance: measuring with (number of moves)+sourcepart+} ^^{(using doors), in route-finding+sourcepart+} ^^{directions+kind+: finding adjacent rooms} ^^{counting: moves along a route}
+
 Another useful adjective built into Inform is "adjacent". Two rooms are said to be adjacent if there is a map connection between them which does not pass through some barrier such as a door. This is easily tested:
 
 ``` inform7
@@ -3710,7 +3800,8 @@ If neither is specified, "fast" is used where the project uses the Glulx virtual
 
 ## All, each and every {PM_ComplexDeterminer}
 
-^^{(all), in descriptions+sourcepart+}^^{(each), in descriptions+sourcepart+}^^{`every: in descriptions}^^{(none), in descriptions+sourcepart+}^^{(no), in descriptions+sourcepart+}^^{`some: in descriptions}^^{(most), in descriptions+sourcepart+}^^{(almost all), in descriptions+sourcepart+}^^{determiners (all / none)}^^{quantifiers: universal}^^{descriptions (references to things): determiners (all / none)}
+^^{(all), in descriptions+sourcepart+} ^^{(each), in descriptions+sourcepart+} ^^{`every: in descriptions} ^^{(none), in descriptions+sourcepart+} ^^{(no), in descriptions+sourcepart+} ^^{`some: in descriptions} ^^{(most), in descriptions+sourcepart+} ^^{(almost all), in descriptions+sourcepart+} ^^{determiners (all / none)} ^^{quantifiers: universal} ^^{descriptions (references to things): determiners (all / none)}
+
 When testing conditions, we normally talk only about specific things, or else ask if a particular circumstance happens:
 
 ``` inform7
@@ -3775,7 +3866,8 @@ if any text is palindromic
 
 ## Counting while comparing
 
-^^{comparisons: counting}^^{counting}^^{(less than), in descriptions+sourcepart+}^^{(more than), in descriptions+sourcepart+}^^{(at least), in descriptions+sourcepart+}^^{(at most), in descriptions+sourcepart+}^^{(all except), in descriptions+sourcepart+}^^{`except: in descriptions}^^{`exactly: in descriptions}^^{descriptions (references to things): counting}^^{numbers: of things in descriptions}
+^^{comparisons: counting} ^^{counting} ^^{(less than), in descriptions+sourcepart+} ^^{(more than), in descriptions+sourcepart+} ^^{(at least), in descriptions+sourcepart+} ^^{(at most), in descriptions+sourcepart+} ^^{(all except), in descriptions+sourcepart+} ^^{`except: in descriptions} ^^{`exactly: in descriptions} ^^{descriptions (references to things): counting} ^^{numbers: of things in descriptions}
+
 Lastly we can also ask for a more specific number of possibilities, like so:
 
 ``` inform7
@@ -3815,7 +3907,8 @@ Lastly, note that the "the" in text like "two of the doors" matters: without it,
 
 ## Actions {ACTIONS} {kind_actionname} {PM_APWithNoParticiple} {PM_APUnknown} {PM_NonActionIn}
 
-^^{actions}^^{success: for actions}^^{failure: for actions}^^{taking+action+}^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}
+^^{actions} ^^{success: for actions} ^^{failure: for actions} ^^{taking+action+} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}
+
 "Actions" are what we get if we try to break down a narrative into its irreducible parts. We might casually say that we are "going shopping", but this involves many smaller steps: going north, going east, entering the shop, examining a loaf of bread, taking it, giving money to the baker, and so on.
 
 An action is an impulse to do something. This may or may not be a reasonable aspiration, and may or may not be achieved. The player's exploration of an interactive fiction is made by a sequence of actions, so much of the designing process comes down to responding to these actions.
@@ -3852,7 +3945,8 @@ A good way to get a sense of the constant flow of actions is to use this command
 
 ## Instead rules {rules_instead}
 
-^^{rules}^^{instead of (action)+rb+} ^^{rules: instead rules}^^{actions: using instead rules to change outcome}^^{punctuation: comma: comma replacing colon}^^{`,: comma replacing colon}
+^^{rules} ^^{instead of (action)+rb+} ^^{rules: instead rules} ^^{actions: using instead rules to change outcome} ^^{punctuation: comma: comma replacing colon} ^^{`,: comma replacing colon}
+
 An action is ordinarily handled by running it through Inform's extensive rulebooks of what might be called normal behaviour. An action such as "taking the napkin", for instance, will be run through numerous checks to see if it is physically reasonable, and then provided all is well, the napkin will be moved into the possession of the player.
 
 Instead, though, we can bypass the rules to do with an action and do something else:
@@ -3871,7 +3965,8 @@ Instead of eating the napkin, say "Why not wait for the actual dinner to arrive?
 
 ## Before rules {rules_before}
 
-^^{before (action)+rb+} ^^{rules: before rules}^^{instead of (action)+rb+} ^^{rules: instead rules}^^{(instead), to stop the action+sourcepart+ <-- +to+stop the action: using (instead)+sourcepart+}^^{actions: using before rules to test or change outcomes first}^^{actions: +to+stop the action}^^{actions: +to+continue the action}
+^^{before (action)+rb+} ^^{rules: before rules} ^^{instead of (action)+rb+} ^^{rules: instead rules} ^^{(instead), to stop the action+sourcepart+ <-- +to+stop the action: using (instead)+sourcepart+} ^^{actions: using before rules to test or change outcomes first} ^^{actions: +to+stop the action} ^^{actions: +to+continue the action}
+
 Despite what was said in the previous section, instead rules do not quite bypass all of the usual rules. Inform knows that certain actions require light: for instance,
 
 ``` inform7
@@ -3928,7 +4023,8 @@ As a general principle, it is good style to use instead rules whenever blocking 
 
 ## Try and try silently {PM_UnknownTryAction1} {PM_UnknownTryAction2} {PM_ActionNotSpecific} {PM_ActionTooSpecific}
 
-^^{actions: performing with (try)+sourcepart+}^^{actions: suppressing success messages with (try silently)+sourcepart+}
+^^{actions: performing with (try)+sourcepart+} ^^{actions: suppressing success messages with (try silently)+sourcepart+}
+
 the [Source Text] chapter noted that surveys of Inform source text showed that the three most popular phrases used by authors are "say", "if" and "now". The fourth most popular is "try", which allows us to trigger off actions ourselves, rather than waiting for the player to type something which generates them. Thus:
 
 > phrase: {ph_try} try (action)
@@ -3983,7 +4079,8 @@ And this is neater because it won't produce a pointless "You close the front doo
 
 ## After rules {rules_after}
 
-^^{after (action)+rb+} ^^{rules: after rules}^^{actions: using after rules to change output}^^{+to+continue the action} ^^{actions: +to+continue the action}
+^^{after (action)+rb+} ^^{rules: after rules} ^^{actions: using after rules to change output} ^^{+to+continue the action} ^^{actions: +to+continue the action}
+
 There is pleasantly little to be said about "after" rules. If an action has survived all the rules in its way, and has actually succeeded, then we need to give the player a response which acknowledges this. Inform's normal rules will be sufficient to say something undramatic: for instance, if "taking the napkin" has succeeded then it will reply "Taken." to the player.
 
 An after rule is an opportunity to say something more interesting:
@@ -4000,7 +4097,8 @@ After taking the diamonds: say "(Mr Beebe looks up sharply.) "; continue the act
 
 ## Reading and talking
 
-^^{actions: involving speech}^^{rules: for speech}^^{understanding: arbitrary text: for conversations and consulting}^^{books (implementing): consulting}^^{consulting (thing) about+action+}^^{asking (actor) about+action+}^^{telling (actor) about+action+}^^{answering (actor)+action+}^^{dialogue: >ASK / TELL}
+^^{actions: involving speech} ^^{rules: for speech} ^^{understanding: arbitrary text: for conversations and consulting} ^^{books (implementing): consulting} ^^{consulting (thing) about+action+} ^^{asking (actor) about+action+} ^^{telling (actor) about+action+} ^^{answering (actor)+action+} ^^{dialogue: >ASK / TELL}
+
 A few actions apply not to items alone, but also involve what might be called conversation. The first is the one used for looking things up in books (which is conversation of a kind, even if the author is not present): "consulting ... about ...". For example,
 
 ``` inform7
@@ -4037,7 +4135,8 @@ Games with a lot of conversation often involve great heaps of rules like the one
 
 ## The other four senses
 
-^^{senses}^^{actions: involving senses}^^{rules: for senses}^^{rooms+kind+: listening to (with no object)}^^{rooms+kind+: smelling (with no object)}^^{listening to+action+}^^{smelling+action+}^^{touching+action+}^^{tasting+action+}
+^^{senses} ^^{actions: involving senses} ^^{rules: for senses} ^^{rooms+kind+: listening to (with no object)} ^^{rooms+kind+: smelling (with no object)} ^^{listening to+action+} ^^{smelling+action+} ^^{touching+action+} ^^{tasting+action+}
+
 The five senses are all simulated with actions. Sight is so informative that it is handled by a whole range of actions: "looking", which describes the general scene; "examining something", which takes a closer look at a specific thing; "looking under something", and so on.
 
 The other senses have one action each: "listening to something", "touching something", "tasting something" and "smelling something". It makes no sense to touch or taste the general scene, but listening and smelling are a different matter: we often just listen, without listening to anything specific. If the player types the command "listen", Inform understands that as listening to the current location: similarly for the bare command "smell". Thus:
@@ -4050,7 +4149,8 @@ Instead of smelling the Cave, say "Salt and old seaweed."
 
 ## Rules applying to more than one action {PM_APWithDisjunction}  {PM_APWithImmiscible}
 
-^^{rules: applying to multiple actions}^^{actions: rules for multiple actions}
+^^{rules: applying to multiple actions} ^^{actions: rules for multiple actions}
+
 A description can include more than one choice of action. For instance:
 
 ``` inform7
@@ -4085,7 +4185,8 @@ Instead of examining, looking under or searching the desk: say "There's no use p
 
 ## All actions and exceptional actions
 
-^^{rules: applying to all but some actions}^^{actions: rules for all but some actions}^^{(doing something / anything), describing actions+sourcepart+}^^{`except: describing actions}
+^^{rules: applying to all but some actions} ^^{actions: rules for all but some actions} ^^{(doing something / anything), describing actions+sourcepart+} ^^{`except: describing actions}
+
 The special description "doing something" (or "doing anything") matches any action, and "doing something to ..." also allows the noun to be specified.
 
 For instance, the following puts its object out of bounds:
@@ -4118,7 +4219,8 @@ This second version matches if the action is, say, taking a shield, or even just
 
 ## The noun and the second noun {var_noun}
 
-^^{noun (- object)+glob+}^^{second noun (- object)+glob+}^^{rules: applying to arbitrary things}^^{things+kind+: referring to arbitrary things in rules}^^{articles: displaying and capitalizing}^^{case sensitivity: in text substitutions with objects}
+^^{noun (- object)+glob+} ^^{second noun (- object)+glob+} ^^{rules: applying to arbitrary things} ^^{things+kind+: referring to arbitrary things in rules} ^^{articles: displaying and capitalizing} ^^{case sensitivity: in text substitutions with objects}
+
 Once we begin applying rules to actions which are not entirely known in advance, we have a problem: there's no way to find out what specifically is happening. Consider the following:
 
 ``` inform7
@@ -4147,7 +4249,8 @@ Instead of examining something in the Drawing Room, say "Under Lady Bracknell's 
 
 ## In rooms and regions
 
-^^{actions: rules applying to rooms and regions}^^{rules: applying to rooms and regions}^^{rooms+kind+: rules applying to rooms}^^{regions+kind+: rules applying to regions}^^{(in), location conditions for rules+sourcepart+}
+^^{actions: rules applying to rooms and regions} ^^{rules: applying to rooms and regions} ^^{rooms+kind+: rules applying to rooms} ^^{regions+kind+: rules applying to regions} ^^{(in), location conditions for rules+sourcepart+}
+
 Three elaborations of action descriptions increase the range of possibilities further.
 
 ``` inform7
@@ -4172,7 +4275,8 @@ Instead of eating in the Public Area, say "The curators of the Gardens are ever 
 
 ## In the presence of, and when {PM_NonActionInPresenceOf} {PM_APWithBadWhen}
 
-^^{`in the presence of}^^{`presence of}^^{actions: rules applying only when characters are present}^^{rules: applying only when characters are present}^^{characters (people): rules applying only when characters are present}^^{actions: rules applying under arbitrary conditions, using (when)+sourcepart+}^^{rules: arbitrary conditions for rules, using (when)+sourcepart+}^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules}
+^^{`in the presence of} ^^{`presence of} ^^{actions: rules applying only when characters are present} ^^{rules: applying only when characters are present} ^^{characters (people): rules applying only when characters are present} ^^{actions: rules applying under arbitrary conditions, using (when)+sourcepart+} ^^{rules: arbitrary conditions for rules, using (when)+sourcepart+} ^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules}
+
 Relative location can also be important: relative to other people, that is – 
 
 ``` inform7
@@ -4203,7 +4307,8 @@ Instead of eating something in the presence of the radio set when the radio set 
 
 ## Going from, going to
 
-^^{going+action+}^^{going+action+: going nowhere+action+}^^{going+action+: going from+action+}^^{going+action+: going to+action+}^^{going+action+: default failure response}^^{going+action+: rules for going to and from places}^^{`nowhere: rules for going nowhere}^^{actions: (going), special cases+sourcepart+}^^{rules: for (going), special cases+sourcepart+}^^{actions: rules applying to rooms and regions}^^{rules: applying to rooms and regions}^^{rooms+kind+: rules applying to rooms}^^{(in), location conditions for rules+sourcepart+}^^{connections between rooms: rules applying to map connections}
+^^{going+action+} ^^{going+action+: going nowhere+action+} ^^{going+action+: going from+action+} ^^{going+action+: going to+action+} ^^{going+action+: default failure response} ^^{going+action+: rules for going to and from places} ^^{`nowhere: rules for going nowhere} ^^{actions: (going), special cases+sourcepart+} ^^{rules: for (going), special cases+sourcepart+} ^^{actions: rules applying to rooms and regions} ^^{rules: applying to rooms and regions} ^^{rooms+kind+: rules applying to rooms} ^^{(in), location conditions for rules+sourcepart+} ^^{connections between rooms: rules applying to map connections}
+
 Going is an action defined like any other: it is the one which happens when the player tries to go from one location to another. But it is unlike other actions because it happens in two locations, not just one, and has other complications such as vehicles and doors to contend with. To make it easier to write legible and flexible rules, "going" is allowed to be described in a number of special ways not open to other actions, as demonstrated by the following example story:
 
 ``` inform7
@@ -4252,7 +4357,8 @@ The Dome is a room. The Hutch is north of the Dome. The rabbit is in the Hutch. 
 
 ## Going by, going through, going with {PM_GoingWrongKind} {PM_GoingWithoutObject}
 
-^^{going+action+: going by+action+}^^{going+action+: going through+action+}^^{going+action+: going with+action+}^^{going+action+: rules for going through doors}^^{going+action+: rules for going by vehicles}^^{going+action+: rules for going with pushed things}^^{doors+kind+: rules for going through doors}^^{vehicles+kind+: rules for going by vehicles}^^{actions: (going), special cases+sourcepart+}^^{rules: for (going), special cases+sourcepart+}^^{actions: (pushing) objects to other rooms+sourcepart+}^^{rules: for (pushing) objects to other rooms+sourcepart+}^^{pushing things: rules for pushing things}^^{things+kind+: pushable between rooms}^^{exiting+action+}^^{rules: for (exiting)+sourcepart+}^^{actions: (exiting)+sourcepart+}
+^^{going+action+: going by+action+} ^^{going+action+: going through+action+} ^^{going+action+: going with+action+} ^^{going+action+: rules for going through doors} ^^{going+action+: rules for going by vehicles} ^^{going+action+: rules for going with pushed things} ^^{doors+kind+: rules for going through doors} ^^{vehicles+kind+: rules for going by vehicles} ^^{actions: (going), special cases+sourcepart+} ^^{rules: for (going), special cases+sourcepart+} ^^{actions: (pushing) objects to other rooms+sourcepart+} ^^{rules: for (pushing) objects to other rooms+sourcepart+} ^^{pushing things: rules for pushing things} ^^{things+kind+: pushable between rooms} ^^{exiting+action+} ^^{rules: for (exiting)+sourcepart+} ^^{actions: (exiting)+sourcepart+}
+
 Adding to the previous example story, we apply rules which depend on travelling by a particular vehicle:
 
 ``` inform7
@@ -4290,7 +4396,8 @@ After exiting from the Mini Cooper:
 
 ## Kinds of action {PM_NamedAPWithActor} {KACTIONS}
 
-^^{kinds: of action}^^{actions: new kinds of action}^^{rules: creating new kinds of action to reduce redundancy}^^{propriety}
+^^{kinds: of action} ^^{actions: new kinds of action} ^^{rules: creating new kinds of action to reduce redundancy} ^^{propriety}
+
 Especially when people need to react to events going on around them, it is helpful to be able to categorise actions into whole areas of behaviour. For instance:
 
 ``` inform7
@@ -4312,7 +4419,8 @@ And this will automatically be reflected in any rules which concern the conseque
 
 ## Repeated actions
 
-^^{rules: applying to repeated actions}^^{actions: rules for repetitions}^^{time: counting actions with (for the Nth time)+sourcepart+}^^{counting: actions with (for the Nth time)+sourcepart+}^^{(first time), counting actions+sourcepart+}
+^^{rules: applying to repeated actions} ^^{actions: rules for repetitions} ^^{time: counting actions with (for the Nth time)+sourcepart+} ^^{counting: actions with (for the Nth time)+sourcepart+} ^^{(first time), counting actions+sourcepart+}
+
 We come at last to the final thing which can be specified about an action, and appropriately enough it must be specified with the final words of the description. This is the way to talk about repeated activity:
 
 ``` inform7
@@ -4333,7 +4441,8 @@ This means that it is the fourth time a "taking..." action has been tried, and d
 
 ## Actions on consecutive turns
 
-^^{rules: applying to consecutively repeated actions}^^{actions: rules for consecutive repetitions}^^{turns: counting actions with (for the Nth turn)+sourcepart+}^^{counting: actions with (for the Nth turn)+sourcepart+}^^{(doing it), a repeated action+sourcepart+}^^{rules: abbreviating actions with (doing it)+sourcepart+}^^{abbreviations: rule actions with (doing it)+sourcepart+}
+^^{rules: applying to consecutively repeated actions} ^^{actions: rules for consecutive repetitions} ^^{turns: counting actions with (for the Nth turn)+sourcepart+} ^^{counting: actions with (for the Nth turn)+sourcepart+} ^^{(doing it), a repeated action+sourcepart+} ^^{rules: abbreviating actions with (doing it)+sourcepart+} ^^{abbreviations: rule actions with (doing it)+sourcepart+}
+
 We can also reckon the number of consecutive turns on which an action has been repeated, by talking about "turns" instead of "times", as demonstrated in the following example story. Note also that we are allowed to use the phrase "doing it" to mean "the same description as the previous one except for the part about turns or times", like so:
 
 ``` inform7
@@ -4364,7 +4473,8 @@ All three of those restrictions will later be lifted in the chapter on [Advanced
 
 ## Change of values that vary
 
-^^{+to+now (a condition) <-- change}^^{+to+now (a condition): changing global variables}^^{variables: changing global variables}^^{type-checking}
+^^{+to+now (a condition) <-- change} ^^{+to+now (a condition): changing global variables} ^^{variables: changing global variables} ^^{type-checking}
+
 So far, what we have done in response to the player's commands amounts to little more than a few ripostes. The simulated world does change during play, as the player moves from room to room or picks up things, but all of this is happening automatically, not at our direct instruction. How then can we make the world change?
 
 Recall that the world consists of rooms, in which are things, and that all of these have properties appropriate to their kinds. Some properties are either/or ("open" or "closed" but not both and not neither), while others have values (the "matching key" of a lockable door, for instance). Finally, we may also have created some free-standing values or "variables".
@@ -4403,7 +4513,8 @@ After pulling the psychedelic lever:
 
 ## Changing the command prompt {var_prompt}
 
-^^{prompt, changing the prompt} ^^{command prompt (- text)+glob+}^^{when play begins+rb+}^^{time of day (- time)+glob+}
+^^{prompt, changing the prompt} ^^{command prompt (- text)+glob+} ^^{when play begins+rb+} ^^{time of day (- time)+glob+}
+
 The command prompt is the text printed by Inform to ask the player for another command. Ordinarily this is simply a greater-than-sign, ">", so we tend not to notice it as text at all. Internally, though, it is a variable value called "command prompt", which means we can change it.
 
 For example, this will be a more conversational sort of prompt:
@@ -4422,7 +4533,8 @@ When play begins: now the command prompt is "[time of day] >".
 
 ## Changing the status line {var_sl}
 
-^^{status line}^^{screen top}^^{scoring: in status line}^^{score (- number)+glob+}^^{turn count (- number)+glob+}^^{left hand status line (- text)+glob+}^^{right hand status line (- text)+glob+}^^{time of day (- time)+glob+}
+^^{status line} ^^{screen top} ^^{scoring: in status line} ^^{score (- number)+glob+} ^^{turn count (- number)+glob+} ^^{left hand status line (- text)+glob+} ^^{right hand status line (- text)+glob+} ^^{time of day (- time)+glob+}
+
 The status line is the black bar along the top of a story being played, which ordinarily displays the current position; in a story with scoring, it also usually shows the score and number of moves taken. Like the command prompt, it is not fixed but results from values which can be changed: the "left hand status line" and "right hand status line".
 
 The default values are `"[the player's surroundings]"` for the left hand status line and "[score]/[turn count]" for the right hand status line (if there's scoring; it's blank otherwise). Score and turn count are numbers which vary in play (more about scoring later); `"[the player's surroundings]"` is a text substitution really intended for just this purpose:
@@ -4450,7 +4562,8 @@ The text in the right hand status line should be kept no more than 14 letters lo
 
 ## Change of either/or properties
 
-^^{+to+now (a condition): changing either/or properties}^^{properties: either/or properties: changing} ^^{either/or properties: changing}^^{type-checking}
+^^{+to+now (a condition): changing either/or properties} ^^{properties: either/or properties: changing} ^^{either/or properties: changing} ^^{type-checking}
+
 When we have an either/or property, we can set it like so:
 
 ``` inform7
@@ -4471,7 +4584,8 @@ More subtle problems arise if it is not possible to tell, when the story is bein
 
 ## Change of properties with values
 
-^^{+to+now (a condition): changing value properties}^^{properties: value properties: changing} ^^{value properties: changing}^^{initial appearance of (thing)+prop+} ^^{initial appearance of (thing)+propcat+}^^{descriptions (displayed): initial appearance of thing}^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+}^^{names: printed name of (object)+prop+}^^{connections between rooms: changing}^^{rooms+kind+: changing connections between rooms}^^{`nowhere: in removing room connections}^^{`nothing: in removing room connections}
+^^{+to+now (a condition): changing value properties} ^^{properties: value properties: changing} ^^{value properties: changing} ^^{initial appearance of (thing)+prop+} ^^{initial appearance of (thing)+propcat+} ^^{descriptions (displayed): initial appearance of thing} ^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+} ^^{names: printed name of (object)+prop+} ^^{connections between rooms: changing} ^^{rooms+kind+: changing connections between rooms} ^^{`nowhere: in removing room connections} ^^{`nothing: in removing room connections}
+
 Changing properties with values is very similar:
 
 ``` inform7
@@ -4520,7 +4634,8 @@ Altering the map itself is not a very subtle way to adjust when and where the pl
 
 ## Whose property?
 
-^^{properties: shorthand name, omitting (of the)+sourcepart+}^^{abbreviations: property names, omitting (of the)+sourcepart+}^^^{abbreviations <-- shorthand}^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+}
+^^{properties: shorthand name, omitting (of the)+sourcepart+} ^^{abbreviations: property names, omitting (of the)+sourcepart+}^^^{abbreviations <-- shorthand} ^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+}
+
 This seems a useful point to clarify something already seen. We normally call a property with a value something like:
 
 ``` inform7
@@ -4543,7 +4658,8 @@ Here the owner of the "printed name" is assumed to be the noun referred to in th
 
 ## Moving things
 
-^^{things+kind+: changing location of}^^{player: moving the player}^^{`without printing a room description}^^{`printing an abbreviated room description}^^{rooms+kind+: descriptions: moving without printing one}^^{+to+now (a condition): changing the locations of things}^^{immobile things: `fixed in place} ^^{things+kind+: immobile: `fixed in place}^^{immobile things: moving anyway} ^^{things+kind+: immobile: moving anyway}^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+}^^{carrying+rel+} ^^{carrying+relcat+}^^{wearing+rel+} ^^{wearing+relcat+}
+^^{things+kind+: changing location of} ^^{player: moving the player} ^^{`without printing a room description} ^^{`printing an abbreviated room description} ^^{rooms+kind+: descriptions: moving without printing one} ^^{+to+now (a condition): changing the locations of things} ^^{immobile things: `fixed in place} ^^{things+kind+: immobile: `fixed in place} ^^{immobile things: moving anyway} ^^{things+kind+: immobile: moving anyway} ^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+} ^^{carrying+rel+} ^^{carrying+relcat+} ^^{wearing+rel+} ^^{wearing+relcat+}
+
 We have now seen how to change the properties of rooms and things, and also any freestanding values which may have a bearing on the model world. We are not allowed to change the kind of anything during play. Our remaining freedom is to move things around. It would make no sense to move rooms around, because rooms are the fixed reference points in our geography, but anything else is mobile. This even includes things which are supposedly "fixed in place", for unlike the player, we have god-like powers. (There are minor restrictions: backdrops are trickier to move, since they are present in several rooms at once – see the next section. And doors, at the junction between two rooms, cannot be moved.)
 
 Here is how to move something:
@@ -4582,7 +4698,8 @@ now the genie's turban is worn by Aladdin;
 
 ## Moving backdrops
 
-^^{+to+now (a condition): changing the locations of backdrops}^^{backdrops+kind+: changing the location of backdrops}^^{+to+move (backdrop) to (region)}^^{regions+kind+: moving a backdrop to a new region}^^{things+kind+: changing location of}^^{(everywhere), placing backdrops+sourcepart+}^^{`nowhere: placing backdrops}
+^^{+to+now (a condition): changing the locations of backdrops} ^^{backdrops+kind+: changing the location of backdrops} ^^{+to+move (backdrop) to (region)} ^^{regions+kind+: moving a backdrop to a new region} ^^{things+kind+: changing location of} ^^{(everywhere), placing backdrops+sourcepart+} ^^{`nowhere: placing backdrops}
+
 A backdrop can be in several rooms at once. When created, its position can be given as any specific collection of rooms, or as a region, or even as "everywhere". For instance:
 
 ``` inform7
@@ -4656,7 +4773,8 @@ After waiting:
 
 ## Moving the player
 
-^^{player: moving the player}^^{things+kind+: changing location of}^^{`without printing a room description}^^{`printing an abbreviated room description}^^{+to+now (a condition): changing the player's location}^^{rooms+kind+: descriptions: moving without printing one}^^{+to+now (a condition): changing the player's identity}^^{player: changing the identity of the player}^^{yourself (- person)+const+}
+^^{player: moving the player} ^^{things+kind+: changing location of} ^^{`without printing a room description} ^^{`printing an abbreviated room description} ^^{+to+now (a condition): changing the player's location} ^^{rooms+kind+: descriptions: moving without printing one} ^^{+to+now (a condition): changing the player's identity} ^^{player: changing the identity of the player} ^^{yourself (- person)+const+}
+
 The player is a thing, too, and can also be moved, which has the effect of instantaneous transportation, without the need for a suitable map connection to the new location. For instance, these are equivalent:
 
 ``` inform7
@@ -4686,7 +4804,8 @@ A change of player can sometimes cause confusing things to happen, if it takes p
 
 ## Removing things from play
 
-^^{things+kind+: removing from play}^^{deleting things from the world}^^{non-existence: removing things from play}^^{non-existence: starting things out of play}^^{things+kind+: starting out of play}^^{out of play}^^{on-stage / off-stage (thing)+adj+} ^^{off-stage / on-stage (thing)+adj+}^^{+to+now (a condition): changing the locations of things}^^{`nowhere: placing things}
+^^{things+kind+: removing from play} ^^{deleting things from the world} ^^{non-existence: removing things from play} ^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play} ^^{on-stage / off-stage (thing)+adj+} ^^{off-stage / on-stage (thing)+adj+} ^^{+to+now (a condition): changing the locations of things} ^^{`nowhere: placing things}
+
 Some things will occasionally be in a limbo state called being "off-stage": like actors or props not needed in Act II, but perhaps to be brought back on-stage later, they wait on the sidelines. Anything created with no apparent location will start the story off-stage, as in the case of the lamp here:
 
 ``` inform7
@@ -4749,7 +4868,8 @@ Note that "on-stage" and "off-stage" apply only to things. Rooms, directions and
 
 ## Now... {PM_BadNow1} {PM_BadNow2} {PM_BadNow3} {PM_CantForceRelation} {PM_CantForceExistence} {PM_CantForceGeneralised} {PM_CantForceCalling} {PM_CantChangeKind} {PM_RedefinedNow}
 
-^^{+to+now (a condition): for arbitrary conditions}^^{things+kind+: changing multiples with (now)+sourcepart+}^^{properties: changing multiple things with (now)+sourcepart+}^^{+to+if (a condition)}
+^^{+to+now (a condition): for arbitrary conditions} ^^{things+kind+: changing multiples with (now)+sourcepart+} ^^{properties: changing multiple things with (now)+sourcepart+} ^^{+to+if (a condition)}
+
 "Now" has already appeared several times in this chapter, being used like a Swiss army knife to change values of all kinds:
 
 ``` inform7
@@ -4787,7 +4907,8 @@ now the apple is in the basket;
 
 ## Increasing and decreasing
 
-^^{calculation: incrementing}^^{calculation: decrementing}^^^{calculation <-- arithmetic <-- maths}^^^{calculation <-- numbers: calculation with}
+^^{calculation: incrementing} ^^{calculation: decrementing}^^^{calculation <-- arithmetic <-- maths}^^^{calculation <-- numbers: calculation with}
+
 Once we begin to deal with named values (or table entries, list entries or other ways to describe places where values are kept), we find that we often want to change them. We could if we wanted always use "now" for this, but it can be a little clumsily worded if we want to increase or decrease something:
 
 ``` inform7
@@ -4828,7 +4949,8 @@ An even greater abbreviation can be made when we are changing a number by 1 eith
 
 ## Checking on whereabouts
 
-^^{+to+if (a condition)}^^{containment+rel+} ^^{containment+relcat+}^^{carrying+rel+} ^^{carrying+relcat+}^^{possession+rel+} ^^{possession+relcat+}^^{support+rel+} ^^{support+relcat+}^^{incorporation+rel+} ^^{incorporation+relcat+}^^{worn (thing)+adj+}^^{carried (thing)+adj+}^^{held (thing)+adj+}
+^^{+to+if (a condition)} ^^{containment+rel+} ^^{containment+relcat+} ^^{carrying+rel+} ^^{carrying+relcat+} ^^{possession+rel+} ^^{possession+relcat+} ^^{support+rel+} ^^{support+relcat+} ^^{incorporation+rel+} ^^{incorporation+relcat+} ^^{worn (thing)+adj+} ^^{carried (thing)+adj+} ^^{held (thing)+adj+}
+
 We have seen that while rooms are fixed, their contents move around, so we will need ways to examine the current whereabouts of things. The following examples show the kind of conditions allowed:
 
 [ZL: bold in code... list? ]::
@@ -4866,6 +4988,7 @@ And similarly for "not carried", "worn" and "not worn". To be precise, if a form
 ## More flexible descriptions of whereabouts
 
 ^^{+to+if (a condition): with generic conditions}
+
 The examples just given were all basically of the form "X *relation* Y" where X and Y were specific names of things. For example,
 
 ``` inform7
@@ -4897,7 +5020,8 @@ a condition which will be true if, anywhere in the story's world, any woman is h
 
 ## Calling names {PM_CalledThe} {PM_CalledWithDash}
 
-^^{`called: in describing things}^^{punctuation: brackets: for calling values} ^^{`( ): for calling values}^^{names: for things named generally}^^{`something: naming value of}
+^^{`called: in describing things} ^^{punctuation: brackets: for calling values} ^^{`( ): for calling values} ^^{names: for things named generally} ^^{`something: naming value of}
+
 Conditions like "if somebody is in an adjacent room" allow complicated tests to be performed with a minimum of fuss, but it's rare that we want to know only whether they are true: more likely we also want to know *which* person, and *which* room.
 
 For this purpose, we are allowed to supply a name for any such vaguely-described object which comes up, and then to use that name thereafter.
@@ -4940,7 +5064,8 @@ because there is too much potential ambiguity – are we trying to call the play
 
 ## Counting the number of things
 
-^^{counting: things}^^{things+kind+: counting}^^{+to+number of (description of values)}
+^^{counting: things} ^^{things+kind+: counting} ^^{+to+number of (description of values)}
+
 It is very often useful to know how many things are in a given situation, and for this purpose we have the "number of ..." construction. For instance:
 
 ``` inform7
@@ -4988,7 +5113,8 @@ then "the number of colours" would evaluate to 7. As with other ways of talking 
 
 ## Looking at containment by hand
 
-^^{siblings, in containment hierarchy}^^{containment+rel+: hierarchy, low-level interface}^^{Inform 6 equivalent: `child}^^{Inform 6 equivalent: `parent}^^{Inform 6 equivalent: `sibling}^^{held by: first thing held by (object)+phr+}^^{held by: next thing held after (object)+phr+}
+^^{siblings, in containment hierarchy} ^^{containment+rel+: hierarchy, low-level interface} ^^{Inform 6 equivalent: `child} ^^{Inform 6 equivalent: `parent} ^^{Inform 6 equivalent: `sibling} ^^{held by: first thing held by (object)+phr+} ^^{held by: next thing held after (object)+phr+}
+
 The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where. It should be a last resort to use the following more primitive way to inspect the world.
 
 [ZL: holder of's inclusion of incorporation and the others' exclusion of it is worth mentioning]::
@@ -5017,7 +5143,8 @@ It's sometimes useful to go the other way. When something has possessions, we ca
 
 [ZL: address range limits, esp. for z-machine https://inform7.atlassian.net/browse/I7-2380 ]::
 
-^^{randomness: seeding the generator}^^{randomness: random numbers}^^{randomness: value kinds}^^{randomness: enumerated values}^^^{randomness <-- chance <-- numbers: random numbers}
+^^{randomness: seeding the generator} ^^{randomness: random numbers} ^^{randomness: value kinds} ^^{randomness: enumerated values}^^^{randomness <-- chance <-- numbers: random numbers}
+
 Sometimes we want to introduce random behaviour into play. We usually do this by generating random values, and then acting differently depending on what they are. The following:
 
 ``` inform7
@@ -5070,6 +5197,7 @@ Alternatively, it's possible the "fix" the RNG by clicking the "Make random outc
 ## Random choices of things {PM_RandomImpossible}
 
 ^^{randomness: random things}
+
 Writing "a random number" is not allowed, because the possible range is too large, but that was the only reason why not.
 
 > phrase: {ph_randomdesc} a/-- random (description of values) ... value
@@ -5097,7 +5225,8 @@ You can see 0 ways from here; how about nothing?
 
 ## When play begins {ROOMPLAYBEGINS} {rules_wpb}
 
-^^{when play begins+rb+}^^{rules: run at beginning of story}^^{initial state of the world: setting in (when play begins)+sourcepart+}^^{starting conditions: setting in (when play begins)+sourcepart+}^^{story structure: beginning}
+^^{when play begins+rb+} ^^{rules: run at beginning of story} ^^{initial state of the world: setting in (when play begins)+sourcepart+} ^^{starting conditions: setting in (when play begins)+sourcepart+} ^^{story structure: beginning}
+
 With the material from previous chapters, we are now able to set up a simulated world, to respond to the player's actions within it, and to make it change in perhaps unexpected ways.
 
 The resulting experience can be as lively as we want to make it, but so far we have no very good ways to give it any structure: a beginning and an end, for instance, or a sense of plot. This next chapter is all about the passage of time, and it begins at the beginning.
@@ -5112,7 +5241,8 @@ The "when play begins" rules are checked only at the start of a story, not when 
 
 ## Awarding points {var_score}
 
-^^{use options: catalogue: `scoring} ^^{scoring+useopt+}^^{scoring <-- points <-- rankings}^^{scoring: maximum score}^^{scoring: enabling}^^{scoring: reporting during story}^^{score (- number)+glob+}^^{maximum score (- number)+glob+}^^{>NOTIFY ON/OFF}^^{+to+increase (a stored value) by (value)}
+^^{use options: catalogue: `scoring} ^^{scoring+useopt+} ^^{scoring <-- points <-- rankings} ^^{scoring: maximum score} ^^{scoring: enabling} ^^{scoring: reporting during story} ^^{score (- number)+glob+} ^^{maximum score (- number)+glob+} ^^{>NOTIFY ON/OFF} ^^{+to+increase (a stored value) by (value)}
+
 Traditionally-written stories award points throughout play, as an indication of progress. If we want to be traditional, we must first write:
 
 ``` inform7
@@ -5158,7 +5288,8 @@ After eating the poisoned mushroom:
 
 ## Introducing tables: rankings
 
-^^{tables}^^{tables: ranking score}^^{tables: tabs in formatting tables} ^^{tabs vs spaces, in tables+ofsource+} ^^{spaces vs tabs (in tables)}^^{scoring: ranking table}^^{maximum score (- number)+glob+}
+^^{tables} ^^{tables: ranking score} ^^{tables: tabs in formatting tables} ^^{tabs vs spaces, in tables+ofsource+} ^^{spaces vs tabs (in tables)} ^^{scoring: ranking table} ^^{maximum score (- number)+glob+}
+
 Another tradition of interactive fiction is that the player has a current 'rank' according to how far their score has got. We can (but need not) choose to provide such rankings, and should do so by specifying a table like this:
 
 ``` inform7
@@ -5180,7 +5311,8 @@ Ordinarily we must explicitly ask to use the information presented in a table, b
 
 ## When play ends {rules_wpe}
 
-^^{when play ends+rb+}^^{rules: run at end of story}^^{end of story <-- story structure: ending} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the game}^^{(finally), ending the story+sourcepart+}^^{>AMUSING}^^{story structure: ending}
+^^{when play ends+rb+} ^^{rules: run at end of story} ^^{end of story <-- story structure: ending} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the game} ^^{(finally), ending the story+sourcepart+} ^^{>AMUSING} ^^{story structure: ending}
+
 Short of something like a power cut, the story can only end when one of the two participants chooses to end it: either the player, by deciding that enough is enough, or us.
 
 In story-telling, there are many kinds of ending: happy, sad, decisive, bittersweet, surprise. Inform doesn't try to interfere in that kind of artistic choice, but it does need to know one thing about the ending: is it final, or not? Many authors like to make additional menu items available if the player has completed the story right through, but not if she has reached an early or wrong ending. (See the activity "amusing a victorious player", for example.)
@@ -5258,7 +5390,8 @@ Surprisingly, the end is not always the end:
 
 ## Every turn {rules_et} {PM_NumberOfTurns}
 
-^^{every turn+rb+}^^{rules: run every turn}^^{turns: rules run every turn}^^{rules: arbitrary conditions for rules, using (when)+sourcepart+}^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules}^^{Inform 6 equivalent: `each_turn}^^{Inform 6 equivalent: daemons}^^{turn count (- number)+glob+}
+^^{every turn+rb+} ^^{rules: run every turn} ^^{turns: rules run every turn} ^^{rules: arbitrary conditions for rules, using (when)+sourcepart+} ^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules} ^^{Inform 6 equivalent: `each_turn} ^^{Inform 6 equivalent: daemons} ^^{turn count (- number)+glob+}
+
 The passage of time in interactive fiction is broken up into a succession of turns, in each of which the player types a request and is given a response. Usually each such request triggers one action, but sometimes a whole sequence are fired off, as when the player types "get all" in a cluttered room.
 
 As we've seen, the variable "turn count" holds the number of turns of play so far. By convention turn number 0 is the time when Inform prints up the banner and any initial text; it becomes turn number 1 when the player's first command is typed.
@@ -5287,7 +5420,8 @@ Every turn when the player can see the rotting fish, say "Your nose twitches inv
 
 ## The time of day {kind_time} {var_time}
 
-^^{time of day (- time)+glob+}^^{turns: using time of day instead of turns}^^{time: time of day}
+^^{time of day (- time)+glob+} ^^{turns: using time of day instead of turns} ^^{time: time of day}
+
 Inform keeps track of the time of day automatically: play ordinarily begins at 9 AM and each turn takes one minute. In some works of interactive fiction, time of day is crucial: in others, it is irrelevant or even, by a sort of tacit convention, non-existent. So Inform does nothing to act upon the time, or to reveal it to the player, without instruction. Nevertheless it is there.
 
 A sentence like the following allows the initial time to be set up as something other than 9 AM:
@@ -5314,7 +5448,8 @@ At the time when the player loses consciousness:
 
 ## Telling the time
 
-^^{time: displaying times}^^{English: displaying times in words}^^{prompt, changing the prompt} ^^{command prompt (- text)+glob+}^^{time of day (- time)+glob+}
+^^{time: displaying times} ^^{English: displaying times in words} ^^{prompt, changing the prompt} ^^{command prompt (- text)+glob+} ^^{time of day (- time)+glob+}
+
 Now that we have the time of day, we can of course use this value in room descriptions and the like:
 
 ``` inform7
@@ -5341,7 +5476,8 @@ When play begins: now the command prompt is "[time of day] >".
 
 ## Approximate times, lengths of time
 
-^^{time: displaying approximations}^^{calculation: rounding to the nearest multiple}^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest}^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}^^^{+to+(number) minutes --> minutes}^^^{+to+(number) hours --> hours}
+^^{time: displaying approximations} ^^{calculation: rounding to the nearest multiple} ^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest} ^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}^^^{+to+(number) minutes --> minutes}^^^{+to+(number) hours --> hours}
+
 Clocks and watches vary considerably in how much detail they show, and we tend not to report the time over-precisely: half-past ten is an elastic concept. The following room description for the Clock Chamber comes across much more naturally:
 
 ``` inform7
@@ -5376,7 +5512,8 @@ In talking about lengths of time, rather than times of day, it's useful to have 
 
 ## Comparing and shifting times
 
-^^{time: calculations}^^{time: comparing}^^{calculation: with time}^^^{+to+(time) before (time) --> before}^^^{+to+(time) after (time) --> after}
+^^{time: calculations} ^^{time: comparing} ^^{calculation: with time}^^^{+to+(time) before (time) --> before}^^^{+to+(time) after (time) --> after}
+
 Carrying out easy calculations with times is straightforward:
 
 ``` inform7
@@ -5413,7 +5550,8 @@ Similarly, we have conditions:
 
 ## Calculating times
 
-^^{time: calculations}^^{calculation: with time}^^{numbers: converting to times}
+^^{time: calculations} ^^{calculation: with time} ^^{numbers: converting to times}
+
 We will occasionally need to perform more complex calculations with time, and in order to do that, we have a way to convert the time of day to numbers. Thus the phrase "the minutes part of ..." takes a time and produces a number from 0 to 59; similarly "the hours part of ..." extracts a number from 0 to 23, using the twenty-four hour clock.
 
 > phrase: {ph_minspart} minutes part of (time) ... number
@@ -5446,7 +5584,8 @@ Note that "clock error" is a number, but "clock error minutes" is a time.
 
 ## Future events {PM_AtWithoutTime} {PM_UnusedTimedEvent} {TIMEDEVENTS}
 
-^^{time: events in the future}^^{turns: events in the future}^^{events in the future}^^{future events}^^{at (time)...+assert+}^^^{+to+(rule) in (time) from now --> in time}^^^{+to+(rule) in (number) turn/turns from now --> in turn}^^^{+to+(rule) at (time) --> at time}^^{from now: (rule) in (time) from now+phr+}^^{from now: (rule) in (number) turn/turns from now+phr+}^^{now: (rule) in (time) from now+phr+}^^{now: (rule) in (number) turn/turns from now+phr+}^^{Inform 6 equivalent: timers}
+^^{time: events in the future} ^^{turns: events in the future} ^^{events in the future} ^^{future events} ^^{at (time)...+assert+}^^^{+to+(rule) in (time) from now --> in time}^^^{+to+(rule) in (number) turn/turns from now --> in turn}^^^{+to+(rule) at (time) --> at time} ^^{from now: (rule) in (time) from now+phr+} ^^{from now: (rule) in (number) turn/turns from now+phr+} ^^{now: (rule) in (time) from now+phr+} ^^{now: (rule) in (number) turn/turns from now+phr+} ^^{Inform 6 equivalent: timers}
+
 We often want to arrange for something to happen at some point in the future. Here is yet another timepiece:
 
 [ZL: should call out that it's an arbitrary label with no meaning to "egg-timer" in the rule name ]::
@@ -5496,7 +5635,8 @@ The Scenes panel of the Index can be a useful way to see what events have been s
 
 ## Actions as conditions {PM_PTAPTooComplex}
 
-^^{actions: as conditions}^^{rules: actions referred to in conditions}^^{rules: past tense of conditions}^^{past tense, of conditions in rules}^^{tense: of conditions in rules} ^^{English: tense: of conditions in rules}
+^^{actions: as conditions} ^^{rules: actions referred to in conditions} ^^{rules: past tense of conditions} ^^{past tense, of conditions in rules} ^^{tense: of conditions in rules} ^^{English: tense: of conditions in rules}
+
 There are two ways that descriptions of actions can be used as conditions. First, we can simply describe an action, and then the condition will be true if that is what the player is trying to do, and not otherwise:
 
 ``` inform7
@@ -5519,7 +5659,8 @@ More on the past tense later follows in the next section: note that "we are taki
 
 ## The past and perfect tenses {PM_PastSubordinate} {PM_PTAPMakesCallings} {PM_PastTableLookup} {PM_PastCallings}  {PM_PastActionCalled} {PM_NonPresentTense} {PM_PastTableEntries}
 
-^^{rules: past tense of conditions}^^{rules: perfect tense of conditions}^^{past tense, of conditions in rules}^^{perfect tense, of conditions in rules}^^{tense: of conditions in rules} ^^{English: tense: of conditions in rules}^^{historical conditions} ^^{conditions: historical}^^{time: conditions and rules referring back in time}^^{(has been), for past conditions+sourcepart+} ^^{(had been), for past conditions+sourcepart+} ^^{(was), for past conditions+sourcepart+}^^{conditions: historical: warning concerning variables and other varying qualities} ^^{historical conditions: warning concerning variables and other varying qualities}
+^^{rules: past tense of conditions} ^^{rules: perfect tense of conditions} ^^{past tense, of conditions in rules} ^^{perfect tense, of conditions in rules} ^^{tense: of conditions in rules} ^^{English: tense: of conditions in rules} ^^{historical conditions} ^^{conditions: historical} ^^{time: conditions and rules referring back in time} ^^{(has been), for past conditions+sourcepart+} ^^{(had been), for past conditions+sourcepart+} ^^{(was), for past conditions+sourcepart+} ^^{conditions: historical: warning concerning variables and other varying qualities} ^^{historical conditions: warning concerning variables and other varying qualities}
+
 The remaining sections of this chapter go into more technical ways to think about the progress of the story through time, and can be skipped at a first reading.
 
 Conditions are clauses which require Inform to make a decision: is such-and-such true, or not true? We have already seen conditions attached to rules using "when":
@@ -5581,7 +5722,8 @@ Something we must watch out for is that variables might not have the same values
 
 ## How many times?
 
-^^{historical conditions: times} ^^{conditions: historical: number of times}^^{rules: counting repetitions for conditions}^^{time: counting conditions with (for the Nth time)+sourcepart+}^^{counting: conditions with (for the Nth time)+sourcepart+}^^{(first time), counting conditions+sourcepart+}^^{(once), counting conditions+sourcepart+} ^^{(twice), counting conditions+sourcepart+}^^{`exactly: counting conditions} ^^{(only), counting conditions+sourcepart+}
+^^{historical conditions: times} ^^{conditions: historical: number of times} ^^{rules: counting repetitions for conditions} ^^{time: counting conditions with (for the Nth time)+sourcepart+} ^^{counting: conditions with (for the Nth time)+sourcepart+} ^^{(first time), counting conditions+sourcepart+} ^^{(once), counting conditions+sourcepart+} ^^{(twice), counting conditions+sourcepart+} ^^{`exactly: counting conditions} ^^{(only), counting conditions+sourcepart+}
+
 There are two further ways to examine the historical record. Given any condition, we can say
 
 - `if (...condition...) for the second time ...`
@@ -5623,7 +5765,8 @@ means there have been exactly three visits, the third of which is still going on
 
 ## How many turns?
 
-^^{historical conditions: turns} ^^{conditions: historical: number of turns}^^{rules: counting turns for conditions}^^{turns: counting conditions with (for the Nth turn)+sourcepart+}^^{counting: conditions with (for the Nth turn)+sourcepart+}^^{`exactly: counting conditions} ^^{(only), counting conditions+sourcepart+}^^{conditions: historical: warning concerning variables and other varying qualities} ^^{historical conditions: warning concerning variables and other varying qualities}
+^^{historical conditions: turns} ^^{conditions: historical: number of turns} ^^{rules: counting turns for conditions} ^^{turns: counting conditions with (for the Nth turn)+sourcepart+} ^^{counting: conditions with (for the Nth turn)+sourcepart+} ^^{`exactly: counting conditions} ^^{(only), counting conditions+sourcepart+} ^^{conditions: historical: warning concerning variables and other varying qualities} ^^{historical conditions: warning concerning variables and other varying qualities}
+
 So much for "times" – spells in which a condition is true. We can also test the length of time, in turns of play, that something has been true. Thus:
 
 ``` inform7
@@ -5659,6 +5802,7 @@ Lastly, note that the beginning of play – when (usually) initial text and a ba
 ## Introduction to scenes {SCENESINTRO} {kind_scene}
 
 ^^{scenes}
+
 As we have seen, Inform divides up space into individual places called "rooms", and allows us to group rooms together into "regions" if we find that convenient. And Inform also divides time up, into individual turns. These too we can group together: the equivalent of a region is a "scene".
 
 To put this another way, if we think of the interactive fiction as a stage play, then up to now it has simply contained endless dialogue and stage directions – there has been no convenient way to divide up its running time into dramatic episodes, in the same way that a playwright might make Act II take place in the same drawing-room as Act I, but (let us say) six months later, after many things have changed. The script contains cues for one scene to end and another to begin: when those cues are reached, the stage hands rearrange props, actors reposition themselves and so on.
@@ -5669,7 +5813,8 @@ So organising the story-line into scenes is not simply a matter of making a list
 
 ## Creating a scene {PM_ScenesNotPlay} {PM_ScenesDisallowCalled} {PM_ScenesOnly} {PM_ScenesUnknownEnd} {PM_ScenesOversetEnd} {PM_ScenesBadCondition}
 
-^^{scenes: descriptions (displayed when scene begins)}^^{descriptions (displayed): scene descriptions}^^{description of (scene)+prop+} ^^{description of (scene)+propcat+}^^{scenes: rules run at beginning <-- beginning of scene}^^{scenes: rules run at end <-- end of scene}^^{rules: run at beginning of scene}^^{rules: run at end of scene}^^{rules: for scenes}^^{when (scene) begins / ends+sourcearg+}^^{properties: of scenes} ^^{scenes: properties of scenes}
+^^{scenes: descriptions (displayed when scene begins)} ^^{descriptions (displayed): scene descriptions} ^^{description of (scene)+prop+} ^^{description of (scene)+propcat+} ^^{scenes: rules run at beginning <-- beginning of scene} ^^{scenes: rules run at end <-- end of scene} ^^{rules: run at beginning of scene} ^^{rules: run at end of scene} ^^{rules: for scenes} ^^{when (scene) begins / ends+sourcearg+} ^^{properties: of scenes} ^^{scenes: properties of scenes}
+
 As usual, we only need to say that something is a scene to make it so:
 
 ``` inform7
@@ -5724,7 +5869,8 @@ Here, instead of naming a scene ("Train Stop"), we've given a description ("a sc
 
 ## Using the Scene index
 
-^^{Scenes page of Index panel+ui+} ^^{user interface: Index panel: Scenes page} ^^{Index panel+ui+: Scenes page}^^{time: scene beginning/ending times}^^{scenes: times of scenes beginning/ending}^^{scenes: `Entire Game}^^{Entire Game (- scene)+const+}^^{SCENES+testcmd+} ^^{testing commands: >SCENES}
+^^{Scenes page of Index panel+ui+} ^^{user interface: Index panel: Scenes page} ^^{Index panel+ui+: Scenes page} ^^{time: scene beginning/ending times} ^^{scenes: times of scenes beginning/ending} ^^{scenes: `Entire Game} ^^{Entire Game (- scene)+const+} ^^{SCENES+testcmd+} ^^{testing commands: >SCENES}
+
 But when we test the previous section's example, we find that after a brief wait, the train pulls up: but it never goes away again. We have given instructions on how the scene ends, but not when it ends, and as a result the scene goes on forever once started.
 
 Even with simple story-lines, and this one could hardly be simpler, it is surprisingly easy to overlook something so that the whole story-line is derailed.
@@ -5774,7 +5920,8 @@ The monk takes your elbow and pushes you imperiously toward dinner.
 
 ## During scenes
 
-^^{conditions: for scenes}^^{scenes: conditions for scenes}^^{properties: of scenes} ^^{scenes: properties of scenes}^^{during (scene)+sourcearg+}^^{happening (scene)+adj+}^^{recurring / non-recurring (scene)+prop+} ^^{non-recurring / recurring (scene)+prop+} ^^{recurring (scene)+propcat+} ^^{non-recurring (scene)+propcat+}^^{scenes: recurring scenes}^^{happened: if (scene) has happened+phr+}^^{ended: if (scene) has ended+phr+}
+^^{conditions: for scenes} ^^{scenes: conditions for scenes} ^^{properties: of scenes} ^^{scenes: properties of scenes} ^^{during (scene)+sourcearg+} ^^{happening (scene)+adj+} ^^{recurring / non-recurring (scene)+prop+} ^^{non-recurring / recurring (scene)+prop+} ^^{recurring (scene)+propcat+} ^^{non-recurring (scene)+propcat+} ^^{scenes: recurring scenes} ^^{happened: if (scene) has happened+phr+} ^^{ended: if (scene) has ended+phr+}
+
 Scenes are not only useful for changing the setting, by moving items or people around and providing a little narration. We can also make the rules different in one scene from another. For instance, at a sleepy country halt there is no reason why one should not walk across the tracks: but if there is a train in the way, that would be impossible.
 
 ``` inform7
@@ -5827,6 +5974,7 @@ Before going north during a dull non-recurring scene, ...
 ## Linking scenes together {LINKINGSCENES}
 
 ^^{scenes: linking to other scenes}
+
 Let us suppose that somebody gets off the train, after all, so that a second scene follows on.
 
 ``` inform7
@@ -5843,7 +5991,8 @@ Village Exploration is a scene. Village Exploration begins when Brief Encounter 
 
 ## More general linkages
 
-^^{scenes: linking to other scenes}^^{scenes: beginning when play begins}^^{starting conditions: scenes that begin at the beginning} ^^{initial state of the world: scenes that begin at the beginning}
+^^{scenes: linking to other scenes} ^^{scenes: beginning when play begins} ^^{starting conditions: scenes that begin at the beginning} ^^{initial state of the world: scenes that begin at the beginning}
+
 We are allowed to link the beginning or end of any scene to the beginning or end of any other scene. So, for instance:
 
 ``` inform7
@@ -5868,7 +6017,8 @@ When play ends, of course, all scenes end, so there is no need to say that.
 
 ## Multiple beginnings and repeats
 
-^^{scenes: linking to other scenes}^^{scenes: recurring scenes}^^{recurring / non-recurring (scene)+prop+} ^^{non-recurring / recurring (scene)+prop+} ^^{recurring (scene)+propcat+} ^^{non-recurring (scene)+propcat+}
+^^{scenes: linking to other scenes} ^^{scenes: recurring scenes} ^^{recurring / non-recurring (scene)+prop+} ^^{non-recurring / recurring (scene)+prop+} ^^{recurring (scene)+propcat+} ^^{non-recurring (scene)+propcat+}
+
 It is quite allowed for a scene to be linked to several other scenes, and this is useful if several alternate strands of plot are being brought together in a common resolution scene:
 
 ``` inform7
@@ -5891,7 +6041,8 @@ The difference here is that these scenes have been declared as "recurring". In a
 
 ## Multiple endings
 
-^^{scenes: variations in ending}^^{scenes: linking to other scenes}
+^^{scenes: variations in ending} ^^{scenes: linking to other scenes}
+
 Interactive fictions vary considerably in the extent to which the player is allowed to influence the story-line. Sometimes the appearance of making choices is wholly bogus, as only one possible line is given more than lip service. But in other works, the player can radically change the outcome, and whole rafts of plot differ between one person's experience and another's. Inform allows multiple endings to its scenes to make this kind of branching story-line easy to achieve.
 
 Any scene can have up to 31 alternate endings, differentiated by name (unless the Z-machine format has been selected on the Settings panel, in which case, 15). These alternates are created as and when conditions are set for them:
@@ -5926,7 +6077,8 @@ We might later need to know which of these paths has been taken, and to help wit
 
 ## Why are scenes designed this way?
 
-^^{scenes: no way to force scenes to begin / end}^^{limits: of scene changing mechanism}^^{Scenes page of Index panel+ui+} ^^{user interface: Index panel: Scenes page} ^^{Index panel+ui+: Scenes page}
+^^{scenes: no way to force scenes to begin / end} ^^{limits: of scene changing mechanism} ^^{Scenes page of Index panel+ui+} ^^{user interface: Index panel: Scenes page} ^^{Index panel+ui+: Scenes page}
+
 In the part it plays in stories, time is like space. The endings of a scene (along with its beginning) are like the map connections leading out of a room. The Scenes index keeps track of the "map of time" through which these possible story-lines traverse. Some works of IF will have immensely complicated story-lines in only a few rooms, some will have no scenes at all despite a sprawling geography. The Scenes and World index tabs, side by side, show both kinds of map.
 
 Just as Inform uses a simple but practical design for the boundaries between rooms (map connections and doors, that is), it also simplifies transitions between scenes. Scenes are based on states of things: we give circumstances for them to begin or end. There is no phrase with the power to say "make Act II begin right now", so perhaps it is worth explaining why not. The state-based approach was chosen because:
@@ -5944,7 +6096,8 @@ Since scenes are, in the end, only a convenient way to organise rules, and do no
 
 ## What are phrases? {PHRASES}
 
-^^{phrases}^^{`nothing: +to+do nothing}
+^^{phrases} ^^{`nothing: +to+do nothing}
+
 Phrases are instructions to Inform to do something, or to decide whether something is true or false, or to produce a value, or to say something. Inform has around 350 phrases built-in, and the chapters so far have already defined about 100 of those. In this chapter we'll see some key phrases for organising instructions of what to do, and also see how to define entirely new phrases.
 
 Just to run through the four sorts of phrase with examples:
@@ -5992,7 +6145,8 @@ Inform provides about 60 built-in text substitutions.
 
 ## The phrasebook {PM_BareTo}
 
-^^{to (phrase name)...+assert+}^^{phrases: defining}^^{defining: phrases}^^{Inform 6 equivalent: functions}^^{Inform 6 equivalent: procedures}^^{Phrases page of Index panel+ui+} ^^{user interface: Index panel: Phrases page} ^^{Index panel+ui+: Phrases page}^^{punctuation: colon <-- colon} ^^{`:}^^^{`: --> ;}
+^^{to (phrase name)...+assert+} ^^{phrases: defining} ^^{defining: phrases} ^^{Inform 6 equivalent: functions} ^^{Inform 6 equivalent: procedures} ^^{Phrases page of Index panel+ui+} ^^{user interface: Index panel: Phrases page} ^^{Index panel+ui+: Phrases page} ^^{punctuation: colon <-- colon} ^^{`:}^^^{`: --> ;}
+
 The Phrasebook is Inform's collection of recognised phrases, and it can always be browsed using the Index panel of the same name. Even the smallest project has a good-sized phrasebook, since it contains all of the built-in phrases. But most projects also define new phrases of their own.
 
 Here is a simple definition of a new phrase:
@@ -6016,7 +6170,8 @@ In the next section we'll see how to give more complicated definitions which, li
 
 ## Pattern matching {PM_TokenWithoutOpenBracket} {PM_TokenWithoutCloseBracket} {PM_TokenWithEmptyBrackets} {PM_TokenWithNestedBrackets} {PM_BadTypeIndication} {PM_TokenMisunderstood} {PM_PhraseTooLong} {PM_AdjacentTokens}  {PM_SaySlashed}
 
-^^{phrases: phrase parameters}^^{parameters: of phrases}^^^{parameters <-- arguments}^^{Inform 6 equivalent: functions with parameters}^^{pattern matching: phrase definitions}^^{type-checking: in phrase definitions}^^{kinds: in phrase parameters}^^{punctuation: slash: separating synonymous words in phrase definitions}^^{`/: separating synonymous words in phrase definitions}^^^{punctuation: slash <-- slash}^^{punctuation: double-dash: optional words in phrase definitions}^^{`--: optional words in phrase definitions}^^^{punctuation: double-dash <-- double-dash}^^{punctuation: brackets: for phrase parameters} ^^{`( ): for phrase parameters}
+^^{phrases: phrase parameters} ^^{parameters: of phrases}^^^{parameters <-- arguments} ^^{Inform 6 equivalent: functions with parameters} ^^{pattern matching: phrase definitions} ^^{type-checking: in phrase definitions} ^^{kinds: in phrase parameters} ^^{punctuation: slash: separating synonymous words in phrase definitions} ^^{`/: separating synonymous words in phrase definitions}^^^{punctuation: slash <-- slash} ^^{punctuation: double-dash: optional words in phrase definitions} ^^{`--: optional words in phrase definitions}^^^{punctuation: double-dash <-- double-dash} ^^{punctuation: brackets: for phrase parameters} ^^{`( ): for phrase parameters}
+
 In this section, let's make the following new phrase:
 
 ``` inform7
@@ -6193,7 +6348,8 @@ All the same, "showme" can be very useful in tinkering with rules to make them w
 
 ## Conditions and questions {kind_truthstate} {PM_TruthStateToDecide}
 
-^^{phrases: deciding a condition}^^{conditions: defined by phrases}^^{`truth state} ^^{values: truth state values}^^{`true / false}^^{`false / true}^^{darkness: testing whether in darkness}^^{querying the player yes/no} ^^{asking the player yes/no}^^{(YES), querying yes/no+commandpart+}^^{(NO), querying yes/no+commandpart+}^^{consents: if player consents+phr+}
+^^{phrases: deciding a condition} ^^{conditions: defined by phrases} ^^{`truth state} ^^{values: truth state values} ^^{`true / false} ^^{`false / true} ^^{darkness: testing whether in darkness} ^^{querying the player yes/no} ^^{asking the player yes/no} ^^{(YES), querying yes/no+commandpart+} ^^{(NO), querying yes/no+commandpart+} ^^{consents: if player consents+phr+}
+
 A variety of "conditions" have already appeared in this documentation. A condition is a phrase which describes a situation which might be true, or might be false, and examples might include:
 
 ``` inform7
@@ -6263,7 +6419,8 @@ and it can similarly be used in table columns, lists, or anywhere else where val
 
 ## If {PM_IfOutsidePhrase}
 
-^^{conditions: testing}^^{type-checking: in conditions}^^{conditions: equality}^^{comparisons: equality}
+^^{conditions: testing} ^^{type-checking: in conditions} ^^{conditions: equality} ^^{comparisons: equality}
+
 Inform's most powerful phrases are those which control the others, making them repeat, or be skipped.
 
 > phrase: {ph_if} if (a condition) , (a phrase) & if (a condition):
@@ -6303,7 +6460,8 @@ This produces the baffled reply:
 
 ## Begin and end {PM_BeginWithoutEnd} {PM_BlockNestingTooDeep} {PM_EndWithoutBegin} {PM_WrongEnd} {PM_CantUseOutsideStructure} {PM_BothBlockSyntaxes} {PM_NotInOldSyntax} {PM_MisalignedIndentation} {PM_RunOnsInTabbedRoutine} {PM_EmptyIndentedBlock}
 
-^^{(begin), in phrases+sourcepart+}^^{(end), in phrases+sourcepart+}^^{`end if}^^{Inform 6 equivalent: code blocks}^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+}^^{punctuation: colon} ^^{`:}
+^^{(begin), in phrases+sourcepart+} ^^{(end), in phrases+sourcepart+} ^^{`end if} ^^{Inform 6 equivalent: code blocks} ^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+} ^^{punctuation: colon} ^^{`:}
+
 In practice it is not enough to apply "if" to a single phrase alone: we want to give a whole list of phrases to be followed repeatedly, or to be followed only if a condition holds.
 
 We do this by grouping them together, and there are two ways to do this. One is as follows:
@@ -6334,7 +6492,8 @@ To comment upon (whatever - a thing):
 
 ## Otherwise {PM_NonCaseInIf} {PM_MisalignedOtherwise} {PM_MisalignedCase} {PM_MisarrangedOtherwise} {PM_DoubleOtherwise} {PM_OtherwiseIfAfterOtherwise} {PM_CaseValueNonConstant} {PM_CaseValueMismatch} {PM_OtherwiseWithoutIf} {PM_OtherwiseInNonIf}
 
-^^{conditions: with (otherwise/else)+sourcepart+}^^{+to+if (a condition): with (otherwise/else)+sourcepart+}^^{Inform 6 equivalent: `switch/case}^^{(--), separating cases+sourcepart+}^^{abbreviations: chains of equality tests}
+^^{conditions: with (otherwise/else)+sourcepart+} ^^{+to+if (a condition): with (otherwise/else)+sourcepart+} ^^{Inform 6 equivalent: `switch/case} ^^{(--), separating cases+sourcepart+} ^^{abbreviations: chains of equality tests}
+
 We often need code which does one thing in one circumstance, and another the rest of the time. We could do this like so:
 
 ``` inform7
@@ -6396,7 +6555,8 @@ This form of "if" layout is not allowed to use "begin" and "end" instead of inde
 
 ## While
 
-^^{loops: in phrases}^^{(begin), in phrases+sourcepart+}^^{(end), in phrases+sourcepart+}^^{`end while}^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+}^^{Inform 6 equivalent: `while}
+^^{loops: in phrases} ^^{(begin), in phrases+sourcepart+} ^^{(end), in phrases+sourcepart+} ^^{`end while} ^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+} ^^{Inform 6 equivalent: `while}
+
 The next control phrase is "while", which has the form:
 
 > phrase: {ph_while} while (a condition):
@@ -6437,7 +6597,8 @@ Experience shows that it is much more legible to lay out "while" loops as blocks
 
 ## Repeat {PM_CalledInRepeat}
 
-^^{loops: counted}^^{loops: through values}^^{counted loops}^^{(running from), looping through values+sourcepart+}^^{Inform 6 equivalent: `for}^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}
+^^{loops: counted} ^^{loops: through values} ^^{counted loops} ^^{(running from), looping through values+sourcepart+} ^^{Inform 6 equivalent: `for} ^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}
+
 The other kind of loop in Inform is "repeat". The trouble with "while" is that it's not obvious at a glance when or whether the loop will finish, and nor is there any book-keeping to measure progress. A "repeat" loop is much more predictable, and is more or less certain to finish.
 
 There are several forms of "repeat", of which the simplest is similar to the old `for / next` loop from the home-computer programming language BASIC, for those with long memories:
@@ -6495,7 +6656,8 @@ Whenever dealing with numbers in Inform we may need to remember that if the Sett
 
 ## Repeat running through {PM_BadRepeatDomain}
 
-^^{(running through), looping through objects+sourcepart+}^^{loops: through objects}^^{object loops}^^{Inform 6 equivalent: `objectloop}^^{`called: in describing things}
+^^{(running through), looping through objects+sourcepart+} ^^{loops: through objects} ^^{object loops} ^^{Inform 6 equivalent: `objectloop} ^^{`called: in describing things}
+
 Inform is not used very much for numerical work, so the kind of repeat loop described in the previous section is not much used. Inform's natural domain is really the world of things and rooms, so the following kind of repeat is much more useful.
 
 > phrase: {ph_runthrough} repeat with (a name not so far used) running through (description of values):
@@ -6541,7 +6703,8 @@ One small note of caution: if what the "repeat" loop does is to change the thing
 
 ## Next and break {PM_CantUseOutsideLoop}
 
-^^{Inform 6 equivalent: `continue}^^{Inform 6 equivalent: `break}^^{loops: interrupting}
+^^{Inform 6 equivalent: `continue} ^^{Inform 6 equivalent: `break} ^^{loops: interrupting}
+
 So "repeat" and "while" phrases cause a block of other phrases to be repeated, over and over. The number of repetitions and the flow of "control" has so far been controlled only by the way the original loop was described.
 
 But in fact it's also possible to change this from inside the block being repeated, using these:
@@ -6570,7 +6733,8 @@ In Monopoly terms, "next" is "Advance to Go" rather than "go directly, do not pa
 
 ## Stop
 
-^^{phrases: interrupting}^^{Inform 6 equivalent: `return}
+^^{phrases: interrupting} ^^{Inform 6 equivalent: `return}
+
 Now that it's possible to define phrases where different things are done in different circumstances, we sometimes want to halt early. This is what "stop" is for.
 
 > phrase: {ph_stop} stop
@@ -6587,7 +6751,8 @@ Now that it's possible to define phrases where different things are done in diff
 
 ## Phrase options {PM_TooManyPhraseOptions} {PM_PhraseOptionsExclusive} {PM_NotAPhraseOption} {PM_NotTheOnlyPhraseOption} {PM_SayWithPhraseOptions}
 
-^^{options, for phrases}^^{Inform 6 equivalent: functions with optional parameters}^^{phrases: options for small variations}^^{punctuation: comma: separating phrase options}^^{`,: separating phrase options}
+^^{options, for phrases} ^^{Inform 6 equivalent: functions with optional parameters} ^^{phrases: options for small variations} ^^{punctuation: comma: separating phrase options} ^^{`,: separating phrase options}
+
 There are sometimes several slightly different ways to perform a given task but which have substantially the same definition. In the following example:
 
 ``` inform7
@@ -6638,7 +6803,8 @@ The significant difference is the word "and/or" instead of "or", which signals t
 
 ## Let and temporary variables
 
-^^{variables: temporary}^^{variables: changing temporary variables}^^{temporary variables <-- local variables}^^{defining: temporary variables}^^{phrases: temporary variables in phrases}^^{Inform 6 equivalent: local variables}^^{type-checking: for temporary variables}^^{+to+now (a condition): changing temporary variables}
+^^{variables: temporary} ^^{variables: changing temporary variables} ^^{temporary variables <-- local variables} ^^{defining: temporary variables} ^^{phrases: temporary variables in phrases} ^^{Inform 6 equivalent: local variables} ^^{type-checking: for temporary variables} ^^{+to+now (a condition): changing temporary variables}
+
 A variable, as we have seen, is a name for a value which changes, though always remaining of the same kind. For instance, if "target" is a number variable (or "number that varies") then it may change value from 2 to 4, but not from 2 to "fishknife".
 
 To make complicated decisions, phrases often need to remember values on a temporary basis. We have already seen this for the counter in a "repeat" loop, which exists only inside that loop, and then is no longer needed.
@@ -6702,7 +6868,8 @@ now x is "Norway";
 
 ## New conditions, new adjectives
 
-^^{phrases: deciding a condition}^^{to decide whether/if+assert+}^^{adjectives: defining: with (to decide whether)+sourcepart+}^^{defining: adjectives: with (to decide whether)+sourcepart+}^^{conditions: defining with (to decide whether)+sourcepart+}^^{definition+assert+: with phrase logic}^^{(it), in source text+sourcepart+} ^^{pronouns: (it), in source text+sourcepart+}^^{punctuation: colon} ^^{`:}^^{Inform 6 equivalent: `rtrue/rfalse}
+^^{phrases: deciding a condition} ^^{to decide whether/if+assert+} ^^{adjectives: defining: with (to decide whether)+sourcepart+} ^^{defining: adjectives: with (to decide whether)+sourcepart+} ^^{conditions: defining with (to decide whether)+sourcepart+} ^^{definition+assert+: with phrase logic} ^^{(it), in source text+sourcepart+} ^^{pronouns: (it), in source text+sourcepart+} ^^{punctuation: colon} ^^{`:} ^^{Inform 6 equivalent: `rtrue/rfalse}
+
 We can create new conditions by defining a phrase with "to decide whether" (or equivalently "to decide if"):
 
 ``` inform7
@@ -6754,7 +6921,8 @@ Definition: a supporter is occupied:
 
 ## Phrases to decide other things {PM_ReturnWrongKind} {PM_UnknownValueToDecide} {PM_RedundantReturnKOV}
 
-^^{phrases: deciding a value}^^{to decide what/which (value)+assert+}^^{Inform 6 equivalent: return value}^^{type-checking: in phrases that decide values}
+^^{phrases: deciding a value} ^^{to decide what/which (value)+assert+} ^^{Inform 6 equivalent: return value} ^^{type-checking: in phrases that decide values}
+
 A condition is a yes/no decision, but we can also take decisions where the result is a value. Suppose we want to create a concept of the "grand prize", which will have different values at different times in play. Each time the "grand prize" is referred to, Inform will have to decide what its value is, and the following tells Inform how to make that decision:
 
 ``` inform7
@@ -6798,7 +6966,8 @@ To decide if time is short:
 
 ## The value after and the value before
 
-^^^{+to+(name of kind) before (enumerated value) --> before}^^^{+to+(name of kind) after (enumerated value) --> after}^^{calculation: incrementing}^^{calculation: decrementing}^^{values: kinds of value: comparisons}^^{comparisons: of enumerated values}
+^^^{+to+(name of kind) before (enumerated value) --> before}^^^{+to+(name of kind) after (enumerated value) --> after} ^^{calculation: incrementing} ^^{calculation: decrementing} ^^{values: kinds of value: comparisons} ^^{comparisons: of enumerated values}
+
 A point which has come up several times in recent chapters is that enumerated kinds of value have a natural ordering. For example, if we write:
 
 ``` inform7
@@ -6847,7 +7016,8 @@ And now how to step forward and back:
 
 ## A recap of actions
 
-^^{actions}^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}^^{+to+try (action)}^^{+to+silently try (action)}^^{actions: performing with (try)+sourcepart+}^^{actions: suppressing success messages with (try silently)+sourcepart+}
+^^{actions} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS} ^^{+to+try (action)} ^^{+to+silently try (action)} ^^{actions: performing with (try)+sourcepart+} ^^{actions: suppressing success messages with (try silently)+sourcepart+}
+
 Actions are impulses to do something, which arise sometimes through typed commands:
 
 ``` transcript
@@ -6879,7 +7049,8 @@ There are many ways to impose extra rules on actions, and we have seen three mai
 
 ## How actions are processed {ARSUMMARY}
 
-^^{actions: processing sequence}^^{actions: rules for actions found in rulebooks}^^{rules: for actions found in rulebooks}^^{rulebooks: for actions}^^{failure: for actions}^^{success: for actions}^^{visibility+rel+: in action processing sequence}^^{touchability+rel+: in action processing sequence}^^{before (action)+rb+: in action processing sequence} ^^{rules: before rules}^^{instead of (action)+rb+: in action processing sequence} ^^{rules: instead rules}^^{after (action)+rb+: in action processing sequence} ^^{rules: after rules}^^{check (action)+rb+}^^{carry out (action)+rb+}^^{report (action)+rb+}
+^^{actions: processing sequence} ^^{actions: rules for actions found in rulebooks} ^^{rules: for actions found in rulebooks} ^^{rulebooks: for actions} ^^{failure: for actions} ^^{success: for actions} ^^{visibility+rel+: in action processing sequence} ^^{touchability+rel+: in action processing sequence} ^^{before (action)+rb+: in action processing sequence} ^^{rules: before rules} ^^{instead of (action)+rb+: in action processing sequence} ^^{rules: instead rules} ^^{after (action)+rb+: in action processing sequence} ^^{rules: after rules} ^^{check (action)+rb+} ^^{carry out (action)+rb+} ^^{report (action)+rb+}
+
 The following flow chart shows the natural course of events when Inform deals with a new action – a "taking" action in the case drawn. For quite a long time, the action may still fail, and it may be that nothing actually happens: but eventually a deciding line is crossed, and once that happens the action will certainly succeed.
 
 ![achart](doc_images/achart.png)
@@ -6896,7 +7067,8 @@ In subsequent chapters, we will see ways to intervene at almost every point in t
 
 ## Giving instructions to other people {var_person_asked}
 
-^^{actions: instructing other people}^^^{characters (people) <-- actors <-- other people}^^^{characters (people) <-- NPC <-- people}^^^{characters (people) <-- person+kind+: characters}^^{characters (people): giving instructions to other characters}^^{instructing other characters} ^^{ordering other characters}^^{asking (actor) to try+action+ <-- +to+try (action): in (asking) action+sourcepart+}^^{person asked (- object)+glob+}^^{actor (- person)+actvar+}^^{player: as opposed to the actor}
+^^{actions: instructing other people}^^^{characters (people) <-- actors <-- other people}^^^{characters (people) <-- NPC <-- people}^^^{characters (people) <-- person+kind+: characters} ^^{characters (people): giving instructions to other characters} ^^{instructing other characters} ^^{ordering other characters} ^^{asking (actor) to try+action+ <-- +to+try (action): in (asking) action+sourcepart+} ^^{person asked (- object)+glob+} ^^{actor (- person)+actvar+} ^^{player: as opposed to the actor}
+
 So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the "person" kind, that is, which includes all the men, women and animals in the story, and not only the player.
 
 [ZL: I suggest some acknowledgement that `asking it to` is a weird pseudo-action, or at least consequences thereof, like that it can't have check, carry out, report rules. I think it would be very worthwhile to have somewhere the complete life-cycle of request action in terms of the action sequence]::
@@ -6931,7 +7103,8 @@ So if the player types "Algy, take sandwich", the "person asked" would be Algy; 
 
 ## Persuasion {rules_per}
 
-^^{actions: instructing other characters: persuasion rules}^^{persuasion+rb+}^^{+toout+persuasion succeeds / fails (persuasion rules)}^^{rules: persuasion rules for instructing characters}^^{rules: for other characters} ^^{actions: rules for other characters}^^{success: for persuasion}^^{failure: for persuasion}^^{paragraph breaks: for fooling persuasion refusal}^^{instead of (action)+rb+: as failure of persuasion} ^^{rules: instead rules}^^{characters (people): persuading}
+^^{actions: instructing other characters: persuasion rules} ^^{persuasion+rb+} ^^{+toout+persuasion succeeds / fails (persuasion rules)} ^^{rules: persuasion rules for instructing characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{success: for persuasion} ^^{failure: for persuasion} ^^{paragraph breaks: for fooling persuasion refusal} ^^{instead of (action)+rb+: as failure of persuasion} ^^{rules: instead rules} ^^{characters (people): persuading}
+
 "Asking ... to try ..." actions run through their Before and Instead rules like any other actions, but then (if no rule has intervened) something different happens: Inform has to decide whether the person asked consents to try the action or not. By default, the answer is always no, and text like the following will be printed:
 
 ``` transcript
@@ -6996,7 +7169,8 @@ If we wish to write new successful actions for another character, we will need t
 
 ## Unsuccessful attempts {var_reason} {rules_fail}
 
-^^{unsuccessful attempt by+rb+}^^{actions: instructing other characters: unsuccessful attempts}^^{rules: unsuccessful attempts by other characters}^^{rules: for other characters} ^^{actions: rules for other characters}^^{reason the action failed (- rule)+glob+}^^{characters (people): reporting unsuccessful actions}^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+^^{unsuccessful attempt by+rb+} ^^{actions: instructing other characters: unsuccessful attempts} ^^{rules: unsuccessful attempts by other characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{reason the action failed (- rule)+glob+} ^^{characters (people): reporting unsuccessful actions} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+
 Suppose, finally, that Will not only consents to try the action, but it also survives its passage through Before and Instead rules. What happens then? In principle, what happens to Will is exactly what would have happened to the player in Will's place. For instance:
 
 ``` transcript
@@ -7044,7 +7218,8 @@ Finally, note that "unsuccessful attempt" rules apply only when the person in qu
 
 ## Spontaneous actions by other people
 
-^^{actions: spontaneous by other people}^^{actions: performing with (try)+sourcepart+}^^{+to+try (actor) trying (action)}^^{characters (people): acting spontaneously}^^{unsuccessful attempt by+rb+: not used for spontaneous actions}
+^^{actions: spontaneous by other people} ^^{actions: performing with (try)+sourcepart+} ^^{+to+try (actor) trying (action)} ^^{characters (people): acting spontaneously} ^^{unsuccessful attempt by+rb+: not used for spontaneous actions}
+
 The player's actions happen not only when they type a command, but can also happen spontaneously as a result of a "try" phrase.
 
 ``` inform7
@@ -7070,7 +7245,8 @@ try Will Going trying going west
 
 ## New actions {NEWACTIONS} {PM_MatchedAsTooLong} {PM_MultiwordPastParticiple} {PM_GrammarMismatchesAction} {PM_ActionAlreadyExists} {PM_ActionBothValues} {PM_ActionClauseUnknown} {PM_ActionMisapplied}
 
-^^{actions: defining new actions}^^{defining: actions}^^{Inform 6 equivalent: verbs}^^{(applying to), in defining actions+sourcepart+}^^{(requiring), in defining actions+sourcepart+}^^{visibility+rel+: requirement in defining actions}^^{touchability+rel+: requirement in defining actions}^^{carrying+rel+: requirement in defining actions}^^{light: requirement in defining actions}^^{actions: referring to current action with (action)+sourcepart+}^^{understand (verb) as (action)+assert+} ^^{understanding: verbs}^^{Inform 6 equivalent: synonyms}^^{synonyms}^^{understanding: requirements for objects in actions}^^^{understanding <-- parsing}
+^^{actions: defining new actions} ^^{defining: actions} ^^{Inform 6 equivalent: verbs} ^^{(applying to), in defining actions+sourcepart+} ^^{(requiring), in defining actions+sourcepart+} ^^{visibility+rel+: requirement in defining actions} ^^{touchability+rel+: requirement in defining actions} ^^{carrying+rel+: requirement in defining actions} ^^{light: requirement in defining actions} ^^{actions: referring to current action with (action)+sourcepart+} ^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{Inform 6 equivalent: synonyms} ^^{synonyms} ^^{understanding: requirements for objects in actions}^^^{understanding <-- parsing}
+
 It is not often that we need to create new actions, but a large work of interactive fiction with no novelty actions is a flavourless dish. Here we shall create an action for photographing things.
 
 ``` inform7
@@ -7129,7 +7305,8 @@ We will return to the whole subject of parsing, as this process of understanding
 
 ## Irregular English verbs
 
-^^{understand (verb) as (action)+assert+} ^^{understanding: verbs}^^{English: irregular verbs}^^{actions: irregular verbs in action names}
+^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{English: irregular verbs} ^^{actions: irregular verbs in action names}
+
 Our three example actions can be recognised in play using the following:
 
 ``` inform7
@@ -7150,7 +7327,8 @@ Squicking is an action with past participle squacked, applying to one thing.
 
 ## Check, carry out, report
 
-^^{actions: rules for new actions}^^{rules: for new actions}^^{rulebooks: for new actions}^^{check (action)+rb+}^^{carry out (action)+rb+}^^{report (action)+rb+}^^{(instead), to stop the action+sourcepart+}
+^^{actions: rules for new actions} ^^{rules: for new actions} ^^{rulebooks: for new actions} ^^{check (action)+rb+} ^^{carry out (action)+rb+} ^^{report (action)+rb+} ^^{(instead), to stop the action+sourcepart+}
+
 The normal behaviour of an action is specified by its three associated rulebooks – check, carry out and report. In the case of our "photographing" example, these rulebooks will be:
 
 [ZL: had been in block previously]::
@@ -7191,7 +7369,8 @@ Check photographing:
 
 ## Action variables {PM_ActionVarsPastTense} {PM_ActionVarAnd} {PM_ActionVarOverspecific} {PM_ActionVarUnknownKOV} {PM_ActionVarValue} {PM_BadMatchingSyntax}
 
-^^{actions: variables for actions}^^{variables: for actions}^^{defining: action variables}^^{(matched as), in describing action variables+sourcepart+}^^{`called: in defining action variables}^^{setting action variables+rb+}
+^^{actions: variables for actions} ^^{variables: for actions} ^^{defining: action variables} ^^{(matched as), in describing action variables+sourcepart+} ^^{`called: in defining action variables} ^^{setting action variables+rb+}
+
 For some complex situations, it can be useful to keep track of a few values throughout the processing of the action. This is not an everyday occurrence: in the Standard Rules, for instance, only two or three out of 90 actions need to do this. But suppose we want to write a more deluxe version of our "photographing" action. This time, rather than having a single thing called the "camera", we will provide a whole range of possible cameras, varying in quality:
 
 ``` inform7
@@ -7252,7 +7431,8 @@ Report photographing something using a sharp camera:
 
 ## Making actions work for other people
 
-^^{rules: for new actions for other characters}^^{rules: for other characters} ^^{actions: rules for other characters}^^{player: as opposed to the actor}
+^^{rules: for new actions for other characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{player: as opposed to the actor}
+
 The "photographing" action now works very nicely when the player does it. But not when others try. Suppose that neither the player, nor Clark Gable, is holding the camera:
 
 ``` transcript
@@ -7275,7 +7455,8 @@ the action is "photographing", not "Clark photographing". In the next few sectio
 
 ## Check rules for actions by other people {PM_DuplicateRuleName} {PM_RuleWithComma}
 
-^^{check (action)+rb+: for other characters}^^{rules: for other characters} ^^{actions: rules for other characters}^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}^^{unsuccessful attempt by+rb+}^^{reason the action failed (- rule)+glob+}^^{`someone: in actions}
+^^{check (action)+rb+: for other characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS} ^^{unsuccessful attempt by+rb+} ^^{reason the action failed (- rule)+glob+} ^^{`someone: in actions}
+
 If we want to impose the restriction about carrying the camera on other people, we need a rule like the following:
 
 ``` inform7
@@ -7316,7 +7497,8 @@ Unsuccessful attempt by Clark photographing:
 
 ## Report rules for actions by other people
 
-^^{report (action)+rb+: for other characters}^^{rules: for other characters} ^^{actions: rules for other characters}^^{`someone: in actions}
+^^{report (action)+rb+: for other characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{`someone: in actions}
+
 Report rules for the player's actions are easy to write, and for many actions, they are not much harder for other people either:
 
 ``` inform7
@@ -7344,7 +7526,8 @@ While the report rules for actions by the player must actually report something,
 
 ## Actions for any actor
 
-^^{rules: for any actor (including the player)}^^{actions: rules for any actor (including the player)}^^{actor (- person)+actvar+}
+^^{rules: for any actor (including the player)} ^^{actions: rules for any actor (including the player)} ^^{actor (- person)+actvar+}
+
 In the previous sections, we created a new action by providing one set of rules for the player and another for anybody else who might try to perform it. These rules began with action descriptions in one of the following forms:
 
 ``` inform7
@@ -7369,7 +7552,8 @@ Carry out an actor wearing (this is the standard wearing rule):
 
 ## Out of world actions {OUTOFWORLD}
 
-^^{`out of world} ^^{actions: `out of world}^^{Inform 6 equivalent: `meta}^^{every turn+rb+: not for (out of world) actions+sourcepart+}^^{time: not passing for (out of world) actions+sourcepart+}^^{turns: not passing for (out of world) actions+sourcepart+}^^{before (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: before rules}^^{instead of (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: instead rules}^^{after (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: after rules}
+^^{`out of world} ^^{actions: `out of world} ^^{Inform 6 equivalent: `meta} ^^{every turn+rb+: not for (out of world) actions+sourcepart+} ^^{time: not passing for (out of world) actions+sourcepart+} ^^{turns: not passing for (out of world) actions+sourcepart+} ^^{before (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: before rules} ^^{instead of (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: instead rules} ^^{after (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: after rules}
+
 The actions seen so far are all impulses causing the protagonist inside the fictional world to do something, or at least try to. But when the player types "quit" or "save", that is not a request for anything to happen in the fictional world: it is an instruction to the program simulating that world. In fact, just the same, such requests are treated as actions, but of a special category called "out of world" actions. They do not cause time to pass by, so the turn counter does not advance, nor does this command cycle count as a turn at all; and they are altogether exempt from "Before", "Instead" and "After" rules. Only the player is allowed to try them.
 
 We can also create new out-of-world actions. Suppose we want a dialogue like so:
@@ -7391,7 +7575,8 @@ It is important not to use "out of world" actions for anything affecting what go
 
 ## Reaching inside and reaching outside rules {rules_ri}
 
-^^{rules: reaching inside / outside}^^{rules: access to things referred to in actions}^^{actions: reaching inside / outside rules}^^{reaching inside / outside+rb+}^^{actions: requirements for actions}^^{touchability+rel+: in action processing sequence}^^{Inform 6 equivalent: scope rules}
+^^{rules: reaching inside / outside} ^^{rules: access to things referred to in actions} ^^{actions: reaching inside / outside rules} ^^{reaching inside / outside+rb+} ^^{actions: requirements for actions} ^^{touchability+rel+: in action processing sequence} ^^{Inform 6 equivalent: scope rules}
+
 The flow chart back at the start of this chapter shows that, early on in processing an action (between Before and Instead), Inform asks the question "Can we see or touch things?" This is where it enforces the requirements in the action's definition:
 
 ``` inform7
@@ -7422,7 +7607,8 @@ can't reach outside closed containers rule
 
 ## Visible vs touchable vs carried
 
-^^{actions: requirements for actions}^^{(requiring), in defining actions+sourcepart+}^^{visibility+rel+: requirement in defining actions}^^{touchability+rel+: requirement in defining actions}^^{carrying+rel+: requirement in defining actions}^^{light: requirement in defining actions}^^{understanding: requirements for objects in actions}^^{taking+action+: implicit taking}^^{implicitly taking something+activity+} ^^{implicitly taking something+activitycat+}
+^^{actions: requirements for actions} ^^{(requiring), in defining actions+sourcepart+} ^^{visibility+rel+: requirement in defining actions} ^^{touchability+rel+: requirement in defining actions} ^^{carrying+rel+: requirement in defining actions} ^^{light: requirement in defining actions} ^^{understanding: requirements for objects in actions} ^^{taking+action+: implicit taking} ^^{implicitly taking something+activity+} ^^{implicitly taking something+activitycat+}
+
 To recap, actions are created like so:
 
 ``` inform7
@@ -7453,7 +7639,8 @@ Note one special case. Requirements on touchability are waived in the case of "t
 
 ## Changing reachability {var_person_reaching}
 
-^^{rules: reaching inside / outside}^^{rules: access to things referred to in actions}^^{actions: reaching inside / outside rules}^^{reaching inside / outside+rb+}^^{actions: requirements for actions}^^{touchability+rel+: requirement in defining actions}^^{understanding: requirements for objects in actions}^^{Inform 6 equivalent: scope rules}^^{person reaching (- object)+glob+}^^{container in question (- object)+glob+}^^{supporter in question (- object)+glob+}^^{+toout+deny access (reaching inside / outside)} ^^{+toout+allow access (reaching inside / outside)}^^{+toout+access, deny / allow access (reaching inside / outside)}
+^^{rules: reaching inside / outside} ^^{rules: access to things referred to in actions} ^^{actions: reaching inside / outside rules} ^^{reaching inside / outside+rb+} ^^{actions: requirements for actions} ^^{touchability+rel+: requirement in defining actions} ^^{understanding: requirements for objects in actions} ^^{Inform 6 equivalent: scope rules} ^^{person reaching (- object)+glob+} ^^{container in question (- object)+glob+} ^^{supporter in question (- object)+glob+} ^^{+toout+deny access (reaching inside / outside)} ^^{+toout+allow access (reaching inside / outside)} ^^{+toout+access, deny / allow access (reaching inside / outside)}
+
 The question of what the player can, and cannot, reach to touch is important in interactive fiction. It contains some of the subtlest ideas in the model world, though they often go unnoticed. For instance, if a key is on a shelf which is part of a closed box, can we reach for the key? This comes down to whether the shelf, described only as "part of" the box, is on the inside or the outside: and in fact, because it cannot know which is the case, Inform allows either. So in general it is best to regard "parts" as being exterior parts, but to avoid having parts on containers that might in the course of play be closed up with the player inside.
 
 We can, if we wish, change the principles of what can be touched by writing new reaching inside or reaching outside rules. Returning to the example of the conical flask:
@@ -7487,7 +7674,8 @@ The "person reaching" is, as its name suggests, the person trying to reach throu
 
 ## Changing visibility {visibility}
 
-^^{actions: requirements for actions}^^{visibility+rel+: requirement in defining actions}^^{visibility+rel+: rules for determining darkness}^^{visibility+rb+}^^{rules: for visibility}^^{+toout+there is sufficient / insufficient light (visibility rules)}^^{+toout+sufficient / insufficient light, there is sufficient / insufficient light (visibility rules)} ^^{+toout+insufficient / sufficient light, there is insufficient / sufficient light (visibility rules)}^^{darkness: rules to change perception of}^^{light: rules to override sufficiency of}^^{Inform 6 equivalent: darkness}^^{looking+action+}
+^^{actions: requirements for actions} ^^{visibility+rel+: requirement in defining actions} ^^{visibility+rel+: rules for determining darkness} ^^{visibility+rb+} ^^{rules: for visibility} ^^{+toout+there is sufficient / insufficient light (visibility rules)} ^^{+toout+sufficient / insufficient light, there is sufficient / insufficient light (visibility rules)} ^^{+toout+insufficient / sufficient light, there is insufficient / sufficient light (visibility rules)} ^^{darkness: rules to change perception of} ^^{light: rules to override sufficiency of} ^^{Inform 6 equivalent: darkness} ^^{looking+action+}
+
 Ordinarily, Inform has a simple model for visibility: it is either fully light or it is fully dark, and certain actions are impossible in the dark, such as examining something.
 
 We first need to remember that darkness affects what actions are even tried, as far as the player's typed commands go. If the player is in a dark room, and there is a screwdriver on the floor, the command ``examine screwdriver`` will not try any action: the screwdriver is not "in scope", which means that the parser thinks the player does not have any means of knowing it exists. (The rules for scope can be modified – see the chapter on [Activities].) But let's suppose that the player types ``examine book``, and is holding the book in question. The book is now "in scope", so the action "examining the book" is tried.
@@ -7515,7 +7703,8 @@ instead of printing the description of the player's current room. This means tha
 
 ## Stored actions {kind_storedaction}
 
-^^{actions: stored actions}^^{stored actions}^^{actions: as values}^^{values: actions as values}^^{`action name}
+^^{actions: stored actions} ^^{stored actions} ^^{actions: as values} ^^{values: actions as values} ^^{`action name}
+
 As we have seen, to describe an action fully takes a complicated little bundle of information – we need to know what is to be done, who will do it, and what it will be done to. There are times when we would like to remember an action and look back on it later (perhaps many turns later, after many other actions have taken effect) – but this is not easy to do with only the techniques we have seen so far. There are quite a few cases to get right, and it would be easy to not store quite enough of the details.
 
 Fortunately, Inform provides a kind of value called "action" which can do all of this automatically. (In older versions of Inform this was called "stored action", but the word "stored" is now unnecessary, and makes no difference.) As with most other kinds of value, actions can be held in variables, "let" values, properties or table columns. For example:
@@ -7641,7 +7830,8 @@ The following phrase is a convenient shorthand form:
 
 ## Guidelines on how to write rules about actions
 
-^^{actions}^^{actions: guidelines for action rules}^^{rules: guidelines for action rules}^^{`out of world} ^^{actions: `out of world}^^{before (action)+rb+: guidelines for use}^^{instead of (action)+rb+: guidelines for use}^^{after (action)+rb+: guidelines for use}^^{check (action)+rb+: guidelines for use}^^{carry out (action)+rb+: guidelines for use}^^{report (action)+rb+: guidelines for use}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+^^{actions} ^^{actions: guidelines for action rules} ^^{rules: guidelines for action rules} ^^{`out of world} ^^{actions: `out of world} ^^{before (action)+rb+: guidelines for use} ^^{instead of (action)+rb+: guidelines for use} ^^{after (action)+rb+: guidelines for use} ^^{check (action)+rb+: guidelines for use} ^^{carry out (action)+rb+: guidelines for use} ^^{report (action)+rb+: guidelines for use} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+
 Looking at the action-processing diagram, there seem to be a bewildering number of ways to intervene. For instance, suppose it must be fatal to pick up a land mine. All six of the following rules would do the business:
 
 ``` inform7
@@ -7707,7 +7897,8 @@ These are only guidelines. The system is designed to be flexible in order to giv
 
 ## Sentence verbs {VERBS} {PM_PropForBadKOV} {PM_RelationWithBadProperty} {PM_RelationWithEitherOrProperty} {PM_BadRelation} {PM_EveryWrongSide} {PM_KindRelatedToValue}
 
-^^{sentence verbs <-- verbs: sentence verbs}^^{`is}^^{relations: used in sentences}
+^^{sentence verbs <-- verbs: sentence verbs} ^^{`is} ^^{relations: used in sentences}
+
 Descriptions of things – "open door", "people in the Drawing Room" – have already had a whole chapter to themselves. But descriptions are only half of the story of Inform's highly flexible language for talking about places, things and circumstances: this chapter is the other half, and is about the "sentence". Of course all text is made up of sentences, but Inform has a more specific meaning than that. Consider the following pieces of source text:
 
 ``` inform7
@@ -7747,7 +7938,8 @@ This chapter is about the verbs which can be used in sentences and descriptions.
 
 ## What sentences are made up from
 
-^^{sentence verbs}^^{`is}
+^^{sentence verbs} ^^{`is}
+
 A sentence consists of two nouns with a verb between them. Usually, the two nouns are descriptions, as in:
 
 ``` inform7
@@ -7766,7 +7958,8 @@ This chapter is about getting the most out of sentences by defining new verbs to
 
 ## What are relations? {RELATIONS}
 
-^^{relations}^^{sentence verbs: difference from relations}^^{relations: difference from sentence verbs}
+^^{relations} ^^{sentence verbs: difference from relations} ^^{relations: difference from sentence verbs}
+
 Relations are what sentences express. They are yes/no questions about pairs of things: for example, to say that the coin is in the purse is to say that a particular relation ("being in") is true about a specific pair of things (the coin, the purse). It is neither a fact about the coin nor about the purse, but about the two together.
 
 Inform comes with a number of relations built in, almost all of which have been used in previous chapters already. The following table names some of the more useful ones, giving examples of sentences to bring them about:
@@ -7795,7 +7988,8 @@ all of which boil down to saying that the coin and purse satisfy the containment
 
 ## To carry, to wear, to have
 
-^^{containment+rel+ <-- containment+relcat+ <-- in+relverb+} ^^{containment+relcat+}^^{support+rel+} ^^{support+relcat+}^^{incorporation+rel+ <-- incorporation+relcat+} ^^{incorporation+relcat+}^^{carrying+rel+ <-- carrying+relcat+} ^^{carrying+relcat+}^^{wearing+rel+ <-- worn+relverb+} ^^{wearing+relcat+}^^{possession+rel+ <-- has+relverb+} ^^{possession+relcat+}^^{concealment+rel+ <-- concealment+relcat+} ^^{concealment+relcat+}^^^{containment+rel+ <-- containers+kind+: containment relation}^^^{support+rel+ <-- supporters+kind+: support relation}^^^{incorporation+rel+ <-- components: incorporation relation}^^^{supporters+kind+ <-- support+relcat+}^^^{containment+rel+ <-- inside+relverb+ <-- within+relverb+}^^^{containment+rel+ <-- held in+relverb+}^^^{containers+kind+ <-- containment+relcat+}^^^{components <-- incorporation+relcat+}^^^{support+rel+ <-- on+relverb+ <-- on top of+relverb+}
+^^{containment+rel+ <-- containment+relcat+ <-- in+relverb+} ^^{containment+relcat+} ^^{support+rel+} ^^{support+relcat+} ^^{incorporation+rel+ <-- incorporation+relcat+} ^^{incorporation+relcat+} ^^{carrying+rel+ <-- carrying+relcat+} ^^{carrying+relcat+} ^^{wearing+rel+ <-- worn+relverb+} ^^{wearing+relcat+} ^^{possession+rel+ <-- has+relverb+} ^^{possession+relcat+} ^^{concealment+rel+ <-- concealment+relcat+} ^^{concealment+relcat+}^^^{containment+rel+ <-- containers+kind+: containment relation}^^^{support+rel+ <-- supporters+kind+: support relation}^^^{incorporation+rel+ <-- components: incorporation relation}^^^{supporters+kind+ <-- support+relcat+}^^^{containment+rel+ <-- inside+relverb+ <-- within+relverb+}^^^{containment+rel+ <-- held in+relverb+}^^^{containers+kind+ <-- containment+relcat+}^^^{components <-- incorporation+relcat+}^^^{support+rel+ <-- on+relverb+ <-- on top of+relverb+}
+
 Inform has altogether five mutually exclusive ways in which one thing can be physically joined to another one:
 
 - **containment** relation - `The coin is in the purse.`
@@ -7829,7 +8023,8 @@ if Mr Darcy conceals a fob watch ...
 
 ## Making new relations {PM_RelationExists} {PM_FRFUnavailable} {PM_OneOrVariousWithWhen} {PM_BothOneAndMany} {PM_CantCallLeft} {PM_CantCallRight} {PM_CantCallBoth} {PM_OneToOneMiscalled} {PM_RelatedKindsUnknown} {PM_BadKOVForRelationProperty}
 
-^^{relations: defining}^^{defining: relations}^^{(relation) relates...+assert+ --> relates}^^{(various), in defining relations+sourcepart+}^^{`called: in defining relations}
+^^{relations: defining} ^^{defining: relations} ^^{(relation) relates...+assert+ --> relates} ^^{(various), in defining relations+sourcepart+} ^^{`called: in defining relations}
+
 We can create new relations like so:
 
 ``` inform7
@@ -7881,7 +8076,8 @@ because "the pet of Flaubert" would be ambiguous: he might have owned dozens.
 
 [ZL: I suggest saying "symmetric" rather than "reciprocal"... as is, we're never actually told when we get to "symmetric" that it means the same thing as the reciprocal mentioned here...]::
 
-^^{reciprocal relations}^^{relations: reciprocal relations}^^{(each other), in defining relations+sourcepart+}^^{(another), in defining relations+sourcepart+}^^{`called: in defining relations}
+^^{reciprocal relations} ^^{relations: reciprocal relations} ^^{(each other), in defining relations+sourcepart+} ^^{(another), in defining relations+sourcepart+} ^^{`called: in defining relations}
+
 The relationships described in this chapter so far are by no means always reciprocated. For instance, if a stone is on a table, then it is never true that the table is also on the stone. And the question may not even be meaningful to ask. If Peter wears a jacket, the jacket does not even have the possibility of wearing Peter.
 
 But sometimes we do want a relation which works both ways equally well. These are simple to set up:
@@ -7910,7 +8106,8 @@ Since many of these examples have involved people, it might be worth mentioning 
 
 ## Relations in groups
 
-^^{relations: group relations}^^{(in groups), in defining relations+sourcepart+}^^{group relations}^^{(each other), in defining relations+sourcepart+}^^{RELATIONS+testcmd+} ^^{testing commands: >RELATIONS}
+^^{relations: group relations} ^^{(in groups), in defining relations+sourcepart+} ^^{group relations} ^^{(each other), in defining relations+sourcepart+} ^^{RELATIONS+testcmd+} ^^{testing commands: >RELATIONS}
+
 Finally, there is a kind of relation which binds even more strongly.
 
 ``` inform7
@@ -7944,7 +8141,8 @@ But this is a phrase – not a typed command.
 
 ## The built-in verbs and their meanings
 
-^^{relations: relationship to sentence verbs}^^{sentence verbs: predefined}^^{`is}^^{equality+rel+ <-- `is: equality relation <-- comparisons: equality} ^^{equality+relcat+}^^{provision+rel+ <-- `provides: provision relation}^^{adjacency+rel+} ^^{adjacency+relcat+}^^{rooms+kind+: adjacent}
+^^{relations: relationship to sentence verbs} ^^{sentence verbs: predefined} ^^{`is} ^^{equality+rel+ <-- `is: equality relation <-- comparisons: equality} ^^{equality+relcat+} ^^{provision+rel+ <-- `provides: provision relation} ^^{adjacency+rel+} ^^{adjacency+relcat+} ^^{rooms+kind+: adjacent}
+
 It is all very well to define new relations, but this does nothing if there is no way to assert that they are true, or to ask whether they are true or false. That requires a verb: in fact, a relation is nothing more than what Inform uses as the "meaning" of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:
 
 [ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognizing that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
@@ -7986,7 +8184,8 @@ to provide - provision relation
 
 ## Defining new assertion verbs {PM_VerbRelationVague} {PM_VerbUnknownMeaning} {PM_VerbRelationUnknown} {PM_PresentPluralTwice} {PM_VerbMalformed} {PM_DuplicateVerbs1} {PM_PrepositionConjugated} {PM_PrepositionLong}
 
-^^{relations: defining sentence verbs for relations}^^{defining: sentence verbs for relations}^^{the verb (V) means (relation)+assert+ --> verb means}^^{(means), defining sentence verbs+sourcepart+: the verb (V) means (relation)+assert+}^^{sentence verbs: defining for relations}^^{English: forms for sentence verbs}^^{English: irregular verbs}
+^^{relations: defining sentence verbs for relations} ^^{defining: sentence verbs for relations} ^^{the verb (V) means (relation)+assert+ --> verb means} ^^{(means), defining sentence verbs+sourcepart+: the verb (V) means (relation)+assert+} ^^{sentence verbs: defining for relations} ^^{English: forms for sentence verbs} ^^{English: irregular verbs}
+
 Here is an example definition of a new verb:
 
 ``` inform7
@@ -8050,7 +8249,8 @@ Here we have "to cover oneself with", four words long; the limit is 29.
 
 ## Defining new prepositions
 
-^^{prepositions, for sentence verbs}^^{relations: defining prepositions for relations}^^{defining: prepositions for relations}^^{the verb to be (P) means (relation)+assert+ --> verb to be}^^{(means), defining sentence verbs+sourcepart+: the verb to be (P) means (relation)+assert+}^^{sentence verbs: defining for relations with prepositions}^^{English: forms of (to be)+sourcepart+}
+^^{prepositions, for sentence verbs} ^^{relations: defining prepositions for relations} ^^{defining: prepositions for relations} ^^{the verb to be (P) means (relation)+assert+ --> verb to be} ^^{(means), defining sentence verbs+sourcepart+: the verb to be (P) means (relation)+assert+} ^^{sentence verbs: defining for relations with prepositions} ^^{English: forms of (to be)+sourcepart+}
+
 The term preposition is used here, a little loosely, to mean anything which we add to the verb *to be* in order to talk about some relation or other. We have seen many examples already, such as:
 
 ``` inform7
@@ -8094,7 +8294,8 @@ Now we can ask if Poirot "can approach" Hotchkiss, and so on.
 
 ## Indirect relations
 
-^^{relations: indirect}^^{relations: paths through}^^{relations: distance through}^^{pathfinding: arbitrary relations}^^{route-finding, fast/slow}^^{fast route-finding+useopt+: for particular relations}^^{slow route-finding+useopt+: for particular relations}^^{distance: measuring with (number of steps)+sourcepart+}^^{counting: steps in an indirect relation}
+^^{relations: indirect} ^^{relations: paths through} ^^{relations: distance through} ^^{pathfinding: arbitrary relations} ^^{route-finding, fast/slow} ^^{fast route-finding+useopt+: for particular relations} ^^{slow route-finding+useopt+: for particular relations} ^^{distance: measuring with (number of steps)+sourcepart+} ^^{counting: steps in an indirect relation}
+
 We have already seen, in the chapter on [Descriptions] which is a forerunner of this one, that Inform provides not only "adjacent" as a way of seeing if one room is directly connected to another, but also "the best route from A to B", which allows us to see if any sequence of moves connects them.
 
 Something similar – in fact, simpler – is allowed for any relation between objects. Suppose we would like to go sledging: we can go downhill, but not up. Some quite distant places may be reachable, while others close by may not be, even if lower than us, because they would involve climbing again at some point. The following would implement this:
@@ -8160,7 +8361,8 @@ This "with fast route-finding" note can only be added to various-to-various rela
 
 ## Relations which express conditions {PM_Unassertable2} {PM_BadRelationCondition}
 
-^^{defining: relations expressing conditions}^^{conditions: expressed as relations}^^{relations: expressing conditions}^^{`called: in defining relations}^^{(relation) relates...+assert+ --> relates}
+^^{defining: relations expressing conditions} ^^{conditions: expressed as relations} ^^{relations: expressing conditions} ^^{`called: in defining relations} ^^{(relation) relates...+assert+ --> relates}
+
 One last way to create a new relation and, in many ways, the easiest of all. If we write:
 
 ``` inform7
@@ -8219,7 +8421,8 @@ We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible 
 
 ## Relations involving values
 
-^^{relations: defining}^^{defining: relations}^^{(relation) relates...+assert+ --> relates}^^{relations: involving values}^^{values: in relations}^^{lists}^^{(relates), for finding related values+sourcepart+}^^^{+to+(name of kind) that/which/who relates to (value) by (relation of values to values) --> that/which/who relates to}^^^{+to+(name of kind) that/which/whom (value) relates to by (relation of values to values) --> that/which/whom relates to by}^^^{+to+(name of kind) to which/whom (value) relates by (relation of values to values) --> to which/whom relates by}
+^^{relations: defining} ^^{defining: relations} ^^{(relation) relates...+assert+ --> relates} ^^{relations: involving values} ^^{values: in relations} ^^{lists} ^^{(relates), for finding related values+sourcepart+}^^^{+to+(name of kind) that/which/who relates to (value) by (relation of values to values) --> that/which/who relates to}^^^{+to+(name of kind) that/which/whom (value) relates to by (relation of values to values) --> that/which/whom relates to by}^^^{+to+(name of kind) to which/whom (value) relates by (relation of values to values) --> to which/whom relates by}
+
 Although most of the examples in this chapter have involved objects, relations can connect almost any values together. We can create relations in groups, one to various relations, various to one relations, one to one relations, and various to various relations for any combination of kinds. For example:
 
 
@@ -8312,7 +8515,8 @@ For efficiency reasons, there are no guarantees about what order these lists hav
 
 ## Relations as values in their own right
 
-^^{kinds: of relation}^^{relations: kinds of relation}^^{relations: used as values}^^{values: relations as values}^^{type-checking: of relation types}^^{(relates), for arbitrary relation conditions+sourcepart+}^^{empty / non-empty+adj+: for relations} ^^{non-empty / empty+adj+: for relations}^^{relations: empty / non-empty+adj+}^^{symmetric (relation)+adj+}^^{equivalence (relation)+adj+}^^{one-to-one (relation)+adj+}^^{one-to-various (relation)+adj+}^^{various-to-one (relation)+adj+}^^{various-to-various (relation)+adj+}
+^^{kinds: of relation} ^^{relations: kinds of relation} ^^{relations: used as values} ^^{values: relations as values} ^^{type-checking: of relation types} ^^{(relates), for arbitrary relation conditions+sourcepart+} ^^{empty / non-empty+adj+: for relations} ^^{non-empty / empty+adj+: for relations} ^^{relations: empty / non-empty+adj+} ^^{symmetric (relation)+adj+} ^^{equivalence (relation)+adj+} ^^{one-to-one (relation)+adj+} ^^{one-to-various (relation)+adj+} ^^{various-to-one (relation)+adj+} ^^{various-to-various (relation)+adj+}
+
 As we've seen, most relations have names – "containment relation", for instance. These are themselves values in Inform, though there are a few restrictions on how they are used. (Relations can contain a colossal amount of data, so we don't want to have to copy them casually.)
 
 [ZL: it would be good to mention relations as properties; apparently, a bunch of power users were surprised it was possible when I did it on IntFiction recently]::
@@ -8375,7 +8579,8 @@ and with temporary relations (see the next section), it's even possible to chang
 
 ## Temporary relations
 
-^^{relations: temporary relations}^^{(relates), for arbitrary relation conditions+sourcepart+}
+^^{relations: temporary relations} ^^{(relates), for arbitrary relation conditions+sourcepart+}
+
 So far in this chapter, we've only seen relations which exist permanently during play. The relationships might change – sometimes Red Riding Hood would be in the Woodcutter's Cottage, sometimes not – but the relations themselves were eternal.
 
 In fact, though, we can also create relations to be dynamic data structures, like lists:
@@ -8401,6 +8606,7 @@ now the nicknames catalogue relates "Trudy" to "Snake-eyes";
 ## What are relations for?
 
 ^^{relations: guidelines for use}
+
 It is easy to say what verbs are for: they are to express relations. But what are relations for?
 
 Inform 7's focus on relations between objects is unusual as an approach to interactive fiction; the concept does not exist in most design systems, or rather, it does but is submerged. Traditional design systems do, after all, have the spatial relations of being inside, on top of, and so on. It could well be said that these are the only relationships that inanimate objects ever have. A stone can be on top of a table, and if so then that expresses their entire association.
@@ -8411,7 +8617,8 @@ This is because the stone, and the table, have no opinions, emotions, knowledge 
 
 ## Tense and narrative viewpoint
 
-^^{tense: of standard responses} ^^{English: tense: of standard responses}^^{narrative viewpoint, of standard responses} ^^{English: narrative viewpoint, of standard responses}^^{story viewpoint (- narrative viewpoint)+glob+}^^{story tense (- tense)+glob+}^^{`first person singular / plural}^^{`second person singular / plural}^^{`third person singular / plural}^^{`past / present / future tense}^^{`present / past / future tense}^^{`future / present / past tense}
+^^{tense: of standard responses} ^^{English: tense: of standard responses} ^^{narrative viewpoint, of standard responses} ^^{English: narrative viewpoint, of standard responses} ^^{story viewpoint (- narrative viewpoint)+glob+} ^^{story tense (- tense)+glob+} ^^{`first person singular / plural} ^^{`second person singular / plural} ^^{`third person singular / plural} ^^{`past / present / future tense} ^^{`present / past / future tense} ^^{`future / present / past tense}
+
 A conspicuous difference between interactive fiction and a traditional novel is the point of view from which it's told. Inform usually produces text like:
 
 ``` inform7
@@ -8500,7 +8707,8 @@ If we want to write text which will work in whatever the current tense is, the f
 
 ## Adaptive text
 
-^^{+to+say "[are]"} ^^{+tosay+"[are]" --> are}^^{+to+say "[can]"} ^^{+tosay+"[can]" --> can}^^{+to+say "[have]"} ^^{+tosay+"[have]" --> have}^^{+to+say "[carry]"} ^^{+tosay+"[carry]" --> carry}^^{+to+say "[wear]"} ^^{+tosay+"[wear]" --> wear}^^{+to+say "[can touch]"} ^^{+tosay+"[can touch]" --> can touch}^^{+to+say "[can see]"} ^^{+tosay+"[can see]" --> can see}^^{+to+say "[they]"} ^^{+tosay+"[they]" --> they}^^{adaptive displayed text}^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}^^{verbs: adaptive verbs in displayed text} ^^{adaptive displayed text: verbs}
+^^{+to+say "[are]"} ^^{+tosay+"[are]" --> are} ^^{+to+say "[can]"} ^^{+tosay+"[can]" --> can} ^^{+to+say "[have]"} ^^{+tosay+"[have]" --> have} ^^{+to+say "[carry]"} ^^{+tosay+"[carry]" --> carry} ^^{+to+say "[wear]"} ^^{+tosay+"[wear]" --> wear} ^^{+to+say "[can touch]"} ^^{+tosay+"[can touch]" --> can touch} ^^{+to+say "[can see]"} ^^{+tosay+"[can see]" --> can see} ^^{+to+say "[they]"} ^^{+tosay+"[they]" --> they} ^^{adaptive displayed text} ^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns} ^^{verbs: adaptive verbs in displayed text} ^^{adaptive displayed text: verbs}
+
 Paying attention to the tense and viewpoint is one reason why text might need to adapt. Another is that it might need to adapt according to whether nouns are singular or plural, or whether it talks about the player or some third party. For example, the following rule isn't ideal:
 
 ``` inform7
@@ -8579,7 +8787,8 @@ The Atomic Furnace shovel is smashed by Voltan's birdmen.
 
 ## More on adapting verbs
 
-^^{verbs: defining adaptive displayable verbs}^^{adaptive displayed text: verbs}^^{defining: adaptive displayable verbs}^^{+to+say "[put]"} ^^{+tosay+"[put]" --> put}^^{to (V) is a verb+assert+}
+^^{verbs: defining adaptive displayable verbs} ^^{adaptive displayed text: verbs} ^^{defining: adaptive displayable verbs} ^^{+to+say "[put]"} ^^{+tosay+"[put]" --> put} ^^{to (V) is a verb+assert+}
+
 If we need an adaptive message with a verb which doesn't belong to Inform's built-in set, all we need do is define it. In the previous chapter, [Relations] we defined verbs by giving them meanings, but in fact that's optional. For example:
 
 ``` inform7
@@ -8617,7 +8826,8 @@ General Lee puts the revolver on the table.
 
 ## Adapting text about the player
 
-^^{+to+say "[we]"} ^^{+tosay+"[we]" --> we}^^{+to+say "[us]"} ^^{+tosay+"[us]" --> us}^^{+to+say "[our]"} ^^{+tosay+"[our]" --> our}^^{case sensitivity: in text substitutions with pronouns}^^{plurals: plural convention for adaptive pronouns}^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}^^{you, adaptive pronouns in displayed text}^^{actor (- person)+actvar+}
+^^{+to+say "[we]"} ^^{+tosay+"[we]" --> we} ^^{+to+say "[us]"} ^^{+tosay+"[us]" --> us} ^^{+to+say "[our]"} ^^{+tosay+"[our]" --> our} ^^{case sensitivity: in text substitutions with pronouns} ^^{plurals: plural convention for adaptive pronouns} ^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns} ^^{you, adaptive pronouns in displayed text} ^^{actor (- person)+actvar+}
+
 In second-person-singular IF, the player is always "you". Many messages look like so:
 
 ``` transcript
@@ -8646,7 +8856,8 @@ Notice that all five of these forms are differently worded, in English. That's t
 
 ## Adapting text referring to other things
 
-^^{+to+say "[they]"} ^^{+tosay+"[they]" --> they}^^{+to+say "[their]"} ^^{+tosay+"[their]" --> their}^^{+to+say "[there]"} ^^{+tosay+"[there]" --> there}^^{+to+say "[it]"} ^^{+tosay+"[it]" --> it}^^{+to+say "[regarding (thing)]"} ^^{+tosay+"[regarding (thing)]" --> regarding (thing)}^^{+to+say "[regarding (number)]"} ^^{+tosay+"[regarding (number)]" --> regarding (number)}^^{case sensitivity: in text substitutions with pronouns}^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}
+^^{+to+say "[they]"} ^^{+tosay+"[they]" --> they} ^^{+to+say "[their]"} ^^{+tosay+"[their]" --> their} ^^{+to+say "[there]"} ^^{+tosay+"[there]" --> there} ^^{+to+say "[it]"} ^^{+tosay+"[it]" --> it} ^^{+to+say "[regarding (thing)]"} ^^{+tosay+"[regarding (thing)]" --> regarding (thing)} ^^{+to+say "[regarding (number)]"} ^^{+tosay+"[regarding (number)]" --> regarding (number)} ^^{case sensitivity: in text substitutions with pronouns} ^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}
+
 The family in the previous section – `"[we]"`, `"[us]"`, `"[our]"`, `"[ours]"`, `"[ourselves]"` – always referred to the player. But we also sometimes want to refer to other things without naming them. For example, how should we adapt this?
 
 ``` transcript
@@ -8724,7 +8935,8 @@ Finally, we occasionally want to agree with a number:
 
 ## Adapting demonstratives and possessives
 
-^^{+to+say "[those]"} ^^{+tosay+"[those]" --> those}^^{+to+say "[possessive]"} ^^{+tosay+"[possessive]" --> possessive}^^{+to+say "[regarding (thing)]"} ^^{+tosay+"[regarding (thing)]" --> regarding (thing)}^^{case sensitivity: in text substitutions with pronouns}^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns}^^{that, adaptive pronouns in displayed text}
+^^{+to+say "[those]"} ^^{+tosay+"[those]" --> those} ^^{+to+say "[possessive]"} ^^{+tosay+"[possessive]" --> possessive} ^^{+to+say "[regarding (thing)]"} ^^{+tosay+"[regarding (thing)]" --> regarding (thing)} ^^{case sensitivity: in text substitutions with pronouns} ^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns} ^^{that, adaptive pronouns in displayed text}
+
 Consider the following message: how might we make this adaptive?
 
 ``` transcript
@@ -8806,7 +9018,8 @@ would come out as "She is unacceptable" – so `"[Those]"` becomes "She" – but
 
 ## Can, could, may, might, must, should, would
 
-^^{+to+say "[can]"} ^^{+tosay+"[can]" --> can}^^{+to+say "[might]"} ^^{+tosay+"[might]" --> might}^^{+to+say "[may]"} ^^{+tosay+"[may]" --> may}^^{+to+say "[could]"} ^^{+tosay+"[could]" --> could}^^{+to+say "[would]"} ^^{+tosay+"[would]" --> would}^^{+to+say "[must]"} ^^{+tosay+"[must]" --> must}^^{+to+say "[should]"} ^^{+tosay+"[should]" --> should}^^{+to+say "[can't]"} ^^{+tosay+"[can't]" --> can't}^^{+to+say "[mightn't]"} ^^{+tosay+"[mightn't]" --> mightn't}^^{+to+say "[mayn't]"} ^^{+tosay+"[mayn't]" --> mayn't}^^{+to+say "[couldn't]"} ^^{+tosay+"[couldn't]" --> couldn't}^^{+to+say "[wouldn't]"} ^^{+tosay+"[wouldn't]" --> wouldn't}^^{+to+say "[mustn't]"} ^^{+tosay+"[mustn't]" --> mustn't}^^{+to+say "[shouldn't]"} ^^{+tosay+"[shouldn't]" --> shouldn't}^^{contractions, adaptive contractions in displayed text} ^^{adaptive displayed text: contractions}^^{verbs: modal / non-modal+adj+}^^{modal / non-modal (verb)+adj+}^^{to (V) is a verb+assert+}
+^^{+to+say "[can]"} ^^{+tosay+"[can]" --> can} ^^{+to+say "[might]"} ^^{+tosay+"[might]" --> might} ^^{+to+say "[may]"} ^^{+tosay+"[may]" --> may} ^^{+to+say "[could]"} ^^{+tosay+"[could]" --> could} ^^{+to+say "[would]"} ^^{+tosay+"[would]" --> would} ^^{+to+say "[must]"} ^^{+tosay+"[must]" --> must} ^^{+to+say "[should]"} ^^{+tosay+"[should]" --> should} ^^{+to+say "[can't]"} ^^{+tosay+"[can't]" --> can't} ^^{+to+say "[mightn't]"} ^^{+tosay+"[mightn't]" --> mightn't} ^^{+to+say "[mayn't]"} ^^{+tosay+"[mayn't]" --> mayn't} ^^{+to+say "[couldn't]"} ^^{+tosay+"[couldn't]" --> couldn't} ^^{+to+say "[wouldn't]"} ^^{+tosay+"[wouldn't]" --> wouldn't} ^^{+to+say "[mustn't]"} ^^{+tosay+"[mustn't]" --> mustn't} ^^{+to+say "[shouldn't]"} ^^{+tosay+"[shouldn't]" --> shouldn't} ^^{contractions, adaptive contractions in displayed text} ^^{adaptive displayed text: contractions} ^^{verbs: modal / non-modal+adj+} ^^{modal / non-modal (verb)+adj+} ^^{to (V) is a verb+assert+}
+
 English uses so-called "modal verbs" to change a sentence so that it talks about something only possibly happening. For example, the sentence "Fred goes to school" can be modified to "Fred must go to school", "Fred should go to school" or even "Fred might go to school".
 
 Inform supports the use of modal verbs in text substitutions. For example,
@@ -8849,7 +9062,8 @@ could produce "Fred might not have discombobulated so easily", for example.
 
 ## Adapting contractions
 
-^^{+to+say "['re]" --> say "[re} ^^{+tosay+"['re]" --> re}^^{+to+say "['ve]" --> say "[ve} ^^{+tosay+"['ve]" --> ve}^^{+to+say "[aren't]"} ^^{+tosay+"[aren't]" --> aren't}^^{+to+say "[don't]"} ^^{+tosay+"[don't]" --> don't}^^{+to+say "[won't]"} ^^{+tosay+"[won't]" --> won't}^^{+to+say "[haven't]"} ^^{+tosay+"[haven't]" --> haven't}^^{pronouns: adaptive contractions in displayed text} ^^{adaptive displayed text: pronouns}^^{contractions, adaptive contractions in displayed text} ^^{adaptive displayed text: contractions}
+^^{+to+say "['re]" --> say "[re} ^^{+tosay+"['re]" --> re} ^^{+to+say "['ve]" --> say "[ve} ^^{+tosay+"['ve]" --> ve} ^^{+to+say "[aren't]"} ^^{+tosay+"[aren't]" --> aren't} ^^{+to+say "[don't]"} ^^{+tosay+"[don't]" --> don't} ^^{+to+say "[won't]"} ^^{+tosay+"[won't]" --> won't} ^^{+to+say "[haven't]"} ^^{+tosay+"[haven't]" --> haven't} ^^{pronouns: adaptive contractions in displayed text} ^^{adaptive displayed text: pronouns} ^^{contractions, adaptive contractions in displayed text} ^^{adaptive displayed text: contractions}
+
 Contractions usually take the form of part of a word being missed out and replaced by an apostrophe. We've already seen `"[can't]"`, `"[couldn't]"`, `"[mayn't]"`, `"[mightn't]"`, `"[mustn't]"`, `"[shouldn't]"` and `"[wouldn't]"`, for example. But Inform supports other contractions, too, as follows.
 
 The English verbs "to be" and "to have" are unique in having contracted forms, which we can write `"['re]"` and `"['ve]"`, like this:
@@ -8892,7 +9106,8 @@ You were pinned down by Dr Zarkov's force field. You weren't free to move. You c
 
 ## Verbs as values {kind_verb}
 
-^^{sentence verbs: as values}^^{verbs: as values}^^{verbs: meaningful / meaningless+adj+}^^{verbs: modal / non-modal+adj+}^^{modal / non-modal (verb)+adj+}^^{non-modal / modal (verb)+adj+}^^{meaningful / meaningless (verb)+adj+}^^{meaning+rel+} ^^{meaning+relcat+}
+^^{sentence verbs: as values} ^^{verbs: as values} ^^{verbs: meaningful / meaningless+adj+} ^^{verbs: modal / non-modal+adj+} ^^{modal / non-modal (verb)+adj+} ^^{non-modal / modal (verb)+adj+} ^^{meaningful / meaningless (verb)+adj+} ^^{meaning+rel+} ^^{meaning+relcat+}
+
 Each verb known to Inform is actually a value of the kind "verb". To refer to a verb as a value, we have to put the word "verb" in front, as in these examples:
 
 [ZL: document that this isn't "infinitive beyond 'to'" and it's not `verb be`, it's `verb are`]::
@@ -9012,7 +9227,8 @@ Lastly, we can get at three other useful parts of a verb, too. These aren't adap
 
 ## Responses
 
-^^{responses (library messages)}^^^{punctuation: brackets <-- brackets <-- parentheses}^^{punctuation: brackets: in response names} ^^{`( ): in response names}
+^^{responses (library messages)}^^^{punctuation: brackets <-- brackets <-- parentheses} ^^{punctuation: brackets: in response names} ^^{`( ): in response names}
+
 Most of the text which the player sees is drawn from the source, but mixed in with this are messages apparently added by Inform itself – usually in the form of short sentences saying that something has been done, or that something can't be done. Such pieces of text are called "responses", because they are almost always replies to commands. For example:
 
 ``` transcript
@@ -9070,6 +9286,7 @@ Hmm: You are carrying nothing.
 ## Changing the text of responses
 
 ^^{responses (library messages): changing}
+
 These responses are named so that they can be changed. Most IF authors dislike one or two of the existing responses, and some would like to change almost all of them to give the text a different style; and extensions for IF in languages other than English change literally every response, of course.
 
 It's very easy to change responses:
@@ -9088,7 +9305,8 @@ just as if we were setting a variable.
 
 ## The ``responses`` testing command
 
-^^{responses (library messages): listing during development}^^{RESPONSES+testcmd+} ^^{testing commands: >RESPONSES}
+^^{responses (library messages): listing during development} ^^{RESPONSES+testcmd+} ^^{testing commands: >RESPONSES}
+
 In practice we can't change these responses unless we know what they're called. One way to find out is just to read through the extensions we're using, but that's a laborious process. A more practical answer is to type:
 
 ``` transcript
@@ -9111,7 +9329,8 @@ and so on. This lists all of the responses, rule by rule, along with their curre
 
 ## How do we measure things?
 
-^^{numbers}^^{units of measure}
+^^{numbers} ^^{units of measure}
+
 In a poem, or in a novel, exact scientific measurements are not the point. So a writer who wants to set up ways to describe the sky at different times might go for something like this:
 
 ``` inform7
@@ -9134,7 +9353,8 @@ That kind of definition, and the consequences, will be the subject of this chapt
 
 ## Numbers and real numbers {kind_number} {kind_real_number} {PM_InequalityFailed} {PM_CantEquateValues} {PM_EvenOverflow-G} {PM_ZMachineOverflow} {PM_ElementOverflow} {PM_LiteralOverflow}
 
-^^{numbers <-- integers}^^{real numbers <-- floating-point <-- decimals} ^^{numbers: real numbers}^^{Z-machine: real numbers not available} ^^{Glulx: real numbers available}^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}^^{real numbers: limits of numeric values}^^{scientific notation}^^{pi (- real number)+const+}^^{e (- real number)+const+}^^{case sensitivity: in real number constants}^^{use options: catalogue: `engineering notation} ^^{engineering notation+useopt+}
+^^{numbers <-- integers} ^^{real numbers <-- floating-point <-- decimals} ^^{numbers: real numbers} ^^{Z-machine: real numbers not available} ^^{Glulx: real numbers available} ^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits} ^^{real numbers: limits of numeric values} ^^{scientific notation} ^^{pi (- real number)+const+} ^^{e (- real number)+const+} ^^{case sensitivity: in real number constants} ^^{use options: catalogue: `engineering notation} ^^{engineering notation+useopt+}
+
 Inform uses two different kinds of numerical quantity: "number" and "real number". Neither is better than the other: they're different approaches, each good for a different purpose.
 
 What Inform calls a "number" is a whole number, positive, negative or zero. The range of numbers we can hold is not unlimited – if the format Setting for a project is the Z-machine, then we have:
@@ -9201,7 +9421,8 @@ Inform will follow suit if the use option `Use engineering notation.` is active,
 
 ## Real number conversions
 
-^^{numbers: conversion to/from real numbers}^^{real numbers: conversion to/from numbers} ^^{numbers: real numbers: conversion to/from numbers}^^{whole number: (real number) to the nearest whole number+phr+}^^{nearest whole number: (real number) to the nearest whole number+phr+}^^^{+to+(real number) to the nearest whole number --> to the nearest whole number}^^{calculation: conversion during calculations}^^{calculation: rounding to the nearest whole number}^^{plus infinity (- real number)+const+}^^{minus infinity (- real number)+const+}^^{finite / infinite (real number)+adj+} ^^{infinite / finite (real number)+adj+}^^{existent / nonexistent (real number)+adj+} ^^{nonexistent / existent (real number)+adj+ <-- NaN (not a number)}^^{real numbers: infinite and nonexistent} ^^{numbers: real numbers: infinite and nonexistent}
+^^{numbers: conversion to/from real numbers} ^^{real numbers: conversion to/from numbers} ^^{numbers: real numbers: conversion to/from numbers} ^^{whole number: (real number) to the nearest whole number+phr+} ^^{nearest whole number: (real number) to the nearest whole number+phr+}^^^{+to+(real number) to the nearest whole number --> to the nearest whole number} ^^{calculation: conversion during calculations} ^^{calculation: rounding to the nearest whole number} ^^{plus infinity (- real number)+const+} ^^{minus infinity (- real number)+const+} ^^{finite / infinite (real number)+adj+} ^^{infinite / finite (real number)+adj+} ^^{existent / nonexistent (real number)+adj+} ^^{nonexistent / existent (real number)+adj+ <-- NaN (not a number)} ^^{real numbers: infinite and nonexistent} ^^{numbers: real numbers: infinite and nonexistent}
+
 This section notes down some technicalities about real numbers which need to be put down in writing somewhere, but won't affect most people most of the time.
 
 Inform allows us to use numbers whenever real numbers are expected, and converts them automatically. For example,
@@ -9284,7 +9505,8 @@ logarithm of -10
 
 ## Printing real numbers
 
-^^{text substitutions: real numbers} ^^{real numbers: displaying} ^^{numbers: real numbers: displaying}^^{scientific notation}^^{decimals: +to+say "[(real number) to (number) decimal places]"}^^{decimals: +to+say "[(real number) in decimal notation]"}
+^^{text substitutions: real numbers} ^^{real numbers: displaying} ^^{numbers: real numbers: displaying} ^^{scientific notation} ^^{decimals: +to+say "[(real number) to (number) decimal places]"} ^^{decimals: +to+say "[(real number) in decimal notation]"}
+
 > phrase: {phs_realplaces} say "[(real number) to (number) decimal places]"
 >
 > This text substitution writes out the number to the given number of decimal places. Examples:
@@ -9320,7 +9542,8 @@ logarithm of -10
 
 ## Arithmetic
 
-^^{numbers: arithmetic}^^{real numbers: arithmetic}^^{calculation: arithmetic}^^{calculation: rounding to the nearest multiple}^^{comparisons: of numbers}^^{greater than+relverb+}^^{less than+relverb+}^^{at least+relverb+}^^{at most+relverb+}^^{roots, of numbers}^^^{+to+(arithmetic value) plus (arithmetic value) --> plus}^^^{+to+(arithmetic value) + (arithmetic value) --> +}^^^{+to+(arithmetic value) minus (arithmetic value) --> minus}^^^{+to+(arithmetic value) - (arithmetic value) --> -}^^^{+to+(arithmetic value) multiplied by (arithmetic value) --> multiplied by}^^^{+to+(arithmetic value) times (arithmetic value) --> times}^^^{+to+(arithmetic value) * (arithmetic value) --> *}^^^{+to+(arithmetic value) divided by (arithmetic value) --> divided by}^^^{+to+(arithmetic value) / (arithmetic value) --> /}^^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest}^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}
+^^{numbers: arithmetic} ^^{real numbers: arithmetic} ^^{calculation: arithmetic} ^^{calculation: rounding to the nearest multiple} ^^{comparisons: of numbers} ^^{greater than+relverb+} ^^{less than+relverb+} ^^{at least+relverb+} ^^{at most+relverb+} ^^{roots, of numbers}^^^{+to+(arithmetic value) plus (arithmetic value) --> plus}^^^{+to+(arithmetic value) + (arithmetic value) --> +}^^^{+to+(arithmetic value) minus (arithmetic value) --> minus}^^^{+to+(arithmetic value) - (arithmetic value) --> -}^^^{+to+(arithmetic value) multiplied by (arithmetic value) --> multiplied by}^^^{+to+(arithmetic value) times (arithmetic value) --> times}^^^{+to+(arithmetic value) * (arithmetic value) --> *}^^^{+to+(arithmetic value) divided by (arithmetic value) --> divided by}^^^{+to+(arithmetic value) / (arithmetic value) --> /}^^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest} ^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}
+
 We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, \* and /, or can spell them out in words as "plus", "minus", "times" (or "multiplied by"), and "divided by". Definitively:
 
 [ZL: warn about unpredictable associativity and precedence and even that operators and their verbal equivalents differ]::
@@ -9430,7 +9653,8 @@ if the score is 10
 
 ## Powers and logarithms
 
-^^{calculation: rounding to the nearest whole number}^^{calculation: logarithms} ^^{calculation: exponential functions}^^{real numbers: exponential functions} ^^{numbers: real numbers: exponential functions}^^{powers, of numbers}^^^{+to+(real number) to the power (real number) --> to the power}
+^^{calculation: rounding to the nearest whole number} ^^{calculation: logarithms} ^^{calculation: exponential functions} ^^{real numbers: exponential functions} ^^{numbers: real numbers: exponential functions} ^^{powers, of numbers}^^^{+to+(real number) to the power (real number) --> to the power}
+
 If the last section provided a basic office calculator, this section and the next provide the more exotic rows of buttons found on a scientific calculator. All of these are done using real number arithmetic. To start with some dull ones, here are two ways to round off numbers:
 
 > phrase: {ph_ceiling} ceiling of (real number) ... real number
@@ -9529,7 +9753,8 @@ The reverse of taking powers is taking logarithms.
 
 ## Trigonometry
 
-^^{calculation: trigonometric functions}^^{real numbers: trigonometric functions} ^^{numbers: real numbers: trigonometric functions}^^^{+to+(real number) degrees --> degrees}
+^^{calculation: trigonometric functions} ^^{real numbers: trigonometric functions} ^^{numbers: real numbers: trigonometric functions}^^^{+to+(real number) degrees --> degrees}
+
 We have twelve functions left to cover, though they are all closely related.
 
 > phrase: {ph_degrees} (real number) degrees ... real number
@@ -9606,7 +9831,8 @@ We have twelve functions left to cover, though they are all closely related.
 
 ## Units {PM_LPNotKOV} {PM_LPBuiltInKOV} {PM_LPEnumeration} {PM_NegationInternal} {PM_NegationForbidden}
 
-^^^{units of measure <-- numbers: units of measure <-- real numbers: units of measure}^^{units of measure: defining} ^^{defining: units of measure}^^{text substitutions: units of measure} ^^{units of measure: displaying}^^{kinds: of values with units of measure}^^{(spec) specifies (a unit)+assert+ --> specifies}^^{type-checking: of units of measure}
+^^^{units of measure <-- numbers: units of measure <-- real numbers: units of measure} ^^{units of measure: defining} ^^{defining: units of measure} ^^{text substitutions: units of measure} ^^{units of measure: displaying} ^^{kinds: of values with units of measure} ^^{(spec) specifies (a unit)+assert+ --> specifies} ^^{type-checking: of units of measure}
+
 Suppose we want to talk about how tall people are. We could just create a "number" property, like this:
 
 ``` inform7
@@ -9675,7 +9901,8 @@ If we set up a spread of multiple notations (see the next section) then this is 
 
 ## Multiple notations {PM_DuplicateUnitSpec}
 
-^^{units of measure: multiple notations for a unit}^^{units of measure: defining} ^^{defining: units of measure}^^{`scaled up / down by}^^{plurals: of units of measure}
+^^{units of measure: multiple notations for a unit} ^^{units of measure: defining} ^^{defining: units of measure} ^^{`scaled up / down by} ^^{plurals: of units of measure}
+
 Going back to our weight example:
 
 ``` inform7
@@ -9714,7 +9941,8 @@ Now Inform will not only recognise both forms, but also use the right one when p
 
 ## Scaling and equivalents {PM_LPCantScaleYet} {PM_LPCantScaleTwice} {PM_LPTooLittleAccuracy}
 
-^^{units of measure: multiple notations for a unit}^^{units of measure: defining} ^^{defining: units of measure}^^{`scaled up / down by}^^{`scaled at}^^{equivalent to (unit)+sourcearg+}^^{limits: of numeric values of units} ^^{numbers: limits of numeric values of units} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}^^{real numbers: limits of numeric values of units}
+^^{units of measure: multiple notations for a unit} ^^{units of measure: defining} ^^{defining: units of measure} ^^{`scaled up / down by} ^^{`scaled at} ^^{equivalent to (unit)+sourcearg+} ^^{limits: of numeric values of units} ^^{numbers: limits of numeric values of units} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits} ^^{real numbers: limits of numeric values of units}
+
 As we've seen, there are two ways to store values like lengths or weights: as whole numbers, or as real numbers. If we prefer to use whole numbers, or if real numbers aren't available (for example if we're using the Z-machine setting), then we might run into an awkward problem: when we write
 
 ``` inform7
@@ -9772,7 +10000,8 @@ Equivalent notations are never normally used in printing values back (but see th
 
 ## Named notations
 
-^^{text substitutions: units of measure} ^^{units of measure: displaying}^^{units of measure: multiple notations for a unit}
+^^{text substitutions: units of measure} ^^{units of measure: displaying} ^^{units of measure: multiple notations for a unit}
+
 When it has a variety of notations to choose from, Inform will normally use the neatest one given the size of the value it is printing. Suppose we've set up "weight", with three notations:
 
 ``` inform7
@@ -9809,7 +10038,8 @@ And the figure will always use tonnes now, even if Inform would normally think i
 
 ## Making the verb "to weigh"
 
-^^{properties: defining sentence verbs for properties}^^{defining: sentence verbs for properties}^^{the verb (V) means (property)+assert+ --> verb means}^^{(means), defining sentence verbs+sourcepart+: the verb (V) means (property)+assert+}^^{sentence verbs: defining for properties}^^{adjectives: for numeric quantities with units} ^^{defining: adjectives: for numeric quantities with units}^^{comparisons: of numbers with units using adjectives}^^{superlatives: of numbers with units using adjectives}^^{properties: numeric comparatives, adjectives for} ^^{value properties: numeric comparatives, adjectives for}^^{properties: numeric superlatives, adjectives for} ^^{value properties: numeric superlatives, adjectives for}
+^^{properties: defining sentence verbs for properties} ^^{defining: sentence verbs for properties} ^^{the verb (V) means (property)+assert+ --> verb means} ^^{(means), defining sentence verbs+sourcepart+: the verb (V) means (property)+assert+} ^^{sentence verbs: defining for properties} ^^{adjectives: for numeric quantities with units} ^^{defining: adjectives: for numeric quantities with units} ^^{comparisons: of numbers with units using adjectives} ^^{superlatives: of numbers with units using adjectives} ^^{properties: numeric comparatives, adjectives for} ^^{value properties: numeric comparatives, adjectives for} ^^{properties: numeric superlatives, adjectives for} ^^{value properties: numeric superlatives, adjectives for}
+
 So now we can invent notations for weight. We could, for instance, write:
 
 ``` inform7
@@ -9850,7 +10080,8 @@ which creates "heavy", "heavier" and "heaviest".
 
 ## The Metric Units extension
 
-^^{units of measure: Metric Units+ext+}^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units}^^{Approximate Metric Units+ext+} ^^{extensions: specific extensions: Approximate Metric Units}
+^^{units of measure: Metric Units+ext+} ^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units} ^^{Approximate Metric Units+ext+} ^^{extensions: specific extensions: Approximate Metric Units}
+
 To sum all of this up, what started out as a simple business of setting a notation for lengths becomes something quite elaborate when we try to match the actual notations used by scientists and engineers. It's all optional, of course, but as we want more and more of this, we might find ourselves with a spread of notations like this:
 
 > 1mm ... 1cm ... 1m ... 1km
@@ -9865,7 +10096,8 @@ Fortunately the whole set is indeed available in a presentation box, and at no e
 
 ## Notations including more than one number {PM_LPWithoutElement} {PM_LPElementTooLarge} {PM_LPTooManyElements} {PM_LPTooComplicated} {PM_LPNotAllNamed}
 
-^^{units of measure: with multiple numeric components}^^{units of measure: defining} ^^{defining: units of measure with parts}^^{limits: of numeric values of units} ^^{numbers: limits of numeric values of units} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}^^{real numbers: limits of numeric values of units}^^{punctuation: quotation marks: not usable in unit notations} ^^{`": not usable in unit notations}
+^^{units of measure: with multiple numeric components} ^^{units of measure: defining} ^^{defining: units of measure with parts} ^^{limits: of numeric values of units} ^^{numbers: limits of numeric values of units} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits} ^^{real numbers: limits of numeric values of units} ^^{punctuation: quotation marks: not usable in unit notations} ^^{`": not usable in unit notations}
+
 We've seen quite enough scientific notation for the time being. There are plenty of other notations used in natural language, for everyday concepts, where people don't use a tidy spread of powers of 10. Instead they use mixtures, with some sort of punctuation or text to divide them. For instance, the running time of a piece of music is easier to follow in minutes and seconds than in seconds alone: old-fashioned LP sleeves used to quote running times in the form 4'33.
 
 ``` inform7
@@ -9902,7 +10134,8 @@ An aspect ratio is a kind of value. 16:9 specifies an aspect ratio.
 
 ## The parts of a number specification {PM_LPFirstOptional} {PM_LPMultipleOptional} {PM_BadLPPartOption} {PM_BadLPNameOption}
 
-^^{units of measure: with multiple numeric components}^^{units of measure: defining} ^^{defining: units of measure with parts}^^{text substitutions: units of measure} ^^{units of measure: displaying}^^{(preamble optional), when defining units+sourcepart+}^^{(without leading zeroes), when defining units+sourcepart+}^^{(leading zeroes), when defining units+sourcepart+}^^{(part of), for units with multiple components+sourcepart+}
+^^{units of measure: with multiple numeric components} ^^{units of measure: defining} ^^{defining: units of measure with parts} ^^{text substitutions: units of measure} ^^{units of measure: displaying} ^^{(preamble optional), when defining units+sourcepart+} ^^{(without leading zeroes), when defining units+sourcepart+} ^^{(leading zeroes), when defining units+sourcepart+} ^^{(part of), for units with multiple components+sourcepart+}
+
 We often need to break up a number specification into its pieces. For instance, suppose we want to know the dollars part of $1.99? We can do this by naming the parts:
 
 ``` inform7
@@ -9959,6 +10192,7 @@ This ensures that when the ratio 4:3 is printed, it will be printed as "4:3" and
 ## Understanding specified numbers
 
 ^^{units of measure: understanding} ^^{understanding: numbers with units}
+
 It may be worth noting in passing that number specifications, like all other kinds of value, can be understood in typed commands. (See the chapter on [Understanding] for more on what can go in such square brackets.) For instance:
 
 ``` inform7
@@ -9975,7 +10209,8 @@ Test me with "guess josh is 6 foot 3 / guess josh is 5 foot 9 / guess josh is 5 
 
 ## Totals {PM_TotalEitherOr} {PM_TotalTableColumn}
 
-^^{units of measure: totals}^^{units of measure: averages}^^{calculation: total of a numeric property}^^{calculation: average of a numeric property}
+^^{units of measure: totals} ^^{units of measure: averages} ^^{calculation: total of a numeric property} ^^{calculation: average of a numeric property}
+
 This chapter began by mentioning arithmetic, and then went on a long diversion to create scientific units, everyday weights and measures, and other notational conveniences. Putting all of that together, it's time now to calculate something with all of these numerical quantities.
 
 Suppose we invent the idea of weight, and give everything a weight of its own. Most items will have a nominal weight of 1kg, but people will be heavier. Going on actuarial tables, we might say:
@@ -10032,7 +10267,8 @@ if the lead pig is the weight of the heaviest thing on the platform
 
 ## Equations {EQUATIONS} {PM_EquationMisnumbered} {PM_EquationMisnamed} {PM_EquationSymbolMisdeclared} {PM_EquationSymbolMalformed} {PM_EquationSymbolVague} {PM_EquationSymbolNonValue} {PM_EquationSymbolEqualsKOV} {PM_EquationSymbolNonNumeric} {PM_EquationSymbolBadSub} {PM_EquationSymbolSpurious} {PM_EquationTokenUnrecognised} {PM_EquationLeadingZero} {PM_EquationOperatorUnrecognised} {PM_EquationTooComplex} {PM_EquationMispunctuated} {PM_EquationDoesntEquate} {PM_EquationEquatesBadly} {PM_EquationEquatesMultiply} {PM_EquationIncomparable}  {PM_EquationDimensionPower} {PM_EquationBadArithmetic} {PM_EquationBadTarget} {PM_EquationInsoluble} {PM_EquationSymbolMissing} {PM_EquationSymbolWrongKOV}
 
-^^{equations, for values with units} ^^{defining: equations for values with units}^^{numbers: given by equations}^^{real numbers: given by equations}^^{calculation: given by equations}^^{(given), in calculations with equations+sourcepart+}^^{units of measure: Metric Units+ext+}^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units}^^{punctuation: brackets: for implicit multiplication} ^^{`( ): for implicit multiplication}
+^^{equations, for values with units} ^^{defining: equations for values with units} ^^{numbers: given by equations} ^^{real numbers: given by equations} ^^{calculation: given by equations} ^^{(given), in calculations with equations+sourcepart+} ^^{units of measure: Metric Units+ext+} ^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units} ^^{punctuation: brackets: for implicit multiplication} ^^{`( ): for implicit multiplication}
+
 Forming totals is all very interesting in its way, but it's book-keeping rather than physics. As a glance at any school science textbook shows, the way to apply physics is to work out an unknown quantity – say, the time taken for a dropped ball to hit the ground – by combining known quantities into an equation – the height it is dropped from, and the strength of gravity.
 
 It's a convention centuries old now that textbooks and research papers never describe these equations in running text. Even for simple formulae, we like to write "F=ma", not "let the force be the mass times the acceleration". And the standard way to print this is to break off and display an equation, not to squeeze it into the text as if it were ordinary verbiage. Just as Inform's Tables imitate those in printed books (see the next chapter, [Tables]), so its Equations do.
@@ -10159,7 +10395,8 @@ Something to be a little cautious of: brackets are used in equations to group te
 
 ## Arithmetic with units
 
-^^{units of measure: arithmetic}^^{calculation: arithmetic with units}^^{type-checking: of units of measure}
+^^{units of measure: arithmetic} ^^{calculation: arithmetic with units} ^^{type-checking: of units of measure}
+
 The example equations in the previous section carried out quite a lot of arithmetic, but they may have given the impression that Inform always allows arithmetic – which is not true.
 
 This is actually a good thing, because it keeps us from error. For instance, Inform will not allow:
@@ -10196,7 +10433,8 @@ Whereas we are not allowed to divide 122 by 10kg: that would make no sense, sinc
 
 ## Multiplication of units {PM_DimensionRedundant} {PM_DimensionNotBaseKOV} {PM_NonDimensional} {PM_UnitSequenceOverflow} {PM_DimensionsInconsistent} {PM_BadLPEquivalent} {PM_BadLPOffset} {PM_MultiplyingNonKOVs} {PM_BadArithmetic} {ARITHMETIC}
 
-^^{units of measure: multiplication of units}^^{calculation: arithmetic with units}^^{type-checking: of units of measure}^^{units of measure: Metric Units+ext+}^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units}
+^^{units of measure: multiplication of units} ^^{calculation: arithmetic with units} ^^{type-checking: of units of measure} ^^{units of measure: Metric Units+ext+} ^^{Metric Units+ext+} ^^{extensions: specific extensions: Metric Units}
+
 To recap, then, it is forbidden to multiply 122kg and 10kg, not because it could never make sense (a scientist might occasionally multiply two weights) but because the result is – what? Not a number, and not a weight any more. But we are allowed to tell Inform what the result ought to be, and once we have done so, the multiplication will be allowed:
 
 ``` inform7
@@ -10223,7 +10461,8 @@ The built-in "Metric Units" extension includes all of the standard ways that phy
 
 ## Laying out tables {TABLES} {PM_TableCoincidesWithKind} {PM_TableColumnEmptyLists} {PM_TablePlayerEntry} {PM_TableVariableEntry} {PM_TableDescriptionEntry} {PM_TableUnknownEntry} {PM_TableIncompatibleEntry} {PM_TableMisnamed} {PM_TableNameDuplicate} {PM_TableNameAmbiguous} {PM_TableTooManyColumns} {PM_TableColumnArticle} {PM_TableColumnAlready} {PM_TableWithoutRows} {PM_TableUndefined} {PM_TableOfQuantifiedKind} {PM_TableOfBuiltInKind} {PM_TableOfExistingKind} {PM_TableDefiningObject} {PM_TableWithBlankNames} {PM_TableEntryGeneric} {PM_TableKindlessColumn}  {PM_TableColumnBrackets} {PM_TableRowFull}
 
-^^{tables <-- columns, in tables <-- rows, in tables}^^^{tables <-- entries, in tables}^^{tables: formatting}^^{tables: defining} ^^{defining: tables}^^{tables: tabs in formatting tables} ^^{tabs vs spaces, in tables+ofsource+} ^^{spaces vs tabs (in tables)}^^{line breaks: in formatting tables}^^{type-checking: in tables}
+^^{tables <-- columns, in tables <-- rows, in tables}^^^{tables <-- entries, in tables} ^^{tables: formatting} ^^{tables: defining} ^^{defining: tables} ^^{tables: tabs in formatting tables} ^^{tabs vs spaces, in tables+ofsource+} ^^{spaces vs tabs (in tables)} ^^{line breaks: in formatting tables} ^^{type-checking: in tables}
+
 When printed books need to display detailed information in a systematic way, they break off from running text and print a table instead. Inform does the same. Here is a typical example:
 
 ``` inform7
@@ -10251,7 +10490,8 @@ Each column then has a name, and the contents must all be the same kind of value
 
 ## Looking up entries
 
-^^{tables: looking up by row number}^^{rows: number of rows in/from (table name)+phr+}
+^^{tables: looking up by row number} ^^{rows: number of rows in/from (table name)+phr+}
+
 The simplest way to access the information inside tables is to ask explicitly for it, specifying the row number, the column name and what table is to be consulted. So, given our example table
 
 ``` inform7
@@ -10295,7 +10535,8 @@ Note that the first row in a table is row number 1, and that the last can be fou
 
 ## Corresponding entries
 
-^^{tables: looking up by cross-reference}^^{(corresponding to), in tables+sourcepart+}
+^^{tables: looking up by cross-reference} ^^{(corresponding to), in tables+sourcepart+}
+
 Continuing our example of the elements:
 
 ``` inform7
@@ -10341,7 +10582,8 @@ The condition "if there is..." can be used with any reference to a table entry: 
 
 ## Changing entries
 
-^^{tables: changing entries}^^{+to+now (a condition): changing table entries}^^{type-checking: in tables}
+^^{tables: changing entries} ^^{+to+now (a condition): changing table entries} ^^{type-checking: in tables}
+
 Here is another rather definitive, immutable-looking table:
 
 ``` inform7
@@ -10402,7 +10644,8 @@ Once we start changing tables, it sometimes becomes useful to check what they co
 
 ## Choosing rows {PM_NoRowSelected}
 
-^^{tables: choosing rows}^^{randomness: choosing a random table row}^^{rows: choose a/the/-- row (number) in/from (table name)+phr+}^^{rows: choose a/the/-- row with (table column) of (value) in/from (table name)+phr+}
+^^{tables: choosing rows} ^^{randomness: choosing a random table row} ^^{rows: choose a/the/-- row (number) in/from (table name)+phr+} ^^{rows: choose a/the/-- row with (table column) of (value) in/from (table name)+phr+}
+
 The following would be one way to print out a list of recent Kings and Queens:
 
 ``` inform7
@@ -10454,7 +10697,8 @@ We can also choose a row quite at random:
 
 ## Repeating through tables
 
-^^{tables: repeating through}^^{(reverse order), for table rows+sourcepart+}
+^^{tables: repeating through} ^^{(reverse order), for table rows+sourcepart+}
+
 We very often want to run through a table doing something to, or with, each row in turn, so a special loop is provided for this. Rather than having to write all this out:
 
 ``` inform7
@@ -10516,7 +10760,8 @@ These definitions mentioned blankness several times, and that's the topic to cov
 
 ## Blank entries
 
-^^{tables: blank entries <-- blank entries in tables}^^{(--), as a blank table entry+sourcepart+}
+^^{tables: blank entries <-- blank entries in tables} ^^{(--), as a blank table entry+sourcepart+}
+
 We are allowed to leave certain entries blank (perhaps to be filled in later, perhaps not) by writing "--" instead of the relevant value:
 
 ``` inform7
@@ -10549,6 +10794,7 @@ In effect, blank entries don't exist. "--" is not a value, but only a hole where
 ## Blank columns
 
 ^^{tables: blank columns}
+
 An entire column of blank entries "--" is problematic:
 
 ``` inform7
@@ -10586,7 +10832,8 @@ Element		Symbol	Atomic number	Density		Specific gravity
 
 ## Blank rows
 
-^^{tables: blank rows}^^{empty / non-empty+adj+: for tables} ^^{non-empty / empty+adj+: for tables}^^{tables: empty / non-empty+adj+}
+^^{tables: blank rows} ^^{empty / non-empty+adj+: for tables} ^^{non-empty / empty+adj+: for tables} ^^{tables: empty / non-empty+adj+}
+
 There is no difficulty about entirely blank rows: or rather, the only difficulty is once again that they are boring to type out. We can avoid the necessity by appending "with ... blank rows" at the foot of the table:
 
 ``` inform7
@@ -10626,7 +10873,8 @@ tests whether all of its rows are blank; if even one cell contains a value then 
 
 ## Adding and removing rows
 
-^^{tables: adding rows}^^{tables: removing rows}^^{tables: blank entries}^^{tables: blank rows}^^{tables: blank columns}
+^^{tables: adding rows} ^^{tables: removing rows} ^^{tables: blank entries} ^^{tables: blank rows} ^^{tables: blank columns}
+
 Writing in new rows is simple, once we can find space for them:
 
 > phrase: {ph_chooseblankrow} choose a/the/-- blank row in/from (table name)
@@ -10698,7 +10946,8 @@ These more destructive phrases need a steady hand:
 
 ## Sorting
 
-^^{tables: sorting tables}^^{randomness: sorting tables in random order}^^{(reverse order), for table rows+sourcepart+}
+^^{tables: sorting tables} ^^{randomness: sorting tables in random order} ^^{(reverse order), for table rows+sourcepart+}
+
 There are several ways to sort a table, corresponding loosely to the different orders in which tables can be repeated through. First:
 
 > phrase: {ph_sortrandom} sort (table name) in random order
@@ -10761,7 +11010,8 @@ As a result note that repeating through this sorted table goes through the origi
 
 ## Listed in...
 
-^^{tables: describing things listed in tables}^^{descriptions (references to things): listed in table}
+^^{tables: describing things listed in tables} ^^{descriptions (references to things): listed in table}
+
 Tables are especially useful for combining a run of basically similar rules in a simple and concise way. The "listed in" condition, as in
 
 ``` inform7
@@ -10796,7 +11046,8 @@ In effect the table has allowed us to combine three very similar rules into one.
 
 [ZL: as noted in my long screed, this is the first mention of topics and a reader has no real chance to understand the subject from the docs.]::
 
-^^{tables: topic columns}^^{topics: in table columns}^^{punctuation: slash: separating synonymous words in topics}^^{`/: separating synonymous words in topics}
+^^{tables: topic columns} ^^{topics: in table columns} ^^{punctuation: slash: separating synonymous words in topics} ^^{`/: separating synonymous words in topics}
+
 When double-quoted matter appears in a column of a table, Inform will normally treat that as text for printing out. The exception is when the column is called "topic", where it is treated as text for comparing against what the player has typed. There is really only one operation allowed with topic columns, the "...listed in..." construction, but fortunately it is the one most often needed.
 
 Let us suppose that the Sybil has a penchant for telling passers-by which is the Greek muse for what. We might write:
@@ -10876,7 +11127,8 @@ repeat through the Table of Tasks Achieved in reverse time order:
 
 ## Varying which table to look at {kind_tablename}
 
-^^{tables: used as values}^^{values: tables as values}^^{`table name}
+^^{tables: used as values} ^^{values: tables as values} ^^{`table name}
+
 So far, we have always used fixed table names when referring to tables: for instance in source like "sort the Table of Recent Monarchs in accession order", we refer to the "Table of Recent Monarchs", a definite and explicitly named table.
 
 With a little care, however, we are allowed to have variables which themselves hold the names of tables. This opens up the possibility of more elaborate ways of storing and interconnecting information in table form, but is probably best avoided until it becomes necessary.
@@ -10921,7 +11173,8 @@ You exchange dictionaries, lexically crossing the Atlantic. Did you know that ac
 
 [ZL: I suggest either re-titling this defining objects with tables or emphasizing that this applies to any subkind of object, not just things, or both]::
 
-^^{tables: creating multiple things with a table}^^{things+kind+: creating: multiple things with a table}^^{properties: defining properties with a table}^^{defining: things: multiply using tables}^^{tables: defining multiple kinds with a table}^^{kinds: defining: multiple kinds with a table}^^{defining: kinds: multiply using tables}
+^^{tables: creating multiple things with a table} ^^{things+kind+: creating: multiple things with a table} ^^{properties: defining properties with a table} ^^{defining: things: multiply using tables} ^^{tables: defining multiple kinds with a table} ^^{kinds: defining: multiple kinds with a table} ^^{defining: kinds: multiply using tables}
+
 Suppose we need to create a collection of items which differ in their properties, but are basically part of a larger pattern. For instance, here we set up what we need to make a collection of coloured shirts:
 
 ``` inform7
@@ -10961,7 +11214,8 @@ It's even possible to define kinds this way, though it's rare to need to create 
 
 ## Defining values with tables
 
-^^{properties: defining properties with a table}^^{tables: defining a kind of value with a table}^^{kinds: defining: kinds of value: defining with a table}^^{defining: kinds of value: defining with a table}^^{values: kinds of value: defining with a table}
+^^{properties: defining properties with a table} ^^{tables: defining a kind of value with a table} ^^{kinds: defining: kinds of value: defining with a table} ^^{defining: kinds of value: defining with a table} ^^{values: kinds of value: defining with a table}
+
 Just as we can define many similar things (or kinds) using a table, we can also define a whole run of new values. Again, this avoids unnatural prose like
 
 ``` inform7
@@ -11017,7 +11271,8 @@ The second technical note is that we must not sort such a table, because it is u
 
 ## Table continuations {PM_TableNotContinuation}
 
-^^{tables: continuing tables}^^{(continued), for tables+sourcepart+}
+^^{tables: continuing tables} ^^{(continued), for tables+sourcepart+}
+
 A table is an arrangement for putting information together concisely in a single place, so it might seem odd that we sometimes need to divide it up: but once in a while, we do. Suppose we have:
 
 ``` inform7
@@ -11049,7 +11304,8 @@ At time of writing the International Astronomical Union has not yet consented to
 
 ## Table amendments {PM_TableAmendmentMisfit} {PM_TableAmendmentMismatch}
 
-^^{tables: amending tables}^^{(amended), for tables+sourcepart+}
+^^{tables: amending tables} ^^{(amended), for tables+sourcepart+}
+
 Tables can have amendments as well as continuations. The arrangement is much the same: a supplementary table supplies new rows for the original table. But instead of adding the new rows at the end of the original, as a continuation would, an amendment replaces matching rows in the original. (So the original stays the same size.)
 
 The amendment table must have exactly the columns of the original and in the same order. Moreover, each row in the amended table must match exactly one row in the original. For instance:
@@ -11093,7 +11349,8 @@ For the present, at least, the columns used for matching may only contain: numbe
 
 ## Understand {PM_OldVerbUsage} {PM_UnderstandCommandWhen} {PM_NotNewCommand} {PM_NotOldCommand} {PM_NontextualUnderstand} {PM_UnderstandMismatch} {PM_TextlessMistake} {PM_UnderstandAsActivity} {PM_UnderstandAsBadValue} {PM_UnderstandVague} {PM_LiteralPunctuation} {PM_UnderstandEmptyText} {PM_UnderstandCommaCommand} {PM_UnderstandAsCompoundText} {PM_ObsoleteHeldTokens} {PM_UseTextNotTopic} {PM_UseThingNotObject} {PM_UnparsableKind} {PM_UnknownToken} {PM_BizarreToken} {PM_OverComplexToken} {PM_TextTokenRestricted} {someone_token} {UNDERSTANDING}
 
-^^{understanding <-- commands (of the player) <-- verbs: understanding verbs in player's command}^^^{understanding <-- grammar of player's command}^^{actions: understanding in player's command}^^{(applying to), in defining actions+sourcepart+}^^{understand (verb) as (action)+assert+} ^^{understanding: verbs}^^{defining: input grammar}^^{grammar tokens}^^{someone+token+}^^{something+token+}^^{(requiring), in defining actions+sourcepart+}^^{visibility+rel+: requirement in defining actions}^^{XYZZY}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}^^{supplying a missing noun/second noun+activity+}^^{missing noun: supplying a missing noun/second noun+activity+}
+^^{understanding <-- commands (of the player) <-- verbs: understanding verbs in player's command}^^^{understanding <-- grammar of player's command} ^^{actions: understanding in player's command} ^^{(applying to), in defining actions+sourcepart+} ^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{defining: input grammar} ^^{grammar tokens} ^^{someone+token+} ^^{something+token+} ^^{(requiring), in defining actions+sourcepart+} ^^{visibility+rel+: requirement in defining actions} ^^{XYZZY} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page} ^^{supplying a missing noun/second noun+activity+} ^^{missing noun: supplying a missing noun/second noun+activity+}
+
 During play, the computer and the player alternate in writing messages to each other: in the player's case, these are short instructions, usually saying what to do next. A wide range of such "commands" are automatically understood, but these only apply to the standard built-in actions. (This wide range is conveniently tabulated in the Commands part of the Actions index.) If we want the player to be able to command new actions, then we need to specify what is to be understood as what. For this, we supply special sentences starting with the word "Understand".
 
 Suppose we return to the earlier example of a newly created action:
@@ -11131,7 +11388,8 @@ The first is probably bad because it supplies no things at all, the second is ce
 
 ## New commands for old grammar {PM_ThreeValuedLine} {PM_TooManyAliases} {PM_TooManyGrammarLines} {PM_GrammarIllFounded}
 
-^^{understand (verb) as (action)+assert+} ^^{understanding: verbs}^^{understand the command (verb) as (verb)+assert+} ^^{understanding: adding synonyms for verbs}^^{something+token+}^^{`with nouns reversed}^^{reversed nouns, in understanding actions}^^{nouns, reversed, in understanding actions}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{understand the command (verb) as (verb)+assert+} ^^{understanding: adding synonyms for verbs} ^^{something+token+} ^^{`with nouns reversed} ^^{reversed nouns, in understanding actions} ^^{nouns, reversed, in understanding actions} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+
 In the photography example, we are providing entirely new grammar for an action  not ordinarily built in to Inform. But we often want simply to provide alternative grammar for existing actions, or even to put new interpretations on commands that Inform already recognises. For instance:
 
 ``` inform7
@@ -11168,7 +11426,8 @@ We can check the current stock of commands by looking at the table in the Action
 
 ## Overriding existing commands
 
-^^{understand (verb) as (action)+assert+} ^^{understanding: verbs}^^{understand (verb) as something new+assert+} ^^{understanding: removing existing definitions of verbs}^^{understand nothing as (action)+assert+} ^^{understanding: removing existing definitions of verbs}^^{`as something new}^^{(something new), in understanding actions+sourcepart+}^^{`nothing: in understanding actions}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{understand (verb) as something new+assert+} ^^{understanding: removing existing definitions of verbs} ^^{understand nothing as (action)+assert+} ^^{understanding: removing existing definitions of verbs} ^^{`as something new} ^^{(something new), in understanding actions+sourcepart+} ^^{`nothing: in understanding actions} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
+
 Suppose we are devising specialist commands for a game of whist, and we want "discard" as one of them. Looking at the table of commands in the Action index, we find that, inconveniently enough, "discard" already has a meaning: it is synonymous with "drop", and while that might be sensible most of the time, it is perfectly wrong now. We need a way to free up "discard" for our own use. We can do that by:
 
 ``` inform7
@@ -11201,7 +11460,7 @@ The commands "take" and "get" will still exist, but now they'll only have their 
 
 ## Standard tokens of grammar {things_token} {TOKENS}
 
-^^{understanding: arbitrary objects}^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens}^^{someone+token+}^^{something+token+}^^{something preferably held+token+}^^{things+token+}^^{things inside+token+}^^{other things+token+}^^{punctuation: slash: separating synonymous words in grammar}^^{`/: separating synonymous words in grammar}^^{actions: applying to multiple objects}
+^^{understanding: arbitrary objects} ^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens} ^^{someone+token+} ^^{something+token+} ^^{something preferably held+token+} ^^{things+token+} ^^{things inside+token+} ^^{other things+token+} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar} ^^{actions: applying to multiple objects}
 
 [ZL: this assertion that someone == person, immediately followed by an admission that it doesn't, confused me for a long time and irked me longer. and we never do get an explanation that `[something]` means any object in scope as opposed to `[thing]`.]::
 
@@ -11240,7 +11499,7 @@ Finally there is `"[any things]"`, which should be used only with care. This is 
 
 ## The text token {text_token}
 
-^^{understanding: arbitrary text}^^{text+token+}^^{topics: understanding}^^{topic understood (- snippet)+glob+}^^{grammar tokens: for text}^^{snippets}
+^^{understanding: arbitrary text} ^^{text+token+} ^^{topics: understanding} ^^{topic understood (- snippet)+glob+} ^^{grammar tokens: for text} ^^{snippets}
 
 [ZL: confusion regarding topic/text previously noted...]::
 
@@ -11274,7 +11533,8 @@ Understand "yell [text] at/to [someone]" as answering it that (with nouns revers
 
 ## Actions applying to kinds of value
 
-^^{understanding: values: numbers}^^{values: understanding}^^{understanding: numbers}^^{numbers: understanding}^^{number+token+}^^{grammar tokens: for numbers}^^{type-checking: in input grammar}
+^^{understanding: values: numbers} ^^{values: understanding} ^^{understanding: numbers} ^^{numbers: understanding} ^^{number+token+} ^^{grammar tokens: for numbers} ^^{type-checking: in input grammar}
+
 Almost all actions apply to things: the player picks them up, pushes them, looks at them and so on. We only occasionally need to recognise other kinds of value, but when we do, we can. For instance:
 
 ``` inform7
@@ -11291,7 +11551,8 @@ Understand "adjust [something] to [something]" as adjusting it to.
 
 ## Understanding any, understanding rooms
 
-^^{scope}^^{any+token+}^^{anywhere+token+}^^{anybody+token+}^^{anyone+token+}^^{anything+token+}^^{understanding: things: not in scope with (any)+sourcepart+}^^{grammar tokens: for rooms}^^{grammar tokens: for things not in scope}
+^^{scope} ^^{any+token+} ^^{anywhere+token+} ^^{anybody+token+} ^^{anyone+token+} ^^{anything+token+} ^^{understanding: things: not in scope with (any)+sourcepart+} ^^{grammar tokens: for rooms} ^^{grammar tokens: for things not in scope}
+
 Ordinarily, if we write
 
 ``` inform7
@@ -11330,7 +11591,8 @@ As might be expected, `"[anything]"` means the same as `"[any thing]"`; `"[anybo
 
 ## Understanding names
 
-^^{understand (nouns) as (thing)+assert+}^^{understanding: things: specific things}^^{plurals: understanding (in commands)}^^{`plural of: in player command}^^{understanding: synonyms}^^{use options: catalogue: `no automatic plural synonyms} ^^{no automatic plural synonyms+useopt+}
+^^{understand (nouns) as (thing)+assert+} ^^{understanding: things: specific things} ^^{plurals: understanding (in commands)} ^^{`plural of: in player command} ^^{understanding: synonyms} ^^{use options: catalogue: `no automatic plural synonyms} ^^{no automatic plural synonyms+useopt+}
+
 So far in this chapter, Understand sentences have been used to give names to actions, but they can also be used to name objects – in particular, things and rooms.
 
 This normally happens automatically. For instance, writing
@@ -11381,7 +11643,8 @@ Use no automatic plural synonyms.
 
 ## Understanding kinds of value {var_understood}
 
-^^{understanding: values: kinds of value}^^{values: kinds of value: understanding}^^{understanding: numbers}^^{numbers: understanding}^^{number+token+}^^{grammar tokens: for numbers}^^{number understood (- number)+glob+}^^{((kind)) understood (- kind of value)+glob+ --> understood}^^{grammar tokens: for kinds of value}^^{time+token+}^^{time period+token+}
+^^{understanding: values: kinds of value} ^^{values: kinds of value: understanding} ^^{understanding: numbers} ^^{numbers: understanding} ^^{number+token+} ^^{grammar tokens: for numbers} ^^{number understood (- number)+glob+} ^^{((kind)) understood (- kind of value)+glob+ --> understood} ^^{grammar tokens: for kinds of value} ^^{time+token+} ^^{time period+token+}
+
 In many cases, if K is the name of a kind of value, then Inform automatically makes an Understand token called `"[K]"` which matches only values of K. An example is `"[number]"`, which matches text like 203 or ``seven``. There is a chart of the kinds of value in the Kinds index for a project, showing which ones can be understood in this way.
 
 In particular, any newly created kind of value can always be understood. We make good use of that in the example story "Studious":
@@ -11420,7 +11683,8 @@ would match ``wait for an hour`` or ``wait for two hours 12 minutes``.
 
 ## Commands consisting only of nouns
 
-^^{understanding: sentences without verbs}^^{understanding: noun-first sentences}^^{answering (actor)+action+}
+^^{understanding: sentences without verbs} ^^{understanding: noun-first sentences} ^^{answering (actor)+action+}
+
 In every example so far, and in almost all practical cases, the first word in a command which results in an action will be something fixed: a verb, in fact. When we write
 
 ``` inform7
@@ -11450,7 +11714,8 @@ It also has what may be a serious limitation: verbless commands like this work o
 
 ## Understanding values {PM_UnderstandAsQualified} {PM_UnderstandPluralValue}
 
-^^{understand (nouns) as (thing)+assert+}^^{understanding: values}^^{understanding: kinds of things}^^{understanding: things: kinds of things}^^{understanding: synonyms: for things and values}^^{grammar tokens: for kinds of value}
+^^{understand (nouns) as (thing)+assert+} ^^{understanding: values} ^^{understanding: kinds of things} ^^{understanding: things: kinds of things} ^^{understanding: synonyms: for things and values} ^^{grammar tokens: for kinds of value}
+
 "Understand" can be used to supply new ways to talk about both things and other values. For instance, if we create:
 
 ``` inform7
@@ -11500,7 +11765,8 @@ will fail because Inform, working left to right, needs to look for every possibl
 
 ## This/that {PM_OverAmbitiousSlash} {PM_SlashedCommand}
 
-^^{understanding: synonyms}^^{punctuation: slash: separating synonymous words in grammar}^^{`/: separating synonymous words in grammar}^^{punctuation: double-dash: optional words in Understand grammar}^^{`--: optional words in Understand grammar}
+^^{understanding: synonyms} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar} ^^{punctuation: double-dash: optional words in Understand grammar} ^^{`--: optional words in Understand grammar}
+
 We have already seen "or" used in "Understand" sentences:
 
 ``` inform7
@@ -11541,7 +11807,7 @@ To recapitulate: the slash "/" can only be used between single, literal words, a
 
 ## New tokens {PM_MixedOutcome} {PM_TwoValuedToken} {NEWTOKENS}
 
-^^{understanding: synonyms: as grammar tokens}^^{grammar tokens: defining}^^{defining: grammar tokens}^^{punctuation: slash: separating synonymous words in grammar}^^{`/: separating synonymous words in grammar}
+^^{understanding: synonyms: as grammar tokens} ^^{grammar tokens: defining} ^^{defining: grammar tokens} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar}
 
 [ZL: this should have more explanation of why you'd want such a new token and how you'd use it.]::
 
@@ -11575,7 +11841,8 @@ Understand "red bird/robin" or "robin" as "[robin]".
 
 ## Tokens can produce values
 
-^^{understanding: values: grammar tokens producing values}^^{grammar tokens: producing values}^^{defining: grammar tokens: producing values}^^{values: kinds of value: understanding}^^{type-checking: in grammar tokens}
+^^{understanding: values: grammar tokens producing values} ^^{grammar tokens: producing values} ^^{defining: grammar tokens: producing values} ^^{values: kinds of value: understanding} ^^{type-checking: in grammar tokens}
+
 The examples just seen were tokens which simply matched specific words typed by the player, but newly created tokens can also produce values:
 
 ``` inform7
@@ -11592,7 +11859,7 @@ Understand "colour [a colour]" or "[something]" as "[tint]".
 
 ## Understanding things by their properties {PM_UnknownUnderstandProperty} {PM_BadUnderstandProperty} {PM_BadUnderstandPropertyAs} {PM_BadReferringProperty} {PM_UnknownUnpermittedProperty}
 
-^^{understanding: properties as describing things}^^{understanding: things: by properties}^^{properties: understanding things by properties}^^{understand (nouns) as (thing)+assert+}^^{understand (property) as describing/referring to (thing)+assert+}^^{(describing), in (understand as)+sourcepart+}^^{(referring to), in (understand as)+sourcepart+}
+^^{understanding: properties as describing things} ^^{understanding: things: by properties} ^^{properties: understanding things by properties} ^^{understand (nouns) as (thing)+assert+} ^^{understand (property) as describing/referring to (thing)+assert+} ^^{(describing), in (understand as)+sourcepart+} ^^{(referring to), in (understand as)+sourcepart+}
 
 Items are ordinarily understood only by their original given names. For instance, if we have:
 
@@ -11680,7 +11947,8 @@ The only difference is that in the "describing" case, the property's name alone 
 
 ## Understanding things by their relations {PM_GrammarObjectlessRelation} {PM_GrammarBadRelation} {PM_GrammarValueRelation}
 
-^^{understanding: relations as describing things}^^{understanding: things: by relations}^^{relations: understanding things by relations}^^{understand (nouns) as (thing)+assert+}^^{(related by), for understanding things by relations+sourcepart+}^^{something related by (relation)+token+}
+^^{understanding: relations as describing things} ^^{understanding: things: by relations} ^^{relations: understanding things by relations} ^^{understand (nouns) as (thing)+assert+} ^^{(related by), for understanding things by relations+sourcepart+} ^^{something related by (relation)+token+}
+
 Sometimes it makes sense for the name of something to involve the names of other things to which it is related. For instance, if we say ``take the bottle of wine``, we mean that the bottle currently contains wine – if it were the very same bottle containing water, we would call it something else.
 
 [ZL: it was a long time before I discovered that understanding by relation didn't need to have the thing related to mentioned in the same command.]::
@@ -11707,7 +11975,8 @@ then ``take the box in the hammock`` will work: here, the relation goes the othe
 
 ## Context: understanding when {PM_BadWhen}
 
-^^{when (condition)+sourcearg+: arbitrary conditions for (understand)+sourcepart+}^^{understanding: conditionally}^^{understanding: limiting cases where understand rules apply}^^{understanding: (when) clauses for+sourcepart+}^^{conditions: for (understand)+sourcepart+}^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+}^^{item described (- object)+glob+}
+^^{when (condition)+sourcearg+: arbitrary conditions for (understand)+sourcepart+} ^^{understanding: conditionally} ^^{understanding: limiting cases where understand rules apply} ^^{understanding: (when) clauses for+sourcepart+} ^^{conditions: for (understand)+sourcepart+} ^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+} ^^{item described (- object)+glob+}
+
 We have now seen several different forms of "Understand" sentence: for instance,
 
 ``` inform7
@@ -11780,7 +12049,8 @@ A concept is a kind of object. A concept can be privately-named or publicly-name
 
 [ZL: mention ambigously plural https://inform7.atlassian.net/browse/I7-2121 ]::
 
-^^{pronouns: setting pronouns}^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+}^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+}^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+}^^{(HER), in player commands+commandpart+}
+^^{pronouns: setting pronouns} ^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+} ^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+} ^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+} ^^{(HER), in player commands+commandpart+}
+
 The pronouns IT, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take`` IT on the next, and IT will be understood as meaning whatever ``necklace`` meant last turn.
 
 All of that happens automatically, but once in a while the result can be unfortunate. Suppose that when the player examines the necklace, a security system automatically drugs her unconscious, and she wakes up in a cell, hours later, and is told that the cell is bare except for a key on the floor. If she types ``take it``, she clearly doesn't mean ``it`` to mean the necklace any more; she means the key. Inform's parser can't make guesses like this, so the following phrase can be used to help it.
@@ -11796,7 +12066,7 @@ All of that happens automatically, but once in a while the result can be unfortu
 
 ## Does the player mean... {rules_dtpm}
 
-^^{does the player mean+rb+}^^{+toout+it is likely / possible / unlikely (does the player mean)}^^{+toout+likely / possible / unlikely, it is likely / possible / unlikely (does the player mean) <-- `very likely / unlikely}^^{+toout+unlikely / possible / likely, it is unlikely / possible / likely (does the player mean)}^^{+toout+possible / likely / unlikely, it is possible / likely / unlikely (does the player mean)}^^{disambiguation: of player commands <-- understanding: disambiguation}
+^^{does the player mean+rb+} ^^{+toout+it is likely / possible / unlikely (does the player mean)} ^^{+toout+likely / possible / unlikely, it is likely / possible / unlikely (does the player mean) <-- `very likely / unlikely} ^^{+toout+unlikely / possible / likely, it is unlikely / possible / likely (does the player mean)} ^^{+toout+possible / likely / unlikely, it is possible / likely / unlikely (does the player mean)} ^^{disambiguation: of player commands <-- understanding: disambiguation}
 
 When the player types an ambiguous reference, we need to work out what is meant. Consider the following source text:
 
@@ -11805,8 +12075,6 @@ The Champs du Mars is a room. The great Eiffel Tower is here. "The great Tower s
 ```
 
 Now suppose the player types ``get tower``. The response will be:
-
-[ZL: this transcript gets represented as inform7 source; I don't know why.]::
 
 ``` transcript
 Which do you mean, the great Eiffel Tower or the souvenir model Eiffel Tower?
@@ -11876,7 +12144,8 @@ which would successfully make ``put coin in oak`` mean the chest, not the tree. 
 
 ## Multiple action processing
 
-^^{lists: the multiple object list}^^{actions: multiple action processing}^^{rulebooks: multiple action processing rules}
+^^{lists: the multiple object list} ^^{actions: multiple action processing} ^^{rulebooks: multiple action processing rules}
+
 When the player types a command like ``drop all``, this is (usually) a request to carry out more than one action. After the command parser has decided what constitutes ``all`` (a process which can be influenced using the "deciding whether all includes" activity), it forms up a list and then runs through it, starting an action for each in turn. The result usually looks something like this:
 
 ``` transcript
@@ -11897,7 +12166,8 @@ However, by adding rules to the `multiple action processing rulebook`, we can ta
 
 ## Understanding mistakes
 
-^^{mistakes, in the player's command}^^{understand (words) as a mistake+assert+} ^^{understanding: mistakes}^^{actions: understanding as mistakes}^^{punctuation: brackets: for defining mistakes} ^^{`( ): for defining mistakes}^^{text+token+: in understanding mistakes}^^{testing commands: comments in transcripts from beta testers}^^{comments: in transcripts from beta testers}
+^^{mistakes, in the player's command} ^^{understand (words) as a mistake+assert+} ^^{understanding: mistakes} ^^{actions: understanding as mistakes} ^^{punctuation: brackets: for defining mistakes} ^^{`( ): for defining mistakes} ^^{text+token+: in understanding mistakes} ^^{testing commands: comments in transcripts from beta testers} ^^{comments: in transcripts from beta testers}
+
 When inspiration strikes the player, they can usually be relied upon to make a good-faith effort to communicate the new idea: they will guess the right command. If they guess wrongly, the mistake is probably the author's, because a good author will try to anticipate all possible wordings and make all of them work.
 
 Nevertheless it is sometimes good practice to nudge the player towards the right wording – particularly if the player has the right idea but is not explicit enough: for instance, typing ``talk to judge`` when we really want to know what is to be said (``judge``, ``guilty``); or if the player tries something like ``play chess`` rather than ``move pawn to king 4``. Similarly, if we make a casual reference such as "In your childhood days, you loved sliding in stocking feet across this hallway", a player might type ``slide in stocking feet``: a nice idea, and which deserves a nice response, even though it asks to do something beyond the scope of the story.
@@ -11966,7 +12236,8 @@ It's probably wise to take particular care if using "as a mistake" with any comm
 
 ## Precedence
 
-^^{understanding: precedence of commands understood}^^{understanding: choosing between multiple grammar lines}^^{mistakes, in the player's command}^^{precedence: of commands understood}
+^^{understanding: precedence of commands understood} ^^{understanding: choosing between multiple grammar lines} ^^{mistakes, in the player's command} ^^{precedence: of commands understood}
+
 When several different lines of grammar are supplied to meet the same circumstances, it makes a big difference what order they are tried in. For instance, suppose we have:
 
 ``` inform7
@@ -12020,7 +12291,7 @@ One produces a single object, the other produces two. Inform gives precedence to
 
 ## What are activities? {ACTIVITIES} {kind_activity} {PM_BadActivityName}
 
-^^{activities}^^{activities: not the same as actions}^^{actions: not the same as activities}
+^^{activities} ^^{activities: not the same as actions} ^^{actions: not the same as activities}
 
 It is poor form to define with negatives, but the first thing to say about activities is that they are *not* actions. This needs saying because Inform often seems to treat them as if they are, by allowing us to write rules like so:
 
@@ -12032,11 +12303,9 @@ With this rule in place, someone called "Daphne" will always be described as "Ms
 
 [ZL: "for a fictional actor such as the protagonist" ? ]::
 
-``` inform7
-An action is a simulated task for the fictional protagonist.
-
-An activity is a real task for the computer program doing the simulation.
-```
+> **An *action* is a simulated task for the fictional protagonist.**
+>
+> **An *activity* is a real task for the computer program doing the simulation.**
 
 Activities allow us to influence or change some of the standard habits of Inform, using rules as flexible and powerful as those applicable to actions, though activities are in several ways simpler and easier.
 
@@ -12044,7 +12313,7 @@ Activities allow us to influence or change some of the standard habits of Inform
 
 [ZL: none of the built-in activities last beyond a turn, but there's nothing stopping other activities from doing so ]::
 
-^^{activities}^^{going on (activity)+adj+}^^{activities: golden rules for constructing}
+^^{activities} ^^{going on (activity)+adj+} ^^{activities: golden rules for constructing}
 
 All activities start, continue for a while and then finish: however, no activity ever runs on for more than a single turn. Several activities can be going on at the same time. For instance, suppose the following is printed as part of the description of a grocery:
 
@@ -12086,28 +12355,36 @@ but as we shall see, it's usually simpler to attach "while printing the name" pr
 
 ## Rules applied to activities
 
-^^{activities: rules for activities}^^{before (activity)+rb+} ^^{rules: before rules}^^{after (activity)+rb+} ^^{rules: after rules}^^{for (activity)+rb+} ^^{rules: for activities}^^{rulebooks: for actitivies}
-The activity "printing the name of something" is the process of printing up the name of something on screen: ordinarily, this means saying the text in its "printed name" property.
+^^{activities: rules for activities} ^^{before (activity)+rb+} ^^{rules: before rules} ^^{after (activity)+rb+} ^^{rules: after rules} ^^{for (activity)+rb+} ^^{rules: for activities} ^^{rulebooks: for actitivies}
+
+The activity "printing the name of something" is the process of printing up the name of something on screen: ordinarily, this means saying the text in the object's "printed name" property.
+
+[ZL: this confuses the situation: we've already been told very explicitly that all activities finish by the end of a turn ]::
 
 As with actions, rules can be attached to activities which change or augment what would normally happen. In fact the situation is simpler, because (unlike an action) an activity almost always finishes, so we almost always do reach its "after" stage. There are also only three rulebooks attached to an activity, as compared with the six affecting an action.
 
 The three rulebooks for printing the name are called "before printing the name", "for printing the name" and "after printing the name", and this is the general pattern. What happens is:
 
-``` inform7
-1. All "before printing the name of" rules are considered;
-2. The most specific, applicable "rule for printing the name of" is considered;
+1. All "before printing the name of" rules are considered.
+2. The most specific, applicable "rule for printing the name of" is considered.
 3. All "after printing the name of" rules are considered.
-```
+
+[ZL: ... when you've invoked it with `carry out`. If you're manually managing the activity execution, not necessarily. also, it'd be nice to spell out the effect of effect of `instead` in `for` and `after`. ]::
 
 Whereas an action's later stages never take place if an early stage ends unexpectedly, an activity always goes through all three of its stages. Invoking the word "instead" in a before rule for an action will terminate not only the before rules but the whole action: the same thing for an activity will only terminate the before rules, and the for and after rules will take place as usual.
 
+[ZL: it's somewhat into the weeds, but there's frequently no `for` rule: the default is a thing that happens because no `for` rule was found. But someone reading the Standard Rules looking for the `for` rules they're being told exist would be confused.]::
+
 The actual task is usually carried out by one single rule tucked into the back of the "for..." rulebook: it is the rule for printing the name of whatever is concerned, hence the name. Inform's standard activities are all of this pattern: they start out with no "before" or "after" rules, and just one "for" rule.
+
+[ZL: and now there's acknowledgement of a thing we were told never happens.]::
 
 Why the part about an activity only "almost always" finishing? One reason is that the story might end during it; but another is that it's possible, though uncommon, to abandon an activity partway. Very few of the activities supplied with Inform ever do this, and those that do are noted in the sections which follow.
 
 ## While clauses {PM_BadWhenWhile}
 
-^^{rules: arbitrary conditions for rules, using (while)+sourcepart+}^^{while (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for activity rules}^^{rules: applying only while performing activities}^^{activities: checking for ongoing activities in rules}
+^^{rules: arbitrary conditions for rules, using (while)+sourcepart+} ^^{while (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for activity rules} ^^{rules: applying only while performing activities} ^^{activities: checking for ongoing activities in rules}
+
 Rules applied to actions can become baroque ("after going through a door in the presence of an animal when -" and so on and so forth), but activities are again simpler: they only have one possible clause attached, which is called "while". For instance, the following would provide a fairly sledgehammer hint that the sack should not lightly be thrown away:
 
 ``` inform7
@@ -12124,6 +12401,7 @@ This nicely distinguishes between contexts where it's appropriate to be more ver
 
 ``` transcript
 You can see a teaspoon and a curious sort of lemon sherbet sweet here.
+
 >take all
 teaspoon: Taken.
 lemon sherbet: Taken.
@@ -12131,7 +12409,8 @@ lemon sherbet: Taken.
 
 ## New activities {EXTACTIVITIES}
 
-^^{activities: defining}^^{defining: activities}^^{rules: for activities}^^{rulebooks: for actitivies}^^{empty / non-empty+adj+: for activities} ^^{non-empty / empty+adj+: for activities}^^{activities: empty / non-empty+adj+}
+^^{activities: defining} ^^{defining: activities} ^^{rules: for activities} ^^{rulebooks: for actitivies} ^^{empty / non-empty+adj+: for activities} ^^{non-empty / empty+adj+: for activities} ^^{activities: empty / non-empty+adj+}
+
 Activities are all about influencing the standard mechanisms which Inform uses, so it might at first seem that there is no need to create new activities: but on further reflection, quite a lot of the writing of interactive fiction involves creating new and systematic ways to do things, and as soon as we have a general rule, we will want to have exceptions. Inform therefore allows us to create our own activities, giving us ways to influence the operation of our own mechanisms.
 
 There are two kinds of activity: those which relate to a specific value (usually an object but not necessarily), and those which do not. Here are some examples of activities being created:
@@ -12204,7 +12483,8 @@ so that during assays more technical names are used.
 
 ## Activity variables {PM_ActivityVariableNameless} {PM_ActivityVarAnd} {PM_ActivityVarOverspecific} {PM_ActivityVarUnknownKOV} {PM_ActivityVarValue}
 
-^^{activities: variables for activities}^^{variables: for activities}^^{defining: activity variables}^^{`called: in defining activity variables}
+^^{activities: variables for activities} ^^{variables: for activities} ^^{defining: activity variables} ^^{`called: in defining activity variables}
+
 Just as actions can have variables, which are created when the action starts and disappear when it finishes, so activities can also have variables. They are visible to the rules for that activity, and nowhere else. (If the activity should happen a second time within its first run, that second occurrence gets its own copy of the variable, leaving the original untouched.)
 
 Typically it will be useful to set a variable to some default value at the "before" stage, calculate some interesting value for it in the "for" stage, and make use of the outcome during the "after" stage. For instance:
@@ -12222,7 +12502,8 @@ After analysing something (called the sample):
 
 ## Beginning and ending activities manually
 
-^^{activities: beginning/ending by hand}^^{activities: abandoning}^^{activities: golden rules for constructing}
+^^{activities: beginning/ending by hand} ^^{activities: abandoning} ^^{activities: golden rules for constructing}
+
 If we have declared a new activity, like "analysing", the normal way to make it happen would be to write
 
 ``` inform7
@@ -12324,13 +12605,15 @@ We need to follow three golden rules: all activities must end, they must never l
 ## Introduction to the list of built-in activities
 
 ^^{activities: catalogue}
+
 Activities tend to be about process, rather than outcome. Many of the things Inform does – printing up lists of items, reading commands from the keyboard, and so on – are done as activities, because that way the process can be nudged a little. Too many works of interactive fiction betray their mechanical nature by making it visible that the general machinery being used does not quite seem natural for this or that situation. Activities enable us to add the many graceful touches which avoid that: which contribute nothing to a work, and also everything.
 
 The rest of this chapter covers every activity built in to Inform, with one section for each. It is intended primarily for reference, but may be worth skimming through at a first reading, to give a sense of the possibilities.
 
 ## Deciding the concealed possessions of something {act_con} {var_particular}
 
-^^{hiding things carried by other characters}^^{concealment+rel+} ^^{concealment+relcat+}^^{concealed (thing)+adj+}^^{concealed possessions}^^{possessions: deciding the concealed possessions of something+activity+}^^{particular possession (- thing)+glob+}
+^^{hiding things carried by other characters} ^^{concealment+rel+} ^^{concealment+relcat+} ^^{concealed (thing)+adj+} ^^{concealed possessions} ^^{possessions: deciding the concealed possessions of something+activity+} ^^{particular possession (- thing)+glob+}
+
 **1. When it happens.** Frequently – whenever Inform needs to check whether something is visible or not. Nothing should be printed, and the activity needs to run quickly, so it should not (for instance) calculate best routes through complicated maps before getting an answer.
 
 **2. The default behaviour.** There is no concealment. The ordinary rules still apply, though: the contents of a closed opaque container are invisible because there is a barrier in the way which cannot be seen through, even though nobody is "concealing" anything.
@@ -12353,7 +12636,8 @@ In general a rule for deciding the concealed possessions of something will decid
 
 ## Printing the name of something {act_pn}
 
-^^{printing the name of something+descactivity+}^^^{descriptions (displayed) <-- displaying descriptions}^^{names: printing the name of something+activity+}^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+}
+^^{printing the name of something+descactivity+}^^^{descriptions (displayed) <-- displaying descriptions} ^^{names: printing the name of something+activity+} ^^{printed name of (object)+prop+} ^^{printed name of (object)+propcat+}
+
 **1. When it happens.** Whenever the name of a thing or room is printed, either as part of text visible to the player, or sometimes internally in order to determine something about that name.
 
 **2. The default behaviour.** For items other than the current player, the "printed name" property is printed out; but for the current player, "you" or "yourself" is printed. (That doesn't necessarily mean that the "printed name" of the player is never used. Suppose there are two people, Alice and Bob, and the narrative switches between them: when Alice is the player, she appears as "yourself" but Bob is "Bob"; but when Bob is the player, he is "yourself" and Alice is "Alice".)
@@ -12397,7 +12681,8 @@ The clause about not inserting or removing is to prevent messages like "You put 
 
 ## Printing the plural name of something {act_ppn}
 
-^^{printing the plural name of something+descactivity+}^^{names: printing the plural name of something+activity+}^^{printed plural name of (object)+prop+} ^^{printed plural name of (object)+propcat+}^^{plurals: printing the plural name of something+activity+}
+^^{printing the plural name of something+descactivity+} ^^{names: printing the plural name of something+activity+} ^^{printed plural name of (object)+prop+} ^^{printed plural name of (object)+propcat+} ^^{plurals: printing the plural name of something+activity+}
+
 **1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like "You can see five gold rings here." The activity happens after "five" and before "here." (See the activity "printing a number of something" if the whole phrase needs to be altered.)
 
 **2. The default behaviour.** The plural name – in this case "gold rings" – is printed out.
@@ -12412,7 +12697,8 @@ The clause about not inserting or removing is to prevent messages like "You put 
 
 ## Printing a number of something {act_pan}
 
-^^{printing a number of something+descactivity+}^^{numbers: printing a number of something+activity+}^^{listing group size (- number)+glob+}
+^^{printing a number of something+descactivity+} ^^{numbers: printing a number of something+activity+} ^^{listing group size (- number)+glob+}
+
 **1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like "You can see five gold rings here." The activity prints the "five gold rings" part. The variable "listing group size" contains the number, which in this example would be 5, and is always at least 2.
 
 **2. The default behaviour.** The number of items is printed, in words ("five") and then the "printing the plural name" activity is run ("gold rings").
@@ -12433,7 +12719,8 @@ The clause about not inserting or removing is to prevent messages like "You put 
 
 ## Listing contents of something {act_lc}
 
-^^{listing contents of something+descactivity+}^^{listing rules: for listing contents}^^{together: group (description of objects) together+phr+}
+^^{listing contents of something+descactivity+} ^^{listing rules: for listing contents} ^^{together: group (description of objects) together+phr+}
+
 **1. When it happens.** When taking inventory, the list is produced by the activity "listing contents of yourself"; when looking, a list of items which do not deserve their own paragraphs is produced by "listing contents of" the location.
 
 **And when it doesn't happen.** (a) If the Storage Room contains a sideboard and an open shoe box, then "listing contents of the Storage Room" is used to produce the part of the room description mentioning sideboard and box. But if the box in turn contains a pair of brogues, then "listing contents of the shoe box" is not used to say that part. So this works:
@@ -12500,7 +12787,8 @@ Three special phrases exist for this kind of list organisation:
 
 ## Grouping together something {act_gt}
 
-^^{grouping together something+descactivity+}^^{listing rules: for grouping together}^^{listing group size (- number)+glob+}
+^^{grouping together something+descactivity+} ^^{listing rules: for grouping together} ^^{listing group size (- number)+glob+}
+
 **1. When it happens.** Only while listing contents, and only when a collection of items to be grouped together is reached. This in turn happens only if a "before listing contents" rule has chosen it (see previous section). The first item in the group is the one to which the activity formally applies.
 
 The variable "listing group size" usually gives the number of items grouped together in this way, but care is needed if the "something" covers multiple groups, because then this will all be working on a list of groups, not of items. For example, in a "grouping together things" rule, where "things" is such a broad description that it can apply to multiple kinds of thing all appearing in the list, the list-maker is likely to set "listing group size" to the number of groups. If the list contains five men and six women, for example, "listing group size" might be 2 rather than 11.
@@ -12541,6 +12829,7 @@ Before listing contents while taking inventory: group utensils together. Rule fo
 ## Issuing the response text of something {act_resp}
 
 ^^{responses (library messages): issuing the response text of something+activity+}
+
 **1. When it happens.** When Inform prints a text marked with a response letter (A), (B), (C), ..., in a rule making use of them. For example, in this rule:
 
 ``` inform7
@@ -12602,7 +12891,8 @@ third person plural: They can't go that way.
 
 ## Printing room description details of something {act_details}
 
-^^{printing room description details of something+descactivity+}^^{room description details: printing room description details of something+activity+}
+^^{printing room description details of something+descactivity+} ^^{room description details: printing room description details of something+activity+}
+
 **1. When it happens.** When an item is listed in the miscellaneous collection of items present in a room (the ones which do not deserve their own paragraphs): this is normally the last paragraph of a room description.
 
 **2. The default behaviour.** A bracketed piece of extra information is added for certain items such as containers:
@@ -12634,7 +12924,8 @@ You can also see Po (at last, someone to talk to) and a cage here.
 
 ## Printing inventory details of something {act_idetails}
 
-^^{printing inventory details of something+descactivity+}^^{inventory details: printing inventory details of something+activity+}
+^^{printing inventory details of something+descactivity+} ^^{inventory details: printing inventory details of something+activity+}
+
 **1. When it happens.** When an item is listed in an inventory of items carried by the player.
 
 **2. The default behaviour.** A bracketed piece of extra information is added for certain items such as containers:
@@ -12660,7 +12951,8 @@ Rule for printing inventory details of something edible:
 
 ## Printing a refusal to act in the dark {act_toodark}
 
-^^{darkness: printing a refusal to act in the dark+activity+}^^{refusal to act: printing a refusal to act in the dark+activity+}
+^^{darkness: printing a refusal to act in the dark+activity+} ^^{refusal to act: printing a refusal to act in the dark+activity+}
+
 **1. When it happens.** When an action which requires light is tried, and the visibility rules decide that not enough light is present.
 
 **2. The default behaviour.** To print "It is pitch dark, and you can't see a thing."
@@ -12673,7 +12965,8 @@ Rule for printing a refusal to act in the dark: if we are examining something, s
 
 ## Printing the announcement of darkness {act_nowdark}
 
-^^{darkness: printing the announcement of darkness+activity+}^^{announcement of darkness: printing the announcement of darkness+activity+}
+^^{darkness: printing the announcement of darkness+activity+} ^^{announcement of darkness: printing the announcement of darkness+activity+}
+
 **1. When it happens.** Inform frequently calculates to see if the player is in light or darkness: this activity happens on the change from light to darkness.
 
 **2. The default behaviour.** To print "It is now pitch dark in here!".
@@ -12699,7 +12992,8 @@ Rule for printing the announcement of darkness when closing a container which co
 
 ## Printing the announcement of light {act_nowlight}
 
-^^{darkness: printing the announcement of light+activity+}^^{light: printing the announcement of light+activity+}^^{announcement of light: printing the announcement of light+activity+}
+^^{darkness: printing the announcement of light+activity+} ^^{light: printing the announcement of light+activity+} ^^{announcement of light: printing the announcement of light+activity+}
+
 **1. When it happens.** Inform frequently calculates to see if the player is in light or darkness: this activity happens on the change from darkness to light.
 
 **2. The default behaviour.** To try the looking action, which usually prints up a room description.
@@ -12712,7 +13006,8 @@ Rule for printing the announcement of light in the Dazzling Temple: say "You are
 
 ## Printing the name of a dark room {act_darkname}
 
-^^{darkness: printing the name of a dark room+activity+}^^{names: printing the name of a dark room+activity+}^^{rooms+kind+: name of a dark room}
+^^{darkness: printing the name of a dark room+activity+} ^^{names: printing the name of a dark room+activity+} ^^{rooms+kind+: name of a dark room}
+
 **1. When it happens.** When looking in darkness, or writing the (default) status line in darkness.
 
 **2. The default behaviour.** To print "Darkness".
@@ -12727,7 +13022,8 @@ Before printing the name of a dark room, say "Near ".
 
 ## Printing the description of a dark room {act_darkdesc}
 
-^^{printing the description of a dark room+descactivity+}^^{darkness: printing the description of a dark room+activity+}^^{description of a dark room: printing the description of a dark room+activity+}
+^^{printing the description of a dark room+descactivity+} ^^{darkness: printing the description of a dark room+activity+} ^^{description of a dark room: printing the description of a dark room+activity+}
+
 **1. When it happens.** When looking in darkness.
 
 **2. The default behaviour.** To print "It is pitch dark, and you can't see a thing."
@@ -12755,7 +13051,8 @@ You hear nothing unexpected.
 
 ## Constructing the status line {act_csl}
 
-^^{status line}^^{screen top}^^{left hand status line (- text)+glob+}^^{right hand status line (- text)+glob+}
+^^{status line} ^^{screen top} ^^{left hand status line (- text)+glob+} ^^{right hand status line (- text)+glob+}
+
 **1. When it happens.** Just before input is accepted from the keyboard, Inform constructs a "status line" at the top of the window which is normally displayed in reverse colours (white on black instead of black on white, say).
 
 **2. The default behaviour.** Makes the status line up out of two pieces, the "left hand status line" and the "right hand status line". Since these can freely be changed, note that the status line is already very customisable without using rules applied to this activity.
@@ -12774,7 +13071,8 @@ The Temple Of A Thousand Mightily Peeved Deities is a room. Rule for printing th
 
 ## Writing a paragraph about {act_wpa}
 
-^^{writing a paragraph about+descactivity+}^^{paragraph: writing a paragraph about+activity+}^^{descriptions (displayed): notable things in room}^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}^^{paragraph breaks: for confusing the normal display of objects}
+^^{writing a paragraph about+descactivity+} ^^{paragraph: writing a paragraph about+activity+} ^^{descriptions (displayed): notable things in room} ^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+} ^^{paragraph breaks: for confusing the normal display of objects}
+
 **1. When it happens.** Just *before* writing a paragraph about some item in a room description.
 
 **2. The default behaviour.** Is to do nothing. However, if a rule is supplied which prints something up, then this replaces the paragraph which would otherwise have been printed. Moreover, any items whose names are said in the course of this rule – for instance, by being listed – are then excluded from the remainder of the room description, because they are considered as having been described sufficiently already.
@@ -12796,7 +13094,8 @@ If we ever need to override this – say, we want to list all the women but make
 
 ## Listing nondescript items of something {act_lni}
 
-^^{listing nondescript items of something+descactivity+}^^{descriptions (displayed): miscellaneous things in room}^^{marked for listing / unmarked for listing (thing)+prop+} ^^{unmarked for listing / marked for listing (thing)+prop+} ^^{marked for listing (thing)+propcat+} ^^{unmarked for listing (thing)+propcat+}^^{nondescript items: listing nondescript items of something+activity+}^^{activities: abandoning}
+^^{listing nondescript items of something+descactivity+} ^^{descriptions (displayed): miscellaneous things in room} ^^{marked for listing / unmarked for listing (thing)+prop+} ^^{unmarked for listing / marked for listing (thing)+prop+} ^^{marked for listing (thing)+propcat+} ^^{unmarked for listing (thing)+propcat+} ^^{nondescript items: listing nondescript items of something+activity+} ^^{activities: abandoning}
+
 **1. When it happens.** This activity prints up the also-ran paragraph at the end of a room description. These are nondescript items because they don't merit paragraphs of their own: if, as sometimes happens, there are none in the room, then no such paragraph is printed and this activity does not happen. (So to add a further paragraph to a room description, a simpler "after looking" rule should be used, not an "after listing nondescript items" rule.)
 
 **2. The default behaviour.** The paragraph ordinarily reads as "You can also see a cask and a clock." or similar. Before the activity begins, those objects which are nondescript – in this case the cask and the clock – are given the property of being "marked for listing".
@@ -12825,7 +13124,8 @@ If it turns out that nothing is marked for listing, because of before rules like
 
 ## Printing the locale description of something {act_pld}
 
-^^{printing the locale description of something+descactivity+}^^{locale description: printing the locale description of something+activity+}^^{descriptions (displayed): room contents}^^{rooms+kind+: printing the room contents}^^{precedence: of displayed items}^^^{precedence <-- ordering <-- priority}^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}
+^^{printing the locale description of something+descactivity+} ^^{locale description: printing the locale description of something+activity+} ^^{descriptions (displayed): room contents} ^^{rooms+kind+: printing the room contents} ^^{precedence: of displayed items}^^^{precedence <-- ordering <-- priority} ^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}
+
 **1. When it happens.** A "locale description" is Inform jargon for the part of a room description which catalogues the visible items in the room. When looking, Inform will normally print the description of the room itself, followed by a locale description for the room. But if the player is in a cage in the room, there will be two locale descriptions: one for the room, then another for the cage. This activity is used to write the locale description for a single domain, and the "something" can be either a room, an enterable container, or an enterable supporter.
 
 **2. The default behaviour.** Is quite complicated, and is written up in full in the typeset form of the Standard Rules downloadable from the Inform website. Briefly, though: we first run the "choosing notable locale objects" activity to find out what ought to be mentioned here. That assembles a list of things to mention, sorted into priority order. Items with priority 1 go first, then those with priority 2, and so on. The "printing a locale paragraph" activity is run for each, and in practice that usually hands the job over to "writing a paragraph about". Sometimes a paragraph will indeed be written, but not always. Sometimes there is nothing interesting to say, and an item is left until a final, single paragraph which gathers up the leftovers ("You can also see a scarlet fish, a harmonium and a kite here."), the printing of which is done by the "listing nondescript items of" activity. As soon as any item picks up the either/or property "mentioned", by having its name printed, it is struck out so that it will not appear subsequently, whatever its priority.
@@ -12855,7 +13155,8 @@ Before printing the locale description of a room (called the locale):
 
 ## Choosing notable locale objects for something {act_cnlo}
 
-^^{choosing notable locale objects for something+descactivity+}^^{notable locale objects: choosing notable locale objects for something+activity+}^^{descriptions (displayed): room contents}^^{rooms+kind+: printing the room contents}^^{precedence: of displayed items}^^{+to+set the locale priority of (object) to (number)}
+^^{choosing notable locale objects for something+descactivity+} ^^{notable locale objects: choosing notable locale objects for something+activity+} ^^{descriptions (displayed): room contents} ^^{rooms+kind+: printing the room contents} ^^{precedence: of displayed items} ^^{+to+set the locale priority of (object) to (number)}
+
 **1. When it happens.** See "printing the locale description". This activity is expected to decide which items ought to be mentioned in a locale description for a given room, enterable container or enterable supporter, and to give each item a priority, which is a number ranging upwards from 1 (which is the top priority). The lower the priority number, the earlier the mention, or at least, the earlier the opportunity to be mentioned: it's up to other activities whether to give it a paragraph of its own or not. This activity only makes something a candidate, and decides what order the candidates will be tried in.
 
 **2. The default behaviour.** By default, this activity contains only the "standard notable locale objects rule". This chooses exactly those items directly contained by the locale, assigning all of them priority 5. Note that this includes scenery, and other probably unwanted items – those will be excluded later.
@@ -12885,7 +13186,8 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 ## Printing a locale paragraph about {act_plp}
 
-^^{printing a locale paragraph about something+descactivity+}^^{locale paragraph: printing a locale paragraph about something+activity+}^^{descriptions (displayed): room contents}^^{rooms+kind+: printing the room contents}^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}
+^^{printing a locale paragraph about something+descactivity+} ^^{locale paragraph: printing a locale paragraph about something+activity+} ^^{descriptions (displayed): room contents} ^^{rooms+kind+: printing the room contents} ^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}
+
 **1. When it happens.** See "printing the locale description". By this point, the locale description process has identified a number of items as candidates to be described, and worked out a priority order. This activity is then called for each candidate in turn, starting with the highest priority items and working downwards. It can either print some text or not, and can either mark the item as "mentioned" or not: if it does, then the item won't appear subsequently in the locale description. If the activity does nothing, the item becomes "nondescript" and falls through into the final "You can also see..." paragraph, unless another rule mentions it in the mean time.
 
 **2. The default behaviour.** Is provided by a sequence of seven rules:
@@ -12927,7 +13229,8 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 ## Deciding the scope of something {act_ds}
 
-^^{scope}^^{`in the presence of}^^{`presence of}^^{containment+rel+: placing the contents of something in scope}^^{Inform 6 equivalent: scope rules}^^{Inform 6 Designer's Manual+title+}
+^^{scope} ^^{`in the presence of} ^^{`presence of} ^^{containment+rel+: placing the contents of something in scope} ^^{Inform 6 equivalent: scope rules} ^^{Inform 6 Designer's Manual+title+}
+
 **1. When it happens.** "Scope" is a term of art in interactive fiction programming: it means the collection of things which can be interacted with at any given moment, which depends on who you are and where you are. Commands typed by the player will only be allowed to go forward into actions if the things they refer to are "in scope". Inform also needs to determine scope at other times, too: for instance, when deciding whether a rule conditional on being "in the presence of" something is valid. It is a bad idea to say anything during this activity.
 
 [ZL: it would be nice to spell out the rules and to not refer to the DM4 ]::
@@ -12983,7 +13286,8 @@ After deciding the scope of the player while in darkness: place the location in 
 
 ## Clarifying the parser's choice of something {act_clarify}
 
-^^{parser's choice: clarifying the parser's choice of something+activity+}^^{disambiguation: of player commands: displaying parser's chosen thing}^^{punctuation: brackets: in parser clarifications} ^^{`( ): in parser clarifications}
+^^{parser's choice: clarifying the parser's choice of something+activity+} ^^{disambiguation: of player commands: displaying parser's chosen thing} ^^{punctuation: brackets: in parser clarifications} ^^{`( ): in parser clarifications}
+
 **1. When it happens.** When the player has typed an ambiguous noun reference, and Inform has made a decision about what was meant, and it matters what this decision is. (If the decision is between three identical gold coins, say, then it doesn't matter, and this activity does not take place.) There are a couple of limitations on this: the activity applies only to the first noun, and only if it's an object. So for a command like ``select blue``, where ``blue`` is a noun referring to a colour value, say, this activity isn't used. But the simple case where the activity does play a part is nevertheless very useful.
 
 **2. The default behaviour.** Text in brackets such as "(the laminated mahogany box)" is printed, on its own line.
@@ -13000,7 +13304,8 @@ Rule for clarifying the parser's choice of the model tower: say "(The little one
 
 ## Asking which do you mean {act_which}
 
-^^{which: asking which do you mean+activity+}^^{disambiguation: of player commands: printing disambiguation request}
+^^{which: asking which do you mean+activity+} ^^{disambiguation: of player commands: printing disambiguation request}
+
 **1. When it happens.** When the player has typed an ambiguous noun reference, and Inform has not been able to decide what was meant.
 
 **2. The default behaviour.** A question such as "Which do you mean, the laminated mahogany box or the boom box?" is printed. (This activity shapes the question: it is not responsible for parsing the answer. It would be very mysterious to write rules for this activity such that nothing is printed, because the player would then have no idea what to type.)
@@ -13030,6 +13335,7 @@ causes ``take tower`` (for instance) to produce a nice tidy question in reply: "
 ## Supplying a missing noun/second noun {act_smn}
 
 ^^{missing noun: supplying a missing noun/second noun+activity+}
+
 **1. When it happens.** (Two different activities here, but identical except for applying to different nouns.) This happens when an Understand sentence fails to supply a noun for an action which requires one. For example, in the sentence `Understand "seize" as taking.`, the "taking" action is incompletely specified, because it requires a noun, and there's no noun in the command to be understood.
 
 Note that this is not what happens if it's the player who fails to supply the noun. That is, suppose the player types a half-finished command like ``take``, which can't be matched against (for example) `Understand "take [things]" as taking.` because the player didn't name any thing(s). Typically a story will reply to such a command with a question asking for clarification, but sometimes it makes guesses about what was meant. The "supplying a missing noun" activity plays no part in this guesswork, and can't influence it: that's the task of the "does the player mean" rulebook.
@@ -13063,7 +13369,8 @@ Note that, in order for our activity to succeed, we do need to supply a grammar 
 
 ## Reading a command {act_reading} {var_command} {kind_snippet}
 
-^^{understanding: special processing of keyboard input}^^{Inform 6 equivalent: `BeforeParsing}^^{snippets}^^{player's command (- snippet)+glob+}^^{matched text (- snippet)+glob+}^^{punctuation: removing from player's command}^^{regular expressions}^^{text: regular expressions}
+^^{understanding: special processing of keyboard input} ^^{Inform 6 equivalent: `BeforeParsing} ^^{snippets} ^^{player's command (- snippet)+glob+} ^^{matched text (- snippet)+glob+} ^^{punctuation: removing from player's command} ^^{regular expressions} ^^{text: regular expressions}
+
 **1. When it happens.** When reading a command from the keyboard.
 
 **2. The default behaviour.** Print the prompt text; wait for the player to type something and press return. Reject an entirely blank line, and treat a command beginning "oops" as a correction to the previous one. This is a fairly complicated business, so it is probably best not to change the "for" rules for this activity: "before", and especially "after", are another matter. (Note, however, that if Inform does reject a blank line and ask for another then this all happens inside the "for" rules: no "after" occurs after the blank line, nor does a "before" happen before the second attempt by the player. It is all a single round of the activity, not two.)
@@ -13167,6 +13474,7 @@ Note that "replace" and "cut" can only be used in "after reading a command" rule
 ## Implicitly taking something {act_implicitly}
 
 ^^{taking+action+: implicit taking}
+
 **1. When it happens.** When an action is tried which requires the actor (normally the player, of course) to be carrying something, but which is not in fact carried by that person. For instance, if the player types ``wear overcoat`` in reference to a Moroccan overcoat currently draped over a chair.
 
 **2. The default behaviour.** To print text such as "(first taking the Moroccan overcoat)" and then silently try taking the object in question (the overcoat). If the take succeeds, the silence means that nothing else is printed: if it fails, it will say why.
@@ -13217,7 +13525,8 @@ Note that if the activity doesn't succeed in taking the item, it's expected to p
 
 ## Printing a parser error {act_parsererror}
 
-^^{understanding: error messages for parsing errors}^^{error messages: for player commands}^^{parser error messages}^^{latest parser error (- command parser error)+glob+}
+^^{understanding: error messages for parsing errors} ^^{error messages: for player commands} ^^{parser error messages} ^^{latest parser error (- command parser error)+glob+}
+
 **1. When it happens.** The parser is the part of the run-time software, included in all works produced by Inform, which tries to match the player's command against the grammar provided by the work. When it is unable to make a valid match, the parser prints an error to the player: for instance,
 
 ``` transcript
@@ -13282,7 +13591,8 @@ There are more than twenty possible messages. The one which the parser wants to 
 
 ## Deciding whether all includes {act_all}
 
-^^{understanding: deciding whether (ALL) includes something+commandpart+}^^{+toout+it does / it does not (deciding whether all includes)}^^{(ALL), including things in+commandpart+}
+^^{understanding: deciding whether (ALL) includes something+commandpart+} ^^{+toout+it does / it does not (deciding whether all includes)} ^^{(ALL), including things in+commandpart+}
+
 **1. When it happens.** When parsing a command such as "take all", where the player uses "all" to signify everything within reach.
 
 **2. The default behaviour.** The actual method used is complicated, as "all" is not as simple as it seems – "take all" would not include the player's own body, for instance, or the crescent moon. The point of this activity is to allow the normal method to be changed for given objects, or given kinds of object.
@@ -13313,12 +13623,14 @@ exclude fixed in place things from take all rule
 
 ## Printing the banner text {act_banner}
 
-^^{banner text}^^{when play begins+rb+: printing the banner text+activity+}^^{bibliographic data}^^{title+biblio+}^^{author+biblio+}^^{headline+biblio+}^^{release number+biblio+ <-- version number (of story)}^^{>VERSION}
+^^{banner text} ^^{when play begins+rb+: printing the banner text+activity+} ^^{bibliographic data} ^^{title+biblio+} ^^{author+biblio+} ^^{headline+biblio+} ^^{release number+biblio+ <-- version number (of story)} ^^{>VERSION}
+
 **1. When it happens.** The banner is the bibliographic masthead text, which typically looks something like this:
 
 ``` inform7
 Relations
 An Interactive Fiction by ^{@Emily Short}
+
 Release 1 / Serial number 050630 / Inform 7 build 2U98 (I6/v6.30 lib 6/10N) SD
 ```
 
@@ -13344,7 +13656,8 @@ Rule for printing the banner text: say "Welcome." instead.
 
 ## Printing the player's obituary {act_obit}
 
-^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story}^^{when play ends+rb+: printing the player's obituary+activity+}
+^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story} ^^{when play ends+rb+: printing the player's obituary+activity+}
+
 **1. When it happens.** The obituary is the text "\*\*\* You have died \*\*\*" or similar, sometimes followed by a final score, if the appropriate use option ("Use scoring.") is in force.
 
 **2. The default behaviour.** Printing the aforementioned text, then the final score, and reducing the status line to a largely blank state.
@@ -13357,7 +13670,8 @@ Rule for printing the banner text: say "Welcome." instead.
 
 ## Amusing a victorious player {act_amuse}
 
-^^{when play ends+rb+: amusing a victorious player+activity+}^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story}^^{(finally), ending the story+sourcepart+}^^{>AMUSING}
+^^{when play ends+rb+: amusing a victorious player+activity+} ^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story} ^^{(finally), ending the story+sourcepart+} ^^{>AMUSING}
+
 **1. When it happens.** When the player chooses ``amusing`` from the short menu of choices after a story has been won. Traditionally, this is where the author gets to point out quirky by-ways of the story, or make some final acknowledgements, or simply salute the player's perseverance. Note that the ``amusing`` option is only offered when the story has ended finally, and that it is only offered if there is at least one rule present in the "for amusing a victorious player" rulebook.
 
 **2. The default behaviour.** None. The "for amusing a victorious player" rulebook is empty by default, and no amusement is available.
@@ -13371,6 +13685,7 @@ Rule for printing the banner text: say "Welcome." instead.
 ## Starting the virtual machine {act_startvm}
 
 ^^{virtual machine: starting the virtual machine+activity+}
+
 **1. When it happens.** This activity is provided as a "hook" for any low-level tasks which need to be performed when the virtual computer which runs Inform story files is starting up. This happens much earlier than "when play begins" rules, and contains a lot of critical low-level code; most authors will not need to delve into its details, but if necessary it can be controlled like any other activity. Extension authors however may find it to be a useful place to put their code.
 
 It should be remembered that Inform can produce story files for several different virtual computers. On some of these, it may not be safe to print any text during this activity, as the windows which would display such text do not yet exist. In Glulx, Inform's default format, you can safely print text in the after rules, but not the before or for rules. In general, the three rulebooks of the activity should be used in this manner:
@@ -13392,6 +13707,7 @@ Many extensions would most appropriately put their rules in the after rulebook, 
 ## On rules {kind_rule} {kind_rulebook} {RULEBOOKS} {PM_RulebookWithAt} {PM_RulebookWithDefinition} {PM_RulebookWithTo}
 
 ^^{rulebooks}
+
 When we open the casing and look inside the machinery of Inform, what we see are rules and rulebooks. We seldom need to know how this machinery works, but every once in a while we want to replace components, or even install new mechanisms of our own. And as we shall see, creating new rulebooks can be a neat way to tackle complicated simulations full of exceptions and special cases.
 
 So far we have seen many rules, and the term "rulebook" has frequently but vaguely been used. Here is a summary of the rulebooks seen so far:
@@ -13432,7 +13748,8 @@ Definition: ...
 
 ## Named rules and rulebooks
 
-^^{rules: in rulebooks}^^{rulebooks}^^{names: of rules}^^{rules: order in rulebooks} ^^{rulebooks: order of rules}^^{precedence: of rules}^^{disambiguation: of source text: precedence of rules}
+^^{rules: in rulebooks} ^^{rulebooks} ^^{names: of rules} ^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules}
+
 Most of the rules built into Inform have names. For instance, a rule called "the advance time rule" is the one which increments the number of turns and advances the clock, values which are usually not visible, but are ticking away behind the scenes.
 
 A rulebook is a list of rules to be followed in sequence until one of them makes a decision. For instance, when actions get to the "instead" stage, each "instead" rule is tried until one of them chooses to do something. If the source text contains the rules
@@ -13463,7 +13780,8 @@ The names of built-in rules have been chosen as descriptively as possible: the "
 
 ## New rules {PM_BadRulePreambleWhen} {PM_BadRulePreamble} {PM_RuleWithDefiniteArticle} {PM_RuleWithoutColon}
 
-^^{rules: defining}^^{defining: rules}^^{rules: naming}^^{names: of rules}^^{this is the (name) rule...+assert+}^^{punctuation: colon} ^^{`:}
+^^{rules: defining} ^^{defining: rules} ^^{rules: naming} ^^{names: of rules} ^^{this is the (name) rule...+assert+} ^^{punctuation: colon} ^^{`:}
+
 Stretching a point seasonally, we might write:
 
 ``` inform7
@@ -13490,7 +13808,8 @@ Now the "alternative blossom rule" is a named rule in the "every turn" rulebook.
 
 ## Listing rules explicitly {RLISTING} {PM_ImproperRulePlacement} {PM_BadRulePlacementNegation} {PM_UnspecifiedRulebookPlacement} {PM_NoSuchRuleExists} {PM_PlaceWithMissingRule}
 
-^^{rules: order in rulebooks} ^^{rulebooks: order of rules}^^{precedence: of rules}^^{disambiguation: of source text: precedence of rules}^^{(listed in / before / after / instead of), for placing rules in rulebooks+sourcepart+}^^{(not listed in), for removing rules from rulebooks+sourcepart+}^^{rules: removing}^^{rules: replacing}^^{(before), ordering for rules+sourcepart+}^^{(after), ordering for rules+sourcepart+}^^{(instead of), replacing rules+sourcepart+}^^{(first), listed first in rulebook+sourcepart+}^^{(last), listed last in rulebook+sourcepart+}
+^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules} ^^{(listed in / before / after / instead of), for placing rules in rulebooks+sourcepart+} ^^{(not listed in), for removing rules from rulebooks+sourcepart+} ^^{rules: removing} ^^{rules: replacing} ^^{(before), ordering for rules+sourcepart+} ^^{(after), ordering for rules+sourcepart+} ^^{(instead of), replacing rules+sourcepart+} ^^{(first), listed first in rulebook+sourcepart+} ^^{(last), listed last in rulebook+sourcepart+}
+
 If rules can manage perfectly well without, why bother to have names for rules?
 
 The answer is that although Inform contains an elaborate mechanism for placing rules into the correct rulebook at the correct position, and this happens automatically, Inform will sometimes get it wrong. It will use a rule we do not want, or place them in an order which does not suit us. To put this right, we can give explicit instructions which take precedence over Inform's normal practice. This is done with the "to list" verb, as in the following examples.
@@ -13540,7 +13859,8 @@ This does not actually destroy the rules in question: they could still, for inst
 
 ## Changing the behaviour of rules {rules_proc}
 
-^^{rules: removing}^^{rules: changing conditions of rules}^^{rules: replacing}^^{conditions: for rules}^^{conditions: changing conditions of rules}
+^^{rules: removing} ^^{rules: changing conditions of rules} ^^{rules: replacing} ^^{conditions: for rules} ^^{conditions: changing conditions of rules}
+
 Here is another way to abolish an already-existing rule:
 
 ``` inform7
@@ -13576,7 +13896,8 @@ The print fancy final score rule substitutes for the print final score rule when
 
 ## Sorting and indexing of rules
 
-^^{rules: order in rulebooks} ^^{rulebooks: order of rules}^^{precedence: of rules}^^{disambiguation: of source text: precedence of rules}^^{laws for sorting rulebooks}^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page}
+^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules} ^^{laws for sorting rulebooks} ^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page}
+
 The Rules page of the index for a project offers a view of the rulebooks and their contents, with two major exceptions: built-in rules for specific actions are left to the Actions page, and any rules for scene endings or beginnings are left to the Scenes page.
 
 As we have seen, we need to know the name of a rule before we can change its rulebook listing or alter its applicability. The Rules and Actions index pages show the names of the built-in rules, which are not worth memorising. (Typing can be saved by using the paste-into-source buttons, or by selecting a rule's name and copying and pasting it by hand.)
@@ -13587,7 +13908,8 @@ As this suggests, Inform performs its automatic sorting using a precise collecti
 
 ## The preamble of a rule
 
-^^{rules: preamble}^^{rules: defining}^^{defining: rules}^^{rules: naming}^^{names: of rules}^^{this is the (name) rule...+assert+}^^{(first), listed first in rulebook+sourcepart+}^^{(last), listed last in rulebook+sourcepart+}^^{during (scene)+sourcearg+}^^{when (condition)+sourcearg+: arbitrary conditions for rules}^^{while (condition)+sourcearg+: arbitrary conditions for rules}^^{conditions: for rules}^^{to (phrase name)...+assert+}^^{at (time)...+assert+}^^{definition+assert+}
+^^{rules: preamble} ^^{rules: defining} ^^{defining: rules} ^^{rules: naming} ^^{names: of rules} ^^{this is the (name) rule...+assert+} ^^{(first), listed first in rulebook+sourcepart+} ^^{(last), listed last in rulebook+sourcepart+} ^^{during (scene)+sourcearg+} ^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{while (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules} ^^{to (phrase name)...+assert+} ^^{at (time)...+assert+} ^^{definition+assert+}
+
 In general, a rule looks like this:
 
 ``` inform7
@@ -13645,7 +13967,8 @@ In this whole list of possible ingredients, only the rulebook name is compulsory
 
 ## New rulebooks {NEWRULEBOOKS}
 
-^^{defining: rulebooks}^^{rulebooks: defining}^^{rulebooks: invoking a rulebook}^^{rules: invoking a rule}^^{empty / non-empty+adj+: for rulebooks} ^^{non-empty / empty+adj+: for rulebooks}^^{rulebooks: empty / non-empty+adj+}^^{rulebooks: as a kind of rule}
+^^{defining: rulebooks} ^^{rulebooks: defining} ^^{rulebooks: invoking a rulebook} ^^{rules: invoking a rule} ^^{empty / non-empty+adj+: for rulebooks} ^^{non-empty / empty+adj+: for rulebooks} ^^{rulebooks: empty / non-empty+adj+} ^^{rulebooks: as a kind of rule}
+
 Creating a new rulebook is also straightforward, as we see in the following modest example story:
 
 ``` inform7
@@ -13684,7 +14007,8 @@ When created, a rulebook starts out with no rules in it – in this example, of 
 
 ## Basis of a rulebook
 
-^^{basis of rulebook}^^{rulebooks: basis of rulebook}^^{rulebooks: rulebook parameters}^^{parameters: of rulebooks}^^{values: basis of rulebooks}
+^^{basis of rulebook} ^^{rulebooks: basis of rulebook} ^^{rulebooks: rulebook parameters} ^^{parameters: of rulebooks} ^^{values: basis of rulebooks}
+
 Every rulebook works on a value supplied to it, though it doesn't always look that way. The kind of the value is called its "basis"; for example, if a rulebook works on a number, it's called a "number based rulebook". Most of the rulebooks seen up to now have been action based rulebooks:
 
 ``` inform7
@@ -13773,7 +14097,8 @@ After inserting something into the well:
 
 ## Rulebook variables {PM_RulebookVariableAnd} {PM_RulebookVariableTooSpecific} {PM_RulebookVariableBadKind} {PM_RulebookVariableVague}
 
-^^{rulebooks: variables for rulebooks}^^{variables: for rulebooks}^^{defining: rulebook variables}^^{`called: in defining rulebook variables}
+^^{rulebooks: variables for rulebooks} ^^{variables: for rulebooks} ^^{defining: rulebook variables} ^^{`called: in defining rulebook variables}
+
 When a rulebook is intended to perform some complicated task or calculation, it is sometimes useful for earlier rules to be able to leave information which will help later ones.
 
 For instance, suppose we want a rulebook which is intended to print out the player's current aptitude. We will suppose that this is a number from 0 upwards: the higher, the apter. The player gets bonus aptitude marks for achievements, but marks deducted for accidents, and so on. Moreover, we want to design this system so that it's easy to add further rules. The natural solution is to have a number which varies (or 'variable') acting as the running aptitude total: it should start at 0 and be altered up or down by subsequent rules. First, we should make the rulebook, and then add a variable:
@@ -13804,7 +14129,8 @@ A rulebook can have any number of variables like this. They behave much like "le
 
 ## Success and failure {PM_DefaultOutcomeTwice} {PM_BadDefaultOutcome}
 
-^^{rules: success of rules}^^{rules: failure of rules}^^{rulebooks: outcomes}^^{rulebooks: stopping execution}^^{success: for rules}^^{failure: for rules}^^{+to+stop the action}^^{+to+continue the action}^^{(instead), to stop the action+sourcepart+}^^{default outcome of a rulebook}
+^^{rules: success of rules} ^^{rules: failure of rules} ^^{rulebooks: outcomes} ^^{rulebooks: stopping execution} ^^{success: for rules} ^^{failure: for rules} ^^{+to+stop the action} ^^{+to+continue the action} ^^{(instead), to stop the action+sourcepart+} ^^{default outcome of a rulebook}
+
 Though we have blurred over this point so far, each rule must ordinarily end with one of three outcomes: success, failure and neither ("no outcome").
 
 When a rulebook is followed, what happens is that each of its rules is followed in turn **until one of them ends in success or failure** – if ever: it is possible that each rule is tried and each ends with no outcome, so that the rulebook simply runs out of rules to try.
@@ -13885,7 +14211,8 @@ We can test the latest outcome like so:
 
 ## Named outcomes {PM_MisplacedRulebookOutcome} {PM_WrongEndToPhrase} {PM_BadOutcomeClarification} {PM_DefaultNamedOutcomeTwice} {PM_DefaultOutcomeAlready} {PM_DuplicateOutcome} {PM_NonOutcomeProperty}
 
-^^{rulebooks: outcomes}^^{default outcome of a rulebook}
+^^{rulebooks: outcomes} ^^{default outcome of a rulebook}
+
 We have seen that the terms "success" and "failure" can be misleading – after all, it might be a good thing for a particular rulebook to "fail". At any rate, these are vague terms, and we don't want to have to remember the conventions used by every rulebook. This is why certain rulebooks have explicitly named outcomes instead. For instance, the "visibility" rules are allowed to have the outcomes:
 
 ``` inform7
@@ -13929,7 +14256,8 @@ Each named outcome is a value if followed by the word "outcome", which is how "a
 
 ## Rulebooks producing values
 
-^^{rulebooks: outcomes}^^{values: produced by rulebooks}^^{rules: success of rules}^^{success: for rules}^^^{+to+(name of kind) produced by (rule producing values) --> produced by}^^^{+to+(name of kind) produced by (values based rule producing values) for (value) --> produced by}
+^^{rulebooks: outcomes} ^^{values: produced by rulebooks} ^^{rules: success of rules} ^^{success: for rules}^^^{+to+(name of kind) produced by (rule producing values) --> produced by}^^^{+to+(name of kind) produced by (values based rule producing values) for (value) --> produced by}
+
 We have now seen two ways to write the outcome of a rule: as simple success or failure, with more or less explicit phrases like:
 
 ``` inform7
@@ -14021,7 +14349,8 @@ which accesses the value this rulebook produces. In general, we write:
 
 ## Abide by
 
-^^{rules: invoking a rule: and abiding by its outcome}^^{rulebooks: invoking a rulebook: and abiding by its outcome}^^{reason the action failed (- rule)+glob+}
+^^{rules: invoking a rule: and abiding by its outcome} ^^{rulebooks: invoking a rulebook: and abiding by its outcome} ^^{reason the action failed (- rule)+glob+}
+
 It often happens that one rule needs to invoke another one. Most of the time, the best way to do this is with "follow":
 
 ``` inform7
@@ -14068,7 +14397,8 @@ This is only useful in complicated situations where one rulebook uses another wh
 
 ## Two rulebooks used internally {rules_internal}
 
-^^{actions: processing sequence}^^{turns: turn sequence}^^{action processing+rb+}^^{turn sequence+rb+}^^{when play begins+rb+}^^{rules: run at beginning of story}^^{when play ends+rb+}^^{rules: run at end of story}
+^^{actions: processing sequence} ^^{turns: turn sequence} ^^{action processing+rb+} ^^{turn sequence+rb+} ^^{when play begins+rb+} ^^{rules: run at beginning of story} ^^{when play ends+rb+} ^^{rules: run at end of story}
+
 Rulebooks handle almost all of the important tasks which an Inform work of IF must carry out in order to keep play going. We have seen them used in clarifying the player's command, supplying missing ingredients, processing the action to see what should happen, responding, and so on: by this point in the documentation, it must look as if Inform uses rulebooks for everything.
 
 This is nearly true. There is not actually a super-rulebook controlling everything. (Such a super-rulebook would need to repeat itself and never finish, something a rulebook is not allowed to do.) Instead, what happens during play looks like so:
@@ -14093,7 +14423,8 @@ In general, we should only modify the operation of these two crucial rulebooks a
 
 ## The Laws for Sorting Rulebooks
 
-^^{rules: order in rulebooks} ^^{rulebooks: order of rules}^^{precedence: of rules}^^{disambiguation: of source text: precedence of rules}^^{laws for sorting rulebooks}^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page}^^{room gone from/to (- object)+actvar+}
+^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules} ^^{laws for sorting rulebooks} ^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page} ^^{room gone from/to (- object)+actvar+}
+
 Large works created by Inform are heaped high with rules, most of them instead rules, but with a leavening of befores and afters as well. What will happen if these conflict with each other? For instance:
 
 ``` inform7
@@ -14152,7 +14483,8 @@ In the case of "going" actions, the first noun is a direction. The special const
 
 ## Changing texts
 
-^^{text <-- indexed text, now the same as text}^^{text: indexed text, now the same as text}^^{characters (letters): in text values}
+^^{text <-- indexed text, now the same as text} ^^{text: indexed text, now the same as text} ^^{characters (letters): in text values}
+
 So far, we have dealt with text as something which comes in little packets: we have printed it out, read it in from the keyboard, and compared it with other text. But we have never tried to open the packets and get at the contents, letter by letter, or to make any alterations, or look for certain combinations of letters. These tricks are surprisingly seldom needed – a surprise, that is, given that everything Inform does is textual – but they are in fact open to us. For example:
 
 ``` inform7
@@ -14165,7 +14497,8 @@ Until 2012, Inform had two kinds of text – plain "text", and "indexed text" �
 
 ## Memory limitations
 
-^^{text: memory limits}^^{text: Z-machine limitations}^^{limits: for manipulating text}^^{memory limits: for manipulating text}^^{Z-machine: memory limits}^^{Z-machine: character set limits}^^{Glulx: memory limits}^^{virtual machine: memory limits}^^{use options: catalogue: `dynamic memory allocation} ^^{dynamic memory allocation+useopt+}^^{use options: catalogue: `maximum text length} ^^{maximum text length+useopt+}
+^^{text: memory limits} ^^{text: Z-machine limitations} ^^{limits: for manipulating text} ^^{memory limits: for manipulating text} ^^{Z-machine: memory limits} ^^{Z-machine: character set limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits} ^^{use options: catalogue: `dynamic memory allocation} ^^{dynamic memory allocation+useopt+} ^^{use options: catalogue: `maximum text length} ^^{maximum text length+useopt+}
+
 Inform creates "story files" for very small virtual computers (capable of running on phones, for instance) where memory is tight. If we create a number variable and keep on adding 1 to it, the value simply gets bigger. But if we make some text and keep on adding a letter "x" to it, the text takes up more and more space, growing into longer and longer runs of "x"s until there is no more space to hold it.
 
 The following warnings are rather like the tiny print about side-effects on medicine bottles: that is, we mostly ignore them, and if the drugs should kill us, well, at least we have the consolation of knowing we were warned. There are basically three limitations on text:
@@ -14194,7 +14527,8 @@ All of this makes the Z-machine sound very inferior, for text purposes. But note
 
 ## Characters, words, punctuated words, unpunctuated words, lines, paragraphs
 
-^^{text: counting characters / words / paragraphs / lines}^^{characters (letters): counting}^^{counting: characters / words / paragraphs / lines}^^{punctuation: in counting words}^^{line breaks: counting lines in text}^^{paragraph breaks: counting paragraphs in text}^^{empty / non-empty+adj+: for texts} ^^{non-empty / empty+adj+: for texts}^^{text: empty / non-empty+adj+}
+^^{text: counting characters / words / paragraphs / lines} ^^{characters (letters): counting} ^^{counting: characters / words / paragraphs / lines} ^^{punctuation: in counting words} ^^{line breaks: counting lines in text} ^^{paragraph breaks: counting paragraphs in text} ^^{empty / non-empty+adj+: for texts} ^^{non-empty / empty+adj+: for texts} ^^{text: empty / non-empty+adj+}
+
 Inform can get at the contents of text in a variety of ways. The lowest-level is by character – a character is a letter, digit, punctuation symbol, space or other letter-form. (We use the term "character" rather than "letter" because otherwise we would have to call "5" a letter, and so on.) Characters number upwards from 1: character number 1, to repeat that, starts the text. We can get the Nth character with:
 
 > phrase: {ph_charnum} character number (number) in (text) ... text
@@ -14306,7 +14640,8 @@ Finally, on the larger scale still, we also have:
 
 ## Upper and lower case letters
 
-^^{text: upper case} ^^{text: lower case}^^{text: changing case}^^{case sensitivity: checking texts}^^{text: Z-machine limitations}^^{Z-machine: character set limits} ^^{Glulx: no character set limits} ^^{virtual machine: character set limits}^^^{+to+(text) in lower case --> in lower case}^^^{+to+(text) in sentence case --> in sentence case}^^^{+to+(text) in title case --> in title case}^^^{+to+(text) in upper case --> in upper case}^^{lower case: (text) in lower case+phr+}^^{sentence case: (text) in sentence case+phr+}^^{title case: (text) in title case+phr+}^^{upper case: (text) in upper case+phr+}
+^^{text: upper case} ^^{text: lower case} ^^{text: changing case} ^^{case sensitivity: checking texts} ^^{text: Z-machine limitations} ^^{Z-machine: character set limits} ^^{Glulx: no character set limits} ^^{virtual machine: character set limits}^^^{+to+(text) in lower case --> in lower case}^^^{+to+(text) in sentence case --> in sentence case}^^^{+to+(text) in title case --> in title case}^^^{+to+(text) in upper case --> in upper case} ^^{lower case: (text) in lower case+phr+} ^^{sentence case: (text) in sentence case+phr+} ^^{title case: (text) in title case+phr+} ^^{upper case: (text) in upper case+phr+}
+
 In most European languages the same letters can appear in two forms: as capitals, like "X", mainly used to mark a name or the start of a sentence; or in their ordinary less prominent form, like "x". These forms are called upper and lower case because, historically, typesetters kept lead castings of letters in two wooden cases, one above the other on the workbench. Lower case letters were in the lower box closer to hand, being more often needed.
 
 Human languages are complicated. Not every lower case letter has an upper case partner: ordinal markers in Hispanic languages don't, for instance, and the German "ß" is never used in upper case. Sometimes two different lower case letters have the same upper case form: "ς" and "σ", two versions of the Greek sigma, both capitalise to "Σ". Inform follows the international Unicode standard in coping with all this.
@@ -14383,7 +14718,8 @@ produces "Ÿ" in Glulx but "ÿ" in the Z-machine. This will come as a blow to Qu
 
 ## Matching and exactly matching
 
-^^{text: matching}^^{comparisons: of text}^^{case sensitivity: in matching texts}
+^^{text: matching} ^^{comparisons: of text} ^^{case sensitivity: in matching texts}
+
 Up to now, we have only been able to judge two texts by seeing if they are equal, but we can now ask more subtle questions.
 
 > phrase: {ph_matches} if (text) matches the text (text):
@@ -14474,11 +14810,13 @@ We can also see how many times something matches:
 
 In the next section we shall see that "matches" and "exactly matches" can do much more than the simple text matching demonstrated above.
 ^^{XYZZY}
+
 There's no "number of times ``whatever`` exactly matches the text ``find`` phrase since this is by definition going to have to be 0 or 1.
 
 ## Regular expression matching
 
-^^{regular expressions}^^{text: regular expressions}^^{comparisons: with regular expressions}^^{characters (letters): special meanings in regular expressions}^^{case sensitivity: in regular expressions}
+^^{regular expressions} ^^{text: regular expressions} ^^{comparisons: with regular expressions} ^^{characters (letters): special meanings in regular expressions} ^^{case sensitivity: in regular expressions}
+
 When playing around with text, we tend to get into longer and trickier wrangles of matching – we find that we want to look not for simple text like "gold", but for "gold" used only as a separate word, or for a date in ``yyyy``-MM-DD format, or for a seemingly endless range of other possibilities. What we need is not just for Inform to provide a highly flexible matching program, but also a good notation in which to describe what we want.
 
 Fortunately, such a notation already exists. This is the "regular expression" notation, named for a 1950s mathematical model by the logician ^{@Stephen Kleene}, applied to computing in the late 60s by ^{@Ken Thompson}, borrowed almost at once by the early Unix tools of the 70s, and developed further by ^{@Henry Spencer} in the 80s and ^{@Philip Hazel} in the 90s. The glue holding the Internet together – the Apache web-server, the scripting languages Perl and Python, and so forth – makes indispensable use of regular expressions.
@@ -14491,7 +14829,7 @@ As might be expected from the previous section, we simply have to describe the `
 >
 >     if "taramasalata" matches the regular expression "a.\*l", ...
 >
-> is true, since this looks for a part of "taramasalata" which begins with "a", continues with any number of characters, and finishes with "l"; so it matches "aramasal". (Not "asal", because it gets the makes the leftmost match it can.) The option "case insensitively" causes lower and upper case letters to be treated as equivalent.
+> is true, since this looks for a part of "taramasalata" which begins with "a", continues with any number of characters, and finishes with "l"; so it matches "aramasal". (Not "asal", because it makes the leftmost match it can.) The option "case insensitively" causes lower and upper case letters to be treated as equivalent.
 
 > phrase: {ph_exactlymatchesre} if (text) exactly matches the regular expression (text):
 >
@@ -14770,7 +15108,8 @@ means if you start with a digit, match four digits; otherwise match "AY-" follow
 
 ## Making new text with text substitutions
 
-^^{text substitutions: when text is substituted}^^{text: when text substitutions are substituted}^^{substituted / unsubstituted (text)+adj+} ^^{unsubstituted / substituted (text)+adj+}^^{text: substituted / unsubstituted+adj+}^^{temporary variables: displaying} ^^{variables: temporary: displaying}
+^^{text substitutions: when text is substituted} ^^{text: when text substitutions are substituted} ^^{substituted / unsubstituted (text)+adj+} ^^{unsubstituted / substituted (text)+adj+} ^^{text: substituted / unsubstituted+adj+} ^^{temporary variables: displaying} ^^{variables: temporary: displaying}
+
 Substitutions are most often used just for printing, like so:
 
 ``` inform7
@@ -14873,7 +15212,8 @@ Note that there's no analogous phrase for "unsubstituted form of...", because on
 
 ## Replacements
 
-^^{text: replacing parts of a text}^^{punctuation: in counting words}^^{characters (letters): replacing in text}^^{regular expressions}^^{text: regular expressions}
+^^{text: replacing parts of a text} ^^{punctuation: in counting words} ^^{characters (letters): replacing in text} ^^{regular expressions} ^^{text: regular expressions}
+
 Suppose V is a text which varies – perhaps a property of something, or a variable defined everywhere, or a temporary "let"-named value. How do we change its contents? The easiest way is simply to assign text to it. Thus:
 
 ``` inform7
@@ -14996,7 +15336,11 @@ But these are all just special cases of the grand-daddy of all replacement phras
 
 ## Summary of regular expression notation
 
-^^{regular expressions}^^{text: regular expressions}^^{characters (letters): special meanings in regular expressions}^^{regular expressions: syntax reference}
+[ZL: not sure what best format here is. If we make them anything other than inform7 the formatting will look wrong. Really, they're two-column tables]::
+
+
+^^{regular expressions} ^^{text: regular expressions} ^^{characters (letters): special meanings in regular expressions} ^^{regular expressions: syntax reference}
+
 **``matching``**
 
 Positional restrictions
@@ -15015,14 +15359,12 @@ Backslashed character classes
 \\		For example, this matches literal backslash "\"
 \n		Matches literal line break character
 \t		Matches literal tab character (but use this only with external files)
-
 \d		Matches any single digit
 \l		Matches any lower case letter (by Unicode 4.0.0 definition)
 \p		Matches any single punctuation mark: . , ! ? - / " : ; ( ) [ ] { }
 \s		Matches any single spacing character (space, line break, tab)
 \u		Matches any upper case letter (by Unicode 4.0.0 definition)
 \w		Matches any single word character (neither \p nor \s)
-
 \D		Matches any single non-digit
 \L		Matches any non-lower-case-letter
 \P		Matches any single non-punctuation-mark
@@ -15108,7 +15450,8 @@ Unnumbered subexpressions
 
 ## Lists and entries {kind_listof}
 
-^^{lists}^^{kinds: of list}^^{empty / non-empty+adj+: for lists} ^^{non-empty / empty+adj+: for lists}^^{lists: empty / non-empty+adj+}^^{lists: finding length}^^{+to+number of entries in/of (list of values)}^^{lists: adding entries}^^{+to+add (value) to (list of values)}^^{type-checking: in lists}
+^^{lists} ^^{kinds: of list} ^^{empty / non-empty+adj+: for lists} ^^{non-empty / empty+adj+: for lists} ^^{lists: empty / non-empty+adj+} ^^{lists: finding length} ^^{+to+number of entries in/of (list of values)} ^^{lists: adding entries} ^^{+to+add (value) to (list of values)} ^^{type-checking: in lists}
+
 Many sections in this book begin by introducing a new kind of value. Reading through in order, the possibilities mount up: numbers, times, texts, and so on. (See the Kinds page of the Index for a convenient list of the options.) This section is a little different: rather than showing a single new kind of value, it shows how to make a new kind out of any existing one.
 
 If K is any kind of value, then "list of K" is also a kind of value. For instance, we could write:
@@ -15176,7 +15519,8 @@ Finally, note that since "list of numbers" is a kind of value in its own right, 
 
 ## Constant lists {PM_CantLetEmptyList} {PM_BadConstantListEntry} {PM_NonconstantConstantListEntry} {PM_IncompatibleConstantListEntry}
 
-^^{lists: creating}^^{defining: lists}^^{lists: constant lists}^^{empty / non-empty+adj+: for lists} ^^{non-empty / empty+adj+: for lists}^^{lists: empty / non-empty+adj+}^^{kinds: of list}^^^{punctuation: curly braces <-- braces <-- curly braces }^^{punctuation: curly braces: for constant lists} ^^{`{ \}: for constant lists}^^{punctuation: comma: in list constants, requiring spaces} ^^{spaces, in list constants, after commas}^^{`,: in list constants, requiring spaces}
+^^{lists: creating} ^^{defining: lists} ^^{lists: constant lists} ^^{empty / non-empty+adj+: for lists} ^^{non-empty / empty+adj+: for lists} ^^{lists: empty / non-empty+adj+} ^^{kinds: of list}^^^{punctuation: curly braces <-- braces <-- curly braces } ^^{punctuation: curly braces: for constant lists} ^^{`{ \}: for constant lists} ^^{punctuation: comma: in list constants, requiring spaces} ^^{spaces, in list constants, after commas} ^^{`,: in list constants, requiring spaces}
+
 It is convenient to have a concise way to write down a constant list. Just as we could write "231", say, or "7:01 AM" to refer to particular number and time constants, so we can write list constants:
 
 ``` inform7
@@ -15221,6 +15565,7 @@ The duck, the orange, the cider, the cinnamon and the orange are in the Kitchen.
 Table of Requirements
 recipe				ingredients
 "duck à l'orange"	{the duck, the orange}
+
 "spiced cider"		{the cider, the cinnamon, the orange}
 ```
 
@@ -15248,7 +15593,8 @@ is not allowed, even though "the turn count" is a number: because it is a number
 
 ## Saying lists of values
 
-^^{text substitutions: lists} ^^{lists: displaying}^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+}^^{definite articles: when displaying lists}^^{indefinite articles: when displaying lists}^^{brace notation: "[(list of values) in brace notation]"+sayphr+}
+^^{text substitutions: lists} ^^{lists: displaying} ^^{use options: catalogue: `the serial comma} ^^{serial comma+useopt+} ^^{definite articles: when displaying lists} ^^{indefinite articles: when displaying lists} ^^{brace notation: "[(list of values) in brace notation]"+sayphr+}
+
 Any list L can be said, provided that its contents can be said. For example:
 
 ``` inform7
@@ -15297,7 +15643,8 @@ which produces "piano and music stand". Lists of objects can be said in two addi
 
 ## Testing and iterating over lists
 
-^^{lists: finding entries}^^{lists: repeating through}^^{limits: on changing lists being repeated through}
+^^{lists: finding entries} ^^{lists: repeating through} ^^{limits: on changing lists being repeated through}
+
 If L is a list, we can interrogate it to see whether it does or does not contain (at least one instance of) any compatible value V:
 
 > phrase: {ph_islistedin} if (value) is listed in (list of values):
@@ -15332,7 +15679,8 @@ leaves L1 containing {2, 4}, since the removals from the list cause it to shuffl
 
 ## Building lists
 
-^^{lists: adding entries}^^{lists: removing entries}
+^^{lists: adding entries} ^^{lists: removing entries}
+
 We have already seen "add... to...". This in fact comes in two forms:
 
 > phrase: {ph_addtolist} add (value) to (list of values)
@@ -15433,7 +15781,8 @@ Again, we can also remove from specific positions:
 
 ## Lists of objects
 
-^^{lists: creating: by description}^^{defining: lists: by description}
+^^{lists: creating: by description} ^^{defining: lists: by description}
+
 Lists can be made of values of any kind (including other lists), but lists of objects are especially useful. We could always make these "by hand":
 
 ``` inform7
@@ -15480,7 +15829,8 @@ where P is any value property. In all other respects, lists of objects are no di
 
 ## Lists of values matching a description
 
-^^{lists: creating: by description}^^{defining: lists: by description}
+^^{lists: creating: by description} ^^{defining: lists: by description}
+
 The useful "list of ..." syntax can also be used to produce lists of the values matching a description, too. Thus:
 
 ``` inform7
@@ -15498,7 +15848,8 @@ It would just be too large to hold. In general, if we can repeat through, or fin
 
 ## Sorting, reversing and rotating lists
 
-^^{lists: sorting}^^{lists: reversing}^^{lists: rotating}^^{randomness: sorting lists in random order}
+^^{lists: sorting} ^^{lists: reversing} ^^{lists: rotating} ^^{randomness: sorting lists in random order}
+
 Any list L can be reversed:
 
 > phrase: {ph_reverselist} reverse (list of values)
@@ -15595,7 +15946,8 @@ Rotating a list means moving all of its entries along by one place, and then mov
 
 ## Accessing entries in a list
 
-^^{lists: finding entries}^^{lists: finding length}^^{entry (number) of (list)+sourcearg+}^^{+to+now (a condition): changing list entries}^^{lists: changing entries}
+^^{lists: finding entries} ^^{lists: finding length} ^^{entry (number) of (list)+sourcearg+} ^^{+to+now (a condition): changing list entries} ^^{lists: changing entries}
+
 The length of a list can change as values are added or removed, and can in principle be any number from 0 upwards. A list with 0 entries is empty. We can find the length with:
 
 > phrase: {ph_numberentries} number of entries in/of/from (list of values) ... number
@@ -15603,6 +15955,7 @@ The length of a list can change as values are added or removed, and can in princ
 > This phrase produces the number of positions in the list. Example:
 >
 >     the number of entries in {1, 1, 1, 3, 1}
+
 >
 > is 5, even though there are only two genuinely different items in the list.
 
@@ -15629,7 +15982,8 @@ and if L is currently empty, then there is no entry which can be accessed, so th
 
 ## Lengthening or shortening a list
 
-^^{lists: changing length}^^{lists: extending}^^{lists: truncating}^^{lists: memory limits}^^{lists: Z-machine limitations}^^{limits: for extending lists}^^{memory limits: for extending lists}^^{Z-machine: memory limits}^^{Glulx: memory limits}^^{virtual machine: memory limits}
+^^{lists: changing length} ^^{lists: extending} ^^{lists: truncating} ^^{lists: memory limits} ^^{lists: Z-machine limitations} ^^{limits: for extending lists} ^^{memory limits: for extending lists} ^^{Z-machine: memory limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits}
+
 We can explicitly change the length of a list like so:
 
 > phrase: {ph_changelength} change (list of values) to have (number) entries/entry
@@ -15708,6 +16062,7 @@ As with text in the previous chapter, [Advanced Text], a project which needs rea
 ## Variations: arrays, logs, queues, stacks, sets, sieves and rings
 
 ^^{lists: variations on use of lists}
+
 Lists are highly adaptable, and many other collection-like constructions can be made using them. This section introduces no new material, but simply suggests some of the variations which are possible.
 
 1. The traditional computing term **array** means a list of values accessed by their entry numbers, often used in mathematical computations. The difference between an array and a list is mostly one of attitude, but usually arrays are fixed in length whereas lists can expand or contract.
@@ -15873,7 +16228,8 @@ produces:
 
 ## A review of kinds
 
-^^{kinds}^^{kinds: of kinds}^^{values: kinds of kinds of value}^^{kinds: kind variables} ^^{variables: kind variables}^^{`arithmetic value}^^{`enumerated value}^^{`sayable value}^^{text substitutions: sayable values}
+^^{kinds} ^^{kinds: of kinds} ^^{values: kinds of kinds of value} ^^{kinds: kind variables} ^^{variables: kind variables} ^^{`arithmetic value} ^^{`enumerated value} ^^{`sayable value} ^^{text substitutions: sayable values}
+
 Most of the time, what's created in an Inform source text will have a name which can be used as a value – sometimes openly so, sometimes not. In this book, we haven't gone out of our way to make that point, because there was no real need to do so. It's possible to make heavy use of rulebooks and write large-scale Inform projects without ever needing to use a rulebook's name as a value in its own right, for example. But if we want to create sophisticated extensions to Inform, or to use modern techniques such as functional and generic programming, we need to be fluent in the language of kinds.
 
 Inform's language of kinds has four ingredients: base kinds, constructions, kind variables and kinds of kinds.
@@ -15983,7 +16339,8 @@ This makes "announce X" work for any value X which can be said. All the same, "s
 
 ## Descriptions as values {kind_description}
 
-^^{values: descriptions as values}^^{descriptions (references to things): as values}^^{kinds: of description}^^{member of (description)+sourcearg+}
+^^{values: descriptions as values} ^^{descriptions (references to things): as values} ^^{kinds: of description} ^^{member of (description)+sourcearg+}
+
 In the chapter on [Descriptions], we saw that a description can be any source text which describes one or more objects: it might be as simple as "the Corn Market", or as complicated as "open containers which are in dark rooms". More or less the only restriction is that it must be unambiguous as to what counts and what does not: "three containers" is ambiguous as a description because it does not say which three.
 
 We've now seen several interesting tricks with descriptions. In fact, if D is a description, then
@@ -16031,7 +16388,8 @@ Finally, it's sometimes useful in an abstract situation to test
 
 ## Phrases as values
 
-^^{values: phrases as values}^^{phrases: as values}^^{kinds: of phrase}^^{(->), in phrase kinds+sourcepart+}^^{phrases: named phrases} ^^{names: of phrases}^^{(this is), in naming phrases+sourcepart+}^^^{+to+(phrase nothing -> value) applied --> applied}^^^{+to+(phrase value -> value) applied to (value) --> applied to}^^^{+to+(phrase (value, value) -> value) applied to (value) and (value) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> applied to}^^^{+to+(phrase (value, value, value) -> value) applied to (value) and (value) and (value) --> applied to}
+^^{values: phrases as values} ^^{phrases: as values} ^^{kinds: of phrase} ^^{(->), in phrase kinds+sourcepart+} ^^{phrases: named phrases} ^^{names: of phrases} ^^{(this is), in naming phrases+sourcepart+}^^^{+to+(phrase nothing -> value) applied --> applied}^^^{+to+(phrase value -> value) applied to (value) --> applied to}^^^{+to+(phrase (value, value) -> value) applied to (value) and (value) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> applied to}^^^{+to+(phrase (value, value, value) -> value) applied to (value) and (value) and (value) --> applied to}
+
 Given any two kinds K and L, the kind "phrase K -> L" is now a kind. (This is meant to look like a mathematical function arrow.) For example, the phrase defined by
 
 ``` inform7
@@ -16139,7 +16497,8 @@ apply F to V and W and X;
 
 ## Default values for phrase kinds
 
-^^{kinds: of phrase: default values for}^^{kinds: default values of kinds}^^{phrases: as values: default values}
+^^{kinds: of phrase: default values for} ^^{kinds: default values of kinds} ^^{phrases: as values: default values}
+
 The default value for "phrase K -> nothing" is a phrase which does nothing. For example, if we write:
 
 ``` inform7
@@ -16194,7 +16553,8 @@ number -> (phrase number -> colour)
 
 ## Map, filter and reduce
 
-^^{lists: mapping (with a phrase)}^^{lists: filtering (with a phrase or description)}^^{lists: reducing (with a phrase, to a value)}^^^{+to+(phrase value -> value) applied to (list of values) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> reduction of}
+^^{lists: mapping (with a phrase)} ^^{lists: filtering (with a phrase or description)} ^^{lists: reducing (with a phrase, to a value)}^^^{+to+(phrase value -> value) applied to (list of values) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> reduction of}
+
 When a mass of computations has to be done, the traditional approach is to work through them in a "repeat" loop. One modern alternative, growing in popularity, is to form a list of inputs; then apply the same computation to each input in turn to form a list of results (this is called "mapping"); throw out any bad or unwanted results ("filtering"); and then combine the surviving results into a single composite answer ("reducing", though some programming languages call this "folding" or "accumulation"; it's a much-reinvented idea).
 
 Inform provides all three of these fundamental list-processing operations. There is no special term for a "map", because Inform treats it as another case of "applied to".
@@ -16209,6 +16569,7 @@ Inform provides all three of these fundamental list-processing operations. There
 > Then "doubling applied to 2" produces 4, by the simpler definition of "applied to", but also:
 >
 >     doubling applied to {2, 3, 4}
+
 >
 > produces the list {4, 6, 8}.
 
@@ -16240,6 +16601,7 @@ Next, filtering. Here we make use of descriptions, in order to say what values w
 > This phrase produces a new list which is a thinner version of the one given, so that it contains only those values which match the description given. Example:
 >
 >     filter to even numbers of {3, 8, 4, 19, 7}
+
 >
 > produces {8, 4}, with the values 3, 19, and 7 failing to make it through. A sufficiently fine filter may well thin out a list to a single entry, or even no entries at all, but the result is always a list.
 
@@ -16301,7 +16663,8 @@ On the other hand, there are also times when this is a needlessly complicated di
 
 ## Generic phrases
 
-^^{kinds: of kinds}^^{values: kinds of kinds of value}^^{`arithmetic value}^^{`enumerated value}^^{`sayable value}^^{text substitutions: sayable values}
+^^{kinds: of kinds} ^^{values: kinds of kinds of value} ^^{`arithmetic value} ^^{`enumerated value} ^^{`sayable value} ^^{text substitutions: sayable values}
+
 The following looks quite innocent:
 
 ``` inform7
@@ -16340,7 +16703,8 @@ which means that time is something we can do arithmetic on, and can say.
 
 ## Kind variables
 
-^^{kinds: kind variables} ^^{variables: kind variables}^^{characters (letters): capital letters as kind variables}
+^^{kinds: kind variables} ^^{variables: kind variables} ^^{characters (letters): capital letters as kind variables}
+
 The examples of generic phrases in the previous section were really only toy examples. Suppose we want a phrase which will take any arithmetic value and triple it. We could do something like this:
 
 ``` inform7
@@ -16395,7 +16759,8 @@ Here V is a snippet, but L is a list of texts; and a snippet can be used in plac
 
 ## Matching the names of kinds
 
-^^{kinds: in phrase parameters}^^{phrases: phrase parameters: kind values}^^{parameters: of phrases: kind values}
+^^{kinds: in phrase parameters} ^^{phrases: phrase parameters: kind values} ^^{parameters: of phrases: kind values}
+
 Sometimes a phrase needs to know what kind it's to work on, but isn't going to be given any particular value of it. For example:
 
 ``` inform7
@@ -16422,7 +16787,8 @@ would not be allowed – "open doors" is a description which applies to some doo
 
 ## In what order?
 
-^^{phrases: precedence of definitions}^^{precedence: of phrase definitions}^^{disambiguation: of source text: precedence of phrase definitions}
+^^{phrases: precedence of definitions} ^^{precedence: of phrase definitions} ^^{disambiguation: of source text: precedence of phrase definitions}
+
 Recall the definition:
 
 ``` inform7
@@ -16462,7 +16828,8 @@ Some containers are transparent, some not; some transparent things are container
 
 ## Ambiguities
 
-^^{phrases: precedence of definitions}^^{precedence: of phrase definitions}^^{disambiguation: of source text: precedence of phrase definitions}
+^^{phrases: precedence of definitions} ^^{precedence: of phrase definitions} ^^{disambiguation: of source text: precedence of phrase definitions}
+
 Another possible ambiguity occurs when a phrase might match two lexically different possibilities using the same words.
 
 ``` inform7
@@ -16484,7 +16851,8 @@ The rule here is that whichever possibility contains the most words, in this cas
 
 ## Beyond text
 
-^^{Glulx: required for multimedia}^^{Z-machine: no support for multimedia}^^{virtual machine: multimedia support}
+^^{Glulx: required for multimedia} ^^{Z-machine: no support for multimedia} ^^{virtual machine: multimedia support}
+
 In this chapter, we explore a number of ways to go beyond the traditional text-only, one-story-file-only model for IF.
 
 These relatively exotic features are more demanding of the interpreter which a player uses than a plain text story file would be. They can only be used if the project is being compiled to the Glulx story file format (see the Settings panel for the project), and even then, the player will need to have a good Glulx interpreter – one which is reasonably up to date and well-written, that is – to be sure of everything working as intended.
@@ -16492,6 +16860,7 @@ These relatively exotic features are more demanding of the interpreter which a p
 ## How IF views pictures
 
 ^^{figures <-- pictures <-- graphics}^^^{figures <-- images}
+
 Looking around a bookshop, perhaps half of all the books published have illustrations. The proportion may be lower for novels, but if we count maps or other occasional diagrams, even the fiction section turns out to be surprisingly pictorial. Illustrations do not suit every book, but they are an option we would like to have available.
 
 In the cultural history of IF, graphics in text adventures have sometimes been looked at with suspicion. Mostly this is because attempts in the 1980s were not very successful, because computer graphics were so poor then (by modern standards). It may be that some people also felt that the takeover of computer games by graphical interfaces was the death knell of IF. But pictures are now rendered in superb quality by computers, and the death of IF turned out to be an exaggeration, so it is time to move on.
@@ -16502,7 +16871,8 @@ Another consideration is that displaying images is more complicated for computer
 
 ## Virtual machines and story file formats {PM_UnknownVirtualMachine}
 
-^^{virtual machine}^^{Glulx <-- virtual machine: Glulx}^^{Z-machine <-- virtual machine: Z-machine}
+^^{virtual machine} ^^{Glulx <-- virtual machine: Glulx} ^^{Z-machine <-- virtual machine: Z-machine}
+
 Back in the [Source Text] chapter, we saw that the Settings panel allows any given Inform project to be produced in either of two possible story file formats. Recall that story files are the released IF works: what the player sees. The source text, the Index, and so on are not part of this.
 
 A story file is not like a word-processed document, or a photograph. There are many rival formats for these – for instance, an image on a web page might be in ``jpeg`` or ``png`` format, among many others – but basically they are simple things for the reader to look at, and see everything in one go. An IF story file is more complicated, because the "reader" reacts to it, types in to it, is surprised by it, never quite knows what might happen next.
@@ -16513,7 +16883,8 @@ The different formats of story file are programs for different virtual machines.
 
 ## Gathering the figures {kind_figurename} {FIGURES}
 
-^^{figures: placing in materials folder}^^{figures: formats allowed}^^{materials folder: figures}^^^{materials folder <-- files (compiling): materials folder}
+^^{figures: placing in materials folder} ^^{figures: formats allowed} ^^{materials folder: figures}^^^{materials folder <-- files (compiling): materials folder}
+
 Inform provides basic support for displaying pictures and leaves more exotic effects for Extensions to provide. But either way, for reasons explained in the previous section, **we can only have pictures if the Settings for the project are set to the Glulx story file format**.
 
 Inform calls these pictures "figures", following the usual Inform analogy with books. We will think of our work of IF as being like a mostly textual book which in broken up with illustrations here and there – Figure 1, Figure 2, and so on. These might be used to mark each new chapter of the plot, or each new location: whatever the author would like. So the first thing we need to do is decide when pictures should appear.
@@ -16535,7 +16906,8 @@ The ".materials" folder for an Inform project will turn out to have many other u
 
 ## Declaring and previewing the figures {PM_PictureDuplicate} {PM_PictureNotTextual}
 
-^^{figures: declaring}^^{defining: figures}^^{defining: previewing}^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page}
+^^{figures: declaring} ^^{defining: figures} ^^{defining: previewing} ^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page}
+
 Inside Inform, the source text for a project always tries to avoid talking about filenames – we need a better way to refer to the individual figures.
 
 We do this by declaring each figure with a sentence like the following examples:
@@ -16553,7 +16925,8 @@ We can preview the stock of figures by going to the table of figures in the Cont
 
 ## Displaying the figures
 
-^^{figures: displaying}^^{blorb file <-- files (compiling): blorb file}
+^^{figures: displaying} ^^{blorb file <-- files (compiling): blorb file}
+
 Inform's basic picture support simply allows figures to be shown at particular times. Once seen, they scroll away, just as text does once it has been printed. These pictures are really part of the stream of narrative. (If we would like icons or other images to be permanently present on screen, and divide the screen up in pictorial ways to achieve interesting layouts, we need to use special extensions to access Glulx's more exotic features.)
 
 Displaying a picture is therefore like printing some text. Rather than
@@ -16574,7 +16947,8 @@ Once again, note that the "display" phrase does nothing unless the Settings for 
 
 ## Recorded sounds {kind_soundname} {SOUNDS}
 
-^^{sounds <-- audio <-- music}^^{sounds: formats allowed}
+^^{sounds <-- audio <-- music} ^^{sounds: formats allowed}
+
 Inform also supports the playing back of recorded sounds, which might be anything from a three-second sound effect for a creaking door to an epic orchestral symphony. **Sound support is very newly added to the system and work is still in progress. In particular, sounds are not played by Inform for OS X (although it does produce valid blorbed Glulx story files), though they should be audible from within the Inform application for Windows.**
 
 Once again, sound effects are supported by Inform 7 only on the Glulx platform, and even then we must be prepared for the fact that not all interpreters will be able to play them back. We must also bear in mind that a sound recording is a large pile of bits, and that adding any kind of sounds will greatly increase the size of the Blorb file for the released Glulx story file.
@@ -16589,7 +16963,8 @@ Lastly, it must be remembered that recording industry bodies are very hostile to
 
 ## Declaring and playing back sounds {PM_SoundDuplicate} {PM_SoundNotTextual}
 
-^^{sounds: declaring}^^{defining: sounds}^^{sounds: placing in materials folder}^^{materials folder: sounds}
+^^{sounds: declaring} ^^{defining: sounds} ^^{sounds: placing in materials folder} ^^{materials folder: sounds}
+
 Sound effects are accommodated on the same basis as illustrations. The relevant media files need to be placed in a subfolder of the project's ".materials" folder, but this time called Sounds rather than Figures, so for instance:
 
 [ZL: unclear what language is appropriate]::
@@ -16621,7 +16996,8 @@ And they can be played using a special phrase:
 
 ## Providing accessibility text
 
-^^{accessibility text for figures and sounds}^^{text: accessibility text for figures and sounds}^^{figures: accessibility text}^^{sounds: accessibility text}
+^^{accessibility text for figures and sounds} ^^{text: accessibility text for figures and sounds} ^^{figures: accessibility text} ^^{sounds: accessibility text}
+
 It's conventional for web pages to provide "alt-text" for significant images displayed, so that partially sighted or blind users can get an idea of what is being shown. Inform allows figures to be given these short descriptions like so:
 
 ``` inform7
@@ -16642,7 +17018,8 @@ Fugue is the file "Bach.ogg" ("A church organ playing a Bach fugue.").
 
 ## Some technicalities about figures and sounds
 
-^^{blorb file}^^{values: figures as values}^^{figures: as values}^^{`figure name}^^{values: sounds as values}^^{sounds: as values}^^{`sound name}^^{resource IDs}
+^^{blorb file} ^^{values: figures as values} ^^{figures: as values} ^^{`figure name} ^^{values: sounds as values} ^^{sounds: as values} ^^{`sound name} ^^{resource IDs}
+
 (i) Names for figures, such as "Figure of Woodlands", are values for a special kind of value called "figure name". This can in turn be used to define variables, properties and phrases:
 
 ``` inform7
@@ -16670,6 +17047,7 @@ To place (F - a figure name) in the gallery: ...
 ## Files {EFILES}
 
 ^^{files (data files) <-- data files <-- external files}^^^{files (data files) <-- text files}
+
 Once an Inform project is released, it is playable as a "story file", which is in effect a computer program for a specially IF-adapted design of computer. Story files run in what in computing is sometimes called a "sandbox", a kind of safe play area where it can be guaranteed that they cannot do any harm. This is good, because it means a story file can't be infected with viruses or other malware. If the project's Settings panel has the story file format set to the Z-machine, the story file is so thoroughly boxed in that it cannot even see the bigger computer beyond: it lives in a world of its own. But the Glulx format opens the door a crack, allowing the story file to read and write a small number of data files, which live in a single folder on the bigger computer's hard drive.
 
 Why might we want this? Among the reasons are – 
@@ -16681,7 +17059,8 @@ Why might we want this? Among the reasons are –
 
 ## Declaring files {kind_externalfile} {PM_BadFileIFID} {PM_BadFileOwner} {PM_FilenameDuplicate} {PM_FilenameNotTextual} {PM_FilenameUnsafe}
 
-^^{files (data files): declaring}^^{defining: data files}^^{IFID+biblio+}^^{(binary), when declaring data files+sourcepart+}^^{files (data files): exchanging with other programs}^^{>VERSION}
+^^{files (data files): declaring} ^^{defining: data files} ^^{IFID+biblio+} ^^{(binary), when declaring data files+sourcepart+} ^^{files (data files): exchanging with other programs} ^^{>VERSION}
+
 Like figures and sounds, files must be declared before they can be used. For instance:
 
 ``` inform7
@@ -16711,7 +17090,8 @@ The binary File of Glaciation Data is called "icedata".
 
 ## Writing and reading tables to external files
 
-^^{files (data files): reading / writing tables}^^{tables: reading / writing to data files}
+^^{files (data files): reading / writing tables} ^^{tables: reading / writing to data files}
+
 The main use for files is to store and retrieve data, and the most flexible form of data used by Inform is the Table, so facilities are provided which make it as easy as possible to write and read the contents of a table to files. If so, the file must contain just one single table: so to write multiple tables, we need to write multiple files, one for each.
 
 To save the contents of a table to a file, we use the phrase:
@@ -16752,7 +17132,8 @@ One unfortunate restriction must be kept in mind. Some of what is stored in tabl
 
 ## Writing, reading and appending text to files
 
-^^{files (data files): reading / writing / appending text}^^{text: reading / writing / appending to data files}
+^^{files (data files): reading / writing / appending text} ^^{text: reading / writing / appending to data files}
+
 Text can also be saved to a file, and again all file-handling is automatic:
 
 > phrase: {ph_writetext} write (text) to (external file)
@@ -16785,7 +17166,8 @@ write "[text of the file of Abecedary Wisdom]" to the file of Secondary Wisdom;
 
 ## Exchanging files with other programs
 
-^^{files (data files): exchanging with other programs}^^{IFID+biblio+}
+^^{files (data files): exchanging with other programs} ^^{IFID+biblio+}
+
 Provided we declare the files in the right way, it is easy for one project to read a file created by another project.
 
 But if we want more rapid communication, between two projects which are each playing at the same time, we need to be more careful. What if project A tries to read the file at the same moment that project B is writing it?
@@ -16841,7 +17223,8 @@ The opening character is an asterisk if the file is currently ready, a hyphen if
 
 ## Checking against the Index
 
-^^{user interface: Index panel: checking story correctness} ^^{Index panel+ui+: checking story correctness}^^{testing commands: checking story correctness in the Index}
+^^{user interface: Index panel: checking story correctness} ^^{Index panel+ui+: checking story correctness} ^^{testing commands: checking story correctness in the Index}
+
 Testing a story – and indeed writing a story so that it is easy to test consistently – is an art in itself. We should expect that we'll do some preliminary testing, both by running test commands and by playing through the story ourselves, and that we'll then hand on the story to beta-testers who will tell us about faults in the play experience that we haven't been able to see.
 
 Every time Inform builds a new story file, it assembles a vast amount of information about that world, in the form of the Index. Often a visit to the Index is all that's needed to explain a piece of undesired behavior.
@@ -16866,7 +17249,8 @@ When an error appears in the Index, there is often a link back to the source tex
 
 ## Debugging features to use in source
 
-^^{TEST+testcmd+} ^^{testing commands: >TEST}^^{test (test name) with (commands)+assert+}^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME}
+^^{TEST+testcmd+} ^^{testing commands: >TEST} ^^{test (test name) with (commands)+assert+} ^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME}
+
 The ``test`` command is an extremely useful way of managing a story and continuing to verify that it does everything we want. We can create new test commands of the form
 
 ``` inform7
@@ -16916,7 +17300,8 @@ In this case, it looks like the count is not high enough to trigger the text, so
 
 ## High-level debugging commands
 
-^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME}^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}^^{RULES+testcmd+} ^^{testing commands: >RULES}^^{SCENES+testcmd+} ^^{testing commands: >SCENES}^^{RANDOM+testcmd+} ^^{testing commands: >RANDOM}^^{randomness: seeding the generator}^^{RELATIONS+testcmd+} ^^{testing commands: >RELATIONS}^^{RESPONSES+testcmd+} ^^{testing commands: >RESPONSES}^^{responses (library messages): listing during development}
+^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page} ^^{RULES+testcmd+} ^^{testing commands: >RULES} ^^{SCENES+testcmd+} ^^{testing commands: >SCENES} ^^{RANDOM+testcmd+} ^^{testing commands: >RANDOM} ^^{randomness: seeding the generator} ^^{RELATIONS+testcmd+} ^^{testing commands: >RELATIONS} ^^{RESPONSES+testcmd+} ^^{testing commands: >RESPONSES} ^^{responses (library messages): listing during development}
+
 If an object is not responding in the way we expect, it may be that we're wrong about where it is or about some of its current properties or relations. We can find our current location and the things around us by typing
 
 ``` transcript
@@ -17002,7 +17387,8 @@ If, however, we want a rapid overview of all the responses provided by a given e
 
 ## Low-level debugging commands
 
-^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME}^^{PURLOIN+testcmd+} ^^{testing commands: >PURLOIN}^^{ABSTRACT+testcmd+} ^^{testing commands: >ABSTRACT}^^{GONEAR+testcmd+} ^^{testing commands: >GONEAR}^^{>VERIFY}^^{SHOWTREE+testcmd+} ^^{testing commands: >SHOWTREE}^^{SCOPE+testcmd+} ^^{testing commands: >SCOPE}^^{SHOWHEAP+testcmd+} ^^{testing commands: >SHOWHEAP}^^{SHOWVERB+testcmd+} ^^{testing commands: >SHOWVERB}^^{TRACE+testcmd+} ^^{testing commands: >TRACE}^^{magic words}
+^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME} ^^{PURLOIN+testcmd+} ^^{testing commands: >PURLOIN} ^^{ABSTRACT+testcmd+} ^^{testing commands: >ABSTRACT} ^^{GONEAR+testcmd+} ^^{testing commands: >GONEAR} ^^{>VERIFY} ^^{SHOWTREE+testcmd+} ^^{testing commands: >SHOWTREE} ^^{SCOPE+testcmd+} ^^{testing commands: >SCOPE} ^^{SHOWHEAP+testcmd+} ^^{testing commands: >SHOWHEAP} ^^{SHOWVERB+testcmd+} ^^{testing commands: >SHOWVERB} ^^{TRACE+testcmd+} ^^{testing commands: >TRACE} ^^{magic words}
+
 There are also several debugging commands going back to the early days of interactive fiction, and relating in a simple way to objects and places. These can still come in handy for a quick and dirty resolution of a problem during gameplay, and are as follows.
 
 ``purloin`` moves an object to your possession, no matter where it is on the map, like so:
@@ -17081,7 +17467,8 @@ There is no guarantee that any of these commands will make life better or that t
 
 ## Adding new testing verbs and Release for Testing
 
-^^{testing commands: defining}^^{test version (of the story) <-- debug version (of the story)}^^{omitting code, for release version}^^{`not for release}
+^^{testing commands: defining} ^^{test version (of the story) <-- debug version (of the story)} ^^{omitting code, for release version} ^^{`not for release}
+
 As we saw in the chapter on [Source Text], we can mark some of our source text so that it will not be included in a finished story. This means that we can add special testing commands available to the author but not available to our eventual players. This is a good way to add our own suite of testing verbs to a story beyond the "Test me with..." features already described.
 
 Here are some types of testing verbs that can be useful to add:
@@ -17112,6 +17499,7 @@ To do this, we can use the "Release for Testing" feature. Release for testing bu
 ## Testing for thoroughness
 
 ^^{Object Response Tests+ext+} ^^{extensions: specific extensions: Object Response Tests}
+
 The presence of actual bugs or defects is not the only thing we want to consider when testing a story. We may also want to check whether we have built the story with a consistent amount of depth.
 
 Are there descriptions for everything the player might look at? If we've implemented special verbs, do they have appropriate reactions for all the different objects? If most objects in a story about restaurant reviewing have a special response to being tasted, for instance, it might be disappointing for the player to encounter late-added objects that don't.
@@ -17131,7 +17519,8 @@ There are also some extensions that are designed to assist with this, notably th
 
 ## Commands for beta-testers
 
-^^{>TRANSCRIPT ON/OFF <-- >SCRIPT ON/OFF}^^{testing commands: comments in transcripts from beta testers}^^{comments: in transcripts from beta testers}
+^^{>TRANSCRIPT ON/OFF <-- >SCRIPT ON/OFF} ^^{testing commands: comments in transcripts from beta testers} ^^{comments: in transcripts from beta testers}
+
 Inform includes a command that is especially designed to help beta-testers report flaws: namely, ``transcript``. A tester can type ``transcript`` (or just ``script``) at the beginning of the story in order to start generating a recording of everything that happens. She can then add her own annotations when something buggy or otherwise notable occurs (for instance by typing a standard symbol, such as \*, followed by a note).
 
 When she then sends us the completed transcript, we can look through for these symbols and note the problems the tester found in the context of the rest of the story's behavior. Having information about how she reached that position typically makes it much easier to reproduce the problem than if she gave only a general account of it.
@@ -17139,6 +17528,7 @@ When she then sends us the completed transcript, we can look through for these s
 ## Help from the user community
 
 ^^{intfiction forum+web+}
+
 Sometimes we get really stuck on a problem and despite all our best efforts cannot figure out how to solve it.
 
 Fortunately, Inform has a lively and helpful community of users who are often willing to assist other authors. The easiest way to reach these users is to make a post at the [IntFiction forum](https://intfiction.org/), and in particular to post Inform-related problems under [IntFiction's Inform 7 category](https://intfiction.org/c/authoring/inform-7/19). Where possible, it's a good idea to post the example source that is causing trouble, and to make it as short as possible so that prospective helpers will not have to read any more than necessary in order to pinpoint the problem.
@@ -17159,7 +17549,8 @@ But that is only the first step. What do we do with the material when we have it
 
 ## Bibliographic data {PM_BadEpisode}
 
-^^{bibliographic data <-- metadata <-- publication data}^^{title+biblio+}^^{author+biblio+}^^{headline+biblio+}^^{release number+biblio+}^^{genre+biblio+}^^{story description+biblio+ <-- blurb+biblio+}^^{punctuation: apostrophe, meaning quotation mark} ^^{('), meaning (")+sourcepart+}^^^{+tosay+"[(unicode character)]" --> unicode character}
+^^{bibliographic data <-- metadata <-- publication data} ^^{title+biblio+} ^^{author+biblio+} ^^{headline+biblio+} ^^{release number+biblio+} ^^{genre+biblio+} ^^{story description+biblio+ <-- blurb+biblio+} ^^{punctuation: apostrophe, meaning quotation mark} ^^{('), meaning (")+sourcepart+}^^^{+tosay+"[(unicode character)]" --> unicode character}
+
 Almost all printed books have a title page and a so-called "imprint" page, often its verso, which make up a description of the contents. The title page gives the name of the book and of the author, while an imprint page contains a variety of details about the edition, the printing, and so on. An ``isbn`` number is allocated so that, from the number alone, any book seller or cataloguer can identify exactly this work. Sometimes other cataloguing information is added, such as the Library of Congress classification. This set of information is called "bibliographic data", and without it libraries and booksellers would be at a total loss.
 
 IF has bibliographic data, too. Inform has a number of special named values to hold this – who wrote the work being created, what it is called, what headline it has, what genre it has and what its release number is, and so on.
@@ -17223,6 +17614,7 @@ Release number: 1
 ## Genres
 
 ^^{genre+biblio+}
+
 The "story genre" is not used in the banner at all, and exists purely to help librarians. If it is at all possible to do so, authors are asked to use one of the following standard categories:
 
 ``` inform7
@@ -17239,7 +17631,8 @@ The distinction between "Surreal" and "Other" is that "Surreal" works contain at
 
 ## The Library Card {LCARDS}
 
-^^{bibliographic data}^^{banner text}^^{blorb file}
+^^{bibliographic data} ^^{banner text} ^^{blorb file}
+
 Bibliographic data is useful for two reasons. Firstly, it enables the equivalent of a title page to be printed – traditionally called the "banner" – at the start of play; secondly, Inform uses it to generate the equivalent of a library card for the work, which can be used by other programs to help organise, sort and classify interactive fiction. If the card is given to any other program on any other machine (or an Internet-based archive) then, in principle, that system can know about our work of fiction without a human librarian having to get hold of a copy, play it and laboriously copy out the details.
 
 The "library card" is not of course a physical card, but a small "metadata" file which could potentially be transmitted quickly across the Internet. It contains no personal data other than what you choose to put on it, using the sentences documented in this chapter: it does not, for instance, identify your computer or IP address. In any case Inform does not send it anywhere, but merely keeps an up-to-date copy within the project, and includes it when making a release copy of the work. You can always see (a representation of) the current library card for a project in the Contents index.
@@ -17252,7 +17645,8 @@ Modern IF interpreters such as Zoom for Mac OS X and Unix, and Windows Frotz, ca
 
 ## The Treaty of Babel and the IFID {IFIDS}
 
-^^{IFID+biblio+}^^{Treaty of Babel} ^^{Babel, Treaty of Babel}
+^^{IFID+biblio+} ^^{Treaty of Babel} ^^{Babel, Treaty of Babel}
+
 During March and April 2006, an agreement was reached between the IF archive and most of the different systems for creating IF – of which Inform is only one – called the Treaty of Babel. While these different systems create computer programs which are quite different internally, the Treaty provides for works of IF to come with bibliographic data which identifies them in a standard way.
 
 Inform is fully compliant with the Treaty. In particular, each new project created by Inform is allocated a unique identification number called its IFID. The IFID is the equivalent for IF of the ``isbn`` of a printed book. Inform copies it onto the "library card" for the benefit of Internet-based libraries which may eventually accession the work. Of course many projects start but never see the light of day, so many possible IFIDs are "wasted": but that hardly matters, as there are plenty more numbers in the world.
@@ -17267,7 +17661,8 @@ Inform will make sure this is true, **unless** we do something to break this our
 
 ## The Release button and the Materials folder {PM_NoSuchPublicRelease} {release_files}
 
-^^{user interface: Release button} ^^{Release button+ui+}^^{release version (of the story)}^^{materials folder: released story file}^^{omitting code, for release version}^^{`not for release}^^{`for release only}^^{headings} ^^{subheadings} ^^{source text: subdivisions}
+^^{user interface: Release button} ^^{Release button+ui+} ^^{release version (of the story)} ^^{materials folder: released story file} ^^{omitting code, for release version} ^^{`not for release} ^^{`for release only} ^^{headings} ^^{subheadings} ^^{source text: subdivisions}
+
 Inform's Release button does two things: it makes a stand-alone, public version of the current project – a "story file" – and it gathers up, or creates, whatever material we want to go with it.
 
 The release version of the project can be played by anyone with an "interpreter" – they do not need the Inform application installed on their computers, and they will not be able to see the source text. Released versions differ slightly from the versions playable in the Story panel of Inform, because debugging commands such as ``actions`` are not included with them. (As we've seen, also excluded is any material in the source text under a heading including the words "not for release".) In some cases, if we release along with an interpreter, we can even make the project playable from a web browser, so that the player doesn't need to install any software at all, not even a browser plugin.
@@ -17310,7 +17705,8 @@ This is especially useful if we're releasing along with a website (see below), a
 
 ## The Joy of Feelies {PM_ReleaseAlong}
 
-^^{feelies}^^{materials folder: feelies}^^{blorb file}^^{release along with...+assert+: a file of (description) called (filename)+sourcearg+}
+^^{feelies} ^^{materials folder: feelies} ^^{blorb file} ^^{release along with...+assert+: a file of (description) called (filename)+sourcearg+}
+
 "Feelie" is a slang word, again going back to the early days of IF, for something tactile included with commercially sold copies of IF games. For instance, ^{Infocom}'s "Wishbringer" was not just a diskette in a pretty box: the box also contained a map, a letter, an envelope, a magic stone (well, a stone) and a booklet. Most of this was purely for fun, and to flesh out background to the story, but there would usually be clues sneaked into the text or artwork as well.
 
 Today's IF is usually not supplied in physical packaging, and not accompanied by physical objects. But authors do sometimes want to include extraneous matter, whether it's a simple read-me file of instructions or a multimedia extravaganza. Inform does not provide facilities to make artwork, movies, soundscapes, booklets, etc.: there are plenty of programs out there to do all of that already.
@@ -17335,7 +17731,8 @@ We have seen that Inform takes the story file, which is analogous to the pages o
 
 ## Cover art {release_cover}
 
-^^{materials folder: cover art}^^{figures: cover art}^^{cover art}^^{release along with...+assert+: `cover art}^^{IFDB+web+}
+^^{materials folder: cover art} ^^{figures: cover art} ^^{cover art} ^^{release along with...+assert+: `cover art} ^^{IFDB+web+}
+
 Accompanying files are not the only things which can be included in a "release along with" sentence: for instance, we could
 
 ``` inform7
@@ -17371,7 +17768,8 @@ Release along with cover art ("A cathedral at sunset.").
 
 ## An introductory booklet and postcard {release_booklet} {release_postcard}
 
-^^{introductory booklet and postcard}^^{materials folder: introductory booklet / postcard}^^{release along with...+assert+: `an introductory booklet}^^{release along with...+assert+: `an introductory postcard}
+^^{introductory booklet and postcard} ^^{materials folder: introductory booklet / postcard} ^^{release along with...+assert+: `an introductory booklet} ^^{release along with...+assert+: `an introductory postcard}
+
 When IF is aimed particularly at people who have never played IF before, there are certain conventions which it's a good idea to explain, or players will simply not know what to do. It can become a chore writing a clear set of instructions, and then there is the further nuisance of explaining about the need for an interpreter program to play the IF story file.
 
 To alleviate this, Inform can "Release along with an introductory booklet", as for instance in this example:
@@ -17392,7 +17790,8 @@ which supplies a standard postcard about IF (everything new players need to know
 
 ## A website {release_website}
 
-^^{materials folder: web pages for the story}^^{release along with...+assert+: `a website}
+^^{materials folder: web pages for the story} ^^{release along with...+assert+: `a website}
+
 Much of the published IF of the last twenty years came with a brief text file describing what it was – a release note. Today it makes more sense to write this as a small web page, which can either be placed online, or simply distributed as part of the release.
 
 Inform is able to manufacture such a website automatically. We request this by writing, for instance,
@@ -17427,7 +17826,8 @@ Works in Progress
 
 ## A playable web page {release_interpreter}
 
-^^{materials folder: web-playable story}^^{release along with...+assert+: `an interpreter}
+^^{materials folder: web-playable story} ^^{release along with...+assert+: `an interpreter}
+
 Modern web browsers are now so powerful as computing environments that they almost amount to general-purpose computers in their own right. The websites made in the previous section were passive, and simply displayed information about a story file. But it's also possible to make a more active page – one which can play the story file, right inside the browser, for anybody who visits.
 
 To make such a page, we must:
@@ -17452,14 +17852,16 @@ Release along with the "Urbzig" interpreter.
 
 ## Using Inform with Vorple
 
-^^{Vorple system+ext+} ^^{extensions: specific extensions: Vorple system}^^{release along with...+assert+: `an interpreter}
+^^{Vorple system+ext+} ^^{extensions: specific extensions: Vorple system} ^^{release along with...+assert+: `an interpreter}
+
 "Vorple" is an innovative system by ^{@Juhana Leinonen} for allowing web-based Inform stories to make use of web controls and other gadgets. Using Vorple, a story can in principle have an entirely different user interface, and can make much better use of CSS styling, interface to Javascript libraries, and so on.
 
 Vorple has seen rapid development. In its early days it was included as part of the Inform app, but it has now evolved into a dynamic project which is better served by the [Vorple website](https://vorple-if.com/).
 
 ## Website templates
 
-^^{materials folder: web pages for the story: templates}^^{templates, for web pages for the story}
+^^{materials folder: web pages for the story: templates} ^^{templates, for web pages for the story}
+
 Web pages are very idiosyncratic things and Inform will almost certainly not produce exactly what we want. What it actually does is to take an existing "template" web page, and paste in the relevant information to make the final product. So by starting with a different template, we can end up with an entirely different-looking web page: like this one, for instance – 
 
 ![sampleweb2](doc_images/sampleweb2.jpg)
@@ -17514,7 +17916,8 @@ This is not the place to describe how CSS works. CSS is a more or less universal
 
 ## Advanced website templates
 
-^^{materials folder: web pages for the story: templates}^^{templates, for web pages for the story}
+^^{materials folder: web pages for the story: templates} ^^{templates, for web pages for the story}
+
 The following describes how Inform uses the extras file and the two HTML pages in a template, and will only be needed if a new template has to make changes so radical that altering the CSS alone won't be enough.
 
 The optional "(extras).txt" file – note brackets – is a text file which contains a list of named extras to throw in. For instance:
@@ -17565,7 +17968,8 @@ Both [SOURCE] and [SOURCENOTES] must exist on the page, and [SOURCENOTES] must a
 
 ## Republishing existing works of IF {PM_RoomInIgnoredSource}
 
-^^{materials folder: pre-existing story file}^^{release along with...+assert+: `an existing story file}^^{bibliographic data}
+^^{materials folder: pre-existing story file} ^^{release along with...+assert+: `an existing story file} ^^{bibliographic data}
+
 Some long-time users of Inform will have projects which were originally made using the very different Inform 6 language. Story files produced with Inform 6 do not have any of the extra touches in this chapter: in particular, they have no cover art and no bibliographic data, which makes them rather plain and anonymous to newer Treaty of Babel-equipped programs like Zoom, Spatterlight or Windows Frotz.
 
 To help with this, today's Inform can republish an Inform 6 project by combining an Inform 7 source text which contains only release instructions and bibliographic data with an already-compiled Inform 6 story file. We do this by writing a short source text which contains:
@@ -17604,7 +18008,8 @@ Release along with cover art and an existing story file.
 
 ## Walkthrough solutions {release_solution}
 
-^^{walkthrough, generated from Skein}^^{materials folder: walkthrough}^^{release along with...+assert+: `a solution}^^{release along with...+assert+: (public / private) elements+sourcepart+}^^{(public / private), in release elements+sourcepart+} ^^{(private / public), in release elements+sourcepart+}^^{user interface: Skein panel} ^^{Skein panel+ui+}
+^^{walkthrough, generated from Skein} ^^{materials folder: walkthrough} ^^{release along with...+assert+: `a solution} ^^{release along with...+assert+: (public / private) elements+sourcepart+} ^^{(public / private), in release elements+sourcepart+} ^^{(private / public), in release elements+sourcepart+} ^^{user interface: Skein panel} ^^{Skein panel+ui+}
+
 Since the earliest days of IF, players have distributed solutions to well-known stories, to help out other players at their wits' ends. The commonest format for these is a list of commands to type, sometimes with notes in the margin, and such a solution is called a "walkthrough", since it walks a player through the story.
 
 Few authors publish solutions of their own works, but many supply their testers with solutions, especially towards the end of testing, or submit a solution as part of a competition entry. To help with this, Inform can generate such a walkthrough solution automatically:
@@ -17651,7 +18056,8 @@ The terms public and private may also be applied to other elements we are having
 
 ## Releasing the source text {release_source} {release_card}
 
-^^{materials folder: source text}^^{release along with...+assert+: `the source text}^^{release along with...+assert+: `the library card}^^{bibliographic data}^^{source text: releasing with the story}^^{release along with...+assert+: (public / private) elements+sourcepart+}^^{(public / private), in release elements+sourcepart+} ^^{(private / public), in release elements+sourcepart+}
+^^{materials folder: source text} ^^{release along with...+assert+: `the source text} ^^{release along with...+assert+: `the library card} ^^{bibliographic data} ^^{source text: releasing with the story} ^^{release along with...+assert+: (public / private) elements+sourcepart+} ^^{(public / private), in release elements+sourcepart+} ^^{(private / public), in release elements+sourcepart+}
+
 Most authors will not want to publish the source text alongside the work itself, because this gives away all of its secrets. Inform provides the option mainly for the sake of the examples published on its own website, where making the source available is the whole point. But anyone is welcome to use the option, of course:
 
 ``` inform7
@@ -17697,7 +18103,8 @@ which releases a stand-alone XML file in 'iFiction' format for the bibliographic
 
 ## Improving the index map {MAPHINTS} {PM_MapFromNonRoom} {PM_MapToNonRoom} {PM_MapNonLateral} {PM_MapUnknownColour} {PM_MapUnknownOffset} {PM_MapUnknownOffsetBase} {PM_MapBadRubric} {PM_MapSettingOfUnknown} {PM_MapSettingUnknown} {PM_MapSettingTooLong} {PM_MapSettingTypeFailed} {PM_MapHintUnknown} {PM_MapDirectionClue} {PM_MapPlacement} {PM_MapPlacementDirection}
 
-^^{materials folder: map}^^{index map: customizing for release <-- `EPS file}^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+^^{materials folder: map} ^^{index map: customizing for release <-- `EPS file} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+
 As we have seen, "Release along with..." allows us to package up a work of IF with all manner of extra materials. But what are these to be? One popular option is to produce a map – sometimes partial, sometimes obfuscated – and supply that with the story: besides, there are some IF competitions where the rules require that the referee is supplied with a map even if the players are not, and failing that, it is sometimes nice to be able to print out a map of a work in progress.
 
 The World map in the Index tab is heavily stylised and cartoonish, intended to be clicked on or moused over, and viewed in a browser: although it is, in fact, possible to print it, the results are not very good. Fortunately, the same underlying map mechanism can be used to output something more useful and very much more customisable, as we shall see.
@@ -18058,7 +18465,8 @@ Although it is not a typical tool for choice-based mobile games, Inform has been
 
 ## Editing and Quality Assurance
 
-^^{editing}^^{playtesting}^^{quality assurance}^^{intfiction forum+web+}
+^^{editing} ^^{playtesting} ^^{quality assurance} ^^{intfiction forum+web+}
+
 Authors coming from a literary background may think in terms of editing; people coming from software development and the game industry may think about playtesting and quality assurance.
 
 Whatever the background, it's good practice to have your work checked by other people before you release it. Other players can identify issues from typos to missing hints to thematic incongruities.
@@ -18067,7 +18475,8 @@ Play-testers can often be recruited by placing an ad on [intfiction.org](https:/
 
 ## A Page of Its Own
 
-^^{materials folder: web pages for the story}^^{release along with...+assert+: `a website}^^{materials folder: web-playable story}^^{release along with...+assert+: `an interpreter}^^{itch.io}
+^^{materials folder: web pages for the story} ^^{release along with...+assert+: `a website} ^^{materials folder: web-playable story} ^^{release along with...+assert+: `an interpreter} ^^{itch.io}
+
 One option for sharing your work with the world is to set up a web page and a copy of the story file on a private web host. That host should ideally be as stable as possible, so that the URL is likely to remain fixed for what might be a long period. Freeware stories have a long period of viability relative to commercial games, which means that players may still be hearing about and checking out a story years after its initial release. A stable address helps everyone with links, and makes it easier for search engines to direct people.
 
 Of course creating a web page involves a little design work, but tools are widely available which make this quite easy nowadays. And as we've seen, Inform can automatically generate web pages and whole small mini-sites to put all the information about a story file into a tidy format, even including the ability to play online.
@@ -18082,7 +18491,8 @@ At the time of this writing, the itch.io platform lists 15,988 games tagged "int
 
 ## The IF Archive
 
-^^{IF Archive+web+}^^{IFDB+web+}
+^^{IF Archive+web+} ^^{IFDB+web+}
+
 Games and interactive works in general tend to become obsolete or unplayable fairly quickly. Many games written for iOS in the mid-2010s, for instance, are already impossible to access.
 
 Because of the portable underlying format, however, games written in Inform are unusually stable and maintainable. Inform projects written in the early 90s can still be played – indeed, can be played on platforms that did not exist when the games were written.
@@ -18105,7 +18515,8 @@ Committing a story to the Archive is meant to be permanent. While the maintainer
 
 ## IFDB: The Interactive Fiction Database
 
-^^{IFDB+web+}^^{IFID+biblio+}^^{IF Archive+web+}^^{>VERSION}
+^^{IFDB+web+} ^^{IFID+biblio+} ^^{IF Archive+web+} ^^{>VERSION}
+
 Once the story file has a home online, and a URL (that is, a web address) at which it can be found, it needs to be registered with the [Interactive Fiction Database](https://ifdb.org) (IFDB). Just as the IF Archive is a repository for stories themselves, IFDB is a database containing information about them – titles, authors, locations, solutions, reviews, recommendation lists and more.
 
 The name IFDB echoes the Internet Movie Database (IMDB), but in some ways it is also like the iTunes Music Store. For one thing, it's a shop-window for what's new, with cover art to catch the eye. For another, IFDB serves as a portal for players to try games directly in their browser. Promoting IF is all about pulling in impulse players – people who are passingly interested, but might not try the story if there is any significant work involved in setting it up. This is what IFDB is all about.
@@ -18126,7 +18537,8 @@ Some awards for interactive fiction, such as the annual XYZZY Awards, require a 
 
 ## Competitions, Exhibitions, and Jams
 
-^^{ifwiki+web+}^^{XYZZY}^^{itch.io}^^{ProcJam}
+^^{ifwiki+web+} ^^{XYZZY} ^^{itch.io} ^^{ProcJam}
+
 One very common way to get players for IF is to enter the story into an IF competition. The annual IF Competition, often just called IFComp, is the most prestigious and has the widest field, but the Spring Thing, ParserComp, EctoComp, and other events also catch people's attention. Entering a competition is a path of least effort for authors promoting their new work, because the competition organizer usually takes care of hosting and archiving submitted stories, promoting the competition as a whole, collecting votes, and encouraging players to post reviews. Different contests have different arrangements. The [IFWiki](https://ifwiki.org) usually posts a list of current and upcoming competitions, as well as lists of results for those recently past, on its front page.
 
 Some competitions also have their own websites, at least at the relevant times of year.
@@ -18160,6 +18572,7 @@ So it's wise (if difficult) not to judge a story's success entirely by its immed
 ## The status of extensions {EXTENSIONS}
 
 ^^{extensions: licensing of use}
+
 The range of simulation offered by Inform's model world is intentionally limited to a core of basic essentials. We could argue at the margins, and the choice of what's in and what's out is partly traditional, but most people find the model reasonable as far as it goes.
 
 Between 1993 and 2006, quite a range of "library extensions" for Inform's predecessor language (Inform 6) was written. Most of these extensions aimed to fill out the model by simulating other aspects of life, too: money, clothing, pourable liquids. None of these extensions was official and all of them were: it was a free-for-all, and in several cases different authors wrote rival extensions to model the same basic ideas. The development of Inform 7 was strongly influenced by this history and by the recognition that the base of rules and grammar inside a typical modern story are seldom written by a single author. They combine the standard Inform material with extensions by several third parties, together with anything specific to the story in question.
@@ -18179,6 +18592,7 @@ If the author of an extension has not made it public, or indicated in some other
 ## The Standard Rules {SRULES}
 
 ^^{Standard Rules+ext+} ^^{extensions: specific extensions: Standard Rules}
+
 When any source text is run through Inform, a secret first line is inserted, which reads:
 
 ``` inform7
@@ -18199,7 +18613,8 @@ If the file has already been included, then the sentence is simply ignored. This
 
 ## Built-in, installed and project-specific extensions
 
-^^{extensions: installing}^^{files (compiling): extensions}^^{extensions: built-in extensions}^^{extensions: project-specific extensions}^^{materials folder: project-specific extensions}^^{inform7.com+web+}
+^^{extensions: installing} ^^{files (compiling): extensions} ^^{extensions: built-in extensions} ^^{extensions: project-specific extensions} ^^{materials folder: project-specific extensions} ^^{inform7.com+web+}
+
 To recap: Inform builds projects from both the source text typed by the author and from Extensions; one of these, the Standard Rules, is always included; others are added as authors please. About 20 are "built-in" to Inform, meaning that they are stored inside the application and always available. Others must be "installed", and each Inform user will have a folder somewhere on their computer which contains these. Users typically obtain these from the Public Library feature in the Inform application, but can also download them directly from the extension writer's website and then use an Install Extension menu option in the application. Either way, the application then squirrels the file away, and it becomes available to any projects that that user may be working on.
 
 It is also possible to have extensions available to just one project. These must be stored in the Extensions subfolder of the project's ".materials" folder, but otherwise are arranged the same as installed extensions – there's an outer folder for each author's name, and extensions are named with a ".i7x" extension within. For example:
@@ -18218,7 +18633,8 @@ When Inform needs to find an extension, it looks here first, then in the install
 
 ## Authorship
 
-^^{extensions: writing: author+biblio+}^^{author+biblio+: of an extension}
+^^{extensions: writing: author+biblio+} ^^{author+biblio+: of an extension}
+
 Extensions are identified by author and by name, so that a given author can produce their own range of extensions, and need only ensure that these are named differently from each other. If John Smith and Mary Brown each want to write an extension called "Following People", there is no conflict.
 
 The name of an extension, and of an author, should be written in Sentence Capitalisation: that is, upper case for the first letter in each word. (Inform uses this to minimise problems on machines where filenames are read with case sensitivity.) It is permitted for author names to include upper-case letters within words, as with the "G" in "^{@Tara McGrew}". In general it is best to avoid accented or unusual letters in titles and author names, but the standard ISO Latin-1 characters should be allowed – for instance,
@@ -18241,7 +18657,8 @@ But Mary and John deserve their credits too: see the next section for how to giv
 
 ## A simple example extension {PM_ExtMultipleBeginsHere} {PM_ExtBeginsAfterEndsHere} {PM_ExtMultipleEndsHere} {PM_ExtNoBeginsHere} {PM_ExtNoEndsHere}
 
-^^{extensions: writing: example}^^{>VERSION}
+^^{extensions: writing: example} ^^{>VERSION}
+
 Extensions are plain text files, and can be created with any text editor. (It is sometimes said that "there is no such thing as plain text", there being so many ways to represent exotic characters: so to be precise, an extension is a text file with the Unicode UTF-8 encoding, either with or without a BOM marker, using any of the possible forms of line-ending (Unix, Windows, Macintosh, or Unicode line divider). This is a detail which will only matter if the extension contains accented letters or other exotica.)
 
 Extensions look very much like passages of Inform source, because except for a special introductory and concluding sentence, and one convention, that is all they are:
@@ -18282,7 +18699,8 @@ Note the typical style here: it's a phrase rather than a sentence, and neither s
 
 ## Version numbering {PM_ExtVersionTooLow}
 
-^^{version number (of extension)}^^{extensions: writing: version number}^^{extensions: using specific versions}^^{extensions: listing credits for}^^{>VERSION}^^{use options: catalogue: `authorial modesty} ^^{authorial modesty+useopt+}
+^^{version number (of extension)} ^^{extensions: writing: version number} ^^{extensions: using specific versions} ^^{extensions: listing credits for} ^^{>VERSION} ^^{use options: catalogue: `authorial modesty} ^^{authorial modesty+useopt+}
+
 As we have seen, extensions are referred to by name and author, but they can also (optionally) be referred to by version. For instance:
 
 ``` inform7
@@ -18355,7 +18773,8 @@ A complete list, undiluted by modesty, can always be obtained using:
 
 ## Extensions and story file formats
 
-^^{extensions: writing: for a specific virtual machine}^^{Glulx: extensions for Glulx only}^^{Z-machine: extensions for Z-machine only}^^{virtual machine: extensions for Z-machine / Glulx only}^^{Basic Screen Effects+ext+} ^^{extensions: specific extensions: Basic Screen Effects}
+^^{extensions: writing: for a specific virtual machine} ^^{Glulx: extensions for Glulx only} ^^{Z-machine: extensions for Z-machine only} ^^{virtual machine: extensions for Z-machine / Glulx only} ^^{Basic Screen Effects+ext+} ^^{extensions: specific extensions: Basic Screen Effects}
+
 Inform compiles to several different story file formats, and in each case uses only a small part of their abilities – especially when it comes to fancy tricks with the keyboard or screen. So people may well want to write extensions which provide access to some of these tricks (like "Basic Screen Effects", included in the standard Inform distribution, but more so). Unfortunately, these tricks are very likely to fail to compile – or fail to work – on some of the possible story file formats, so the resulting extension would probably go wrong (and mysteriously wrong) for users who have chosen a different format.
 
 Inform therefore provides a way for extensions to declare the formats they are compatible with. All that is required is to add a proviso in brackets after the title is declared:
@@ -18388,6 +18807,7 @@ would ensure that "reveal the explosion" works nicely whichever story file forma
 ## Extensions can include other extensions
 
 ^^{extensions: writing: including other extensions}
+
 Extensions can themselves contain "Include..." sentences asking for other extensions to be included. An extension might, for example, start like this:
 
 ``` inform7
@@ -18408,7 +18828,8 @@ If an extension does include other extensions, it is good style to place the "In
 
 ## Extensions can interact with other extensions {PM_HeadingInPlaceOfUnincluded} {PM_HeadingInPlaceOfUnknown} {PM_UnequalHeadingInPlaceOf}
 
-^^{extensions: writing: including other extensions}^^{extensions: writing: modifying other extensions}^^{headings: in extensions}
+^^{extensions: writing: including other extensions} ^^{extensions: writing: modifying other extensions} ^^{headings: in extensions}
+
 When one extension is being used, it's probably only one among several. A really general-purpose extension might want to behave differently depending on which other extensions are also present. This can be achieved using headings which are "for use with" (or "without") other extensions. For instance:
 
 ``` inform7
@@ -18448,7 +18869,8 @@ Section - Hacked questions (in place of "Section 4 - Phrase used to ask question
 
 ## Extensions in the Index
 
-^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page}^^{kinds: documenting in extensions}^^{specification of (thing)+prop+} ^^{specification of (thing)+propcat+}^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}^^{headings: in extensions}^^{(unindexed), headings in extensions+sourcepart+}
+^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page} ^^{kinds: documenting in extensions} ^^{specification of (thing)+prop+} ^^{specification of (thing)+propcat+} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page} ^^{headings: in extensions} ^^{(unindexed), headings in extensions+sourcepart+}
+
 As soon as a project has successfully been translated, its Index is brought up to date: pages of the index record all the kinds and what they are for, all the phrases which can be used, and so on. Any kind or phrase created in an extension is automatically included. The extension's presence in the project is itself recorded – the Contents index for any project contains a brief list of all extensions used in that project, along with their authors and version numbers.
 
 The Kinds index aims to give the reader a brief note of what each kind is intended for. We can provide for this by writing a sentence like so:
@@ -18476,6 +18898,7 @@ Finally, any phrase or variable defined immediately under a heading whose name e
 ## Extension documentation
 
 ^^{extensions: writing: documenting}
+
 A basic mechanism for documenting extensions is built into Inform. For many extensions, this will probably do instead of a manual; for more complex ones, it should still prove a useful supplement to one.
 
 As described in the chapter on [Source Text] above, whenever an extension is installed, its documentation is made available to the user. Such text should be written concisely, while giving examples wherever appropriate. Stylistically, it should ideally follow the model of the main Inform documentation: just as an extension expands the standard rules, so its documentation expands this manual. "We need..." is preferred to "You need...", and so on: we're all in this together.
@@ -18523,7 +18946,8 @@ cubewano		"Easterbunny"
 
 ## Examples and headings in extension documentation
 
-^^{extensions: writing: documenting}^^{headings: in extension documentation}^^{extensions: writing: giving examples}
+^^{extensions: writing: documenting} ^^{headings: in extension documentation} ^^{extensions: writing: giving examples}
+
 Extensions with very large amounts of documentation can, if the author chooses, divide the material up using headings and/or subheadings. These must be written as paragraphs exactly like so:
 
 ``` inform7
@@ -18577,6 +19001,7 @@ Note that the paste button, denoted "\*:", pastes in the text following it, but 
 ## Implications {PM_ImplicationCertain} {PM_ImplicationValueProperty}
 
 ^^{properties: implications}
+
 Extensions often need to define new kinds or properties, which we want to make as helpful as possible for the user. In particular, we want them not to require additional work for the author just to obtain the effect which seems only natural.
 
 For example, consider Inform's built-in "locked" property. If a door is locked, then it cannot be opened, which seems fair enough. But if the player tries to unlock the door, they might then find the following response:
@@ -18625,7 +19050,8 @@ Implications have not been mentioned up to now since they are only really needed
 
 ## Using Inform 6 within Inform 7
 
-^^{Inform 6}^^{Inform 6 inclusions <-- defining: Inform 6 entities}^^{extensions: Inform 6 code in extensions}^^{Standard Rules+ext+} ^^{extensions: specific extensions: Standard Rules}
+^^{Inform 6} ^^{Inform 6 inclusions <-- defining: Inform 6 entities} ^^{extensions: Inform 6 code in extensions} ^^{Standard Rules+ext+} ^^{extensions: specific extensions: Standard Rules}
+
 The current Inform, "Inform 7", had a low-level precursor unsurprisingly called Inform, which ran through versions 1 to 6. What made Inform 6 low-level was that its style of coding was much more like traditional programming: it reads as a simple form of C, or an elaborate form of assembly-language, but with some interactive fiction tweaks.
 
 That language is still used inside today's Inform project as a way to express very low-level operations. What happens to code like that is now very different (it is compiled into Inter, an intermediate-level representation used inside Inform, and no longer by the Inform 6 compiler). But the notation is the same, and the practical effect is that it is as if we are writing I6 code.
@@ -18640,7 +19066,8 @@ Moreover, the Basic Inform and Standard Rules extensions use a number of syntaxe
 
 ## Defining phrases in Inform 6 {PM_UnendingI6} {PM_InlineTooLong} {PM_InlineRule} {PM_BadInlineExpansion} {PM_BadInlineTag}
 
-^^{Inform 6 inclusions: phrases}^^{phrases: defining in Inform 6}^^{((- -)), for including Inform 6 code in Inform 7+sourcepart+}^^{punctuation: curly braces: for including Inform 7 expressions in Inform 6+sourcepart+}^^{`{ \}: for including Inform 7 expressions in Inform 6}
+^^{Inform 6 inclusions: phrases} ^^{phrases: defining in Inform 6} ^^{((- -)), for including Inform 6 code in Inform 7+sourcepart+} ^^{punctuation: curly braces: for including Inform 7 expressions in Inform 6+sourcepart+} ^^{`{ \}: for including Inform 7 expressions in Inform 6}
+
 The phrases described in this documentation, such as "end the story", are all defined in the Standard Rules, and are for the most part defined not in terms of other I7 phrases but instead reduced to equivalents in I6. For instance:
 
 ``` inform7
@@ -18691,7 +19118,8 @@ Warning: Inform 6 uses a restricted character set, allowing use of most of the a
 
 ## Phrases to decide in Inform 6
 
-^^{Inform 6 inclusions: phrases to decide whether/if}^^{Inform 6 inclusions: phrases to decide a value}^^{phrases: defining in Inform 6}
+^^{Inform 6 inclusions: phrases to decide whether/if} ^^{Inform 6 inclusions: phrases to decide a value} ^^{phrases: defining in Inform 6}
+
 There are basically three forms of phrase in I7: phrases which do something, but produce no value or opinion as a result; phrases to decide whether or not something is true; and phrases to decide on a value. We have already seen examples of writing the first form in I6:
 
 ``` inform7
@@ -18718,7 +19146,8 @@ Again, this is a value in I6 as well: no semicolon. It is probably safest to pla
 
 ## Handling phrase options
 
-^^{Inform 6 inclusions: phrase options}^^{phrases: defining in Inform 6}
+^^{Inform 6 inclusions: phrase options} ^^{phrases: defining in Inform 6}
+
 The Standard Rules use the Inform list-writer with the following definition, which shows how a much more complicated I6 routine can be given a natural-language expression.
 
 ``` inform7
@@ -18750,7 +19179,8 @@ list the contents of O, as a sentence, using the definite article
 
 ## Making and testing use options
 
-^^{Inform 6 inclusions: use options}^^{use options: defining in Inform 6}^^{use options: active / inactive+adj+}^^{active / inactive (use option)+adj+} ^^{inactive / active (use option)+adj+}^^{translates as...+assert+: use options}
+^^{Inform 6 inclusions: use options} ^^{use options: defining in Inform 6} ^^{use options: active / inactive+adj+} ^^{active / inactive (use option)+adj+} ^^{inactive / active (use option)+adj+} ^^{translates as...+assert+: use options}
+
 Use options (see the chapter on [Source Text] above) manifest themselves in the I6 code generated by I7 as constants which are either defined, or not. For instance, the "use American dialect" option results in the constant ```DIALECT_US``` being defined, a constant which otherwise would not be. Some use options define the constant as a particular value, others simply define it (so that I6 gives this constant the value 0).
 
 New use options can be created as in the following examples, which are found in the Standard Rules:
@@ -18812,7 +19242,8 @@ Finally, note that it is legal to define the same use option more than once, but
 
 ## Longer extracts of Inform 6 code
 
-^^{Inform 6 inclusions: long sections of code}^^{((- -)), for including Inform 6 code in Inform 7+sourcepart+}^^{((+ +)), for including Inform 7 code in Inform 6+sourcepart+}
+^^{Inform 6 inclusions: long sections of code} ^^{((- -)), for including Inform 6 code in Inform 7+sourcepart+} ^^{((+ +)), for including Inform 7 code in Inform 6+sourcepart+}
+
 Whole routines, object and class definitions (or any other directives) can be pasted in wholesale using sentences like so:
 
 ``` inform7
@@ -18906,7 +19337,8 @@ Array unit_captured_text --> (UNIT_CAPTURE_BUFFER_LEN + 1);
 
 ## Primitive Inform 6 declarations of rules
 
-^^{Inform 6 inclusions: rules}^^{translates as...+assert+: rules}^^{rules: defining in Inform 6}
+^^{Inform 6 inclusions: rules} ^^{translates as...+assert+: rules} ^^{rules: defining in Inform 6}
+
 By writing a sentence like this:
 
 ``` inform7
@@ -18936,7 +19368,8 @@ The underground rule is listed in the spot danger rules.
 
 ## Inform 6 objects and classes {PM_BadObjectTranslation}
 
-^^{Inform 6 inclusions: properties}^^{Inform 6 inclusions: objects}^^{Inform 6 inclusions: classes}^^{translates as...+assert+: properties}^^{translates as...+assert+: things}^^{translates as...+assert+: kinds}^^{properties: defining properties in Inform 6}^^{things+kind+: creating: in Inform 6}^^{kinds: defining: in Inform 6}^^{Inform 6 Designer's Manual+title+}
+^^{Inform 6 inclusions: properties} ^^{Inform 6 inclusions: objects} ^^{Inform 6 inclusions: classes} ^^{translates as...+assert+: properties} ^^{translates as...+assert+: things} ^^{translates as...+assert+: kinds} ^^{properties: defining properties in Inform 6} ^^{things+kind+: creating: in Inform 6} ^^{kinds: defining: in Inform 6} ^^{Inform 6 Designer's Manual+title+}
+
 As might be expected, I7 compiles an I6 class for each kind, and an I6 object for each of its own objects. We can meddle with its compilation process here using a further refinement of Include. For instance, suppose we want the I6 class definition for things to come out containing a property like this:
 
 ``` inform7
@@ -18976,7 +19409,8 @@ The thingummy kind translates into I6 as "thingummy_class".
 
 ## Inform 6 variables, properties, actions, and attributes {PM_TranslatesNonAction} {PM_TranslatesActionAlready} {PM_TranslatedTwice} {PM_TranslatedUnknownCategory} {PM_TranslatedToNonIdentifier} {PM_NonPropertyTranslated} {PM_NonQuantityTranslated} {PM_QuantityTranslatedAlready}
 
-^^{Inform 6 inclusions: properties}^^{Inform 6 inclusions: global variables}^^{Inform 6 inclusions: actions}^^{translates as...+assert+: properties}^^{translates as...+assert+: global variables}^^{translates as...+assert+: actions}^^{properties: defining properties in Inform 6}^^{variables: global: defining in Inform 6}^^{actions: defining new actions in Inform 6}
+^^{Inform 6 inclusions: properties} ^^{Inform 6 inclusions: global variables} ^^{Inform 6 inclusions: actions} ^^{translates as...+assert+: properties} ^^{translates as...+assert+: global variables} ^^{translates as...+assert+: actions} ^^{properties: defining properties in Inform 6} ^^{variables: global: defining in Inform 6} ^^{actions: defining new actions in Inform 6}
+
 I7's variables are usually compiled as entries in an array rather than as I6 variables. However, we can instead tell Inform to use an existing I6 variable (either one that we declare ourselves, or one in the I6 template layer). For example:
 
 ``` inform7
@@ -19010,7 +19444,8 @@ The unlocking it with action translates into I6 as "Unlock".
 
 ## Inform 6 Understand tokens {PM_GrammarTranslatedAlready}
 
-^^{Inform 6 inclusions: understanding grammar} ^^{Inform 6 inclusions: grammar tokens}^^{translates as...+assert+: understanding (grammar tokens)}^^{understanding: with Inform 6 functions}^^{grammar tokens: defining in Inform 6}^^{Inform 6 Designer's Manual+title+}
+^^{Inform 6 inclusions: understanding grammar} ^^{Inform 6 inclusions: grammar tokens} ^^{translates as...+assert+: understanding (grammar tokens)} ^^{understanding: with Inform 6 functions} ^^{grammar tokens: defining in Inform 6} ^^{Inform 6 Designer's Manual+title+}
+
 The parser which deciphers the player's typed commands is written in I6, and many of the basic tokens of Understand grammar are implemented as "general parsing routines" (GPRs), the specification of which is described fully in the Inform 6 Designer's Manual. I7 translates much of the source text's Understand grammar into GPRs, and once again we can bypass this process and supply an Understand token directly as an I6 GPR. For example:
 
 ``` inform7
@@ -19031,7 +19466,8 @@ As always, this should be done only where there seems no better way, or where sp
 
 ## Inform 6 adjectives
 
-^^{Inform 6 inclusions: adjectives}^^{adjectives: defining: with Inform 6}
+^^{Inform 6 inclusions: adjectives} ^^{adjectives: defining: with Inform 6}
+
 There are three ways to specify that an adjective is defined at the I6 level. For example:
 
 ``` inform7
@@ -19063,7 +19499,8 @@ The escape "\*1" is expanded to the value on which the adjective is being tested
 
 ## Naming Unicode characters
 
-^^{characters (letters): Unicode (arbitrary symbols): defining new names for}^^{translates as...+assert+: Unicode characters}^^{Unicode Character Names / Full Character Names+ext+} ^^{extensions: specific extensions: Unicode Character Names}^^{extensions: specific extensions: Unicode Full Character Names}
+^^{characters (letters): Unicode (arbitrary symbols): defining new names for} ^^{translates as...+assert+: Unicode characters} ^^{Unicode Character Names / Full Character Names+ext+} ^^{extensions: specific extensions: Unicode Character Names} ^^{extensions: specific extensions: Unicode Full Character Names}
+
 At one time Inform allowed names to be given to Unicode character values with
 
 sentences like so:
@@ -19078,7 +19515,8 @@ those names in the Unicode standard.
 
 ## Overriding definitions in kits {PM_BadI6Inclusion} {PM_BeforeTheLibrary} {PM_WhenDefiningUnknown} {PM_IncludeInsteadOf}
 
-^^{extensions: Inform 6 template layer}^^{Inform 6 inclusions: Inform 6 template layer}^^{templates, Inform 6 template layer}
+^^{extensions: Inform 6 template layer} ^^{Inform 6 inclusions: Inform 6 template layer} ^^{templates, Inform 6 template layer}
+
 When Go is clicked, Inform translates the I7 source text into a large body of so-called "Inter" code: "Inter" is short for "intermediate". Large as this program is, it could not survive on its own: it needs a large body of pre-compiled code, also written in Inter, to sustain it. This additional material is organised in blocks called "kits". Most Inform users never need to know about kits, but for example, a typical Inform project includes kits called BasicInformKit, WorldModelKit and CommandParserKit.
 
 These kits are compiled from what is (nearly) Inform 6-syntax source code, and for the details of that, see the documentation on the low-level tool "inter". While it's absolutely possible for Inform users to create and use their own kits, that's beyond the scope of this book. But what we will cover here is the ability to include just a little extra Inter code – perhaps only a few functions or constants.
@@ -19136,6 +19574,7 @@ to allow a whole extra file of Inform 6 code called "MyStuff.i6t" to be pasted i
 ## Translating the language of play
 
 ^^{Inform 6 Designer's Manual+title+}
+
 The "language of play" is the natural language used to communicate with the player at run-time: this is normally English.
 
 That means that it is difficult to write, say, Spanish-language IF using Inform 7, though heroic work by the Spanish IF community has overcome this. Inform 6 provided for translation by isolating its linguistic code in a part of the I6 library called the "language definition file", which was normally "English.h". Translations were gradually made to most major European languages, resulting in alternative language definition files called "French.h", "Italian.h" and so on. Full details on how to write a language definition file were given in the Translations chapter of the DM4, that is, the fourth edition of the Inform 6 Designer's Manual.
@@ -19145,6 +19584,7 @@ In I7 the system is different. We use the template, not a library. Instead of pr
 ## Segmented substitutions
 
 ^^{Inform 6 inclusions: phrase elements}
+
 A "segmented" substitution is a syntax where text is placed between two or more different text substitutions. Examples include:
 
 ``` inform7
@@ -19179,6 +19619,7 @@ This creates `"[emphasis on]"` and `"[emphasis off]"` such that they can only be
 ## Invocation labels, counters and storage {PM_LabelNamespaceTooLong}
 
 ^^{Inform 6 inclusions: phrase elements}
+
 The process of expanding the I6 code which represents a phrase is called "invocation". As we have seen, when a phrase is defined using a single piece of I6 code, invocation consists of copying out that I6 code, except that tokens in braces "{thus}" are replaced:
 
 ``` inform7
@@ -19193,8 +19634,11 @@ The following:
 
 ``` inform7
 {-counter:NAME}
+
 {-counter-up:NAME}
+
 {-zero-counter:NAME}
+
 {-counter-makes-array:NAME}
 ```
 
@@ -19231,6 +19675,7 @@ The examples above are all to do with segmented substitutions, which is where th
 ## To say one of
 
 ^^{Inform 6 inclusions: phrase elements}
+
 Many of the invocation syntaxes described in the previous section are used in the definition by the Standard Rules of the "[one of] ... [or] ... [purely at random]" construction, so it makes a good example of how they can be used.
 
 First, this is a segmented substitution with a single possible beginning (`"[one of]"`), a single possible middle (`"[or]"`) but a choice of many possible endings. Almost everything is compiled by the invocation of the beginning:
@@ -19238,16 +19683,20 @@ First, this is a segmented substitution with a single possible beginning (`"[one
 ``` inform6
 To say one of -- beginning say_one_of (documented at phs_oneof): (-
 	{-counter-makes-array:say_one_of}
+
 	{-counter-makes-array:say_one_flag}
+
 	if (I7_ST_say_one_flag-->{-counter:say_one_flag} == false) {
 		I7_ST_say_one_of-->{-counter:say_one_of} = {-final-segment-marker}(I7_ST_say_one_of-->{-counter:say_one_of},
 {-segment-count});
 		I7_ST_say_one_flag-->{-counter:say_one_flag} = true;
 	}
+
 	if (say__comp == false) I7_ST_say_one_flag-->{-counter:say_one_flag}{-counter-up:say_one_flag} =
 false;
 	switch ((I7_ST_say_one_of-->{-counter:say_one_of}{-counter-up:say_one_of})%({-segment-count}+1)-1)
 {-open-brace}
+
 		0: -).
 To say or -- continuing say_one_of (documented at phs_or):
 	(- @nop; {-segment-count}: -).
