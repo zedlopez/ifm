@@ -10794,6 +10794,8 @@ In effect the table has allowed us to combine three very similar rules into one.
 
 ## Topic columns
 
+[ZL: as noted in my long screed, this is the first mention of topics and a reader has no real chance to understand the subject from the docs.]::
+
 ^^{tables: topic columns}^^{topics: in table columns}^^{punctuation: slash: separating synonymous words in topics}^^{`/: separating synonymous words in topics}
 When double-quoted matter appears in a column of a table, Inform will normally treat that as text for printing out. The exception is when the column is called "topic", where it is treated as text for comparing against what the player has typed. There is really only one operation allowed with topic columns, the "...listed in..." construction, but fortunately it is the one most often needed.
 
@@ -11108,14 +11110,22 @@ Understand "photograph [someone]" as photographing.
 Understand "photograph [an open door]" as photographing.
 ```
 
+[ZL: actually, technically, a thing that's either animate or, for some actions but not others, talkable, and in scope. and I think it muddies the waters to imply that the brackets' meaning here is in common with their meaning in a text]:: 
+
 As usual, the square brackets indicate something which stands for text, rather than text to be taken verbatim. `"[someone]"` needs to be the name of anything of the kind "person", for instance (though as usual that person will need to be in sight of the player for the name to be accepted). The first word – in these examples "photograph" – must be something definite, not a substitution like this.
 
+[ZL: insert usual visible thing rant]::
+
 For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to "one visible thing" – the "visible" just means it does not need to be touched, only seen – so neither of these would be allowable:
+
+[ZL: `Understand "photograph" as photographing.` *is* permitted.]::
 
 ``` inform7
 Understand "photograph" as photographing.
 Understand "photograph [someone] standing next to [something]" as photographing.
 ```
+
+[ZL: ...which this seems to sort of acknowledge, but it would be better to not say it wasn't allowed to begin with.]::
 
 The first is probably bad because it supplies no things at all, the second is certainly because it supplies two: what we want, of course, is just the one. (The reason the first is only probably bad is that it's possible to tell Inform how to choose the object if the player doesn't: see the "supplying a missing noun" activity.)
 
@@ -11192,11 +11202,16 @@ The commands "take" and "get" will still exist, but now they'll only have their 
 ## Standard tokens of grammar {things_token} {TOKENS}
 
 ^^{understanding: arbitrary objects}^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens}^^{someone+token+}^^{something+token+}^^{something preferably held+token+}^^{things+token+}^^{things inside+token+}^^{other things+token+}^^{punctuation: slash: separating synonymous words in grammar}^^{`/: separating synonymous words in grammar}^^{actions: applying to multiple objects}
+
+[ZL: this assertion that someone == person, immediately followed by an admission that it doesn't, confused me for a long time and irked me longer. and we never do get an explanation that `[something]` means any object in scope as opposed to `[thing]`.]::
+
 We have already seen `"[something]"` and `"[someone]"`, which are standard examples of "tokens of grammar" – patterns matched by suitable named things. There are several other standard tokens, provided not so much from necessity but to allow the story parser to be more graceful and responsive. `"[someone]"` matches the same possibilities as `"[a person]"` would, but the parser handles it a little better in cases of failure. These special tokens are best explained by looking at some of the examples in the standard grammar, which can be browsed in the Index of any story.
 
 ``` inform7
 Understand "wear [something preferably held]" as wearing.
 ```
+
+[ZL: the action specification requiring a carried thing is what creates the implicit take, not `something preferably held`. There should be more discussion of what `preferably held` really means.]::
 
 Here we expect that the named item will be one that is held by the player, and the parser will use this to resolve ambiguities between names of things carried and not carried. (If the action is one which positively requires that its noun be something carried, a command matching this token against something not carried will generate an automatic attempt to take it.)
 
@@ -11219,11 +11234,16 @@ Understand "put [other things] in/inside/into [something]" as inserting it into.
 
 Similarly, `"[other things]"` will allow anything except the second-named thing. (Like `"[things inside]"` it is really only needed for handling containers.)
 
+[ZL: warrants mention of `visible thing`'s relation to this]::
+
 Finally there is `"[any things]"`, which should be used only with care. This is like `"[things]"` but with no restriction at all on where the item comes from: it might be invisible, or from a different room, or out of play altogether. If we use this, we had better remember that it would match ``all``, with quite extravagant consequences.
 
 ## The text token {text_token}
 
 ^^{understanding: arbitrary text}^^{text+token+}^^{topics: understanding}^^{topic understood (- snippet)+glob+}^^{grammar tokens: for text}^^{snippets}
+
+[ZL: confusion regarding topic/text previously noted...]::
+
 Most actions involve items: taking a vase, perhaps. As we shall see, they might also involve values, or a mixture of the two: turning a dial to 17 would involve both a thing (the dial) and a number (17). A few of Inform's built-in actions, however, can act on any text at all. For instance, asking the Sybil about the Persian army would involve a thing (the Sybil) and some text ("Persian army"). Inform does not try to understand automatically what that text might mean, or to relate it to any items, places or values it knows about: instead, Inform leaves that to the specific story to work out for itself, since the answer is bound to depend on the context. (In the chapter on [Tables], we saw ways to compile tables of responses to particular topics of conversation.)
 
 The token for "accept any text here" is just `"[text]"`. For instance, if we create an action with:
@@ -11243,8 +11263,12 @@ When text like this is successfully matched, it is placed in a value called "the
 The fact that `"[text]"` can match anything means that it's difficult to tell which version of a command was intended if they disagree only from a `"[text]"` onwards. For example, given:
 
 ``` inform7
-Yelling specifically is an action applying to one topic. Understand "yell [text]" as yelling specifically. Understand "yell [text] at/to [someone]" as answering it that (with nouns reversed).
+Yelling specifically is an action applying to one topic.
+Understand "yell [text]" as yelling specifically.
+Understand "yell [text] at/to [someone]" as answering it that (with nouns reversed).
 ```
+
+[ZL: this is the only mention of the phrase "autocompletion of commands" and I, right now, am unsure what it's supposed to mean.]::
 
 ...Inform will in fact try the second possibility first, as being the more specific, but the result may freeze out the first possibility altogether due to autocompletion of commands.
 
@@ -11276,11 +11300,15 @@ Understand "manipulate [something]".
 
 then the `"[something]"` will only match what is within reach or sight: this is the concept of "scope", which is what prevents a player from spookily acting on objects from a distance. The parser itself prevents the manipulation rules from ever being invoked on such distant items, which is as it should be.
 
+[ZL: visible thing rant / lack of detail about scope ]::
+
 Sometimes, though, we positively want to allow this possibility. If we use the special word "any", as in
 
 ``` inform7
 Understand "manipulate [any door]".
 ```
+
+[ZL: "will not cause the parser to reject the command" may be clearer than "is now possible to type". an explicit discussion somewhere calling more attention to the parser as a sort of gatekeeper that must accept commaands before they ever reach an action would be nice.]::
 
 then any door, anywhere in the model world, can be allowed in the player's command. (Of course, the manipulation rules may not do what the player hopes: all that has happened is that the command is now possible to type.) The "any" can be followed by any description of items or rooms, and the latter opens up new possibilities, since rooms are ordinarily never allowed to be named in the player's commands.
 
@@ -11296,6 +11324,8 @@ Understand "go to [any adjacent visited room]" as going by name.
 
 (This is really only a sketch: in a finished work, "go to" would produce helpful errors if non-adjacent but visited rooms were named, and we might also worry about rules applying to movement, because the method above will circumvent them.)
 
+[ZL: `[anything]` really *does* have a domain restricted to things, unlike `[something]`; again, this warrants mention ]::
+
 As might be expected, `"[anything]"` means the same as `"[any thing]"`; `"[anybody]"` and `"[anyone]"` mean the same as `"[any person]"`; and `"[anywhere]"` means the same as `"[any room]"`.
 
 ## Understanding names
@@ -11308,6 +11338,8 @@ This normally happens automatically. For instance, writing
 ``` inform7
 The St Bernard is an animal in the Monastery Cages.
 ```
+
+[ZL: there should be a more clear and explicit discussion that any of `st`, `bernard`, `bernard st`, or `the the a st` in a command could mean the St Bernard]::
 
 makes ``st bernard`` refer to the dog, and ``monastery cages`` refer to the room. But sometimes, as here, that isn't really enough. Why shouldn't the player type ``examine dog``? One way to allow this is to write:
 
@@ -11337,6 +11369,8 @@ The magpie is in the Lake. Understand "birds" as the plural of the magpie.
 
 And now ``take birds`` tries to take all four ducks and the magpie too.
 
+[ZL: it possibly warrants mention that container, supporter, direction all have nine letters, so by default, a container *can* be referred to as a container and a supporter can be referred to as a supporter, unless one has changed DICT_WORD_SIZE.]::
+
 In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinize the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
 
 If you don't want this behavior, it can be suppressed with a use option:
@@ -11352,6 +11386,8 @@ In many cases, if K is the name of a kind of value, then Inform automatically ma
 
 In particular, any newly created kind of value can always be understood. We make good use of that in the example story "Studious":
 
+[ZL: "exquisitely bored and boringly exquisite" is a truly fabulous line.]::
+
 ``` inform7
 {*}"Studious"
 
@@ -11361,7 +11397,11 @@ The rake-thin model is a woman in the Studio. "A rake-thin model, exquisitely bo
 
 Limb is a kind of value. The limbs are left leg, left arm, right leg and right arm.
 
-Detailing is an action applying to one limb and one visible thing, requiring light. Check detailing: if the camera is not carried then say "You can hardly photograph without a camera, now can you?" instead. Report detailing: say "Click! You take a detail photograph of the [limb understood] of [the second noun]."
+Detailing is an action applying to one limb and one visible thing, requiring light.
+
+Check detailing: if the camera is not carried then say "You can hardly photograph without a camera, now can you?" instead.
+
+Report detailing: say "Click! You take a detail photograph of the [limb understood] of [the second noun]."
 
 Understand "photograph [limb] of [a person]" as detailing.
 
@@ -11397,6 +11437,7 @@ then the command "examine" will be implicit when the player types a bare noun:
 
 ``` transcript
 A red box and a blue ball are here.
+
 >ball
 The blue ball is plaited from many small leather patches.
 ```
@@ -11423,6 +11464,8 @@ Understand "lamp" as the lantern.
 Understand "old lamp" as the lantern.
 ```
 
+[ZL: except, as noted above, a thing normally *can* be called by its plural kind name.]::
+
 It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called "April", but not "woman". (The exception is when we do not specify any name for her – in that case, Inform will give up and call her just "woman".)
 
 With care, we can do the same trick for entire kinds of thing at once. So there is not usually any form of words which can refer to anything of a given kind. If we should want this, we have to say so explicitly:
@@ -11436,6 +11479,7 @@ Device is a kind, so now the word "machine" can be used to refer to any device: 
 ``` transcript
 >switch machine on
 Which do you mean, the bale twiner or the grain thresher?
+
 >twiner
 You watch absorbed as a perfect cube of hay is trussed up like a parcel.
 ```
@@ -11463,6 +11507,8 @@ We have already seen "or" used in "Understand" sentences:
 Understand "scarlet" or "crimson" as red.
 ```
 
+[ZL: or "and"...]::
+
 In general, any number of alternative forms can be given which are to be understood as the same thing (in this case the colour red). When the alternatives are in any way complicated, "or" should always be used, but a shorthand form is allowed for simple cases where it is only a matter of a single word having several possibilities:
 
 ``` inform7
@@ -11489,11 +11535,16 @@ Understand "reach underneath/under/beneath/-- [something]" as looking under.
 
 because "--" is read by Inform as "no word at all". If "--" is an option, it can only be given once and at the end of the list of possibilities.
 
+[ZL: only between words... or between the next to last word and -- ]::
+
 To recapitulate: the slash "/" can only be used between single, literal words, and is best for the wayward prepositions of English ("in/into/inside", and so forth). For anything more complex, always use "or".
 
 ## New tokens {PM_MixedOutcome} {PM_TwoValuedToken} {NEWTOKENS}
 
 ^^{understanding: synonyms: as grammar tokens}^^{grammar tokens: defining}^^{defining: grammar tokens}^^{punctuation: slash: separating synonymous words in grammar}^^{`/: separating synonymous words in grammar}
+
+[ZL: this should have more explanation of why you'd want such a new token and how you'd use it.]::
+
 We have now made good use of square-bracketed tokens, such as `"[something]"`, in a variety of "Understand..." sentences. It is sometimes convenient to create new tokens of our own, to match whatever grammar we choose: this enables complicated knots of grammar to be used in many different "Understand..." sentences without having to write it all out each time.
 
 For instance, here are new tokens: one for each of two groups of alternative prepositions.
@@ -11542,6 +11593,7 @@ Understand "colour [a colour]" or "[something]" as "[tint]".
 ## Understanding things by their properties {PM_UnknownUnderstandProperty} {PM_BadUnderstandProperty} {PM_BadUnderstandPropertyAs} {PM_BadReferringProperty} {PM_UnknownUnpermittedProperty}
 
 ^^{understanding: properties as describing things}^^{understanding: things: by properties}^^{properties: understanding things by properties}^^{understand (nouns) as (thing)+assert+}^^{understand (property) as describing/referring to (thing)+assert+}^^{(describing), in (understand as)+sourcepart+}^^{(referring to), in (understand as)+sourcepart+}
+
 Items are ordinarily understood only by their original given names. For instance, if we have:
 
 ``` inform7
@@ -11598,15 +11650,19 @@ We then have the dialogue:
 ``` transcript
 Herb Garden
 You can see ten flowerpots here.
+
 >get two flowerpots
 flowerpot: Taken.
 flowerpot: Taken.
+
 >drop all
 flowerpot: Crack!
 flowerpot: Crack!
+
 >look
 Herb Garden
 You can see two broken flowerpots and eight flowerpots here.
+
 >get an unbroken flowerpot
 Taken.
 ```
@@ -11626,6 +11682,8 @@ The only difference is that in the "describing" case, the property's name alone 
 
 ^^{understanding: relations as describing things}^^{understanding: things: by relations}^^{relations: understanding things by relations}^^{understand (nouns) as (thing)+assert+}^^{(related by), for understanding things by relations+sourcepart+}^^{something related by (relation)+token+}
 Sometimes it makes sense for the name of something to involve the names of other things to which it is related. For instance, if we say ``take the bottle of wine``, we mean that the bottle currently contains wine – if it were the very same bottle containing water, we would call it something else.
+
+[ZL: it was a long time before I discovered that understanding by relation didn't need to have the thing related to mentioned in the same command.]::
 
 For names which must involve related names, a special form of token is provided. For instance, we could say:
 
@@ -11666,6 +11724,8 @@ Understand "mix [colour] paint" as mixing paint when the location is the Worksho
 Understand "rouge" as red when the make-up set is visible.
 ```
 
+[ZL: there should be mention that an understand's when clause can't test things regarding scope. my recollection is that testing visibility is also problematic, but I'm not positive off-hand]::
+
 In principle, "when ..." can take in any condition at all. In practice a little care should be exercised not to do anything too slow, or which might have side-effects. (For instance, referring the decision to a phrase which then printed text up would be a bad idea.) Moreover, we must remember that the "noun" and "second noun" are not known yet, nor do we know what the action will be. So we cannot safely say "when the noun is the fir cone", for instance, or refer to things like "the number understood". (We aren't done understanding yet.) If we want more sophisticated handling of such cases, we need to write checking rules and so on in the usual way.
 
 Contexts can be useful to make sense of things having different names depending on who is being spoken to, as here:
@@ -11684,6 +11744,8 @@ The Wabe is a room. The blue peacock and the sundial are in the Wabe.
 
 means that the player can type ``examine blue peacock`` or ``push sundial`` or ``showme wabe`` or ``take blue``, and so on. This is almost always a good thing, and here there's no problem, because peacocks and sundials are not usually disguised. But here is a case where a disguise is needed:
 
+[ZL: this leaves everyone with the idea that privately-named is part of a strategy to keep things secret, and they get surprised when the player is able to interact with privately-named things, e.g., through inference.]::
+
 ``` inform7
 The secret document is a privately-named thing in the drawer.
 The printed name of the secret document is "[if the secret document is handled]secret document[otherwise]dusty paper".
@@ -11700,9 +11762,13 @@ The ungraspable concept is a privately-named thing in the Dining Room.
 
 then nothing the player can type will ever refer to it; though they will see it, and even be able to pick it up by typing ``take all``.
 
+[ZL: plus regions, directions, concepts ]::
+
 The reverse property is "publicly-named", which all things and rooms are by default.
 
 Inform has four built-in kinds of object (room, thing, direction and region), and all of those have this either/or property. When we create new kinds, they're normally kinds of those four fundamental ones, so they pick up the same behaviour. But if we create a new kind of object outside of these four, that won't be true unless we make it so:
+
+[ZL: this has become a bad example...]::
 
 ``` inform7
 A concept is a kind of object. A concept can be privately-named or publicly-named. A concept is usually publicly-named.
@@ -11731,6 +11797,7 @@ All of that happens automatically, but once in a while the result can be unfortu
 ## Does the player mean... {rules_dtpm}
 
 ^^{does the player mean+rb+}^^{+toout+it is likely / possible / unlikely (does the player mean)}^^{+toout+likely / possible / unlikely, it is likely / possible / unlikely (does the player mean) <-- `very likely / unlikely}^^{+toout+unlikely / possible / likely, it is unlikely / possible / likely (does the player mean)}^^{+toout+possible / likely / unlikely, it is possible / likely / unlikely (does the player mean)}^^{disambiguation: of player commands <-- understanding: disambiguation}
+
 When the player types an ambiguous reference, we need to work out what is meant. Consider the following source text:
 
 ``` inform7
@@ -11739,7 +11806,9 @@ The Champs du Mars is a room. The great Eiffel Tower is here. "The great Tower s
 
 Now suppose the player types ``get tower``. The response will be:
 
-``` inform7
+[ZL: this transcript gets represented as inform7 source; I don't know why.]::
+
+``` transcript
 Which do you mean, the great Eiffel Tower or the souvenir model Eiffel Tower?
 ```
 
@@ -11751,7 +11820,7 @@ Does the player mean taking the great Eiffel Tower: it is very unlikely.
 
 then the response to ``get tower`` will now be:
 
-``` inform7
+``` transcript
 (the souvenir model Eiffel Tower)
 Taken.
 ```
@@ -11816,9 +11885,7 @@ foxglove: Taken.
 snake's head fritillary: Taken.
 ```
 
-However, by adding rules to the `multiple action processing rulebook`:
-
-we can take a look at the actions intended, and rearrange or indeed change them before they take effect. To do that, we have to deal with a special list of objects. For two technical reasons this isn't stored as a "list of objects that varies" – first because it needs to exist even in low-memory situations where we can't afford full list-processing, and second because there are times when changing it might be hazardous. Instead, two phrases are provided to read the list and to write it back:
+However, by adding rules to the `multiple action processing rulebook`, we can take a look at the actions intended, and rearrange or indeed change them before they take effect. To do that, we have to deal with a special list of objects. For two technical reasons this isn't stored as a "list of objects that varies" – first because it needs to exist even in low-memory situations where we can't afford full list-processing, and second because there are times when changing it might be hazardous. Instead, two phrases are provided to read the list and to write it back:
 
 > phrase: {ph_multipleobjectlist} multiple object list ... list of objects
 >
@@ -11860,6 +11927,8 @@ That still has the drawback that the command ``act hamlet`` will not be recognis
 ``` inform7
 Understand "act [text]" as a mistake ("To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.") when the location is the Garden Theatre.
 ```
+
+[ZL: "act [text]" won't match "any word (or none)": it fails to match when it's none. We would need two `understand` statements. ]::
 
 since the `"[text]"` part will soak up any words the player types (or none), meaning that any command at all whose first word is "act" will be matched.
 
@@ -11942,6 +12011,8 @@ Finally, there are a few grammars where the number of values produced is differe
 Understand "put [something preferably held] on" as wearing.
 Understand "put [other things] on/onto [something]" as putting it on.
 ```
+
+[ZL: okay, there's another mention of auto-completion, but this time it has a hyphen.]::
 
 One produces a single object, the other produces two. Inform gives precedence to the first of these, that is, it tries the one with fewer values first. This is important when reading commands like ``put march on washington shirt on``, and also prevents bogus auto-completions, in which ``put hat on`` might wrongly be auto-completed as if it were ``put hat on the table``.
 
