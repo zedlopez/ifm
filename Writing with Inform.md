@@ -322,14 +322,18 @@ This is a rather discursive error message, and if a similar problem were to occu
 
 Inform provides for us to organise the source code in just the way that a printed book would be organised: with headings and subheadings. Firstly, we can put the title at the top. If the first paragraph consists only of a single quoted piece of text, then that's the title; and an author can also be given, as follows:
 
+^^{@Dave Lebling}
+
 ``` inform7
-"Spellbreaker" by ^{@Dave Lebling}
+"Spellbreaker" by Dave Lebling
 ```
 
 We will later see that more bibliographic information can also be placed here, in the same way that the imprint page of a novel comes before the text gets going. The author's name can normally be given without quotation marks, so long as it contains no punctuation. For instance:
 
+^^{@Jerome K. Jerome}
+
 ``` inform7
-"Three Men in a Boat" by "^{@Jerome K. Jerome}"
+"Three Men in a Boat" by "Jerome K. Jerome"
 ```
 
 needs quotes as otherwise the full stop after the K will be mistaken for the end of a sentence.
@@ -637,6 +641,7 @@ Use telemetry recordings.
 ```
 
 Now Mr Lebling's class won't be confronted with English spellings, and so on. And most of the kids are happy, but Mr Lebling gets the feeling that young Marc wasn't really paying attention, so after class he checks that day's Telemetry file for that computer to see what Marc was up to, and whether he was stuck on something.
+
 ^^{@Dave Lebling} ^^{@Marc Blank}
 
 ## Limits and the Settings panel {PM_BadICLIdentifier} {STORYFILES}
@@ -1117,7 +1122,10 @@ The Undertomb is east of the Orchard. The heavy iron grating is east of the Orch
 ```
 
 then Inform would say that this is a contradiction: we said the Undertomb was east of the Orchard, but then we said that the grating was east of the Orchard.
-Inform's "door" kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin's beguiling novel "The Tombs of Atuan", from which the above rooms are stolen, it is not a grating which interposes, but: ^^{@Le Guin, Ursula K.}
+Inform's "door" kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin's beguiling novel "The Tombs of Atuan", from which the above rooms are stolen, it is not a grating which interposes, but:
+
+^^{@Le Guin, Ursula K.}
+
 ``` inform7
 The red rock stair is east of the Orchard and above the Undertomb. The stair is an open door. The stair is not openable.
 ```
@@ -9409,7 +9417,9 @@ The "x 10^23" part tells Inform that the decimal point belongs 23 places to the 
 
 It's hard to convey just how enormously different these two numbers are: if we used them to measure widths in meters, one would be a hundred trillion trillion times smaller than an atom, the other a billion times larger than the entire visible universe. Scientific notation is the ultimate adjustable spanner.
 
-Inform also allows the two most famous real numbers in mathematics to be given by their names, `pi` and `e`, which are close to 3.14159265 and 2.7182818 respectively. (Lower case letters must be used: these can't be written "Pi" or "E". ^^{@Leonhard Euler} Euler's constant gamma, always in the bronze medal position, will have to be written out longhand as 0.5772156649.)
+^^{@Leonhard Euler}
+
+Inform also allows the two most famous real numbers in mathematics to be given by their names, `pi` and `e`, which are close to 3.14159265 and 2.7182818 respectively. (Lower case letters must be used: these can't be written "Pi" or "E". Euler's constant gamma, always in the bronze medal position, will have to be written out longhand as 0.5772156649.)
 
 Most computer programming languages traditionally write floating-point numbers using the E notation, like so:
 
@@ -12202,7 +12212,11 @@ Understand "act [text]" as a mistake ("To join the actors, you have to adopt a r
 
 since the `"[text]"` part will soak up any words the player types (or none), meaning that any command at all whose first word is "act" will be matched.
 
+[ZL: it is perhaps worth mentioning the potential for cheap debug commands: `Understand "turns" as a mistake ("Turns: [turn count]").
+
 We need to be careful to avoid circular things like this:
+
+[ZL: I forget whether I've said this already, but I suggest that all source snipperts demonstrating something that *won't* work explicitly have "[invalid]" at line's end to head off the case of an author skimming only just enough to see the example itself]::
 
 ``` inform7
 Understand "[text]" as a mistake ("'[the topic understood]' is something I really wish you wouldn't say.") when the topic understood is a topic listed in table 1.
@@ -12415,17 +12429,23 @@ Activities are all about influencing the standard mechanisms which Inform uses, 
 
 There are two kinds of activity: those which relate to a specific value (usually an object but not necessarily), and those which do not. Here are some examples of activities being created:
 
+
+
 ``` inform7
 Assaying is an activity.
 Analysing something is an activity.
 Announcing something is an activity on numbers.
 ```
 
+[ZL: we never get told outright that the name should be a present participle.]::
+
 Inform looks for the clue "something" (or "of something") after the activity's name to see if it will work on a value: so analysing and announcing will do, but assaying won't. If we don't specify a kind, Inform assumes the value will be an object, as if we had written:
 
 ``` inform7
 Analysing something is an activity on objects.
 ```
+
+[ZL TODO discuss parameter object vs. container/supporter in question ]::
 
 As always in Inform, the names of activities are themselves values.
 
@@ -12490,15 +12510,19 @@ Just as actions can have variables, which are created when the action starts and
 Typically it will be useful to set a variable to some default value at the "before" stage, calculate some interesting value for it in the "for" stage, and make use of the outcome during the "after" stage. For instance:
 
 ``` inform7
-Analysing something is an activity. The analysing activity has a text called first impression. Instead of examining something (called the sample), carry out the analysing activity with the sample.
+Analysing something is an activity. The analysing activity has a text called first impression.
+
+Instead of examining something (called the sample), carry out the analysing activity with the sample.
 
 Before analysing: now the first impression is "unremarkable".
 
 Rule for analysing someone: now the first impression is "living tissue".
 
 After analysing something (called the sample):
-	say "Your professional opinion of [the sample] is that it is		[first impression]."
+	say "Your professional opinion of [the sample] is that it is [first impression]."
 ```
+
+[ZL: this was baffling to me for a long time. I think it would be valuable to provide a frame that one will almost always just use `carry out ...` and never need to worry about any of these, but that if one *wants to* write one's own low-level activity controller in a fashion analogous to how kits use activities, for instance, to be able to have arbitrary code between `before` and `for` or `for` and `after`, this is how one *could* do it, and outside that context, one needn't worry about any of these phrases. ]::
 
 ## Beginning and ending activities manually
 
@@ -12600,11 +12624,15 @@ It is also legal to force an early end to an activity with:
 >
 >     abandon the analysing activity with the pitchblende;
 
+[ZL: a WI reader without low-level knowledge has no idea what it could possibly mean for the activity to end with a different something. maybe it's in order to just include an I7 `parameter object` object variable and then this could say: if you change its value during an activity, change it back before the end.]::
+
 We need to follow three golden rules: all activities must end, they must never last longer than a turn, and if activity B starts during activity A then it must also finish during activity A. We must also be careful to make sure that if an activity applies to something, then it begins and ends with the same something (the pitchblende, in the above example).
 
 ## Introduction to the list of built-in activities
 
 ^^{activities: catalogue}
+
+[ZL: I don't see that there's any hope of improving this prior to a large-scale reorganization, but as I've said elsewhere, these would be much easier to follow if we had a comprehensive account of how room description works (as Ron Newcomb has in his I7 Programming Manual) and how parsing works (and then something else for what remains.]::
 
 Activities tend to be about process, rather than outcome. Many of the things Inform does – printing up lists of items, reading commands from the keyboard, and so on – are done as activities, because that way the process can be nudged a little. Too many works of interactive fiction betray their mechanical nature by making it visible that the general machinery being used does not quite seem natural for this or that situation. Activities enable us to add the many graceful touches which avoid that: which contribute nothing to a work, and also everything.
 
@@ -12897,7 +12925,7 @@ third person plural: They can't go that way.
 
 **2. The default behaviour.** A bracketed piece of extra information is added for certain items such as containers:
 
-``` inform7
+``` transcript
 You can also see Po and a cage (empty) here.
 ```
 
@@ -13192,21 +13220,21 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 **2. The default behaviour.** Is provided by a sequence of seven rules:
 
-``` inform7
-(1) The "don't mention player's supporter in room descriptions rule" excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like "Boudoir (on the four-poster bed)", so the player can't be unaware of this item.
+[ZL: ordered list right for this?]::
 
-(2) The "don't mention scenery in room descriptions rule" excludes scenery.
+1. The "don't mention player's supporter in room descriptions rule" excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like "Boudoir (on the four-poster bed)", so the player can't be unaware of this item.
 
-(3) The "don't mention undescribed items in room descriptions rule" excludes the player object. (It's redundant to say "You can also see yourself here.") At present nothing else in I7 is "undescribed" in this sense.
+2. The "don't mention scenery in room descriptions rule" excludes scenery.
 
-(4) The "set pronouns from items in room descriptions rule" adjusts the meaning of pronouns like IT and HER to pick up items mentioned. Thus if a room description ends "Mme Tourmalet glares at you.", then HER would be adjusted to mean Mme Tourmalet.
+3. The "don't mention undescribed items in room descriptions rule" excludes the player object. (It's redundant to say "You can also see yourself here.") At present nothing else in I7 is "undescribed" in this sense.
 
-(5) The "offer items to writing a paragraph about rule" gives the "writing a paragraph about" activity a chance to intervene. We detect whether it does intervene or not by looking to see if it has printed any text.
+4. The "set pronouns from items in room descriptions rule" adjusts the meaning of pronouns like IT and HER to pick up items mentioned. Thus if a room description ends "Mme Tourmalet glares at you.", then HER would be adjusted to mean Mme Tourmalet.
 
-(6) The "use initial appearance in room descriptions rule" prints the "initial appearance" property of an item which has never been handled as a paragraph, if it has one.
+5. The "offer items to writing a paragraph about rule" gives the "writing a paragraph about" activity a chance to intervene. We detect whether it does intervene or not by looking to see if it has printed any text.
 
-(7) The "describe what's on scenery supporters in room descriptions rule" is somewhat controversial. It prints text such as "On the mantelpiece is a piece of chalk." for items which, like the mantelpiece, are scenery mentioned - we assume - in the main room description. (It is assumed that scenery supporters make their contents more prominently visible than scenery containers, which we do not announce the contents of.)
-```
+6. The "use initial appearance in room descriptions rule" prints the "initial appearance" property of an item which has never been handled as a paragraph, if it has one.
+
+7. The "describe what's on scenery supporters in room descriptions rule" is somewhat controversial. It prints text such as "On the mantelpiece is a piece of chalk." for items which, like the mantelpiece, are scenery mentioned - we assume - in the main room description. (It is assumed that scenery supporters make their contents more prominently visible than scenery containers, which we do not announce the contents of.)
 
 **3. Examples.** If all that's required is to supply an interesting paragraph of room description about something then it's always better to use the "writing a paragraph about" activity, not this one. This activity should only be used when the mechanism itself needs to be adjusted.
 
@@ -13627,9 +13655,11 @@ exclude fixed in place things from take all rule
 
 **1. When it happens.** The banner is the bibliographic masthead text, which typically looks something like this:
 
+^^{@Emily Short}
+
 ``` inform7
 Relations
-An Interactive Fiction by ^{@Emily Short}
+An Interactive Fiction by Emily Short
 
 Release 1 / Serial number 050630 / Inform 7 build 2U98 (I6/v6.30 lib 6/10N) SD
 ```
@@ -13712,31 +13742,33 @@ When we open the casing and look inside the machinery of Inform, what we see are
 
 So far we have seen many rules, and the term "rulebook" has frequently but vaguely been used. Here is a summary of the rulebooks seen so far:
 
-``` inform7
-before
-instead
-after
-check taking, carry out taking, report taking
-*and three similar rulebooks for each of the 90 or so actions*
-persuasion
-unsuccessful attempt
-reaching inside
-reaching outside
-visibility
-does the player mean
+- before
+- instead
+- after
+- check taking, carry out taking, report taking
+- *and three similar rulebooks for each of the 90 or so actions*
 
-when play begins
-when play ends
-every turn
-when Confrontation Scene begins
-when Confrontation Scene ends
-*and two similar rulebooks for each scene we create, if any*
+[ZL: this comment is necessary to allow these to be separate lists]::
+- persuasion
+- unsuccessful attempt
+- reaching inside
+- reaching outside
+- visibility
+- does the player mean
+- when play begins
+- when play ends
+- every turn
 
-before printing the name of
-for printing the name of
-after printing the name of
-*and three similar rulebooks for each of the 20 or so activities*
-```
+[ZL: and it must be non-empty... ]::
+- when Confrontation Scene begins
+- when Confrontation Scene ends
+- *and two similar rulebooks for each scene we create, if any*
+
+[ZL: ...]::
+- before printing the name of
+- for printing the name of
+- after printing the name of
+- *and three similar rulebooks for each of the 20 or so activities*
 
 Which makes around 340 rulebooks before we even start to write. All the same, not everything in Inform belongs to a rulebook – timed events, for example, are rules which normally live outside of rulebooks; and other constructions, such as newly-created phrases, or definitions, may look vaguely like rules, but they aren't. So the following are not rulebooks:
 
@@ -13769,6 +13801,8 @@ Rule (2) to be applied if the action matches "taking something"
 Inside their rulebook, the rules are not listed in the order of definition in the source text. Rule (1) comes before rule (2) because it applies in more specific circumstances. This is the main idea: a rulebook gathers together rules about making some decision, or taking some action, and sorts them in order to give the more specific rules first choice about whether they want to intervene.
 
 Whereas only some rules are named (the two "instead" rules above have no name, for instance), every rulebook has a name. For convenience, the following forms of rule and rulebook name are synonymous:
+
+[ZL: TODO ... ]
 
 ``` inform7
 advance time = the advance time rule
@@ -17493,6 +17527,8 @@ Carry out listing hammers:
 so that we can review that there are enough objects available and that the list doesn't include anything it shouldn't. In a small story this kind of thing is pretty easy to keep track of in the author's head. Large stories can contain  thousands of objects, however, at which point it becomes valuable to have an automated method of verification.
 
 Just occasionally, we might also want to build a version of a story that will allow beta-testers access to the debugging commands. This is especially relevant for long stories: if we're testing a story with a lot of playtime and the testers have already thoroughly reviewed the first portion of the story, we might want to let them have access to testing commands that fast-forward to later sections.
+
+[ZL: There should be a more specific account of: compiling with Go: includes `not for release` sections/excludes `for release only` sections; includes debug commands; does *not* write anything to project.materials/Release. Release for testing: includes `not for release` sections/excludes `for release only` sections; includes debug commands; *does* write to project.materials/Release. Release: does *not* include `not for release` sections; includes debug commands; *does* write to project.materials/Release. Release: includes `for release only` sections/excludes `not for release` sections; doesn't include debug commands; does write to project.materials/Release.]::
 
 To do this, we can use the "Release for Testing" feature. Release for testing builds a version of the story that *does* include testing commands and any sections labeled "Not for release".
 
