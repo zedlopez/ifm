@@ -1,4 +1,8 @@
+[ZL: I can't use square brackets inside these markdown-hack comments, so I'll substitute <angle-brackets>.]::
+
 [ZL: a mention of borogove.app is warranted somewhere]::
+
+
 
 # Welcome to Inform
 
@@ -3121,7 +3125,7 @@ This is no longer the case: no such inclusion need now be made, and indeed, thos
 
 ## Displaying quotations
 
-[ZL: address that the only place where this will turn out as described (or, in fact, will not turn out something other than ugly) is in non-Glk Z-code terps, which is to say none of: Parchment/iplayif , Lectrote, Spatterlight, Gargoyle, or any of the IDEs https://inform7.atlassian.net/browse/I7-2434 ]
+[ZL: address that the only place where this will turn out as described (or, in fact, will not turn out something other than ugly) is in non-Glk Z-code terps, which is to say not in any of the IDEs or any of Parchment/iplayif , Lectrote, Spatterlight, or Gargoyle https://inform7.atlassian.net/browse/I7-2434 ]::
 
 ^^{quotations, displaying in boxes} ^^{boxed quotations} ^^{Inform 6 equivalent: `box}
 
@@ -8433,15 +8437,12 @@ We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible 
 
 Although most of the examples in this chapter have involved objects, relations can connect almost any values together. We can create relations in groups, one to various relations, various to one relations, one to one relations, and various to various relations for any combination of kinds. For example:
 
-
-[ZL: these would be clearer with unlike types]::
+[ZL: these examples would be easier to follow with unlike kinds on the two sides of the relationship ]::
 
 ``` inform7
 Partnership relates various texts to various texts.
 
 The verb to belong with means the partnership relation.
-
-[ZL: these examples would be easier to follow with unlike kinds on the sides of the relationship]::
 
 "cheese" belongs with "crackers".
 "clam" belongs with "chowder".
@@ -11472,7 +11473,7 @@ The commands "take" and "get" will still exist, but now they'll only have their 
 
 ^^{understanding: arbitrary objects} ^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens} ^^{someone+token+} ^^{something+token+} ^^{something preferably held+token+} ^^{things+token+} ^^{things inside+token+} ^^{other things+token+} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar} ^^{actions: applying to multiple objects}
 
-[ZL: this assertion that someone == person, immediately followed by an admission that it doesn't, confused me for a long time and irked me longer. and we never do get an explanation that `[something]` means any object in scope as opposed to `[thing]`.]::
+[ZL: this assertion that someone == person, immediately followed by an admission that it doesn't, confused me for a long time and irked me longer. and we never do get an explanation that `<something>` means any object in scope as opposed to `<thing>`.]::
 
 We have already seen `"[something]"` and `"[someone]"`, which are standard examples of "tokens of grammar" – patterns matched by suitable named things. There are several other standard tokens, provided not so much from necessity but to allow the story parser to be more graceful and responsive. `"[someone]"` matches the same possibilities as `"[a person]"` would, but the parser handles it a little better in cases of failure. These special tokens are best explained by looking at some of the examples in the standard grammar, which can be browsed in the Index of any story.
 
@@ -11595,7 +11596,7 @@ Understand "go to [any adjacent visited room]" as going by name.
 
 (This is really only a sketch: in a finished work, "go to" would produce helpful errors if non-adjacent but visited rooms were named, and we might also worry about rules applying to movement, because the method above will circumvent them.)
 
-[ZL: `[anything]` really *does* have a domain restricted to things, unlike `[something]`; again, this warrants mention ]::
+[ZL: `<anything>` really *does* have a domain restricted to things, unlike `<something>`; again, this warrants mention ]::
 
 As might be expected, `"[anything]"` means the same as `"[any thing]"`; `"[anybody]"` and `"[anyone]"` mean the same as `"[any person]"`; and `"[anywhere]"` means the same as `"[any room]"`.
 
@@ -12208,15 +12209,15 @@ That still has the drawback that the command ``act hamlet`` will not be recognis
 Understand "act [text]" as a mistake ("To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.") when the location is the Garden Theatre.
 ```
 
-[ZL: "act [text]" won't match "any word (or none)": it fails to match when it's none. We would need two `understand` statements. ]::
+[ZL: "act <text>" won't match "any word (or none)": it fails to match when it's none. We would need two `understand` statements. (can't use square brackets in comments) ]::
 
 since the `"[text]"` part will soak up any words the player types (or none), meaning that any command at all whose first word is "act" will be matched.
 
-[ZL: it is perhaps worth mentioning the potential for cheap debug commands: `Understand "turns" as a mistake ("Turns: [turn count]").
+[ZL: it is perhaps worth mentioning the potential for cheap debug commands: `Understand "turns" as a mistake ("Turns: <turn count>"). (can't use square brackets in comments) ]::
 
 We need to be careful to avoid circular things like this:
 
-[ZL: I forget whether I've said this already, but I suggest that all source snipperts demonstrating something that *won't* work explicitly have "[invalid]" at line's end to head off the case of an author skimming only just enough to see the example itself]::
+[ZL: I forget whether I've said this already, but I suggest that all source snipperts demonstrating something that *won't* work explicitly have "<invalid>" (but with proper square brackets) at line's end to head off the case of an author skimming only just enough to see the example itself]::
 
 ``` inform7
 Understand "[text]" as a mistake ("'[the topic understood]' is something I really wish you wouldn't say.") when the topic understood is a topic listed in table 1.
@@ -12300,6 +12301,8 @@ Understand "put [other things] on/onto [something]" as putting it on.
 [ZL: okay, there's another mention of auto-completion, but this time it has a hyphen.]::
 
 One produces a single object, the other produces two. Inform gives precedence to the first of these, that is, it tries the one with fewer values first. This is important when reading commands like ``put march on washington shirt on``, and also prevents bogus auto-completions, in which ``put hat on`` might wrongly be auto-completed as if it were ``put hat on the table``.
+
+[ZL: I'll note that there's inconsistency in the following chapter (and probably elsewhere) regarding whether lists within lists are numbered, lettered, or roman-numeraled. I haven't changed them but I think it'd be ideal if there were a consistent style]::
 
 # Activities
 
@@ -13793,22 +13796,17 @@ Instead of taking a fish: say "It's all slimy."
 
 and a command to ``take`` something is tried, then only one of these rules will have any effect. The "instead" rulebook contains:
 
-``` inform7
-Rule (1) to be applied if the action matches "taking a fish"
-Rule (2) to be applied if the action matches "taking something"
-```
+- Rule (1) to be applied if the action matches "taking a fish"
+- Rule (2) to be applied if the action matches "taking something"
 
 Inside their rulebook, the rules are not listed in the order of definition in the source text. Rule (1) comes before rule (2) because it applies in more specific circumstances. This is the main idea: a rulebook gathers together rules about making some decision, or taking some action, and sorts them in order to give the more specific rules first choice about whether they want to intervene.
 
 Whereas only some rules are named (the two "instead" rules above have no name, for instance), every rulebook has a name. For convenience, the following forms of rule and rulebook name are synonymous:
 
-[ZL: TODO ... ]
+[ZL: it seems to no longer be true that advance time = the advance time rule]::
 
-``` inform7
-advance time = the advance time rule
-
-the instead rules = instead rulebook = instead
-```
+- `advance time` = `the advance time rule`
+- `the instead rules` = `instead rulebook` = `instead`
 
 The names of built-in rules have been chosen as descriptively as possible: the "can't go through closed doors rule", for instance. Names for rules tend to be verbose, but this is a situation where clarity is very much better than brevity.
 
@@ -13897,6 +13895,8 @@ This does not actually destroy the rules in question: they could still, for inst
 
 Here is another way to abolish an already-existing rule:
 
+[ZL: see I7-2330. should it be the case that rule responses can't be referred to if the rule has been said to do nothing? If so, document ]::
+
 ``` inform7
 The print final score rule does nothing.
 ```
@@ -13946,19 +13946,24 @@ As this suggests, Inform performs its automatic sorting using a precise collecti
 
 In general, a rule looks like this:
 
+[ZL: it's ambiguous how the following blocks should be formatted.]::
+
 ``` inform7
 preamble : list of one or more phrases divided by semicolons
 ```
 
 though in a few common cases (where the preamble begins with Before, After, Instead of, Every turn, or When, and there is only one phrase in the list) the colon can be replaced with a comma. Three kinds of declaration are special, and these we can tell apart by the first word:
 
-``` inform7
-To ... - a new phrase: see the chapter on Phrases
-At ... - something due to happen at a given time: see Time
-Definition: ... - a new adjective: see Descriptions
-```
+[ZL: took me a long time to have confidence in saying "there are 3 kinds of imperative code blocks: rules, definitions, to-phrases (which could be subdivided into to-say, to-decide, plain-to). At <time> is a special-case of rules that are followed despite not being in rulebooks and when <scene> begins and when <scene> ends are conventional rulebooks that are created for each scene. everything outside a code block is (and must be) an assertion. everything inside a code block is (and must be) a phrase. (the *creation* of a code block is, itself, an assertion.) a definition doesn't always look like a code block because there's an alternate syntax for simple cases." ]::
+[ZL: a thing that trips up newbies all the time is trying to use phrases outside of code blocks like they were assertions. this is an example of the thing I wrote elsewhere about how avoiding technical jargon made things more confusing. WI doesn't ever express a term equivalent to "imperative code block". It would be helpful if it did ]::
+
+- `To [...]` - a new phrase: see the chapter on Phrases
+- `At [...]` - something due to happen at a given time: see Time
+- `Definition: [...]` - a new adjective: see Descriptions
 
 All other declarations (that is, starting with any other word) create rules fit for going into rulebooks. The preamble can either just be a name, which is required to end with the word "rule", or it can give circumstances and have no name, or it can do both:
+
+[ZL: "circumstances" gets defined only following this use of it, making the following initially confusing]::
 
 ``` inform7
 This is the ...name of rule...
@@ -13968,28 +13973,26 @@ This is the ...name of rule...
 
 The circumstances should be a sequence of the following ingredients, each of which is optional except the name of the rulebook:
 
-``` inform7
-first *or* last
-*followed by* ...rulebook name...
-*followed by* about *or* for *or* of *or* on *or* rule
-*followed by* ...what to apply to...
-*followed by* while *or* when ...condition...
-*followed by* during ...a scene...
-```
+- first *or* last
+- *followed by* ...rulebook name...
+- *followed by* about *or* for *or* of *or* on *or* rule
+- *followed by* ...what to apply to...
+- *followed by* while *or* when ...condition...
+- *followed by* during ...a scene...
 
 The word "first" or "last", if present, is significant: it tells Inform exactly where the new rule should be placed into its rulebook, and so overrides the normal practice of placing the rule according to how specific it is.
 
 On the other hand, the use of any of the following:
 
-``` inform7
-for
-of
-rule about
-rule for
-rule on
-```
+- `for`
+- `of`
+- `rule about`
+- `rule for`
+- `rule on`
 
 is purely to make the text easier to read: Inform does not make any direct use of these words (except perhaps that it may help to avoid ambiguities by separating the rulebook name from what is being applied to). Thus in the rule
+
+[ZL: except for in activities when the `for` is significant]::
 
 ``` inform7
 Instead of kissing Clark: ...
@@ -14131,6 +14134,8 @@ After inserting something into the well:
 
 ## Rulebook variables {PM_RulebookVariableAnd} {PM_RulebookVariableTooSpecific} {PM_RulebookVariableBadKind} {PM_RulebookVariableVague}
 
+[ZL: might be a worthwhile place to mention that `actor` is an action-processing variable and unavailable to, e.g., to-phrases]::
+
 ^^{rulebooks: variables for rulebooks} ^^{variables: for rulebooks} ^^{defining: rulebook variables} ^^{`called: in defining rulebook variables}
 
 When a rulebook is intended to perform some complicated task or calculation, it is sometimes useful for earlier rules to be able to leave information which will help later ones.
@@ -14173,11 +14178,9 @@ For some rulebooks, these are not useful ideas: "every turn" rules, for instance
 
 To follow the working of this mechanism, we need to be able to predict the outcome of any given rule. Sometimes this is easy to spot. For instance, in a rule which works on actions:
 
-``` inform7
-continue the action; *means* "end this rule with no outcome"
-stop the action; *means* "end this rule in failure"
-... instead; *means* "end this rule in failure"
-```
+- `continue the action` means *end this rule with no outcome*
+- `stop the action` means *end this rule in failure*
+- `[...] instead` **or** `instead [...]` means *end this rule in failure*
 
 ("Success" and "failure" are technical terms here: they do not mean that the player has or hasn't got what they wanted.) This is why the rule:
 
@@ -14223,6 +14226,8 @@ The cosmic analysis rules are a rulebook. The cosmic analysis rules have default
 
 Finally, note that the default outcome for a rulebook is really the default outcome for any rule in that rulebook: if no rules in the rulebook ever apply, for instance if there aren't any and the rulebook is empty, then the rulebook ends with no outcome at all.
 
+[ZL: it warrants emphasis that this should only be counted on if you know the test is coming immediately after following the rule, which can be surprisingly hard to be sure of during, say, the action-processing sequence.]::
+
 We can test the latest outcome like so:
 
 > phrase: {ph_succeeded} if rule succeeded:
@@ -14249,10 +14254,8 @@ We can test the latest outcome like so:
 
 We have seen that the terms "success" and "failure" can be misleading – after all, it might be a good thing for a particular rulebook to "fail". At any rate, these are vague terms, and we don't want to have to remember the conventions used by every rulebook. This is why certain rulebooks have explicitly named outcomes instead. For instance, the "visibility" rules are allowed to have the outcomes:
 
-``` inform7
-there is sufficient light;
-there is insufficient light;
-```
+- `there is sufficient light;`
+- `there is insufficient light;`
 
 These look like phrases, but are in fact named outcomes which can only be used in visibility rules. (They would make no sense elsewhere, and Inform will not allow their use if they are clearly out of context.) Such named outcomes are listed in the Rules index.
 
@@ -14294,12 +14297,10 @@ Each named outcome is a value if followed by the word "outcome", which is how "a
 
 We have now seen two ways to write the outcome of a rule: as simple success or failure, with more or less explicit phrases like:
 
-``` inform7
-rule succeeds;
-rule fails;
-continue the action;
-stop the action;
-```
+- `rule succeeds;`
+- `rule fails;`
+- `continue the action;`
+- `stop the action;`
 
 and by using a named outcome for the current rulebook as if it were a phrase, as in:
 
@@ -14307,16 +14308,16 @@ and by using a named outcome for the current rulebook as if it were a phrase, as
 low background noise;
 ```
 
+[ZL: and if you're Zed the newbie in March of 2021, you're wondering: but what if you've specified named outcomes in a rulebook that produces a result. the docs should address that these don't really get along. https://intfiction.org/t/named-outcomes-for-rulebooks-producing-a-result/49847 ]::
+
 There is still a third way: we can stop a rule and at the same time produce a value. This isn't needed very often – none of the built-in rulebooks in the Standard Rules produces a value.
 
 As we've seen, every rulebook has one kind of value as its basis, and it also has another kind of value for it to produce. If we call these K and L, then we have altogether four ways to write down the kind of a rulebook:
 
-``` inform7
-rulebook
-K based rulebook
-rulebook producing L
-K based rulebook producing L
-```
+- `rulebook`
+- `K based rulebook`
+- `rulebook producing L`
+- `K based rulebook producing L`
 
 If we don't mention K, Inform assumes the rulebook is action based. If we don't mention L, Inform assumes L is "nothing", that is, Inform assumes no value is ever produced. Thus
 
@@ -14437,19 +14438,20 @@ Rulebooks handle almost all of the important tasks which an Inform work of IF mu
 
 This is nearly true. There is not actually a super-rulebook controlling everything. (Such a super-rulebook would need to repeat itself and never finish, something a rulebook is not allowed to do.) Instead, what happens during play looks like so:
 
-``` inform7
+[ZL: at such time as there are large-scale changes to the docs, this could use some 25 pages or so of elaboration ]::
+
 1. Following the "when play begins" rulebook.
-2. Repeating:
-	2(a). Reading and parsing a command into an action;
-	2(b). Following the "action processing" rulebook;
-	2(c). Following the "turn sequence" rulebook.
-until the story has finished.
+2. Repeating until the story finishes:
+   - Reading and parsing a command into an action;
+   - Following the "action processing" rulebook;
+   - Following the "turn sequence" rulebook.
 3. Following the "when play ends" rulebook.
-```
 
 The command parser occasionally calls on the services of activity rulebooks to help it, but otherwise gets on with its job in ways that we do not "see" as Inform 7 users. The rest of what happens involves rulebooks, and in particular two important beneath-the-surface rulebooks: action processing and turn sequence.
 
 The **action processing rules** are used whenever an action must be tried, by whoever tries it. This usually happens in response to player commands, but not always: it might happen because of a "try...", and it can certainly interrupt an existing action.
+
+[ZL: this confusingly denies that the action-processing rules are part of the turn sequence rules ]::
 
 The **turn sequence rules** are used at the end of each turn, and include housekeeping as well as timekeeping. They consult the "every turn" rulebook, and advance the time of day, among other useful tasks.
 
@@ -14458,6 +14460,8 @@ In general, we should only modify the operation of these two crucial rulebooks a
 ## The Laws for Sorting Rulebooks
 
 ^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules} ^^{laws for sorting rulebooks} ^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page} ^^{room gone from/to (- object)+actvar+}
+
+[ZL: it's worth detailing that `First <rulebook>:` and `The foo rule is listed first in the <rulebook>` don't necessarily mean the same thing https://intfiction.org/t/first-last-keyword-rules-each-seems-to-have-two-different-meanings/56393 ]::
 
 Large works created by Inform are heaped high with rules, most of them instead rules, but with a leavening of befores and afters as well. What will happen if these conflict with each other? For instance:
 
@@ -14526,6 +14530,8 @@ if character number 1 in "[time of day]" is "1", ...
 ```
 
 will be true at, for example, 11:30 PM and 1:22 AM, but not at 3:15 PM. What happens here is that Inform expands the time of day into a text, say "11:30 PM", then extracts the first character, say "1", and tests it.
+
+[ZL: I'd suggest either dropping it altogether or if you do mention it, mention that `indexed text` continues to be a supported synonym for `text` ]::
 
 Until 2012, Inform had two kinds of text – plain "text", and "indexed text" – but there's now only "text", which has all of the abilities of both.
 
