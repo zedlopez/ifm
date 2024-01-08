@@ -16251,7 +16251,7 @@ the extended { 2, 4, 6 };
 
 produces:
 
-``` inform7
+``` transcript
 { 2, 4, 6, 7 }
 ```
 
@@ -16468,7 +16468,7 @@ showme doubling applied to 2;
 
 produces
 
-``` inform7
+``` transcript
 "doubling applied to 2" = number: 4
 ```
 
@@ -16555,7 +16555,7 @@ showme Q applied to -7;
 
 produces:
 
-``` inform7
+``` transcript
 "q" = phrase number -> time: default value of phrase number -> time
 "q applied to 4" = time: 9:00 am
 "q applied to -7" = time: 9:00 am
@@ -16574,7 +16574,7 @@ showme (R applied to 3) applied to 2;
 
 produces:
 
-``` inform7
+``` transcript
 "r" = phrase number -> (phrase number -> colour): default value of phrase
 number -> (phrase number -> colour)
 "r applied to 3" = phrase number -> colour: default value of phrase number
@@ -16706,7 +16706,7 @@ It's clear at a glance what this is intended to do, but at a second glance thing
 
 So "value" is not a kind, but a kind of kind. Inform has several of these:
 
-``` inform7
+```
 value, arithmetic value, enumerated value, sayable value
 ```
 
@@ -16726,7 +16726,7 @@ because then Inform will make it clearer why "say X twice" won't work if X is on
 
 The Kinds index shows which kinds match against which of these "kinds of kind". For instance, it shows that "time"
 
-``` inform7
+```
 Matches: value, arithmetic value, sayable value
 ```
 
@@ -16836,13 +16836,11 @@ To slam shut (box - a container): say "You are unable to slam shut [the box], wh
 
 We now have two definitions of "slam shut". Sometimes the box it's applied to will be closed, in which case only the second definition fits, and will be the one used. But if the box is open, both definitions fit. Which will happen? The rule is:
 
-``` inform7
 1. A narrower condition takes precedence over a broader one;
 
 2. If neither condition is narrower than the other, then whichever phrase was defined later in the source code is the one taking precedence;
 
 3. Except that if the phrase is being used in the definition of phrase P, then P is always last in precedence order, so that recursion is always the very last possibility considered. This allows more specific or later definitions to make use of less specific or earlier ones in a natural way.
-```
 
 Rule 1 ensures that a definition involving "open container" takes priority over one which merely involves "container", for instance.
 
@@ -16924,7 +16922,7 @@ The second thing to do is to get hold of the pictures we want to use. These migh
 
 The pictures then need to be put in a special place where Inform can reach them. Suppose the Inform project is called Example.inform. Then we need to create a folder alongside it called "Example.materials", and create a further folder inside that called "Figures". The actual images go inside "Figures". So we might then have files like so:
 
-``` inform7
+```
 Example.inform
 Example.materials
 	Figures
@@ -16998,9 +16996,7 @@ Lastly, it must be remembered that recording industry bodies are very hostile to
 
 Sound effects are accommodated on the same basis as illustrations. The relevant media files need to be placed in a subfolder of the project's ".materials" folder, but this time called Sounds rather than Figures, so for instance:
 
-[ZL: unclear what language is appropriate]::
-
-``` inform7
+```
 Example.inform
 Example.materials
 	Figures
@@ -17058,7 +17054,7 @@ The turn card image is a figure name that varies.
 
 An Old Master is a kind of thing. An Old Master has a figure name called appearance. Figure 1 is the file "Giaconda.jpg". The Mona Lisa is an Old Master. The appearance of the Mona Lisa is Figure 1.
 
-To place (F - a figure name) in the gallery: ...
+To place (F - a figure name) in the gallery: [...]
 ```
 
 (ii) Similarly, names for sound effects, such as "Sound of rustling leaves", are values for the kind of value "sound name".
@@ -17323,7 +17319,7 @@ To say key score:
 
 and this will then check the relevant number and print it to screen when this phrase is called, like so
 
-``` inform7
+``` transcript
 "count" = number: 1
 ```
 
@@ -17456,6 +17452,8 @@ You can see a table here.
 Bar
 You can see a table (on which is a key) here.
 ```
+
+[ZL: does vicinity mean "to the room enclosing"? ]::
 
 ``gonear`` transports the player instantly to the vicinity of the named object, so for instance
 
