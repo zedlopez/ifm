@@ -2,8 +2,6 @@
 
 [ZL: a mention of borogove.app is warranted somewhere]::
 
-
-
 # Welcome to Inform
 
 ## Preface
@@ -10668,6 +10666,9 @@ repeat with N running from 1 to the number of rows in the Table of Recent Monarc
 
 This works, but is repetitive. We often want to work on a single row for a while, either to change things or think about the contents, and it is tiresome to keep specifying the row over and over again. The following shorthand provides some relief:
 
+[ZL: it would be good to tell us that `choose row N` is O(1) and everything else is O(N) where N is the number of filled rows. and also that there's no way to pass a row around as a value, but you can pass a row number and another to-phrase or whatever could select the row again. ]::
+
+
 > phrase: {ph_chooserow} choose a/the/-- row (number) in/from (table name)
 >
 > This phrase selects the row with the given number. Row numbers in a table start from 1, so
@@ -10697,6 +10698,8 @@ Note that since "accession" is a column name, "accession entry" means the entry 
 >     choose row with a name of "Victoria" in the Table of Recent Monarchs;
 >
 > A run-time problem message is produced if the value isn't found anywhere in that column.
+
+[ZL: there should also be emphasis that there's no concept of enforcing column uniqueness: there could any number of rows for which it's the case that a given column has a given value. ]::
 
 Sometimes it will happen that a column's name clashes with the name of something else: for instance, if we call a column "apples" but we also have a kind called "apple", so that the word "apples" could mean either some fruit or the column. Inform will generally prefer the former meaning as more likely. In case of such trouble, we can simply refer to "the apples column" rather than just "the apples": for instance, "choose row with an apples column of..." rather than "choose row with an apples of..."
 
@@ -12217,7 +12220,7 @@ since the `"[text]"` part will soak up any words the player types (or none), mea
 
 We need to be careful to avoid circular things like this:
 
-[ZL: I forget whether I've said this already, but I suggest that all source snipperts demonstrating something that *won't* work explicitly have "<invalid>" (but with proper square brackets) at line's end to head off the case of an author skimming only just enough to see the example itself]::
+[ZL: I forget whether I've said this already, but I suggest that all source snippets demonstrating something that *won't* work explicitly have "<invalid>" (but with proper square brackets) at line's end to head off the case of an author skimming only just enough to see the example itself]::
 
 ``` inform7
 Understand "[text]" as a mistake ("'[the topic understood]' is something I really wish you wouldn't say.") when the topic understood is a topic listed in table 1.
@@ -13266,7 +13269,7 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 [ZL: it would be nice to spell out the rules and to not refer to the DM4 ]::
 
-**2. The default behaviour.** Is complicated: see the Inform Designer's Manual, 4th edition, page 227. Briefly, the scope for someone consists of everything in the same place as them, unless it is dark.
+**2. The default behaviour.** Is complicated: see the [Inform Designer's Manual, 4th edition, page 227](https://inform-fiction.org/manual/html/s32.html). Briefly, the scope for someone consists of everything in the same place as them, unless it is dark.
 
 **3. Examples.** (a) We very rarely want to forbid the player to refer to things close at hand, but often want to allow references to distant ones. For instance, a mirage of something which is not present at all:
 
@@ -14590,6 +14593,8 @@ The maximum character number varies with the current length of the text, and can
 >
 > produce 13 and 0 respectively.
 
+[ZL: ...unless there's adaptive text in the text... ]::
+
 We can also use the adjective "empty":
 
 ``` inform7
@@ -14651,6 +14656,8 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 > produces just 4.
 
 Finally, on the larger scale still, we also have:
+
+[ZL: worth mentioning that the results of this phrase will always have whitespace trimmed from both sides: there just isn't a good way to get at raw lines including any leftmost or rightmost spaces. on the bright side, `line number 1 in T` is a good way to trim whitespace when T won't have newlines... ]::
 
 > phrase: {ph_linenum} line number (number) in (text) ... text
 >
@@ -14724,7 +14731,7 @@ We can change the casing of text using:
 
 Accents are preserved in case changes. So (if we are using Glulx and have Unicode available) title case can turn Aristophanes' discomfortingly lower-case lines
 
-``` inform7
+```
 ἐξ οὗ γὰρ ἡμᾶς προὔδοσαν μιλήσιοι,
 οὐκ εἶδον οὐδ᾽ ὄλισβον ὀκτωδάκτυλον,
 ὃς ἦν ἂν ἡμῖν σκυτίνη "πικουρία
@@ -14732,7 +14739,7 @@ Accents are preserved in case changes. So (if we are using Glulx and have Unicod
 
 by raising them proudly up like so:
 
-``` inform7
+```
 Ἐξ Οὗ Γὰρ Ἡμᾶς Προὔδοσαν Μιλήσιοι,
 Οὐκ Εἶδον Οὐδ᾽ Ὄλισβον Ὀκτωδάκτυλον,
 Ὃς Ἦν Ἂν Ἡμῖν Σκυτίνη "Πικουρία.
@@ -15198,6 +15205,8 @@ To decide what text is (T - text) doubled:
 	decide on "[T][T]".
 ```
 
+[ZL: is "immediately it's formed" UK usage? sounds weird to my ears ]::
+
 "[T][T]" is substituted immediately it's formed. That's also a good thing, because "T" loses its meaning the moment the phrase finishes, which would make "[T][T]" meaningless anywhere else.
 
 What's going on here is this: Inform substitutes text immediately if it contains references to a temporary value such as "T", and otherwise only if it needs to access the contents. This is why `"[time of day]"` isn't substituted until we need to print it out (or, say, access the third character): "time of day" is a value which always exists, not a temporary one.
@@ -15381,110 +15390,92 @@ But these are all just special cases of the grand-daddy of all replacement phras
 
 ^^{regular expressions} ^^{text: regular expressions} ^^{characters (letters): special meanings in regular expressions} ^^{regular expressions: syntax reference}
 
-**``matching``**
+### matching
 
-Positional restrictions
+| | Positional restrictions |
+|---|---|
+| ^ | Matches (accepting no text) only at the start of the text|
+| $ | Matches (accepting no text) only at the end of the text|
+| \\b | Word boundary: matches at either end of text or between a \\w and a \\W|
+| \\B | Matches anywhere where \\b does not match|
 
-``` inform7
-^		Matches (accepting no text) only at the start of the text
-$		Matches (accepting no text) only at the end of the text
-\b		Word boundary: matches at either end of text or between a \w and a \W
-\B		Matches anywhere where \b does not match
-```
+| | Backslashed character classes |
+|---|---|
+| \\char | If char is other than a-z, A-Z, 0-9 or space, matches that literal char|
+| \\\\\\\\\ | For example, this matches literal backslash "\\\\"|
+| \\n | Matches literal line break character|
+| \\t | Matches literal tab character (but use this only with external files)|
+| \\d | Matches any single digit|
+| \\l | Matches any lower case letter (by Unicode 4.0.0 definition)|
+| \\p | Matches any single punctuation mark: . , ! ? - / " : ; ( ) [ ] { }|
+| \\s | Matches any single spacing character (space, line break, tab)|
+| \\u | Matches any upper case letter (by Unicode 4.0.0 definition)|
+| \\w | Matches any single word character (neither \\p nor \\s)|
+| \\D | Matches any single non-digit|
+| \\L | Matches any non-lower-case-letter|
+| \\P | Matches any single non-punctuation-mark|
+| \\S | Matches any single non-spacing-character|
+| \\U | Matches any non-upper-case-letter|
+| \\W | Matches any single non-word-character (i.e., matches either \\p or \\s)|
 
-Backslashed character classes
+| | Other character classes |
+|---|---|
+| . | Matches any single character|
+| <...> | Character range: matches any single character inside|
+| <^...> | Negated character range: matches any single character not inside|
 
-``` inform7
-\char	If char is other than a-z, A-Z, 0-9 or space, matches that literal char
-\\		For example, this matches literal backslash "\"
-\n		Matches literal line break character
-\t		Matches literal tab character (but use this only with external files)
-\d		Matches any single digit
-\l		Matches any lower case letter (by Unicode 4.0.0 definition)
-\p		Matches any single punctuation mark: . , ! ? - / " : ; ( ) [ ] { }
-\s		Matches any single spacing character (space, line break, tab)
-\u		Matches any upper case letter (by Unicode 4.0.0 definition)
-\w		Matches any single word character (neither \p nor \s)
-\D		Matches any single non-digit
-\L		Matches any non-lower-case-letter
-\P		Matches any single non-punctuation-mark
-\S		Matches any single non-spacing-character
-\U		Matches any non-upper-case-letter
-\W		Matches any single non-word-character (i.e., matches either \p or \s)
-```
+| | Inside a character range |
+|---|---|
+| e-h | Any character in the run "e" to "h" inclusive (and so on for other runs)|
+| > | Starting with ">" means that a literal close angle bracket is included|
+| \\ | Backslash has the same meaning as for backslashed character classes: see above|
 
-Other character classes
+| | Structural |
+|---|---|
+| \| | Divides alternatives: "fish\|fowl" matches either |
+| (?i) | Always matches: switches to case-insensitive matching from here on|
+| (?-i) | Always matches: switches to case-sensitive matching from here on |
 
-``` inform7
-.		Matches any single character
-<...>	Character range: matches any single character inside
-<^...>	Negated character range: matches any single character not inside
-```
+| | Repetitions |
+|---|---|
+| ...? | Matches "..." either 0 or 1 times, i.e., makes "..." optional|
+| ...* | Matches "..." 0 or more times: e.g. "\s*" matches an optional run of space|
+| ...+ | Matches "..." 1 or more times: e.g. "x+" matches any run of "x"s|
+| ...{6} | Matches "..." exactly 6 times (similarly for other numbers, of course)|
+| ...{2,5} | Matches "..." between 2 and 5 times|
+| ...{3,} | Matches "..." 3 or more times|
+| ....? | "?" after any repetition makes it "lazy", matching as few repeats as it can|
 
-Inside a character range
+| | Numbered subexpressions |
+|---|---|
+| (...) | Groups part of the expression together: matches if the interior matches|
+| \\1 | Matches the contents of the 1st subexpression reading left to right|
+| \\2 | Matches the contents of the 2nd, and so on up to "\9" (but no further)|
 
-``` inform7
-e-h		Any character in the run "e" to "h" inclusive (and so on for other runs)
->...	Starting with ">" means that a literal close angle bracket is included
-\		Backslash has the same meaning as for backslashed character classes: see above
-```
+| | Unnumbered subexpressions |
+|---|---|
+| (# ...) | Comment: always matches, and the contents are ignored|
+| (?= ...) | Lookahead: matches if the text ahead matches "...", but doesn't consume it|
+| (?! ...) | Negated lookahead: matches if lookahead fails|
+| (?<= ...) | Lookbehind: matches if the text behind matches "...", but doesn't consume it|
+| (?<! ...) | Negated lookbehind: matches if lookbehind fails|
+| (> ...) | Possessive: tries to match "..." and if it succeeds, never backtracks on this|
+| (?(1)...) | Conditional: if \\1 has matched by now, require that "..." be matched|
+| (?(1)...\|...) | Conditional: ditto, but if \\1 has not matched, require the second part|
+| (?(?=...)...\|...) | Conditional with lookahead as its condition for which to match|
+| (?(?<=...)...\|...) | Conditional with lookbehind as its condition for which to match|
 
-Structural
-
-``` inform7
-|		Divides alternatives: "fish|fowl" matches either
-(?i)	Always matches: switches to case-insensitive matching from here on
-(?-i)	Always matches: switches to case-sensitive matching from here on
-```
-
-Repetitions
-
-``` inform7
-...?	Matches "..." either 0 or 1 times, i.e., makes "..." optional
-...*	Matches "..." 0 or more times: e.g. "\s*" matches an optional run of space
-...+	Matches "..." 1 or more times: e.g. "x+" matches any run of "x"s
-...{6}	Matches "..." exactly 6 times (similarly for other numbers, of course)
-...{2,5}	Matches "..." between 2 and 5 times
-...{3,}	Matches "..." 3 or more times
-....?	"?" after any repetition makes it "lazy", matching as few repeats as it can
-```
-
-Numbered subexpressions
-
-``` inform7
-(...)	Groups part of the expression together: matches if the interior matches
-\1		Matches the contents of the 1st subexpression reading left to right
-\2		Matches the contents of the 2nd, and so on up to "\9" (but no further)
-```
-
-Unnumbered subexpressions
-
-``` inform7
-(# ...)	Comment: always matches, and the contents are ignored
-(?= ...)	Lookahead: matches if the text ahead matches "...", but doesn't consume it
-(?! ...)	Negated lookahead: matches if lookahead fails
-(?<= ...)	Lookbehind: matches if the text behind matches "...", but doesn't consume it
-(?<! ...)	Negated lookbehind: matches if lookbehind fails
-(> ...)	Possessive: tries to match "..." and if it succeeds, never backtracks on this
-(?(1)...)	Conditional: if \1 has matched by now, require that "..." be matched
-(?(1)...|...)	Conditional: ditto, but if \1 has not matched, require the second part
-(?(?=...)...|...)	Conditional with lookahead as its condition for which to match
-(?(?<=...)...|...)	Conditional with lookbehind as its condition for which to match
-```
-
-**IN ``replacement text``**
-
-``` inform7
-\char	If char is other than a-z, A-Z, 0-9 or space, expands to that literal char
-\\		In particular, "\\" expands to a literal backslash "\"
-\n		Expands to a line break character
-\t		Expands to a tab character (but use this only with external files)
-\0		Expands to the full text matched
-\1		Expands to whatever the 1st bracketed subexpression matched
-\2		Expands to whatever the 2nd matched, and so on up to "\9" (but no further)
-\l0		Expands to \0 converted to lower case (and so on for "\l1" to "\l9")
-\u0		Expands to \0 converted to upper case (and so on for "\u1" to "\u9")
-```
+| | In replacement text |
+|---|---|
+| \\char | If char is other than a-z, A-Z, 0-9 or space, expands to that literal char|
+| \\\\\\\\ | In particular, "\\\\\\\\" expands to a literal backslash "\\\\"|
+| \\n | Expands to a line break character|
+| \\t | Expands to a tab character (but use this only with external files)|
+| \\0 | Expands to the full text matched|
+| \\1 | Expands to whatever the 1st bracketed subexpression matched|
+| \\2 | Expands to whatever the 2nd matched, and so on up to "\9" (but no further)|
+| \\l0 | Expands to \0 converted to lower case (and so on for "\l1" to "\l9")|
+| \\u0 | Expands to \0 converted to upper case (and so on for "\u1" to "\u9")|
 
 # Lists
 
@@ -17249,13 +17240,13 @@ In order to write non-story-file programs as B, communicating with story files a
 [ZL: https://inform7.atlassian.net/browse/I7-1828 ]::
 
 
-``` inform7
+```
 * //IFID// leafname
 ```
 
 The opening character is an asterisk if the file is currently ready, a hyphen if the file is currently not ready. The IFID between the slashes is the IFID number of the project which last wrote to the file. (Marking "ready" or "not ready" does not count as a write for this purpose.) If an external program wrote the file, it should call itself something which will not clash with any story file's IFID. The leafname is the filename text used inside the story file where the file was declared. For instance:
 
-``` inform7
+```
 * //4122DDA8-A153-46BC-8F57-42220F9D8795// ice
 ```
 
@@ -17482,6 +17473,8 @@ Test me with "eat grain" in the Fertile Plain.
 
 ``verify`` checks that the story file is intact rather than damaged, but it is hard to think of an occasion when this would be likely to arise within the Inform application. The command is a holdover from a time when data transfer was much slower and more error-prone, and it was plausible to have a story file of just a few hundred KB corrupted during transmission.
 
+[ZL: note it used to be tree? ]::
+
 ``showtree`` creates a list of object containment. It is similar to ``showme``, but less elegant and thorough.
 
 ``scope`` lists the objects that are currently in scope for the player, which is to say, things that could be referred to when we're typing a typical command. Thus:
@@ -17496,6 +17489,8 @@ You can see a table here.
 ```
 
 The following numbers are object IDs for these objects, which can distinguish items with identical names. It is likely that the output of this will not be terribly interesting or different from checking ``showme``, except in cases where the author is deliberately changing the scope to be something other than "the set of things that are visible in the room with the player right now". This usually involves the Deciding the scope of something activity (see the chapter on [Activities]).
+
+[ZL: plenty helpful if you're OtisTDog, memory-leak-finder extraordinaire! ]::
 
 ``showheap`` shows how many bytes are currently free. This is usually not helpful.
 
@@ -17625,8 +17620,10 @@ then that will be the "story title". Further, we can write
 
 with the obvious effect: quotation marks around the author's name are optional here, for convenience, but note that we'd better have them in cases like:
 
+^^{@Jerome K. Jerome}
+
 ``` inform7
-"Three Men in a Boat" by "^{@Jerome K. Jerome}"
+"Three Men in a Boat" by "Jerome K. Jerome"
 ```
 
 as otherwise the full stop after the K will end the sentence prematurely.
@@ -17693,11 +17690,7 @@ During March and April 2006, an agreement was reached between the IF archive and
 
 Inform is fully compliant with the Treaty. In particular, each new project created by Inform is allocated a unique identification number called its IFID. The IFID is the equivalent for IF of the ``isbn`` of a printed book. Inform copies it onto the "library card" for the benefit of Internet-based libraries which may eventually accession the work. Of course many projects start but never see the light of day, so many possible IFIDs are "wasted": but that hardly matters, as there are plenty more numbers in the world.
 
-The important thing is that
-
-``` inform7
-**The IFID number must be unique to this one work out of all the IF ever created**
-```
+The important thing is that **the IFID number must be unique to this one work out of all the IF ever created.**
 
 Inform will make sure this is true, **unless** we do something to break this ourselves. For instance, if we take an existing project, copy it as a file, then work divergently on the original and on the copy so that they become two radically different works, they will still each have the same ID. This is a bad thing: if we want to duplicate a project but then turn it into something new, the best way to do that is to create a new project, and to copy and paste the source from the old to the new.
 
@@ -17709,15 +17702,12 @@ Inform's Release button does two things: it makes a stand-alone, public version 
 
 The release version of the project can be played by anyone with an "interpreter" – they do not need the Inform application installed on their computers, and they will not be able to see the source text. Released versions differ slightly from the versions playable in the Story panel of Inform, because debugging commands such as ``actions`` are not included with them. (As we've seen, also excluded is any material in the source text under a heading including the words "not for release".) In some cases, if we release along with an interpreter, we can even make the project playable from a web browser, so that the player doesn't need to install any software at all, not even a browser plugin.
 
-The Release button also creates a ".materials" folder for the project, if one doesn't exist already. (On some platforms, the Inform user interface creates it automatically alongside the project.) Inform adopts the following convention:
+The Release button also creates a ".materials" folder for the project, if one doesn't exist already. (On some platforms, the Inform user interface creates it automatically alongside the project.) Inform adopts the convention: the files associated with the project "Whatever.inform" should all be kept in a subfolder called "Whatever.materials" in the same folder that contains the project.
 
-``` inform7
-The files associated with the project "Whatever.inform" should all be kept in a subfolder called "Whatever.materials" in the same folder that contains the project.
-```
 
 For example, if we have a project filenamed Magician.inform which lives in a folder called "Works in Progress", then files might be arranged like so:
 
-``` inform7
+```
 Works in Progress
 	Magician.inform
 	Magician.materials
@@ -17729,7 +17719,7 @@ Of course "Magician" might not actually be the title of the project – it might
 
 Several advanced features of Inform make use of the materials folder, and the "Release" button is one of them. It creates a further subfolder called "Release" within the materials folder. This is where it will always place the story file it creates, together with anything released "along with" the story – Inform will not need to put up a dialogue box asking us where to save the story file, because there is already a natural place. For instance, after a successful click on Release, we might then see:
 
-``` inform7
+```
 Works in Progress
 	Magician.inform
 	Magician.materials
@@ -17789,7 +17779,7 @@ Cover art for a work should be prepared in either ``jpeg`` (".jpg") or ``png`` (
 
 To provide cover art, we should create an image file called Cover.jpg, or else Cover.png, and place it in the project's .materials folder. For instance, we might have:
 
-``` inform7
+```
 Works in Progress
 	Magician.inform
 	Magician.materials
@@ -17848,7 +17838,7 @@ where the list of ingredients now includes "a website". In fact, Inform makes on
 
 After a successful release now, then, we should see:
 
-``` inform7
+```
 Works in Progress
 	Magician.inform
 	Magician.materials
@@ -17920,6 +17910,8 @@ Release along with cover art, a "Platinum" website, a file of "Collegio magazine
 
 This is identical to the previous version except for the "Platinum": note the quotation marks. When it needs to find a template, Inform searches the following places in sequence:
 
+[ZL: replace with a numbered list?]::
+
 ``` inform7
 (a) the "Templates" subfolder of the project's own .materials folder, if this subfolder should exist;
 (b) the "Templates" folder in the user's own library - on Mac OS X, this is:
@@ -17935,7 +17927,7 @@ What Inform looks for is a folder name matching that of the template – so in o
 
 The template folder is expected to contain some combination of the following files:
 
-``` inform7
+```
 Platinum
 	index.html
 	source.html
@@ -17947,7 +17939,7 @@ There are two HTML pages here, one for the main front page, the other for pages 
 
 If any of these is missing, Inform uses the one in "Standard" instead. In practice, this means the easiest way to create a new template is to supply just a new CSS file, which can change the colour, font, type size, and position of more or less everything in the site:
 
-``` inform7
+```
 Platinum
 	style.css
 ```
@@ -17964,7 +17956,7 @@ The following describes how Inform uses the extras file and the two HTML pages i
 
 The optional "(extras).txt" file – note brackets – is a text file which contains a list of named extras to throw in. For instance:
 
-``` inform7
+```
 easter.html
 egg.png
 ```
@@ -17973,9 +17965,7 @@ These named files need to be present in the template folder. Files with the exte
 
 HTML templates like "index.html" and "source.html" are fully valid HTML pages in their own right, though they have placeholder text where Inform will substitute the project's bibliographic data (see below). The "<head>" element should include a reference to "style.css", which of course will mean the CSS file given in the template (or the one from "Standard" if no CSS file is given) – for instance,
 
-[ZL: not inform7, but probably not worth adding another language for HTML...]::
-
-``` inform7
+```
 <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 ```
 
@@ -18061,8 +18051,6 @@ Release along with a solution.
 ```
 
 Inform will then place a file called "solution.txt" inside the "Release" folder. The solution might look like so (although probably much longer):
-
-[ZL: transcript appropriate?]::
 
 ``` 
 Solution to "Memoirs of India" by Graham Nelson
@@ -18244,42 +18232,41 @@ Northern Oxfordshire is a region. Hampton Poyle and Steeple Barton are in Northe
 
 Note that all map-maker settings have single word names, though many are hyphenated, and that "colour" is always given the English and Canadian spelling, not the American form "color".
 
-``` inform7
-font					font (named in double-quotes)
-minimum-map-width		integer (measured in points: 72 = 1 inch)
-title					text (in double-quotes)
-title-size				integer (measured in points)
-title-font				font (named in double-quotes)
-title-colour			colour (named in double-quotes)
-map-outline				on/off
-border-size				integer (measured in points)
-vertical-spacing		integer (measured in points)
-monochrome				on/off
-annotation-size			integer (measured in points)
-annotation-length		integer (length to abbreviate down to)
-annotation-font			font (named in double-quotes)
-subtitle				text (in double-quotes)
-subtitle-size			integer (measured in points)
-subtitle-font			font (named in double-quotes)
-subtitle-colour			colour (named in double-quotes)
-grid-size				integer (measured in points)
-route-stiffness			integer (Bezier spline curve scale factor)
-route-thickness			integer (measured in points)
-route-colour			colour (named in double-quotes)
-room-offset				offset (in percentages of grid-size)
-room-size				integer (measured in points)
-room-colour				colour (named in double-quotes)
-room-name				text (in double-quotes)
-room-name-size			integer (measured in points)
-room-name-font			font (named in double-quotes)
-room-name-colour		colour (named in double-quotes)
-room-name-length		integer (length to abbreviate down to)
-room-name-offset		offset (in percentages of grid-size)
-room-outline			on/off
-room-outline-colour		colour (named in double-quotes)
-room-outline-thickness	integer (measured in points)
-room-shape				shape (named in double-quotes)
-```
+
+- font					font (named in double-quotes)
+- minimum-map-width		integer (measured in points: 72 = 1 inch)
+- title					text (in double-quotes)
+- title-size				integer (measured in points)
+- title-font				font (named in double-quotes)
+- title-colour			colour (named in double-quotes)
+- map-outline				on/off
+- border-size				integer (measured in points)
+- vertical-spacing		integer (measured in points)
+- monochrome				on/off
+- annotation-size			integer (measured in points)
+- annotation-length		integer (length to abbreviate down to)
+- annotation-font			font (named in double-quotes)
+- subtitle				text (in double-quotes)
+- subtitle-size			integer (measured in points)
+- subtitle-font			font (named in double-quotes)
+- subtitle-colour			colour (named in double-quotes)
+- grid-size				integer (measured in points)
+- route-stiffness			integer (Bezier spline curve scale factor)
+- route-thickness			integer (measured in points)
+- route-colour			colour (named in double-quotes)
+- room-offset				offset (in percentages of grid-size)
+- room-size				integer (measured in points)
+- room-colour				colour (named in double-quotes)
+- room-name				text (in double-quotes)
+- room-name-size			integer (measured in points)
+- room-name-font			font (named in double-quotes)
+- room-name-colour		colour (named in double-quotes)
+- room-name-length		integer (length to abbreviate down to)
+- room-name-offset		offset (in percentages of grid-size)
+- room-outline			on/off
+- room-outline-colour		colour (named in double-quotes)
+- room-outline-thickness	integer (measured in points)
+- room-shape				shape (named in double-quotes)
 
 ## Kinds of value accepted by the map-maker
 
@@ -18565,7 +18552,9 @@ The name IFDB echoes the Internet Movie Database (IMDB), but in some ways it is 
 
 IFDB is community-editable, like Wikipedia, though editors are required to create an account and log in first – this is free, of course. A standard form is provided for creating a new record (accessible by selecting the option to add a story listing). More or less the same information that appears on Inform's library card in the Contents index needs to be copied over: there's space for the author name, story title, genre, and so on. IFDB will also ask for an IFID, a code identifying the story uniquely. Inform generates one of these automatically for each project, and it, too, is on the Library Card. It can always be found by typing ``version`` into the compiled story and looking at the line that says
 
+``` transcript
 Identification number: //[some letters and numbers]//
+```
 
 The part between the // marks is the IFID. If there's cover art, that can also be uploaded, and good cover art makes a big difference to shop-window-appeal.
 
@@ -18589,7 +18578,7 @@ All the same, there are many IF works that aren't cut out for competition releas
 
 It's also good for publicity to win one of the annual [XYZZY Awards](https://xyzzyawards.org). All interactive fiction stories released in a given year are eligible, as long as they are listed on IFDB.
 
-Meanwhile, itch.io hosts many jams every year. A small handful of these are specifically intended for interactive fiction or parser-based adventures, but there are many other jams that allow entrants to put up any game with an appropriate theme, regardless of its format. The [itch.io Jams Calendar](https://itch.io)/jams) lists the jams that are coming up.
+Meanwhile, itch.io hosts many jams every year. A small handful of these are specifically intended for interactive fiction or parser-based adventures, but there are many other jams that allow entrants to put up any game with an appropriate theme, regardless of its format. The [itch.io Jams Calendar](https://itch.io/jams) lists the jams that are coming up.
 
 Finally, if your project is heavily focused on procedural generation – creating or remixing elements on each playthrough – then it may have a natural home at [Procjam](https://www.procjam.com/), a yearly event to "make something that makes something", and welcomes all kinds of generative projects, whether they are games or not.
 
@@ -18661,7 +18650,7 @@ To recap: Inform builds projects from both the source text typed by the author a
 
 It is also possible to have extensions available to just one project. These must be stored in the Extensions subfolder of the project's ".materials" folder, but otherwise are arranged the same as installed extensions – there's an outer folder for each author's name, and extensions are named with a ".i7x" extension within. For example:
 
-``` inform7
+```
 Mourning Hypercritical.inform
 Mourning Hypercritical.materials
 	Extensions
@@ -18896,9 +18885,12 @@ places the source text under the new heading in the place of the old (which is t
 
 ``` inform7
 Chapter 2a (for use with Locksmith by Emily Short)
-...
+
+[...]
+
 Section 1 - Hacked marbles (in place of Section 4 in Marbles by Peter Wong)
-...
+
+[...]
 ```
 
 and we don't include Locksmith, then the replacement of Section 4 of Marbles is not made, because Section 1 – Hacked marbles is subordinate to the Chapter 2a heading which we've told Inform to ignore.
@@ -18954,7 +18946,8 @@ In order to be recognised as documentation, this text should appear at the foot 
 For instance, the "Ducking Action" example might end:
 
 ``` inform7
-...
+
+[...]
 The Ducking Action ends here.
 
 ---- DOCUMENTATION ----
@@ -18963,7 +18956,7 @@ This is a modest extension, with much to be modest about. It allows us to use a 
 
 	Instead of ducking in the Shooting Gallery, say "Too late!"
 
-...
+[...]
 ```
 
 We obtain indented code examples by beginning a line with a tab. A double indentation can be got with two tabs in a row, and so forth. (Beware: some text editors, or emailers, flatten tabs into a row of four or perhaps eight spaces each. Inform will not recognise such a line of spaces as a tab.)
@@ -19136,7 +19129,7 @@ say the capacity of the basket
 
 might be compiled to
 
-``` inform7
+``` inform6
 print O17_basket.capacity;
 ```
 
@@ -19146,13 +19139,13 @@ Braces "{" are of course significant in I6. A real brace can be obtained by maki
 
 It's also possible for the pair of characters "-)" to occur in I6 code, for example here:
 
-``` inform7
+``` inform6
 for (i=3 : i>0 : i--)
 ```
 
 and I7 will read the "-)" as terminating the I6; we can get around this with an extra space:
 
-``` inform7
+``` inform6
 for (i=3 : i>0 : i-- )
 ```
 
@@ -19248,7 +19241,7 @@ say "We're currently using: [list of active use options].";
 
 The result might be, say,
 
-``` inform7
+``` transcript 
 We're currently using: dynamic memory allocation option [8192], maximum text length option [1024], maximum things understood at once option [100], American dialect option and fast route-finding option.
 ```
 
@@ -19274,7 +19267,7 @@ Use maximum presented footnotes of at least 350.
 
 then instead the I6 inclusion becomes:
 
-``` inform7
+``` inform6
 Constant MAX_PRESENTED_FOOTNOTES = 350;
 ```
 
@@ -19318,7 +19311,7 @@ The material between "(+" and "+)" is generally treated as a value, and thus com
 
 ``` inform7
 Include (-
-[ MyCleverLoop i; for (++i; i<10; i++) print i; ];
+[ MyCleverLoop i; for (++i; i<10; i++) print i; ]; ! Will fail to compile
 -).
 ```
 
@@ -19329,7 +19322,7 @@ looks reasonable, but contains "(+" and "+)". Spaces around the first "++" would
 ``` inform7
 Include (-
 [ Set_Stream ret;
-@glk 67 ret;
+@glk 67 ret; ! Will fail to compile
 ];
 -).
 ```
@@ -19340,7 +19333,7 @@ is tripped up by the Glulx assembly language opcode "@glk" because this occurs i
 
 ``` inform7
 Include (-
-Global saved_optional_prompt = (+ "!!>" +);
+Global saved_optional_prompt = (+ "!!>" +); ! Will fail to compile
 -).
 ```
 
@@ -19357,7 +19350,7 @@ But it's far better to avoid initialising text variables from I6 entirely. The s
 
 It should also be noted that the I6 syntax recognised inside "Include (- ... -)" is slightly restricted compared to the full range recognised by the stand-alone Inform 6 compiler. In particular:
 
-1. Only new-style "for" loops with colons in the header are allowed, so that "for (i=0: i<10: i++)" is okay but "for (i=0; i<10; i++)" is not. Moreover, "for" loops cannot contain empty clauses.
+1. Only new-style "for" loops with colons in the header are allowed, so that `for (i=0: i<10: i++ )` is okay but `for (i=0; i<10; i++ )` is not. Moreover, "for" loops cannot contain empty clauses.
 
 2. Local variable names are not allowed to be the same as an I6 statement keyword: for example, "style" and "spaces" are not allowed.
 
@@ -19365,7 +19358,7 @@ It should also be noted that the I6 syntax recognised inside "Include (- ... -)"
 
 4. Conditional compilation cannot be placed around cases in a "switch" statement.
 
-5. Compile-time constant expression evaluation can be used with arithmetic operations, so "Constant ``foo`` = ``bar`` + 1;" is okay, but not with bitwise or logical operations, so "Constant ``foo`` = (``bar`` | 1);" does not work.
+5. Compile-time constant expression evaluation can be used with arithmetic operations, so `Constant foo = bar + 1;` is okay, but not with bitwise or logical operations, so `Constant foo = (bar | 1);` does not work.
 
 6. Calculated values cannot occur as assembly-language operands.
 
@@ -19398,7 +19391,7 @@ Include (-
 -).
 ```
 
-The rule should return false if it wants to make no decision, but call either RulebookSucceeds or RulebookFails and return true if it does. These routines can optionally take an argument: which will be the return value from the rulebook.
+The rule should return false if it wants to make no decision, but call either `RulebookSucceeds` or `RulebookFails` and return true if it does. These routines can optionally take an argument: which will be the return value from the rulebook.
 
 Note that ``underground_r`` itself has no arguments. In the case of an action based rulebook, the I6 variables noun, second and actor can be referred to, while for a value based rulebook the parameter is stored in the I6 global variable parameter_object (which is not necessarily an object, in spite of the name).
 
@@ -19414,10 +19407,10 @@ The underground rule is listed in the spot danger rules.
 
 As might be expected, I7 compiles an I6 class for each kind, and an I6 object for each of its own objects. We can meddle with its compilation process here using a further refinement of Include. For instance, suppose we want the I6 class definition for things to come out containing a property like this:
 
-``` inform7
-Class K2_thing ...
+``` inform6
+Class K2_thing ! [...]
 	with marmalade_jar_size 6,
-	...
+	! [...]
 ```
 
 How to arrange this? One way is to create an ordinary I7 property, like so:
@@ -19447,7 +19440,7 @@ The whatsit object translates into I6 as "whatsit".
 The thingummy kind translates into I6 as "thingummy_class".
 ```
 
-``warning``: The "Include (- ... -) when defining ..." usage still works for the moment (except in projects compiled to C at the command line, where it may fail), but it is deprecated and likely to be removed in later versions of Inform. Avoid it if at all possible.
+**Warning:** The "Include (- ... -) when defining ..." usage still works for the moment (except in projects compiled to C at the command line, where it may fail), but it is deprecated and likely to be removed in later versions of Inform. Avoid it if at all possible.
 
 ## Inform 6 variables, properties, actions, and attributes {PM_TranslatesNonAction} {PM_TranslatesActionAlready} {PM_TranslatedTwice} {PM_TranslatedUnknownCategory} {PM_TranslatedToNonIdentifier} {PM_NonPropertyTranslated} {PM_NonQuantityTranslated} {PM_QuantityTranslatedAlready}
 
@@ -19488,7 +19481,7 @@ The unlocking it with action translates into I6 as "Unlock".
 
 ^^{Inform 6 inclusions: understanding grammar} ^^{Inform 6 inclusions: grammar tokens} ^^{translates as...+assert+: understanding (grammar tokens)} ^^{understanding: with Inform 6 functions} ^^{grammar tokens: defining in Inform 6} ^^{Inform 6 Designer's Manual+title+}
 
-The parser which deciphers the player's typed commands is written in I6, and many of the basic tokens of Understand grammar are implemented as "general parsing routines" (GPRs), the specification of which is described fully in the Inform 6 Designer's Manual. I7 translates much of the source text's Understand grammar into GPRs, and once again we can bypass this process and supply an Understand token directly as an I6 GPR. For example:
+The parser which deciphers the player's typed commands is written in I6, and many of the basic tokens of Understand grammar are implemented as "general parsing routines" (GPRs), the specification of which is described fully in the [Inform 6 Designer's Manual](https://inform-fiction.org/manual/html/index.html). I7 translates much of the source text's Understand grammar into GPRs, and once again we can bypass this process and supply an Understand token directly as an I6 GPR. For example:
 
 ``` inform7
 The Understand token squiggle translates into I6 as "SQUIGGLE_TOKEN".
@@ -19548,12 +19541,10 @@ At one time Inform allowed names to be given to Unicode character values with
 sentences like so:
 
 ``` inform7
-anticlockwise open circle arrow translates into Unicode as 8634.
+anticlockwise open circle arrow translates into Unicode as 8634. [ Fails to compile ]
 ```
 
-These sentences now throw problem messages, and instead Inform allows exactly
-
-those names in the Unicode standard.
+These sentences now throw problem messages, and instead Inform allows exactly those names in the Unicode standard.
 
 ## Overriding definitions in kits {PM_BadI6Inclusion} {PM_BeforeTheLibrary} {PM_WhenDefiningUnknown} {PM_IncludeInsteadOf}
 
@@ -19619,7 +19610,7 @@ to allow a whole extra file of Inform 6 code called "MyStuff.i6t" to be pasted i
 
 The "language of play" is the natural language used to communicate with the player at run-time: this is normally English.
 
-That means that it is difficult to write, say, Spanish-language IF using Inform 7, though heroic work by the Spanish IF community has overcome this. Inform 6 provided for translation by isolating its linguistic code in a part of the I6 library called the "language definition file", which was normally "English.h". Translations were gradually made to most major European languages, resulting in alternative language definition files called "French.h", "Italian.h" and so on. Full details on how to write a language definition file were given in the Translations chapter of the DM4, that is, the fourth edition of the Inform 6 Designer's Manual.
+That means that it is difficult to write, say, Spanish-language IF using Inform 7, though heroic work by the Spanish IF community has overcome this. Inform 6 provided for translation by isolating its linguistic code in a part of the I6 library called the "language definition file", which was normally "English.h". Translations were gradually made to most major European languages, resulting in alternative language definition files called "French.h", "Italian.h" and so on. Full details on how to write a language definition file were given in the Translations chapter of the DM4, that is, the fourth edition of the [Inform 6 Designer's Manual](https://inform-fiction.org/manual/html/).
 
 In I7 the system is different. We use the template, not a library. Instead of providing a language definition file such as "French.h", a translator should create an extension called something like "French Language by Jacques Mensonge". (The language should be named in English, so "French Language by ...", not "Langue français by ...") This extension should then contain broadly the same material as an I6 language definition file, but written in a mostly higher-level way. See the extension "English Language by Graham Nelson" supplied with I7, which is included automatically by default.
 
