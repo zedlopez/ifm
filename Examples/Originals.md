@@ -6,7 +6,7 @@ Description: Allowing the player to create models of anything in the game world;
 For: Z-Machine
 
   
-We rely here on the understanding-by-relations rules we've already learned, but there is an additional trick: we want to make sure that if the player types "original" or "actual", this word will not be taken to refer to the thing modeled:
+We rely here on the understanding-by-relations rules we've already learned, but there is an additional trick: we want to make sure that if the player types ``original`` or ``actual``, this word will not be taken to refer to the thing modeled:
 
   
 

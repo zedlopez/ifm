@@ -67,4 +67,3 @@ And now a short script, so that if we type ``test me``, we experiment with the c
 ``` inform7
 {**}Test me with "examine case / get rods / open case / get rods / sit on bench / take cushions / get up"
 ```
-

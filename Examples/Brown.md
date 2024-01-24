@@ -70,7 +70,7 @@ Understand the commands "stick" or "apply" as "tie".
 ```
 
   
-We could have created a new "sticking" action, but to keep the example short we will use the built-in "tying" action instead, and respond to the command "stick" just as if it were "tie".
+We could have created a new "sticking" action, but to keep the example short we will use the built-in "tying" action instead, and respond to the command ``stick`` just as if it were ``tie``.
 
   
 

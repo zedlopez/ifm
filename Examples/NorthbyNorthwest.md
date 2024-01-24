@@ -2,7 +2,7 @@ Example: ** North by Northwest
 Location: Reading a command
 RecipeLocation: Varying What Is Read
 Index: North-northwest and similar directions
-Description: Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type "north-northwest". The example demonstrates a way around the nine-character limit on parsed words.
+Description: Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type ``north-northwest``. The example demonstrates a way around the default nine-character limit on parsed words.
 For: Z-Machine
 
   
@@ -77,10 +77,8 @@ Rule for printing the name of a room (called the target) which is not the locati
 
 Test me with "sse / north-northwest".
 ```
-
   
 In practice, this is going to be overkill for almost all games: most players already find eight compass directions plus up and down to be enough (or more than enough) to keep track of. But the option exists, in case there is a compelling reason to use it.
 
   
 (Note also that we are allowed to use multi-word direction names, so we could  have called the directions "north by northwest", "north by northeast", and so on. This example deliberately takes the hard way in order to show how to resolve the nine-character problem.)
-

@@ -6,7 +6,7 @@ Description: Allowing the player to use different synonyms to refer to something
 For: Z-Machine
 
   
-Sometimes we create objects that we want the player to be able to call by different names: a television that should also answer to "tv" and "telly", for instance, or a refrigerator the player might also call "fridge". In this case, we can use instructions like
+Sometimes we create objects that we want the player to be able to call by different names: a television that should also answer to ``tv`` and ``telly``, for instance, or a refrigerator the player might also call ``fridge``. In this case, we can use instructions like
 
   
 
@@ -30,7 +30,7 @@ The description of the projector is "[if switched on]The projector is now playin
 ```
 
   
-(This description is for local color; we will learn more about devices, and conditions like "if switched on", later in this chapter.)
+(This description is for local color; we will learn more about devices, and conditions like `if switched on`, later in this chapter.)
 
   
 By default, Inform does not understand the names of an object's kind as referring to that object, unless the object has no other name of its own. We can change this, if we like, by defining names that should be applied to everything of a given kind:

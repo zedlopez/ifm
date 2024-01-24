@@ -146,7 +146,7 @@ And again, some exception needs to be made for seeing what's in the dip in the g
 ```
 
   
-The following is to account for cases where the player types "look toward obelisk" or similar, rather than looking toward a room:
+The following is to account for cases where the player types ``look toward obelisk`` or similar, rather than looking toward a room:
 
   
 

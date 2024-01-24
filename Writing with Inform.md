@@ -17098,6 +17098,8 @@ This creates a new named constant "File of Glaciers" to refer to the file, throu
 
 Quoted filenames should contain only letters and digits, should be 23 characters or fewer, and should begin with a letter. (In particular they can contain no slashes or dots – no subfolders or extensions can be indicated.) The actual filename this translates to will vary from platform to platform, but "ice.glkdata" is typical, stored in some sensible folder.
 
+[ZL: I think it'd be good to declare explicitly that these ownership/permission concepts aren't related to any ownership/permission concepts native to the system's OS... ]::
+
 Every file has an owner – not a person, but the project which normally writes to it. Inform assumes that the current project will be owning any file which it declares – the File of Glaciers, for instance. But we can optionally specify that it is owned by somebody else:
 
 ``` inform7

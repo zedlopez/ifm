@@ -79,7 +79,7 @@ Now we create our other location:
 ```
 
   
-...which handles the case of the player typing >IN. (We will not assume by default that they want to get into the cage with the lion, this being obviously perilous.) But we also want to make sure that the player who types >``enter booth`` winds up in the same place, so we should add:
+...which handles the case of the player typing ``in``. (We will not assume by default that they want to get into the cage with the lion, this being obviously perilous.) But we also want to make sure that the player who types ``enter booth`` winds up in the same place, so we should add:
 
   
 

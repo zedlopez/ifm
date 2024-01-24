@@ -40,14 +40,14 @@ Instead of examining the screen:
 ```
 
   
-As far as the story file is concerned, then, it sends a request down the communication line by writing the chosen ``rss`` feed to the file named "rssrequest", and expects a reply to come back down the line by being written to the file "rssreply". However, the story file needs to expect that this might take some time. (Maybe forever, if there is no program responding, or if the Internet connection is not working.) The story file marks the "rssreply" file as not ready before it makes a request; if it subsequently finds that the file is now ready, that must mean that the other program has done the honours, and that all is well. In the mean time, "The screen remains blank for now."
+As far as the story file is concerned, then, it sends a request down the communication line by writing the chosen RSS feed to the file named "rssrequest", and expects a reply to come back down the line by being written to the file "rssreply". However, the story file needs to expect that this might take some time. (Maybe forever, if there is no program responding, or if the Internet connection is not working.) The story file marks the "rssreply" file as not ready before it makes a request; if it subsequently finds that the file is now ready, that must mean that the other program has done the honours, and that all is well. In the mean time, "The screen remains blank for now."
 
   
-Now for the ``rss``-``script`` program. The following provides a crude but workable program suitable for running as a Perl script on a system which provides the standard Internet fetching program "curl": Mac OS X, for instance. (If you have OS X, you can paste the following into a (Unix-format) text file called "rss-script.pl", place it in your home folder, open the Terminal utility, type "perl rss-script.pl", and then hide the Terminal window again.)
+Now for the RSS-script program. The following provides a crude but workable program suitable for running as a Perl script on a system which provides the standard Internet fetching program "curl": Mac OS X, for instance. (If you have OS X, you can paste the following into a (Unix-format) text file called "rss-script.pl", place it in your home folder, open the Terminal utility, type "perl rss-script.pl", and then hide the Terminal window again.)
 
-  
+[ZL: generic styling...]::
 
-``` inform7
+```
 for (;;) { # repeat forever:
 	system("sleep 1"); # wait 1 second
 	open REQUEST, "rssrequest.glkdata" or next;

@@ -35,7 +35,7 @@ When play begins:
 ```
 
   
-When Lydia is alive, we want >``touch lydia``'S ``body`` to mean the same thing as >``touch lydia``, so we use the setting action variables rules as a convenient point at which to reassign the action:
+When Lydia is alive, we want ``touch lydia's body`` to mean the same thing as >``touch lydia``, so we use the setting action variables rules as a convenient point at which to reassign the action:
 
   
 

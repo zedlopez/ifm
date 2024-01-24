@@ -38,10 +38,10 @@ Test me with "west / east".
 ```
 
   
-If we type "test me" during play, these commands will be carried out automatically, and we can see that when we return to the Research Wing, the description is not given a second time.
+If we type ``test me`` during play, these commands will be carried out automatically, and we can see that when we return to the Research Wing, the description is not given a second time.
 
   
-Some notes: the player can also turn full-length descriptions on or off with the commands "verbose" and "brief", or set a minimal-description setting with the command "superbrief". This power still belongs to the player even if we have set the use option to show brief room descriptions by default.
+Some notes: the player can also turn full-length descriptions on or off with the commands ``verbose`` and ``brief``, or set a minimal-description setting with the command ``superbrief``. This power still belongs to the player even if we have set the use option to show brief room descriptions by default.
 
   
 Moreover, we can ourselves check what the state of the descriptions is, with
@@ -56,4 +56,3 @@ if set to abbreviated room descriptions: ...
 
   
 Finally, it is possible to exercise more precise control over what the player sees on their first and subsequent visits to a room; see the next example for details.
-
