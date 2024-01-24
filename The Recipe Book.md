@@ -185,9 +185,9 @@ Inform also allows the player to refer to the most recently seen objects and peo
 ### See Also
 
 - [Liquids] for a resolution of this bottle-of-wine issue.
-- [Memory and Knowledge] for a way to refer to characters whom the player knows about but who aren&#39;t currently in the room.
+- [Memory and Knowledge] for a way to refer to characters whom the player knows about but who aren't currently in the room.
 - [Clarification and Correction] for ways to improve guesses about what the player means.
-- [Alternatives To Standard Parsing] for several esoteric variations on the default behavior, such as accepting adverbs anywhere in the command, and scanning the player&#39;s input for keywords.
+- [Alternatives To Standard Parsing] for several esoteric variations on the default behavior, such as accepting adverbs anywhere in the command, and scanning the player's input for keywords.
 
 ## Using the Player's Input
 
@@ -396,9 +396,9 @@ Certain complications apply when characters other than the player have to see an
 ### See Also
 
 - [Windows] for climbing through a window from one room to another.
-- [Ropes] for portable connections between rooms, much of the development of which could be adapted to handle portable ladders. &quot;Doors&quot; are never allowed to move.
+- [Ropes] for portable connections between rooms, much of the development of which could be adapted to handle portable ladders. [Doors] are never allowed to move.
 - [Magic (Breaking the Laws of Physics)] for a hat that lets the player walk through closed doors.
-- [Modifying Existing Commands] for ways to allow the player to unlock with a key that isn&#39;t currently being carried.
+- [Modifying Existing Commands] for ways to allow the player to unlock with a key that isn't currently being carried.
 
 ## Windows
 
@@ -463,7 +463,7 @@ So Inform's "listening to" action is the audio equivalent of "examining", rather
 
 ### See Also
 
-- [Lighting] for heightened hearing in darkness, and the rest of &quot;Four Stars&quot;.
+- [Lighting] for heightened hearing in darkness, and the rest of "Four Stars".
 
 ## Passers-By, Weather and Astronomical Events
 
@@ -667,7 +667,7 @@ Understand "bite nails" as a mistake ("Your only nail remaining is the one on yo
 ### See Also
 
 - [Clothing] for more on dressing characters up.
-- [Saying Complicated Things] for conversation, another area in which the player character&#39;s personality might come into play.
+- [Saying Complicated Things] for conversation, another area in which the player character's personality might come into play.
 
 ## Background
 
@@ -777,7 +777,7 @@ After deciding the scope of the player when the surveillance camera is switched 
 
 ### See Also
 
-- [Helping and Hinting] for objects tagged with a &quot;seen&quot; property when the player first encounters them.
+- [Helping and Hinting] for objects tagged with a "seen" property when the player first encounters them.
 - [Getting Acquainted] for a character whose name is changed during the course of play as the player gets to know them better.
 - [Room Descriptions] for more ways to change the description of a room depending on player experience.
 - [Going, Pushing Things in Directions] for ways to understand the names of distant rooms and move towards them.
@@ -1156,8 +1156,8 @@ The player always has the option of turning room descriptions to ``brief`` or ``
 ### See Also
 
 - [Room Descriptions] for a detailed description of how Inform creates room descriptions and how to change the results.
-- [Going, Pushing Things in Directions] for ways to change just those room descriptions that are shown as the result of the player&#39;s movement.
-- [Memory and Knowledge] for ways to change the room description in response to the player character&#39;s knowledge at any given stage of play.
+- [Going, Pushing Things in Directions] for ways to change just those room descriptions that are shown as the result of the player's movement.
+- [Memory and Knowledge] for ways to change the room description in response to the player character's knowledge at any given stage of play.
 
 ## Examining
 
@@ -1268,7 +1268,7 @@ Another category of examples treat how we handle the movement commands themselve
 
 In the same spirit of interpreting the player's intentions sensibly, [Provenance Unknown] modifies the pushing command so that if the player pushes the top object in a stack of objects towards a direction, Inform attempts to move the bottom item instead. This is convenient if, for instance, we have a heavy television on a movable cart and want ``push television west`` to work just as well as ``push cart west``.
 
-We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a GO ``back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, ``go``, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and ``in`` mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of ``up`` and ``down`` accordingly.
+We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a ``go back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, ``go``, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and ``in`` mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of ``up`` and ``down`` accordingly.
 
 ### See Also
 
@@ -1492,7 +1492,7 @@ Finally, in some IF, the roles of characters may change from playing to playing.
 ### See Also
 
 - [The Human Body] for more on body parts and physical description.
-- [Memory and Knowledge] for a way to refer to characters whom the player knows about but who aren&#39;t currently in the room.
+- [Memory and Knowledge] for a way to refer to characters whom the player knows about but who aren't currently in the room.
 
 ## Liveliness
 
@@ -1557,7 +1557,7 @@ If we do this, giving items to characters will have the result of moving our pos
 
 ### See Also
 
-- [Modifying Existing Commands] for ways to allow the player to give or show things that they aren&#39;t currently carrying.
+- [Modifying Existing Commands] for ways to allow the player to give or show things that they aren't currently carrying.
 - [Actions on Multiple Objects] for an implementation of giving that allows the player to offer multiple objects at once, where their combined value determines whether they are accepted.
 - [Money] for ways to keep track of cash flow, physical money objects, and price negotiations.
 
@@ -1772,7 +1772,7 @@ Antony opens the iron gate. He goes through.
 
 ### See Also
 
-- [Doors, Staircases, and Bridges] for some technical details of allowing other characters to interact with doors when they&#39;re in rooms that don&#39;t contain the player.
+- [Doors, Staircases, and Bridges] for some technical details of allowing other characters to interact with doors when they're in rooms that don't contain the player.
 
 ## Obedient Characters
 
@@ -1915,7 +1915,7 @@ For animals that we can sit on and ride–a camel or a horse, say–we may want 
 
 ### See Also
 
-- [Liveliness] for pets that change what they&#39;re doing every time the player looks.
+- [Liveliness] for pets that change what they're doing every time the player looks.
 - [Bags, Bottles, Boxes and Safes] for a cat that eats food put in its container.
 
 ## Furniture
@@ -2026,7 +2026,7 @@ Finally, any action that destroys a container has to consider what to do with th
 - [Volume, Height, Weight] for containers breaking under the weight of their contents.
 - [Heat] for keeping things warm in insulated containers.
 - [Furniture] for chests with lids that can support other objects.
-- [Modifying Existing Commands] for ways to allow the player to unlock with a key that isn&#39;t currently being carried.
+- [Modifying Existing Commands] for ways to allow the player to unlock with a key that isn't currently being carried.
 
 ## Clothing
 
@@ -2302,7 +2302,7 @@ Since "part of" allows us to have two objects joined together into what the play
 - [Combat and Death] for a robot that breaks into its component limbs when shot with a blaster.
 - [Goal-Seeking Characters] for a character who eats donuts, leaving crumbs on the floor.
 - [Volume, Height, Weight] for containers breaking under the weight of their contents.
-- [Ropes] for cutting up string into up to 35 different pieces of different lengths - a limit the player is unlikely to find out about, but a limit all the same, and an expensive solution since we need 35 different things for the &quot;debris&quot; when string is &quot;broken&quot;.
+- [Ropes] for cutting up string into up to 35 different pieces of different lengths - a limit the player is unlikely to find out about, but a limit all the same, and an expensive solution since we need 35 different things for the "debris" when string is "broken".
 
 ## Volume, Height, Weight
 
@@ -2379,12 +2379,12 @@ If a hot object is not to be touched, will it stay hot forever? It might well, i
 
 ### See Also
 
-- [Electricity and Magnetism] for items which shouldn&#39;t be touched because they are hot in a different way.
+- [Electricity and Magnetism] for items which shouldn't be touched because they are hot in a different way.
 
 ## Magic (Breaking the Laws of Physics)
 
 ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}
-Every previous section of this chapter has been about adding further realism constraints to Inform, to give it a more advanced understanding of physics (and chemistry). But Inform has plenty of physical laws built into it already, even if they are more mundane: inanimate objects do not spontaneously move or change, one solid object cannot pass through another, there are opaque barriers through which light cannot pass, and so on. These rules stop many attempted actions. (GO ``east``–"The oak door is closed." ``get emerald``–"You can't, since the glass display case is in the way.")
+Every previous section of this chapter has been about adding further realism constraints to Inform, to give it a more advanced understanding of physics (and chemistry). But Inform has plenty of physical laws built into it already, even if they are more mundane: inanimate objects do not spontaneously move or change, one solid object cannot pass through another, there are opaque barriers through which light cannot pass, and so on. These rules stop many attempted actions. (``go east``–"The oak door is closed." ``get emerald``–"You can't, since the glass display case is in the way.")
 
 In the real world, physics is not negotiable. ("Gravity: it's not just a good idea, it's the law.") But in stories, magic can sometimes happen, and in these examples some of the rules built into Inform are waived in special circumstances, which in effect cancel certain physical laws. Very many other magical tricks could be achieved: if you want to make a given command work despite realism constraints, try typing ``actions``–a testing command which reveals what is happening behind the scenes–and then typing the command you want. This should reveal which named rule is stopping it: you can then try suspending that rule, and seeing if the effect now works.
 
@@ -2542,7 +2542,7 @@ It is rarely a good idea to change the default performance of such commands: the
 
 ### See Also
 
-- [Looking] for a way to set the story&#39;s verbosity level for the player.
+- [Looking] for a way to set the story's verbosity level for the player.
 - [Scoring] for a discussion of score notification.
 - [Testing] for some examples of status-check commands created for alpha- or beta-testing of a story.
 
@@ -2649,7 +2649,7 @@ The examples below offer miscellaneous alternatives, and are fairly self-descrip
 
 ### See Also
 
-- [Viewpoint] for a way to make the status line list the player&#39;s current identity.
+- [Viewpoint] for a way to make the status line list the player's current identity.
 
 ## Footnotes
 
