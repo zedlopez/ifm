@@ -650,7 +650,7 @@ Much of the personality of the player character in IF emerges from what they can
 
 Constraining the character is only the half of it: we might also want to think about what sorts of unusual actions that character might be especially likely to take, and account for these. Of course, major actions that affect the story world will require some thought and implementation work, and we should consider carefully before making the player a character like, say, the Noble of Glamour, a spirit in human form who can charm all comers, transform bespectacled secretaries into divas, and cause spontaneous cloudbursts of scarlet glitter.
 
-But even simple humans have some characteristic traits and gestures. We will probably want to write some characteristic reaction to ``examine`` ME, as demonstrated in [Bad Hair Day]. We might provide a few pieces of clothing or props that aren't strictly critical in the story, like a policeman's helmet or a feather boa:
+But even simple humans have some characteristic traits and gestures. We will probably want to write some characteristic reaction to ``examine me``, as demonstrated in [Bad Hair Day]. We might provide a few pieces of clothing or props that aren't strictly critical in the story, like a policeman's helmet or a feather boa:
 
 ``` inform7
 The player is wearing a policeman's helmet.

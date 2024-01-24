@@ -5,7 +5,6 @@ Index: Basic room, container, and supporter descriptions
 Description: A few sentences laying out a garden together with some things which might be found in it.
 For: Z-Machine
 
-  
 
 ``` inform7
 {*}"Midsummer Day"
