@@ -138,5 +138,5 @@ Test me with "s / n / w / inventory / hang cloak on hook / e / s / read message"
 ```
 
   
-And that's all. As always, type ``test`` ME to watch the scenario play itself out.
+And that's all. As always, type ``test me`` to watch the scenario play itself out.
 

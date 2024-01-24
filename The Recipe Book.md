@@ -624,7 +624,7 @@ By default, Inform gives the player character (and every other person) a simple 
 A face is a kind of thing. A face is part of every person.
 ```
 
-Once we've done this, we may invite ambiguities if the player types ``look`` AT ``face``; it is this challenge that is addressed in [The Night Before].
+Once we've done this, we may invite ambiguities if the player types ``look at face``; it is this challenge that is addressed in [The Night Before].
 
 [rBGH] gives the player a random height and then uses this to determine how the room should be described around them.
 
@@ -1483,7 +1483,7 @@ The relation between the player and the other characters is not always static, h
 
 Alternatively, of course, the player character may already know some of the other characters when the story begins, even if the player does not. In that case, we may want to add a tag-line or so of identification to a character's name when they first appear in the story. [A Humble Wayside Flower] shows one way of doing this.
 
-Another occasional challenge is dealing with such commands as ``examine`` DR. ``thisby``. The problem here is that Inform by default will understand the full stop after "Dr" to be the end of one command and the beginning of another, and will try to interpret "Thisby" as a verb. If we do have a story populated by such formally-addressed characters, we may turn to Punctuation Removal, which provides a phrase to remove the full stops in standard titles before attempting to interpret the command.
+Another occasional challenge is dealing with such commands as ``examine dr. thisby``. The problem here is that Inform by default will understand the full stop after "Dr" to be the end of one command and the beginning of another, and will try to interpret "Thisby" as a verb. If we do have a story populated by such formally-addressed characters, we may turn to Punctuation Removal, which provides a phrase to remove the full stops in standard titles before attempting to interpret the command.
 
 Other characters have physical characteristics as well as names, of course, and [Meet Market] demonstrates one way of implementing people with notable features.
 
@@ -2700,4 +2700,4 @@ Most large works of IF have historically provided secret commands for testing an
 ## Publishing
 
 ^^{materials folder: map}^^{index map: customizing for release}
-These three examples simply show what can be done using Inform's ``eps``-format map output, if one is willing to tweak the design in some vector-art program. Unfortunately, at present, there are few alternatives to Adobe Illustrator–a superb but very expensive program–in the field of ``eps`` editing, and indeed, of vector art generally: this is especially the case for Windows users. Inkscape is a usable free alternative, but it needs to have ``eps`` files translated to ``pdf``s before they can be used. On Mac OS X, the built-in Preview application can do this; otherwise the open-source Ghostscript might be used, but it can be a pain to install. Still, for the IF author who does have ``eps`` editing facilities available, Inform will play nicely with them.
+These three examples simply show what can be done using Inform's EPS-format map output, if one is willing to tweak the design in some vector-art program. Unfortunately, at present, there are few alternatives to Adobe Illustrator–a superb but very expensive program–in the field of EPS editing, and indeed, of vector art generally: this is especially the case for Windows users. Inkscape is a usable free alternative, but it needs to have EPS files translated to PDFs before they can be used. On Mac OS X, the built-in Preview application can do this; otherwise the open-source Ghostscript might be used, but it can be a pain to install. Still, for the IF author who does have EPS editing facilities available, Inform will play nicely with them.

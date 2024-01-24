@@ -69,7 +69,7 @@ For efficiency, we can also write multiple sets of connections at once:
 Clicking Go will translate this description into a sketchy but working simulation of Port Royal, in which we can type movement commands like ``east`` or ``south`` to explore the streets. Looking at the World tab of the Index, we can also see a schematic map of the simulation as it currently stands. Like the rest of the Index, this is provided entirely for the author's benefit, and is not visible to the player. (Though if we do decide that we want players to have access to a printed map while they play, Inform can help: we will return to the layout of Port Royal in the chapter on Publishing.)
 
   
-The following Test command allows us to type ``test`` ME and explore the map we just devised:
+The following Test command allows us to type ``test me`` and explore the map we just devised:
 
   
 

@@ -86,7 +86,7 @@ Report taking something:
 ```
 
   
-And as a bit of polish, because we'd like ``search table`` to have the same effect as ``examine all`` ON ``table``:
+And as a bit of polish, because we'd like ``search table`` to have the same effect as ``examine all on table``:
 
   
 

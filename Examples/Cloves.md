@@ -9,7 +9,7 @@ For: Z-Machine
 It has sometimes been suggested that IF should allow for the player to use adverbs, so that doing something "carefully" will have a different effect from doing it "quickly". There are several inherent challenges here: it's a good idea to make very sure the player knows all their adverb options, and the list of possibilities should probably not be too long.
 
   
-Another trick is that adverbs complicate understanding commands, because they can occur anywhere: one might type >GO ``west carefully`` or >``carefully`` GO ``west``, and ideally the game should understand both. After reading a command is the best point to do this sort of thing, because we can find adverbs, interpret them, and remove them from the command stream. So:
+Another trick is that adverbs complicate understanding commands, because they can occur anywhere: one might type ``go west carefully`` or ``carefully go west``, and ideally the game should understand both. After reading a command is the best point to do this sort of thing, because we can find adverbs, interpret them, and remove them from the command stream. So:
 
   
 
@@ -68,5 +68,5 @@ Test me with "wait / wait insouciantly / sheepishly look / defiantly look / look
 The qualification about turn count is to prevent this before message from occurring when the player first looks around the room (automatically) at the start of play.
 
   
-Note that to test this example, one must type ``insouciantly test`` ME, and not simply ``test`` ME: a poseur's work is never done.
+Note that to test this example, one must type ``insouciantly test me``, and not simply ``test me``: a poseur's work is never done.
 

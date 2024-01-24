@@ -64,7 +64,7 @@ Test me with "x mirror / look in mirror / g".
 ```
 
   
-A final note: we use "searching" here because Inform understands both ``search thing`` and ``look`` IN ``thing`` as the searching action, and the player is most likely to type ``look`` IN ``mirror`` in order to see the reflection there. In the absence of an example, we can discover the relationship between actions and their command vocabulary in one of two ways. A complete list of actions and the vocabulary associated with them is available in the Actions index. Alternatively, we can type ``actions`` at a prompt, followed by ``look`` IN ``mirror``, and get the response
+A final note: we use "searching" here because Inform understands both ``search thing`` and ``look in thing`` as the searching action, and the player is most likely to type ``look in mirror`` in order to see the reflection there. In the absence of an example, we can discover the relationship between actions and their command vocabulary in one of two ways. A complete list of actions and the vocabulary associated with them is available in the Actions index. Alternatively, we can type ``actions`` at a prompt, followed by ``look in mirror``, and get the response
 
   
 

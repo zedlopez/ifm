@@ -112,7 +112,7 @@ And this last bit, borrowed from the chapter on Understanding, adds some special
 ```
 
   
-We also need to deal with commands like ``put battery`` IN ``flashlight``, where Inform might construe ``battery`` as the D battery, the flashlight's battery compartment, or the cassette recorder's battery compartment – and might also construe ``flashlight`` as either the flashlight's battery compartment or the flashlight itself.
+We also need to deal with commands like ``put battery in flashlight``, where Inform might construe ``battery`` as the D battery, the flashlight's battery compartment, or the cassette recorder's battery compartment – and might also construe ``flashlight`` as either the flashlight's battery compartment or the flashlight itself.
 
   
 

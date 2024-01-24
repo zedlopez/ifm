@@ -75,7 +75,7 @@ Report writing in:
 ```
 
   
-Now what happens is that the player, having typed ``write`` IN ``notebook``, will be faced with a ">>" prompt instead of the usual ">": a sign that the input mode has changed.
+Now what happens is that the player, having typed ``write in notebook``, will be faced with a ">>" prompt instead of the usual ">": a sign that the input mode has changed.
 
   
 The next code is to react to reading a command. Whatever the player types at the >> prompt when the target jotter is set will now be recorded in the notebook, though with a character limit of about 60-100 characters depending on how much upper-case and punctuation they use. (There are ways to lift the character length restriction as well, but they would take us into deeper waters.)

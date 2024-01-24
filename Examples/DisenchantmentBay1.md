@@ -60,7 +60,7 @@ Using "some" rather than "a" or "the" tells Inform that the cushions are to be r
 ```
 
   
-And now a short script, so that if we type ``test`` ME, we experiment with the case and bench:
+And now a short script, so that if we type ``test me``, we experiment with the case and bench:
 
   
 

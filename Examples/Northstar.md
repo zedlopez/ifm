@@ -6,7 +6,7 @@ Description: Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE I
 For: Z-Machine
 
   
-Most of the time, Inform understands commands to other characters when they take the form ``josh``, ``take inventory`` or ``joan``, ``wear the armor``. But novice players might also try commands of the form ``ask josh`` TO ``take inventory`` or ``order joan`` TO ``wear the armor``.
+Most of the time, Inform understands commands to other characters when they take the form ``josh, take inventory`` or ``joan, wear the armor``. But novice players might also try commands of the form ``ask josh to take inventory`` or ``order joan to wear the armor``.
 
   
 The easiest way to make Inform understand such commands is to meddle directly with the player's command, changing it into the format that the game will understand, as here:

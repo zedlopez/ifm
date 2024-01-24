@@ -6,7 +6,7 @@ Description: Expanding the effects of the THROW something AT something command s
 For: Z-Machine
 
   
-Suppose we want to expand the function of the existing ``throw something`` AT command so that a thrown object actually does make contact most of the time. A glance at the Actions index tells us that the Throwing it at rulebook currently looks like this:
+Suppose we want to expand the function of the existing ``throw something at`` command so that a thrown object actually does make contact most of the time. A glance at the Actions index tells us that the Throwing it at rulebook currently looks like this:
 
   
 

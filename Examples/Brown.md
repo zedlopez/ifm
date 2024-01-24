@@ -19,7 +19,7 @@ After examining something when the label is part of the noun:
 ```
 
   
-Here is the essential point: whenever we ``attach label`` TO something, it becomes part of that object.
+Here is the essential point: whenever we ``attach label to`` something, it becomes part of that object.
 
   
 

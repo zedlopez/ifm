@@ -283,7 +283,7 @@ Test me with "hint about wight / north / get bar / south / open tomb / get dagge
 ```
 
   
-Note that, if using ``test`` ME to run through the solution on the Z-machine, we will have to answer a few yes/no questions along the way.
+Note that, if using ``test me`` to run through the solution on the Z-machine, we will have to answer a few yes/no questions along the way.
 
   
 For Glulx, the code should instead read something like

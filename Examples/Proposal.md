@@ -67,7 +67,7 @@ Instead of saying no in the presence of a handsome apprehensive Mr Spruce:
 ```
 
   
-And since the player might ``say yes`` TO ``spruce``, we had better reroute the relevant options:
+And since the player might ``say yes to spruce``, we had better reroute the relevant options:
 
   
 

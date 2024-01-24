@@ -82,8 +82,8 @@ Understand "ask [someone] [text]" as asking it about.
 ```
 
   
-And now we have a game that will accept (though not always respond very sensibly to) questions of almost any form we might put to another character: ``ask solomon what rain`` IS will be answered, but then again, it won't be distinguished from, say, ``ask solomon whether this persistent rain`` IS A ``divine punishment`` OR ``what``.
+And now we have a game that will accept (though not always respond very sensibly to) questions of almost any form we might put to another character: ``ask solomon what rain is`` will be answered, but then again, it won't be distinguished from, say, ``ask solomon whether this persistent rain is a divine punishment or what``.
 
   
-All the same, a system that allowed the player a bit more specification of questions than simple keyword-use might be useful in a mystery game, for instance, where we might want to let our detective conduct inquiries into specific details. An alternative approach to the rather free one above would be to force the player to use only questions of the form ``what`` IS ``rain``? or ``who are you``?: this would cut down on false-positive matches. But we might still choose to store the responses in a table of this type.
+All the same, a system that allowed the player a bit more specification of questions than simple keyword-use might be useful in a mystery game, for instance, where we might want to let our detective conduct inquiries into specific details. An alternative approach to the rather free one above would be to force the player to use only questions of the form ``what is rain``? or ``who are you``?: this would cut down on false-positive matches. But we might still choose to store the responses in a table of this type.
 

@@ -9,7 +9,7 @@ For: Z-Machine
 As we have seen, there are a number of different ways of controlling conversation in interactive fiction, and the best choice of way will depend quite a lot on what kind of work we're writing.
 
   
-One common model is to replace Inform's default ``ask`` and ``tell`` commands with a ``talk`` TO command. This gives the player less control than they would otherwise have: instead of asking a character about any topic under the sun, they're restricted to seeing (or not seeing) a single sequence of text that the author has written in advance. On the other hand, such a system is harder for the player to break (since they can never ask about a topic that the author hasn't implemented), and easier for the author to tie into plot developments. If we give ``talk`` TO different output at each scene, we get conversation that is always tied to the current state of the plot.
+One common model is to replace Inform's default ``ask`` and ``tell`` commands with a ``talk to`` command. This gives the player less control than they would otherwise have: instead of asking a character about any topic under the sun, they're restricted to seeing (or not seeing) a single sequence of text that the author has written in advance. On the other hand, such a system is harder for the player to break (since they can never ask about a topic that the author hasn't implemented), and easier for the author to tie into plot developments. If we give ``talk to`` different output at each scene, we get conversation that is always tied to the current state of the plot.
 
   
 This is a design approach that works best in a game with a large number of short, focused scenes. For other kinds of conversation system design, compare the other examples listed in the Recipe Book.
@@ -23,7 +23,7 @@ Chapter 1 - Replacing old talk commands and making a new one
 ```
 
   
-Here, using some techniques that will be discussed in the chapter on Understanding, we get rid of Inform's default handling of ``ask`` and ``tell``, and create our own ``talk`` TO action instead:
+Here, using some techniques that will be discussed in the chapter on Understanding, we get rid of Inform's default handling of ``ask`` and ``tell``, and create our own ``talk to`` action instead:
 
   
 

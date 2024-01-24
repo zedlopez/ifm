@@ -72,7 +72,7 @@ Definition: a person is dead if they are in the spirit-world.
 ```
 
   
-It's also possible that the player will type something like >X ``lydia`` when Lydia's corpse is not in view, so we should have an appropriate answer to that as well:
+It's also possible that the player will type something like ``x lydia`` when Lydia's corpse is not in view, so we should have an appropriate answer to that as well:
 
   
 

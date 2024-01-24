@@ -26,7 +26,7 @@ A freezer compartment is a kind of container. A freezer compartment is usually c
 ```
 
   
-Now: we're going to want many of the items in our kitchen to have switches, and to handle input sensibly regardless of whether the player types ``turn`` ON ``stove`` or ``turn`` ON ``stove switch``. (This is apparently a stove with only one burner.) For convenience, we'll define an "includes" relation:
+Now: we're going to want many of the items in our kitchen to have switches, and to handle input sensibly regardless of whether the player types ``turn on stove`` or ``turn on stove switch``. (This is apparently a stove with only one burner.) For convenience, we'll define an "includes" relation:
 
   
 

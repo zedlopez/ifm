@@ -6,7 +6,7 @@ Description: Making the character understand YES, SAY YES TO CHARACTER, TELL CHA
 For: Z-Machine
 
   
-Inform already understands ``yes``, NO, and ``sorry`` as commands in their own right, which can make things a little sticky when we want a character to ask a question of the player. The most important thing is not to cover some of the possible phrasings while ignoring others.
+Inform already understands ``yes``, ``no``, and ``sorry`` as commands in their own right, which can make things a little sticky when we want a character to ask a question of the player. The most important thing is not to cover some of the possible phrasings while ignoring others.
 
   
 
@@ -30,7 +30,7 @@ Instead of saying sorry in the presence of the Sybil:
 ```
 
   
-The complexity arises from the fact that we want to handle both ``yes`` and ``sybil``, ``yes``. If we only had the latter, 'yes' would be treated as a text given to the Sybil, just as in the commands ``say yes`` TO ``sybil`` or ``answer yes``. But because we have defined it as a command (so that the player can use it independently), ``sybil``, ``yes`` is understood as an order to the Sybil to do the ``yes`` action.
+The complexity arises from the fact that we want to handle both ``yes`` and ``sybil, yes``. If we only had the latter, 'yes' would be treated as a text given to the Sybil, just as in the commands ``say yes to sybil`` or ``answer yes``. But because we have defined it as a command (so that the player can use it independently), ``sybil, yes`` is understood as an order to the Sybil to do the ``yes`` action.
 
   
 Fortunately, we can redirect everything, as here, so that the results wind up the same.

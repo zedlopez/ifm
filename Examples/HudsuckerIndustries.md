@@ -115,5 +115,5 @@ Test me with "inventory / examine letter / get letter / i / put letter in ceo bo
 ```
 
   
-That last "repeat" is merely a device to shuffle the order of items in the satchel so that the player will not always encounter the letters in a neatly presorted order, despite our defining them that way. (Of course, that means that the test produced by ``test`` ME cannot be very exciting...)
+That last "repeat" is merely a device to shuffle the order of items in the satchel so that the player will not always encounter the letters in a neatly presorted order, despite our defining them that way. (Of course, that means that the test produced by ``test me`` cannot be very exciting...)
 

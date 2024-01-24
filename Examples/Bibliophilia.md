@@ -43,7 +43,7 @@ Test me with "south / examine ocd / examine books / examine books / examine plat
 ```
 
   
-Now if we type >X ``hercules`` in the Lounge, we will get
+Now if we type ``x hercules`` in the Lounge, we will get
 
   
 
