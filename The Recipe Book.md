@@ -150,9 +150,9 @@ This allows ``examine aquamarine wallpaper`` if, but only if, it happens to be a
 A box is a kind of container. The red box is a box in the Toyshop. Some crayons are in the red box. Understand "box of [something related by containment]" as a box.
 ```
 
-which recognises ``box`` OF ``crayons`` until they are removed, when it reverts to plain ``box`` only.
+which recognises ``box of crayons`` until they are removed, when it reverts to plain ``box`` only.
 
-Greater difficulty arises if, using some variable or property or table to mark that a bottle contains wine, we print messages calling it "bottle of wine". We are then honour-bound to understand commands like ``take bottle`` OF ``wine`` in return, not to insist on ``take bottle``. Almost all "simulation" IF runs in to issues like this, and there is no general solution because simulations are so varied.
+Greater difficulty arises if, using some variable or property or table to mark that a bottle contains wine, we print messages calling it "bottle of wine". We are then honour-bound to understand commands like ``take bottle of wine`` in return, not to insist on ``take bottle``. Almost all "simulation" IF runs in to issues like this, and there is no general solution because simulations are so varied.
 
 A converse challenge arises when we want to *avoid* understanding the player's references to an object under some or all circumstances. This is relatively uncommon, but does sometimes occur. For this situation, Inform provides the "privately-named" property, as in
 
@@ -317,13 +317,13 @@ The Campus Area is a region. The Library and the Swimming Pool are in the Campus
 
 [Port Royal 3] demonstrates this further. [A&E] shows how regions can be used to write simple rules which regulate access to and from whole areas of the map.
 
-Many old-school IF puzzles involve journeys through the map which are confused, randomised or otherwise frustrated: see [Bee Chambers] for a typical maze, [Zork II] for a randomised connection, [Prisoner's Dilemma] for a change in the map occurring during play. A completely random map takes us away from traditional IF and more towards a different sort of old-school game, the computerised role-playing game with its endless quests through dungeons with randomly generated treasures and monsters. This style of map–building itself one step at a time, as the player explores–can sometimes be useful to provide an illusion of infinite expanse: see **All Roads Lead To Mars**.
+Many old-school IF puzzles involve journeys through the map which are confused, randomised or otherwise frustrated: see [Bee Chambers] for a typical maze, [Zork II] for a randomised connection, [Prisoner's Dilemma] for a change in the map occurring during play. A completely random map takes us away from traditional IF and more towards a different sort of old-school game, the computerised role-playing game with its endless quests through dungeons with randomly generated treasures and monsters. This style of map–building itself one step at a time, as the player explores–can sometimes be useful to provide an illusion of infinite expanse: see [All Roads Lead To Mars].
 
 While the standard compass directions are conventional in IF, there are times when we may want to replace them without other forms of directional relationship. [Indirection] renames the compass directions to correspond to primary colors, as in Mayan thinking. [The World of Charles S. Roberts] substitutes new ones, instead, introducing a hex-grid map in place of the usual one.
 
 ### See Also
 
-- [Going, Pushing Things in Directions] for ways to add more relative directions, such as context-sensitive understanding of OUT and IN.
+- [Going, Pushing Things in Directions] for ways to add more relative directions, such as context-sensitive understanding of ``out`` and ``in``.
 - [Room Descriptions] for ways to modify the room description printed.
 - [Ships, Trains and Elevators] for rooms which move around in the map and for directions aboard a ship.
 
@@ -869,7 +869,7 @@ Conversely, there are cases where the player is offering too *much* information 
 Understand "burn [something] with [text]" as a mistake ("Your choice of lighter isn't important in this story: BURN SOMETHING will suffice.")
 ```
 
-Finally, there are some cases where we want to understand a phrase to mean a specific form of a more general action. For instance, we might want ``turn down the music`` to mean the same thing as ``set volume knob`` TO 1. In this case, we may want to make a sort of dummy action which converts into the main action, as in
+Finally, there are some cases where we want to understand a phrase to mean a specific form of a more general action. For instance, we might want ``turn down the music`` to mean the same thing as ``set volume knob to 1``. In this case, we may want to make a sort of dummy action which converts into the main action, as in
 
 ``` inform7
 Understand "turn down volume" or "turn down music" or "turn down the volume" or "turn down the music" as lowering the volume. Lowering the volume is an action applying to nothing.
@@ -1178,7 +1178,7 @@ Finally, we may want to look at multiple things at once. [The Left Hand of Autum
 
 ### See Also
 
-- [Actions on Multiple Objects] for an alternative EXAMINE ALL command.
+- [Actions on Multiple Objects] for an alternative ``examine all`` command.
 
 ## Looking Under and Hiding
 
@@ -1229,7 +1229,7 @@ Taking also happens as a result of other commands. Such takes can be made unnece
 ^^{going+action+}^^{pushing things: rules for pushing things}^^{things+kind+: pushable between rooms}^^{room-describing action (- action name)+actvar+}^^{directions+kind+}^^{looking+action+: as part of going}^^{exiting+action+}
 Going is the most complex of actions after looking (or perhaps including looking): the success of every movement depends on the direction the player goes; the room they start from; the room they intend to reach; whether there are any doors intervening (and, if so, whether these are closed or locked); whether they are travelling by vehicle; and whether they are pushing anything in front of them. When they get there, the description they see is itself generated by a looking command.
 
-Pushing something in a direction is really a sort of going. The command >``push wheelbarrow west`` first checks certain qualifying rules: by default, only things defined as pushable between rooms may be pushed, and they may be pushed only in horizontal directions (not UP or ``down``) – though these rules can be overridden, as we see in [Zorb]. If the player's pushing attempt passes these criteria, the action is translated automatically into a going action, with all the usual checks about whether that direction leads anywhere, whether a door is in the way, and so on. The converted action afterward can be caught with such rules as
+Pushing something in a direction is really a sort of going. The command >``push wheelbarrow west`` first checks certain qualifying rules: by default, only things defined as pushable between rooms may be pushed, and they may be pushed only in horizontal directions (not ``up`` or ``down``) – though these rules can be overridden, as we see in [Zorb]. If the player's pushing attempt passes these criteria, the action is translated automatically into a going action, with all the usual checks about whether that direction leads anywhere, whether a door is in the way, and so on. The converted action afterward can be caught with such rules as
 
 ``` inform7
 Instead of going to the Alpine Meadow with the wheelbarrow:
@@ -1264,11 +1264,11 @@ Check looking when the room-describing action is the going action:
 	say "You are temporarily too blinded to see." instead.
 ```
 
-Another category of examples treat how we handle the movement commands themselves. The eight compass directions, with ``up`` and ``down``, ``in`` and ``out``, are used as standard in most interactive fiction, but they are not the only possible way of navigating, and strike many newcomers to the genre as counter-intuitive, since when strolling around in real life most of us rarely think about our travel in terms of compass orientation. [Misadventure] allows the player to GO TO a named room, instead, and calculates the best route to reach the destination; [Safari Guide] builds on this by letting the player make the whole trip in a single move, automatically opening any doors that stand in their way en route.
+Another category of examples treat how we handle the movement commands themselves. The eight compass directions, with ``up`` and ``down``, ``in`` and ``out``, are used as standard in most interactive fiction, but they are not the only possible way of navigating, and strike many newcomers to the genre as counter-intuitive, since when strolling around in real life most of us rarely think about our travel in terms of compass orientation. [Misadventure] allows the player to ``go to`` a named room, instead, and calculates the best route to reach the destination; [Safari Guide] builds on this by letting the player make the whole trip in a single move, automatically opening any doors that stand in their way en route.
 
 In the same spirit of interpreting the player's intentions sensibly, [Provenance Unknown] modifies the pushing command so that if the player pushes the top object in a stack of objects towards a direction, Inform attempts to move the bottom item instead. This is convenient if, for instance, we have a heavy television on a movable cart and want ``push television west`` to work just as well as ``push cart west``.
 
-We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a GO ``back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, ``go``, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and IN mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of ``up`` and ``down`` accordingly.
+We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a GO ``back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, ``go``, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and ``in`` mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of ``up`` and ``down`` accordingly.
 
 ### See Also
 
@@ -1293,9 +1293,9 @@ Our other examples are all modifications of the way Inform handles player moveme
 ## Waiting, Sleeping
 
 ^^{waiting+action+}^^{time: waiting intervals of time}^^{sleeping+action+}
-The standard ``wait`` command makes time pass at the same rate that it would anyway–one minute per turn. In a story where events happen at specific times of day, though, we might want to give the player more control. [Nine AM Appointment] shows how to give the player a ``wait`` 10 ``minutes`` command, while [Delayed Gratification] lets them ``wait until`` a specific time of day.
+The standard ``wait`` command makes time pass at the same rate that it would anyway–one minute per turn. In a story where events happen at specific times of day, though, we might want to give the player more control. [Nine AM Appointment] shows how to give the player a ``wait 10 minutes`` command, while [Delayed Gratification] lets them ``wait until`` a specific time of day.
 
-Ordinarily, Inform also refuses to allow the player to ``sleep`` and ``wake`` UP: the commands exist, but have no effect. [Change of Basis] lets the player enter a sleep state in which they cannot do anything. A somewhat more interesting expansion on this idea would be to let the player sleep and have dreams; there are no examples specifically of dream states, but we might consult the examples on scenes about how to disrupt one environment and move the player to another, entirely new one.
+Ordinarily, Inform also refuses to allow the player to ``sleep`` and ``wake up``: the commands exist, but have no effect. [Change of Basis] lets the player enter a sleep state in which they cannot do anything. A somewhat more interesting expansion on this idea would be to let the player sleep and have dreams; there are no examples specifically of dream states, but we might consult the examples on scenes about how to disrupt one environment and move the player to another, entirely new one.
 
 ### See Also
 
@@ -1409,7 +1409,7 @@ Suppressing names of objects entirely, while occasionally tempting, may have uni
 
 Given that our hypothetical "multiply-giving" applies to each given object in turn, it might seem to be useless to create "multiply-giving" as an action different from "giving" – but the convenience is that manipulating the multiple object list makes it possible to group behavior artificially. The trick here is that, on the first pass of the multiply-giving rulebook, we look at the entire multiple object list, perform actions, print output, and set a flag saying that the action has been handled. The flag tells Inform not to do or print anything for any of the subsequent passes through that action rulebook; thus we artificially create a situation where, instead of performing an action on each object in turn, Inform acts once on the entire group. That allows us to assess the cumulative qualities of the group and have the action respond differently than it might when assessing each item individually.
 
-[The Facts Were These] demonstrates how we might write an action for ``give three dollars`` TO ``man`` or ``give pie and hat`` TO ``man`` where the man would only accept the collective gift when its total proved satisfactory.
+[The Facts Were These] demonstrates how we might write an action for ``give three dollars to man`` or ``give pie and hat to man`` where the man would only accept the collective gift when its total proved satisfactory.
 
 [Western Art History 305] demonstrates how we might allow ``examine``, which doesn't normally permit multiple objects, to take them, but to give vaguer responses to a mass examination than an individual one.
 
@@ -1599,7 +1599,7 @@ The examples in the following sections point out ways to approach common convers
 
 At the other end of the scale, though, there are times when Inform's default implementation is too complicated for what we want to do: so we will start with ways to simplify conversation, before moving to all the exotic complexities.
 
-Before we get into these details, though, we have a couple of examples that are literally about getting started with a conversation: [Mimicry] introduces the feature that we must greet other characters before beginning to speak to them; [The Gorge at George] corrects the player's attempts to use a ``talk`` TO command where a different mode of interaction is appropriate instead.
+Before we get into these details, though, we have a couple of examples that are literally about getting started with a conversation: [Mimicry] introduces the feature that we must greet other characters before beginning to speak to them; [The Gorge at George] corrects the player's attempts to use a ``talk to`` command where a different mode of interaction is appropriate instead.
 
 ## Saying Simple Things
 
@@ -1657,7 +1657,7 @@ Do you want to ask where Jack is, how old Jack is, or whether Jack committed the
 
 [Sweeney] implements one such hybrid type of conversation.
 
-A third option is to take away almost all the player's expressiveness and give them just one command, ``talk`` TO. The player can ``talk`` TO characters whenever they want, and the story will pick the most appropriate thing for them to talk about. This works best in works with few or simple puzzles and a fast-moving, constrained plot, where the player will keep having new things to talk about. [Cheese-makers] demonstrates this.
+A third option is to take away almost all the player's expressiveness and give them just one command, ``talk to``. The player can ``talk to`` characters whenever they want, and the story will pick the most appropriate thing for them to talk about. This works best in works with few or simple puzzles and a fast-moving, constrained plot, where the player will keep having new things to talk about. [Cheese-makers] demonstrates this.
 
 Finally, a few extreme games try to fake natural language understanding by looking for keywords in the player's input, rather than an exact grammar. This is perilous, because it is all too easy for the story to completely misunderstand what the player meant to type. Nonetheless, for the sake of example, see [Complimentary Peanuts], in which the incomprehension is partly excused by the fact that the player is talking to someone a bit hard of hearing.
 
@@ -1710,7 +1710,7 @@ Lucy knows shoe-size.
 Bob knows sunset-time and shoe-size.
 ```
 
-Or again we might keep a whole database of information in a table: the characters in [Questionable Revolutions] know dates, countries, and a short description for each of several rebellions and popular uprisings, while in **Queen of Sheba**, Solomon is able to answer who, what, where, when, and why questions about a range of topics. This kind of approach is most useful when the characters need to display a deep knowledge of a particular field. The facts stored in the Table of All Known Facts, above, are comparatively sparse, because there we are designing a story in which not all data about the world is equally valuable: Lucy doesn't know the shoe size of every person in the story, because for some reason it is only her own shoe size that matters. On the other hand, the Table of All Known Facts can store different kinds of information, whereas the revolutions table has no way of storing shoe sizes or sunset times. And [Murder on the Orient Express] works differently again, because it is storing knowledge that concerns people and things that already exist in the world model, rather than abstract ideas. Our way of modeling character knowledge, in other words, will depend quite a lot on what kind of knowledge it is.
+Or again we might keep a whole database of information in a table: the characters in [Questionable Revolutions] know dates, countries, and a short description for each of several rebellions and popular uprisings, while in [Queen of Sheba], Solomon is able to answer who, what, where, when, and why questions about a range of topics. This kind of approach is most useful when the characters need to display a deep knowledge of a particular field. The facts stored in the Table of All Known Facts, above, are comparatively sparse, because there we are designing a story in which not all data about the world is equally valuable: Lucy doesn't know the shoe size of every person in the story, because for some reason it is only her own shoe size that matters. On the other hand, the Table of All Known Facts can store different kinds of information, whereas the revolutions table has no way of storing shoe sizes or sunset times. And [Murder on the Orient Express] works differently again, because it is storing knowledge that concerns people and things that already exist in the world model, rather than abstract ideas. Our way of modeling character knowledge, in other words, will depend quite a lot on what kind of knowledge it is.
 
 The possibilities of character reasoning are similarly broad, but [The Problem of Edith] introduces one kind: the character has a concept of how different conversation topics relate to one another, so that when she is asked about a new keyword, she picks a response that makes the question most relevant to the conversation already in progress.
 
@@ -1730,7 +1730,7 @@ There are more and less tedious ways to implement this kind of scene. The worst 
 
 [Pine 2] partly addresses this challenge: the character has a line of conversation that she wants to follow to its conclusion; we may ask questions along the way, but if we're silent, she'll take up the slack, and the scene won't end until she's done with what she has to say.
 
-Another kind of script is a series of actions for the character to perform. **Robo** demonstrates a programmable robot that will observe what the player does, then try to emulate the actions later when switched into play-back mode. [Robo 2] extends this capacity to allow the robot to contain fifteen different scripts which the player can store, list, run, and erase.
+Another kind of script is a series of actions for the character to perform. [Robo 1] demonstrates a programmable robot that will observe what the player does, then try to emulate the actions later when switched into play-back mode. [Robo 2] extends this capacity to allow the robot to contain fifteen different scripts which the player can store, list, run, and erase.
 
 [Your Mother Doesn't Work Here] offers a character with a list of tasks but whose plans can be interrupted by more urgent demands. This verges on not being a simple script any more: if we carry the idea to its natural conclusion, we get characters capable of planning scripts for themselves to accomplish their aims. This is conventionally called "goal-seeking".
 
@@ -1975,7 +1975,7 @@ The lardy cake is edible. After eating the lardy cake, say "Sticky but delicious
 
 For eating something not immediately to hand, see [Lollipop Guild]. [Delicious, Delicious Rocks], conversely, adds a sanity check which prevents the player from automatically taking inedible things only to be told they can't be eaten.
 
-Inform does not normally simulate taste or digestion, but to provide foods with a range of flavours, see [Would you...?]; to make eating different foods affect the player differently, see [Stone], or for the extreme case of poisoning foods, [Candy]. In **``mre``**, hunger causes the player problems unless they regularly find and eat food.
+Inform does not normally simulate taste or digestion, but to provide foods with a range of flavours, see [Would you...?]; to make eating different foods affect the player differently, see [Stone], or for the extreme case of poisoning foods, [Candy]. In [MRE], hunger causes the player problems unless they regularly find and eat food.
 
 ### See Also
 
@@ -2176,7 +2176,7 @@ IF authors often provide clues or background information to the player by means 
 
 Televisions come in all shapes and sizes, and [Aspect] allows their shape ("aspect ratio") to be described by the player.
 
-In [Channel 1], we can also refer to the television by what it is currently showing: thus ``watch channel`` 4 will work if the set is indeed tuned to 4. In [Channel 2], numbered channel changing is taken further: we can now ``tune`` TV TO ``channel`` 3, as well. **Channel 2** is a reasonable base implementation of a television for many purposes.
+In [Channel 1], we can also refer to the television by what it is currently showing: thus ``watch channel 4`` will work if the set is indeed tuned to 4. In [Channel 2], numbered channel changing is taken further: we can now ``tune tv to channel 3``, as well. [Channel 2] is a reasonable base implementation of a television for many purposes.
 
 ## Telephones
 
@@ -2264,7 +2264,7 @@ The example with the best compromise between simulation quality and complexity i
 
 [Savannah] is a light elaboration of Lemonade, showing how liquids might be poured on other objects, as for instance to extinguish a fire.
 
-[Noisy Cricket] extends [Lemonade] to allow for mixing, though then the number of different possible mixtures is so large that complexity increases greatly. [Lakeside Living] extends **Lemonade** differently to add a "liquid source" kind, a form of fluid container which has infinite fluid capacity and is scenery–ideal for a lake, river or spring.
+[Noisy Cricket] extends [Lemonade] to allow for mixing, though then the number of different possible mixtures is so large that complexity increases greatly. [Lakeside Living] extends [Lemonade] differently to add a "liquid source" kind, a form of fluid container which has infinite fluid capacity and is scenery–ideal for a lake, river or spring.
 
 ### See Also
 
