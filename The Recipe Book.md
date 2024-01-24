@@ -2185,6 +2185,8 @@ Telephones are much harder to achieve than televisions and in some ways as diffi
 
 A single telephone line is tricky enough to provide that one might just as well have a general solution providing a whole network. [Four Cheeses] demonstrates a system where we can dial either people or numbers: ``call janet on telephone``, or ``call 7103``, for instance.
 
+[ZL: Most of the US is on 10-digit numbers by now.]::
+
 While [Four Cheeses] provides only four-digit phone numbers, like internal company extensions, [Alias] shows how to manage US-style seven digit numbers.
 
 Finally, we might occasionally want the player to be able to address a microphone or telephone receiver directly when the identity of the person on the other end is unknown, in the form ``tell microphone about crime``. Ordinarily Inform will disallow this because we're not allowed to talk to inanimate objects, but the extension Inanimate Listeners provides more options.
