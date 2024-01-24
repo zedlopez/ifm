@@ -21,13 +21,13 @@ Before going through the Pearly Gates:
 Test me with "enter gates".
 ```
 
-The *Recipe Book* is not a tutorial–it offers advice and examples to crib from, not theory or systematic teaching. The examples here are provided with the express intention that authors cut and paste useful passages into their own works, modifying as they go. This is an excellent way to get things working quickly.
+**The Recipe Book** is not a tutorial – it offers advice and examples to crib from, not theory or systematic teaching. The examples here are provided with the express intention that authors cut and paste useful passages into their own works, modifying as they go. This is an excellent way to get things working quickly.
 
 [ZL: https://inform7.atlassian.net/browse/I7-2249 Inform licence reference ]::
 
 In the traditional saying: good programmers write good code, but great programmers steal it. (Appropriately enough, nobody seems to know who said this first.) For the avoidance of any doubt–the example text is here to be taken, and this infringes no copyright, and requires no acknowledgement. So steal at will. The examples are a part of Inform itself, and as such, they are available to anyone who accepts the Inform licence.
 
-Many programming languages for conventional computing, such as C, come with elaborate libraries of ready-written code–so elaborate, in fact, that they often need much larger manuals than the language itself, and can be hard to learn. Even expert programmers typically use only a small part of what is available in such libraries, giving up on the rest as too complex to use, or too difficult to find out about, or not quite what they need.
+Many programming languages for conventional computing, such as C, come with elaborate libraries of ready-written code – so elaborate, in fact, that they often need much larger manuals than the language itself, and can be hard to learn. Even expert programmers typically use only a small part of what is available in such libraries, giving up on the rest as too complex to use, or too difficult to find out about, or not quite what they need.
 
 The designers of Inform chose not to go down this road. Rather than providing a general system for liquids (say), which would have to be a quite complicated and opaque program, Inform provides a choice of examples showing how to get different effects. The writer can read the text which achieves these effects, and can simply cut and paste whatever might be useful, and rewrite whatever is not quite wanted.
 
@@ -48,7 +48,7 @@ Thanks also go to ^{@Nick Montfort} for several conversations during the develop
 
 A few examples were contributed by denizens of rec.arts.int-fiction: ^{@Tara McGrew}, ^{@Jon Ingold}, ^{@Mike Tarbert}, ^{@Eric Rossing}, and ^{@Kate McKee} offered such elegant implementations of various tasks that we have folded their contributions (with permission) into the *Recipe Book*.
 
-Finally, these pages owe much to the questions and suggestions of Inform users on rec.arts.int-fiction and if``mud``.
+Finally, these pages owe much to the questions and suggestions of Inform users on rec.arts.int-fiction and ``IFmud``.
 
 ## Disenchantment Bay
 
@@ -178,7 +178,7 @@ Use DICT_WORD_SIZE of 15.
 
 When compiling for the Z-machine, the solution is harder. [North by Northwest] shows how to use the reading a command activity to pre-process very long names, rendering them accessible to the parser again.
 
-Inform also allows the player to refer to the most recently seen objects and people as IT, ``him``, ``her``, and so on. It sets these pronouns by default, but there are times when we wish to override the way it does that. [Pot of Petunias] shows off a way to make Inform recognize an object as IT when it would not otherwise have done so.
+Inform also allows the player to refer to the most recently seen objects and people as ``it``, ``him``, ``her``, and so on. It sets these pronouns by default, but there are times when we wish to override the way it does that. [Pot of Petunias] shows off a way to make Inform recognize an object as IT when it would not otherwise have done so.
 
 (See Using the Player's Input for an example (Mr. Burns' Repast) in which a fish can be called by any arbitrary word as long as it ends in the letters -fish.)
 
@@ -357,7 +357,7 @@ Another interesting case is when one room is entirely inside another (such as a 
 ^^{rooms+kind+: things in more than one room}^^{backdrops+kind+}
 Suppose we want to blur the boundaries between rooms, in an environment where there are no walls: out of doors, for instance?
 
-The simplest cases involve making something exceptional visible in more than one place. [Carnivale] features an exceptionally large landmark seen by day; [Eddystone] an exceptionally bright one by night. [Waterworld] allows a very distant object (the Sun) to be seen throughout many rooms, but never approached. **View of Green Hills** gives the player an explicit command for looking through into an adjacent room.
+The simplest cases involve making something exceptional visible in more than one place. [Carnivale] features an exceptionally large landmark seen by day; [Eddystone] an exceptionally bright one by night. [Waterworld] allows a very distant object (the Sun) to be seen throughout many rooms, but never approached. [A View of Green Hills] gives the player an explicit command for looking through into an adjacent room.
 
 Three systematic examples then present outdoor landscapes with increasing sophistication. [Tiny Garden] gives the multiple rooms of an extended lawn descriptions which automatically adapt to say which directions lead into further lawn area. [Rock Garden] provides a relation, "connected with", between rooms, allowing items in one to be seen from the other: an attempt to interact with a visible item in a different area of the garden triggers an implicit going action first. [Stately Gardens] provides a much larger outdoor area, where larger landmarks are visible from further away, and room descriptions are highly adaptive.
 
@@ -438,7 +438,7 @@ For light produced electrically we might want a wall switch, as in [Down Below],
 
 The fierce, locally confined light thrown out by a carried lamp has a quality quite unlike weak but ambient daylight, and [Reflections] exploits this to make a lantern feel more realistic.
 
-When the player experiences darkness in a location, Inform is usually very guarded in what it reveals. ("It is pitch dark, and you can't see a thing.") [Hohmann Transfer] gives darkness a quite different look, and **Four Stars** heightens the other senses so that a player in darkness can still detect her surroundings. The first of the two examples in [Peeled] allows exploration of a dark place by touch.
+When the player experiences darkness in a location, Inform is usually very guarded in what it reveals. ("It is pitch dark, and you can't see a thing.") [Hohmann Transfer] gives darkness a quite different look, and [Four Stars 1] heightens the other senses so that a player in darkness can still detect her surroundings. The first of the two examples in [Peeled] allows exploration of a dark place by touch.
 
 It is sometimes useful to check whether a room that is not the current location happens to contain a light source or be naturally lighted. This poses a few challenges. [Unblinking] demonstrates one way of doing this, so long as there are no backdrop light sources.
 
@@ -455,7 +455,7 @@ It is sometimes useful to check whether a room that is not the current location 
 ## Sounds
 
 ^^{senses}^^{actions: involving senses}^^{rooms+kind+: listening to (with no object)}^^{listening to+action+}
-It is too easily assumed that room descriptions are what the player sees, but as **The Undertomb** demonstrates, they might just as easily include ambient sounds.
+It is too easily assumed that room descriptions are what the player sees, but as [The Undertomb 1] demonstrates, they might just as easily include ambient sounds.
 
 So Inform's "listening to" action is the audio equivalent of "examining", rather than "looking". Despite this the player can type ``listen``, which Inform understands as listening to the everything in the location at once. A simple but effective way to handle this is shown in [The Art of Noise].
 
@@ -541,7 +541,7 @@ For more complex sorts of scripts and schedules, it may be worth consulting the 
 ^^{time: scripting story events by time}^^{at (time)...+assert+}
 We can use a schedule of events to give some life to our environment: if we have a town setting, for instance, it makes sense for shops and libraries to open and close at set times; this is just what we find in [IPA].
 
-**Air Conditioning Is Standard** has characters who follow a timed schedule of events to interact with each other, while the player mostly wanders around missing out on the action. (Sometimes life is like that.) The same effects could have been achieved with scenes instead of clock times, but there are occasions when we do want to plan our characters' behavior to the minute rather than waiting for the player to be in the right place to observe it: in a murder mystery or a time-travel story, the exact timings might be quite significant.
+[Air Conditioning is Standard] has characters who follow a timed schedule of events to interact with each other, while the player mostly wanders around missing out on the action. (Sometimes life is like that.) The same effects could have been achieved with scenes instead of clock times, but there are occasions when we do want to plan our characters' behavior to the minute rather than waiting for the player to be in the right place to observe it: in a murder mystery or a time-travel story, the exact timings might be quite significant.
 
 We may also want to add events to the schedule during play, as in
 
@@ -565,7 +565,9 @@ In a plot that takes place over multiple locations or has several distinct scene
 
 [Entrevaux] constructs an organized system such that all scenes have their own lists of props and associated locations, and props are moved on and off automatically. Scene changes are also announced with a pause and a new title, such as "[Chapter 2, Adaptive Prose]: Abduction".
 
-**Space Patrol–Stranded on Jupiter** inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
+[ZL: can't readily make Space Patrol link work]::
+
+[Space Patrol – Stranded on Jupiter] inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
 
 ### See Also
 
@@ -624,7 +626,7 @@ A face is a kind of thing. A face is part of every person.
 
 Once we've done this, we may invite ambiguities if the player types ``look`` AT ``face``; it is this challenge that is addressed in [The Night Before].
 
-**r``bgh``** gives the player a random height and then uses this to determine how the room should be described around them.
+[rBGH] gives the player a random height and then uses this to determine how the room should be described around them.
 
 [Slouching] lets the player (and other characters as well) take different sitting, standing, and lying down positions.
 
@@ -754,7 +756,7 @@ The drawback of such behavior is that the player can make premature discoveries.
 
 Using Inform's default behavior, however, scope is an ad-hoc way of keeping a list of things that are common knowledge between the story and the player. The player knows many things that the story might not (like what a cell phone is); the story knows a few things the player may not (like the fact that there is a sword in an as-yet unvisited room). Neither of those things can fruitfully enter into commands because they have no mutually agreed-upon referent.
 
-By default, Inform assumes that "scope" includes only those things that are currently visible by line of sight. This works pretty well for a wide range of situations, but there are still plenty of occasions when we want to admit that the story and the player share a knowledge of things not seen. GO TO ``the kitchen`` might be a useful command even when the player can't currently view the kitchen. ``ask fred about the footprints`` should perhaps work even when the footprints are far away in the garden. ``smell stinky cheese`` might need to work even when the cheese is invisibly locked away in a porous container but is exuding a stench. In a dark room, the player can't see their own inventory, but they should still remember that they're carrying it and be able to mention it. And sometimes we might want the story to acknowledge that the player is referring to an object that they have seen somewhere, even if that thing is now out of sight.
+By default, Inform assumes that "scope" includes only those things that are currently visible by line of sight. This works pretty well for a wide range of situations, but there are still plenty of occasions when we want to admit that the story and the player share a knowledge of things not seen. ``go to the kitchen`` might be a useful command even when the player can't currently view the kitchen. ``ask fred about the footprints`` should perhaps work even when the footprints are far away in the garden. ``smell stinky cheese`` might need to work even when the cheese is invisibly locked away in a porous container but is exuding a stench. In a dark room, the player can't see their own inventory, but they should still remember that they're carrying it and be able to mention it. And sometimes we might want the story to acknowledge that the player is referring to an object that they have seen somewhere, even if that thing is now out of sight.
 
 In practice, we have two ways to tinker with scope: we can change the scope for a specific command, using a token with any, as in
 
@@ -816,7 +818,7 @@ Instead of listening when the player is Janine:
 	say "Your childhood accident left you unable to hear any but the loudest noises. Currently there is only silence."
 ```
 
-Janine may also have new, different perspective on her surroundings, expressed through the descriptions of the things she looks at; [Uncommon Ground] makes a "by viewpoint" token for text alternatives, allowing us to tag our descriptions to indicate which variations should be shown to which viewpoint characters. [The Crane's Leg 1] and **2** offer more elaborate and specialized ways of customizing the player character's observations to depend on how they relate (physically and in attitude) to the things around them.
+Janine may also have new, different perspective on her surroundings, expressed through the descriptions of the things she looks at; [Uncommon Ground] makes a "by viewpoint" token for text alternatives, allowing us to tag our descriptions to indicate which variations should be shown to which viewpoint characters. [The Crane's Leg 1] and [The Crane's Leg 2] offer more elaborate and specialized ways of customizing the player character's observations to depend on how they relate (physically and in attitude) to the things around them.
 
 If we want to change the tense and person of narration from the conventional present second person, we may do this as well:
 
@@ -837,28 +839,26 @@ Quite a bit of interactive fiction design involves the creation of custom comman
 
 Before we even start to write our source text, we should think about the following things:
 
-``` inform7
-(1) What words will the player use to make this new action happen?
-(2) What will the action change about the world model?
-(3) What circumstances might make the new action go wrong or produce silly outcomes?
-```
+1. What words will the player use to make this new action happen?
+2. What will the action change about the world model?
+3. What circumstances might make the new action go wrong or produce silly outcomes?
 
 To take these one one by one:
 
-(1) We may have a general idea of the phrasing we want the player to use – say we want to add an ``shoot`` command which allows the player to fire a gun at something. (This is an intentionally tricky choice of verb, because it shows off so many possibilities.) So we might decide the base form of the action will be
+(1) We may have a general idea of the phrasing we want the player to use – say we want to add a ``shoot`` command which allows the player to fire a gun at something. (This is an intentionally tricky choice of verb, because it shows off so many possibilities.) So we might decide the base form of the action will be
 
-``` inform7
-SHOOT THE PISTOL AT HENRY
+``` transcript 
+> shoot the pistol at henry
 ```
 
 So now we're going to need an action that applies to two objects – the pistol as the noun, and Henry as the second noun. The problem is, though, that there are lots of other ways that the player could reasonably formulate the command, some of which leave out information:
 
-``` inform7
-SHOOT HENRY
-SHOOT PISTOL
-FIRE PISTOL
-SHOOT AT HENRY
-SHOOT AT HENRY WITH GUN
+``` transcript 
+> shoot henry
+> shoot pistol
+> fire pistol
+> shoot at henry
+> shoot at henry with gun
 ```
 
 To avoid frustrating the player, we should make a guess about what the player means whenever we're sure that guess will be reliable (we might, for instance, have only one gun in the story, so we know that ``shoot henry`` will always mean ``shoot henry with pistol``), but ask the player for clarification whenever there might be ambiguity (``shoot pistol`` gives no clue about the target, nor can we safely guess, so we want Inform to ask "What do you want to shoot the pistol at?"). The next section goes into more detail about how to handle these variations.
@@ -906,26 +906,24 @@ so that our ``fold`` command can change the object into its folded form. At othe
 
 Often, there are also subtler details about how the command should interact with special items. For any new command we create, it's worth asking: should anything special happen if the player performs this action...
 
-``` inform7
-On himself?
-On another living character?
-On an object they (or another character) are carrying or wearing?
-On an object they (or another character) are inside or on?
-On a door?
-On an object that is impossible to move (defined as "scenery" or "fixed in place")?
-On an intangible object (such as a beam of sunlight)?
-On an object far away (such as the sun)?
-On an object that is part of something else (such as a doorknob)?
-On an object that itself has parts (such as a desk with drawers)?
-If there are two objects required by the action, can both the noun and the second noun be the same thing?
-```
+- On himself?
+- On another living character?
+- On an object they (or another character) are carrying or wearing?
+- On an object they (or another character) are inside or on?
+- On a door?
+- On an object that is impossible to move (defined as "scenery" or "fixed in place")?
+- On an intangible object (such as a beam of sunlight)?
+- On an object far away (such as the sun)?
+- On an object that is part of something else (such as a doorknob)?
+- On an object that itself has parts (such as a desk with drawers)?
+- If there are two objects required by the action, can both the noun and the second noun be the same thing?
 
 For instance, we might have written code so that if the gun is fired at anything but a person or a fragile object, the default response is "The bullet bounces harmlessly off [the second noun]." Our checklist would remind us to write special cases to prevent
 
-``` inform7
-SHOOT GUN AT MY SHOE (while they're wearing it)
-SHOOT GUN AT ME
-SHOOT GUN AT GUN
+``` transcript
+> shoot gun at my shoe
+> shoot gun at me
+> shoot gun at gun
 ```
 
 and so on. Actions that destroy objects are especially tricky, because there are many things that aren't safe to destroy without carefully adjusting the world model. (What happens if we burn a door connecting two rooms? a wooden desk with a drawer containing an asbestos vest? the armchair Cousin Fred is sitting on?)
@@ -1151,7 +1149,7 @@ These conventions are not always appropriate, however, especially in works where
 Use brief room descriptions.
 ```
 
-changes the default behavior so that rooms are not always described fully to the player. **Verbosity** demonstrates how this works.
+changes the default behavior so that rooms are not always described fully to the player. [Verbosity 1] demonstrates how this works.
 
 The player always has the option of turning room descriptions to ``brief`` or ``superbrief`` mode. [Verbosity 2] demonstrates how we might remove the player's ability to change the default behavior.
 
@@ -1266,11 +1264,11 @@ Check looking when the room-describing action is the going action:
 	say "You are temporarily too blinded to see." instead.
 ```
 
-Another category of examples treat how we handle the movement commands themselves. The eight compass directions, with UP and ``down``, IN and ``out``, are used as standard in most interactive fiction, but they are not the only possible way of navigating, and strike many newcomers to the genre as counter-intuitive, since when strolling around in real life most of us rarely think about our travel in terms of compass orientation. [Misadventure] allows the player to GO TO a named room, instead, and calculates the best route to reach the destination; [Safari Guide] builds on this by letting the player make the whole trip in a single move, automatically opening any doors that stand in their way en route.
+Another category of examples treat how we handle the movement commands themselves. The eight compass directions, with ``up`` and ``down``, ``in`` and ``out``, are used as standard in most interactive fiction, but they are not the only possible way of navigating, and strike many newcomers to the genre as counter-intuitive, since when strolling around in real life most of us rarely think about our travel in terms of compass orientation. [Misadventure] allows the player to GO TO a named room, instead, and calculates the best route to reach the destination; [Safari Guide] builds on this by letting the player make the whole trip in a single move, automatically opening any doors that stand in their way en route.
 
 In the same spirit of interpreting the player's intentions sensibly, [Provenance Unknown] modifies the pushing command so that if the player pushes the top object in a stack of objects towards a direction, Inform attempts to move the bottom item instead. This is convenient if, for instance, we have a heavy television on a movable cart and want ``push television west`` to work just as well as ``push cart west``.
 
-We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a GO ``back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, GO, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and IN mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of UP and ``down`` accordingly.
+We also sometimes want to respond sensibly to terse movement commands or ones that rely on some knowledge of where the player has already been. [Polarity] provides a GO ``back`` command, allowing the player to retreat in the direction from which they came, while [Minimal Movement] understands ``leave``, ``go``, and so on as ``out``, in the absence of other information. [Owen's Law] takes this further, calculating from the best routes on a map how to make ``out`` mean "move towards the exit of this indoor room", and IN mean "proceed further into the interior". [Wonderland] assigns altitudes to all rooms and works out the local best meaning of ``up`` and ``down`` accordingly.
 
 ### See Also
 
@@ -1284,7 +1282,7 @@ We also sometimes want to respond sensibly to terse movement commands or ones th
 ^^{entering+action+}^^{exiting+action+ <-- standing}
 Under ordinary circumstances, Inform does not keep track of the player's posture, nor of their exact location in a room. [Lies] implements a room in which the player can lie in different positions on the floor, getting different views as a result.
 
-Our other examples are all modifications of the way Inform handles player movement to make better default guesses at what they want to do: [Anchorite] adds a ``get down`` and ``down`` command that work when the player is on a supporter, to accompany ``get`` UP, ``get off``, and ``get out`` (already understood). [Get Axe] makes the player get out of a portable container before attempting to lift it–a consideration that comes up relatively rarely, but that might pertain to inflatable rafts, beanbag chairs, and other lightweight but capacious pieces of furniture.
+Our other examples are all modifications of the way Inform handles player movement to make better default guesses at what they want to do: [Anchorite] adds a ``get down`` and ``down`` command that work when the player is on a supporter, to accompany ``get up``, ``get off``, and ``get out`` (already understood). [Get Axe] makes the player get out of a portable container before attempting to lift it–a consideration that comes up relatively rarely, but that might pertain to inflatable rafts, beanbag chairs, and other lightweight but capacious pieces of furniture.
 
 ### See Also
 
@@ -1310,26 +1308,30 @@ Many other actions are themselves very simply implemented and provide only a she
 ### See Also
 
 - [Modifying Existing Commands] for ways to override automatic takes or restrictions on what the player must be able to hold or touch.
-- [Sounds] for LISTEN.
-- [Barter and Exchange] for GIVE and SHOW.
-- [Combat and Death] for ATTACK.
-- [Saying Simple Things] for ASK, TELL, and ANSWER.
-- [Food] for TASTE and EAT.
-- [Liquids] for DRINK.
-- [Clothing] for WEAR and TAKE OFF.
-- [Bags, Bottles, Boxes and Safes] for OPEN, CLOSE, LOCK, and UNLOCK as applied to containers.
-- [Doors, Staircases, and Bridges] for OPEN, CLOSE, LOCK, and UNLOCK as applied to doors.
-- [Furniture] for things the player can ENTER and GET OUT of.
-- [Money] for BUY.
-- [Fire] for BURN.
-- [Glass and Other Damage-Prone Substances] for CUT.
+- [Sounds] for ``listen``.
+- [Barter and Exchange] for ``give`` and ``show``.
+- [Combat and Death] for ``attack``.
+- [Saying Simple Things] for ``ask``, ``tell``, and ``answer``.
+- [Food] for ``taste`` and ``eat``.
+- [Liquids] for ``drink``.
+- [Clothing] for ``wear`` and ``take off``.
+- [Bags, Bottles, Boxes and Safes] for ``open``, ``close``, ``lock``, and ``unlock`` as applied to containers.
+- [Doors, Staircases, and Bridges] for ``open``, ``close``, ``lock``, and ``unlock`` as applied to doors.
+- [Furniture] for things the player can ``enter`` and ``get out`` of.
+- [Money] for ``buy``.
+- [Fire] for ``burn``.
+- [Glass and Other Damage-Prone Substances] for ``cut``.
 
 ## Magic Words
 
-^^{Punctuation Removal+ext+} ^^{extensions: specific extensions: Punctuation Removal}^^{punctuation: removing from player's command}^^{magic words}
-Many fantasy games incorporate the idea of magic words that can be spoken. In implementing these, we want to be a bit flexible and accept a range of input regardless of whether the player explicitly speaks the command aloud: ^{XYZZY}, ``say xyzzy``, or perhaps even ``cast xyzzy``. The inventively named **Xyzzy** demonstrates how we might define such a command.
+^^{XYZZY}
 
-If we want to go even further and to allow the player also to use quotation marks, as in ``say`` XYZZY, we may want to include Punctuation Removal by ^{@Emily Short}, which allows for quotation marks to be stripped out of the player's input before it is understood.
+^^{Punctuation Removal+ext+} ^^{extensions: specific extensions: Punctuation Removal}^^{punctuation: removing from player's command}^^{magic words}
+Many fantasy games incorporate the idea of magic words that can be spoken. In implementing these, we want to be a bit flexible and accept a range of input regardless of whether the player explicitly speaks the command aloud: ``xyzzy``, ``say xyzzy``, or perhaps even ``cast xyzzy``. The inventively named [Xyzzy] demonstrates how we might define such a command.
+
+^^{@Emily Short}
+
+If we want to go even further and to allow the player also to use quotation marks, as in ``say xyzzy``, we may want to include Punctuation Removal by Emily Short, which allows for quotation marks to be stripped out of the player's input before it is understood.
 
 ## Remembering, Converting and Combining Actions
 
@@ -1365,7 +1367,7 @@ Understand "give [things] to [someone]" as multiply-giving it to. Multiply-givin
 
 (In theory the language here should perhaps be "several carried things" – but Inform is still going to process multiply-giving item by item, unless we redirect it. More about this in a moment.)
 
-When handling an action that uses the `"[things]"` token, the parser makes a list of every item to which it is going to apply the action: this is called the multiple objects list. The multiple objects list can be the result of a vague request (``get all``) or a specific one involving identical multiples (``get pennies``, ``get three apples``) or a very specific one involving unique, named nouns (``get gerbil``, ``apple``, ``and pomegranate``).
+When handling an action that uses the `"[things]"` token, the parser makes a list of every item to which it is going to apply the action: this is called the multiple objects list. The multiple objects list can be the result of a vague request (``get all``) or a specific one involving identical multiples (``get pennies``, ``get three apples``) or a very specific one involving unique, named nouns (``get gerbil, apple, and pomegranate``).
 
 We can manipulate what Inform includes in ``all`` in sentences like ``take all`` with the "deciding whether all includes..." activity; for instance
 
@@ -1434,15 +1436,15 @@ There are also times when we need to ask the player for more information. [Apple
 
 At other times, the player types something that is wrong in a predictable way: for instance, we might want to remove all the "with..." phrases from commands like
 
-``` inform7
-HIT DOOR WITH FIST
-KICK DRAGON WITH FOOT
-LOOK WEST WITH EYES
+``` transcript
+> hit door with fist
+> kick dragon with foot
+> look west with eyes
 ```
 
 and merely parse the remainder of the command. (That last command may be unlikely, but novice players do quite often type commands that refer unnecessarily to body parts.) [Cave-troll] demonstrates how.
 
-**``wxpq``** demonstrates how to modify the error message the parser gives in response to a command it doesn't understand; this particular example focuses on the "That noun doesn't make sense in this context" message that arises from using the `"[any thing]"` or `"[any room]"` tokens, but the techniques could be adapted to handling other parser errors as well.
+[WXPQ] demonstrates how to modify the error message the parser gives in response to a command it doesn't understand; this particular example focuses on the "That noun doesn't make sense in this context" message that arises from using the `"[any thing]"` or `"[any room]"` tokens, but the techniques could be adapted to handling other parser errors as well.
 
 [ZL: hasn't been current for a very long time]::
 
@@ -1585,13 +1587,13 @@ Finally, we can imagine some scenarios in which, instead of allowing characters 
 ## Getting Started with Conversation
 
 ^^{dialogue <-- conversation <-- characters (people): dialogue}^^{story structure: dialogue}
-Traditionally, conversation is one of the most difficult things to program in interactive fiction, because of the number of factors affecting the outcome of everything the player does. While it's acceptable for >``examine pot`` to produce the same response every time the player types it, it's a bit less acceptable for ``ask joe about his adultery`` to make Joe react the same way every time.
+Traditionally, conversation is one of the most difficult things to program in interactive fiction, because of the number of factors affecting the outcome of everything the player does. While it's acceptable for ``examine pot`` to produce the same response every time the player types it, it's a bit less acceptable for ``ask joe about his adultery`` to make Joe react the same way every time.
 
 Conversation implementations often need to keep track of a lot of information: what else is going on in the model world, what the character knows, what plot phase we've reached, what mood the character is in, what else we've recently been talking about, whether we've said the same thing before (and how many times); and so on. Later in this chapter we will look at ways to model character knowledge and mood.
 
-Then, too, we have the problem of how the player communicates their conversational intentions to the story. Technology has not yet advanced to the point where a player can simply type in remarks in full natural English and have the character detect the significance, emotional tone, and subtext, if any: so we can't have ``rachel``, ``this dessert tastes like feet`` or ``will``, ``look``! ``our sinister metal foes are approaching``! or ``boss``, I ``would`` BE ``delighted`` TO ``file another tpb report``.
+Then, too, we have the problem of how the player communicates their conversational intentions to the story. Technology has not yet advanced to the point where a player can simply type in remarks in full natural English and have the character detect the significance, emotional tone, and subtext, if any: so we can't have ``rachel, this dessert tastes like feet`` or ``will, look! our sinister metal foes are approaching!`` or ``boss, I would be delighted to file another tpb report``.
 
-The challenge is to create an interface that is both easy for the player to use and expressive enough to be interesting. We will look at some of the common solutions in "Saying Complicated Things".
+The challenge is to create an interface that is both easy for the player to use and expressive enough to be interesting. We will look at some of the common solutions in [Saying Complicated Things].
 
 The examples in the following sections point out ways to approach common conversation problems. None of them will offer an adequate system if we want to write a very conversationally rich story, however. This is partly because a thorough conversation system requires quite a lot of code in its own right. It's also partly because there is no one right solution to the problem of conversation design. Different games will have quite different requirements. When making decisions about a new story we have planned, it may be useful to glance through the conversation extensions available for Inform: there are quite a few, offering a range of different interfaces. Even if none is exactly suited for our needs, they may suggest ways to solve particular implementation challenges.
 
@@ -1602,15 +1604,15 @@ Before we get into these details, though, we have a couple of examples that are 
 ## Saying Simple Things
 
 ^^{dialogue: simple terms}^^{dialogue: with inanimate objects}^^{characters (people): Inanimate Listeners+ext+}^^{(YES), responding to a character+commandpart+}^^{(NO), responding to a character+commandpart+}^^{dialogue: >ASK / TELL}^^{Inanimate Listeners+ext+} ^^{extensions: specific extensions: Inanimate Listeners}^^{Punctuation Removal+ext+} ^^{extensions: specific extensions: Punctuation Removal}^^{punctuation: removing from player's command}
-There are times when even the commands ``ask`` and ``tell`` are overkill: sometimes the player doesn't have much information to offer, so ``tell`` is never useful, for instance. If we don't want to make any distinction between modes of conversation, we can conflate the actions so that ``ask lucius about ollivander``, ``tell lucius about ollivander`` and ``lucius``, ``ollivander`` all do the same thing: see [Sybil 1].
+There are times when even the commands ``ask`` and ``tell`` are overkill: sometimes the player doesn't have much information to offer, so ``tell`` is never useful, for instance. If we don't want to make any distinction between modes of conversation, we can conflate the actions so that ``ask lucius about ollivander``, ``tell lucius about ollivander`` and ``lucius, ollivander`` all do the same thing: see [Sybil 1].
 
-If we are frequently permitting the player to say things like ``lucius``, ``ollivander`` as shorthand for "talk to Lucius about Ollivander", then we may also want to allow ``lucius``, ``ollivander``? This makes the player character seem a bit slow (or at least Laconic), but it is an effective interface in some cases. The trick is that the question mark at the end of the command may prevent Inform from recognizing the keyword; should that problem arise, we may want to use Punctuation Removal to erase question marks from the player's command before attempting to interpret it.
+If we are frequently permitting the player to say things like ``lucius, ollivander`` as shorthand for "talk to Lucius about Ollivander", then we may also want to allow ``lucius, ollivander?`` This makes the player character seem a bit slow (or at least Laconic), but it is an effective interface in some cases. The trick is that the question mark at the end of the command may prevent Inform from recognizing the keyword; should that problem arise, we may want to use Punctuation Removal to erase question marks from the player's command before attempting to interpret it.
 
 Along the same lines, there are situations in conversation where similar commands do not correspond to the same actions within Inform; if we're careless about this, we may force the player to guess which vocabulary we want them to use, which is always vexing. Some cases to look out for:
 
-Inform has actions for "saying yes" and "saying no". Sometimes this is useful, but sometimes we want ``yes`` and ``say yes`` TO ``fred`` to do the same thing. [Sybil 2] shows how to roll these responses into one; [Proposal] expands on the idea to show more ways in which a player could reasonably answer a question put by another character.
+Inform has actions for "saying yes" and "saying no". Sometimes this is useful, but sometimes we want ``yes`` and ``say yes to fred`` to do the same thing. [Sybil 2] shows how to roll these responses into one; [Proposal] expands on the idea to show more ways in which a player could reasonably answer a question put by another character.
 
-Again, if we want ``ask sybil about cake`` to do the same thing as ``show cake`` TO ``sybil``, we might use the technique in [Nameless] to make objects into valid topics of conversation, and to make ``ask`` and ``show`` behave the same way.
+Again, if we want ``ask sybil about cake`` to do the same thing as ``show cake to sybil``, we might use the technique in [Nameless] to make objects into valid topics of conversation, and to make ``ask`` and ``show`` behave the same way.
 
 Finally, if we want to be able to ``ask`` and ``tell`` an inanimate object – say, a computer – about something, we may use the extension Inanimate Listeners to add this capability.
 
@@ -1624,14 +1626,14 @@ Finally, if we want to be able to ``ask`` and ``tell`` an inanimate object – s
 ^^{dialogue: >ASK / TELL}^^{dialogue: menu-based dialogue}^^{dialogue: keyword-based dialogue}
 As we saw in the overview, there are challenges in choosing the commands with which the player will communicate to the story. Two common approaches are ``ask``/``tell`` conversation, where the player can ask or tell characters about keywords, as in ``ask jill about jack`` or ``tell farmer about chicken coop``, and menu-based conversation, where the player is offered a list of things to say and must pick one (often by number), as in
 
-``` inform7
+``` transcript
 1) Ask Jill where Jack went.
 2) Tell Jill that the chicken coop was robbed.
 ```
 
 or, sometimes,
 
-``` inform7
+``` transcript
 1) "Jill, have you seen your no-good layabout brother Jack anywhere?"
 2) "Look, Farmer Jill, I think a fox got into the chickens."
 ```
@@ -1747,7 +1749,7 @@ This final method is arguably the neatest solution to character movement, allowi
 
 All the same, the constraints are not so severe as to preclude having a moderate number of route-finding characters all wandering around at once. This does introduce a new problem, however: movement descriptions can become hard to follow if every turn produces long reams of reports such as
 
-``` inform7
+``` transcript
 Joe enters the room from the south.
 Lawrence opens the gate.
 Lawrence departs to the west.
@@ -1758,13 +1760,13 @@ Bill departs to the west.
 
 [Patient Zero] tackles this problem by calculating all of the character movement without printing any text; it then combines similar or related events into coherent paragraphs, as in
 
-``` inform7
+``` transcript
 Rhoda and Antony walk into the Post Office. Rhoda could have been rolling in chocolate and Antony looks as though dipped in french vanilla.
 ```
 
 or
 
-``` inform7
+``` transcript
 Antony opens the iron gate. He goes through.
 ```
 
@@ -1775,7 +1777,7 @@ Antony opens the iron gate. He goes through.
 ## Obedient Characters
 
 ^^{actions: instructing other people}^^{characters (people): giving instructions to other characters}^^{instructing other characters} ^^{ordering other characters}
-Other characters can perform all the same activities that the player can; this does not always mean that they're willing to obey the player's instructions. By default, characters will refuse to obey commands of the form ``julia``, ``west`` or ``antony``, ``take the pincushion``. Their objections can be overridden, however, and [The Hypnotist of Blois] implements a hypnotist who can make characters obedient at will.
+Other characters can perform all the same activities that the player can; this does not always mean that they're willing to obey the player's instructions. By default, characters will refuse to obey commands of the form ``julia, west`` or ``antony, take the pincushion``. Their objections can be overridden, however, and [The Hypnotist of Blois] implements a hypnotist who can make characters obedient at will.
 
 In [For Demonstration Purposes], the character is only capable of a few actions at the outset, but can be taught new ones if the player performs them first.
 
@@ -1785,9 +1787,9 @@ Characters can be given moral objections to certain commands, as well: [Virtue] 
 
 [Under Contract], more subtly, has the character object if the player's commands implicitly require any behavior they consider inappropriate: for instance, if the player commands them to put their pants in a container, they will work out that this requires the removal of the pants as a preliminary. If we want to implement a similar character, we may want to simply copy the unsuccessful attempt rule and the table of retorts, then replace the banter with lines of our choosing.
 
-The little example [Latin Lessons] allows us to make characters clever about vague commands: we can, for instance, write rules so that ``clark``, ``eat`` will have Clark sensibly pick something edible, rather than having the parser ask what we want Clark to eat.
+The little example [Latin Lessons] allows us to make characters clever about vague commands: we can, for instance, write rules so that ``clark, eat`` will have Clark sensibly pick something edible, rather than having the parser ask what we want Clark to eat.
 
-Finally, [Northstar] demonstrates how we might make Inform understand commands of the form ``ask josh`` TO ``take inventory`` or ``order joan`` TO ``wear the armor``.
+Finally, [Northstar] demonstrates how we might make Inform understand commands of the form ``ask josh to take inventory`` or ``order joan to wear the armor``.
 
 ### See Also
 
@@ -1817,7 +1819,7 @@ command; but if not, it sends Clark off to look for something likely. [The Man o
 
 Second: though it doesn't actually contribute to the goal-seeking per se, lively reporting brings characters' generated behavior to life.
 
-``` inform7
+``` transcript
 Clark eats a donut.
 ```
 
@@ -1994,6 +1996,7 @@ The matchbox, like the bucket, is a container. Containers come in all sizes and 
 ``` inform7
 The strongbox is a locked container. The little steel key unlocks the strongbox.
 ```
+[ZL: "built-in"]::
 
 Two built-in extensions enhance and modify the behavior of locks and keys: Locksmith automates a number of steps, automatically unlocking doors when trying to open them (for instance). Skeleton Keys allows us to define multiple keys that unlock the same object, rather than being restricted to one matching key per item.
 
@@ -2110,11 +2113,11 @@ The business card is in the Junction. The description is "'Peter de Sèvres: con
 
 But if the object is a leaflet, say, ``examine`` should only describe the cover: ``read`` would be the command a player would expect to use to get at the text itself. Inform normally defines ``read`` to be the same command as ``examine``, which is good for things like the business card, but counter-productive here. [The Trouble with Printing] shows how to separate these two commands, allowing any thing to have a property called its "printing" for text produced by ``read``, which will be different from its "description", the text produced by ``examine``.
 
-If the object is a lengthy diary, say, nobody would read it from cover to cover in a single IF turn. We might then want to allow the player to turn the pages one by one, with commands like ``read page`` 4 IN ``diary`` or ``read the next page``: see [Pages].
+If the object is a lengthy diary, say, nobody would read it from cover to cover in a single IF turn. We might then want to allow the player to turn the pages one by one, with commands like ``read page 4 in diary`` or ``read the next page``: see [Pages].
 
-If the object is an encyclopaedic reference work, the player would consult named entries: see [Costa Rican Ornithology], which allows commands like ``look`` UP ``quetzal`` IN ``guide``.
+If the object is an encyclopaedic reference work, the player would consult named entries: see [Costa Rican Ornithology], which allows commands like ``look up quetzal in guide``.
 
-Still larger sources of text often occur in IF: libraries or bookshelves, where many books are found together, and it is clumsy to write them as many individual items. One approach is to simulate an entire bookshelf with a single thing: see [Bibliophilia]. (This is much like looking up topics in a single book, except that each topic is a book in itself.) Another is to provide each book as an individual item, but have them automatically join together into a single portable collection: see **``aarp``-Gnosis**.
+Still larger sources of text often occur in IF: libraries or bookshelves, where many books are found together, and it is clumsy to write them as many individual items. One approach is to simulate an entire bookshelf with a single thing: see [Bibliophilia]. (This is much like looking up topics in a single book, except that each topic is a book in itself.) Another is to provide each book as an individual item, but have them automatically join together into a single portable collection: see [AARP-Gnosis].
 
 Signs, leaflets and encyclopaedias, being printed, have a wording which will never change during play. But sometimes the player reads something which acts of its own accord. Text substitutions are usually all that is needed to achieve this:
 
@@ -2123,6 +2126,8 @@ The computer display is on the desk. The description is "Giant green digits read
 ```
 
 This is easy because we know all the variations we want. But what if we want the player to write their own text, for instance, adding to a diary? This is trickier, because it means storing text as the player typed it, and replaying it later. (And suppose the player types reams and reams of text, not just a few words as we might have hoped?) [The Fourth Body] and [The Fifth Body] show how to use an external file–a multimedia trick requiring features only available if the project is set to the Glulx story file format–to handle even the most difficult cases.
+
+[ZL: "built-in"]::
 
 Should we want a computer that responds to vocal commands, as in ``ask computer about klingons``, the built-in extension Inanimate Listeners will allow the player to talk to inanimate objects as well as people.
 
@@ -2178,7 +2183,7 @@ In [Channel 1], we can also refer to the television by what it is currently show
 ^^{telephones (implementing)}
 Telephones are much harder to achieve than televisions and in some ways as difficult to make convincing as a human character is–though of course there are corners which can be cut: we could have the reception drop off, or the other party hang up in a misunderstanding, and so on.
 
-A single telephone line is tricky enough to provide that one might just as well have a general solution providing a whole network. [Four Cheeses] demonstrates a system where we can dial either people or numbers: ``call janet`` ON ``telephone``, or ``call`` 7103, for instance.
+A single telephone line is tricky enough to provide that one might just as well have a general solution providing a whole network. [Four Cheeses] demonstrates a system where we can dial either people or numbers: ``call janet on telephone``, or ``call 7103``, for instance.
 
 While [Four Cheeses] provides only four-digit phone numbers, like internal company extensions, [Alias] shows how to manage US-style seven digit numbers.
 
@@ -2238,7 +2243,7 @@ Gases are easier to deal with than liquids, because they tend to be everywhere i
 
 The simplest approach is the one in [Only You...], where rooms are either filled with smoke or else smoke-free. Smoke gradually fills through the map, obscuring vision: no attempt is made to conserve the total quantity of smoke, as we assume that some fire is churning it out continuously to replace what diffuses away.
 
-[Lethal Concentration 1] and **2** simulate a gas diffusing through a three-dimensional maze of rooms, and becoming dangerous above certain concentrations. There is just one possible gas, and it is modelled by giving each room a number which represents the concentration (in parts per million). This enables us to conserve the total amount of gas, or to have it released or captured by sources and sinks of given capacity.
+[Lethal Concentration 1] and [Lethal Concentration 2] simulate a gas diffusing through a three-dimensional maze of rooms, and becoming dangerous above certain concentrations. There is just one possible gas, and it is modelled by giving each room a number which represents the concentration (in parts per million). This enables us to conserve the total amount of gas, or to have it released or captured by sources and sinks of given capacity.
 
 This could be extended by giving each room similar concentration levels for other gases, and providing for the diffusion rule to notice when different gases come into contact; or by giving a concentration (and also, for realism, a volume) to each closed container, applying rules for capturing and releasing gases as containers are opened and closed.
 
@@ -2466,7 +2471,7 @@ Use scoring.
 
 introduces the concept. Once this is included, Inform will provide built-in support for a single number measuring progress ("score"), and will expect to measure this against a maximum possible ("maximum score", which can either be set by hand or worked out automatically from a table of ranks).
 
-In a story in which scoring exists, the player may choose to turn score notifications (such as `"[Your score has just gone up by one point.]"`) on or off. The commands to do this are ``notify`` ON and ``notify off``; the actions are called switching score notification on and switching score notification off. In the event that we need to amend the behavior of notification, we could do so by adding, removing, or modifying the elements of the check and carry out rulebooks for these commands; as in
+In a story in which scoring exists, the player may choose to turn score notifications (such as `"[Your score has just gone up by one point.]"`) on or off. The commands to do this are ``notify on`` and ``notify off``; the actions are called switching score notification on and switching score notification off. In the event that we need to amend the behavior of notification, we could do so by adding, removing, or modifying the elements of the check and carry out rulebooks for these commands; as in
 
 ``` inform7
 Check switching score notification off:
@@ -2507,23 +2512,20 @@ Finally, [Rubies] provides a scoreboard that keeps track of the ten highest-scor
 ^^{>NOTIFY ON/OFF}^^{>VERIFY}^^{>VERSION}^^{>PRONOUNS}^^{>TRANSCRIPT ON/OFF}^^{scoring: reporting during story}^^{banner text}^^{bibliographic data}^^{IFID+biblio+}^^{extensions: listing credits for}^^{pronouns: displaying with (PRONOUNS)+commandpart+}^^{VERBOSE room descriptions+useopt+}^^{BRIEF room descriptions+useopt+}^^{SUPERBRIEF room descriptions+useopt+}
 Several default actions allow the player some control over the presentation of the story, or permit the player to request information about what is going on. In addition to the standard commands described elsewhere in this section (``score``, ``save``, ``undo``, ``quit``, ``restart``, and ``restore``), Inform has the following actions that control the player's experience:
 
-``` inform7
-Preferring abbreviated room descriptions (SUPERBRIEF)
-Preferring unabbreviated room descriptions (VERBOSE)
-Preferring sometimes abbreviated room descriptions (BRIEF)
-Switching score notification on (NOTIFY ON)
-Switching score notification off (NOTIFY OFF)
-```
+- Preferring abbreviated room descriptions (``superbrief``)
+- Preferring unabbreviated room descriptions (``verbose``)
+- Preferring sometimes abbreviated room descriptions (``brief``)
+- Switching score notification on (``notify on``)
+- Switching score notification off (``notify off``)
+
 
 The first three of these allow the player to change the way rooms are described on first and subsequent versions; the last two, when used in a story that provides a score feature, toggle on and off reports such as `"[Your score has just gone up by three points.]"` These are discussed elsewhere in the Recipe Book (see cross-references below).
 
 These provide immediate feedback about the status of the story file being played:
 
-``` inform7
-Verifying the story file (VERIFY)
-Requesting the story file version (VERSION)
-Requesting the pronoun meanings (PRONOUNS)
-```
+- Verifying the story file (``verify``)
+- Requesting the story file version (``version``)
+- Requesting the pronoun meanings (``pronouns``)
 
 ``verify`` examines checksums to make sure that the story file being run is intact and correct. This is less often an issue now than it was in the days when story files were distributed by highly corruptible floppy disk, but the command persists and is very occasionally useful. ``version`` gives the full banner text associated with the story, including title, author, release number, IFID, and other bibliographical data; it follows this with a list of the included extensions.
 
@@ -2531,10 +2533,8 @@ Requesting the pronoun meanings (PRONOUNS)
 
 The following allow the player (when supported by the interpreter in use) to create a log of play:
 
-``` inform7
-Switching the story transcript on (TRANSCRIPT ON)
-Switching the story transcript off (TRANSCRIPT OFF)
-```
+- Switching the story transcript on (``transcript on``)
+- Switching the story transcript off (``transcript off``)
 
 It is rarely a good idea to change the default performance of such commands: they are often finicky and closely tied to the interpreter in which the story runs. Moreover, disabling the "version" command means that the story file is not able to display attribution information for Inform and any included extensions, in violation of their respective licenses.
 
@@ -2663,7 +2663,9 @@ Occasionally, however, we may want to offer a different mode of interaction, for
 
 It's best to be careful with these effects: overdone, they can be very annoying to players who prefer to read at a faster speed. Nonetheless, they do have their uses.
 
-Inform does not have standard syntax to handle real-time delays and output, but there are several extensions that provide this capacity. ^{@Erik Temple}'s extension Real Time Delays, for instance, allows us to specify a delay in milliseconds before continuing with whatever aspect of the story is currently in progress.
+^^{@Erik Temple}
+
+Inform does not have standard syntax to handle real-time delays and output, but there are several extensions that provide this capacity. Erik Temple's extension Real Time Delays, for instance, allows us to specify a delay in milliseconds before continuing with whatever aspect of the story is currently in progress.
 
 ### See Also
 
