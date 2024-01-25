@@ -15,7 +15,7 @@ Burned objects other than matches should be removed from play instantly (just as
 Matches should be described to show whether they are burning or extinguished, and when the parser chooses one of several identical matches, it should make very clear which match it has selected.
 
   
-The game must sensibly select and, if necessary, automatically light new matches to carry out a >``burn thing`` command.
+The game must sensibly select and, if necessary, automatically light new matches to carry out a ``burn thing`` command.
 
   
 The matches must burn for a set number of turns before going out, never to be used again.

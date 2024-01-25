@@ -35,7 +35,7 @@ When play begins:
 ```
 
   
-When Lydia is alive, we want ``touch lydia's body`` to mean the same thing as >``touch lydia``, so we use the setting action variables rules as a convenient point at which to reassign the action:
+When Lydia is alive, we want ``touch lydia's body`` to mean the same thing as ``touch lydia``, so we use the setting action variables rules as a convenient point at which to reassign the action:
 
   
 
@@ -48,10 +48,10 @@ Setting action variables when the second noun is a body which is part of a perso
 ```
 
   
-This doesn't change Inform's idea about what action is being performed; just about the object it's being performed on. The rest of the action will now proceed as if the player had typed >``touch lydia``.
+This doesn't change Inform's idea about what action is being performed; just about the object it's being performed on. The rest of the action will now proceed as if the player had typed ``touch lydia``.
 
   
-Along similar lines, once Lydia is dead, we want >``move lydia`` to mean >``move lydia``'S ``body`` if the body is in view:
+Along similar lines, once Lydia is dead, we want ``move lydia`` to mean ``move lydia``'S ``body`` if the body is in view:
 
   
 
@@ -61,7 +61,7 @@ Along similar lines, once Lydia is dead, we want >``move lydia`` to mean >``move
 ```
 
   
-The trick is, though, that >``move lydia`` will only be understood if there is something called Lydia that the player can see and refer to, even after she's dead. There are various ways to do this, but the least painful here will be to make the deceased Lydia permanently visible, by putting her in an always-accessible backdrop. The backdrop itself will never be mentioned in the game, and we should make its name something that the player is unlikely to type casually; we don't want the player to interact with it directly. So:
+The trick is, though, that ``move lydia`` will only be understood if there is something called Lydia that the player can see and refer to, even after she's dead. There are various ways to do this, but the least painful here will be to make the deceased Lydia permanently visible, by putting her in an always-accessible backdrop. The backdrop itself will never be mentioned in the game, and we should make its name something that the player is unlikely to type casually; we don't want the player to interact with it directly. So:
 
   
 

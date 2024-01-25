@@ -62,10 +62,10 @@ Section 4 - Attacking it with
 In our new system, we want to specify what is being used for an attack. This means that we need to create a new "attacking it with" action, and also that we should disable the existing "attacking..." command.
 
   
-Here's why: If we leave the default attack command in place, Inform will continue to accept commands like >``attack gladiator``, but reply foolishly with the default "Violence is not the answer..." response.
+Here's why: If we leave the default attack command in place, Inform will continue to accept commands like ``attack gladiator``, but reply foolishly with the default "Violence is not the answer..." response.
 
   
-A somewhat better approach would be to change the reply of >``attack gladiator`` to say something like "You must specify a weapon to attack with." But this is still less than ideal, because it means that the player has to then rewrite the entire command. If, on the other hand, we take out ``attack gladiator`` entirely, the game will always prompt "What do you want to attack the gladiator with?" – which teaches the player the correct command structure for this particular game, and avoids pretending to understand any command that is not meaningful within this game.
+A somewhat better approach would be to change the reply of ``attack gladiator`` to say something like "You must specify a weapon to attack with." But this is still less than ideal, because it means that the player has to then rewrite the entire command. If, on the other hand, we take out ``attack gladiator`` entirely, the game will always prompt "What do you want to attack the gladiator with?" – which teaches the player the correct command structure for this particular game, and avoids pretending to understand any command that is not meaningful within this game.
 
   
 This is a little bit of work because ``attack`` has a lot of synonyms in the default library, but if we look through the actions index we can find them all:
@@ -95,7 +95,7 @@ Note that we've specified "one carried thing", because we want the player to pic
 ```
 
   
-This may seem counter-intuitive, but order of source code matters here: we first get rid of the old, default vocabulary, then define our new action, then make the vocabulary apply to that new action. Inform will now understand >``hit gladiator with trident``, >``break gladiator with trident``, and so on.
+This may seem counter-intuitive, but order of source code matters here: we first get rid of the old, default vocabulary, then define our new action, then make the vocabulary apply to that new action. Inform will now understand ``hit gladiator with trident``, ``break gladiator with trident``, and so on.
 
   
 Our new action is also a perfect place to use an action variable: we're going to need to choose an amount of damage done and refer to that several times in our action rules. So let's set that up first:

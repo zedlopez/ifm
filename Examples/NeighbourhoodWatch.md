@@ -19,7 +19,7 @@ The brass key is carried by the player. It unlocks the shabby door.
 ```
 
   
-The next part is going to require that we modify the normal operation of the "lock" command. "Lock" ordinarily requires that the player supply two objects: a thing they want to unlock, and the key they want to use on it. The full command is ``lock door with the key``, and Inform will not accept simply ``lock door`` as locking.
+The next part is going to require that we modify the normal operation of the ``lock`` command. Locking ordinarily requires that the player supply two objects: a thing they want to unlock, and the key they want to use on it. The full command is ``lock door with the key``, and Inform will not accept simply ``lock door`` as locking.
 
   
 Therefore, we're going to need to create our own new variant on the lock verb (and the unlock verb, while we're at it). The full procedure for this is laid out in the chapters on Action and Understanding, but here is an example:

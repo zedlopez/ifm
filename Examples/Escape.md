@@ -6,7 +6,7 @@ Description: Window that can be climbed through or looked through.
 For: Z-Machine
 
   
-Suppose we want to offer the player a window they can climb through, instead of a boring ordinary door. Our window will be like a door in that it connects two rooms, appears in both places, and impedes movement when it is shut. But we also want to add that we can look through it and see what lies on the other side; and we further want to understand "climb through window" or "jump through window" as attempts to pass through it.
+Suppose we want to offer the player a window they can climb through, instead of a boring ordinary door. Our window will be like a door in that it connects two rooms, appears in both places, and impedes movement when it is shut. But we also want to add that we can look through it and see what lies on the other side; and we further want to understand ``climb through window`` or ``jump through window`` as attempts to pass through it.
 
   
 We'll start by defining a couple of rooms and making the window a door between them.
@@ -43,7 +43,7 @@ Next we want to cover the case where we climb through the window:
 ```
 
   
-And because "climb window" is understood but "climb ``through`` window" is not, we will have to borrow from the chapter on Understanding to add some new vocabulary to the game (and we'll add Jump too, while we're at it):
+And because ``climb window`` is understood but ``climb through window`` is not, we will have to borrow from the chapter on Understanding to add some new vocabulary to the game (and we'll add Jump too, while we're at it):
 
   
 

@@ -21,7 +21,7 @@ A thing can be discovered or secret. A thing is usually secret.
 ```
 
   
-Now, we want the character to be able to hide small things if they have some sort of concealing garment on. We also want to be able to see anything that the player has already found once, perhaps by using the >``search person`` command. So:
+Now, we want the character to be able to hide small things if they have some sort of concealing garment on. We also want to be able to see anything that the player has already found once, perhaps by using the ``search person`` command. So:
 
   
 
