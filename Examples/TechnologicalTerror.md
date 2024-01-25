@@ -44,7 +44,7 @@ Understand "shoot [something] at [something]" as shooting it with (with nouns re
 ```
 
   
-Strictly speaking, we only need these last grammar lines (with "understand shoot something...") in order to define an action that the player can take. Adding more grammar lines means that Inform will try to match the most specific ones first, which is useful when the player types something ambiguous and there is one choice that obviously fits this action better than the others. See the chapter on Understanding for a further discussion.
+Strictly speaking, we only need these last grammar lines (with "understand shoot something...") in order to define an action that the player can take. Adding more grammar lines means that Inform will try to match the most specific ones first, which is useful when the player types something ambiguous and there is one choice that obviously fits this action better than the others. See the chapter on [Understanding] for a further discussion.
 
   
 Here we get to use "now..." to give it its destructive effect:

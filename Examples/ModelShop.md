@@ -20,7 +20,7 @@ Instead of pushing an on/off button which is part of a switched off device (call
 ```
 
   
-Here we are making a rule about how our hypothetical buttons will interact with the machines to which they belong. Instead of pushing... is a rule that pertains to actions, and we will learn more about these in the chapter on actions. "...which is part of a switched off device" provides a specific circumstance–this is only to apply to buttons that are stuck to a machines that can be turned on or off. "(called the machine)" tells Inform that if it finds such a device, it should thereafter refer to it as "the machine." (The called syntax is explained further in the chapter on Change.)
+Here we are making a rule about how our hypothetical buttons will interact with the machines to which they belong. Instead of pushing... is a rule that pertains to actions, and we will learn more about these in the chapter on [Actions]. "...which is part of a switched off device" provides a specific circumstance–this is only to apply to buttons that are stuck to a machines that can be turned on or off. "(called the machine)" tells Inform that if it finds such a device, it should thereafter refer to it as "the machine." (The called syntax is explained further in the chapter on [Change].)
 
   
 A set of three more rules will complete our instructions about using buttons to control devices:
@@ -72,5 +72,5 @@ Understand "model train" or "model" or "train" as "[train]". Understand "[train]
 ```
 
   
-In the second case, we are defining [train] to mean any of the three phrases "train", "model", and "model train"; so "[train] button" will match "model train button" or "train button" or "model button" equally well. See the chapter on Understanding for more on how to create alternative phrasings for the player to use.
+In the second case, we are defining [train] to mean any of the three phrases "train", "model", and "model train"; so "[train] button" will match "model train button" or "train button" or "model button" equally well. See the chapter on [Understanding] for more on how to create alternative phrasings for the player to use.
 

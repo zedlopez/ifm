@@ -92,7 +92,7 @@ Instead of tying a string to a string:
 ```
 
   
-This is still a little incomplete because we cannot refer to strings by their lengths, as in "the 2 inch string" and so on. To do this, we borrow a line from the chapter on Understanding:
+This is still a little incomplete because we cannot refer to strings by their lengths, as in "the 2 inch string" and so on. To do this, we borrow a line from the chapter on [Understanding]:
 
   
 

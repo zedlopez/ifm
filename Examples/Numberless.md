@@ -42,7 +42,7 @@ The more compact way to do this is to create a list of values that our number co
 ```
 
   
-As a final option, we can use a construction we've seen only briefly before now: a table. The use of tables will be explained more fully in their own chapter, but here we see in brief that we can assign a number of values to one column of a table and then use that table to look up output:
+As a final option, we can use a construction we've seen only briefly before now: a table. The use of [Tables] will be explained more fully in their own chapter, but here we see in brief that we can assign a number of values to one column of a table and then use that table to look up output:
 
   
 

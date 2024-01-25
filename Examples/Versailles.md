@@ -6,7 +6,7 @@ Description: A mirror which will reflect some random object in the room.
 For: Z-Machine
 
   
-One of the advantages of descriptions is that we can use them to pick an item randomly from a specified category. (For more on this possibility, see the Change chapter sections on randomness.)
+One of the advantages of descriptions is that we can use them to pick an item randomly from a specified category. (For more on this possibility, see the [Change] chapter section on [Randomness].)
 
   
 For instance, suppose we wanted to create a mirror in which the player would see some item from the room reflected. We might write

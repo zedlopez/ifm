@@ -72,5 +72,5 @@ Test me with "get peg / drop peg / get all / get rock".
 ```
 
   
-Note that while one could also manipulate the object list to add or remove items at this stage, there's a simpler way to control what Inform considers ``all`` to mean in commands: see the activity "Deciding whether all includes" in the activities chapter.
+Note that while one could also manipulate the object list to add or remove items at this stage, there's a simpler way to control what Inform considers ``all`` to mean in commands: see the activity "Deciding whether all includes" in the [Activities] chapter.
 

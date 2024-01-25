@@ -21,7 +21,7 @@ Test me with "take oak".
 ```
 
   
-Here we've used an "instead" rule; we will learn more about these in the section on actions. This allows us to define our own results for taking an object.
+Here we've used an "instead" rule; we will learn more about these in [Basic Actions]. This allows us to define our own results for taking an object.
 
   
 Note: "scenery" is a property of an object (about which we will hear more later). So when we use it in rules, we can talk about "some scenery", "something that is scenery", or even "a scenery thing" – the last one doesn't sound much like English, but is a more plausible construction with other adjectives.

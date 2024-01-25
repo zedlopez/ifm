@@ -43,7 +43,7 @@ Next we want to cover the case where we climb through the window:
 ```
 
   
-And because ``climb window`` is understood but ``climb through window`` is not, we will have to borrow from the chapter on Understanding to add some new vocabulary to the game (and we'll add Jump too, while we're at it):
+And because ``climb window`` is understood but ``climb through window`` is not, we will have to borrow from the chapter on [Understanding] to add some new vocabulary to the game (and we'll add Jump too, while we're at it):
 
   
 

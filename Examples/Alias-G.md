@@ -19,7 +19,7 @@ A phone number is a kind of value. 999-9999 specifies a phone number.
 ```
 
   
-Now we borrow some techniques from the Understanding chapter to set up dialing actions:
+Now we borrow some techniques from the [Understanding] chapter to set up dialing actions:
 
   
 
@@ -53,7 +53,7 @@ The player is wearing a housekeeping uniform and a brunette wig. The player carr
 ```
 
   
-Borrowing again from the chapter on Understanding, we might arrange things so that the player knows and can call a few standard numbers with such syntax as ``call home``:
+Borrowing again from the chapter on [Understanding], we might arrange things so that the player knows and can call a few standard numbers with such syntax as ``call home``:
 
   
 

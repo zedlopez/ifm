@@ -28,7 +28,7 @@ The player has a price. The price of the player is $60.00.
 ```
 
   
-Because we're allowing the player to order things that they can't currently see, we need to borrow a special kind of grammar from the Understanding chapter. All our orderable items in this example are toys, so "any toy" means any object of the toy kind, whether or not it is in view at the moment:
+Because we're allowing the player to order things that they can't currently see, we need to borrow a special kind of grammar from the [Understanding] chapter. All our orderable items in this example are toys, so "any toy" means any object of the toy kind, whether or not it is in view at the moment:
 
   
 

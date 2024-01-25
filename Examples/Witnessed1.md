@@ -103,7 +103,7 @@ The wind chimes are fixed in place in Thirtieth Street. "Carefully attached to t
 ```
 
   
-And this last bit, borrowed from the chapter on Understanding, adds some special instructions to help Inform decide when the player is likely to be referring to a compartment and when they're likely to be referring to the device itself.
+And this last bit, borrowed from the chapter on [Understanding], adds some special instructions to help Inform decide when the player is likely to be referring to a compartment and when they're likely to be referring to the device itself.
 
   
 

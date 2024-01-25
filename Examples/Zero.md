@@ -19,7 +19,7 @@ A thing is usually manageable.
 ```
 
   
-This does require a rule for an activity (see the chapter on Activities), but it's a fairly straightforward one:
+This does require a rule for an activity (see [Activities]), but it's a fairly straightforward one:
 
   
 

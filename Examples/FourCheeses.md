@@ -41,7 +41,7 @@ Because we've said that connection is a reciprocal, one-to-one relationship, Inf
 ```
 
   
-To avoid annoyance, we should also let the player use ``call`` #### as well as ``call`` #### ON ``telephone``. A rule from the chapter on Activities comes in handy here:
+To avoid annoyance, we should also let the player use ``call [####]`` as well as ``call #### on telephone``. A rule from the chapter on [Activities] comes in handy here:
 
   
 
@@ -133,10 +133,10 @@ After deciding the scope of the player while the player reaches someone:
 A note about this scope addition: the player can refer to the other party whenever they have the other person on the phone. They can't, however, see or refer to anything that person might be holding or wearing, thanks to the "but not its contents" option.
 
   
-Furthermore, the player can't actually do anything to that person that requires touching. That's because of the reaching inside rules, which govern whether the player can reach through intervening barriers such as rooms. (See the Advanced Actions chapter for more about changing reachability.) There are two things we might want to be careful about, though.
+Furthermore, the player can't actually do anything to that person that requires touching. That's because of the reaching inside rules, which govern whether the player can reach through intervening barriers such as rooms. (See the [Advanced Actions] chapter for more about changing reachability.) There are two things we might want to be careful about, though.
 
   
-First, we should specifically disallow the player from looking at the person on the other end of the line. Since sight doesn't require touching, the reaching inside rules will not be consulted about a command such as ``examine boss`` or ``look under boss``. We can, however, intervene in such cases using the visibility rules, which are consulted for any actions that "require light" (including ``examine`` and ``look under``). Here again we borrow some options from the Advanced Actions chapter:
+First, we should specifically disallow the player from looking at the person on the other end of the line. Since sight doesn't require touching, the reaching inside rules will not be consulted about a command such as ``examine boss`` or ``look under boss``. We can, however, intervene in such cases using the visibility rules, which are consulted for any actions that "require light" (including ``examine`` and ``look under``). Here again we borrow some options from the [Advanced Actions] chapter:
 
   
 

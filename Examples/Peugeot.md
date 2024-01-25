@@ -28,7 +28,7 @@ We make the ten-speed bike a rideable vehicle because we want to say that the pl
 ```
 
   
-And now we borrow from the Actions chapter to prevent travel without the proper equipment:
+And now we borrow from the [Basic Actions] chapter to prevent travel without the proper equipment:
 
   
 

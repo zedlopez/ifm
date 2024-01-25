@@ -25,7 +25,7 @@ The description of Candy Stand is "A hut in pale pink and baby blue dispenses ma
 ```
 
   
-As the descriptions make clear, the ferris wheel should be visible from everywhere in the fair, so we'll borrow a line from the Activities chapter to make that happen:
+As the descriptions make clear, the ferris wheel should be visible from everywhere in the fair, so we'll borrow a line from the [Activities] chapter to make that happen:
 
   
 

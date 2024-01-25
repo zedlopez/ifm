@@ -98,7 +98,7 @@ Now we define the attack itself, which should discard the body, move the spirit 
 ```
 
   
-And finally a trick borrowed from the chapter on understanding, so that we can refer to "Lydia's body" while Lydia is alive, but "Lydia's corpse" only after Lydia has died:
+And finally a trick borrowed from the chapter on [Understanding], so that we can refer to "Lydia's body" while Lydia is alive, but "Lydia's corpse" only after Lydia has died:
 
   
 

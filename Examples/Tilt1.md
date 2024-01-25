@@ -59,7 +59,7 @@ term	value	topic
 ```
 
   
-This is enough already to let inform understand things like "ten clubs", but we want to add a couple of refinements. For one thing, we'd like to accept "of" when it appears in phrases such as "ten of clubs" (but not generically otherwise); for another, we'd like the player to be able to use various names for ranks. To this end, we need to borrow from the Activities chapter and modify the player's command before attempting to understand it:
+This is enough already to let inform understand things like "ten clubs", but we want to add a couple of refinements. For one thing, we'd like to accept "of" when it appears in phrases such as "ten of clubs" (but not generically otherwise); for another, we'd like the player to be able to use various names for ranks. To this end, we need to borrow from the [Activities] chapter and modify the player's command before attempting to understand it:
 
   
 
@@ -123,7 +123,7 @@ To decide what number is the rounded number of (described set - a description of
 The above phrase rounds a number to the nearest five, because it seems unrealistic for the player to be able to count a large number of cards in the discard pile at a single glance.
 
   
-This next bit is an optional borrowing from the Activities chapter: we want to prevent Inform printing things like "You can see a discard pile (closed) here.", since we don't want the player to think of the piles as containers, even though Inform thinks of them in those terms.
+This next bit is an optional borrowing from the [Activities] chapter: we want to prevent Inform printing things like "You can see a discard pile (closed) here.", since we don't want the player to think of the piles as containers, even though Inform thinks of them in those terms.
 
   
 

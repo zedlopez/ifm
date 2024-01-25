@@ -12,7 +12,7 @@ In our previous implementations of playing cards, we've gotten as far as creatin
 Here we take on the job of writing an inventory listing for a poker hand that will reflect the real value of what the player has drawn. To do this, we create a rulebook to sort and assess the cards in the player's hand; its possible return values are limited to the kinds of poker hands that exist, from "high card" to "royal flush".
 
   
-The first three sections, creating the deck of cards and the means to parse their names, are identical to those we've already seen in Tilt 1; new material begins at section 4.
+The first three sections, creating the deck of cards and the means to parse their names, are identical to those we've already seen in [Tilt 1]; new material begins at section 4.
 
   
 For the purposes of demonstration, we're simulating something akin to five-card draw without wilds; stud or hold-em variations would add some other complexities.
@@ -180,7 +180,7 @@ The hand-ranking rulebook has a number called the quadruple count.
 ```
 
   
-For convenience in identifying hand features, and for elegance when we print the hand-listing, we start by sorting the cards in the player's hand so that the high-ranked cards are listed first. It is rare that we want to concern ourselves with this, but as we saw in the section on "Looking at containment by hand" in the chapter on Change, Inform keeps an ordered list of the items inside any given container; so it does order the objects in the player's hand, and the ordering depends on which things were added to the hand most recently. By moving something to the player's hand again (even if it was already there), we change this ordering, and wind up with a sorted hand.
+For convenience in identifying hand features, and for elegance when we print the hand-listing, we start by sorting the cards in the player's hand so that the high-ranked cards are listed first. It is rare that we want to concern ourselves with this, but as we saw in the section on [Looking at containment by hand] in the chapter on [Change], Inform keeps an ordered list of the items inside any given container; so it does order the objects in the player's hand, and the ordering depends on which things were added to the hand most recently. By moving something to the player's hand again (even if it was already there), we change this ordering, and wind up with a sorted hand.
 
   
 

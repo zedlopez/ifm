@@ -50,7 +50,7 @@ will match either "Darius" or "king". If necessary, we can go a step further and
 ```
 
   
-The token `"[Greeks]"` will match all of "Athenians", "Spartans", "Greeks", "hoplite army", or "hoplite forces". It will not match "hoplite" or "forces" alone; it is important to note that the / divides individual words which are understood equivalently, but does not define entire phrases as equivalent. More about how Inform understands specific phrases can be found in the chapter on Understanding.
+The token `"[Greeks]"` will match all of "Athenians", "Spartans", "Greeks", "hoplite army", or "hoplite forces". It will not match "hoplite" or "forces" alone; it is important to note that the / divides individual words which are understood equivalently, but does not define entire phrases as equivalent. More about how Inform understands specific phrases can be found in the chapter on [Understanding].
 
   
 

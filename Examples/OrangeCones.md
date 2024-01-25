@@ -6,7 +6,7 @@ Description: Creating a traffic backdrop that appears in all road rooms except t
 For: Z-Machine
 
   
-Because we can invent our own adjectives (see the chapter on Phrases), we can make the conditions for a backdrop as simple or as complicated as we like.
+Because we can invent our own adjectives (see the chapter on [Phrases]), we can make the conditions for a backdrop as simple or as complicated as we like.
 
   
 In this scenario, we want the player to be able to take, move, and drop orange traffic cones to seal off one street or another. So we create our own "accessible" adjective as follows:
@@ -81,7 +81,7 @@ After going to the Access Tunnel:
 ```
 
   
-And finally, a couple of features from the Activities chapter to make the output more elegant:
+And finally, a couple of features from the [Activities] chapter to make the output more elegant:
 
   
 

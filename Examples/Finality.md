@@ -20,7 +20,7 @@ Cliff Edge is a room. "This narrow strip overlooks a gorge many hundreds of feet
 ```
 
   
-The Table of Final Question Options determines what options are to be given to the player after the story ends. We can change what is mentioned there by altering the entries. (The example Jamaica 1688 explains this table in more detail, and demonstrates some other things that we might do with it.)
+The Table of Final Question Options determines what options are to be given to the player after the story ends. We can change what is mentioned there by altering the entries. (The example [Jamaica 1688] explains this table in more detail, and demonstrates some other things that we might do with it.)
 
   
 

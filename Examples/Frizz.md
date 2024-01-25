@@ -77,7 +77,7 @@ The Stairwell is above the Kitchen. "Halfway up and halfway down." The airing cu
 ```
 
   
-Now: whenever the player definitely touches something, we want to follow certain rules about the transfer of liquid. These rules need to come after an action's check rules (to make sure the action really occurs) and before the carry out rules (so that nothing has moved or changed yet). So we'll borrow from the chapter on rulebooks to create a whole new stage to the action, occurring between the check and the carry out phases:
+Now: whenever the player definitely touches something, we want to follow certain rules about the transfer of liquid. These rules need to come after an action's check rules (to make sure the action really occurs) and before the carry out rules (so that nothing has moved or changed yet). So we'll borrow from the chapter on [Rulebooks] to create a whole new stage to the action, occurring between the check and the carry out phases:
 
   
 

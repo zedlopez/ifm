@@ -58,7 +58,7 @@ Instead of examining a window:
 ```
 
   
-Here we must anticipate a little from the chapter on Relations, and provide ourselves with a way of keeping track of how windows and rooms relate to one another:
+Here we must anticipate a little from the chapter on [Relations], and provide ourselves with a way of keeping track of how windows and rooms relate to one another:
 
   
 

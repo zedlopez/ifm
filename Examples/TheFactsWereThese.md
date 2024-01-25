@@ -243,5 +243,5 @@ Test mixed-gift with "give dollar and cap to Morgue Attendant / get cap / give d
 ```
 
   
-``purloin``, used in the tests here, is a special debugging command that allows the player to acquire objects that wouldn't otherwise be possible to take. It is only active in non-release versions of the story. For more about debugging commands, see the chapter on Testing and Debugging.
+``purloin``, used in the tests here, is a special debugging command that allows the player to acquire objects that wouldn't otherwise be possible to take. It is only active in non-release versions of the story. For more about debugging commands, see the chapter on [Testing and Debugging].
 

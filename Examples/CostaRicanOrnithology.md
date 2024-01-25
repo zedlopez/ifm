@@ -47,7 +47,7 @@ topic	reply
 ```
 
   
-The topic column is a bit special: it matches the player's input, and is not meant to be printed out again. Topic columns will be discussed further in the chapter on Tables. (Note also that, however it may appear in the documentation, the topic column should not be spanning multiple lines in our source text.)
+The topic column is a bit special: it matches the player's input, and is not meant to be printed out again. Topic columns will be discussed further in the chapter on [Tables]. (Note also that, however it may appear in the documentation, the topic column should not be spanning multiple lines in our source text.)
 
   
 We may also compress long or complicated topics by creating bracketed abbreviations, and in fact it's useful to do so now, to explain the red token we just used:
@@ -59,7 +59,7 @@ We may also compress long or complicated topics by creating bracketed abbreviati
 ```
 
   
-This technique is discussed further in the chapter on Understanding.
+This technique is discussed further in the chapter on [Understanding].
 
   
 If we wanted more books, we could define those in the same way, giving each its own separate contents table to be used for consultation. But for the sake of the example we will keep it simple, and move on to the scenario itself:

@@ -25,8 +25,9 @@ Defining the staircase this way means that we will never be able to get away wit
 A staircase is a kind of door. A staircase is usually open. A staircase is seldom openable.
 ```
 
-  
-We could then write a rule so that whenever the player types ``climb`` [any staircase], the command is diverted to an enter command, while all other doors refuse to respond to such treatment. Still, this kind is now usable, as we see in this trivial example:
+[ZL: arguable what the right styling for "any staircase" is]::
+
+We could then write a rule so that whenever the player types ``climb [any staircase]``, the command is diverted to an enter command, while all other doors refuse to respond to such treatment. Still, this kind is now usable, as we see in this trivial example:
 
   
 

@@ -9,7 +9,7 @@ For: Z-Machine
 Suppose that we're going to give every person in the game a nose, but we want references to a nose always to mean the nose of someone \*else\*, if the player is with one other person. Moreover, on some occasions we're going to be in sight of Rudolph, so actions directed at an unspecified nose should always prefer his.
 
   
-This relies on a somewhat advanced technique from the Understanding chapter, but since it may become useful with assemblies and body parts, it is worth mentioning here.
+This relies on a somewhat advanced technique from the [Understanding] chapter, but since it may become useful with assemblies and body parts, it is worth mentioning here.
 
   
 

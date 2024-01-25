@@ -21,5 +21,5 @@ Test me with "x blue willow / get striped / look".
 ```
 
   
-This may not seem very much different from having the pattern be a kind of value – except that texts can, of course, hold almost anything. Further exploration of these possibilities may be found in the chapter on Advanced Text.
+This may not seem very much different from having the pattern be a kind of value – except that texts can, of course, hold almost anything. Further exploration of these possibilities may be found in the chapter on [Advanced Text].
 

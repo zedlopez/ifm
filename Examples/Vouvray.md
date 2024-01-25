@@ -6,7 +6,7 @@ Description: Adding synonyms to an entire kind of thing.
 For: Z-Machine
 
   
-The Understanding chapter lays out ways to change how the player can refer to objects, but we may not want to wait that long for some of the basic features. Here, for instance, is how to add synonyms that the player can use to refer to an entire kind of object:
+The [Understanding] chapter lays out ways to change how the player can refer to objects, but we may not want to wait that long for some of the basic features. Here, for instance, is how to add synonyms that the player can use to refer to an entire kind of object:
 
   
 

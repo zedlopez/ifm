@@ -109,7 +109,7 @@ Report pouring it into:
 This is probably a drier description than we would actually want in our story, but it does allow us to see that the mechanics of the system are working, so we'll stick with this for the example.
 
   
-Now we need a trick from a later chapter, which allows something to be described in terms of a property it has. This way, the story will understand not only "pitcher" and "glass" but also "pitcher of lemonade" and "glass of milk" – and, indeed, "glass of lemonade", if we empty the glass and refill it with another substance:
+Now we need a trick from the [Understanding] chapter, which allows something to be described in terms of a property it has. This way, the story will understand not only "pitcher" and "glass" but also "pitcher of lemonade" and "glass of milk" – and, indeed, "glass of lemonade", if we empty the glass and refill it with another substance:
 
   
 

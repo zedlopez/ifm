@@ -6,7 +6,7 @@ Description: Creating a booth that can be seen from the outside, opened and clos
 For: Z-Machine
 
   
-Sometimes we may want a room to be visible from the outside in one location, but treated as a separate location when we are inside. The simplest way to do this is to make the exterior form of the object into a door object, and to describe it differently from different vantage points. (Doors in general are described more fully in the Doors section of the Things chapter.)
+Sometimes we may want a room to be visible from the outside in one location, but treated as a separate location when we are inside. The simplest way to do this is to make the exterior form of the object into a door object, and to describe it differently from different vantage points. (Doors in general are described more fully in the [Doors] section of the [Things] chapter.)
 
   
 
@@ -52,7 +52,7 @@ Test me with "examine booth / open door of the booth / in / examine door / close
 ```
 
   
-A final nice touch, if we're so inclined, is to borrow from the Basic Actions chapter and make the player automatically open the booth door before trying to enter:
+A final nice touch, if we're so inclined, is to borrow from the [Basic Actions] chapter and make the player automatically open the booth door before trying to enter:
 
   
 
@@ -63,5 +63,5 @@ A final nice touch, if we're so inclined, is to borrow from the Basic Actions ch
 ```
 
   
-For the contrasting case of a space that is nested inside another place and is not its own room – say a stall at an open-air market, or a rowboat on a lake – see the example "Tamed".
+For the contrasting case of a space that is nested inside another place and is not its own room – say a stall at an open-air market, or a rowboat on a lake – see the example [Tamed].
 

@@ -58,7 +58,7 @@ This last bit is an entirely unnecessary bit of local color, but if we're going 
 ```
 
   
-Randomness is explained more completely in the chapter on Change, and every turn rules in the chapter on Time.
+Randomness is explained more completely in the chapter on [Change], and every turn rules in the chapter on [Time].
 
   
 Finally, we might want a container whose interior is modeled as its own separate room: say, a magician's booth in which volunteers are made to disappear.

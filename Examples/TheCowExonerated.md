@@ -9,7 +9,7 @@ For: Z-Machine
 Here we create a class of matches that can be used to burn other objects. Our objectives are as follow:
 
   
-Burned objects other than matches should be removed from play instantly (just as edible objects are instantly eaten). We could give everything its own burning duration, but that complicates matters and allows for fire to spread from one object to another; for an example of how to do that, see the example "In Fire or in Flood".
+Burned objects other than matches should be removed from play instantly (just as edible objects are instantly eaten). We could give everything its own burning duration, but that complicates matters and allows for fire to spread from one object to another; for an example of how to do that, see the example [In Fire or in Flood].
 
   
 Matches should be described to show whether they are burning or extinguished, and when the parser chooses one of several identical matches, it should make very clear which match it has selected.
@@ -85,7 +85,7 @@ Section 2 - Matches
 ```
 
   
-The word "matches" is used by Inform to compare snippets of text (see "Reading a command" in the Activities chapter). This can sometimes cause awkwardness if we also have a kind called "match", so for the occasion we will give our matches a more specialized name, never visible to the player:
+The word "matches" is used by Inform to compare snippets of text (see [Reading a command] in the [Activities] chapter). This can sometimes cause awkwardness if we also have a kind called "match", so for the occasion we will give our matches a more specialized name, never visible to the player:
 
   
 

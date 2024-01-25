@@ -108,7 +108,7 @@ topic	reply
 ```
 
   
-This "After printing the name..." rule will be explained later in the chapter on activities; for now, it is enough to know that whenever family circumstances is mentioned in the table of flashback material, this rule will automatically be called. Now the terms under which the flashback happens:
+This "After printing the name..." rule will be explained later in the chapter on [Activities]; for now, it is enough to know that whenever family circumstances is mentioned in the table of flashback material, this rule will automatically be called. Now the terms under which the flashback happens:
 
   
 

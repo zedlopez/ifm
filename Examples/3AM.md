@@ -36,7 +36,7 @@ The can of root beer is a closed openable container carried by the player. The c
 ```
 
   
-Because the can of root beer should have some reactions to having been shaken later in the game, we need to borrow a few ideas from the chapter on Time:
+Because the can of root beer should have some reactions to having been shaken later in the game, we need to borrow a few ideas from the chapter on [Time]:
 
   
 

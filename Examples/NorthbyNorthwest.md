@@ -57,7 +57,7 @@ If we're compiling to the Z-machine, however, we'll have to resort to some manip
 ```
 
   
-For more on the use of text, see the Advanced Text chapter.
+For more on the use of text, see the [Advanced Text] chapter.
 
   
 

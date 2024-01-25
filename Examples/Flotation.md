@@ -83,7 +83,7 @@ Rule for writing a paragraph about the well:
 ```
 
   
-As we recall from the chapter on activities, "writing a paragraph about..." is an activity; activities are themselves structured as sets of object-based rulebooks. The activity "writing a paragraph about" uses three object-based rulebooks (before writing..., for writing..., after writing...). We could have made a flotation activity as well, but in general it is overkill to make an activity to make success/failure decisions. For that purpose an object-based rulebook is sufficient.
+As we recall from the chapter on [Activities], "writing a paragraph about..." is an activity; activities are themselves structured as sets of object-based rulebooks. The activity "writing a paragraph about" uses three object-based rulebooks (before writing..., for writing..., after writing...). We could have made a flotation activity as well, but in general it is overkill to make an activity to make success/failure decisions. For that purpose an object-based rulebook is sufficient.
 
   
 

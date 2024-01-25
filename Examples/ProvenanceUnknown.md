@@ -9,7 +9,7 @@ For: Z-Machine
 Suppose we have a series of items that might be stacked on top of one another – say a heavy television on a rolling cart, and we want the player to be able to move the cart with ``push television east`` just as well as with ``push cart east``.
 
   
-This takes a little redirection, using a setting action variables rule. This is not a kind of rule we've encountered yet, and in fact we won't meet it until the Advanced Actions chapter; it is included here for the convenience of authors who want to modify the effect of pushing without reading that far ahead:
+This takes a little redirection, using a setting action variables rule. This is not a kind of rule we've encountered yet, and in fact we won't meet it until the [Advanced Actions] chapter; it is included here for the convenience of authors who want to modify the effect of pushing without reading that far ahead:
 
   
 

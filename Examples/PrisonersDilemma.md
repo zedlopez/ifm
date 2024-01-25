@@ -28,7 +28,7 @@ Test me with "e / push button / e / w".
 ```
 
   
-Our instructions about pushing the button will be further explained in the chapter on Actions, but the thing to note here is that we can "change (whatever) exit" in order to set or re-set map directions. Notice that we have to set both directions explicitly: changing the east exit of the Waiting Room does not automatically also change the west exit of Amid the Cheering Throng.
+Our instructions about pushing the button will be further explained in the chapter on [Actions], but the thing to note here is that we can "change (whatever) exit" in order to set or re-set map directions. Notice that we have to set both directions explicitly: changing the east exit of the Waiting Room does not automatically also change the west exit of Amid the Cheering Throng.
 
   
 This allows greater flexibility in our games but does require an extra line or so of work.

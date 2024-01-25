@@ -28,7 +28,7 @@ A height is a kind of value. 3 feet 11 inches specifies a height. A thing has a 
 So far, we have generally dealt with cases where the property of a thing can be a number (such as 3), a value (such as brightness), or a unit (like height, here). It is also possible for a thing to have a property which names another thing, as in "The mother of the baby trout is the large trout" – where "mother" is a property, and its value, in the case of the baby trout, is large trout. We would define such a property with a line such as "A fish has a thing called the mother."
 
   
-In practice, though, this is a bit confusing as syntax; moreover, Inform has a much more powerful construct for talking about the ways in which one object relates to another object. A full discussion of this will have to wait for the chapter on Relations. For now, it is enough to say that we can do this:
+In practice, though, this is a bit confusing as syntax; moreover, Inform has a much more powerful construct for talking about the ways in which one object relates to another object. A full discussion of this will have to wait for the chapter on [Relations]. For now, it is enough to say that we can do this:
 
   
 
@@ -52,7 +52,7 @@ A jug is a kind of container. A jug is usually clay. The ordinary jug is a jug. 
 ```
 
   
-Now each of these types has one ideal representative which has the fundamental attributes of its kind: the ordinary chair is the most chairlike chair imaginable, the ordinary table is the epitome of tableness, and so on. We are also allowed to refer to "the ideal of the chair", thanks to the way we defined imitation. (Again, the relations chapter offers a much more detailed explanation of how relations may be defined.)
+Now each of these types has one ideal representative which has the fundamental attributes of its kind: the ordinary chair is the most chairlike chair imaginable, the ordinary table is the epitome of tableness, and so on. We are also allowed to refer to "the ideal of the chair", thanks to the way we defined imitation. (Again, the [Relations] chapter offers a much more detailed explanation of how relations may be defined.)
 
   
 

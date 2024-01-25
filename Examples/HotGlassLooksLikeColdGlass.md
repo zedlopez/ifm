@@ -43,7 +43,7 @@ So far, so good. Now, what if the player tries to ``get hot dish`` when the gogg
 We could go on to write a mistake rule that would scold the player for trying "get [heat] [text]" when not wearing the goggles. The problem is that this would not cover any other phrasing of the command, nor would it account for all the many other things the player might try to do with an object specified by heat.
 
   
-What we really want is to catch all instances of the player using the property name when not allowed to do so; and for this purpose we can borrow a trick from the chapter on Activities:
+What we really want is to catch all instances of the player using the property name when not allowed to do so; and for this purpose we can borrow a trick from the chapter on [Activities]:
 
   
 

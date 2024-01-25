@@ -28,7 +28,7 @@ The fancy examining rule is listed instead of the standard examining rule in the
 ```
 
   
-This instruction replaces a normal piece of the examine action, the standard examining rule, with another one of our own devising. (The replacement of the standard examining rule will be explained in more detail in the chapter on rulebooks.)
+This instruction replaces a normal piece of the examine action, the standard examining rule, with another one of our own devising. (The replacement of the standard examining rule will be explained in more detail in the chapter on [Rulebooks].)
 
   
 
@@ -70,7 +70,7 @@ The instead at the end of this line stops Inform for going on with any other "af
 The standard library also has rules for printing additional text about containers and supporters with visible contents, and devices that are switched on; with this current system, we could add those as "after printing the description" rules as well, building up a complete paragraph if we wanted. But for simplicity we won't exemplify all of that here. The effects would be much the same as with the "charred" line.
 
   
-Now, because we want to make sure that we always do get a paragraph break after our description, we add this rule last after all the other rules. "Last" and "first" rules are covered in more detail in the chapter on rulebooks.
+Now, because we want to make sure that we always do get a paragraph break after our description, we add this rule last after all the other rules. "Last" and "first" rules are covered in more detail in the chapter on [Rulebooks].
 
   
 

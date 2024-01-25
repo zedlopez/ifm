@@ -9,7 +9,7 @@ For: Z-Machine
 Suppose that we wanted authors to be able to indicate which relations should or should not be included in room descriptions, and have the system dynamically honor that instruction.
 
   
-Inform already knows about verbs for describing supporting, containment, carrying, and wearing, so we could write a set of instructions to handle such cases. To do this, we're using the "writing a paragraph about" activity, which is described in the chapter on activities.
+Inform already knows about verbs for describing supporting, containment, carrying, and wearing, so we could write a set of instructions to handle such cases. To do this, we're using the "writing a paragraph about" activity, which is described in the chapter on [Activities].
 
   
 The following uses what is, strictly speaking, a piece of internal machinery not really intended for public use: a variable called "prior named object" which keeps track of what noun other words should agree with. It is not safe to use this variable except to clear it: "now the prior named object is nothing". In a few situations, this prevents glitches in adaptive text.

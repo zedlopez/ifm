@@ -43,10 +43,10 @@ Speaking of the Index, the Actions tab contains a list of all the grammar that c
 ```
 
   
-The nuances of this will be explored in the chapter on Understanding. What is useful to know here is that we have taught Inform to understand that ``flip light switch`` means to turn it on when the switch is already off; if the switch is already on, ``flip switch`` means to turn the switch off. Depending on the kind of device we are modeling (button? lever? dial?), we might want to write similar lines for commands such as ``push``, ``press``, ``pull``, ``turn``, and so on.
+The nuances of this will be explored in the chapter on [Understanding]. What is useful to know here is that we have taught Inform to understand that ``flip light switch`` means to turn it on when the switch is already off; if the switch is already on, ``flip switch`` means to turn the switch off. Depending on the kind of device we are modeling (button? lever? dial?), we might want to write similar lines for commands such as ``push``, ``press``, ``pull``, ``turn``, and so on.
 
   
-Finally, we need to deal with a special case. In general, the player cannot interact with other things in a dark room because they can't see them, but if we adhered strictly to this it would be impossible for them to find the light switch to turn it back on. So we need something from the chapter on Activities to change this:
+Finally, we need to deal with a special case. In general, the player cannot interact with other things in a dark room because they can't see them, but if we adhered strictly to this it would be impossible for them to find the light switch to turn it back on. So we need something from the chapter on [Activities] to change this:
 
   
 

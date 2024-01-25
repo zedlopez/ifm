@@ -25,7 +25,7 @@ Our example is slightly complicated by the fact that "man" is a name already kno
 ```
 
   
-Now we borrow from the Activities chapter to look at the exact wording of the player's command:
+Now we borrow from the [Activities] chapter to look at the exact wording of the player's command:
 
   
 

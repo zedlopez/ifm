@@ -6,7 +6,7 @@ Description: Modifying the rules for examining a device so that all devices have
 For: Z-Machine
 
   
-The built-in behavior of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behavior in general by instructing Inform to ignore the "examine devices rule" (see the chapter on rulebooks).
+The built-in behavior of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behavior in general by instructing Inform to ignore the "examine devices rule" (see the chapter on [Rulebooks]).
 
   
 Perhaps, though, we would like continue to have a short passage about the action of any switched on device; we'd just like a little more control over what it says from time to time. And in that case, we might change the rule to give a new activity control over that portion of the description:

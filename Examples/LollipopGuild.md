@@ -6,7 +6,7 @@ Description: Overriding the rules to allow the player to show something to anoth
 For: Z-Machine
 
   
-As mentioned in this section, the "implicitly taking" activity does not allow us to skip an implicit take entirely. In order to do this, we need to borrow from the chapter on Rulebooks and tell Inform that one of the rules normally built in to the Standard Rules does nothing in certain circumstances:
+As mentioned in this section, the "implicitly taking" activity does not allow us to skip an implicit take entirely. In order to do this, we need to borrow from the chapter on [Rulebooks] and tell Inform that one of the rules normally built in to the Standard Rules does nothing in certain circumstances:
 
   
 

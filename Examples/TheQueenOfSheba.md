@@ -60,7 +60,7 @@ When play begins, say "'Oh, you've arrived,' says Solomon."
 In a real game we'd need to be a great deal subtler. All the same, if we have a character of quite limited resources to present to the player, it's a good idea to give the player some incentive to stay on topic, ask questions the character can answer, and generally interact within the parameters we're prepared for.
 
   
-Now, this last bit requires some trickery from later chapters, particularly those on Understanding and Activities, to pull the question words out of the player's command:
+Now, this last bit requires some trickery from later chapters, particularly those on [Understanding] and [Activities], to pull the question words out of the player's command:
 
   
 

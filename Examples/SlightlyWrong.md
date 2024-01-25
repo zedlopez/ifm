@@ -24,7 +24,7 @@ Test me with "look / s / look".
 Note the "[if unvisited]..." in the description of the Slightly Wrong Chamber. A room is considered to be "unvisited" until after the player has seen its description for the first time.
 
   
-The bracketed text creates a special rule for printing; we will learn more about these in the sections on text with variations and text with substitutions.
+The bracketed text creates a special rule for printing; we will learn more about these in the sections on [Text with Variations] and [Text with Substitutions].
 
   
 Some further fine print: we might write our condition as "if unvisited", "if the location is unvisited", or "if the Chamber is unvisited" – all of these constructions would be acceptable, but in the absence of more specifics, the condition is understood to apply to the object whose description it is.

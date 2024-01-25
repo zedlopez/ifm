@@ -23,7 +23,7 @@ Chapter 1 - Replacing old talk commands and making a new one
 ```
 
   
-Here, using some techniques that will be discussed in the chapter on Understanding, we get rid of Inform's default handling of ``ask`` and ``tell``, and create our own ``talk to`` action instead:
+Here, using some techniques that will be discussed in the chapter on [Understanding], we get rid of Inform's default handling of ``ask`` and ``tell``, and create our own ``talk to`` action instead:
 
   
 
@@ -112,7 +112,7 @@ output
 ```
 
   
-This last rule is a refinement borrowing from the Activities chapter, which gives characters different appearances in room descriptions depending on when we happen to look; because of the action of the play, we want to show the chorus and audience doing different things during different scenes.
+This last rule is a refinement borrowing from the [Activities] chapter, which gives characters different appearances in room descriptions depending on when we happen to look; because of the action of the play, we want to show the chorus and audience doing different things during different scenes.
 
   
 

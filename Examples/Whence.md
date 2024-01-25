@@ -24,5 +24,5 @@ Test me with "w / e".
 ```
 
   
-Yet a further variation on this, which can automatically understand "the east door" and "the west door" when appropriate, may be found in the example "Whither?".
+Yet a further variation on this, which can automatically understand "the east door" and "the west door" when appropriate, may be found in the example [Whither?].
 

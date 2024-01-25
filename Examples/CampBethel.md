@@ -14,7 +14,7 @@ Camp Bethel Kitchen is a room.
 ```
 
   
-One use for text alternatives is to change the description of a room after first visiting. We've already seen, in the example "Slightly Wrong", how to do this with "[if visited] ... [otherwise] ... [end if]". But since the first description is printed once and the second description on all subsequent occasions, we could equally well write
+One use for text alternatives is to change the description of a room after first visiting. We've already seen, in the example [Slightly Wrong], how to do this with "[if visited] ... [otherwise] ... [end if]". But since the first description is printed once and the second description on all subsequent occasions, we could equally well write
 
   
 
@@ -23,7 +23,7 @@ One use for text alternatives is to change the description of a room after first
 ```
 
   
-We might also want to liven up the behavior of people and animals, who are probably not doing the exact same thing every time we glance in their direction. There are more complex techniques for modeling the behavior of characters, as we will see in the chapters on Advanced Actions and Activities; but if we just want some textual variety, we might write something like:
+We might also want to liven up the behavior of people and animals, who are probably not doing the exact same thing every time we glance in their direction. There are more complex techniques for modeling the behavior of characters, as we will see in the chapters on [Advanced Actions] and [Activities]; but if we just want some textual variety, we might write something like:
 
   
 

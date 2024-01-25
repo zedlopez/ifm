@@ -62,7 +62,7 @@ Report photographing:
 ```
 
   
-Now we use two activities from the Activities chapter to describe the photographs to the player more elegantly:
+Now we use two activities from the [Activities] chapter to describe the photographs to the player more elegantly:
 
   
 

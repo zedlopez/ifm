@@ -41,7 +41,7 @@ The player carries a jug of water. Understand "pour [something] on [something]" 
 ```
 
   
-So much, we had before. Now, suppose we want a conversation style which allows the player to move conversation forward by asking appropriate questions, but which will keep moving forward even if he doesn't. To this end, we provide a table – a borrowing from a later chapter. In the table, we record two ways of performing each conversation bit, one which reflects the player's participation, and one in which the character moves things onward:
+So much, we had before. Now, suppose we want a conversation style which allows the player to move conversation forward by asking appropriate questions, but which will keep moving forward even if he doesn't. To this end, we provide a table – a borrowing from a later chapter, [Tables]. In the table, we record two ways of performing each conversation bit, one which reflects the player's participation, and one in which the character moves things onward:
 
   
 

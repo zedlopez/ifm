@@ -17,7 +17,7 @@ The former location is a room that varies.
 ```
 
   
-Here we record where the player has been before moving them; by calling this the "first carry out going rule", we make sure that this rule is followed during the going action before any other pieces of the movement occur. For more detail, see the chapters on advanced actions and on rules.
+Here we record where the player has been before moving them; by calling this the "first carry out going rule", we make sure that this rule is followed during the going action before any other pieces of the movement occur. For more detail, see the chapters on [Advanced Actions] and on [Rulebooks].
 
   
 

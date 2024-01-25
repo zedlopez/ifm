@@ -22,7 +22,7 @@ Instead of examining the bearded man for the first time:
 ```
 
   
-Finally, we need to tell Inform to understand the man's name, but only when he's been introduced. For this purpose, we borrow from the chapter on Understanding:
+Finally, we need to tell Inform to understand the man's name, but only when he's been introduced. For this purpose, we borrow from the chapter on [Understanding]:
 
   
 

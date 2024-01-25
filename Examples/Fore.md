@@ -29,7 +29,7 @@ Index map with fore mapped as north. Index map with aft mapped as south. Index m
 ```
 
   
-And we can even add new ways to talk about the ways things are mapped, borrowing from the Relations chapter. The following will allow us to use "is abaft of" as well as "is aft of":
+And we can even add new ways to talk about the ways things are mapped, borrowing from the [Relations] chapter. The following will allow us to use "is abaft of" as well as "is aft of":
 
   
 

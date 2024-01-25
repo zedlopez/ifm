@@ -21,7 +21,7 @@ The hover-bubble is a vehicle in the Emerald City. "Your hover-bubble awaits." T
 ```
 
   
-Here's the tricky part, which relies on material from the chapters on Activities and Rulebooks:
+Here's the tricky part, which relies on material from the chapters on [Activities] and [Rulebooks]:
 
   
 

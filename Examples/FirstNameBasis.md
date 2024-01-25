@@ -46,5 +46,5 @@ Test me with "x holo / x man / lewis / x guy / harper / turn on projector / x ho
 ```
 
   
-Inform's naming abilities go considerably further, in fact: we can also instruct it to understand words only under certain circumstances, or only when they appear with other words. Fuller details may be found in the chapter on Understanding.
+Inform's naming abilities go considerably further, in fact: we can also instruct it to understand words only under certain circumstances, or only when they appear with other words. Fuller details may be found in the chapter on [Understanding].
 

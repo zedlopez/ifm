@@ -26,7 +26,7 @@ Telling someone about something is speech. Asking someone about something is spe
 ```
 
   
-This next portion borrows from the Advanced Actions chapter to allow us to command Christian to do things:
+This next portion borrows from the [Advanced Actions] chapter to allow us to command Christian to do things:
 
   
 

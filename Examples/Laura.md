@@ -100,5 +100,5 @@ The purple rabbit is a privately-named thing.
 ...the player will not be able to refer to it as "purple" or "rabbit" or "purple rabbit".
 
   
-There are also ways to make names to refer to entire kinds of objects (so "dude" will refer to any man in the game); to specify names that only refer to objects in the plural (so ``get pictures`` will pick up several pictures together); to reflect an object's properties (so "red apple" works only as long as the apple is in fact red); or even to refer to the object's relationships to other objects (so "bottle of wine" works only when wine is indeed in the bottle). All these refinements are discussed in the chapter on Understanding.
+There are also ways to make names to refer to entire kinds of objects (so "dude" will refer to any man in the game); to specify names that only refer to objects in the plural (so ``get pictures`` will pick up several pictures together); to reflect an object's properties (so "red apple" works only as long as the apple is in fact red); or even to refer to the object's relationships to other objects (so "bottle of wine" works only when wine is indeed in the bottle). All these refinements are discussed in the chapter on [Understanding].
 

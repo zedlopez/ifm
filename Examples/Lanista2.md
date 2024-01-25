@@ -6,7 +6,7 @@ Description: Randomized combat in which the damage done depends on what weapons 
 For: Z-Machine
 
   
-Back in the chapter on randomization, we explored a way to create a randomized combat system. That system didn't allow for multiple weapons, though. Here we explore how to create an ``attack it with`` action that will let the player choose between weapons with different maximum powers.
+In [Lanista 1], we explored a way to create a randomized combat system. That system didn't allow for multiple weapons, though. Here we explore how to create an ``attack it with`` action that will let the player choose between weapons with different maximum powers.
 
   
 We're also going to rewrite that original "instead of attacking:" rule into an attacking it with action that can be performed equally by the player or by any of the player's enemies.

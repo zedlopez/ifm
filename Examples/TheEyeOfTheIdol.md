@@ -52,7 +52,7 @@ With that done, removing these items automatically from the room description is 
 ```
 
   
-One tricky case remains: when something is placed on a supporter that is scenery, it can be mentioned even if we have marked that object "not marked for listing". What matters here is not whether the object itself is marked for listing but whether the supporter has been "mentioned". (A fuller description of how room descriptions are assembled is available in the Looking section of the Commands chapter in the Recipe Book.) So let's also add a feature whereby we can easily suppress the descriptions of these supporters when appropriate:
+One tricky case remains: when something is placed on a supporter that is scenery, it can be mentioned even if we have marked that object "not marked for listing". What matters here is not whether the object itself is marked for listing but whether the supporter has been "mentioned". (A fuller description of how room descriptions are assembled is available in the [Looking] section of the [Commands] chapter in the Recipe Book.) So let's also add a feature whereby we can easily suppress the descriptions of these supporters when appropriate:
 
   
 

@@ -21,7 +21,7 @@ To say (count - a number) in round numbers:
 ```
 
   
-Phrases will be explained more thoroughly in a later chapter, but as we have already seen in the examples, we can make a "To say..." phrase that will allow us to create our own text substitutions. In this case, we are going to replace the specific number with a vaguer one chosen from a chart, so:
+[Phrases] will be explained more thoroughly in a later chapter, but as we have already seen in the examples, we can make a "To say..." phrase that will allow us to create our own text substitutions. In this case, we are going to replace the specific number with a vaguer one chosen from a chart, so:
 
   
 

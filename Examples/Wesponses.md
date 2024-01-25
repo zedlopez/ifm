@@ -7,7 +7,7 @@ For: Z-Machine
 
 [ZL: https://inform7.atlassian.net/browse/I7-2388 ]::
   
-If we want to change individual responses to player action, then the best thing to do is to use the response facility to modify those selections, as shown in the chapter on Responses.
+If we want to change individual responses to player action, then the best thing to do is to use the response facility to modify those selections, as shown in the chapter on [Responses].
 
   
 However, suppose what we want is to give the parser a speech impediment that slightly alters all of the responses it issues. For this purpose, we might need to do a bit of text replacement...

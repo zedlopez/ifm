@@ -6,7 +6,7 @@ Description: Clark Gable in a pin-striped suit and a pink thong.
 For: Z-Machine
 
   
-The following burlesque was considered too much for the tender readers of Chapter 3, since it involved explicit use of listing and persuasion:
+The following burlesque was considered too much for the tender readers of the [Things] chapter, since it involved explicit use of listing and persuasion:
 
   
 

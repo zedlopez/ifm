@@ -6,10 +6,10 @@ Description: We create phrases such as "the box we took" and "the newspaper Clar
 For: Z-Machine
 
   
-The examples Variety and Narrative Register show how verbs can be associated with particular actions. Here, we use the same principle so that we can report to the player what was last done to a particular object, either by the player or by someone else.
+The examples [Variety] and [Narrative Register] show how verbs can be associated with particular actions. Here, we use the same principle so that we can report to the player what was last done to a particular object, either by the player or by someone else.
 
   
-To do this, we need to use the idea of stored actions from the Advanced Actions chapter.
+To do this, we need to use the idea of stored actions from the [Advanced Actions] chapter.
 
   
 
