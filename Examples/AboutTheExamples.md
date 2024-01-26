@@ -25,7 +25,7 @@ As part of the testing process which verifies a new build of Inform, each exampl
   
 Each example is loosely graded by difficulty: if they were exercises in a textbook, the asterisks would indicate how many marks each question scores. As a general rule:
 
-[ZL: better without bullets...]::
+[ZL: better without bullets; first line actually appears mangled; possibly a bug in IFM parsing ...]::
 
 - * A simple example, fairly easily guessed.
 - ** A complicated or surprising example.

@@ -4045,7 +4045,7 @@ the [Source Text] chapter noted that surveys of Inform source text showed that t
 >
 >     Instead of entering the trapdoor, try going up.
 >
-> It's as if the player had typed GO UP as a command. Note that the action has to be specific:
+> It's as if the player had typed ``go up`` as a command. Note that the action has to be specific:
 >
 >     try eating something;
 >

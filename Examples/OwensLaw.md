@@ -6,7 +6,7 @@ Description: OUT always means "move to an outdoors room, or else to a room with 
 For: Z-Machine
 
   
-Suppose we want the game to interpret "GO ``out`` as "move towards an outdoors room, or towards a room with more exits than the current room", while "GO IN" means "move toward a room with fewer exits, or towards an indoors room". Thus going in repeatedly within a building would lead towards dead-ends, while going out repeatedly would lead towards the center of the building and then towards an exit to the outside world.
+Suppose we want the game to interpret ``go out`` as "move towards an outdoors room, or towards a room with more exits than the current room", while ``go in`` means "move toward a room with fewer exits, or towards an indoors room". Thus going in repeatedly within a building would lead towards dead-ends, while going out repeatedly would lead towards the center of the building and then towards an exit to the outside world.
 
   
 We start by encoding these rules as definitions:

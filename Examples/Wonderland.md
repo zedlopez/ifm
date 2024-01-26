@@ -6,7 +6,7 @@ Description: Hiking Mount Rainier, with attention to which locations are higher 
 For: Z-Machine
 
   
-Suppose we have a landscape with a great deal of up and down variation, where GO UP and GO ``down`` will be significant almost everywhere, and specifying them all individually a tremendous pain:
+Suppose we have a landscape with a great deal of up and down variation, where ``go up`` and ``go down`` will be significant almost everywhere, and specifying them all individually a tremendous pain:
 
   
 

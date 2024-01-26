@@ -41,7 +41,7 @@ We should reject movement to the player's current location, or to anywhere they 
 The assumption here is that the player does know the names of the rooms adjacent to their current location, even if they haven't been there yet.
 
   
-Now for the travel itself. The simplest way to ensure that the usual movement rules will still apply is to convert GO BY ``name`` into a GO action, and here the best route comes to our aid:
+Now for the travel itself. The simplest way to ensure that the usual movement rules will still apply is to convert ``go by [name]`` into a ``go`` action, and here the best route comes to our aid:
 
   
 

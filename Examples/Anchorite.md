@@ -19,7 +19,7 @@ Understand "get down" as exiting.
 ```
 
   
-This doesn't cover the case where the player just types ``down``, and we don't want to preempt the normal operation of the GO action here. So instead of writing a new understand instruction, we might catch this one at the action-processing level:
+This doesn't cover the case where the player just types ``down``, and we don't want to preempt the normal operation of the ``go`` action here. So instead of writing a new understand instruction, we might catch this one at the action-processing level:
 
   
 

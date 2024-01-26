@@ -27,7 +27,7 @@ Report someone going vaguely:
 ```
 
   
-It stands to reason the player plays Zeus or at the very least Apollo, but let's not let this go to the player's head. Note that the following rule applies to the player, but not to anyone else, so ``hermes``, GO TO ``athens`` will work but GO TO ``athens`` will not.
+It stands to reason the player plays Zeus or at the very least Apollo, but let's not let this go to the player's head. Note that the following rule applies to the player, but not to anyone else, so ``hermes, go to athens`` will work but ``go to athens`` will not.
 
   
 

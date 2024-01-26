@@ -26,7 +26,7 @@ And then write a general rule.
 ```
 
   
-One complication is that "asking someone to try doing something", which describes commands such as ``fred``, GO ``south``, cannot be made into a kind of action. This requires its own rule:
+One complication is that "asking someone to try doing something", which describes commands such as ``fred, go south``, cannot be made into a kind of action. This requires its own rule:
 
   
 
