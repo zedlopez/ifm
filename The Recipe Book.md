@@ -62,6 +62,8 @@ One last preliminary: a handful of the examples do not show how to do anything a
 
 ## Varying What Is Written
 
+[ZL: missing: Fun with Participles ; Variety ; Variety 2 ; Narrative Register ; History Lab ; Relevant Relations ; Olfactory Settings ; Responsive ; Wesponses]::
+
 ^^{adaptive displayed text}^^{text substitutions}^^{randomness: text variations}
 Before getting to actual recipes, many recipe books begin with intimidating lists of high-end kitchen equipment (carbon-steel pans, a high-temperature range, a Provencal shallot-grater, a set of six pomegranate juicers): fortunately, readers who have downloaded Inform already have the complete kitchen used by the authors. But the other traditional preliminaries, about universal skills such as chopping vegetables, boiling water and measuring quantities, do have an equivalent.
 
@@ -1346,6 +1348,8 @@ We can also record a series of actions performed by the player or by another cha
 
 ## Actions on Multiple Objects
 
+[ZL: missing: Best Till Last]::
+
 ^^{actions: applying to multiple objects}^^{lists: the multiple object list}^^{+to+multiple object list}^^{deciding whether all includes+activity+} ^^{deciding whether all includes+activitycat+}^^{understanding: deciding whether (ALL) includes something+commandpart+}^^{(ALL), including things in+commandpart+}
 Inform allows a handful of actions–``take``, ``drop``, ``put``, ``insert``–to apply to more than one item at a time, so that the player can move things around easily.
 
@@ -1710,7 +1714,7 @@ Lucy knows shoe-size.
 Bob knows sunset-time and shoe-size.
 ```
 
-Or again we might keep a whole database of information in a table: the characters in [Questionable Revolutions] know dates, countries, and a short description for each of several rebellions and popular uprisings, while in [Queen of Sheba], Solomon is able to answer who, what, where, when, and why questions about a range of topics. This kind of approach is most useful when the characters need to display a deep knowledge of a particular field. The facts stored in the Table of All Known Facts, above, are comparatively sparse, because there we are designing a story in which not all data about the world is equally valuable: Lucy doesn't know the shoe size of every person in the story, because for some reason it is only her own shoe size that matters. On the other hand, the Table of All Known Facts can store different kinds of information, whereas the revolutions table has no way of storing shoe sizes or sunset times. And [Murder on the Orient Express] works differently again, because it is storing knowledge that concerns people and things that already exist in the world model, rather than abstract ideas. Our way of modeling character knowledge, in other words, will depend quite a lot on what kind of knowledge it is.
+Or again we might keep a whole database of information in a table: the characters in [Questionable Revolutions] know dates, countries, and a short description for each of several rebellions and popular uprisings, while in [The Queen of Sheba], Solomon is able to answer who, what, where, when, and why questions about a range of topics. This kind of approach is most useful when the characters need to display a deep knowledge of a particular field. The facts stored in the Table of All Known Facts, above, are comparatively sparse, because there we are designing a story in which not all data about the world is equally valuable: Lucy doesn't know the shoe size of every person in the story, because for some reason it is only her own shoe size that matters. On the other hand, the Table of All Known Facts can store different kinds of information, whereas the revolutions table has no way of storing shoe sizes or sunset times. And [Murder on the Orient Express] works differently again, because it is storing knowledge that concerns people and things that already exist in the world model, rather than abstract ideas. Our way of modeling character knowledge, in other words, will depend quite a lot on what kind of knowledge it is.
 
 The possibilities of character reasoning are similarly broad, but [The Problem of Edith] introduces one kind: the character has a concept of how different conversation topics relate to one another, so that when she is asked about a new keyword, she picks a response that makes the question most relevant to the conversation already in progress.
 
@@ -2393,6 +2397,8 @@ In the real world, physics is not negotiable. ("Gravity: it's not just a good id
 - [Magic Words] for ways to create new single-word spell commands.
 
 ## Mathematics
+
+[ZL: missing: the new Olympic Medals ]::
 
 ^^{calculation}
 It is uncommon, but not absolutely unheard-of, to need to do detailed mathematical calculations in interactive fiction.

@@ -6,7 +6,7 @@ Description: Understanding channels (a number) in the names of televisions, with
 For: Z-Machine
 
   
-Our previous implementation of televisions ("Channel 1") doesn't allow the player to type things like
+Our previous implementation of televisions ([Channel 1]) doesn't allow the player to type things like
 
   
 

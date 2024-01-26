@@ -1230,6 +1230,8 @@ We could use a similar trick to make the appearance of a device change "if switc
 
 Rooms can be "dark" or "lighted", though they are lighted by default, and are lighted in all the examples we have seen so far.
 
+whence?
+
 ``` inform7
 The Sinister Cave is a dark room. "A profoundly disquieting rock formation, apparently sculptured by some demonic hand, this is not a cave in which to relax."
 ```
@@ -11020,7 +11022,7 @@ As a result note that repeating through this sorted table goes through the origi
 >
 > This phrase sorts the table with a custom comparison phrase. The phrase is given the table name and two row numbers to compare, and it must return a number which indicates the relative order of the two rows: negative if the left row should come before the right, zero if the rows should be sorted as if they are equal, and positive if the left row should come after the right. Any completely blank rows will be put at the bottom, but if the table has partially blank rows, then the comparison phrase must be designed to account for the possibility of blank entries.
 >
-> The Olympic Medals example demonstrates two custom comparison phrases.
+> The [Olympic Medals] example demonstrates two custom comparison phrases.
 
 ## Listed in...
 
@@ -13111,7 +13113,7 @@ The Temple Of A Thousand Mightily Peeved Deities is a room. Rule for printing th
 
 **2. The default behaviour.** Is to do nothing. However, if a rule is supplied which prints something up, then this replaces the paragraph which would otherwise have been printed. Moreover, any items whose names are said in the course of this rule – for instance, by being listed – are then excluded from the remainder of the room description, because they are considered as having been described sufficiently already.
 
-Warning: because we often want a "for" rule for this activity to make some calculation and then possibly choose to do nothing (see the example "Otranto"), Inform suppresses the usual paragraph not when a "for" rule took effect but when it detected a paragraph having been printed. This can get confused if a text substitution affecting paragraph breaks, say `"[line break]"`, is within the final "say" of a "for writing a paragraph about" rule.
+Warning: because we often want a "for" rule for this activity to make some calculation and then possibly choose to do nothing (see the example [Otranto]), Inform suppresses the usual paragraph not when a "for" rule took effect but when it detected a paragraph having been printed. This can get confused if a text substitution affecting paragraph breaks, say `"[line break]"`, is within the final "say" of a "for writing a paragraph about" rule.
 
 **3. Examples.** (a) This is a neat way to wrap several things together into the same paragraph:
 

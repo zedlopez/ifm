@@ -69,5 +69,5 @@ Test me with "combine stick with string / i / combine pole with hook / i".
 ```
 
   
-This kind of implementation makes sense if we don't intend the player to take the fishing pole apart again, or to refer to any of its component parts once it is built. For an alternate approach that does allow assembled objects to be taken apart again, see "Some Assembly Required".
+This kind of implementation makes sense if we don't intend the player to take the fishing pole apart again, or to refer to any of its component parts once it is built. For an alternate approach that does allow assembled objects to be taken apart again, see [Some Assembly Required].
 

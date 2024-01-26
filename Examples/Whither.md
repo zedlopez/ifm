@@ -6,7 +6,7 @@ Description: A door whose description says where it leads; and which automatical
 For: Z-Machine
 
   
-Here we expand on the simple examples When? and Whence?; this time we want the player to be able to refer to doors by their directions, as in "the west door" when the door in question does in fact lead west.
+Here we expand on the simple examples [When?] and [Whence?]; this time we want the player to be able to refer to doors by their directions, as in "the west door" when the door in question does in fact lead west.
 
   
 

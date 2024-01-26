@@ -51,5 +51,5 @@ Test me with "drop socks / z / drop shoes / drop hat / drop all / z / z".
 ```
 
   
-As goal-seeking goes, this is fairly rudimentary; "Boston Cream" provides an alternative (and slightly more sophisticated approach), but for really complex goal-seeking characters, it is probably best to turn to the character extensions designed for Inform.
+As goal-seeking goes, this is fairly rudimentary; [Boston Cream] provides an alternative (and slightly more sophisticated approach), but for really complex goal-seeking characters, it is probably best to turn to the character extensions designed for Inform.
 

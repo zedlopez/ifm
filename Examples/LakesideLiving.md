@@ -6,7 +6,7 @@ Description: Similar to "Lemonade", but with bodies of liquid that can never be 
 For: Z-Machine
 
   
-Much of what follows is identical to "Lemonade" earlier; the new material begins at Part 2.
+Much of what follows is identical to [Lemonade] earlier; the new material begins at Part 2.
 
   
 

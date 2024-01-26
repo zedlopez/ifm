@@ -6,7 +6,7 @@ Description: Suppose we want all of our action responses to vary depending on so
 For: Z-Machine
 
   
-As we saw in "Variety", we can associate verbs with particular actions and call them up as needed. If we do that, though, we can also store additional information about those verbs and use that information to select the ideal verb to use in a particular situation.
+As we saw in [Variety], we can associate verbs with particular actions and call them up as needed. If we do that, though, we can also store additional information about those verbs and use that information to select the ideal verb to use in a particular situation.
 
   
 In this example, we create a table of verbs and their meanings, together with some connotative information. Each time we report an action, we then score all the available verbs to decide which is the most suitable to use at the moment.  This allows us to change the narrator's diction change mid-game and have the action descriptions change as well.

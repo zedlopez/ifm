@@ -29,7 +29,7 @@ A card is a kind of thing.  A card has a suit. A card has a number called rank. 
 ```
 
   
-Now, we're going to describe the higher numbers as face cards, so it helps to write a new "to say" phrase, just as we did in Jokers Wild. (A subsequent version of this example shows how to print card values with red and black symbols representing the different suits; see "Tilt 3".)
+Now, we're going to describe the higher numbers as face cards, so it helps to write a new "to say" phrase, just as we did in [Jokers Wild]. (A subsequent version of this example shows how to print card values with red and black symbols representing the different suits; see [Tilt 3].)
 
   
 

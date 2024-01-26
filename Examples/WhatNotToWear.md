@@ -14,7 +14,7 @@ Section 1 - Overlying and Underlying
 ```
 
   
-We start by borrowing some of the same ideas from the Bogart example, but we're also going to make a kind called "garment-element". This kind will include both garments (objects of clothing) and body parts (things that can be covered by clothing); using it allows us to restrict the way our underlying and overlying relations apply, which will make them a bit faster at run-time.
+We start by borrowing some of the same ideas from the [Bogart] example, but we're also going to make a kind called "garment-element". This kind will include both garments (objects of clothing) and body parts (things that can be covered by clothing); using it allows us to restrict the way our underlying and overlying relations apply, which will make them a bit faster at run-time.
 
   
 

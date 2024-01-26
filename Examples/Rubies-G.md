@@ -9,7 +9,7 @@ For: Glulx
 The trick here is that we need a table with text in order to keep track of the players' names.
 
   
-Part 1 largely replicates the source from "Identity Theft"; new material starts at Part 2.
+Part 1 largely replicates the source from [Identity Theft]; new material starts at Part 2.
 
   
 

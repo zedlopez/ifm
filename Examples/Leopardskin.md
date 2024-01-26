@@ -5,7 +5,6 @@ Index: Maze escaped by performing an exact sequence of actions
 Description: A maze that the player can escape if they perform an exact sequence of actions.
 For: Z-Machine
 
-  
 Suppose (as in Infocom's Leather Goddesses of Phobos) that we have a maze that the player can escape only by performing the correct sequence of actions in the correct order. One way to do this would be to keep a list of the player's most recent actions, and see whether these match up with the combination we have established as the maze's solution.
 
   

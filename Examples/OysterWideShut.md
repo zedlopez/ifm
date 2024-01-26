@@ -6,7 +6,7 @@ Description: Replacing Inform's default printing of properties such as "(closed)
 For: Z-Machine
 
   
-As we've seen in earlier examples such as "Equipment List", it is possible to vary the way Inform creates inventory listings in general (to create lists that look more like paragraphs of prose, lists divided between what the player is wearing and what they aren't, and so on). We can also use activities to alter the printing of specific objects' names and contents, as with the "omit contents in listing" feature after printing the name of something.
+As we've seen in earlier examples such as [Equipment List], it is possible to vary the way Inform creates inventory listings in general (to create lists that look more like paragraphs of prose, lists divided between what the player is wearing and what they aren't, and so on). We can also use activities to alter the printing of specific objects' names and contents, as with the "omit contents in listing" feature after printing the name of something.
 
   
 We may find, however, that we would like a great deal more control over Inform's printing of inventory details, not just as a special effect for a few items, but throughout the game.
