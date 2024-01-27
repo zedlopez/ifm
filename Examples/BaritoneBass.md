@@ -5,6 +5,9 @@ Index: Allowing the player to describe the main character before starting play
 Description: Letting the player pick a gender (or perhaps other characteristics) before starting play.
 For: Z-Machine
 
+[ZL: This example should either be cut or should accept "neither" ]::
+
+
   
 The "reading a command" activity is rather advanced; for the moment, what we need to understand is that we're intervening in commands at the start of play and insisting that the player's first instruction to the game consist of a choice of gender. After that point, the gender will be set and play will proceed as normal.
 

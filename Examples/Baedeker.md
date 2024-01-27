@@ -35,4 +35,4 @@ Index map with
   
 Now we have a map made of white lines and boxes over a white background, which is not very exciting. If, however, we put a layer of black under this and slightly adjust the room shapes (using an image editor such as Adobe Illustrator), we can produce something that plausibly resembles a floorplan or museum map, like so:
 
-  ![Sophia](doc_images/Sophia.jpg
+  ![Sophia](doc_images/Sophia.jpg)

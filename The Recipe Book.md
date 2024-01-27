@@ -44,7 +44,7 @@ The wider community of Inform writers has made a great wealth of material availa
 
 Thanks also go to ^{@Nick Montfort} for several conversations during the development of Inform: these inspired a number of ideas about how the author should be able to control the textual output of a story, and suggested specific problem areas to work on.
 
-^{@Jeff Nyman} provided extensive feedback about using *Writing with Inform* in workshops of aspiring IF authors from both programming and conventional fiction writing backgrounds. His observations about the concerns of conventional writers first encountering IF were especially useful, and had a great influence on the  organization of the *Recipe Book*. While the results may not meet all the needs he identified, we hope to have taken a step in the right direction.
+^{@Jeff Nyman} provided extensive feedback about using *Writing with Inform* in workshops of aspiring IF authors from both programming and conventional fiction writing backgrounds. His observations about the concerns of conventional writers first encountering IF were especially useful, and had a great influence on the organization of the *Recipe Book*. While the results may not meet all the needs he identified, we hope to have taken a step in the right direction.
 
 A few examples were contributed by denizens of rec.arts.int-fiction: ^{@Tara McGrew}, ^{@Jon Ingold}, ^{@Mike Tarbert}, ^{@Eric Rossing}, and ^{@Kate McKee} offered such elegant implementations of various tasks that we have folded their contributions (with permission) into the *Recipe Book*.
 

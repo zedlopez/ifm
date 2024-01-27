@@ -6,7 +6,7 @@ Description: Creating a map of Greece using the locations from previous examples
 For: Z-Machine
 
   
-The map-maker can be used in quite versatile ways, in short; though the default is a schematic line-and-box affair, that is hardly the only option. While the ``eps`` created is not always the result of our dreams, Inform usually can be made to do most of the hard and boring part, leaving the author to do only a bit of aesthetic touchup.
+The map-maker can be used in quite versatile ways, in short; though the default is a schematic line-and-box affair, that is hardly the only option. While the EPS created is not always the result of our dreams, Inform usually can be made to do most of the hard and boring part, leaving the author to do only a bit of aesthetic touchup.
 
   
 In many previous examples, we have sent hapless deities wandering around a map of Greece; we might like to chart that for ourselves, in a semi-realistic fashion. So:
@@ -36,4 +36,4 @@ This produces a line-and-dot map, where the names of rooms do not appear inside 
   
 We can then superimpose this on a vector map of Greece and tweak the exact positions of cities a little by hand (in Adobe Illustrator, as it happens, but other programs would also allow this level of editing). The result:
 
-  ![Greece](doc_images/Greece.jpg
+  ![Greece](doc_images/Greece.jpg)
