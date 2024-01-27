@@ -7,7 +7,6 @@ For: Z-Machine
 
   
 Suppose we want a deck of cards which the player can shuffle and draw from. Our first (rather tedious) task is merely to set up the deck as a table:
-
   
 
 ``` inform7

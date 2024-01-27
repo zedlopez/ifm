@@ -6,7 +6,7 @@ Description: A system which allows the author to assign footnotes to description
 For: Z-Machine
 
   
-"Hitchhiker's Guide to the Galaxy" introduced the idea of footnoted descriptions, and various IF games since have toyed with the idea. The recommended implementation in Inform 6 involved keeping an assortment of footnote objects around, but in Inform 7 the table is a much tidier way of handling the same problem.
+[Hitchhiker's Guide to the Galaxy](https://ifdb.org/viewgame?id=ouv80gvsl32xlion) introduced the idea of footnoted descriptions, and various IF games since have toyed with the idea. The recommended implementation in Inform 6 involved keeping an assortment of footnote objects around, but in Inform 7 the table is a much tidier way of handling the same problem.
 
   
 

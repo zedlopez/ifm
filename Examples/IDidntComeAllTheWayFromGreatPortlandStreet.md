@@ -50,5 +50,5 @@ Test me with "look / wait / examine bust / take tuba / get triangle / hit xyloph
 ```
 
   
-(The Paris Theatre in Lower Regent Street, London, was for many years the home of ``bbc`` radio panel games.)
+(The Paris Theatre in Lower Regent Street, London, was for many years the home of BBC radio panel games.)
 
