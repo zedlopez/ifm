@@ -14,13 +14,11 @@ In this case, one of the things the player might like to be able to do is look a
   
 To make this happen, we need to do several things:
 
-  
+1. we need to create a version of the ``examine`` command that can apply to multiple objects at once.
+2. we need to correct the way Inform normally deals with multiple-object commands, because we want our group description to print only one time, and we want to avoid stubs such as "pear: ... apple: ..." before or after the group description.
+3. we need to define a way for Inform to identify interesting groups and describe them.
 
 ``` inform7
-(1) we need to create a version of the EXAMINE command that can apply to multiple objects at once.
-(2) we need to correct the way Inform normally deals with multiple-object commands, because we want our group description to print only one time, and we want to avoid stubs such as "pear: ... apple: ..." before or after the group description.
-(3) we need to define a way for Inform to identify interesting groups and describe them.
-
 {*}"The Left Hand of Autumn"
 
 Section 1 - Procedure

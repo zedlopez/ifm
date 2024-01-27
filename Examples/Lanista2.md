@@ -159,6 +159,8 @@ Every turn (this is the gladiator-attack rule):
 Test me with "hit gladiator with mace / kill gladiator / drop mace / attack gladiator / attack gladiator with mace / g / g".
 ```
 
+[ZL: link to Reliques? ]::
+
   
 Those devoted to role-playing will note that our form of randomization is still pretty naive: most ``rpg`` systems use multiple dice in order to create more interesting probability curves. For a system that simulates actual dice-rolling, see the full "Reliques of Tolti-Aph" game.
 

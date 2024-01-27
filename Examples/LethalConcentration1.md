@@ -34,7 +34,7 @@ A diffusion rule (this is the gas movement rule):
 ```
 
   
-A technical note: it would be possible to write "repeat with space running through rooms... repeat with second space running through rooms adjacent to the space" instead, but in practice this loops through all the rooms \* all the rooms again \* all the directions (to determine adjacency). Phrasing the loop this way omits the second multiplier. For a map of 25 rooms, this means that the loop runs 25 times faster than it would otherwise, and of course for a larger map the effect would be even more dramatic.
+A technical note: it would be possible to write "repeat with space running through rooms... repeat with second space running through rooms adjacent to the space" instead, but in practice the determination of adjacency would result, cumulatively, in (all the rooms × all the rooms again × all the directions) loops. Phrasing the loop as given above omits the second multiplier. For a map of 25 rooms, this means that the loop runs 25 times faster than it would otherwise, and of course for a larger map the effect would be even more dramatic.
 
   
 
