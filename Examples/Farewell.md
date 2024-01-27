@@ -38,7 +38,7 @@ For the sake of simplicity, we'll conflate asking and telling here, though it wo
 ```
 
   
-Now we might want to add a recap command to review conversation that has already occurred.
+Now we might want to add a ``recap`` command to review conversation that has already occurred.
 
   
 

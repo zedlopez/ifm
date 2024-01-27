@@ -205,7 +205,7 @@ This is the new report giving rule:
 ```
 
   
-After each instance of the multiply-giving action, we need to clear the variables we used to track its state. We could do this in "Before reading a command", but that's unsafe because the player might type ``give pie and cap to attendant``. ``give dollars to attendant``. all on a single line, and we would like to be able to clear the variables between one action and the next. The correct place to attach this behavior is immediately before the generate action rule, thus:
+After each instance of the multiply-giving action, we need to clear the variables we used to track its state. We could do this in "Before reading a command", but that's unsafe because the player might type ``give pie and cap to attendant. give dollars to attendant``. all on a single line, and we would like to be able to clear the variables between one action and the next. The correct place to attach this behavior is immediately before the generate action rule, thus:
 
   
 

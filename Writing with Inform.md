@@ -15394,6 +15394,9 @@ But these are all just special cases of the grand-daddy of all replacement phras
 
 ### matching
 
+[ZL: there will need to be some CSS for separating tables vertically ]::
+
+
 | | Positional restrictions |
 |---|---|
 | ^ | Matches (accepting no text) only at the start of the text|

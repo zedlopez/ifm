@@ -48,10 +48,10 @@ Instead of naming the dog with "nothing":
 Instead of naming the dog with something:
 	let N be "[the topic understood]";
 	replace the text "'" in N with "";
-	now the nickname of the dog is "[N]";
+	now the nickname of the dog is N;
 	now the dog is proper-named;
 	say "The dog is now known as [nickname of the dog]."
 
-Test me with "name the dog Fido / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence".
+Test me with "name the dog 'Fido' / name the dog Lawrence / look / x lawrence / name Lawrence nothing / look / x lawrence".
 ```
 
