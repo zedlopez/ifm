@@ -33,7 +33,8 @@ Instead of waking someone hypnotized:
 	say "[The noun] returns abruptly to consciousness."
 ```
 
-  
+[ZL: "shortly" reference awkward]::
+
 We will learn more about check rules for other characters shortly, but the following prevents the hypnosis patient from trying to hypnotize us in turn:
 
   
