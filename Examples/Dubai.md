@@ -5,7 +5,8 @@ Index: An elevator which takes the player to alternate floors
 Description: An elevator which connects any of 27 floors in a luxury hotel.
 For: Z-Machine
 
-  
+[ZL: The peril of topical references! the Burj al-Arab is now just #5! https://en.wikipedia.org/wiki/List_of_tallest_hotels ]::
+
 The problem of implementing an elevator that opens onto a large number of floors often challenges novice interactive fiction authors. It also raises a fundamental design problem – how to implement a large building in an interesting way. It is tempting to write a hotel with an elevator and innumerable tedious and identical floors just for the sake of realism; in many cases it is a better idea simply to omit any locations that contribute nothing to the story or the play of the game.
 
   
