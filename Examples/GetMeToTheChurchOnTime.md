@@ -49,5 +49,5 @@ Test me with "i / x trousers / wear trousers / x golf pants / take off golf pant
 ```
 
   
-If we wanted to, we could make similar kinds for hats, shoes, and so on, and have a simple but effective system of clothing. A more complicated treatment might keep track of layering and describe the player's outfit differently depending on which clothes were outermost – an example for a later chapter.
+If we wanted to, we could make similar kinds for hats, shoes, and so on, and have a simple but effective system of clothing. A more complicated treatment might keep track of layering and describe the player's outfit differently depending on which clothes were outermost – an example for a later chapter ([What Not to Wear]).
 
