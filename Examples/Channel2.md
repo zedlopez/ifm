@@ -5,35 +5,12 @@ Index: Channel 2. Television with more advanced parsing
 Description: Understanding channels (a number) in the names of televisions, with more sophisticated parsing of the change channel action.
 For: Z-Machine
 
-  
-Our previous implementation of televisions ([Channel 1]) doesn't allow the player to type things like
+[ZL: I took more liberties here than usual; please review.]::
 
-  
 
-``` inform7
-TUNE FIFTIES TELEVISION TO CHANNEL 4
-```
+Our previous implementation of televisions ([Channel 1]) doesn't accept ``tune fifties television to channel 4``; neither does it deal with player input like ``tune to channel 4 on fifties television``, nor ``tune to channel 4`` where no television is specified.
 
-  
-nor does it deal with player input like
-
-  
-
-``` inform7
-TUNE TO CHANNEL 4 ON FIFTIES TELEVISION
-```
-
-  
-or
-
-  
-
-``` inform7
-TUNE TO CHANNEL 4
-```
-
-  
-where no television is specified. When we are designing commands which involve two elements (here, a television and a channel number), it's usually a good idea to allow the player to specify those elements in either order, as we saw demonstrated briefly in "New commands for old grammar".
+When we are designing commands which involve two elements (here, a television and a channel number), it's usually a good idea to allow the player to specify those elements in either order, as we saw demonstrated briefly in [New commands for old grammar].
 
   
 We might, therefore, want to add a few refinements: first by defining a `"[channel]"` token that will accept input of the forms `"[number]"` and "channel [number]", and second by creating some additional "Understand" lines that will accept variant versions of the player's input.

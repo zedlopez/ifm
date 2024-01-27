@@ -6,7 +6,7 @@ Description: To arrange that the location information normally given on the left
 For: Z-Machine
 
   
-Not much is needed for this. The only noteworthy point is that it doesn't work by changing the ``lhsl`` to `"[the player's surroundings in upper case]"`: it cannot do this because "the player's surroundings" is not a value. Instead, `"[the player's surroundings]"` is a text substitution sometimes printing the name of a room, sometimes printing "Darkness", and so on. We must therefore load it into a text first, and then apply "...in upper case".
+Not much is needed for this. The only noteworthy point is that it doesn't work by changing the left hand status line to `"[the player's surroundings in upper case]"`: it cannot do this because "the player's surroundings" is not a value. Instead, `"[the player's surroundings]"` is a text substitution sometimes printing the name of a room, sometimes printing "Darkness", and so on. We must therefore load it into a text first, and then apply "...in upper case".
 
   
 

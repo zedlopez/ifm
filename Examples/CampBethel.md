@@ -55,7 +55,7 @@ A housefly is an animal in the Camp Bethel Kitchen. "A large housefly [one of]la
 The housefly's description is merely "at random" rather than "purely at random" because we want to show it doing a different thing each turn, whereas Fluffy could plausibly stare out the window for five turns in a row.
 
   
-There are more complex ways to change and override the initial descriptions of people and things; if text alternatives do not get us far enough, we can turn to the "rule for writing a paragraph about," documented in the Activities chapter.
+There are more complex ways to change and override the initial descriptions of people and things; if text alternatives do not get us far enough, we can turn to the "rule for writing a paragraph about," documented in the [Activities] chapter.
 
   
 Another frequent use of text alternatives is to give characters a bit of variety in things they're likely to say many times in the course of a game:
@@ -88,5 +88,5 @@ Notice that, in that last line, our first option is entirely blank. If we put no
 ```
 
   
-As this example (alas) reveals, text alternatives will not go all the way toward making our characters into compelling conversationalists; we will have to wait until we know more about Actions. But at least we have abolished the default responses, and given Jeremy a touch of personality, however witless.
+As this example (alas) reveals, text alternatives will not go all the way toward making our characters into compelling conversationalists; we will have to wait until we know more about actions. But at least we have abolished the default responses, and given Jeremy a touch of personality, however witless.
 
