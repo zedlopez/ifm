@@ -37,7 +37,7 @@ Sadly, because the grape is small, the player will never encounter this horror.
 Alternatively, suppose we have a situation in which the player can use one command to interact with a kind of thing that isn't normally in scope. It's usually most convenient to write the "understand" rule appropriately rather than use the scope activity.
 
   
-(Note that we define "inquiring about" as applying to one \*visible\* thing; otherwise we would be required to be able to touch the catsuit in order to inquire about it. More on this restriction may be found in the [Advanced Actions] chapter on the topic of visible, touchable, and carried things.)
+(Note that we define "inquiring about" as applying to one *visible* thing; otherwise we would be required to be able to touch the catsuit in order to inquire about it. More on this restriction may be found in the [Advanced Actions] chapter on the topic of visible, touchable, and carried things.)
 
   
 

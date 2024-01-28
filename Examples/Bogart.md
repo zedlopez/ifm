@@ -17,7 +17,7 @@ Section 1 - Clothing Behavior
 ```
 
   
-First we make our relation to represent what \*is\* underneath another item:
+First we make our relation to represent what *is* underneath another item:
 
   
 
@@ -32,8 +32,8 @@ And now we prevent taking a lower layer off before the thing that is worn over i
 
 ``` inform7
 {**}Before taking off something which underlies something (called the impediment) which is worn by the player:
-say "(first removing [the impediment])[command clarification break]";
-silently try taking off the impediment;
+  say "(first removing [the impediment])[command clarification break]";
+  silently try taking off the impediment;
 if the noun underlies something which is worn by the player, stop the action.
 
 Check taking off:
