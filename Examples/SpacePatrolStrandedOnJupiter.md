@@ -29,7 +29,9 @@ Instead of examining the player, say "Your hair clumps together stickily, thanks
 
 Digging is an action applying to one thing. Understand "dig [something]" or "dig in [something]" as digging.
 
-Instead of digging the dust, try looking under the dust. Instead of looking under the dust when the metal plate is not visible: move the metal plate to the location; say "You brush aside the dust underfoot and -- what were the odds? -- it turns out that you landed just where the previous landing party did, thirteen ill-fated years ago. Here is the metal plate that covers their original well.line-so-blankBut wait! Called by the clanging of your shovel on the plate, a band of Jovian pterodactyls swoop down to attack! You're totally defenceless! You don't have a hope! You're absolutely finished!"; increase the score by 10; move K-Klak to Red Spot.
+Instead of digging the dust, try looking under the dust. Instead of looking under the dust when the metal plate is not visible: move the metal plate to the location; say "You brush aside the dust underfoot and -- what were the odds? -- it turns out that you landed just where the previous landing party did, thirteen ill-fated years ago. Here is the metal plate that covers their original well.
+
+But wait! Called by the clanging of your shovel on the plate, a band of Jovian pterodactyls swoop down to attack! You're totally defenceless! You don't have a hope! You're absolutely finished!"; increase the score by 10; move K-Klak to Red Spot.
 
 K-Klak the Pterodactyl is an animal. "K-Klak, leader of the Jupiter Pterodactyls, menaces you. A terrifying creature of scaly wings, with a dragon's tail, K-Klak stands... about 1/8th of an inch tall." Instead of doing something to K-Klak, say "K-Klak makes a frankly panicky noise and leaps backwards, out of your way."
 

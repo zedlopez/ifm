@@ -60,7 +60,9 @@ The player carries a walking stick. The player wears a hat, a whistle, and a day
 The maximum score is 5.
 
 When play ends when the story has not ended finally:
-	say "Oh dear, that ought to be fatal! However, if you like I can get you out of it...line-so-blank	Shall I? >";
+	say "Oh dear, that ought to be fatal! However, if you like I can get you out of it...
+
+	Shall I? >";
 	if the player consents:
 		repeat with item running through things had by the player:
 			move the item to a random visited room;

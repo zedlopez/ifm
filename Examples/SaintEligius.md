@@ -38,7 +38,9 @@ After going to Diamond Market:
 	say "You descend the steps quickly and step into the small foyer, allowing yourself to be searched for weapons, before going on to...";
 	continue the action.
 
-Diamond Market is down from Cobbled Alley. "The roof is vaulted and painted in allegorical images representing Plenty, the Riches of the Earth, and Saint Eligius, patron of goldsmiths and jewelers.line-so-blankUnder their watchful eye, dozens of men in sober black robes sit; and on the tables before them are rubies, emeralds, sapphires from oversea, but most of all diamonds, both raw and cut."
+Diamond Market is down from Cobbled Alley. "The roof is vaulted and painted in allegorical images representing Plenty, the Riches of the Earth, and Saint Eligius, patron of goldsmiths and jewelers.
+
+Under their watchful eye, dozens of men in sober black robes sit; and on the tables before them are rubies, emeralds, sapphires from oversea, but most of all diamonds, both raw and cut."
 
 The burly guard is a man in Diamond Market. "A burly guard patrols quite close to you, but even he is more sumptuously dressed than the average burly guard, and his buttons shine."
 

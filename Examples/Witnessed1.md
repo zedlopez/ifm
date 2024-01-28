@@ -87,7 +87,9 @@ The description of the cassette recorder is "Useful both for recording your note
 
 The description of the backpack is "An old familiar pack, which you know so well that you can find all its pockets and take things in and out of it in pitch darkness. To avoid it showing up oddly in photographs, it is entirely black, with no shiny or metallic attachments."
 
-The description of the flashlight is "You bought a new one just for this occasion, because you were worried about bringing something too small or light. This is a heavy-duty flashlight with an adjustable-focus beam. The case is made of metal, rather than plastic, and there is a spare light-bulb inside as well. You've put a band of masking tape around the handle and written in your initials in red marker.line-so-blankThere is a piece of red cellophane attached to the business end of the flashlight to keep it from being overly bright."
+The description of the flashlight is "You bought a new one just for this occasion, because you were worried about bringing something too small or light. This is a heavy-duty flashlight with an adjustable-focus beam. The case is made of metal, rather than plastic, and there is a spare light-bulb inside as well. You've put a band of masking tape around the handle and written in your initials in red marker.
+
+There is a piece of red cellophane attached to the business end of the flashlight to keep it from being overly bright."
 
 The red cellophane is part of the flashlight.
 

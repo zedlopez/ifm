@@ -16,7 +16,9 @@ A simple way to do this is to start the object – an envelope, in this scenario
 ``` inform7
 {*}"Beachfront"
 
-The Stuffy Office is a room. "The windows are closed, making the sultry air even more unbearable. A narrow slice of Caribbean blue is visible between the scuba gear rental shop and the recreated 17th century pirate tavern.line-so-blankThe office is cheerfully furnished with wicker chairs and white curtains, but the tropical decorating scheme stopped at the desk, which is heavy oak and absolutely covered with papers."
+The Stuffy Office is a room. "The windows are closed, making the sultry air even more unbearable. A narrow slice of Caribbean blue is visible between the scuba gear rental shop and the recreated 17th century pirate tavern.
+
+The office is cheerfully furnished with wicker chairs and white curtains, but the tropical decorating scheme stopped at the desk, which is heavy oak and absolutely covered with papers."
 
 The heavy oak desk is a supporter in the stuffy office. It is scenery. Understand "paperwork" as the desk.
 

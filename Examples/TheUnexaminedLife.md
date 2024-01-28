@@ -237,7 +237,9 @@ Instead of unlocking something with the pry bar, try opening the noun.
 The wight is a man in the Crypt. "[The wight] lurks near the south exit." The description of wight is "Old English [italic type]wiht[roman type]: a thing, a creature. It is little more than the memory of a life ill-lived, but it lingers here." Understand "wiht" or "creature" or "ghost" as the wight.
 
 Instead of going south in the presence of wight:
-	say "The wight breathes chill into your face.line-so-blankYour head swims, and you are aware that you no longer have the willpower to go in that direction."
+	say "The wight breathes chill into your face.
+
+Your head swims, and you are aware that you no longer have the willpower to go in that direction."
 
 Fresh Air is south from the Crypt.
 

@@ -42,7 +42,9 @@ Carry out Christian answering the player that something:
 
 Carry out Christian telling a skeptical Roxane about something:
 	now Roxane is confused;
-	say "Christian turns to [the noun]. 'I must tell you about [the topic understood],' he says, and comes to a halt, looking at you for further direction.line-so-blank	Perhaps you'd better give him exact lines to say. Surely he can't mess up an instruction like 'say hello to Roxane.'" instead.
+	say "Christian turns to [the noun]. 'I must tell you about [the topic understood],' he says, and comes to a halt, looking at you for further direction.
+
+	Perhaps you'd better give him exact lines to say. Surely he can't mess up an instruction like 'say hello to Roxane.'" instead.
 
 Carry out Christian asking a skeptical Roxane about something:
 	now Roxane is confused;
@@ -73,7 +75,9 @@ When Courting Roxane ends in success:
 
 When Courting Roxane ends in failure:
 	record "Ruining Christian's Chances" in the Table of Events;
-	say "Roxane sighs heavily and goes back into her room, slamming the door behind her.line-so-blank'Thanks very much,' says Christian to you, striding off down the street.";
+	say "Roxane sighs heavily and goes back into her room, slamming the door behind her.
+
+'Thanks very much,' says Christian to you, striding off down the street.";
 	now Roxane is nowhere; now Christian is nowhere;
 	move the player to Empty Street.
 

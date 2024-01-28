@@ -36,7 +36,9 @@ The hovercraft, the tea trolley, and the skateboard are pushable between rooms.
 
 The hovercraft is in Zeta Proximan Dig Field.
 
-Zeta Proximan Dig Field is a room. "During the day, the field is massed with sweating native workers, overseers, and officials from central command. Now the spades, trowels, brushes, metal detectors, ground probes, plumb lines, and sighting tripods have been laid aside.line-so-blankAll that remains are the trenches and the fine grey dust that blows slowly across them; the moonlight; and the just-emerging outlines of an ancient and alien wall."
+Zeta Proximan Dig Field is a room. "During the day, the field is massed with sweating native workers, overseers, and officials from central command. Now the spades, trowels, brushes, metal detectors, ground probes, plumb lines, and sighting tripods have been laid aside.
+
+All that remains are the trenches and the fine grey dust that blows slowly across them; the moonlight; and the just-emerging outlines of an ancient and alien wall."
 
 The Hover-Road is west of the Dig Field. "A long road hastily laid down, stretching east to west, from the dig site toward the safety of the city."
 

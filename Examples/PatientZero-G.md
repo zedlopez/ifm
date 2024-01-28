@@ -14,7 +14,9 @@ Use the serial comma and no scoring.
 
 Understand "about" as asking for information. Asking for information is an action out of world.
 
-Carry out asking for information: say "An implementation of the following creative brief:line-so-blankPeople wander around some small map, on errands. One, sad to tell, has Gelato's Syndrome, a tragic condition turning one's skin the colour of a random flavour of ice cream (raspberry ripple, neapolitan, etc.). When two people are in the same room, there's a 1/3 chance that an infected person will infect a non-infected one. The player can cure any single person: victory condition - to stamp out the disease."
+Carry out asking for information: say "An implementation of the following creative brief:
+
+People wander around some small map, on errands. One, sad to tell, has Gelato's Syndrome, a tragic condition turning one's skin the colour of a random flavour of ice cream (raspberry ripple, neapolitan, etc.). When two people are in the same room, there's a 1/3 chance that an infected person will infect a non-infected one. The player can cure any single person: victory condition - to stamp out the disease."
 
 When play begins:
 	say "Gelato's Syndrome. It's struck, and it's struck hard. In these sticky summer months, there's no telling who will contract the disease next.";

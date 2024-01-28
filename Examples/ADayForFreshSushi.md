@@ -20,10 +20,14 @@ Use scoring.
 
 The story headline is "Your basic surreal gay fish romance".
 
-The Studio is a room. "[if visited]Decorated with Britney's signature flair. It was her innate sense of style that first made you forgive her that ludicrous name. And here it is displayed to the fullest: deep-hued drapes on the walls, the windows flung open with their stunning view of old Vienna, the faint smell of coffee that clings to everything. Her easel stands over by the windows, where the light is brightest.[otherwise]This is Britney's studio. You haven't been around here for a while, because of how busy you've been with work, and she's made a few changes -- the aquarium in the corner, for instance. But it still brings back a certain emotional sweetness from the days when you had just met for the first time... when you used to spend hours on the sofa...line-so-blankYou shake your head. No time for fantasy. Must feed fish.[end if]"
+The Studio is a room. "[if visited]Decorated with Britney's signature flair. It was her innate sense of style that first made you forgive her that ludicrous name. And here it is displayed to the fullest: deep-hued drapes on the walls, the windows flung open with their stunning view of old Vienna, the faint smell of coffee that clings to everything. Her easel stands over by the windows, where the light is brightest.[otherwise]This is Britney's studio. You haven't been around here for a while, because of how busy you've been with work, and she's made a few changes -- the aquarium in the corner, for instance. But it still brings back a certain emotional sweetness from the days when you had just met for the first time... when you used to spend hours on the sofa...
+
+You shake your head. No time for fantasy. Must feed fish.[end if]"
 
 Instead of smelling the Studio:
-	say "The evil fish notices you sniffing the air. 'Vanilla Raspberry Roast,' it remarks. 'You really miss her, don't you.'line-so-blankYou glance over, startled, but the fish's mouth is open in a piscine equivalent of a laugh. You stifle the urge to skewer the thing..."
+	say "The evil fish notices you sniffing the air. 'Vanilla Raspberry Roast,' it remarks. 'You really miss her, don't you.'
+
+You glance over, startled, but the fish's mouth is open in a piscine equivalent of a laugh. You stifle the urge to skewer the thing..."
 
 Instead of jumping:
 	say "'Er,' says the fish. 'Does that, like, EVER help??'"
@@ -58,7 +62,9 @@ Instead of searching or looking under the cloths for the first time:
 	say "Poking around the cloths reveals -- ha HA! -- a vehemently orange can of fish food."
 
 Instead of showing the cloths to the fish:
-	say "'What are you, some kind of sadist? I don't want to see a bunch of cloths! What kind of f'ing good, 'scuse my French, is that supposed to do me? I don't even wear pants for God's sake!'line-so-blankHe really looks upset. You start wondering whether apoplexy is an ailment common to fish."
+	say "'What are you, some kind of sadist? I don't want to see a bunch of cloths! What kind of f'ing good, 'scuse my French, is that supposed to do me? I don't even wear pants for God's sake!'
+
+He really looks upset. You start wondering whether apoplexy is an ailment common to fish."
 
 After examining cloths for the first time:
 	say "'Whatcha looking at? I can't see through the doors, you know.'"
@@ -72,25 +78,41 @@ Instead of showing the can to the fish:
 	say "'That's the ticket, sweetie! Bring it on.'"
 
 Instead of opening the can:
-	say "'Oh, for--!' The evil fish breaks out in exasperation and hives. 'Screw the screwing around with the screwtop. SHE never has to do that.'line-so-blank'Well, SHE is not here,' you reply. 'What do you suggest?'line-so-blank'>FEED FISH<' says the fish promptly, making fishy faces and pointing at you with his fin. 'Simplicity. Try it.'"
+	say "'Oh, for--!' The evil fish breaks out in exasperation and hives. 'Screw the screwing around with the screwtop. SHE never has to do that.'
+
+'Well, SHE is not here,' you reply. 'What do you suggest?'
+
+'>FEED FISH<' says the fish promptly, making fishy faces and pointing at you with his fin. 'Simplicity. Try it.'"
 
 Instead of inserting the can into something:
 	say "'HelLLLOOO,' screams the fish. 'Whatever happened to FEEDING MEEE?'"
 
 The easel is a supporter in the Studio. It is scenery. On the easel is a painting. Understand "portrait" or "image" as the painting.
 
-The description of the painting is "Only partway finished, but you can tell what it is: Britney's mother. You only met the old woman once, before she faded out of existence in a little hospice in Salzburg.line-so-blankIn the picture, her hands are grasping tightly at a small grey bottle, the pills to which she became addicted in her old age, and strange, gargoyle-like forms clutch at her arms and whisper in her ears.line-so-blankBut the disturbing thing, the truly awful thing, is the small figure of Britney herself, down in the corner, unmistakable: she is walking away. Her back turned.line-so-blankYou thought she'd finally talked this out, but evidently not. Still feels guilty for leaving. You only barely stop yourself from tracing, with your finger, those tiny slumped shoulders..."
+The description of the painting is "Only partway finished, but you can tell what it is: Britney's mother. You only met the old woman once, before she faded out of existence in a little hospice in Salzburg.
+
+In the picture, her hands are grasping tightly at a small grey bottle, the pills to which she became addicted in her old age, and strange, gargoyle-like forms clutch at her arms and whisper in her ears.
+
+But the disturbing thing, the truly awful thing, is the small figure of Britney herself, down in the corner, unmistakable: she is walking away. Her back turned.
+
+You thought she'd finally talked this out, but evidently not. Still feels guilty for leaving. You only barely stop yourself from tracing, with your finger, those tiny slumped shoulders..."
 
 Instead of taking the painting, say "No, you'd better leave it. It'd freak her out if you moved it."
 
 Before examining the painting for the first time:
-	say "A ferocious banging from the aquarium attracts your attention as you go to look at the painting. 'Hey!' screams the fish. 'She doesn't like strangers looking at her paintings before they're DOONNNE!'line-so-blank'Shut up, you,' you reply casually. 'I'm not a stranger.' But the fish puts you off a little bit, and your heart is already in your mouth before you see the painting itself...".
+	say "A ferocious banging from the aquarium attracts your attention as you go to look at the painting. 'Hey!' screams the fish. 'She doesn't like strangers looking at her paintings before they're DOONNNE!'
+
+'Shut up, you,' you reply casually. 'I'm not a stranger.' But the fish puts you off a little bit, and your heart is already in your mouth before you see the painting itself...".
 
 Instead of examining the painting more than once:
 	say "Once is really enough. It's pretty much embedded in your consciousness now."
 
 After doing something to the painting:
-	say "'So what's it of?' asks the fish, as you turn away. 'She never asks if I want to see them, you know?'line-so-blank'Her mother,' you respond without thinking.line-so-blank'Yeah? Man. I never knew my mother. Eggs, that's the way to go.'"
+	say "'So what's it of?' asks the fish, as you turn away. 'She never asks if I want to see them, you know?'
+
+'Her mother,' you respond without thinking.
+
+'Yeah? Man. I never knew my mother. Eggs, that's the way to go.'"
 
 The window is scenery in the Studio. The window can be openable. The window can be open. It is openable and closed. Understand "windows" as the window. The description of the window is "[if open]Through the windows you get a lovely view of the street outside. At the moment, the glass is thrown open, and a light breeze is blowing through.[otherwise]Through the windows, you get a lovely view of the street outside -- the little fountain on the corner, the slightly dilapidated but nonetheless magnificent Jugendstil architecture of the facing building. The glass itself is shut, however.[end if]"
 
@@ -111,7 +133,11 @@ Instead of inserting something which is not the bouquet into the vase:
 say "'Okay, so, what were you, raised in a barn? Normal folks like to use that for flowers. Or so I've observed.'"
 
 After inserting the bouquet into the vase for the first time:
-	say "You settle the flowers into the vase and arrange them so that they look sprightly.line-so-blank'Oooh,' says the fish. 'No one ever changes the plant life in HERE. It's the same seaw--'line-so-blank'Cut me a break and cork it,' you reply tartly."
+	say "You settle the flowers into the vase and arrange them so that they look sprightly.
+
+'Oooh,' says the fish. 'No one ever changes the plant life in HERE. It's the same seaw--'
+
+'Cut me a break and cork it,' you reply tartly."
 
 The player is carrying a telegram, a bouquet, and a lingerie bag. The player is wearing a chef hat.
 
@@ -184,7 +210,9 @@ After examining the bouquet for the first time:
 	The description of the lingerie bag is "You grant yourself the satisfaction of a little peek inside. You went with a pale, silky ivory this time -- it has that kind of sophisticated innocence, and it goes well with the purple of your skin. A small smirk of anticipation crosses your lips."
 
 	After examining the lingerie bag for the first time:
-		say "'What's in THERE?' asks the fish. 'Didja bring me take-out? I don't mind Chinese. They eat a lot of carp, but what do I care? I'm not a carp. Live and let live is what I s--'line-so-blank'It's NOT take-out.' You stare the fish down and for once he actually backstrokes a stroke or two. 'It's PRIVATE.'"
+		say "'What's in THERE?' asks the fish. 'Didja bring me take-out? I don't mind Chinese. They eat a lot of carp, but what do I care? I'm not a carp. Live and let live is what I s--'
+
+'It's NOT take-out.' You stare the fish down and for once he actually backstrokes a stroke or two. 'It's PRIVATE.'"
 
 After examining the lingerie bag for the second time:
 	say "'If it's not take-out, I don't see the relevance!' shouts the fish. 'Food is what you want in this situation. Food for MEEEE.'"

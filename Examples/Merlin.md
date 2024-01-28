@@ -28,7 +28,9 @@ Topic	Response
 "past/time/future"	"Living backwards has its drawbacks. A tendency to confuse and annoy your friends, being one; the total inability to maintain a stable relationship; and a deep dissatisfaction with most of the bodily processes people enjoy, since they ultimately make you hungrier, colder, or-- no point dwelling on it, really."
 "backwards"	"It's not even exactly *backwards*, now is it? It's more like a series of forwardses stuck back to back. As though someone had taken each track of a CD and put them in the exactly wrong order. You miss that. The music on demand."
 
-The Inadequate Shelter is a room. "A piece of corrugated tin, leaned on two sticks, and pathetically augmented with a tire (on one side) and a cardboard box (on the side towards the wind). And that's what you've got between you and the driving rain.line-so-blankAt the moment rain is all you can remember, in fact."
+The Inadequate Shelter is a room. "A piece of corrugated tin, leaned on two sticks, and pathetically augmented with a tire (on one side) and a cardboard box (on the side towards the wind). And that's what you've got between you and the driving rain.
+
+At the moment rain is all you can remember, in fact."
 
 Test me with "remember rain / remember power / remember light bulb / remember future / remember backwards".
 ```

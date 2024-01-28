@@ -104,7 +104,9 @@ Arrival is a location-silent scene. "After many days['] journey, you have arrive
 
 Arrival begins when play begins. Arrival ends when the time since Arrival began is 2 minutes.
 
-Abduction is a location-loud scene. "You check into the Hotel Vauban and sleep deeply enough; it was a long and sticky trip to get here.line-so-blankThen in the middle of the night something confusing happens. You have the impression of strangers in your room, and then a searing pain, and you don't come back to yourself until midmorning of the following day..."
+Abduction is a location-loud scene. "You check into the Hotel Vauban and sleep deeply enough; it was a long and sticky trip to get here.
+
+Then in the middle of the night something confusing happens. You have the impression of strangers in your room, and then a searing pain, and you don't come back to yourself until midmorning of the following day..."
 	The starting location of Abduction is the Hillside Tower.
 	The scenery props of Abduction are { kidnapper }.
 

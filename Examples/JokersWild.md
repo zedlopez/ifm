@@ -141,7 +141,9 @@ If we wanted to simulate a slightly more stimulating game, we could instead have
   
 
 ``` inform7
-{**}The Empty Room is a room. "It has come to this: sitting on the bare floor of Lulu's apartment with nothing to amuse you but a deck of cards and the top hat from last year's act. You reckon [the number of filled rows in the Table of Cards in words] cardtosses are all that stand between you and the utter pointlessness of existence.line-so-blankOnce again you curse Lulu for running off with that joker."
+{**}The Empty Room is a room. "It has come to this: sitting on the bare floor of Lulu's apartment with nothing to amuse you but a deck of cards and the top hat from last year's act. You reckon [the number of filled rows in the Table of Cards in words] cardtosses are all that stand between you and the utter pointlessness of existence.
+
+Once again you curse Lulu for running off with that joker."
 
 The player is carrying the deck of cards. The top hat is an open container in the Empty Room. It is scenery.
 

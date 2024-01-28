@@ -12,7 +12,9 @@ For: Z-Machine
 
 Plaza View is a room. "Your uncle's apartment, on loan to you for viewing the parade and celebrations today. This would be more of a sacrifice on his part if he weren't currently yachting around Corfu."
 
-The smart window is a device in Plaza View. It is fixed in place. "A vast smart window [if transparent]overlooks the park[otherwise]has turned to a sheet of hazy blue[end if]." The smart window can be transparent. The smart window is transparent. The description is "An electrochromic device which changes shade and transparency in response to the application of current.line-so-blankCurtains are so last year."
+The smart window is a device in Plaza View. It is fixed in place. "A vast smart window [if transparent]overlooks the park[otherwise]has turned to a sheet of hazy blue[end if]." The smart window can be transparent. The smart window is transparent. The description is "An electrochromic device which changes shade and transparency in response to the application of current.
+
+Curtains are so last year."
 ```
 
   

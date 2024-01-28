@@ -81,7 +81,9 @@ Instead of putting the sculpture on the sickbed:
 
 Instead of putting the sculpture on the pedestal:
 	now the pedestal is rejected;
-	say "The pedestal starts to wobble so ominously that you don't dare let go.line-so-blank'[Not there],' says [Nathan]. 'That thing is falling apart.'"
+	say "The pedestal starts to wobble so ominously that you don't dare let go.
+
+'[Not there],' says [Nathan]. 'That thing is falling apart.'"
 
 Before putting something on the down: try dropping the noun instead.
 
@@ -146,7 +148,9 @@ Instead of asking Nathan about something:
 	say "He shrugs weakly."
 
 When play begins:
-	say "'Just put that down anywhere,' says [Nathan], as you come into the room. He's sitting in the sickbed with his legs straight out in front of him. 'I don't care where.' His voice is weak, but it sharpens up for the last remark: 'And don't make a lot of noise about it.'line-so-blankConsidering that he woke you from a sound slumber to beg you to bring this thing over, his attitude is a bit much. You stare dubiously at the awkward crystal sculpture in your hands.";
+	say "'Just put that down anywhere,' says [Nathan], as you come into the room. He's sitting in the sickbed with his legs straight out in front of him. 'I don't care where.' His voice is weak, but it sharpens up for the last remark: 'And don't make a lot of noise about it.'
+
+Considering that he woke you from a sound slumber to beg you to bring this thing over, his attitude is a bit much. You stare dubiously at the awkward crystal sculpture in your hands.";
 	now Nathan knows every subject.
 
 Instead of asking Nathan about something while the player carries the sculpture, say "[Nathan] moans dramatically and refuses to be drawn into conversation."
@@ -162,7 +166,9 @@ Instead of giving the sculpture to Nathan:
 After dropping the sculpture:
 	now the player is aware of the breakage;
 	now the sculpture is nowhere;
-	say "You are incredibly careful, but somehow the sculpture slips -- you might almost say slithers -- from your fingers and crashes into a thousand shards at the feet of [Nathan].line-so-blankThere is a tense silence."
+	say "You are incredibly careful, but somehow the sculpture slips -- you might almost say slithers -- from your fingers and crashes into a thousand shards at the feet of [Nathan].
+
+There is a tense silence."
 
 Before reading a command: now Nathan is active.
 

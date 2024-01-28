@@ -15,7 +15,9 @@ Suppose we want to have a train which, at fixed times, arrives at and leaves sta
 
 The Empire Builder Train is a room. The Train has a room called the station. The station of the Train is Seattle.
 
-The description of the Empire Builder is "One of the (relatively) plush long-distance Amtrak trains. You're in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.line-so-blank[if the station of the Train is the train]Outside the window there is rapidly-passing countryside.[otherwise]Through the windows you can see the [station of the Train] train station.[end if]"
+The description of the Empire Builder is "One of the (relatively) plush long-distance Amtrak trains. You're in a two-story car with toilets and a cafe at one end, not having sprung for a sleeper.
+
+[if the station of the Train is the train]Outside the window there is rapidly-passing countryside.[otherwise]Through the windows you can see the [station of the Train] train station.[end if]"
 
 Instead of exiting when the player is in the Train:
 	if the station of the Train is the Train:
@@ -29,7 +31,9 @@ Before going outside when the player is in the Train:
 Before going inside when the player is in the station of the Train:
 	move the player to the Train instead.
 
-Seattle, Edmonds, Everett, Wenatchee, and Spokane are rooms. The description of a room is usually "The scenic train station of [the location][if the location is the station of the train].line-so-blankThe pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago[end if]."
+Seattle, Edmonds, Everett, Wenatchee, and Spokane are rooms. The description of a room is usually "The scenic train station of [the location][if the location is the station of the train].
+
+The pompously-titled Empire Builder train is pulled up here, soon to continue its journey towards Chicago[end if]."
 ```
 
   

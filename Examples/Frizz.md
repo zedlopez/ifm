@@ -71,7 +71,9 @@ After printing the name of something (called the target) while writing a paragra
 	if the Last Man is enclosed by the Pond:
 		if the target is in something (called the parent), say " - which is in [the parent]".
 
-The Kitchen is west of the Back Garden. "Not in any sense your province: Mrs Peaswell gets agitated if anyone besides herself so much as boils a kettle. In general it is best to sneak through, disturbing as little as possible and preserving the cosy domestic fiction that academics cannot cook.line-so-blankThe nearby stairwell leads up to the second floor."
+The Kitchen is west of the Back Garden. "Not in any sense your province: Mrs Peaswell gets agitated if anyone besides herself so much as boils a kettle. In general it is best to sneak through, disturbing as little as possible and preserving the cosy domestic fiction that academics cannot cook.
+
+The nearby stairwell leads up to the second floor."
 
 The Stairwell is above the Kitchen. "Halfway up and halfway down." The airing cupboard is a container in the Stairwell. "An airing cupboard here contains the heating system, and is the ideal place for restoring wet items to a dry state." The airing cupboard is fixed in place.
 ```

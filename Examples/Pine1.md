@@ -41,7 +41,9 @@ Instead of kissing an asleep person:
 Instead of throwing water at an asleep person:
 	now the second noun is awake;
 	now the noun is nowhere;
-	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
+	say "You pour out [the noun] on [the second noun].
+
+[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.
 

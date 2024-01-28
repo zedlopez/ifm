@@ -332,7 +332,9 @@ The Gravel Circle is west of the Upper Terrace, northwest of the Middle Terrace,
 
 Instead of going northwest in the Upper Terrace, try going north.
 
-The Ha-ha is north of the Gravel Circle and northwest of the Upper Terrace. The description of the Ha-ha is "[if going state is true]The land dips here so suddenly that you do not know the dip is there until you're in it; but it prevents livestock from crossing barriers, and that is the important thing[otherwise]You are at the base of a steep-sided depression, so the lawn continues north and south more or less at the level of your head[end if].line-so-blankThe tip of [the obelisk] is the only thing you can make out from this depression, off to the southeast.". North of the Ha-ha is the Sheep Field. In the Sheep Field is an animal called a black sheep. The black sheep stands 4 feet 3 inches."A black sheep grazes placidly nearby." The description of the black sheep is "It reminds you of your Uncle Tim."
+The Ha-ha is north of the Gravel Circle and northwest of the Upper Terrace. The description of the Ha-ha is "[if going state is true]The land dips here so suddenly that you do not know the dip is there until you're in it; but it prevents livestock from crossing barriers, and that is the important thing[otherwise]You are at the base of a steep-sided depression, so the lawn continues north and south more or less at the level of your head[end if].
+
+The tip of [the obelisk] is the only thing you can make out from this depression, off to the southeast.". North of the Ha-ha is the Sheep Field. In the Sheep Field is an animal called a black sheep. The black sheep stands 4 feet 3 inches."A black sheep grazes placidly nearby." The description of the black sheep is "It reminds you of your Uncle Tim."
 
 Before going from the Ha-ha:
 	say "It's a bit of a scramble to get back up the side of the depression, and you keep slipping in the damp grass. But you manage at last."

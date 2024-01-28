@@ -42,17 +42,41 @@ Instead of kissing an asleep person:
 Instead of throwing water at an asleep person:
 	now the second noun is awake;
 	now the noun is nowhere;
-	say "You pour out [the noun] on [the second noun].line-so-blank[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
+	say "You pour out [the noun] on [the second noun].
+
+[The second noun] wakes, shuddering. 'Agh! I had a terrible dream about drowning and then-- Hey!'"
 
 The player carries a jug of water. Understand "pour [something] on [something]" or "splash [something] at/on [something]" as throwing it at.
 
 Table of Conversation
 topic	reply	quip
-"dream/dreams/nightmare/nightmares/sleep"	"'Sleep well?' you ask solicitously.line-so-blank'Not really,' she replies, edging away from you. So much for that angle."	"'Ghastly nightmares,' she remarks. You nod politely."
-"marriage/love/wedding/boyfriend/beau/lover"	"'So,' you say. 'This is a little weird since we just met, but, um. Would you like to get married?'line-so-blankShe looks at you nervously. 'Do I have to? I mean, I'd rather not.'line-so-blankWell, this could get prickly fast."	"'I, er,' she says. 'I hope I'm not supposed to marry you or something.' Uh oh."
-"marriage/love/wedding/boyfriend/beau/lover"	"'I was told I was going to marry you and inherit the kingdom,' you say, apologetically. 'Would that be very bad?' This could be awkward, considering your family circumstances -- you did promise your mother that everything would be better, after this --line-so-blank'Oh, it's not you -- I'm seeing someone,' she says, smiling quickly.line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend."	"'Do you think I could go look for someone? I'm seeing him, you see, and I think I've been... sick... for a while, so he might be worried.'line-so-blankYou try to think how to point out that it's been a hundred years since she last saw her boyfriend. And try not to think how awkward things would be in your family if she refuses to marry you."
-"marriage/love/wedding/boyfriend/beau/lover"	"'Do you think you could consider alternatives if he's no longer interested in you?' you suggest.line-so-blankShe gives you the look of a wounded squirrel. 'My father might not approve of my love for the kitchen boy, but his heart is faithful and true!' she exclaims.line-so-blank'Right; supposing that he's still around, I'm sure that his love won't have faded,' you say, considering your fingernails. Maybe you'd better come clean with her about your identity, after all: she might be more favorably inclined if she understood that you won't interfere in her base-born romances."	"'I don't expect you to understand,' she says in a low whisper. 'I know it is not considered proper for a princess to love -- and such a one as my William, who works in the kitchen --' Her glance dares you to laugh. '-- but I cannot marry you without telling you this truth.'line-so-blankRight then. Perhaps you'd better tell her your secret, in exchange?"
-"marriage/love/wedding/boyfriend/beau/lover"	"'You've been up here for a hundred years,' you say. An unpleasant thought occurs to you. 'Was your young man in the castle somewhere?'line-so-blankShe shakes her head mutely."	"She goes to the window and looks out at the now-fading thicket of briar. 'That took a while to grow,' she observes. 'I've been up here longer than I thought.'line-so-blankYou shrug, uncomfortable."
+"dream/dreams/nightmare/nightmares/sleep"	"'Sleep well?' you ask solicitously.
+
+'Not really,' she replies, edging away from you. So much for that angle."	"'Ghastly nightmares,' she remarks. You nod politely."
+"marriage/love/wedding/boyfriend/beau/lover"	"'So,' you say. 'This is a little weird since we just met, but, um. Would you like to get married?'
+
+She looks at you nervously. 'Do I have to? I mean, I'd rather not.'
+
+Well, this could get prickly fast."	"'I, er,' she says. 'I hope I'm not supposed to marry you or something.' Uh oh."
+"marriage/love/wedding/boyfriend/beau/lover"	"'I was told I was going to marry you and inherit the kingdom,' you say, apologetically. 'Would that be very bad?' This could be awkward, considering your family circumstances -- you did promise your mother that everything would be better, after this --
+
+'Oh, it's not you -- I'm seeing someone,' she says, smiling quickly.
+
+You try to think how to point out that it's been a hundred years since she last saw her boyfriend."	"'Do you think I could go look for someone? I'm seeing him, you see, and I think I've been... sick... for a while, so he might be worried.'
+
+You try to think how to point out that it's been a hundred years since she last saw her boyfriend. And try not to think how awkward things would be in your family if she refuses to marry you."
+"marriage/love/wedding/boyfriend/beau/lover"	"'Do you think you could consider alternatives if he's no longer interested in you?' you suggest.
+
+She gives you the look of a wounded squirrel. 'My father might not approve of my love for the kitchen boy, but his heart is faithful and true!' she exclaims.
+
+'Right; supposing that he's still around, I'm sure that his love won't have faded,' you say, considering your fingernails. Maybe you'd better come clean with her about your identity, after all: she might be more favorably inclined if she understood that you won't interfere in her base-born romances."	"'I don't expect you to understand,' she says in a low whisper. 'I know it is not considered proper for a princess to love -- and such a one as my William, who works in the kitchen --' Her glance dares you to laugh. '-- but I cannot marry you without telling you this truth.'
+
+Right then. Perhaps you'd better tell her your secret, in exchange?"
+"marriage/love/wedding/boyfriend/beau/lover"	"'You've been up here for a hundred years,' you say. An unpleasant thought occurs to you. 'Was your young man in the castle somewhere?'
+
+She shakes her head mutely."	"She goes to the window and looks out at the now-fading thicket of briar. 'That took a while to grow,' she observes. 'I've been up here longer than I thought.'
+
+You shrug, uncomfortable."
 
 Instead of asking an awake beauty about a topic listed in the Table of Conversation when Marriage Proposal is happening:
 	now Beauty is passive;
@@ -105,7 +129,9 @@ The untidy bed is scenery in the Shack. Mother is a woman on the untidy bed. The
 The description of the letter is "Many times read over and creased, the letter explains how your father has gone away with a wealthy countess and will not return. Your mother was not able to read it herself, of course, and had to have it explained to her by the parish priest. Now she keeps it by the bed and crumples it in her fits of delirium."
 
 Instead of kissing or touching Mother for the first time:
-	say "You place a gentle kiss on her feverish brow. She looks up at you, her oldest -- yes, never mind that bit -- with a look of sincere trust and admiration.line-so-blank'You'll find a way through this for us,' she says, squeezing your fingers. 'I know you will.'"; increase the pity of Beauty by 3.
+	say "You place a gentle kiss on her feverish brow. She looks up at you, her oldest -- yes, never mind that bit -- with a look of sincere trust and admiration.
+
+'You'll find a way through this for us,' she says, squeezing your fingers. 'I know you will.'"; increase the pity of Beauty by 3.
 
 Instead of kissing Mother: say "You have no more heart-rending memories of affection to recount; that one incident will have to serve, for rhetorical purposes."
 
@@ -201,12 +227,16 @@ Dramatic revelation ends in failure when waiting or the time since dramatic reve
 	now secret identity is past;
 	restore the player;
 	now Beauty is passive;
-	say "She wrinkles her nose. 'I don't understand!' she says. 'What are you trying to tell me?'line-so-blank	You could weep for womankind. But you don't quite dare spell it out in so many words, not when someone might come up the stair and overhear a chance revelation."
+	say "She wrinkles her nose. 'I don't understand!' she says. 'What are you trying to tell me?'
+
+	You could weep for womankind. But you don't quite dare spell it out in so many words, not when someone might come up the stair and overhear a chance revelation."
 
 Dramatic revelation ends in success when Beauty is clever. When dramatic revelation ends in success:
 	restore the player;
 	now Beauty is passive;
-	say "'You're -- a girl? Like me?'line-so-blank'Not much like you,' you say, glancing over her petite frame and pert nose. 'But female, at any rate.'"
+	say "'You're -- a girl? Like me?'
+
+'Not much like you,' you say, glancing over her petite frame and pert nose. 'But female, at any rate.'"
 
 Definition: Beauty is clever if the clue count of Beauty is greater than 2.
 ```
@@ -244,9 +274,17 @@ Notice that we moved the re-activation rule down here so that the Compromise Pro
 ``` inform7
 {**}Table of Secondary Conversation
 topic	reply	quip
-"girls/me/women/female/truth/identity"	"'Marrying me would be no interference,' you go on. 'You could carry on whatever romances you wished, without your father noticing.' (Probably. You'll let the pragmatic details of this work themselves out later, and hope that any children she has will look vaguely like you.)"	"'Girls can't rescue people.'line-so-blank'Wrong,' you say, feeling a little annoyed. 'But you see why marrying me wouldn't be an interference. You could carry on whatever romances you wished, without your father even noticing.'"
-"king/man"	"'If you're thinking that a woman can't be the prince -- and then king -- well, there was a woman Pope, once.'line-so-blankShe looks awed."	"The crease in her forehead does not go away. 'But if everyone thinks you are a man... later you would be king!'line-so-blankBefore she can go on, you say, 'There was a woman Pope, once. Compared to that, a woman king is nothing.'"
-"decision/proposal/marriage/choice"	"'So,' you say. 'What do you think?'line-so-blank[final decision]"	"Her pretty nose twitches again, which you are coming to recognize as a sign of hard mental labor. 'I think I see,' she says. [final decision]"
+"girls/me/women/female/truth/identity"	"'Marrying me would be no interference,' you go on. 'You could carry on whatever romances you wished, without your father noticing.' (Probably. You'll let the pragmatic details of this work themselves out later, and hope that any children she has will look vaguely like you.)"	"'Girls can't rescue people.'
+
+'Wrong,' you say, feeling a little annoyed. 'But you see why marrying me wouldn't be an interference. You could carry on whatever romances you wished, without your father even noticing.'"
+"king/man"	"'If you're thinking that a woman can't be the prince -- and then king -- well, there was a woman Pope, once.'
+
+She looks awed."	"The crease in her forehead does not go away. 'But if everyone thinks you are a man... later you would be king!'
+
+Before she can go on, you say, 'There was a woman Pope, once. Compared to that, a woman king is nothing.'"
+"decision/proposal/marriage/choice"	"'So,' you say. 'What do you think?'
+
+[final decision]"	"Her pretty nose twitches again, which you are coming to recognize as a sign of hard mental labor. 'I think I see,' she says. [final decision]"
 
 To say final decision:
 	if Beauty is sympathetic:

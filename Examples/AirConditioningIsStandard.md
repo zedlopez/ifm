@@ -38,7 +38,9 @@ Rule for writing a paragraph about a person (called X):
 			otherwise say "[subsequent mention] ";
 			say " is carrying [a list of unmentioned things carried by X]."
 
-The Garage is a room. "Above the street door is a spectacular art nouveau fanlight, wherein a stained-glass Spirit of Progress bestows the gift of Transportation on mankind.line-so-blankThe sun, gleaming through the hair of Progress, throws amber curls on the macadam floor."
+The Garage is a room. "Above the street door is a spectacular art nouveau fanlight, wherein a stained-glass Spirit of Progress bestows the gift of Transportation on mankind.
+
+The sun, gleaming through the hair of Progress, throws amber curls on the macadam floor."
 
 The fanlight is scenery in the Garage. The description is "A semi-circle of stained glass as wide as the garage door, designed by Louis Comfort Tiffany himself. No expense has been spared."
 

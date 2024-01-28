@@ -19,7 +19,11 @@ Section 1 - The Supporters
 
 The Dining Room is a room. "A room of handsome proportions, with an octagonal dining table on a fine parquet floor. The original set of chairs has been taken away, leaving only a red velvet dining chair and a blue suede armchair."
 
-The fussy table is a supporter in the Dining Room. It is scenery. The description is "It's hypochondriac: the result of a sojourn in a superior antique shop, where it picked up the scent of almond oil, words like provenance, and a secretive shame about being resurfaced.line-so-blankChairs don't get along with it.line-so-blankIn its mellowest moods, after a really good dusting, it will mention, casually, a cabinet it once knew, which was twelve feet tall, came from the Winter Palace, and had an asking price of $350K."
+The fussy table is a supporter in the Dining Room. It is scenery. The description is "It's hypochondriac: the result of a sojourn in a superior antique shop, where it picked up the scent of almond oil, words like provenance, and a secretive shame about being resurfaced.
+
+Chairs don't get along with it.
+
+In its mellowest moods, after a really good dusting, it will mention, casually, a cabinet it once knew, which was twelve feet tall, came from the Winter Palace, and had an asking price of $350K."
 
 A chair is a kind of supporter with carrying capacity 1. A chair is enterable. A chair is usually scenery. Understand "chair" as a chair.
 

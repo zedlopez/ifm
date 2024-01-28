@@ -10,7 +10,11 @@ For: Z-Machine
 ``` inform7
 {*}"Witnessed"
 
-The player carries a device called a Trifield Natural EMF Meter. The description of the Meter is "This cost a pretty penny off the internet, but it's worth it: according to the website it has been programmed by PhD physicists to ignore manmade sources of fields and to respond only to paranormal EMF changes.line-so-blankIt also features an optional Tone Alarm, which can be turned on to indicate when readings spike. If the alarm is off, the meter just reads out the magnetic and electric field levels on a scale from 0-100 microteslas, or 0-1000 V/m.line-so-blankSince both fields are important, you keep the meter set to SUM mode. The meter has its own optional backlighting, so that you can see the reading even if your flashlight is off. Currently it is reading at [meter setting]." A Tone Alarm is part of the Meter. It is a device. The description of the Tone Alarm is "The Tone Alarm will make a noise, if the EMF picks up a spike."
+The player carries a device called a Trifield Natural EMF Meter. The description of the Meter is "This cost a pretty penny off the internet, but it's worth it: according to the website it has been programmed by PhD physicists to ignore manmade sources of fields and to respond only to paranormal EMF changes.
+
+It also features an optional Tone Alarm, which can be turned on to indicate when readings spike. If the alarm is off, the meter just reads out the magnetic and electric field levels on a scale from 0-100 microteslas, or 0-1000 V/m.
+
+Since both fields are important, you keep the meter set to SUM mode. The meter has its own optional backlighting, so that you can see the reading even if your flashlight is off. Currently it is reading at [meter setting]." A Tone Alarm is part of the Meter. It is a device. The description of the Tone Alarm is "The Tone Alarm will make a noise, if the EMF picks up a spike."
 
 To decide what number is meter setting:
 	if the meter is switched off, decide on 0;

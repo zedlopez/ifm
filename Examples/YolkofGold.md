@@ -19,7 +19,9 @@ The Rooftop is outside from the Turret.
 
 The staircase is an open unopenable door. It is scenery. It is below the Turret and above the Library. The description is "A winding stair carved out of the single trunk of a massive tree, all in a dark wood; the outside of the stairs left unfinished with the bark still on, but the treads worn smooth by long and constant use."
 
-The description of the Library is "Here, it seems, you have found your mark: books line both walls, a dark carpet lies on the floor, and a strange dress hangs up in a presentation case. And the thing you were told to look for, a desk with three drawers.line-so-blankA spiral staircase leads up and out."
+The description of the Library is "Here, it seems, you have found your mark: books line both walls, a dark carpet lies on the floor, and a strange dress hangs up in a presentation case. And the thing you were told to look for, a desk with three drawers.
+
+A spiral staircase leads up and out."
 
 The cherry desk is scenery in the library. The description is "A deep, satin-lustrous cherry, with scrollwork legs and gilt touches. The years have not been kind, and it has cracked and split in several places; the finish is damaged, and where there is inlaid mother of pearl, it is beginning to come up from its bed.  But it is still a sound piece, and features three drawers."
 

@@ -25,7 +25,9 @@ The polo shirt is a shirt. The description is "Turquoise and bright yellow, the 
 
 The player wears the golf pants and the polo shirt. The player carries the tuxedo trousers and the frilly shirt.
 
-The Wedding Chapel Dressing Room is a room. "The bride's dressing room is a lavish suite with closets, hangers, dressmaker's dummies, boxes of straight pins and sewing notions, combs, lotions, brushes, and hair fixatives, plus room for  fifteen female attendants and a photographer. Before they shoved you out of the room you even got a glimpse of a small reference library including '1001 French Braids' and 'Corset-Lacing For Beginners.'line-so-blankThis is the groom's dressing room. You get a framed photograph of Elvis, a dusty mirror, and the floor space of an average toilet stall."
+The Wedding Chapel Dressing Room is a room. "The bride's dressing room is a lavish suite with closets, hangers, dressmaker's dummies, boxes of straight pins and sewing notions, combs, lotions, brushes, and hair fixatives, plus room for  fifteen female attendants and a photographer. Before they shoved you out of the room you even got a glimpse of a small reference library including '1001 French Braids' and 'Corset-Lacing For Beginners.'
+
+This is the groom's dressing room. You get a framed photograph of Elvis, a dusty mirror, and the floor space of an average toilet stall."
 
 The dusty mirror and the photograph of Elvis are scenery in the Dressing Room. The description of the mirror is "You can't really get more than a silhouette impression of yourself." The description of Elvis is "He reminds you that you'd better get out there before the organist switches to Hound Dog."
 ```

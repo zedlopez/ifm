@@ -80,7 +80,11 @@ Now, because we want to make sure that we always do get a paragraph break after 
 
 Section 2 - The Scenario
 
-The Desert Isle is a room. "A pale expanse of sand, here and there developing into hillocks of grass, and a small clump of palms. The water is shallow here, and there are other islands within swimming distance -- or even wading distance, perhaps -- but none of them is any larger than your island, so it doesn't seem worth the trouble of visiting.line-so-blankA few hundred feet out, the water turns darker blue, the sea floor drops away, and there is nothing to be seen all the way down to the horizon, except a couple of fluffy clouds, and an occasional bird.line-so-blankThe remains of your fire smolder in the stone-lined pit."
+The Desert Isle is a room. "A pale expanse of sand, here and there developing into hillocks of grass, and a small clump of palms. The water is shallow here, and there are other islands within swimming distance -- or even wading distance, perhaps -- but none of them is any larger than your island, so it doesn't seem worth the trouble of visiting.
+
+A few hundred feet out, the water turns darker blue, the sea floor drops away, and there is nothing to be seen all the way down to the horizon, except a couple of fluffy clouds, and an occasional bird.
+
+The remains of your fire smolder in the stone-lined pit."
 
 A thing can be charred or whole. A thing is usually whole. Instead of burning something: say "You hold [the noun] to the fire until it flares and chars."; now the noun is charred.
 

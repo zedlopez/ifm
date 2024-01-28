@@ -13,7 +13,9 @@ Suppose we have a game where we want the player to control two different charact
 ``` inform7
 {*}"Terror of the Sierra Madre"
 
-The Hay-Strewn Corridor is a room. "[if the player is Maleska]The horse stalls are empty: you have already drained the animals, and carried off their corpses. The house will not long sustain you now.line-so-blankThe window throws on the floor a bright square of malevolent sunlight[otherwise]The stalls for horses run down one side of the room, but the house has long stood empty. A square window without shutters looks out over the ranch, away toward the Sierras[end if]."
+The Hay-Strewn Corridor is a room. "[if the player is Maleska]The horse stalls are empty: you have already drained the animals, and carried off their corpses. The house will not long sustain you now.
+
+The window throws on the floor a bright square of malevolent sunlight[otherwise]The stalls for horses run down one side of the room, but the house has long stood empty. A square window without shutters looks out over the ranch, away toward the Sierras[end if]."
 
 Teresa is a woman in the Hay-Strewn Corridor. "Teresa stands opposite you[if Teresa carries something], her fingers wrapped tightly around [a list of things carried by Teresa][end if]." Teresa carries a bulb of garlic and a cross.
 

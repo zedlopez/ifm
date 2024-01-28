@@ -195,7 +195,9 @@ Before asking someone about something:
 
 Section 3 - The Scenario
 
-The Guard House is a room. "Here you spend all your nights. Bullet-proof windows offer a panoramic view of serene cliffs, palm trees, and a moonlit ocean. Occasionally someone is foolish enough to try a cliff ascent or even an attack by helicopter, but lately things have been pretty quiet.line-so-blankThe mansion is up the hill behind you, security lights ablaze."
+The Guard House is a room. "Here you spend all your nights. Bullet-proof windows offer a panoramic view of serene cliffs, palm trees, and a moonlit ocean. Occasionally someone is foolish enough to try a cliff ascent or even an attack by helicopter, but lately things have been pretty quiet.
+
+The mansion is up the hill behind you, security lights ablaze."
 
 The grey telephone is a telephone in the Guard House. Understand "6885" as the grey telephone. "Before you is a grey telephone. In black marker someone has written on it: MAIN OFFICE 2802."
 

@@ -85,7 +85,9 @@ The onions can be unpeeled, peeled, diced, sauteed, or burnt. [The printed name 
 
 The can of chicken broth is a closed container on the counter. The bottle of white cooking wine and the bottle of Thurston Wolfe PGV are a closed containers in the refrigerator.
 
-The description of the Thurston Wolfe is "A Washington State Pinot Gris-Viognier, 2003. It is said to have 'peach aromas', and, startlingly, the untutored person can detect these without resorting to fantasy.line-so-blank(It is also supposed to possess a delicate perfume and a moderate body; the label author at least stopped short of 'good sense of humor and likes long walks on the beach')."
+The description of the Thurston Wolfe is "A Washington State Pinot Gris-Viognier, 2003. It is said to have 'peach aromas', and, startlingly, the untutored person can detect these without resorting to fantasy.
+
+(It is also supposed to possess a delicate perfume and a moderate body; the label author at least stopped short of 'good sense of humor and likes long walks on the beach')."
 
 Understand the commands "wash" and "rinse" as "clean".
 

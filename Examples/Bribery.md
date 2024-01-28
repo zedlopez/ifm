@@ -65,7 +65,9 @@ And the rest is all scenario:
   
 
 ``` inform7
-{**}The Leafy Branch is a room. "You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.line-so-blankThe branch continues forward and backward from here, and a stem extends forward-up."
+{**}The Leafy Branch is a room. "You stand on smooth bark dappled by sunlight. The scent-trail runs forward to home.
+
+The branch continues forward and backward from here, and a stem extends forward-up."
 
 Instead of going south in Leafy Branch, say "You must not back down! The scent trail leads onward!"
 

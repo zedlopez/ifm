@@ -24,7 +24,9 @@ First, a little scene-setting:
 
 When play begins:
 	now the right hand status line is "[time of day]";
-	say "The procedure was painless at first: increased strength was the first sign, followed by a sensation of delayed time, as though everyone around you moved more slowly. Your ability to dodge and perform feats of agility doubled, then trebled. You were heralded as a triumph of medicine. They told you there would be no side effects worth speaking of.line-so-blankThey were wrong."
+	say "The procedure was painless at first: increased strength was the first sign, followed by a sensation of delayed time, as though everyone around you moved more slowly. Your ability to dodge and perform feats of agility doubled, then trebled. You were heralded as a triumph of medicine. They told you there would be no side effects worth speaking of.
+
+They were wrong."
 
 The Base Camp Larder is a room. "This room has been reinforced after each incident -- and there have been dozens in the last two months -- so that it now rivals Fort Knox. Only your new skill and speed enabled you to dodge the motion sensors, knock out the computerized security system, fool the retinal scanner, and punch a hole in the steel containment grating. But you're inside now."
 ```

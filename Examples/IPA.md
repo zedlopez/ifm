@@ -34,9 +34,13 @@ Every turn when the location is a shop:
 		say "You are gently but firmly ushered out, since [the location] is closing.";
 		move the player to the target.
 
-The Strip-mall Parking Lot is a room. "Dead Christmas trees are heaped outside the bagel shop. Strips of dirty ice survive along the curb, and in the shadows of the lamp-posts. A wet, almost illegible sheet of algebra homework is plastered to the asphalt.line-so-blankPinewood Brewing Supply is at the east end of the lot."
+The Strip-mall Parking Lot is a room. "Dead Christmas trees are heaped outside the bagel shop. Strips of dirty ice survive along the curb, and in the shadows of the lamp-posts. A wet, almost illegible sheet of algebra homework is plastered to the asphalt.
 
-Pinewood Brewing Supply is a shop. It is east of Parking Lot. The opening hour of Pinewood Brewing Supply is 10:00 AM. The closing hour of Pinewood Brewing Supply is 3:30 PM. "Shelves and shelves of malt and hops; large glass carboys, and plastic tubing; empty bottles; bottle-caps; bottle-labeling kits; starters for vinegar, sourdough, root beer.line-so-blankA sweet malty smell hangs in the air."
+Pinewood Brewing Supply is at the east end of the lot."
+
+Pinewood Brewing Supply is a shop. It is east of Parking Lot. The opening hour of Pinewood Brewing Supply is 10:00 AM. The closing hour of Pinewood Brewing Supply is 3:30 PM. "Shelves and shelves of malt and hops; large glass carboys, and plastic tubing; empty bottles; bottle-caps; bottle-labeling kits; starters for vinegar, sourdough, root beer.
+
+A sweet malty smell hangs in the air."
 
 Instead of going to Brewing Supply when the time of day is before the opening hour of Brewing Supply for the second time:
 	say "You rattle at the door again. 'Hold your horses, for crying out loud,' yells a voice from within."

@@ -13,7 +13,11 @@ For: Z-Machine
 ``` inform7
 {*}"Ibid."
 
-The Ship Inn is a room. "Here you are in a lovely pub which your guidebook assures you is extremely authentic. [1 as a footnote].line-so-blankTo your left sits a party of Italians, with their guidebook.line-so-blankTo your right is a silent, but not unappealing, young man.".
+The Ship Inn is a room. "Here you are in a lovely pub which your guidebook assures you is extremely authentic. [1 as a footnote].
+
+To your left sits a party of Italians, with their guidebook.
+
+To your right is a silent, but not unappealing, young man.".
 
 A party of Italians and a silent young man are people in the Ship Inn. The Italians and the young man are scenery.
 
