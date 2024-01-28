@@ -2,7 +2,7 @@ Example: *** Walls and Noses
 Location: Asking which do you mean
 RecipeLocation: Clarification and Correction
 Index: Disambiguation question worded in a new way entirely
-Description: Responding to "EXAMINE WALL" with "In which direction?", and to "EXAMINE NOSE" with "Whose nose do you mean, Frederica's, Betty's, Wilma's or your own?"
+Description: Responding to "``examine wall``" with "In which direction?", and to "``examine nose``" with "Whose nose do you mean, Frederica's, Betty's, Wilma's or your own?"
 For: Z-Machine
 
   

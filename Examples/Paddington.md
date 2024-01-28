@@ -2,7 +2,7 @@ Example: ** Paddington
 Location: Check, carry out, report
 RecipeLocation: Glass and Other Damage-Prone Substances
 Index: CUT [something] WITH [something] command
-Description: A CUT [something] WITH [something] command which acts differently on different types of objects.
+Description: A ``cut`` [something] ``with`` [something] command which acts differently on different types of objects.
 For: Z-Machine
 
   

@@ -2,7 +2,7 @@ Example: ** Lanista 2
 Location: Overriding existing commands
 RecipeLocation: Combat and Death
 Index: Lanista 2. Randomized Combat with Weapons
-Description: Randomized combat in which the damage done depends on what weapons the characters are wielding, and in which an ATTACK IT WITH action is created to replace regular attacking. Also folds a new DIAGNOSE command into the system.
+Description: Randomized combat in which the damage done depends on what weapons the characters are wielding, and in which an ``attack it with`` action is created to replace regular attacking. Also folds a new ``diagnose`` command into the system.
 For: Z-Machine
 
   

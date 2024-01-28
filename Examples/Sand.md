@@ -2,7 +2,7 @@ Example: **** Sand
 Location: Before rules
 RecipeLocation: Taking, Dropping, Inserting and Putting
 Index: PUT and INSERT automatically TAKE first even with multiples
-Description: Extend PUT and INSERT handling to cases where multiple objects are intended at once.
+Description: Extend ``put`` and ``insert`` handling to cases where multiple objects are intended at once.
 For: Z-Machine
 
 [ZL: https://inform7.atlassian.net/browse/I7-2348 ]::

@@ -2,7 +2,7 @@ Example: ** North by Northwest
 Location: Reading a command
 RecipeLocation: Varying What Is Read
 Index: North-northwest and similar directions
-Description: Creating additional compass directions between those that already exist (for instance, NNW) -- and dealing with an awkwardness that arises when the player tries to type ``north-northwest``. The example demonstrates a way around the default nine-character limit on parsed words.
+Description: Creating additional compass directions between those that already exist (for instance, ``nnw``) -- and dealing with an awkwardness that arises when the player tries to type ``north-northwest``. The example demonstrates a way around the default nine-character limit on parsed words.
 For: Z-Machine
 
   

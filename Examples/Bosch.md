@@ -2,7 +2,7 @@ Example: * Bosch
 Location: Stored actions
 RecipeLocation: Scoring
 Index: FULL SCORE using a list of stored actions
-Description: Creating a list of actions that will earn the player points, and using this both to change the score and to give FULL SCORE reports.
+Description: Creating a list of actions that will earn the player points, and using this both to change the score and to give ``full score`` reports.
 For: Z-Machine
 
   

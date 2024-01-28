@@ -57,5 +57,5 @@ Test me with "charles, look / charles, jump / look / policeman, sing / thomas, t
 ```
 
   
-Notice the difference between the two rules about disorderly conduct: the one for other people says 'the rule succeeds' to make sure that the action is counted as a success and not (as normally happens with instead rules) a failure. Most of the time we don't care whether actions are judged successes or failures, but it matters here, because if we type ``charles``, ``jump`` and the result fails, then text such as 'Charles is unable to.' will be printed–which would get in the way. So we declare the action a success.
+Notice the difference between the two rules about disorderly conduct: the one for other people says 'the rule succeeds' to make sure that the action is counted as a success and not (as normally happens with instead rules) a failure. Most of the time we don't care whether actions are judged successes or failures, but it matters here, because if we type ``charles, jump`` and the result fails, then text such as 'Charles is unable to.' will be printed–which would get in the way. So we declare the action a success.
 

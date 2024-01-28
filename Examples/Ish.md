@@ -2,7 +2,7 @@ Example: * Ish.
 Location: The text token
 RecipeLocation: Helping and Hinting
 Index: HELP with a simple menu
-Description: A (very) simple HELP command, using tokens to accept and interpret the player's  text whatever it might be.
+Description: A (very) simple ``help`` command, using tokens to accept and interpret the player's  text whatever it might be.
 For: Z-Machine
 
   

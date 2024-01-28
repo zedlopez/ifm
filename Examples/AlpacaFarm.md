@@ -2,7 +2,7 @@ Example: * Alpaca Farm
 Location: New commands for old grammar
 RecipeLocation: Clarification and Correction
 Index: USE action which divines rational behavior for a wide range of possible nouns
-Description: A generic USE action which behaves sensibly with a range of different objects.
+Description: A generic ``use`` action which behaves sensibly with a range of different objects.
 For: Z-Machine
 
   

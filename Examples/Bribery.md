@@ -2,7 +2,7 @@ Example: ** Bribery
 Location: New rules
 RecipeLocation: Barter and Exchange
 Index: GIVE command extended
-Description: A GIVE command that gets rid of Inform's default refusal message in favor of something a bit more sophisticated.
+Description: A ``give`` command that gets rid of Inform's default refusal message in favor of something a bit more sophisticated.
 For: Z-Machine
 
   

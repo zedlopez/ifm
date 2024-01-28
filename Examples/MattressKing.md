@@ -2,7 +2,7 @@ Example: * Mattress King
 Location: Going by, going through, going with
 RecipeLocation: Going, Pushing Things in Directions
 Index: PUSH something a direction with extra phrasing
-Description: Adding extra phrasing to the action to PUSH something in a direction.
+Description: Adding extra phrasing to the action to ``push`` something in a direction.
 For: Z-Machine
 
   

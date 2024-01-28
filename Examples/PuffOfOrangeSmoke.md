@@ -51,7 +51,7 @@ Setting action variables when the second noun is a body which is part of a perso
 This doesn't change Inform's idea about what action is being performed; just about the object it's being performed on. The rest of the action will now proceed as if the player had typed ``touch lydia``.
 
   
-Along similar lines, once Lydia is dead, we want ``move lydia`` to mean ``move lydia``'S ``body`` if the body is in view:
+Along similar lines, once Lydia is dead, we want ``move lydia`` to mean ``move lydia's body`` if the body is in view:
 
   
 

@@ -2,7 +2,7 @@ Example: ** Sybil 2
 Location: Reading and talking
 RecipeLocation: Saying Simple Things
 Index: Sybil 2. YES and NO directed to people
-Description: Making the character understand YES, SAY YES TO CHARACTER, TELL CHARACTER YES, ANSWER YES, and CHARACTER, YES.
+Description: Making the character understand ``yes``, ``say yes to character``, ``tell character yes``, ``answer yes``, and ``character, yes``.
 For: Z-Machine
 
   

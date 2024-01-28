@@ -2,7 +2,7 @@ Example: * The Big Sainsbury's
 Location: Implicitly taking something
 RecipeLocation: The Passage Of Time
 Index: Implicit takes require time
-Description: Making implicit takes add a minute to the clock, just as though the player had typed TAKE THING explicitly.
+Description: Making implicit takes add a minute to the clock, just as though the player had typed ``take thing`` explicitly.
 For: Z-Machine
 
   

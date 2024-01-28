@@ -2,7 +2,7 @@ Example: * Nine AM Appointment
 Location: Named rules and rulebooks
 RecipeLocation: Waiting, Sleeping
 Index: WAIT [number] MINUTES command
-Description: A WAIT [number] MINUTES command which advances through an arbitrary number of turns.
+Description: A ``wait`` [number] ``minutes`` command which advances through an arbitrary number of turns.
 For: Z-Machine
 
   

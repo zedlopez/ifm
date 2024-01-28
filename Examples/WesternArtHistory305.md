@@ -2,7 +2,7 @@ Example: ** Western Art History 305
 Location: Multiple action processing
 RecipeLocation: Actions on Multiple Objects
 Index: Allowing EXAMINE to see multiple objects with a single command
-Description: Allowing EXAMINE to see multiple objects with a single command.
+Description: Allowing ``examine`` to see multiple objects with a single command.
 For: Z-Machine
 
   

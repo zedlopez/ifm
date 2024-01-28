@@ -2,7 +2,7 @@ Example: * Sybil 1
 Location: Reading and talking
 RecipeLocation: Saying Simple Things
 Index: Sybil 1. ASK, TELL, and ANSWER conflated
-Description: Direct all ASK, TELL, and ANSWER commands to ASK, and accept multiple words for certain cases.
+Description: Direct all ``ask``, ``tell``, and ``answer`` commands to ``ask``, and accept multiple words for certain cases.
 For: Z-Machine
 
   

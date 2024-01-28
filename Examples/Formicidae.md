@@ -2,7 +2,7 @@ Example: ** Formicidae
 Location: Lists of objects
 RecipeLocation: Actions on Multiple Objects
 Index: Controlling the order in which multiple-object actions occur
-Description: Manipulating the order in which items are handled after TAKE ALL.
+Description: Manipulating the order in which items are handled after ``take all``.
 For: Z-Machine
 
   

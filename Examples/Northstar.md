@@ -2,7 +2,7 @@ Example: ** Northstar
 Location: Replacements
 RecipeLocation: Obedient Characters
 Index: ASK person TO do something, understood
-Description: Making Inform understand ASK JOSH TO TAKE INVENTORY as JOSH, TAKE INVENTORY. This requires us to use a regular expression on the player's command, replacing some of the content.
+Description: Making Inform understand ``ask josh to take inventory`` as ``josh, take inventory``. This requires us to use a regular expression on the player's command, replacing some of the content.
 For: Z-Machine
 
   

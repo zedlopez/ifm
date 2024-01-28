@@ -2,7 +2,7 @@ Example: * Puncak Jaya
 Location: Understanding things by their relations
 RecipeLocation: Memory and Knowledge
 Index: Characters referred to when absent
-Description: When a character is not visible, responding to such commands as EXAMINE PETER and PETER, HELLO with a short note that the person in question is no longer visible.
+Description: When a character is not visible, responding to such commands as ``examine peter`` and ``peter, hello`` with a short note that the person in question is no longer visible.
 For: Z-Machine
 
   

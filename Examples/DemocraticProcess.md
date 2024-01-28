@@ -2,7 +2,7 @@ Example: *** Democratic Process
 Location: Before rules
 RecipeLocation: Taking, Dropping, Inserting and Putting
 Index: PUT and INSERT automatically TAKE first
-Description: Make PUT and INSERT commands automatically take objects if the player is not holding them.
+Description: Make ``put`` and ``insert`` commands automatically take objects if the player is not holding them.
 For: Z-Machine
 
 [ZL: https://inform7.atlassian.net/browse/I7-2348 This refers to outdated behavior ]::

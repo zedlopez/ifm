@@ -2,7 +2,7 @@ Example: * The Trouble with Printing
 Location: Overriding existing commands
 RecipeLocation: Reading Matter
 Index: READ command separate from EXAMINE
-Description: Making a READ command, distinct from EXAMINE, for legible objects.
+Description: Making a ``read`` command, distinct from ``examine``, for legible objects.
 For: Z-Machine
 
   

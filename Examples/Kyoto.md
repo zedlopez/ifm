@@ -2,7 +2,7 @@ Example: ** Kyoto
 Location: Success and failure
 RecipeLocation: Glass and Other Damage-Prone Substances
 Index: THROW [something] AT [something] command enhanced
-Description: Expanding the effects of the THROW something AT something command so that objects do make contact with one another.
+Description: Expanding the effects of the ``throw`` something ``at`` something command so that objects do make contact with one another.
 For: Z-Machine
 
   

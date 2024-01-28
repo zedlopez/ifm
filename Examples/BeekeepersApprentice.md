@@ -2,7 +2,7 @@ Example: ** Beekeeper's Apprentice
 Location: Line breaks and paragraph breaks
 RecipeLocation: Examining
 Index: Examining everything at once
-Description: Making the SEARCH command examine all the scenery in the current location.
+Description: Making the ``search`` command examine all the scenery in the current location.
 For: Z-Machine
 
   

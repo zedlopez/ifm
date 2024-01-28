@@ -2,7 +2,7 @@ Example: *** The Night Before
 Location: Assemblies and body parts
 RecipeLocation: The Human Body
 Index: Disambiguating body parts
-Description: Instructing Inform to prefer different interpretations of EXAMINE NOSE, depending on whether the player is alone, in company, or with Rudolph the Red-nosed Reindeer.
+Description: Instructing Inform to prefer different interpretations of ``examine nose``, depending on whether the player is alone, in company, or with Rudolph the Red-nosed Reindeer.
 For: Z-Machine
 
   

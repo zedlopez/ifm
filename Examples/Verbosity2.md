@@ -2,7 +2,7 @@ Example: * Verbosity 2
 Location: Listing rules explicitly
 RecipeLocation: Looking
 Index: Verbosity 2. Full-length descriptions mandatory
-Description: Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of BRIEF and SUPERBRIEF.
+Description: Making rooms give full descriptions each time we enter, even if we have visited before, and disallowing player use of ``brief`` and ``superbrief``.
 For: Z-Machine
 
   

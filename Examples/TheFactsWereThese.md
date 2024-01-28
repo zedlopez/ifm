@@ -2,7 +2,7 @@ Example: ** The Facts Were These
 Location: Lengthening or shortening a list
 RecipeLocation: Actions on Multiple Objects
 Index: GIVE extended to multiple objects at once
-Description: Creating a variant GIVE action that lets the player give multiple objects simultaneously with commands like GIVE ALL TO ATTENDANT or GIVE THREE DOLLARS TO ATTENDANT or GIVE PIE AND HAT TO ATTENDANT. The attendant accepts the gifts only if their total combined value matches some minimum amount.
+Description: Creating a variant ``give`` action that lets the player give multiple objects simultaneously with commands like ``give all to attendant`` or ``give three dollars to attendant`` or ``give pie and hat to attendant``. The attendant accepts the gifts only if their total combined value matches some minimum amount.
 For: Z-Machine
 
   

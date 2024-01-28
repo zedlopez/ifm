@@ -2,7 +2,7 @@ Example: *** Provenance Unknown
 Location: Going by, going through, going with
 RecipeLocation: Going, Pushing Things in Directions
 Index: PUSH something A DIRECTION modified
-Description: Allowing something like PUSH TELEVISION EAST to push the cart on which the television rests.
+Description: Allowing something like ``push television east`` to push the cart on which the television rests.
 For: Z-Machine
 
   

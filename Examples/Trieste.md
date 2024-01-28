@@ -2,7 +2,7 @@ Example: ** Trieste
 Location: Table amendments
 RecipeLocation: Helping and Hinting
 Index: HELP command with specific set of topics
-Description: Table amendment to adjust HELP commands provided for the player.
+Description: Table amendment to adjust ``help`` commands provided for the player.
 For: Z-Machine
 
   

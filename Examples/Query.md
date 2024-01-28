@@ -2,7 +2,7 @@ Example: * Query
 Location: Understanding mistakes
 RecipeLocation: Helping and Hinting
 Index: Responding to questions starting with WHO, WHAT, etc.
-Description: Catching all questions that begin with WHO, WHAT, WHERE, and similar question words, and responding with the instruction to use commands, instead.
+Description: Catching all questions that begin with ``who``, ``what``, ``where``, and similar question words, and responding with the instruction to use commands, instead.
 For: Z-Machine
 
   

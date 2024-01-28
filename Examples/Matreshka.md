@@ -2,7 +2,7 @@ Example: * Matreshka
 Location: Begin and end
 RecipeLocation: Looking Under and Hiding
 Index: SEARCH [room] action that opens every visible unlocked container
-Description: A SEARCH [room] action that will open every container the player can see, stopping only when there don't remain any that are closed, unlocked, and openable.
+Description: A ``search`` [room] action that will open every container the player can see, stopping only when there don't remain any that are closed, unlocked, and openable.
 For: Z-Machine
 
   

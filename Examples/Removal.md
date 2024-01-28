@@ -2,7 +2,7 @@ Example: * Removal
 Location: Action variables
 RecipeLocation: Taking, Dropping, Inserting and Putting
 Index: TAKE action reports where the noun came from
-Description: TAKE expanded to give responses such as "You take the book from the shelf." or "You pick up the toy from the ground."
+Description: ``take`` expanded to give responses such as "You take the book from the shelf." or "You pick up the toy from the ground."
 For: Z-Machine
 
   

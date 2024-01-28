@@ -2,7 +2,7 @@ Example: * Finality
 Location: Printing the player's obituary
 RecipeLocation: Ending The Story
 Index: UNDO not mentioned in the final question
-Description: Not mentioning UNDO in the final set of options.
+Description: Not mentioning ``undo`` in the final set of options.
 For: Z-Machine
 
   

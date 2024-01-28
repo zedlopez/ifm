@@ -2,7 +2,7 @@ Example: * Anchorite
 Location: New commands for old grammar
 RecipeLocation: Entering and Exiting, Sitting and Standing
 Index: GET DOWN and DOWN understood as EXIT
-Description: By default, Inform understands GET OFF, GET UP, or GET OUT when the player is sitting or standing on an enterable object. We might also want to add GET DOWN and DOWN as exit commands, though.
+Description: By default, Inform understands ``get off``, ``get up``, or ``get out`` when the player is sitting or standing on an enterable object. We might also want to add ``get down`` and ``down`` as exit commands, though.
 For: Z-Machine
 
   

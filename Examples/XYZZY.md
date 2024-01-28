@@ -2,7 +2,7 @@ Example: * XYZZY
 Location: Understand
 RecipeLocation: Magic Words
 Index: Joke command added
-Description: Basics of adding a new command reviewed, for the case of the simple magic word XYZZY.
+Description: Basics of adding a new command reviewed, for the case of the simple magic word ``xyzzy``.
 For: Z-Machine
 
   

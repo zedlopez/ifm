@@ -2,7 +2,7 @@ Example: * One of Those Mornings
 Location: Understanding any, understanding rooms
 RecipeLocation: Background
 Index: FIND command
-Description: A FIND command that allows the player to find a lost object anywhere
+Description: A ``find`` command that allows the player to find a lost object anywhere
 For: Z-Machine
 
   

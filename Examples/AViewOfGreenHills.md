@@ -2,7 +2,7 @@ Example: *** A View of Green Hills
 Location: Adjacent rooms and routes through the map
 RecipeLocation: Continuous Spaces and The Outdoors
 Index: LOOK [direction] command
-Description: A LOOK [direction] command which allows the player to see descriptions of the nearby landscape.
+Description: A ``look`` [direction] command which allows the player to see descriptions of the nearby landscape.
 For: Z-Machine
 
   

@@ -2,7 +2,7 @@ Example: *** Cheese-makers
 Location: Why are scenes designed this way?
 RecipeLocation: Saying Complicated Things
 Index: TALK TO command used with scenes
-Description: Scenes used to control the way a character reacts to conversation and comments, using a TALK TO command.
+Description: Scenes used to control the way a character reacts to conversation and comments, using a ``talk to`` command.
 For: Z-Machine
 
   

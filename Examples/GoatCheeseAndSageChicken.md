@@ -2,7 +2,7 @@ Example: *** Goat-Cheese and Sage Chicken
 Location: Another scoring example
 RecipeLocation: Scoring
 Index: FULL SCORE with achievements table and rankings
-Description: Implementing a FULL SCORE command which lists more information than the regular SCORE command, adding times and rankings, as an extension of the example given in this chapter.
+Description: Implementing a ``full score`` command which lists more information than the regular ``score`` command, adding times and rankings, as an extension of the example given in this chapter.
 For: Z-Machine
 
   
