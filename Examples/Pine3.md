@@ -179,10 +179,7 @@ To say attitude:
 	otherwise say "a little confused".
 ```
 
-[ZL: still don't know how to link to Space Patrol...]::
-
-
-And the following is the same as in the Space Patrol example as well: we need a systematic way to remove the player's possessions, then put everything back when the flashback is over:
+And the following is the same as in the [Space Patrol - Stranded on Jupiter!] example as well: we need a systematic way to remove the player's possessions, then put everything back when the flashback is over:
 
   
 

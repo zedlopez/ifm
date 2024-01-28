@@ -571,7 +571,7 @@ In a plot that takes place over multiple locations or has several distinct scene
 
 [ZL: can't readily make Space Patrol link work]::
 
-[Space Patrol – Stranded on Jupiter] inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
+[Space Patrol - Stranded on Jupiter!] inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
 
 ### See Also
 
