@@ -39,8 +39,10 @@ The wider community of Inform writers has made a great wealth of material availa
 
 ## Acknowledgements
 
+[ZL: "past 15 years" worth updating? ]::
+
 ^^{ifwiki+web+}
-^{@David Fisher}'s "Past raif topics" pages on the Interactive Fiction Wiki were an invaluable tool during the early design of these examples, as they catalog an enormous assortment of implementation problems encountered by IF authors over the past fifteen years.
+^{@David Fisher}'s [Past raif topics](https://www.ifwiki.org/Past_raif_topics) pages on the [Interactive Fiction Wiki](https://www.ifwiki.org/) were an invaluable tool during the early design of these examples, as they catalog an enormous assortment of implementation problems encountered by IF authors over the past fifteen years.
 
 Thanks also go to ^{@Nick Montfort} for several conversations during the development of Inform: these inspired a number of ideas about how the author should be able to control the textual output of a story, and suggested specific problem areas to work on.
 
@@ -48,11 +50,11 @@ Thanks also go to ^{@Nick Montfort} for several conversations during the develop
 
 A few examples were contributed by denizens of rec.arts.int-fiction: ^{@Tara McGrew}, ^{@Jon Ingold}, ^{@Mike Tarbert}, ^{@Eric Rossing}, and ^{@Kate McKee} offered such elegant implementations of various tasks that we have folded their contributions (with permission) into the *Recipe Book*.
 
-Finally, these pages owe much to the questions and suggestions of Inform users on rec.arts.int-fiction and ``IFmud``.
+Finally, these pages owe much to the questions and suggestions of Inform users on rec.arts.int-fiction and IFmud.
 
 ## Disenchantment Bay
 
-"Disenchantment Bay" is a simple work of IF used as a running example in [Chapter 3, Place] of *Writing with Inform*–not so much a tutorial as a convenient hook on which to hang some demonstrations of the basics. Because the resulting examples only use basic features and in the most straightforward way, they make for uninteresting "recipes"–so they are not included in the *Recipe Book* proper. But some readers might like to have all twelve stages of the example gathered on a single page: this is that page.
+"Disenchantment Bay" is a simple work of IF used as a running example in the chapter on [Things] of *Writing with Inform*–not so much a tutorial as a convenient hook on which to hang some demonstrations of the basics. Because the resulting examples only use basic features and in the most straightforward way, they make for uninteresting "recipes"–so they are not included in the *Recipe Book* proper. But some readers might like to have all twelve stages of the example gathered on a single page: this is that page.
 
 ## Information Only
 
@@ -83,7 +85,7 @@ For how to change printed text to upper, lower, sentence, or title casing, see [
 
 ## Varying What Is Read
 
-^^{understanding}^^{understanding: conditionally}^^{understanding: limiting cases where understand rules apply}^^{conditions: for (understand)+sourcepart+}^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+}^^{item described (- object)+glob+}^^{plurals: defining}^^{defining: plurals}^^{English: defining plural forms}^^{pronouns: setting pronouns}^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+}^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+}^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+}^^{(HER), in player commands+commandpart+}^^{use options: catalogue: `DICT_WORD_SIZE} ^^{DICT_WORD_SIZE+useopt+}
+^^{understanding}^^{understanding: conditionally}^^{understanding: limiting cases where understand rules apply}^^{conditions: for (understand)+sourcepart+}^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+}^^{item described (- object)+glob+}^^{plurals: defining}^^{defining: plurals}^^{English: defining plural forms}^^{pronouns: setting pronouns}^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+}^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+}^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+}^^{(HER), in player commands+commandpart+}^^{use options: catalogue: `dictionary resolution} ^^{dictionary resolution+useopt+}
 Making the printed text adapt to circumstances only makes half of the conversation graceful: the other half is to allow the player's commands to have a similar freedom. The things the player can refer to should always respond to the names which would seem natural to the player. Inform provides a variety of techniques for understanding words always, or only under certain conditions; and, if need be, we can also get direct access to what the player has typed in order to examine it with regular expressions. (This last resort is rarely necessary.)
 
 [First Name Basis] shows how to assign names to things or to kinds of thing–if, for instance, we want the player to be able to refer to any man as "man" or "gentleman":
@@ -172,10 +174,10 @@ Of course, if we need an object that the player is never allowed to refer to at 
 
 A final source of difficulty is that by default Inform truncates words to nine letters before attempting to identify them. This is no problem in most circumstances and is likely to go unnoticed – until we have two very long words whose names are nearly identical, such as "north-northwest exit" and "north-northeast exit". (To make matters worse, a punctuation mark such as a hyphen counts as two letters on its own.)
 
-When we are compiling for Glulx, the limit is easily changed with a single line, setting the constant called ``dict_word_size``. For instance, if we wanted to raise the limit to 15, we would write
+When we are compiling for Glulx, the limit is easily changed with a single line, setting the use `dictionary resolution` use option. For instance, if we wanted to raise the limit to 15, we would write
 
 ``` inform7
-Use DICT_WORD_SIZE of 15.
+Use dictionary resolution of 15.
 ```
 
 When compiling for the Z-machine, the solution is harder. [North by Northwest] shows how to use the reading a command activity to pre-process very long names, rendering them accessible to the parser again.

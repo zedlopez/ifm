@@ -11647,7 +11647,7 @@ The magpie is in the Lake. Understand "birds" as the plural of the magpie.
 
 And now ``take birds`` tries to take all four ducks and the magpie too.
 
-[ZL: it possibly warrants mention that container, supporter, direction all have nine letters, so by default, a container *can* be referred to as a container and a supporter can be referred to as a supporter, unless one has changed DICT_WORD_SIZE.]::
+[ZL: it possibly warrants mention that container, supporter, direction all have nine letters, so by default, a container *can* be referred to as a container and a supporter can be referred to as a supporter, unless one has changed dictionary resolution.]::
 
 In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinize the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
 

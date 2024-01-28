@@ -31,7 +31,7 @@ Therefore, we're going to need to create our own new variant on the lock verb (a
 ```
 
   
-Here we've created a new action – locking something without a key – and we've told Inform to understand ``lock door`` as this action, rather than an incomplete command to ``lock door with something``.
+Here we've created a new action – locking something without a key – and we've told Inform to understand ``lock door`` as this action, rather than an incomplete command to "lock door with [something]".
 
   
 Now we add some instructions so that the game will not let us use this keyless unlocking command unless we're in the right place or are properly equipped:
