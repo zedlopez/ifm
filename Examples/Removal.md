@@ -6,7 +6,7 @@ Description: ``take`` expanded to give responses such as "You take the book from
 For: Z-Machine
 
   
-Suppose that we want to change the reporting of "take" so that the player is always told something like "You take the book from the shelf." or "You pick up the toy from the ground." In order to generate these reports, we will need to know where the object started, even though by the time we are printing the output, the object will have moved.
+Suppose that we want to change the reporting of ``take`` so that the player is always told something like "You take the book from the shelf." or "You pick up the toy from the ground." In order to generate these reports, we will need to know where the object started, even though by the time we are printing the output, the object will have moved.
 
   
 

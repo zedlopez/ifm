@@ -6,7 +6,7 @@ Description: A small game about resentful furniture and inconvenient objects.
 For: Z-Machine
 
   
-This example does include a number of features that we haven't met yet, particularly rulebooks. Nonetheless, the basic idea should be relatively clear. Our premise is that the player is faced with a series of disgruntled furnishings, none of which want to be responsible for supporting the cold, hot, drippy, or spiky objects lying around the room.
+This example does include a number of features that we haven't met yet, particularly [Rulebooks]. Nonetheless, the basic idea should be relatively clear. Our premise is that the player is faced with a series of disgruntled furnishings, none of which want to be responsible for supporting the cold, hot, drippy, or spiky objects lying around the room.
 
   
 
