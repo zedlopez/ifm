@@ -23,7 +23,7 @@ The bench is in the cabin. On the bench are some blue vinyl cushions. The bench 
 ```
 
   
-Generally speaking, it is a good idea to recognize the player's attempts to interact with any objects mentioned in the room description, so we should also provide
+Generally speaking, it is a good idea to recognise the player's attempts to interact with any objects mentioned in the room description, so we should also provide
 
   
 

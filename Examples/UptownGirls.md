@@ -1,7 +1,7 @@
 Example: *** Uptown Girls
 Location: Randomness
 RecipeLocation: Passers-By, Weather and Astronomical Events
-Index: Randomized pedestrian passer-by
+Index: Randomised pedestrian passer-by
 Description: A stream of random pedestrians who go by the player.
 For: Z-Machine
 

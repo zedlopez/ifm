@@ -40,7 +40,7 @@ This is the new described devices rule:
 ```
 
   
-Thus far we have essentially replicated the original behavior, but we've made it possible to write specialized behavior for devices, and to invoke that behavior in other places:
+Thus far we have essentially replicated the original behavior, but we've made it possible to write specialised behavior for devices, and to invoke that behavior in other places:
 
   
 

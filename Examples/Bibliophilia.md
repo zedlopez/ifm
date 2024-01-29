@@ -6,7 +6,7 @@ Description: A bookshelf with a number of books, where the player's command to e
 For: Z-Machine
 
   
-Suppose we want a bookshelf with a very large number of books on it. They aren't to be taken or carried around in the game, but they should be mentioned, and the player should be allowed to look them up by name. Furthermore, the player's attempts to examine something unrecognized should be understood as an attempt to look up a title – but only when the player is in the presence of the books. The rest of the time such requests should be rejected in the usual way.
+Suppose we want a bookshelf with a very large number of books on it. They aren't to be taken or carried around in the game, but they should be mentioned, and the player should be allowed to look them up by name. Furthermore, the player's attempts to examine something unrecognised should be understood as an attempt to look up a title – but only when the player is in the presence of the books. The rest of the time such requests should be rejected in the usual way.
 
   
 

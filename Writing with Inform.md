@@ -1280,7 +1280,7 @@ Include Rideable Vehicles by Graham Nelson.
 
 ### See Also
 
-- [Going by, going through, going with] for further ways to customize vehicle behaviour.
+- [Going by, going through, going with] for further ways to customise vehicle behaviour.
 
 ## Men, women and animals {kind_person}
 
@@ -4133,7 +4133,7 @@ After telling the Sybil about "persians", say "She nods gravely."
 After answering the Sybil that "I am mad", say "She sighs."
 ```
 
-These would be produced by commands like "ask sybil about verses", "tell sybil about persians" and "answer i am mad". Answering is little-used except that it also catches commands like "sybil, something unrecognized", which inexperienced players sometimes type. Asking and telling, however, are important actions and the difference between them is often worth preserving. If you would prefer to make "tell sybil about X" do the same as "ask sybil about X", the following rule would serve:
+These would be produced by commands like "ask sybil about verses", "tell sybil about persians" and "answer i am mad". Answering is little-used except that it also catches commands like "sybil, something unrecognised", which inexperienced players sometimes type. Asking and telling, however, are important actions and the difference between them is often worth preserving. If you would prefer to make "tell sybil about X" do the same as "ask sybil about X", the following rule would serve:
 
 ``` inform7
 Instead of telling the Sybil about something, try asking the Sybil about it.
@@ -4231,7 +4231,7 @@ This second version matches if the action is, say, taking a shield, or even just
 
 ## The noun and the second noun {var_noun}
 
-^^{noun (- object)+glob+} ^^{second noun (- object)+glob+} ^^{rules: applying to arbitrary things} ^^{things+kind+: referring to arbitrary things in rules} ^^{articles: displaying and capitalizing} ^^{case sensitivity: in text substitutions with objects}
+^^{noun (- object)+glob+} ^^{second noun (- object)+glob+} ^^{rules: applying to arbitrary things} ^^{things+kind+: referring to arbitrary things in rules} ^^{articles: displaying and capitalising} ^^{case sensitivity: in text substitutions with objects}
 
 Once we begin applying rules to actions which are not entirely known in advance, we have a problem: there's no way to find out what specifically is happening. Consider the following:
 
@@ -8157,7 +8157,7 @@ But this is a phrase – not a typed command.
 
 It is all very well to define new relations, but this does nothing if there is no way to assert that they are true, or to ask whether they are true or false. That requires a verb: in fact, a relation is nothing more than what Inform uses as the "meaning" of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:
 
-[ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognizing that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
+[ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognising that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
 
 **Verb - Relation**
 - to be - equality relation
@@ -10789,7 +10789,7 @@ Element		Symbol	Atomic number	Atomic weight
 "Uranium"	"U"		92				238
 ```
 
-[ZL: this should emphasize that trying to read from a blank entry generates a runtime error, that these are like null pointers and not like unassigned values which get a default value for their kind. "useful to check" is understatement ]::
+[ZL: this should emphasise that trying to read from a blank entry generates a runtime error, that these are like null pointers and not like unassigned values which get a default value for their kind. "useful to check" is understatement ]::
 
 In effect, blank entries don't exist. "--" is not a value, but only a hole where a value might be. It can be useful to check for this:
 
@@ -11187,7 +11187,7 @@ You exchange dictionaries, lexically crossing the Atlantic. Did you know that ac
 
 ## Defining things with tables {PM_TableDefiningNothing} {PM_TableDefiningTheImpossible}
 
-[ZL: I suggest either re-titling this defining objects with tables or emphasizing that this applies to any subkind of object, not just things, or both]::
+[ZL: I suggest either re-titling this defining objects with tables or emphasising that this applies to any subkind of object, not just things, or both]::
 
 ^^{tables: creating multiple things with a table} ^^{things+kind+: creating: multiple things with a table} ^^{properties: defining properties with a table} ^^{defining: things: multiply using tables} ^^{tables: defining multiple kinds with a table} ^^{kinds: defining: multiple kinds with a table} ^^{defining: kinds: multiply using tables}
 
@@ -11649,7 +11649,7 @@ And now ``take birds`` tries to take all four ducks and the magpie too.
 
 [ZL: it possibly warrants mention that container, supporter, direction all have nine letters, so by default, a container *can* be referred to as a container and a supporter can be referred to as a supporter, unless one has changed dictionary resolution.]::
 
-In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinize the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
+In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinise the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
 
 If you don't want this behavior, it can be suppressed with a use option:
 
@@ -12123,7 +12123,7 @@ We may use these rules to affect all sorts of interaction with a specific object
 
 ``` inform7
 Does the player mean doing something with the cursed dagger of Thog: it is very unlikely.
-Does the player mean doing something with the cursed dagger of Thog when the player is hypnotized: it is likely.
+Does the player mean doing something with the cursed dagger of Thog when the player is hypnotised: it is likely.
 ```
 
 ...and so on.
@@ -12640,7 +12640,7 @@ We need to follow three golden rules: all activities must end, they must never l
 
 ^^{activities: catalogue}
 
-[ZL: I don't see that there's any hope of improving this prior to a large-scale reorganization, but as I've said elsewhere, these would be much easier to follow if we had a comprehensive account of how room description works (as Ron Newcomb has in his I7 Programming Manual) and how parsing works (and then something else for what remains.]::
+[ZL: I don't see that there's any hope of improving this prior to a large-scale reorganisation, but as I've said elsewhere, these would be much easier to follow if we had a comprehensive account of how room description works (as Ron Newcomb has in his I7 Programming Manual) and how parsing works (and then something else for what remains.]::
 
 Activities tend to be about process, rather than outcome. Many of the things Inform does – printing up lists of items, reading commands from the keyboard, and so on – are done as activities, because that way the process can be nudged a little. Too many works of interactive fiction betray their mechanical nature by making it visible that the general machinery being used does not quite seem natural for this or that situation. Activities enable us to add the many graceful touches which avoid that: which contribute nothing to a work, and also everything.
 
@@ -16660,7 +16660,7 @@ Lastly, reduction. In order to combine a whole list of values, we need a phrase 
 
 ``` inform7
 To decide what number is the larger of (N - number) and (M - number)
-	(this is maximization):
+	(this is maximisation):
 	if N > M, decide on N;
 	decide on M.
 
@@ -16672,7 +16672,7 @@ To decide what text is the concatenation of (X - text) and (Y - text)
 And here are some sample reductions:
 
 ``` inform7
-let X be the maximization reduction of {3, 8, 4, 19, 7};
+let X be the maximisation reduction of {3, 8, 4, 19, 7};
 let Y be the concatenation reduction of txtng applied to spelling out
 	applied to doubling applied to {3, 8, 4, 19, 7};
 ```
@@ -17444,7 +17444,7 @@ Because purloin works on things that are far away as well as things that are clo
 Test me with "drop table" holding the table.
 ```
 
-Nonetheless, there are occasionally times when we're halfway into a 2000-move story and suddenly realize we implemented a vital object in the wrong room, making the story unsolvable. We could fix the bug, press replay and return to this story state fairly quickly, but if we don't feel like waiting even that long, ``purloin`` will resolve the issue.
+Nonetheless, there are occasionally times when we're halfway into a 2000-move story and suddenly realise we implemented a vital object in the wrong room, making the story unsolvable. We could fix the bug, press replay and return to this story state fairly quickly, but if we don't feel like waiting even that long, ``purloin`` will resolve the issue.
 
 ``abstract`` is ``purloin``'s less useful cousin, allowing the player to move an object from one place to a specified other place, as in
 
@@ -18138,7 +18138,7 @@ which releases a stand-alone XML file in 'iFiction' format for the bibliographic
 
 ## Improving the index map {MAPHINTS} {PM_MapFromNonRoom} {PM_MapToNonRoom} {PM_MapNonLateral} {PM_MapUnknownColour} {PM_MapUnknownOffset} {PM_MapUnknownOffsetBase} {PM_MapBadRubric} {PM_MapSettingOfUnknown} {PM_MapSettingUnknown} {PM_MapSettingTooLong} {PM_MapSettingTypeFailed} {PM_MapHintUnknown} {PM_MapDirectionClue} {PM_MapPlacement} {PM_MapPlacementDirection}
 
-^^{materials folder: map} ^^{index map: customizing for release <-- `EPS file} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
+^^{materials folder: map} ^^{index map: customising for release <-- `EPS file} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
 
 As we have seen, "Release along with..." allows us to package up a work of IF with all manner of extra materials. But what are these to be? One popular option is to produce a map – sometimes partial, sometimes obfuscated – and supply that with the story: besides, there are some IF competitions where the rules require that the referee is supplied with a map even if the players are not, and failing that, it is sometimes nice to be able to print out a map of a work in progress.
 
@@ -18575,7 +18575,7 @@ Some awards for interactive fiction, such as the annual XYZZY Awards, require a 
 
 ^^{ifwiki+web+} ^^{XYZZY} ^^{itch.io} ^^{ProcJam}
 
-One very common way to get players for IF is to enter the story into an IF competition. The annual IF Competition, often just called IFComp, is the most prestigious and has the widest field, but the Spring Thing, ParserComp, EctoComp, and other events also catch people's attention. Entering a competition is a path of least effort for authors promoting their new work, because the competition organizer usually takes care of hosting and archiving submitted stories, promoting the competition as a whole, collecting votes, and encouraging players to post reviews. Different contests have different arrangements. The [IFWiki](https://ifwiki.org) usually posts a list of current and upcoming competitions, as well as lists of results for those recently past, on its front page.
+One very common way to get players for IF is to enter the story into an IF competition. The annual IF Competition, often just called IFComp, is the most prestigious and has the widest field, but the Spring Thing, ParserComp, EctoComp, and other events also catch people's attention. Entering a competition is a path of least effort for authors promoting their new work, because the competition organiser usually takes care of hosting and archiving submitted stories, promoting the competition as a whole, collecting votes, and encouraging players to post reviews. Different contests have different arrangements. The [IFWiki](https://ifwiki.org) usually posts a list of current and upcoming competitions, as well as lists of results for those recently past, on its front page.
 
 Some competitions also have their own websites, at least at the relevant times of year.
 
@@ -19006,7 +19006,7 @@ Examples must be given last in the documentation, and there can be up to 26 of t
 Example: ** We Must Perform a Quirkafleeg - Ducking to avoid arrows as one proceeds east across battlements.
 ```
 
-Again, there must be a skipped line before and after. The row of asterisks must be \*, \*\*, \*\*\* or \*\*\*\*, just as in the main documentation, which we should follow on all points of style. The rest of the line contains the title, a hyphen, and then the description. The title should be given with Each Word except Prepositions and Similar Things Capitalized, while the description should look like a sentence, and end with a full stop.
+Again, there must be a skipped line before and after. The row of asterisks must be \*, \*\*, \*\*\* or \*\*\*\*, just as in the main documentation, which we should follow on all points of style. The rest of the line contains the title, a hyphen, and then the description. The title should be given with Each Word except Prepositions and Similar Things Capitalised, while the description should look like a sentence, and end with a full stop.
 
 The text of the example follows, of course, and continues until the end of the file, or the next "Example:" line, whichever comes first.
 

@@ -46,7 +46,7 @@ The wider community of Inform writers has made a great wealth of material availa
 
 Thanks also go to ^{@Nick Montfort} for several conversations during the development of Inform: these inspired a number of ideas about how the author should be able to control the textual output of a story, and suggested specific problem areas to work on.
 
-^{@Jeff Nyman} provided extensive feedback about using *Writing with Inform* in workshops of aspiring IF authors from both programming and conventional fiction writing backgrounds. His observations about the concerns of conventional writers first encountering IF were especially useful, and had a great influence on the organization of the *Recipe Book*. While the results may not meet all the needs he identified, we hope to have taken a step in the right direction.
+^{@Jeff Nyman} provided extensive feedback about using *Writing with Inform* in workshops of aspiring IF authors from both programming and conventional fiction writing backgrounds. His observations about the concerns of conventional writers first encountering IF were especially useful, and had a great influence on the organisation of the *Recipe Book*. While the results may not meet all the needs he identified, we hope to have taken a step in the right direction.
 
 A few examples were contributed by denizens of rec.arts.int-fiction: ^{@Tara McGrew}, ^{@Jon Ingold}, ^{@Mike Tarbert}, ^{@Eric Rossing}, and ^{@Kate McKee} offered such elegant implementations of various tasks that we have folded their contributions (with permission) into the *Recipe Book*.
 
@@ -134,7 +134,7 @@ A more difficult case is to ensure that if we change the description or nature o
 Understand "king" as Aragorn when we have crowned Aragorn.
 ```
 
-Or, similarly, if we want some combination of categories and characteristics to be recognized:
+Or, similarly, if we want some combination of categories and characteristics to be recognised:
 
 ``` inform7
 Understand "giant" as a man when the item described is tall.
@@ -182,7 +182,7 @@ Use dictionary resolution of 15.
 
 When compiling for the Z-machine, the solution is harder. [North by Northwest] shows how to use the reading a command activity to pre-process very long names, rendering them accessible to the parser again.
 
-Inform also allows the player to refer to the most recently seen objects and people as ``it``, ``him``, ``her``, and so on. It sets these pronouns by default, but there are times when we wish to override the way it does that. [Pot of Petunias] shows off a way to make Inform recognize an object as IT when it would not otherwise have done so.
+Inform also allows the player to refer to the most recently seen objects and people as ``it``, ``him``, ``her``, and so on. It sets these pronouns by default, but there are times when we wish to override the way it does that. [Pot of Petunias] shows off a way to make Inform recognise an object as IT when it would not otherwise have done so.
 
 (See Using the Player's Input for an example (Mr. Burns' Repast) in which a fish can be called by any arbitrary word as long as it ends in the letters -fish.)
 
@@ -200,7 +200,7 @@ We may sometimes want to capture specific words the player has used and then fea
 
 [Terracottissima Maxima] demonstrates using text to describe objects; [Mr. Burns' Repast] lets the player refer to a fish by any of a number of names, and changes the way the fish is described as a result.
 
-More specialized effects are also possible: [Xot] shows how to collect the player's erroneous input and store the command line to be printed back later. [Igpay Atinlay] shows how to parrot the player's command back in pig Latin form.
+More specialised effects are also possible: [Xot] shows how to collect the player's erroneous input and store the command line to be printed back later. [Igpay Atinlay] shows how to parrot the player's command back in pig Latin form.
 
 ### See Also
 
@@ -500,7 +500,7 @@ All else being equal, time passes at a rate of one minute per turn. But this nee
 
 [Uptempo] and [The Hang of Thursdays] speed up time's passage: turns take fifteen minutes in the former, or a quarter day in the latter.
 
-[Timeless] makes certain actions instant, so that they don't count against the clock; this is sometimes useful in timed situations where the player needs to review the situation before going on with a tricky puzzle. [Endurance] systematically extends this idea to allow us to assign different durations to any action in the story. [The Big Sainsbury's] goes the opposite direction, and meticulously adds a minute to the clock for all implicit take actions, just so that the player isn't allowed to economize on moves.
+[Timeless] makes certain actions instant, so that they don't count against the clock; this is sometimes useful in timed situations where the player needs to review the situation before going on with a tricky puzzle. [Endurance] systematically extends this idea to allow us to assign different durations to any action in the story. [The Big Sainsbury's] goes the opposite direction, and meticulously adds a minute to the clock for all implicit take actions, just so that the player isn't allowed to economise on moves.
 
 An alternative approach to time is not to tell the player specifically what hour of the day it is at all, but to move from one general time period to another as it becomes appropriate–when the player has solved enough puzzles, or worked their way through enough of the plot. To this end we might use scenes representing, say, Thursday afternoon and then Thursday evening; then our scene rules, rather than the clock, would determine when Thursday afternoon stopped and Thursday evening began:
 
@@ -567,7 +567,7 @@ Similarly, we can schedule things during play to happen at a specific time of da
 ^^{story structure: scenes in different environments}^^{scenes: rules run at beginning}^^{scenes: rules run at end}^^{rules: run at beginning of scene}^^{rules: run at end of scene}^^{rules: for scenes}
 In a plot that takes place over multiple locations or has several distinct scenes, we may want to move the player or change the scenery around them. [Age of Steam] brings a train on and off-stage as the plot requires. [Meteoric] similarly brings a meteor into view at a certain time of day, showing off several implementations depending on whether or not the player is supposed to be able to refer to the meteor after it has gone.
 
-[Entrevaux] constructs an organized system such that all scenes have their own lists of props and associated locations, and props are moved on and off automatically. Scene changes are also announced with a pause and a new title, such as "[Chapter 2, Adaptive Prose]: Abduction".
+[Entrevaux] constructs an organised system such that all scenes have their own lists of props and associated locations, and props are moved on and off automatically. Scene changes are also announced with a pause and a new title, such as "[Chapter 2, Adaptive Prose]: Abduction".
 
 [ZL: can't readily make Space Patrol link work]::
 
@@ -636,18 +636,18 @@ Once we've done this, we may invite ambiguities if the player types ``look at fa
 
 ## Traits Determined By the Player
 
-^^{player: customizing name or traits}
-Some IF tries to make the viewpoint character more congenial to the player by allowing some customization.
+^^{player: customising name or traits}
+Some IF tries to make the viewpoint character more congenial to the player by allowing some customisation.
 
 [Identity Theft] demonstrates asking the player to supply the viewpoint character's name.
 
-[Good or Evil] demonstrates a way to let the player choose a moral position at the start of play: this will mostly be interesting if the rest of the story makes some use of the player's choice. Since that example is written expressly to demonstrate included Inform 6 code, however, we may find it more congenial to generalize from the more flexible [Baritone, Bass].
+[Good or Evil] demonstrates a way to let the player choose a moral position at the start of play: this will mostly be interesting if the rest of the story makes some use of the player's choice. Since that example is written expressly to demonstrate included Inform 6 code, however, we may find it more congenial to generalise from the more flexible [Baritone, Bass].
 
 This is not the only way to go–as we'll see in the next section, there's also something to be said for making the viewpoint character a strongly distinct creature with well-defined preferences and attitudes.
 
-## Characterization
+## Characterisation
 
-^^{story structure: characterization}^^{mistakes, in the player's command}^^{understand (words) as a mistake+assert+} ^^{understanding: mistakes}^^{actions: understanding as mistakes}
+^^{story structure: characterisation}^^{mistakes, in the player's command}^^{understand (words) as a mistake+assert+} ^^{understanding: mistakes}^^{actions: understanding as mistakes}
 Much of the personality of the player character in IF emerges from what they can and cannot (or will and will not) do; part of the pleasure of playing a character arises from this opportunity for role-playing and role-exploration. Some characters are consciousless daredevils, willing to jump off cliffs, crawl through narrow gaps, and rob widows if the player commands it; others are repressed neurotics who barely dare to speak to other characters or touch anything that doesn't belong to them.
 
 [Finishing School] and [Dearth and the Maiden] both treat the case of a character constrained by good manners and a sense of polite society: the former forbids only one action, while the latter condemns a whole range of them.
@@ -660,7 +660,7 @@ But even simple humans have some characteristic traits and gestures. We will pro
 The player is wearing a policeman's helmet.
 ```
 
-We can liven up the interactive aspect of characterization if we give the player a little scope for role-playing: this may mean responding to gestures, like
+We can liven up the interactive aspect of characterisation if we give the player a little scope for role-playing: this may mean responding to gestures, like
 
 ``` inform7
 Understand "bite nails" as a mistake ("Your only nail remaining is the one on your left thumb, and you're saving it for the AP Calculus exam.").
@@ -702,7 +702,7 @@ To expand on this, we could give the player a ``think about`` or ``remember`` co
 ^^{knowledge (in story world): player's knowledge}^^{Epistemology+ext+} ^^{extensions: specific extensions: Epistemology}^^{scope}^^{any+token+}^^{understanding: things: not in scope with (any)+sourcepart+}^^{grammar tokens: for rooms}^^{grammar tokens: for things not in scope}^^{deciding the scope of something+activity+} ^^{deciding the scope of something+activitycat+}
 All of us carry around in our heads an (incomplete, imperfect) model of the world around us: an idea of where we left the keys, whether the oven is on or off, how many clean pairs of socks are left in the drawer, what we look like in our best pair of jeans. The differences between that mental model and reality are to some degree a reflection of personal character: our forgetfulness, our wishful thinking, our innocence or cynicism.
 
-By default, Inform does not keep track of the player character's knowledge (or any other character's knowledge, for that matter) as a separate thing from the model world, relying on descriptive prose rather than modeling to introduce these quirks of characterization.
+By default, Inform does not keep track of the player character's knowledge (or any other character's knowledge, for that matter) as a separate thing from the model world, relying on descriptive prose rather than modeling to introduce these quirks of characterisation.
 
 All the same, there are often times when we would like to keep track of discrepancies between the world model and the narrator's mental model. Perhaps the most common way to do this is simply to mark everything that the player encounters as "seen" when the player first examines it, thus:
 
@@ -756,7 +756,7 @@ This is not the only possible way for interactive fiction to handle such communi
 
 [ZL: I'm not clear on what extension this is]::
 
-The drawback of such behavior is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognized at all. If it is desirable, there is an extension that will reproduce this behavior in Inform as well.
+The drawback of such behavior is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognised at all. If it is desirable, there is an extension that will reproduce this behavior in Inform as well.
 
 Using Inform's default behavior, however, scope is an ad-hoc way of keeping a list of things that are common knowledge between the story and the player. The player knows many things that the story might not (like what a cell phone is); the story knows a few things the player may not (like the fact that there is a sword in an as-yet unvisited room). Neither of those things can fruitfully enter into commands because they have no mutually agreed-upon referent.
 
@@ -822,7 +822,7 @@ Instead of listening when the player is Janine:
 	say "Your childhood accident left you unable to hear any but the loudest noises. Currently there is only silence."
 ```
 
-Janine may also have new, different perspective on her surroundings, expressed through the descriptions of the things she looks at; [Uncommon Ground] makes a "by viewpoint" token for text alternatives, allowing us to tag our descriptions to indicate which variations should be shown to which viewpoint characters. [The Crane's Leg 1] and [The Crane's Leg 2] offer more elaborate and specialized ways of customizing the player character's observations to depend on how they relate (physically and in attitude) to the things around them.
+Janine may also have new, different perspective on her surroundings, expressed through the descriptions of the things she looks at; [Uncommon Ground] makes a "by viewpoint" token for text alternatives, allowing us to tag our descriptions to indicate which variations should be shown to which viewpoint characters. [The Crane's Leg 1] and [The Crane's Leg 2] offer more elaborate and specialised ways of customising the player character's observations to depend on how they relate (physically and in attitude) to the things around them.
 
 If we want to change the tense and person of narration from the conventional present second person, we may do this as well:
 
@@ -885,7 +885,7 @@ More about this can be found later in this chapter, under Remembering, Convertin
 
 Sometimes these kinds of details can be caught in play-testing, but it's a good idea to think about them specifically and in advance rather than leaving them to our beta-testers to sort out.
 
-(2) To generalize very broadly, there are two possible kinds of command in IF: those that only exist to give the player new information (like ``examine``, ``inventory``, ``look``, ``taste``), and those that change the world model (like ``take fish``, ``open door``, ``unlock gate with blue key``). The Inform library has some commands that really do none of these things by default–commands like ``jump`` that do nothing interesting at all most of the time–but those exist as hooks, in case there is ever something important for them to do.
+(2) To generalise very broadly, there are two possible kinds of command in IF: those that only exist to give the player new information (like ``examine``, ``inventory``, ``look``, ``taste``), and those that change the world model (like ``take fish``, ``open door``, ``unlock gate with blue key``). The Inform library has some commands that really do none of these things by default–commands like ``jump`` that do nothing interesting at all most of the time–but those exist as hooks, in case there is ever something important for them to do.
 
 Commands that ask for information are usually easier to implement. Very often we're looking to offer the player a new kind of information about specific objects, and these can be handled by adding new text properties, as in
 
@@ -1205,7 +1205,7 @@ Rule for printing the name of the dead rat while taking inventory:
 	say "dead rat (at arm's length)"
 ```
 
-There are also several possibilities for redesigning the inventory list as a whole. [Persephone] shows how to divide an inventory list into two parts, a "You are carrying: " section and a "You are wearing: " section. [Equipment List] goes further, and shows how we might use Inform's specialized listing functions to create a variety of differently formatted inventories.
+There are also several possibilities for redesigning the inventory list as a whole. [Persephone] shows how to divide an inventory list into two parts, a "You are carrying: " section and a "You are wearing: " section. [Equipment List] goes further, and shows how we might use Inform's specialised listing functions to create a variety of differently formatted inventories.
 
 Sometimes the way Inform by default lists properties such as "(closed)" or "(open but empty)" isn't quite what we want. [Oyster Wide Shut] offers a flexible alternative to the standard behavior, allowing finer control over which properties are listed and how they are described.
 
@@ -1245,7 +1245,7 @@ Instead of going north with the handcart:
 
 Since the two actions are internally being handled as one, both are discussed here.
 
-It is very common for players to make a mistake and type the wrong direction command, or even to misunderstand the room description and not recognize all the possible exits. [Bumping into Walls] helpfully adds a facility so that when the player tries to go in the wrong direction, the story lists the correct possibilities, as in
+It is very common for players to make a mistake and type the wrong direction command, or even to misunderstand the room description and not recognise all the possible exits. [Bumping into Walls] helpfully adds a facility so that when the player tries to go in the wrong direction, the story lists the correct possibilities, as in
 
 ``` inform7
 From here, the viable exits are to the south, the east and the west.
@@ -1521,13 +1521,13 @@ Every turn when the player can see Mrs MacGillicuddy:
 	say "Mrs. MacGillicuddy [one of]vacuums around the furniture[or]tries to remove gum from the underside of the desks[or]causes a racket by testing the smoke alarm[or]makes a pointed comment or two about them as sit by idly while someone works her fingers to the bone[as decreasingly likely outcomes]."
 ```
 
-This is no great innovation in characterization by itself, but it does at least remind the player that the character is alive and moving about, even when they aren't paying attention to her.
+This is no great innovation in characterisation by itself, but it does at least remind the player that the character is alive and moving about, even when they aren't paying attention to her.
 
 [Annoyotron Jr] demonstrates a character who actively tries to get our attention, and whose routine of behavior changes just slightly if we show signs of having reacted to them.
 
 [Lean and Hungry] implements a classic thief, a character who doesn't interact with the player much except to pick up valuable objects they find left around the map. Later we will see rather more advanced ways to make characters act on their own goals and plans, but this kind of simple behavior is easily rigged as part of an every turn rule.
 
-Finally, [Text Foosball] extends the every-turn-rule idea to create an opponent who joins us in a randomized game of table soccer.
+Finally, [Text Foosball] extends the every-turn-rule idea to create an opponent who joins us in a randomised game of table soccer.
 
 With animal characters, this kind of repetitive, semi-random behavior is often adequate: we don't expect animals to talk, or pursue steady goals, or to take an interest in what we do in their presence (unless it involves a food they like to eat).
 
@@ -1557,7 +1557,7 @@ If we'd like to change this, we can simply remove the default "block giving" rul
 The block giving rule is not listed in the check giving it to rules.
 ```
 
-If we do this, giving items to characters will have the result of moving our possessions to the other person's inventory. Of course, without more customization, the player may not ever be able to persuade the other character to return their possessions. [Bribery] demonstrates a scenario in which a character will accept gifts that interest them, and respond with a changed attitude to the player.
+If we do this, giving items to characters will have the result of moving our possessions to the other person's inventory. Of course, without more customisation, the player may not ever be able to persuade the other character to return their possessions. [Bribery] demonstrates a scenario in which a character will accept gifts that interest them, and respond with a changed attitude to the player.
 
 [Barter Barter] expands further on this by allowing other characters to trade things with one another.
 
@@ -1572,7 +1572,7 @@ If we do this, giving items to characters will have the result of moving our pos
 ^^{characters (people): combat}^^{combat}^^{randomness: combat with random results}^^{use options: catalogue: `undo prevention} ^^{undo prevention+useopt+}^^{>UNDO}
 Not all characters are friendly, and there are times when we may want to include a fight sequence. There are a number of ways to approach this, depending on whether we want to offer the player a random outcome, a predetermined one, or a combat sequence that depends partly on strategy or on having the proper equipment.
 
-[Lanista 1] demonstrates randomized combat in the style of a role-playing game. The player has a partially random chance of doing any given amount of damage; both the player and their opponent have hit points, and whichever one runs out first dies. [Lanista 2] continues this idea, but includes weapons that affect the amount of of damage done. [Red Cross] by itself implements a command that we might use to find out how strong characters are at the moment.
+[Lanista 1] demonstrates randomised combat in the style of a role-playing game. The player has a partially random chance of doing any given amount of damage; both the player and their opponent have hit points, and whichever one runs out first dies. [Lanista 2] continues this idea, but includes weapons that affect the amount of of damage done. [Red Cross] by itself implements a command that we might use to find out how strong characters are at the moment.
 
 A word of warning about designing such sequences: a player who gets a roll they don't like always has the option of ``undo``ing a turn and re-rolling. This means that they can always win a random battle sooner or later; bad luck only means that it takes them longer (so they get more bored and irritated as they play through). It is possible to turn off ``undo`` implementation with
 
@@ -1612,7 +1612,7 @@ Before we get into these details, though, we have a couple of examples that are 
 ^^{dialogue: simple terms}^^{dialogue: with inanimate objects}^^{characters (people): Inanimate Listeners+ext+}^^{(YES), responding to a character+commandpart+}^^{(NO), responding to a character+commandpart+}^^{dialogue: >ASK / TELL}^^{Inanimate Listeners+ext+} ^^{extensions: specific extensions: Inanimate Listeners}^^{Punctuation Removal+ext+} ^^{extensions: specific extensions: Punctuation Removal}^^{punctuation: removing from player's command}
 There are times when even the commands ``ask`` and ``tell`` are overkill: sometimes the player doesn't have much information to offer, so ``tell`` is never useful, for instance. If we don't want to make any distinction between modes of conversation, we can conflate the actions so that ``ask lucius about ollivander``, ``tell lucius about ollivander`` and ``lucius, ollivander`` all do the same thing: see [Sybil 1].
 
-If we are frequently permitting the player to say things like ``lucius, ollivander`` as shorthand for "talk to Lucius about Ollivander", then we may also want to allow ``lucius, ollivander?`` This makes the player character seem a bit slow (or at least Laconic), but it is an effective interface in some cases. The trick is that the question mark at the end of the command may prevent Inform from recognizing the keyword; should that problem arise, we may want to use Punctuation Removal to erase question marks from the player's command before attempting to interpret it.
+If we are frequently permitting the player to say things like ``lucius, ollivander`` as shorthand for "talk to Lucius about Ollivander", then we may also want to allow ``lucius, ollivander?`` This makes the player character seem a bit slow (or at least Laconic), but it is an effective interface in some cases. The trick is that the question mark at the end of the command may prevent Inform from recognising the keyword; should that problem arise, we may want to use Punctuation Removal to erase question marks from the player's command before attempting to interpret it.
 
 Along the same lines, there are situations in conversation where similar commands do not correspond to the same actions within Inform; if we're careless about this, we may force the player to guess which vocabulary we want them to use, which is always vexing. Some cases to look out for:
 
@@ -1684,7 +1684,7 @@ Once the scene is complete enough for the player to get through from beginning t
 
 ## Character Emotion
 
-^^{characters (people): characterization}^^{story structure: characterization}
+^^{characters (people): characterisation}^^{story structure: characterisation}
 In a complex story, characters may evolve strong feelings about the player. Often we want to hint at the character's feelings through gesture and tone of voice–little things woven into dialogue and action sequences that might otherwise be unchanged. [Ferragamo Again] demonstrates creating phrases to give all our characters different ways to express their irritation at the player.
 
 Then again, sometimes a discussion might produce quite spectacular results if a character is in the wrong mood. [Being Peter] shows the bare bones of an implementation in which a character's attitude rulebook is consulted to determine what her response will be–allowing for arbitrarily complicated outcomes.
@@ -1787,7 +1787,7 @@ Other characters can perform all the same activities that the player can; this d
 
 In [For Demonstration Purposes], the character is only capable of a few actions at the outset, but can be taught new ones if the player performs them first.
 
-Often we want characters' obedience to be more selective. Just as the viewpoint character may be characterized in terms of what they will and will not do, so may others: [Generation X] demonstrates a character who will do what they're told, but who will comment unfavorably when the player asks for a nonsensical or repeated action, and who may eventually get fed up and leave.
+Often we want characters' obedience to be more selective. Just as the viewpoint character may be characterised in terms of what they will and will not do, so may others: [Generation X] demonstrates a character who will do what they're told, but who will comment unfavorably when the player asks for a nonsensical or repeated action, and who may eventually get fed up and leave.
 
 Characters can be given moral objections to certain commands, as well: [Virtue] defines a few kinds of actions as bad, so that the character commanded will refuse to perform them.
 
@@ -1806,7 +1806,7 @@ Finally, [Northstar] demonstrates how we might make Inform understand commands o
 ^^{characters (people): goal-seeking}
 Goal-seeking characters are the most advanced IF life-form: they want to achieve specific outcomes, and they are able to work out plans of approach in order to bring these things about. They walk to rooms, open containers to search for things, use keys and tools, and ask leading questions in conversation.
 
-A really advanced implementation of goal-seeking behavior is beyond the scope of our examples (though extensions exist that treat the problem more thoroughly). We can accomplish a surprising amount without heavy customization, though, if we keep in mind three points of technique:
+A really advanced implementation of goal-seeking behavior is beyond the scope of our examples (though extensions exist that treat the problem more thoroughly). We can accomplish a surprising amount without heavy customisation, though, if we keep in mind three points of technique:
 
 First: it helps to think abstractly and to create broadly-defined actions as a first step to more specific tasks. For instance, a character's goal might be to eat some dinner. They'd be equally satisfied with spaghetti carbonara or with braised lamb shanks, but they need to figure out which is available. So we might have our every turn rule (or whatever we're using to activate the character) say something like
 
@@ -1829,7 +1829,7 @@ Second: though it doesn't actually contribute to the goal-seeking per se, lively
 Clark eats a donut.
 ```
 
-doesn't characterize Clark very much, even though the eating may be part of a subtle, intelligent plan to seduce Lois Lane. We'll do better if we replace a lot of the character reporting rules: to that end, see the example [The Man of Steel Excuses Himself].
+doesn't characterise Clark very much, even though the eating may be part of a subtle, intelligent plan to seduce Lois Lane. We'll do better if we replace a lot of the character reporting rules: to that end, see the example [The Man of Steel Excuses Himself].
 
 Third: goal-seeking characters notice when something is in the way of the action they want to perform. When that happens, they form a plan about how to remove the obstacle. We've already seen this kind of implementation on the player's behalf: the player will pick up items before eating them, say. We can use Before rules to do similar things for other characters, as in
 
@@ -2415,12 +2415,12 @@ It is uncommon, but not absolutely unheard-of, to need to do detailed mathematic
 
 [ZL: https://inform7.atlassian.net/browse/I7-2249 Inform licence reference ; banner no longer strictly required ? ]::
 
-^^{banner text}^^{when play begins+rb+}^^{rules: run at beginning of story}^^{initial state of the world: setting in (when play begins)+sourcepart+}^^{starting conditions: setting in (when play begins)+sourcepart+}^^{story structure: beginning}^^{files (data files): loading initial state from a data file}^^{randomness: randomizing the initial state of the world}
+^^{banner text}^^{when play begins+rb+}^^{rules: run at beginning of story}^^{initial state of the world: setting in (when play begins)+sourcepart+}^^{starting conditions: setting in (when play begins)+sourcepart+}^^{story structure: beginning}^^{files (data files): loading initial state from a data file}^^{randomness: randomising the initial state of the world}
 When the story file starts up, it often prints a short introductory passage of text (the "overture") and then a heading describing itself, together with some version numbering (the "banner"). It is traditional that the banner must appear eventually (and one of the few requirements of the Inform licence is that the author acknowledge Inform somewhere, for which the banner is sufficient) but some designs call for a multi-turn prologue before the banner finally appears, and marks the start of play in earnest. [Bikini Atoll] demonstrates this.
 
 If a story file represents the latest in a sequence of story files representing chapters in some larger narrative, it will need some way to pick up where its predecessor left off. This can be done with the aid of external files (in the Glulx format, at least). [Alien Invasion Part 23] shows how.
 
-Another task we might want to perform a the beginning of play is to arrange any randomized features that are supposed to change from one playing to the next. We can add such instructions with "When play begins" rule, as in:
+Another task we might want to perform a the beginning of play is to arrange any randomised features that are supposed to change from one playing to the next. We can add such instructions with "When play begins" rule, as in:
 
 ``` inform7
 When play begins:
@@ -2431,7 +2431,7 @@ Since we may want to do something a bit more complicated than this, [Hatless] de
 
 ### See Also
 
-- [Map] for a way to generate a randomized maze at the start of play.
+- [Map] for a way to generate a randomised maze at the start of play.
 - [Food] for a way to choose a random piece of candy to be poisonous.
 - [Getting Acquainted] for a way to choose a murderer from among the characters at the start of each story.
 
@@ -2446,9 +2446,9 @@ Removing the player's ability to ``undo`` is also a risky choice. Inform does pr
 Use undo prevention.
 ```
 
-which makes it impossible to ``undo`` at any time (unless, that is, the player is playing on an interpreter that itself has a built-in ``undo`` feature – these do exist). When it works, undo prevention safeguards a randomized story or combat session against brute-force solutions, but it also means that the player who makes even a minor mistake of typing will be stuck with the undesired results.
+which makes it impossible to ``undo`` at any time (unless, that is, the player is playing on an interpreter that itself has a built-in ``undo`` feature – these do exist). When it works, undo prevention safeguards a randomised story or combat session against brute-force solutions, but it also means that the player who makes even a minor mistake of typing will be stuck with the undesired results.
 
-In many cases it may be preferable to use some subtler method to enforce random effects in a story. Several extensions exist for Inform that either allow selective manipulation of the ``undo`` command or rig randomization to prevent ``undo`` and replay attempts.
+In many cases it may be preferable to use some subtler method to enforce random effects in a story. Several extensions exist for Inform that either allow selective manipulation of the ``undo`` command or rig randomisation to prevent ``undo`` and replay attempts.
 
 ## Helping and Hinting
 
@@ -2707,5 +2707,5 @@ Most large works of IF have historically provided secret commands for testing an
 
 ## Publishing
 
-^^{materials folder: map}^^{index map: customizing for release}
+^^{materials folder: map}^^{index map: customising for release}
 These three examples simply show what can be done using Inform's EPS-format map output, if one is willing to tweak the design in some vector-art program. Unfortunately, at present, there are few alternatives to Adobe Illustrator–a superb but very expensive program–in the field of EPS editing, and indeed, of vector art generally: this is especially the case for Windows users. Inkscape is a usable free alternative, but it needs to have EPS files translated to PDFs before they can be used. On Mac OS X, the built-in Preview application can do this; otherwise the open-source Ghostscript might be used, but it can be a pain to install. Still, for the IF author who does have EPS editing facilities available, Inform will play nicely with them.

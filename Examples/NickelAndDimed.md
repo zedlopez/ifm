@@ -202,7 +202,7 @@ When play begins:
 ```
 
   
-We could have done all that by hand, but the initialization requires a little less work.
+We could have done all that by hand, but the initialisation requires a little less work.
 
   
 

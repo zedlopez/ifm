@@ -181,7 +181,7 @@ Instead of examining the stove in the Industrial Kitchen: ...
 ```
 
   
-sort of rule for those objects they wanted to describe specially; or they might use a when play begins rule to initialize a few things:
+sort of rule for those objects they wanted to describe specially; or they might use a when play begins rule to initialise a few things:
 
   
 
@@ -204,5 +204,5 @@ Thor is a stove in the Industrial Kitchen. It supports a boiling pot.
 ```
 
   
-All these quirks are things that we (as the extension author) want to think out in advance: we should ideally warn authors about possible pitfalls in using our extension (if we can think of them) and point out ways of customizing the behavior (if there are interesting ways).
+All these quirks are things that we (as the extension author) want to think out in advance: we should ideally warn authors about possible pitfalls in using our extension (if we can think of them) and point out ways of customising the behavior (if there are interesting ways).
 

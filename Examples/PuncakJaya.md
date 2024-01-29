@@ -20,7 +20,7 @@ A ghost is a kind of person. A man-ghost is a kind of ghost. A man-ghost is alwa
 ```
 
   
-We make the ghost a person rather than some other kind of thing so that it will be able to respond to commands such as ``kiss bob`` or (even trickier) ``bob``, ``jump``: if Inform did not recognize the ghost as an animate creature, it would not accept such input.
+We make the ghost a person rather than some other kind of thing so that it will be able to respond to commands such as ``kiss bob`` or (even trickier) ``bob``, ``jump``: if Inform did not recognise the ghost as an animate creature, it would not accept such input.
 
   
 

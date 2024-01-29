@@ -85,7 +85,7 @@ Section 2 - Matches
 ```
 
   
-The word "matches" is used by Inform to compare snippets of text (see [Reading a command] in the [Activities] chapter). This can sometimes cause awkwardness if we also have a kind called "match", so for the occasion we will give our matches a more specialized name, never visible to the player:
+The word "matches" is used by Inform to compare snippets of text (see [Reading a command] in the [Activities] chapter). This can sometimes cause awkwardness if we also have a kind called "match", so for the occasion we will give our matches a more specialised name, never visible to the player:
 
   
 

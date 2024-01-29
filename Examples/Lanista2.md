@@ -1,12 +1,12 @@
 Example: ** Lanista 2
 Location: Overriding existing commands
 RecipeLocation: Combat and Death
-Index: Lanista 2. Randomized Combat with Weapons
-Description: Randomized combat in which the damage done depends on what weapons the characters are wielding, and in which an ``attack it with`` action is created to replace regular attacking. Also folds a new ``diagnose`` command into the system.
+Index: Lanista 2. Randomised Combat with Weapons
+Description: Randomised combat in which the damage done depends on what weapons the characters are wielding, and in which an ``attack it with`` action is created to replace regular attacking. Also folds a new ``diagnose`` command into the system.
 For: Z-Machine
 
   
-In [Lanista 1], we explored a way to create a randomized combat system. That system didn't allow for multiple weapons, though. Here we explore how to create an ``attack it with`` action that will let the player choose between weapons with different maximum powers.
+In [Lanista 1], we explored a way to create a randomised combat system. That system didn't allow for multiple weapons, though. Here we explore how to create an ``attack it with`` action that will let the player choose between weapons with different maximum powers.
 
   
 We're also going to rewrite that original "instead of attacking:" rule into an attacking it with action that can be performed equally by the player or by any of the player's enemies.
@@ -162,5 +162,5 @@ Test me with "hit gladiator with mace / kill gladiator / drop mace / attack glad
 [ZL: link to Reliques? ]::
 
   
-Those devoted to role-playing will note that our form of randomization is still pretty naive: most ``rpg`` systems use multiple dice in order to create more interesting probability curves. For a system that simulates actual dice-rolling, see the full "Reliques of Tolti-Aph" game.
+Those devoted to role-playing will note that our form of randomisation is still pretty naive: most ``rpg`` systems use multiple dice in order to create more interesting probability curves. For a system that simulates actual dice-rolling, see the full "Reliques of Tolti-Aph" game.
 

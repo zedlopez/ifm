@@ -32,7 +32,7 @@ Now to provide some meaning to these bracketed forms. We'll start with the easy 
 ```
 
   
-This is a "to say" phrase; we will learn more about [Phrases] in a later chapter, but for now it may be enough to observe that whatever we write after "to say..." becomes a valid substitution in bracketed speech. In this particular case there is no advantage to using the boast token rather than spelling the text out in the quotation, but we might in theory add further instructions to randomize the output, for instance.
+This is a "to say" phrase; we will learn more about [Phrases] in a later chapter, but for now it may be enough to observe that whatever we write after "to say..." becomes a valid substitution in bracketed speech. In this particular case there is no advantage to using the boast token rather than spelling the text out in the quotation, but we might in theory add further instructions to randomise the output, for instance.
 
   
 To say phrases can be more complex, as well, since we can have them incorporate extra information:

@@ -70,7 +70,7 @@ One possible objection to this solution is that Inform will accept some nonsensi
 Traditionally, Inform has tended to be fairly flexible about word order, preferring to err in the direction of leniency. On the other hand, there are times when we need more exacting rules in order to distinguish otherwise similar cases.
 
   
-Two features allow us to specify more exactly if we so desire. The first is that, if we specify a whole phrase as the name of something, all the words in that phrase are required, in the order given. Thus "Understand "blonde hair" as the photograph" would require that both "blonde" and "hair" be present, and would not recognize ``x blonde``, ``x hair blonde``, or ``x hair``.
+Two features allow us to specify more exactly if we so desire. The first is that, if we specify a whole phrase as the name of something, all the words in that phrase are required, in the order given. Thus "Understand "blonde hair" as the photograph" would require that both "blonde" and "hair" be present, and would not recognise ``x blonde``, ``x hair blonde``, or ``x hair``.
 
   
 Second, we can create tokens, such as "Understand "blonde hair" or "hair" as `"[hair]"`, and then use these tokens in match phrases. This saves a good deal of time when we want to specify a number of different but fussy alternatives. So, for instance, here is a drawing that would not respond to ``x of``, or ``x brown eyes``, but would respond to ``x drawing of man with brown eyes``, ``x man with brown eyes``, and so on:

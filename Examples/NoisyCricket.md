@@ -2,14 +2,14 @@ Example: *** Noisy Cricket
 Location: Listed in...
 RecipeLocation: Liquids
 Index: Liquids in mixtures, identified by recipe
-Description: Implementing liquids that can be mixed, and the components automatically recognized as matching one recipe or another.
+Description: Implementing liquids that can be mixed, and the components automatically recognised as matching one recipe or another.
 For: Z-Machine
 
   
 Our previous experiments into liquid have not dealt with the possibility of mixing components, but that is because for most games, tracking the details of mixture is overkill.
 
   
-But let's suppose that this time we do want to have mixed liquids; moreover, we want a way to describe the mixtures to the player inventively, so that if they hit specific combinations those combinations are recognized: calling the result a martini, say, rather than just "a mixture of vodka and vermouth".
+But let's suppose that this time we do want to have mixed liquids; moreover, we want a way to describe the mixtures to the player inventively, so that if they hit specific combinations those combinations are recognised: calling the result a martini, say, rather than just "a mixture of vodka and vermouth".
 
   
 The implementation that follows relies on a fairly simple idea from linear algebra. Any given liquid can be expressed as a vector in N-space, where N is the number of available ingredients and the length of the vector depends on how much of each ingredient is used; then we find the recipe that best describes the liquid by taking the dot product of our liquid vector with a bunch of sample vectors and selecting the one with the largest result.

@@ -129,7 +129,7 @@ Test me with "drink seawater / pour seawater on fire / x bucket / i".
 ```
 
   
-This is still a specific implementation: if we wanted to weave liquids together with a full-scale burning model (as in [In Fire or in Flood]), where pretty much any object in the game can be flaming (currently on fire) or damp (extinguished), we might generalize our rule to
+This is still a specific implementation: if we wanted to weave liquids together with a full-scale burning model (as in [In Fire or in Flood]), where pretty much any object in the game can be flaming (currently on fire) or damp (extinguished), we might generalise our rule to
 
   
 

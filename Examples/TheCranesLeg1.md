@@ -12,7 +12,7 @@ When you see a long object, you don't have to think that it is too long if being
 ```
 
   
-Suppose we have an extremely detailed world model in which every object is characterized by many features – in this example, material and height, though one could add more. Suppose further that we would like to generate descriptions of these things automatically for the most part, drawing the player's attention only to those aspects of the object that are particularly interesting.
+Suppose we have an extremely detailed world model in which every object is characterised by many features – in this example, material and height, though one could add more. Suppose further that we would like to generate descriptions of these things automatically for the most part, drawing the player's attention only to those aspects of the object that are particularly interesting.
 
   
 

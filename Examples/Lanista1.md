@@ -1,8 +1,8 @@
 Example: * Lanista 1
 Location: Randomness
 RecipeLocation: Combat and Death
-Index: Lanista 1. Simple Randomized Combat
-Description: Very simple randomized combat in which characters hit one another for a randomized amount of damage.
+Index: Lanista 1. Simple Randomised Combat
+Description: Very simple randomised combat in which characters hit one another for a randomised amount of damage.
 For: Z-Machine
 
   
@@ -27,7 +27,7 @@ The current hit points of the player is 35. The current hit points of the gladia
 ```
 
   
-Now our rule for the actual attack. We want first to calculate how much damage the player's attack does, inflict that damage, and remove the enemy if they're dead; then, if still alive, the enemy counter-attacks, also for a randomized amount of damage, and if this kills the player, the game ends in defeat.
+Now our rule for the actual attack. We want first to calculate how much damage the player's attack does, inflict that damage, and remove the enemy if they're dead; then, if still alive, the enemy counter-attacks, also for a randomised amount of damage, and if this kills the player, the game ends in defeat.
 
   
 

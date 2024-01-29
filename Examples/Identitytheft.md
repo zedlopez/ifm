@@ -53,10 +53,10 @@ The player carries a letter. The description of the letter is "Dear [player's fu
 ```
 
   
-If we are compiling for Glulx, this is enough to capture not only the player's name but also the capitalization used.
+If we are compiling for Glulx, this is enough to capture not only the player's name but also the capitalisation used.
 
   
-If we are compiling for the Z-machine, the player's input will unfortunately be reduced to lower case before we can inspect it. If we would like by default to capitalize the first letter of each word of the name, we might substitute the following after reading a command rule:
+If we are compiling for the Z-machine, the player's input will unfortunately be reduced to lower case before we can inspect it. If we would like by default to capitalise the first letter of each word of the name, we might substitute the following after reading a command rule:
 
   
 

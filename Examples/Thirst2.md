@@ -54,7 +54,7 @@ Instead of attacking the flint:
 ```
 
   
-Realistically, we ought to attach a randomization to this so that each step of the fire-starting has a good chance of failure. But because our player may not be as patient as someone who actually needs a fire started, we allow them to succeed the first time in every case.
+Realistically, we ought to attach a randomisation to this so that each step of the fire-starting has a good chance of failure. But because our player may not be as patient as someone who actually needs a fire started, we allow them to succeed the first time in every case.
 
   
 

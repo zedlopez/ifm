@@ -60,7 +60,7 @@ The string repository contains 35 strings.
 Since our initial string is 36 inches long and it is impossible for the player to divide it into pieces smaller than an inch each, we need a total of 36 items to represent all the string-bits: one that the player carries at the outset, and 35 others. We should bear in mind that it is usually a good idea to use the smallest number of spare objects we can get away with: writing a game that required 1000 strings in the string repository would place silly demands on the resources of the system, so it's best to avoid that sort of thing if possible.
 
   
-Now with a bit of fiddling we can also teach Inform to recognize descriptors such as "the shortest string":
+Now with a bit of fiddling we can also teach Inform to recognise descriptors such as "the shortest string":
 
   
 

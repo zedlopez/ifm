@@ -2,7 +2,7 @@ Example: * Reflections
 Location: Writing a paragraph about
 RecipeLocation: Lighting
 Index: Shiny items are described as reflecting torchlight
-Description: Emphasizing the reflective quality of shiny objects whenever they are described in the presence of the torch.
+Description: Emphasising the reflective quality of shiny objects whenever they are described in the presence of the torch.
 For: Z-Machine
 
   

@@ -1,7 +1,7 @@
 Example: * rBGH
 Location: Units
 RecipeLocation: The Human Body
-Index: Player's height randomized at the start of play
+Index: Player's height randomised at the start of play
 Description: The player character's height is selected randomly at the start of play.
 For: Z-Machine
 

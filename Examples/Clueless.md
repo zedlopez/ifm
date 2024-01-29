@@ -6,7 +6,7 @@ Description: A murderer for the mystery is selected randomly at the beginning of
 For: Z-Machine
 
   
-"When play begins" is the best point to initialize any aspects of the game that are meant to change between playings. For instance, in this scenario, we would randomly select one of the other characters to be guilty of murder:
+"When play begins" is the best point to initialise any aspects of the game that are meant to change between playings. For instance, in this scenario, we would randomly select one of the other characters to be guilty of murder:
 
   
 

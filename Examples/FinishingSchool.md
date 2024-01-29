@@ -1,6 +1,6 @@
 Example: * Finishing School
 Location: Defining new adjectives
-RecipeLocation: Characterization
+RecipeLocation: Characterisation
 Index: Another, distinct from the player
 Description: The "another" adjective for rules such as "in the presence of another person".
 For: Z-Machine

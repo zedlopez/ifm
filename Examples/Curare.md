@@ -1,7 +1,7 @@
 Example: * Curare
 Location: Descriptions as values
 RecipeLocation: Varying What Is Written
-Index: Cyclical randomization of named objects
+Index: Cyclical randomisation of named objects
 Description: A phrase that chooses and names the least-recently selected item from the collection given, allowing the text to cycle semi-randomly through a group of objects.
 For: Z-Machine
 

@@ -733,7 +733,7 @@ Test me with "go to cold comfort / z / z / z / z / ask vanessa for french vanill
 ```
 
   
-Because so much of this game is randomized, it will not be possible to provide a test command that systematically solves it. A good strategy is to go to Main Street, get the syringe; go to the Town Hall and get the key; then visit the shops, inject everyone, and lock them in when they've all been injected. Then go to the Pool Hall, turn on the air conditioner, and wait for the remaining parties to show up.
+Because so much of this game is randomised, it will not be possible to provide a test command that systematically solves it. A good strategy is to go to Main Street, get the syringe; go to the Town Hall and get the key; then visit the shops, inject everyone, and lock them in when they've all been injected. Then go to the Pool Hall, turn on the air conditioner, and wait for the remaining parties to show up.
 
   
 This is also something that could get fairly slow if we added many more rooms and characters to it. In that case, we might want to select fast route-finding so that character movement won't take as long. This will cost memory, possibly forcing the game into Glulx format if it isn't already, but significantly reduce the run-time for large maps with numerous people moving each turn:

@@ -2,7 +2,7 @@ Example: *** Big Sky Country
 Location: When play ends
 RecipeLocation: Ending The Story
 Index: Resuming play after an accidental death
-Description: Allowing the player to continue play after a fatal accident, but penalizing them by scattering their possessions around the game map.
+Description: Allowing the player to continue play after a fatal accident, but penalising them by scattering their possessions around the game map.
 For: Z-Machine
 
   

@@ -6,7 +6,7 @@ Description: Layout where the player is allowed to wander any direction he likes
 For: Z-Machine
 
   
-Suppose we want to allow the player to wander freely in any direction, but ourselves maintain control over the order in which they encounter the rooms. This sort of effect emphasizes the order of the story-telling over any kind of rigorous simulation of space; on multiple play-throughs, the player might not find all the same rooms in the same locations.
+Suppose we want to allow the player to wander freely in any direction, but ourselves maintain control over the order in which they encounter the rooms. This sort of effect emphasises the order of the story-telling over any kind of rigorous simulation of space; on multiple play-throughs, the player might not find all the same rooms in the same locations.
 
   
 

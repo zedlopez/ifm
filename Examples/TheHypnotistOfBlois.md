@@ -35,7 +35,7 @@ Instead of waking someone hypnotized:
 
 [ZL: "shortly" reference awkward]::
 
-We will learn more about check rules for other characters shortly, but the following prevents the hypnosis patient from trying to hypnotize us in turn:
+We will learn more about check rules for other characters shortly, but the following prevents the hypnosis patient from trying to hypnotise us in turn:
 
   
 

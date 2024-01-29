@@ -6,7 +6,7 @@ Description: Elaborating the report rules to be more interesting than "Clark goe
 For: Z-Machine
 
   
-Report rules can be a good point at which to add local color: while Inform provides default descriptions of character behavior, these are rather generic and can stand to be customized.
+Report rules can be a good point at which to add local color: while Inform provides default descriptions of character behavior, these are rather generic and can stand to be customised.
 
   
 For instance, if we wanted to liven up our previous Clark Kent example:

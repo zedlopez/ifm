@@ -117,7 +117,7 @@ Report multiply-giving it to:
 ```
 
   
-Now we create our own variation of implicitly taking in order to customize the output for the multiply-giving action. The "ungivability rules" should disallow any object that the player absolutely cannot take, because we want "carry out the implicitly taking activity" to succeed every time – and therefore not print out any less-attractive results from implicit takes that don't succeed. Otherwise, the player's ``give tree and dog to attendant`` might produce the reply "That's fixed in place" – without specifying which object is fixed in place.
+Now we create our own variation of implicitly taking in order to customise the output for the multiply-giving action. The "ungivability rules" should disallow any object that the player absolutely cannot take, because we want "carry out the implicitly taking activity" to succeed every time – and therefore not print out any less-attractive results from implicit takes that don't succeed. Otherwise, the player's ``give tree and dog to attendant`` might produce the reply "That's fixed in place" – without specifying which object is fixed in place.
 
   
 Because of the way this works, we will want to be careful: if we have any "instead of taking..." rules for special objects in the game, we should be sure to mirror those with an ungivability rule to print something more suitable in the case that the player tries taking that object as part of the multiple giving action.
