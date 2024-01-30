@@ -1,12 +1,12 @@
 Example: ** The Man of Steel Excuses Himself
 Location: Report rules for actions by other people
 RecipeLocation: Goal-Seeking Characters
-Index: Reporting rules for other characters' behavior
+Index: Reporting rules for other characters' behaviour
 Description: Elaborating the report rules to be more interesting than "Clark goes west."
 For: Z-Machine
 
   
-Report rules can be a good point at which to add local color: while Inform provides default descriptions of character behavior, these are rather generic and can stand to be customised.
+Report rules can be a good point at which to add local colour: while Inform provides default descriptions of character behaviour, these are rather generic and can stand to be customised.
 
   
 For instance, if we wanted to liven up our previous Clark Kent example:

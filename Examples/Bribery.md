@@ -17,7 +17,7 @@ The block giving rule is not listed in the check giving it to rules.
 ```
 
   
-As it happens, correct behavior is built into the ``give`` command once "block giving" is turned off, so we do not have to write a replacement report or carry-out rule; the object will be transferred to the possession of the caterpillar. But we do want to adjust the action just a little so that our gift cheers up the recipient:
+As it happens, correct behaviour is built into the ``give`` command once "block giving" is turned off, so we do not have to write a replacement report or carry-out rule; the object will be transferred to the possession of the caterpillar. But we do want to adjust the action just a little so that our gift cheers up the recipient:
 
   
 

@@ -24,7 +24,7 @@ Carry out examining something:
 ```
 
   
-Carry out rules are explained in more detail in the chapter on [Advanced Actions]. For now, it may be enough to know that what we put into this carry out rule for examining will happen any time anything is examined, but that it will not interfere with the rest of the predefined behavior of the action. The player will still see the object description and so on, as usual.
+Carry out rules are explained in more detail in the chapter on [Advanced Actions]. For now, it may be enough to know that what we put into this carry out rule for examining will happen any time anything is examined, but that it will not interfere with the rest of the predefined behaviour of the action. The player will still see the object description and so on, as usual.
 
   
 

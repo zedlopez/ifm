@@ -112,7 +112,7 @@ When play begins:
 ```
 
   
-And now we use writing a paragraph about... to describe character behavior in groups, when we join them:
+And now we use writing a paragraph about... to describe character behaviour in groups, when we join them:
 
   
 

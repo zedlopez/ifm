@@ -45,7 +45,7 @@ This would be a bit bare if we didn't provide the player with some sort of conte
 ```
 
   
-This "turn count" condition is why it was useful to follow the advance time rule in "after reading a command": the game (or drama, if you like) will continue to count moves elapsed even though the rest of Inform's command parsing and world model is being ignored. In a longer and more ambitious implementation of this idea, we might want to allow scenes to govern the behavior and responses of the Chorus.
+This "turn count" condition is why it was useful to follow the advance time rule in "after reading a command": the game (or drama, if you like) will continue to count moves elapsed even though the rest of Inform's command parsing and world model is being ignored. In a longer and more ambitious implementation of this idea, we might want to allow scenes to govern the behaviour and responses of the Chorus.
 
   
 And then to give the whole exchange a play's format:

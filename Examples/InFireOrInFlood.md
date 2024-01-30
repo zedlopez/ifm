@@ -49,7 +49,7 @@ Before taking a flaming thing:
 ```
 
   
-But that's only a small part of the battle. The thing about fire is that it keeps on doing fiery things even when the player is otherwise occupied: destroying items that are on fire, and spreading to other things nearby. So we need a set of rules for the fire's behavior.
+But that's only a small part of the battle. The thing about fire is that it keeps on doing fiery things even when the player is otherwise occupied: destroying items that are on fire, and spreading to other things nearby. So we need a set of rules for the fire's behaviour.
 
   
 

@@ -38,7 +38,7 @@ This phrase will select, from the collection of objects passed to it, the one th
 ```
 
   
-We could have said "You stare morosely at [the oldest thing carried by the player]" here, but doing so would not have set the "last use" property correctly, so we would not get the cycling behavior that we're looking for.
+We could have said "You stare morosely at [the oldest thing carried by the player]" here, but doing so would not have set the "last use" property correctly, so we would not get the cycling behaviour that we're looking for.
 
   
 

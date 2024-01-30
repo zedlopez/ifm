@@ -29,7 +29,7 @@ Carry out facing:
 In rules about action handling, "noun" refers to the first object that the player has mentioned in their command, so if the player typed ``look west``, "let the viewed item be the room noun from the location" would be processed as "let the viewed item be the room west from the location", and so on.
 
   
-We can at need override the default behavior, if it is not going to be appropriate for the player to see the next room over. There is only sky above at any time, so...
+We can at need override the default behaviour, if it is not going to be appropriate for the player to see the next room over. There is only sky above at any time, so...
 
   
 

@@ -45,5 +45,5 @@ Test me with "w / e".
 ```
 
   
-In fact, as we've already seen, many extra modifications to the display behavior are possible using Basic Screen Effects.
+In fact, as we've already seen, many extra modifications to the display behaviour are possible using Basic Screen Effects.
 

@@ -48,7 +48,7 @@ After choosing notable locale objects (this is the apply early and late descript
 ```
 
   
-An important cautionary note: priorities are only honored if the objects are going to get their own paragraphs (with "writing a paragraph about..." or because they have initial appearances). Priorities do not affect the order in which items appear in the final "You can see..." list, except that items with priority 0 or lower are omitted. (If we want to order the items in that list, we may want to resort to the Complex Listing extension by Emily Short.)
+An important cautionary note: priorities are only honoured if the objects are going to get their own paragraphs (with "writing a paragraph about..." or because they have initial appearances). Priorities do not affect the order in which items appear in the final "You can see..." list, except that items with priority 0 or lower are omitted. (If we want to order the items in that list, we may want to resort to the Complex Listing extension by Emily Short.)
 
   
 There are further refinements available to us: for instance, we could make some things that are only visible if the player is raised above ground level.

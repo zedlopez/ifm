@@ -35,7 +35,7 @@ Test me with "sit on stool / drop mouse / look / get up / look".
 ```
 
   
-Now the carry-out behavior of the dropping action has been changed, but we haven't had to interfere in the checks or reporting at all. The rest of the action works just as it always did.
+Now the carry-out behaviour of the dropping action has been changed, but we haven't had to interfere in the checks or reporting at all. The rest of the action works just as it always did.
 
   
 Of course, maybe we do want to change the way the action is reported, to make it clearer to the player where the dropped article wound up:

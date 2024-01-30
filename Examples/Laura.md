@@ -61,7 +61,7 @@ Test one with "x photograph / x incriminating photograph of a woman with blonde 
 ```
 
   
-That's probably as far as we really need to go, and if you are satisfied with this behavior, there is no need to read on.
+That's probably as far as we really need to go, and if you are satisfied with this behaviour, there is no need to read on.
 
   
 One possible objection to this solution is that Inform will accept some nonsensical formulations as applying to the photograph: for instance, it will allow ``examine photograph of``, ``x blonde photograph woman incriminating``, or even ``x of`` ...though in the case there were two items with "of" names, the game would disambiguate with a question such as "Which do you mean, the incriminating photograph of a woman with blonde hair or the essence of wormwood?"

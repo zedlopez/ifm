@@ -2,11 +2,11 @@ Example: *** Aftershock
 Location: New activities
 RecipeLocation: Televisions and Radios
 Index: Radios and other devices active when switched on
-Description: Modifying the rules for examining a device so that all devices have some specific behavior when switched on, which is described at various times.
+Description: Modifying the rules for examining a device so that all devices have some specific behaviour when switched on, which is described at various times.
 For: Z-Machine
 
   
-The built-in behavior of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behavior in general by instructing Inform to ignore the "examine devices rule" (see the chapter on [Rulebooks]).
+The built-in behaviour of Inform is to print a line after a device is examined, saying whether the item is on or off. This is often inappropriate, and we could simply turn off that behaviour in general by instructing Inform to ignore the "examine devices rule" (see the chapter on [Rulebooks]).
 
   
 Perhaps, though, we would like continue to have a short passage about the action of any switched on device; we'd just like a little more control over what it says from time to time. And in that case, we might change the rule to give a new activity control over that portion of the description:
@@ -40,7 +40,7 @@ This is the new described devices rule:
 ```
 
   
-Thus far we have essentially replicated the original behavior, but we've made it possible to write specialised behavior for devices, and to invoke that behavior in other places:
+Thus far we have essentially replicated the original behaviour, but we've made it possible to write specialised behaviour for devices, and to invoke that behaviour in other places:
 
   
 
@@ -82,7 +82,7 @@ The flashlight is an electric lamp carried by the player. The description is "A 
 ```
 
   
-And with our activity, we can override the flashlight's electric lamp behavior with new behavior:
+And with our activity, we can override the flashlight's electric lamp behaviour with new behaviour:
 
   
 

@@ -9,7 +9,7 @@ For: Z-Machine
 Room descriptions often make the player character out to be a bit of a savant, able to count whole stacks of items at a glance: "You see 27 paper clips here."
 
   
-We can adjust this behavior to our liking, though, with the printing a number... activity, as follows:
+We can adjust this behaviour to our liking, though, with the printing a number... activity, as follows:
 
   
 

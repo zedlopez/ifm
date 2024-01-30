@@ -6,7 +6,7 @@ Description: An adaptive hint system that tracks what the player needs to have s
 For: Z-Machine
 
   
-Hint systems in IF come in a variety of flavors: some are a static, prewritten set of guidelines (which might exist in a menu or outside the game entirely); others are built in as part of the program, and attempt to adapt to the situation the player currently faces. Adaptive hints have the advantage that they are less likely to reveal information for which the player is not ready, and the disadvantage that they are more work for the author.
+Hint systems in IF come in a variety of flavours: some are a static, prewritten set of guidelines (which might exist in a menu or outside the game entirely); others are built in as part of the program, and attempt to adapt to the situation the player currently faces. Adaptive hints have the advantage that they are less likely to reveal information for which the player is not ready, and the disadvantage that they are more work for the author.
 
   
 The exercise here is to write an adaptive hint system that will both respond in agile ways to the state of the world model and require a minimum of authorial fussing. We also want the player to be able to ask for a hint about any object they encounter in the game world: this will let them be specific and avoid accidentally receiving hints about the wrong puzzles.

@@ -9,7 +9,7 @@ For: Z-Machine
 Inform by default detects whether two objects can be disambiguated by any vocabulary available to the player. If so, it asks a question; if not, it picks one of the identical objects at random.
 
   
-Generally this produces good behavior. Occasionally, though, two objects have some distinguishing characteristic that doesn't appear in the object name. For instance, suppose we've created a class of apples that can be told apart depending on whether they've been bitten or not:
+Generally this produces good behaviour. Occasionally, though, two objects have some distinguishing characteristic that doesn't appear in the object name. For instance, suppose we've created a class of apples that can be told apart depending on whether they've been bitten or not:
 
   
 
@@ -83,7 +83,7 @@ Instead of eating a bitten apple (called the fruit):
 ```
 
   
-Inform will also separate the bitten from the pristine apples in inventory listings and room descriptions, even though it's not clear why; we can improve on that behavior thus:
+Inform will also separate the bitten from the pristine apples in inventory listings and room descriptions, even though it's not clear why; we can improve on that behaviour thus:
 
   
 

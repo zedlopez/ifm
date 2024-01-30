@@ -28,7 +28,7 @@ For printing a locale paragraph about a raised supporter (called the high place)
 ```
 
   
-Note that here we don't continue the activity because we want to completely replace the normal behavior of describing what is on supporters.
+Note that here we don't continue the activity because we want to completely replace the normal behaviour of describing what is on supporters.
 
   
 

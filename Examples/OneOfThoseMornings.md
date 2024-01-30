@@ -28,7 +28,7 @@ Carry out finding:
 The holder of the noun can be a room, a supporter, or a container: the phrase is not picky. We would want to be a little more careful if it were ever possible for an item to have been "removed from play" in our game, since then the holder could be nothing, and that would have odd results. In this particular example, though, that will not arise.
 
   
-And that's it, as far as the ``find`` command goes. The rest is local color.
+And that's it, as far as the ``find`` command goes. The rest is local colour.
 
   
 

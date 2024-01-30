@@ -31,7 +31,7 @@ The can't push vertically rule is not listed in any rulebook.
 ```
 
   
-And now to provide a scenario where the player can push something up and down a hillside. Most of the rest of the example is there for local color and to provide a way to demonstrate these rule adjustments:
+And now to provide a scenario where the player can push something up and down a hillside. Most of the rest of the example is there for local colour and to provide a way to demonstrate these rule adjustments:
 
   
 

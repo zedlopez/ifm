@@ -191,7 +191,7 @@ Inform also allows the player to refer to the most recently seen objects and peo
 - [Liquids] for a resolution of this bottle-of-wine issue.
 - [Memory and Knowledge] for a way to refer to characters whom the player knows about but who aren't currently in the room.
 - [Clarification and Correction] for ways to improve guesses about what the player means.
-- [Alternatives To Standard Parsing] for several esoteric variations on the default behavior, such as accepting adverbs anywhere in the command, and scanning the player's input for keywords.
+- [Alternatives To Standard Parsing] for several esoteric variations on the default behaviour, such as accepting adverbs anywhere in the command, and scanning the player's input for keywords.
 
 ## Using the Player's Input
 
@@ -214,7 +214,7 @@ More specialised effects are also possible: [Xot] shows how to collect the playe
 ^^{looking+action+}^^{rooms+kind+: descriptions}^^{rooms+kind+: printing the room contents}^^{precedence: of displayed items}^^{descriptions (displayed): initial appearance of thing}^^{descriptions (displayed): notable things in room}^^{descriptions (displayed): miscellaneous things in room}^^{descriptions (displayed): room contents}^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}^^{marked for listing / unmarked for listing (thing)+prop+} ^^{unmarked for listing / marked for listing (thing)+prop+} ^^{marked for listing (thing)+propcat+} ^^{unmarked for listing (thing)+propcat+}^^{writing a paragraph about+descactivity+} ^^{writing a paragraph about+activity+} ^^{writing a paragraph about+activitycat+}^^{listing nondescript items of something+descactivity+} ^^{listing nondescript items of something+activity+} ^^{listing nondescript items of something+activitycat+}^^{printing room description details of something+descactivity+} ^^{printing room description details of something+activity+} ^^{printing room description details of something+activitycat+}^^{printing a locale paragraph about something+descactivity+} ^^{printing a locale paragraph about+activity+} ^^{printing a locale paragraph about+activitycat+}^^{paragraph: writing a paragraph about+activity+}^^{nondescript items: listing nondescript items of something+activity+}^^{room description details: printing room description details of something+activity+}^^{locale paragraph: printing a locale paragraph about something+activity+}
 The printing of a room description is a more delicate business than it might initially seem to be: Inform has to consider all the objects that the player might have brought into the room or dropped there, and all the objects on visible supporters, and decide how to group and list them.
 
-All of this behavior is handled by the looking command, so we find the relevant rules in the carry out looking rulebook. To go through the elements step by step:
+All of this behaviour is handled by the looking command, so we find the relevant rules in the carry out looking rulebook. To go through the elements step by step:
 
 Looking begins by printing the name and description of the room we're in. We can introduce variations into room names and descriptions by changing their printed name and description properties, as in
 
@@ -323,7 +323,7 @@ The Campus Area is a region. The Library and the Swimming Pool are in the Campus
 
 Many old-school IF puzzles involve journeys through the map which are confused, randomised or otherwise frustrated: see [Bee Chambers] for a typical maze, [Zork II] for a randomised connection, [Prisoner's Dilemma] for a change in the map occurring during play. A completely random map takes us away from traditional IF and more towards a different sort of old-school game, the computerised role-playing game with its endless quests through dungeons with randomly generated treasures and monsters. This style of map–building itself one step at a time, as the player explores–can sometimes be useful to provide an illusion of infinite expanse: see [All Roads Lead To Mars].
 
-While the standard compass directions are conventional in IF, there are times when we may want to replace them without other forms of directional relationship. [Indirection] renames the compass directions to correspond to primary colors, as in Mayan thinking. [The World of Charles S. Roberts] substitutes new ones, instead, introducing a hex-grid map in place of the usual one.
+While the standard compass directions are conventional in IF, there are times when we may want to replace them without other forms of directional relationship. [Indirection] renames the compass directions to correspond to primary colours, as in Mayan thinking. [The World of Charles S. Roberts] substitutes new ones, instead, introducing a hex-grid map in place of the usual one.
 
 ### See Also
 
@@ -545,7 +545,7 @@ For more complex sorts of scripts and schedules, it may be worth consulting the 
 ^^{time: scripting story events by time}^^{at (time)...+assert+}
 We can use a schedule of events to give some life to our environment: if we have a town setting, for instance, it makes sense for shops and libraries to open and close at set times; this is just what we find in [IPA].
 
-[Air Conditioning is Standard] has characters who follow a timed schedule of events to interact with each other, while the player mostly wanders around missing out on the action. (Sometimes life is like that.) The same effects could have been achieved with scenes instead of clock times, but there are occasions when we do want to plan our characters' behavior to the minute rather than waiting for the player to be in the right place to observe it: in a murder mystery or a time-travel story, the exact timings might be quite significant.
+[Air Conditioning is Standard] has characters who follow a timed schedule of events to interact with each other, while the player mostly wanders around missing out on the action. (Sometimes life is like that.) The same effects could have been achieved with scenes instead of clock times, but there are occasions when we do want to plan our characters' behaviour to the minute rather than waiting for the player to be in the right place to observe it: in a murder mystery or a time-travel story, the exact timings might be quite significant.
 
 We may also want to add events to the schedule during play, as in
 
@@ -609,7 +609,7 @@ The most challenging case to implement (though still not very hard) is the one w
 ^^^{story structure <-- game structure <-- plot structure}^^{story structure: dynamic plot management}
 A plot manager (sometimes called a drama manager) is a piece of the program whose job it is to plan out events so that, whatever the player does, the story advances and an interesting narrative results. The plot manager might, for instance, decide that the player has wandered around for too many scenes without making any progress, and might compensate by making something happen that gives them a new hint on his current problem. It might trigger characters to act when it thinks the story should be reaching a crisis point. It might introduce new complications when it determines that the player is running out of problems to solve.
 
-This is a theoretically challenging field. Sophisticated plot management requires that the story make difficult guesses, such as whether the player is "stuck" and what the player is working on right now. The advantage of using such a system is that (done very well) it makes the story extremely responsive to the player's behavior, which means that they are a real agent in the unwinding of the plot. It also contributes to the replayability, since trying the story a second or third time will produce quite different outcomes. But it is procedurally difficult to design a good plot management system and it requires a huge amount of content, as well: in order for the plot manager to give the player hints, change the course of events to suit his focus, and so on, the story has to have available many, many more scenes than will ever occur in any single playing.
+This is a theoretically challenging field. Sophisticated plot management requires that the story make difficult guesses, such as whether the player is "stuck" and what the player is working on right now. The advantage of using such a system is that (done very well) it makes the story extremely responsive to the player's behaviour, which means that they are a real agent in the unwinding of the plot. It also contributes to the replayability, since trying the story a second or third time will produce quite different outcomes. But it is procedurally difficult to design a good plot management system and it requires a huge amount of content, as well: in order for the plot manager to give the player hints, change the course of events to suit his focus, and so on, the story has to have available many, many more scenes than will ever occur in any single playing.
 
 [Fate Steps In] is only a *very* brief sketch in this direction, one in which the "fate" entity is trying to accomplish an end goal and, every turn, looks for ways to push the story towards that conclusion, whatever the player does.
 
@@ -726,7 +726,7 @@ The mental model need not always be accurate, of course. We might, for instance,
 
 Included with Inform is the extension Epistemology, by ^{@Eric Eve}, which provides one way of tracking this kind of information. Epistemology distinguishes between items that the player character has seen, because they're objects in a room the player has been to, and items that are familiar to the player for other reasons, such as a quest item they know about but haven't found yet, or an abstract conversation topic. Anything that is either seen or familiar is counted as "known".
 
-Modeling what the player does and does not know is only half the job, of course: we also need that information to affect the behavior of the story in plausible ways.
+Modeling what the player does and does not know is only half the job, of course: we also need that information to affect the behaviour of the story in plausible ways.
 
 One obvious occasion to use player character knowledge is in the output of descriptions. We might want to respond to actions differently depending on what the player has previously done, as in [Tense Boxing], or change the way we describe objects in light of new knowledge about them, as in [Zero]. [Casino Banale] takes that idea much further, with a whole system of facts that can be narrated to the player in a somewhat flexible but interdependent order, as the player looks at relevant objects or notices them in room descriptions.
 
@@ -756,9 +756,9 @@ This is not the only possible way for interactive fiction to handle such communi
 
 [ZL: I'm not clear on what extension this is]::
 
-The drawback of such behavior is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognised at all. If it is desirable, there is an extension that will reproduce this behavior in Inform as well.
+The drawback of such behaviour is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognised at all. If it is desirable, there is an extension that will reproduce this behaviour in Inform as well.
 
-Using Inform's default behavior, however, scope is an ad-hoc way of keeping a list of things that are common knowledge between the story and the player. The player knows many things that the story might not (like what a cell phone is); the story knows a few things the player may not (like the fact that there is a sword in an as-yet unvisited room). Neither of those things can fruitfully enter into commands because they have no mutually agreed-upon referent.
+Using Inform's default behaviour, however, scope is an ad-hoc way of keeping a list of things that are common knowledge between the story and the player. The player knows many things that the story might not (like what a cell phone is); the story knows a few things the player may not (like the fact that there is a sword in an as-yet unvisited room). Neither of those things can fruitfully enter into commands because they have no mutually agreed-upon referent.
 
 By default, Inform assumes that "scope" includes only those things that are currently visible by line of sight. This works pretty well for a wide range of situations, but there are still plenty of occasions when we want to admit that the story and the player share a knowledge of things not seen. ``go to the kitchen`` might be a useful command even when the player can't currently view the kitchen. ``ask fred about the footprints`` should perhaps work even when the footprints are far away in the garden. ``smell stinky cheese`` might need to work even when the cheese is invisibly locked away in a porous container but is exuding a stench. In a dark room, the player can't see their own inventory, but they should still remember that they're carrying it and be able to mention it. And sometimes we might want the story to acknowledge that the player is referring to an object that they have seen somewhere, even if that thing is now out of sight.
 
@@ -1048,11 +1048,11 @@ If that's not enough, we can get a comprehensive view of everything that happens
 ## Modifying Existing Commands
 
 ^^{actions: processing sequence}^^{actions: rules for actions found in rulebooks}^^{rules: for actions found in rulebooks}^^{rulebooks: for actions}^^{before (action)+rb+: in action processing sequence} ^^{rules: before rules}^^{instead of (action)+rb+: in action processing sequence} ^^{rules: instead rules}^^{after (action)+rb+: in action processing sequence} ^^{rules: after rules}^^{check (action)+rb+}^^{carry out (action)+rb+}^^{report (action)+rb+}^^{(instead), to stop the action+sourcepart+}^^{rules: removing}^^{rules: replacing}^^{extensions: Inform 6 template layer}^^{Inform 6 inclusions: Inform 6 template layer}^^{templates, Inform 6 template layer}
-Much of the rest of this chapter discusses the behavior of specific commands in Inform's command library, and how we might change and build on these. This section is instead an overview of the general principles: where and how can one intervene?
+Much of the rest of this chapter discusses the behaviour of specific commands in Inform's command library, and how we might change and build on these. This section is instead an overview of the general principles: where and how can one intervene?
 
 Whenever we are dealing with actions, the Actions Index is likely to be useful: it lists all the actions currently implemented, whether in our own source or in extensions or the Standard Rules, and lists the rules pertaining to each.
 
-The lightest and easiest way to change behavior is with an Instead rule:
+The lightest and easiest way to change behaviour is with an Instead rule:
 
 ``` inform7
 Instead of eating the apple:
@@ -1099,7 +1099,7 @@ This is the new can't take people's possessions rule:
 		say "(first waiting until [the owner] is distracted)";
 ```
 
-The right approach to use also depends a bit on how systematic a change we anticipate. We may find that instead rules become cumbersome when we want to specify behavior for a very large number of objects. It's fine to have
+The right approach to use also depends a bit on how systematic a change we anticipate. We may find that instead rules become cumbersome when we want to specify behaviour for a very large number of objects. It's fine to have
 
 ``` inform7
 Instead of tasting the arsenic:
@@ -1117,7 +1117,7 @@ Instead of tasting the donkey: ...
 (etc.)
 ```
 
-in a story in which most items have unique flavor descriptions. In that situation, it may be more sensible to overhaul the design of the action: create a new text property for things, and revise "tasting" so that it now consults this property:
+in a story in which most items have unique flavour descriptions. In that situation, it may be more sensible to overhaul the design of the action: create a new text property for things, and revise "tasting" so that it now consults this property:
 
 ``` inform7
 The block tasting rule is not listed in any rulebook.
@@ -1145,7 +1145,7 @@ Finally and most sweepingly, we can rip out whole passages of the Standard Rules
 ^^{looking+action+}^^{rooms+kind+: descriptions}^^{descriptions (displayed): room contents}^^{use options: catalogue: `VERBOSE room descriptions} ^^{VERBOSE room descriptions+useopt+}^^{use options: catalogue: `BRIEF room descriptions} ^^{BRIEF room descriptions+useopt+}^^{use options: catalogue: `SUPERBRIEF room descriptions} ^^{SUPERBRIEF room descriptions+useopt+}
 Looking is quite a complicated command, since the production of a room description takes many steps. A detailed description of this process may be found in the Room Descriptions section.
 
-By convention, a player sees full descriptions of rooms they enter more than once, but may type ``brief`` in order to see shorter descriptions, and ``superbrief`` tells the story never to print room descriptions at all. ``verbose`` restores the default behavior.
+By convention, a player sees full descriptions of rooms they enter more than once, but may type ``brief`` in order to see shorter descriptions, and ``superbrief`` tells the story never to print room descriptions at all. ``verbose`` restores the default behaviour.
 
 These conventions are not always appropriate, however, especially in works where experiencing a changing environment is essential. The use option
 
@@ -1153,9 +1153,9 @@ These conventions are not always appropriate, however, especially in works where
 Use brief room descriptions.
 ```
 
-changes the default behavior so that rooms are not always described fully to the player. [Verbosity 1] demonstrates how this works.
+changes the default behaviour so that rooms are not always described fully to the player. [Verbosity 1] demonstrates how this works.
 
-The player always has the option of turning room descriptions to ``brief`` or ``superbrief`` mode. [Verbosity 2] demonstrates how we might remove the player's ability to change the default behavior.
+The player always has the option of turning room descriptions to ``brief`` or ``superbrief`` mode. [Verbosity 2] demonstrates how we might remove the player's ability to change the default behaviour.
 
 ### See Also
 
@@ -1207,9 +1207,9 @@ Rule for printing the name of the dead rat while taking inventory:
 
 There are also several possibilities for redesigning the inventory list as a whole. [Persephone] shows how to divide an inventory list into two parts, a "You are carrying: " section and a "You are wearing: " section. [Equipment List] goes further, and shows how we might use Inform's specialised listing functions to create a variety of differently formatted inventories.
 
-Sometimes the way Inform by default lists properties such as "(closed)" or "(open but empty)" isn't quite what we want. [Oyster Wide Shut] offers a flexible alternative to the standard behavior, allowing finer control over which properties are listed and how they are described.
+Sometimes the way Inform by default lists properties such as "(closed)" or "(open but empty)" isn't quite what we want. [Oyster Wide Shut] offers a flexible alternative to the standard behaviour, allowing finer control over which properties are listed and how they are described.
 
-[Trying Taking Manhattan] replaces the inventory behavior for other characters: instead of silently looking through their possessions (but not describing them to the player), they now describe to the player what they're carrying and wearing.
+[Trying Taking Manhattan] replaces the inventory behaviour for other characters: instead of silently looking through their possessions (but not describing them to the player), they now describe to the player what they're carrying and wearing.
 
 ## Taking, Dropping, Inserting and Putting
 
@@ -1220,7 +1220,7 @@ We may want to change the default refusal message when the player tries to pick 
 
 [Croft] modifies the ``drop`` command, so that objects dropped on specific surfaces get reported in a special way. [Celadon] allows the player to drop even objects they are carrying indirectly, for instance on a tray or in a sack.
 
-[Morning After] introduces a simple rule that changes the behavior of the whole story: whenever the player takes an item they haven't already looked at, they automatically examine it. This picks up the pace of exploration passages where the player is likely to be collecting a large number of objects.
+[Morning After] introduces a simple rule that changes the behaviour of the whole story: whenever the player takes an item they haven't already looked at, they automatically examine it. This picks up the pace of exploration passages where the player is likely to be collecting a large number of objects.
 
 [ZL: https://inform7.atlassian.net/browse/I7-2348 ]::
 
@@ -1355,7 +1355,7 @@ We can also record a series of actions performed by the player or by another cha
 ^^{actions: applying to multiple objects}^^{lists: the multiple object list}^^{+to+multiple object list}^^{deciding whether all includes+activity+} ^^{deciding whether all includes+activitycat+}^^{understanding: deciding whether (ALL) includes something+commandpart+}^^{(ALL), including things in+commandpart+}
 Inform allows a handful of actions–``take``, ``drop``, ``put``, ``insert``–to apply to more than one item at a time, so that the player can move things around easily.
 
-The general principle is that multiple objects are allowed if the actions are likely to be successful but not interesting most of the time, and if they're things that the player could plausibly do all at once. For most actions, the use of ``all`` would seem weirdly indiscriminate: ``eat all``, say, describes very implausible behavior, and ``examine all`` would likely generate a screenful of text at once.
+The general principle is that multiple objects are allowed if the actions are likely to be successful but not interesting most of the time, and if they're things that the player could plausibly do all at once. For most actions, the use of ``all`` would seem weirdly indiscriminate: ``eat all``, say, describes very implausible behaviour, and ``examine all`` would likely generate a screenful of text at once.
 
 But this is all under our control. To create an action that uses multiples, or to allow the use of multiple objects with an already-existing action, we need to create an understand statement that uses the `"[things]"` token (note the plural). For instance:
 
@@ -1413,7 +1413,7 @@ These names are generated by the "announce items from multiple object lists rule
 
 Suppressing names of objects entirely, while occasionally tempting, may have unintended consequences, especially if some of the attempted actions are prevented by check rules that themselves print things. It is safest to suppress the multiple object names in the case where we already know that the action will succeed wherever it is attempted (more often for observational actions like examining than for manipulative actions like taking, or where we mean to completely override default handling).
 
-Given that our hypothetical "multiply-giving" applies to each given object in turn, it might seem to be useless to create "multiply-giving" as an action different from "giving" – but the convenience is that manipulating the multiple object list makes it possible to group behavior artificially. The trick here is that, on the first pass of the multiply-giving rulebook, we look at the entire multiple object list, perform actions, print output, and set a flag saying that the action has been handled. The flag tells Inform not to do or print anything for any of the subsequent passes through that action rulebook; thus we artificially create a situation where, instead of performing an action on each object in turn, Inform acts once on the entire group. That allows us to assess the cumulative qualities of the group and have the action respond differently than it might when assessing each item individually.
+Given that our hypothetical "multiply-giving" applies to each given object in turn, it might seem to be useless to create "multiply-giving" as an action different from "giving" – but the convenience is that manipulating the multiple object list makes it possible to group behaviour artificially. The trick here is that, on the first pass of the multiply-giving rulebook, we look at the entire multiple object list, perform actions, print output, and set a flag saying that the action has been handled. The flag tells Inform not to do or print anything for any of the subsequent passes through that action rulebook; thus we artificially create a situation where, instead of performing an action on each object in turn, Inform acts once on the entire group. That allows us to assess the cumulative qualities of the group and have the action respond differently than it might when assessing each item individually.
 
 [The Facts Were These] demonstrates how we might write an action for ``give three dollars to man`` or ``give pie and hat to man`` where the man would only accept the collective gift when its total proved satisfactory.
 
@@ -1503,7 +1503,7 @@ Finally, in some IF, the roles of characters may change from playing to playing.
 ## Liveliness
 
 ^^{characters (people): acting spontaneously}^^{every turn+rb+}^^{rules: run every turn}
-A character who sits still in a chair and does nothing is much less convincingly alive than one who seems to be pursuing some sort of personal agenda. There are all sorts of ways to achieve this, but the least challenging is by introducing some random change to descriptions, and by giving a character some very simple routine behavior to carry out.
+A character who sits still in a chair and does nothing is much less convincingly alive than one who seems to be pursuing some sort of personal agenda. There are all sorts of ways to achieve this, but the least challenging is by introducing some random change to descriptions, and by giving a character some very simple routine behaviour to carry out.
 
 For instance, we'll often want the characters in a room to be described doing different things every time we look at them. [Camp Bethel] shows how this may be done.
 
@@ -1523,13 +1523,13 @@ Every turn when the player can see Mrs MacGillicuddy:
 
 This is no great innovation in characterisation by itself, but it does at least remind the player that the character is alive and moving about, even when they aren't paying attention to her.
 
-[Annoyotron Jr] demonstrates a character who actively tries to get our attention, and whose routine of behavior changes just slightly if we show signs of having reacted to them.
+[Annoyotron Jr] demonstrates a character who actively tries to get our attention, and whose routine of behaviour changes just slightly if we show signs of having reacted to them.
 
-[Lean and Hungry] implements a classic thief, a character who doesn't interact with the player much except to pick up valuable objects they find left around the map. Later we will see rather more advanced ways to make characters act on their own goals and plans, but this kind of simple behavior is easily rigged as part of an every turn rule.
+[Lean and Hungry] implements a classic thief, a character who doesn't interact with the player much except to pick up valuable objects they find left around the map. Later we will see rather more advanced ways to make characters act on their own goals and plans, but this kind of simple behaviour is easily rigged as part of an every turn rule.
 
 Finally, [Text Foosball] extends the every-turn-rule idea to create an opponent who joins us in a randomised game of table soccer.
 
-With animal characters, this kind of repetitive, semi-random behavior is often adequate: we don't expect animals to talk, or pursue steady goals, or to take an interest in what we do in their presence (unless it involves a food they like to eat).
+With animal characters, this kind of repetitive, semi-random behaviour is often adequate: we don't expect animals to talk, or pursue steady goals, or to take an interest in what we do in their presence (unless it involves a food they like to eat).
 
 For people, we are likely to need an assortment of additional techniques.
 
@@ -1540,11 +1540,11 @@ For people, we are likely to need an assortment of additional techniques.
 ## Reactive Characters
 
 ^^{characters (people): reacting to the player's actions}^^{actions: reactions by other characters}
-As we observe characters, so they observe us. Those who seem to have no awareness of what the player is doing often come across more like waxworks than like people. [Zodiac] demonstrates a scenario where the watchful presence of a dangerous criminal keeps the player from doing what they otherwise might, while [Police State] expands on this idea with a policeman who reacts to entire types of behavior in his presence, regardless of whether the culprit is the player or a third party. [Noisemaking] has a crow who will fly away in response to any loud noises the player makes.
+As we observe characters, so they observe us. Those who seem to have no awareness of what the player is doing often come across more like waxworks than like people. [Zodiac] demonstrates a scenario where the watchful presence of a dangerous criminal keeps the player from doing what they otherwise might, while [Police State] expands on this idea with a policeman who reacts to entire types of behaviour in his presence, regardless of whether the culprit is the player or a third party. [Noisemaking] has a crow who will fly away in response to any loud noises the player makes.
 
 And, of course, we definitely want to have characters react to being looked at or otherwise interfered with. [Search and Seizure] implements a smuggler who reacts when we try to confiscate their possessions. [Pine 1] gives us a sleeping princess who can be woken by a variety of methods.
 
-We wrap up this section with two complete puzzle scenarios that demonstrate what can be achieved by giving characters reactions to the player's behavior. [A Day For Fresh Sushi] has a fish who watches the player's actions and comments on them, while the live furnishings in [Revenge of the Fussy Table] instead comment every turn on the current state of the world, until the player has successfully sorted out all their complaints.
+We wrap up this section with two complete puzzle scenarios that demonstrate what can be achieved by giving characters reactions to the player's behaviour. [A Day For Fresh Sushi] has a fish who watches the player's actions and comments on them, while the live furnishings in [Revenge of the Fussy Table] instead comment every turn on the current state of the world, until the player has successfully sorted out all their complaints.
 
 ## Barter and Exchange
 
@@ -1588,7 +1588,7 @@ Finally, we can imagine some scenarios in which, instead of allowing characters 
 
 ### See Also
 
-- [Saving and Undoing] for more discussion of handling random behavior in games.
+- [Saving and Undoing] for more discussion of handling random behaviour in games.
 
 ## Getting Started with Conversation
 
@@ -1791,7 +1791,7 @@ Often we want characters' obedience to be more selective. Just as the viewpoint 
 
 Characters can be given moral objections to certain commands, as well: [Virtue] defines a few kinds of actions as bad, so that the character commanded will refuse to perform them.
 
-[Under Contract], more subtly, has the character object if the player's commands implicitly require any behavior they consider inappropriate: for instance, if the player commands them to put their pants in a container, they will work out that this requires the removal of the pants as a preliminary. If we want to implement a similar character, we may want to simply copy the unsuccessful attempt rule and the table of retorts, then replace the banter with lines of our choosing.
+[Under Contract], more subtly, has the character object if the player's commands implicitly require any behaviour they consider inappropriate: for instance, if the player commands them to put their pants in a container, they will work out that this requires the removal of the pants as a preliminary. If we want to implement a similar character, we may want to simply copy the unsuccessful attempt rule and the table of retorts, then replace the banter with lines of our choosing.
 
 The little example [Latin Lessons] allows us to make characters clever about vague commands: we can, for instance, write rules so that ``clark, eat`` will have Clark sensibly pick something edible, rather than having the parser ask what we want Clark to eat.
 
@@ -1806,7 +1806,7 @@ Finally, [Northstar] demonstrates how we might make Inform understand commands o
 ^^{characters (people): goal-seeking}
 Goal-seeking characters are the most advanced IF life-form: they want to achieve specific outcomes, and they are able to work out plans of approach in order to bring these things about. They walk to rooms, open containers to search for things, use keys and tools, and ask leading questions in conversation.
 
-A really advanced implementation of goal-seeking behavior is beyond the scope of our examples (though extensions exist that treat the problem more thoroughly). We can accomplish a surprising amount without heavy customisation, though, if we keep in mind three points of technique:
+A really advanced implementation of goal-seeking behaviour is beyond the scope of our examples (though extensions exist that treat the problem more thoroughly). We can accomplish a surprising amount without heavy customisation, though, if we keep in mind three points of technique:
 
 First: it helps to think abstractly and to create broadly-defined actions as a first step to more specific tasks. For instance, a character's goal might be to eat some dinner. They'd be equally satisfied with spaghetti carbonara or with braised lamb shanks, but they need to figure out which is available. So we might have our every turn rule (or whatever we're using to activate the character) say something like
 
@@ -1823,7 +1823,7 @@ try Clark eating the suitable food;
 
 command; but if not, it sends Clark off to look for something likely. [The Man of Steel] demonstrates the use of this.
 
-Second: though it doesn't actually contribute to the goal-seeking per se, lively reporting brings characters' generated behavior to life.
+Second: though it doesn't actually contribute to the goal-seeking per se, lively reporting brings characters' generated behaviour to life.
 
 ``` transcript
 Clark eats a donut.
@@ -1841,7 +1841,7 @@ Before Clark eating the wrapped candy:
 
 Here we've set things up so that if Clark tries to eat the wrapped candy, he'll be interrupted by this other command; and if his unwrapping-the-candy attempt fails, he won't go on to eat the thing. [IQ Test] demonstrates a character who shows this kind of planning intelligence.
 
-Because before-rules chain neatly, we can trigger whole plans of behavior if we have a sensible set, as in
+Because before-rules chain neatly, we can trigger whole plans of behaviour if we have a sensible set, as in
 
 ``` inform7
 Before someone entering a closed container: try the person asked opening the noun.
@@ -1862,7 +1862,7 @@ We must exercise a little bit of care if it is possible for the chain of actions
 ^^{characters (people): groups of people}^^{characters (people): reacting to each other}
 Crowds of characters introduce new challenges, because we often want to show them interacting with one another, or to describe individuals in less detail when a whole group is present.
 
-[Strictly Ballroom] gives us a set of characters who pair off each turn, making sure to mention each one once, and leaving one unfortunate person behind as a wallflower: this exemplifies how we might use a behavioral rule not to dictate the behavior of each individual separately but rather to model a whole group together. [Happy Hour] does calculate movements for characters individually, but then collates the descriptions, creating a single paragraph to describe whatever group is currently in the room.
+[Strictly Ballroom] gives us a set of characters who pair off each turn, making sure to mention each one once, and leaving one unfortunate person behind as a wallflower: this exemplifies how we might use a behavioural rule not to dictate the behaviour of each individual separately but rather to model a whole group together. [Happy Hour] does calculate movements for characters individually, but then collates the descriptions, creating a single paragraph to describe whatever group is currently in the room.
 
 Characters can also have complicated attitudes to one another, and it can be helpful to use relations to track these. [Unthinkable Alliances] demonstrates the grouping of characters into alliance factions, while [The Abolition of Love] provides a host of relations to track love affairs, marriages, memberships in families, and mere mutual respect.
 
@@ -1913,7 +1913,7 @@ On a very large, slowish craft such as a cruise liner, we are not so much travel
 ## Animals
 
 ^^{animals+kind+}^^{animals+kind+: rideable}^^{Rideable Vehicles+ext+} ^^{extensions: specific extensions: Rideable Vehicles}
-Animals exhibit a wide range of behaviour: much of the chapter on [Other Characters] applies just as well to animals as to human beings, with the exception of the material on conversation. But two examples here, both fairly simple, show how a fairly convincing domestic pet can be achieved simply by reacting to certain events going on nearby: [Feline Behavior] (a cat) and [Today Tomorrow] (a dog).
+Animals exhibit a wide range of behaviour: much of the chapter on [Other Characters] applies just as well to animals as to human beings, with the exception of the material on conversation. But two examples here, both fairly simple, show how a fairly convincing domestic pet can be achieved simply by reacting to certain events going on nearby: [Feline Behaviour] (a cat) and [Today Tomorrow] (a dog).
 
 [Fido] provides a dog which the player can re-name at will.
 
@@ -2004,7 +2004,7 @@ The strongbox is a locked container. The little steel key unlocks the strongbox.
 ```
 [ZL: "built-in"]::
 
-Two built-in extensions enhance and modify the behavior of locks and keys: Locksmith automates a number of steps, automatically unlocking doors when trying to open them (for instance). Skeleton Keys allows us to define multiple keys that unlock the same object, rather than being restricted to one matching key per item.
+Two built-in extensions enhance and modify the behaviour of locks and keys: Locksmith automates a number of steps, automatically unlocking doors when trying to open them (for instance). Skeleton Keys allows us to define multiple keys that unlock the same object, rather than being restricted to one matching key per item.
 
 For a container with a combination lock, rather than a key, see [Safety]; for a more sophisticated safe requiring digits dialed over multiple turns, see [Eyes, Fingers, Toes].
 
@@ -2481,7 +2481,7 @@ Use scoring.
 
 introduces the concept. Once this is included, Inform will provide built-in support for a single number measuring progress ("score"), and will expect to measure this against a maximum possible ("maximum score", which can either be set by hand or worked out automatically from a table of ranks).
 
-In a story in which scoring exists, the player may choose to turn score notifications (such as `"[Your score has just gone up by one point.]"`) on or off. The commands to do this are ``notify on`` and ``notify off``; the actions are called switching score notification on and switching score notification off. In the event that we need to amend the behavior of notification, we could do so by adding, removing, or modifying the elements of the check and carry out rulebooks for these commands; as in
+In a story in which scoring exists, the player may choose to turn score notifications (such as `"[Your score has just gone up by one point.]"`) on or off. The commands to do this are ``notify on`` and ``notify off``; the actions are called switching score notification on and switching score notification off. In the event that we need to amend the behaviour of notification, we could do so by adding, removing, or modifying the elements of the check and carry out rulebooks for these commands; as in
 
 ``` inform7
 Check switching score notification off:
@@ -2608,7 +2608,7 @@ final question wording	only if victorious	topic		final response rule		final resp
 "UNDO the last command"						false				"undo"		immediately undo rule	--
 ```
 
-Because this is a table, we may alter the behavior by changing entries or continuing the table. [Finality] shows how we might take out the option to ``undo`` the last command, for instance.
+Because this is a table, we may alter the behaviour by changing entries or continuing the table. [Finality] shows how we might take out the option to ``undo`` the last command, for instance.
 
 Using an ending phrase that includes "finally" tells Inform to include the options that are marked "only if victorious". One common use is to let the player read some special bit of additional text, perhaps describing easter eggs they might have missed in the story or presenting some authorial notes. [Xerxes] demonstrates a simple ``amusing`` command to read final information, while [Jamaica 1688] shows how to add completely new elements to the list of options.
 

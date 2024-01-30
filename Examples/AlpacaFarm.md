@@ -1,7 +1,7 @@
 Example: * Alpaca Farm
 Location: New commands for old grammar
 RecipeLocation: Clarification and Correction
-Index: USE action which divines rational behavior for a wide range of possible nouns
+Index: USE action which divines rational behaviour for a wide range of possible nouns
 Description: A generic ``use`` action which behaves sensibly with a range of different objects.
 For: Z-Machine
 

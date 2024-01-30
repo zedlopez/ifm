@@ -6,7 +6,7 @@ Description: Allowing characters other than the player to give objects to one an
 For: Z-Machine
 
   
-By default, if we make no modifications, telling one player to give something to another will fail, even if persuasion succeeds. This is because the default behavior of the ``give`` command is interrupted by the "block giving rule" – since in many cases we do not want people to exchange objects freely.
+By default, if we make no modifications, telling one player to give something to another will fail, even if persuasion succeeds. This is because the default behaviour of the ``give`` command is interrupted by the "block giving rule" – since in many cases we do not want people to exchange objects freely.
 
   
 However, suppose that we do want characters to be able to exchange articles freely: we allow persuasion to succeed and turn off the "block giving rule".

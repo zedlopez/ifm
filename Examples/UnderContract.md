@@ -2,7 +2,7 @@ Example: **** Under Contract
 Location: Making actions work for other people
 RecipeLocation: Obedient Characters
 Index: Person who obeys almost all instructions
-Description: Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behavior.
+Description: Creating a person who accepts most instructions and reacts correctly when a request leads implicitly to inappropriate behaviour.
 For: Z-Machine
 
   
@@ -149,7 +149,7 @@ And now we make Clark a very amenable type:
 ```
 
   
-There are quite a few actions for which no automatic other-character behavior is provided at all, because they always end in failure when the player tries them. Currently the response is not very interesting. Let's spice it up a bit:
+There are quite a few actions for which no automatic other-character behaviour is provided at all, because they always end in failure when the player tries them. Currently the response is not very interesting. Let's spice it up a bit:
 
   
 

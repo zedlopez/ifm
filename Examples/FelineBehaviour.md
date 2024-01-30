@@ -1,4 +1,4 @@
-Example: * Feline Behavior
+Example: * Feline Behaviour
 Location: Rulebooks producing values
 RecipeLocation: Animals
 Index: Results of a rule
@@ -6,7 +6,7 @@ Description: A cat which reacts to whatever items it has handy, returning the re
 For: Z-Machine
 
   
-Suppose we have a cat which is supposed to react to (and destroy) the most interesting thing in its environment. There are several ways we could approach this problem, but for the sake of demonstration, let's have it follow a rulebook to figure out which thing it most wants to interact with. We will then return the chosen object as "the object produced by the cat behavior rules".
+Suppose we have a cat which is supposed to react to (and destroy) the most interesting thing in its environment. There are several ways we could approach this problem, but for the sake of demonstration, let's have it follow a rulebook to figure out which thing it most wants to interact with. We will then return the chosen object as "the object produced by the cat behaviour rules".
 
   
 

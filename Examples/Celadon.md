@@ -9,7 +9,7 @@ For: Z-Machine
 By default, Inform only lets the player drop those things which they are carrying – that is, those directly in their possession. Things inside satchels or on portable trays have to be taken first.
 
   
-If we want to change this behavior, we might add a dropping rule that distinguishes between carrying and mere enclosure (introduced back in "The location of something" in the chapter on [Things]):
+If we want to change this behaviour, we might add a dropping rule that distinguishes between carrying and mere enclosure (introduced back in "The location of something" in the chapter on [Things]):
 
   
 

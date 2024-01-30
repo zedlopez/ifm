@@ -354,7 +354,7 @@ And finally, we need to define our debugging variable here, even though we won't
 ```
 
   
-For many examples, a test-me script is enough to prove that the example does what it ought. This example, though, is a bit more complicated, and hard to test randomly. The remainder of the source here shows how we might write a test to verify the desired behavior of our rulebook. Those who are only interested in the rulebook itself can stop reading at this point.
+For many examples, a test-me script is enough to prove that the example does what it ought. This example, though, is a bit more complicated, and hard to test randomly. The remainder of the source here shows how we might write a test to verify the desired behaviour of our rulebook. Those who are only interested in the rulebook itself can stop reading at this point.
 
   
 

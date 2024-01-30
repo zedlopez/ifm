@@ -47,7 +47,7 @@ And in fact we can tell Inform that the player starts on the pedestal with this 
 Now the player will begin there rather than just in the Center Ring.
 
   
-This last bit is an entirely unnecessary bit of local color, but if we're going to keep getting into and out of the lion's cage, we ought to expect him to take notice:
+This last bit is an entirely unnecessary bit of local colour, but if we're going to keep getting into and out of the lion's cage, we ought to expect him to take notice:
 
   
 

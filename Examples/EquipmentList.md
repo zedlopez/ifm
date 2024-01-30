@@ -43,7 +43,7 @@ Most of the phrase options above are relatively self-explanatory; a few are less
 Finally, "with extra indentation" means that the whole list should be indented slightly, in emulation of the default inventory listing.
 
   
-With this information, we can try rewriting the inventory behavior to emulate the standard or to explore alternate versions:
+With this information, we can try rewriting the inventory behaviour to emulate the standard or to explore alternate versions:
 
   
 

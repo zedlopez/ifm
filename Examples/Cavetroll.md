@@ -63,5 +63,5 @@ Test me with "attack troll with sword / unlock chest with sword / attack troll a
 ```
 
   
-A caveat about using this method in a larger game: "parser error flag" will not automatically control the behavior of any rules we might have written for Before reading a command... or After reading a command..., so they may now fire at inappropriate times. It is a good idea to check for parser error flag in those rules as well.
+A caveat about using this method in a larger game: "parser error flag" will not automatically control the behaviour of any rules we might have written for Before reading a command... or After reading a command..., so they may now fire at inappropriate times. It is a good idea to check for parser error flag in those rules as well.
 

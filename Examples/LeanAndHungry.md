@@ -23,7 +23,7 @@ After examining the gentleman:
 ```
 
   
-Now we make the rule that governs the gentleman's behavior. Here we're going to invoke the rules that allow characters besides the player to do actions. More about this can be found in the [Advanced Actions] chapter:
+Now we make the rule that governs the gentleman's behaviour. Here we're going to invoke the rules that allow characters besides the player to do actions. More about this can be found in the [Advanced Actions] chapter:
 
   
 

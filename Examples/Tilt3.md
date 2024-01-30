@@ -1,15 +1,15 @@
 Example: ** Tilt 3
 Location: Extensions and story file formats
 RecipeLocation: Typography
-Index: Tilt 3. Playing cards with colored unicode suits
-Description: Displaying the card suits from our deck of cards with red and black colored unicode symbols.
+Index: Tilt 3. Playing cards with coloured unicode suits
+Description: Displaying the card suits from our deck of cards with red and black coloured unicode symbols.
 For: Z-Machine
 
   
 Books and articles about card-playing traditionally abbreviate card names into a simple two-symbol notation: a number or letter representing the card rank, followed by a symbol indicating the card suit. Suppose that we want to emulate this notation when taking inventory in our poker game.
 
   
-The trick here is that colored output is done in different ways by the Z-Machine and by Glulx, so we'll need two different versions of the same section in order to produce this output. The relevant source is right at the beginning:
+The trick here is that coloured output is done in different ways by the Z-Machine and by Glulx, so we'll need two different versions of the same section in order to produce this output. The relevant source is right at the beginning:
 
   
 
@@ -38,7 +38,7 @@ Section 0Z (for Z-machine only)
 ```
 
   
-The Basic Screen Effects extension bundled with Inform includes mechanisms to change the text color, so for the Z-machine, we need only include this:
+The Basic Screen Effects extension bundled with Inform includes mechanisms to change the text colour, so for the Z-machine, we need only include this:
 
   
 
@@ -49,7 +49,7 @@ Section 0G (for Glulx only)
 ```
 
   
-Under Glulx, we need slightly more set-up: Glulx requires that we define special user font styles when we plan to make display changes. A fuller discussion of this (and of how to define new colors) appears in the documentation of "Glulx Text Effects", but an implementation sufficient to our purposes would be
+Under Glulx, we need slightly more set-up: Glulx requires that we define special user font styles when we plan to make display changes. A fuller discussion of this (and of how to define new colours) appears in the documentation of "Glulx Text Effects", but an implementation sufficient to our purposes would be
 
   
 

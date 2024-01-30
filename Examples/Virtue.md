@@ -2,7 +2,7 @@ Example: * Virtue
 Location: Giving instructions to other people
 RecipeLocation: Obedient Characters
 Index: People who reject categories of instruction
-Description: Defining certain kinds of behavior as inappropriate, so that other characters will refuse indignantly to do any such thing.
+Description: Defining certain kinds of behaviour as inappropriate, so that other characters will refuse indignantly to do any such thing.
 For: Z-Machine
 
   

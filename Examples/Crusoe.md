@@ -9,7 +9,7 @@ For: Z-Machine
 Suppose we want to add rules so that any time we examine a charred object (and most of our objects can be charred), a line about the charring is appended to the end of the object description. We could use "after examining...", but perhaps we would prefer for the sentence about the charring not to appear in its own paragraph.
 
   
-This is an ideal occasion for a new activity. We look at the action index for "examining" to identify the rule that causes the old behavior (in this case, the "standard examining rule"); replace this with a new rule that calls our activity; and write our "printing the description" activity in such a way that it uses an object's description without forcing a paragraph return afterward.
+This is an ideal occasion for a new activity. We look at the action index for "examining" to identify the rule that causes the old behaviour (in this case, the "standard examining rule"); replace this with a new rule that calls our activity; and write our "printing the description" activity in such a way that it uses an object's description without forcing a paragraph return afterward.
 
   
 Then we will use "after printing the description" to add our line about charring, and make sure that the paragraph return does occur before the prompt.

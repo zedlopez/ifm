@@ -29,7 +29,7 @@ Carry out taking inventory (this is the new print inventory rule):
 ```
 
   
-This is very much like the library's standard behavior, but with the exception that "giving inventory information" or even "giving brief inventory information" are omitted. Here's how we supplant it:
+This is very much like the library's standard behaviour, but with the exception that "giving inventory information" or even "giving brief inventory information" are omitted. Here's how we supplant it:
 
   
 
@@ -39,7 +39,7 @@ This is very much like the library's standard behavior, but with the exception t
 ```
 
   
-Now, our property-aggregation rulebook is going to look at a given object and decide on a list of features that should be mentioned in inventory. We'll start by producing something quite similar to Inform's default behavior:
+Now, our property-aggregation rulebook is going to look at a given object and decide on a list of features that should be mentioned in inventory. We'll start by producing something quite similar to Inform's default behaviour:
 
   
 

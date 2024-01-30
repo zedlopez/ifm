@@ -71,10 +71,10 @@ Inform's usual rule-ranking also means that more-specific rules will override le
 ```
 
   
-and have that rule override the behavior of the activity just in the kitchen. Meanwhile, our base room descriptions remain straightforward and uncluttered by if-statements.
+and have that rule override the behaviour of the activity just in the kitchen. Meanwhile, our base room descriptions remain straightforward and uncluttered by if-statements.
 
   
-Several other examples will show how to hook activities into existing actions: [Crusoe] goes into detail about how how to make the descriptions of things more variable, and [Aftershock] demonstrates activities for describing the behavior of switchable devices.
+Several other examples will show how to hook activities into existing actions: [Crusoe] goes into detail about how how to make the descriptions of things more variable, and [Aftershock] demonstrates activities for describing the behaviour of switchable devices.
 
   
 Here, we preview all of those methods, just to get a sense of how they work and why they might be useful in controlling a game. Subsequent chapters go into more detail about the syntax of creating activities and the list of activities that are already defined by Inform.

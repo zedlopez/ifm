@@ -710,7 +710,7 @@ A door is usually scenery.
 ```
 
   
-The next part could be simpler, but for rigor we will write it in such a way that it will work whether or not the serial comma is in use. This requires some extra work.
+The next part could be simpler, but for rigour we will write it in such a way that it will work whether or not the serial comma is in use. This requires some extra work.
 
   
 

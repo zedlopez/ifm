@@ -144,7 +144,7 @@ Check washing (this is the block washing rule):
 Now we might put this to work in a short example.
 
   
-One slight challenge lies in giving these assembled pieces separate descriptions. When we have an assembly that adds parts to objects, we can then talk about (for instance) "the stove's switch" elsewhere in the code. But items that have been assigned rooms are not named in the same way, so we cannot talk about "the Industrial Kitchen's stove" in our code as a way to assign it a description or special behavior. In quite a simple example, we could make the descriptions of the kind simply be the descriptions we want for the individual items:
+One slight challenge lies in giving these assembled pieces separate descriptions. When we have an assembly that adds parts to objects, we can then talk about (for instance) "the stove's switch" elsewhere in the code. But items that have been assigned rooms are not named in the same way, so we cannot talk about "the Industrial Kitchen's stove" in our code as a way to assign it a description or special behaviour. In quite a simple example, we could make the descriptions of the kind simply be the descriptions we want for the individual items:
 
   
 
@@ -204,5 +204,5 @@ Thor is a stove in the Industrial Kitchen. It supports a boiling pot.
 ```
 
   
-All these quirks are things that we (as the extension author) want to think out in advance: we should ideally warn authors about possible pitfalls in using our extension (if we can think of them) and point out ways of customising the behavior (if there are interesting ways).
+All these quirks are things that we (as the extension author) want to think out in advance: we should ideally warn authors about possible pitfalls in using our extension (if we can think of them) and point out ways of customising the behaviour (if there are interesting ways).
 

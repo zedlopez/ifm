@@ -2,7 +2,7 @@ Example: *** Bowler Hats and Baby Geese
 Location: During scenes
 RecipeLocation: Scripted Scenes
 Index: Scenes which restrict movement
-Description: Creating a category of scenes that restrict the player's behavior.
+Description: Creating a category of scenes that restrict the player's behaviour.
 For: Z-Machine
 
   

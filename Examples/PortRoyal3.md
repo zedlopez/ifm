@@ -86,5 +86,5 @@ And we might make the Feathers Tavern part of the Inland area, but within its ow
 ```
 
   
-Now the index map will be colored to reflect our regions, and later in the game development we would be able to make rules that affect just one region at a time.
+Now the index map will be coloured to reflect our regions, and later in the game development we would be able to make rules that affect just one region at a time.
 

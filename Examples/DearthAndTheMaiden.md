@@ -1,7 +1,7 @@
 Example: * Dearth and the Maiden
 Location: Kinds of action
 RecipeLocation: Characterisation
-Index: Restrictions preventing inappropriate behavior
+Index: Restrictions preventing inappropriate behaviour
 Description: Our heroine, fallen among gentleman highwaymen, is restrained by her own modesty and seemliness.
 For: Z-Machine
 

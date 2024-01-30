@@ -71,5 +71,5 @@ Test me with "1845 / z / z / 1787 / 1792 / z / 1845 / g".
 ```
 
   
-Note that the situation will become a little more complicated if we have two or more identical topics in our trivia list; in that case, we would need to loop through the Table of Dates of Statehood explicitly, and only mark the player wrong if none of the lines were found to match. (See the chapter on [Tables] for many more ways to manipulate table behavior.)
+Note that the situation will become a little more complicated if we have two or more identical topics in our trivia list; in that case, we would need to loop through the Table of Dates of Statehood explicitly, and only mark the player wrong if none of the lines were found to match. (See the chapter on [Tables] for many more ways to manipulate table behaviour.)
 

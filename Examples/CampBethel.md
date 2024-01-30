@@ -2,7 +2,7 @@ Example: ** Camp Bethel
 Location: Text with random alternatives
 RecipeLocation: Liveliness
 Index: People who do new things each time the player looks
-Description: Creating characters who change their behavior from turn to turn, and a survey of other common uses for alternative texts.
+Description: Creating characters who change their behaviour from turn to turn, and a survey of other common uses for alternative texts.
 For: Z-Machine
 
   
@@ -23,7 +23,7 @@ One use for text alternatives is to change the description of a room after first
 ```
 
   
-We might also want to liven up the behavior of people and animals, who are probably not doing the exact same thing every time we glance in their direction. There are more complex techniques for modeling the behavior of characters, as we will see in the chapters on [Advanced Actions] and [Activities]; but if we just want some textual variety, we might write something like:
+We might also want to liven up the behaviour of people and animals, who are probably not doing the exact same thing every time we glance in their direction. There are more complex techniques for modeling the behaviour of characters, as we will see in the chapters on [Advanced Actions] and [Activities]; but if we just want some textual variety, we might write something like:
 
   
 

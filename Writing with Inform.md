@@ -11651,7 +11651,7 @@ And now ``take birds`` tries to take all four ducks and the magpie too.
 
 In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinise the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
 
-If you don't want this behavior, it can be suppressed with a use option:
+If you don't want this behaviour, it can be suppressed with a use option:
 
 ``` inform7
 Use no automatic plural synonyms.
@@ -14355,7 +14355,7 @@ The value is produced only when a rule succeeds, using this phrase:
 >
 > This phrase can only be used in a rule which produces a value, and the value given must be of the right kind. It causes the current rule to finish immediately, to succeed, and to produce the value given.
 
-How are we to use the cat behavior rulebook? If we write:
+How are we to use the cat behaviour rulebook? If we write:
 
 ``` inform7
 follow cat behavior
@@ -17261,11 +17261,11 @@ The opening character is an asterisk if the file is currently ready, a hyphen if
 
 Testing a story – and indeed writing a story so that it is easy to test consistently – is an art in itself. We should expect that we'll do some preliminary testing, both by running test commands and by playing through the story ourselves, and that we'll then hand on the story to beta-testers who will tell us about faults in the play experience that we haven't been able to see.
 
-Every time Inform builds a new story file, it assembles a vast amount of information about that world, in the form of the Index. Often a visit to the Index is all that's needed to explain a piece of undesired behavior.
+Every time Inform builds a new story file, it assembles a vast amount of information about that world, in the form of the Index. Often a visit to the Index is all that's needed to explain a piece of undesired behaviour.
 
 Is travel not working as it should? Check the World index and see whether the map shows the rooms arranged the way you thought.
 
-Are objects not showing the behavior you'd expect based on their kind? Check the Kinds index and make sure they've been defined as the kind of thing you expected. For instance, we might find that we've written
+Are objects not showing the behaviour you'd expect based on their kind? Check the Kinds index and make sure they've been defined as the kind of thing you expected. For instance, we might find that we've written
 
 ``` inform7
 The red door is west of Foo and east of Bar.
@@ -17301,7 +17301,7 @@ Test megatest with "test me / test eo".
 
 A word of warning: if the first command in the test is "again", that will likely repeat the ``test`` command, sending Inform round in circles forever.
 
-For complicated objects and commands, sometimes it's a good idea to develop the test commands at the same time that we're writing the source code itself. Each time we add a new rule or piece of behavior, we also add to that object's special test command something that will put that new feature to the test. This means that we can keep running the test command as we work and verify that everything is behaving as expected.
+For complicated objects and commands, sometimes it's a good idea to develop the test commands at the same time that we're writing the source code itself. Each time we add a new rule or piece of behaviour, we also add to that object's special test command something that will put that new feature to the test. This means that we can keep running the test command as we work and verify that everything is behaving as expected.
 
 Sometimes we need to get a look at what is happening within the source itself. Many of the most annoying bugs come about because we're making some assumptions about what's true in the story world that differ from Inform's assumptions. When that happens, we may need to add something to the source to check that the variables are set to what we think, that certain parts of the source are being reached, and so on.
 
@@ -17411,7 +17411,7 @@ To find out more about what is going on in specific rules, we can also turn to t
 
 ``scenes`` lists which scenes are currently playing and which are complete. This is valuable if scene-triggered events are not happening when we expect them to.
 
-``random`` sets the random number generator to a predictable seed. If we include this in a test command, it will guarantee that the subsequent behavior of the story is consistent across multiple playthroughs, which is helpful if we're trying to test something to do with, say, randomly wandering non-player characters.
+``random`` sets the random number generator to a predictable seed. If we include this in a test command, it will guarantee that the subsequent behaviour of the story is consistent across multiple playthroughs, which is helpful if we're trying to test something to do with, say, randomly wandering non-player characters.
 
 ``relations`` lists all the relations defined in the story, except for things like support and containment that are part of the world model and are so numerous that the output would be overwhelming.
 
@@ -17565,7 +17565,7 @@ There are also some extensions that are designed to assist with this, notably th
 
 Inform includes a command that is especially designed to help beta-testers report flaws: namely, ``transcript``. A tester can type ``transcript`` (or just ``script``) at the beginning of the story in order to start generating a recording of everything that happens. She can then add her own annotations when something buggy or otherwise notable occurs (for instance by typing a standard symbol, such as \*, followed by a note).
 
-When she then sends us the completed transcript, we can look through for these symbols and note the problems the tester found in the context of the rest of the story's behavior. Having information about how she reached that position typically makes it much easier to reproduce the problem than if she gave only a general account of it.
+When she then sends us the completed transcript, we can look through for these symbols and note the problems the tester found in the context of the rest of the story's behaviour. Having information about how she reached that position typically makes it much easier to reproduce the problem than if she gave only a general account of it.
 
 ## Help from the user community
 
