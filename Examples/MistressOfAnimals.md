@@ -1,6 +1,6 @@
 Example: * Mistress of Animals
 Location: Adjacent rooms and routes through the map
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: Person who moves randomly
 Description: A person who moves randomly between rooms of the map.
 For: Z-Machine

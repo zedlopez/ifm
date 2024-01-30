@@ -1261,7 +1261,7 @@ The Hammock Emporium is a room. "This is Cousin Ed's shop, the big dream he left
 
 But often we want our first-glance comment to come after some items in the room are described; and for this effect, we would use the "first look rule" defined in [Saint Eligius].
 
-If these methods are not enough, the looking action has an action-specific variable called "the room-describing action", which records whether this particular instance of looking comes about because the player typed ``look`` or because the player traveled to a new location. We can consult this variable if we want to make looking work  differently after going, as for instance here:
+If these methods are not enough, the looking action has an action-specific variable called "the room-describing action", which records whether this particular instance of looking comes about because the player typed ``look`` or because the player travelled to a new location. We can consult this variable if we want to make looking work  differently after going, as for instance here:
 
 ``` inform7
 Check looking when the room-describing action is the going action:
@@ -1744,7 +1744,7 @@ Another kind of script is a series of actions for the character to perform. [Rob
 
 - [Goal-Seeking Characters] for characters that work out plans for themselves in order to accomplish various outcomes.
 
-## Traveling Characters
+## Travelling Characters
 
 ^^{characters (people): moving around}^^{going+action+: other characters moving around}
 There are a number of ways we can make characters navigate our map. We might reasonably want them to approach and follow the player (as in [Van Helsing]); or to allow the player to follow characters who have left the room (as in [Actaeon]).
@@ -1853,7 +1853,7 @@ We must exercise a little bit of care if it is possible for the chain of actions
 
 ### See Also
 
-- [Traveling Characters] for characters who plan routes to locations and travel towards them.
+- [Travelling Characters] for characters who plan routes to locations and travel towards them.
 - [Event Scheduling] for characters who follow a pre-written schedule of activities.
 - [Plot Management] for having a central function direct all the characters in order to further the plot.
 
@@ -1872,7 +1872,7 @@ Characters can also have complicated attitudes to one another, and it can be hel
 
 ### See Also
 
-- [Traveling Characters] for groups of characters who move around and have their movements collated into a joint description.
+- [Travelling Characters] for groups of characters who move around and have their movements collated into a joint description.
 
 # Vehicles, Animals and Furniture
 
@@ -2137,7 +2137,7 @@ This is easy because we know all the variations we want. But what if we want the
 
 Should we want a computer that responds to vocal commands, as in ``ask computer about klingons``, the built-in extension Inanimate Listeners will allow the player to talk to inanimate objects as well as people.
 
-## Painting and Labeling Devices
+## Painting and Labelling Devices
 
 ^^{paint (implementing)}
 Writing on something is only one way a player can change its visual appearance. IF authors have long been wary of paint brushes, because a sufficiently motivated player could go through a whole landscape like a graffiti artist with a railway bridge. We want to give the player the illusion of freedom of action, while avoiding a situation where unlimited numbers of different decorations might be needed–that would need a table of potentially unlimited size.

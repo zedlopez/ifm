@@ -9,7 +9,7 @@ For: Z-Machine
 By default, when the player pushes something a direction, Inform checks to make sure that the object is pushable between rooms. If not, it blocks the action; if so, it carries out a normal going action with the pushed object taken along.
 
   
-Also by default, this action produces only a description of the new room that we've traveled into. But suppose we would like to print a short message describing the pushing action first:
+Also by default, this action produces only a description of the new room that we've travelled into. But suppose we would like to print a short message describing the pushing action first:
 
   
 

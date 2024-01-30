@@ -1,6 +1,6 @@
 Example: ** Van Helsing
 Location: The location of something
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: Person who follows the player
 Description: A character who approaches the player, then follows them from room to room.
 For: Z-Machine

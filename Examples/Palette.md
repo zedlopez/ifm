@@ -1,6 +1,6 @@
 Example: * Palette
 Location: Understanding values
-RecipeLocation: Painting and Labeling Devices
+RecipeLocation: Painting and Labelling Devices
 Index: Colour names for exotic pigments
 Description: An artist's workshop in which the canvas can be painted in any colour, and where painterly names for pigments ("cerulean") are accepted alongside everyday ones ("blue").
 For: Z-Machine

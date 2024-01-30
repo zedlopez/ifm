@@ -1,6 +1,6 @@
 Example: ** Odyssey
 Location: Adding and removing rows
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: Person who moves on a pre-determined path
 Description: A person who follows a path predetermined and stored in a table, and who can be delayed if the player tries to interact with her.
 For: Z-Machine

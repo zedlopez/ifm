@@ -1,6 +1,6 @@
 Example: *** Latris Theon
 Location: Giving instructions to other people
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: Person who finds a path to a destination specified by player
 Description: A person who can accept instructions to go to new destinations and move towards them according to the most reasonable path.
 For: Z-Machine

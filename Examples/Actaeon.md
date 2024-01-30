@@ -1,6 +1,6 @@
 Example: ** Actaeon
 Location: Understanding any, understanding rooms
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: FOLLOW command
 Description: A ``follow`` command allowing the player to pursue a person who has just left the room.
 For: Z-Machine

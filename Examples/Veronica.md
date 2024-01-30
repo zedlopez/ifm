@@ -1,7 +1,7 @@
 Example: * Veronica
 Location: Going from, going to
 RecipeLocation: Going, Pushing Things in Directions
-Index: Regions, traveling from
+Index: Regions, travelling from
 Description: An effect that occurs only when the player leaves a region entirely.
 For: Z-Machine
 

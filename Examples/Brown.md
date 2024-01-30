@@ -1,6 +1,6 @@
 Example: *** Brown
 Location: Parts of things
-RecipeLocation: Painting and Labeling Devices
+RecipeLocation: Painting and Labelling Devices
 Index: Red sticky label
 Description: A red sticky label which can be attached to anything in the game, or removed again.
 For: Z-Machine

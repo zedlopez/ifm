@@ -1,6 +1,6 @@
 Example: *** Early Childhood
 Location: Duplicates
-RecipeLocation: Painting and Labeling Devices
+RecipeLocation: Painting and Labelling Devices
 Index: Duplicated blue, red and green building blocks
 Description: A child's set of building blocks, which come in three different colours - red, green and blue - but which can be repainted during play.
 For: Z-Machine

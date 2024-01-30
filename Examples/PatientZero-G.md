@@ -1,6 +1,6 @@
 Example: **** Patient Zero
 Location: New rulebooks
-RecipeLocation: Traveling Characters
+RecipeLocation: Travelling Characters
 Index: People perform errands and randomly spread disease
 Description: People who wander around the map performing various errands, and in the process spread a disease which only the player can eradicate.
 For: Glulx

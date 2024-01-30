@@ -16989,7 +16989,7 @@ Once again, sound effects are supported by Inform 7 only on the Glulx platform, 
 
 The sound files provided must have one of two formats: AIFF or Ogg Vorbis. AIFF is a traditional format in the recording industry, though it is more familiar to Mac OS X users than Windows users. It is uncompressed, giving what can be excellent audio quality, but at the cost of sometimes enormous file sizes – perhaps as much as 10 MB per minute, though this can be greatly reduced by lowering the sampling frequency, and halved again by dropping from stereo to mono.
 
-Except for very short sound effects, we recommend using **Ogg Vorbis** instead. This is a compressed format whose file sizes will typically be more like 1 MB per minute. Inform uses Ogg Vorbis as the only format safe from licencing and patent disputes. (We would very much have liked to provide MP3 support, but this is no longer legally possible for free software.)
+Except for very short sound effects, we recommend using **Ogg Vorbis** instead. This is a compressed format whose file sizes will typically be more like 1 MB per minute. Inform uses Ogg Vorbis as the only format safe from licensing and patent disputes. (We would very much have liked to provide MP3 support, but this is no longer legally possible for free software.)
 
 Support for Ogg Vorbis is not built in to either Windows or Mac OS X, and any sound recording you make will probably have to be made first to another format (perhaps AIFF or WAV), and then converted. See [xiph.org/vorbis](https://xiph.org/vorbis/) for encoding software which can convert from other sound formats to Vorbis.
 
@@ -17536,7 +17536,7 @@ Just occasionally, we might also want to build a version of a story that will al
 
 [ZL: There should be a more specific account of: compiling with Go: includes `not for release` sections/excludes `for release only` sections; includes debug commands; does *not* write anything to project.materials/Release. Release for testing: includes `not for release` sections/excludes `for release only` sections; includes debug commands; *does* write to project.materials/Release. Release: does *not* include `not for release` sections; includes debug commands; *does* write to project.materials/Release. Release: includes `for release only` sections/excludes `not for release` sections; doesn't include debug commands; does write to project.materials/Release.]::
 
-To do this, we can use the "Release for Testing" feature. Release for testing builds a version of the story that *does* include testing commands and any sections labeled "Not for release".
+To do this, we can use the "Release for Testing" feature. Release for testing builds a version of the story that *does* include testing commands and any sections labelled "Not for release".
 
 ## Testing for thoroughness
 
@@ -18622,7 +18622,7 @@ However, the Inform project does recognise some extensions as "public". Public e
 
 [ ZL: nothing Inform has ever said about CC-BY is true. https://intfiction.org/t/attribution-etiquette-question-when-updating-changing-someone-elses-extension/60201/4 and I think it's misinformation that's ultimately dangerous to the community ]::
 
-Writers who wish to make their extensions public on the Inform website should also be clear that by doing so, they are donating their work to the community on the basis of the broadest form of Creative Commons license: that is, they retain copyright and the right to be identified as the author (and as we shall see they are automatically credited in any work of IF which uses their extension), but are giving unlimited permission to use, circulate and republish their extensions in any form, even as part of commercial works (should that arise). To publish a public extension is a public-spirited act, done for only the reward of a modest acknowledgement.
+Writers who wish to make their extensions public on the Inform website should also be clear that by doing so, they are donating their work to the community on the basis of the broadest form of Creative Commons licence: that is, they retain copyright and the right to be identified as the author (and as we shall see they are automatically credited in any work of IF which uses their extension), but are giving unlimited permission to use, circulate and republish their extensions in any form, even as part of commercial works (should that arise). To publish a public extension is a public-spirited act, done for only the reward of a modest acknowledgement.
 
 If the author of an extension has not made it public, or indicated in some other way that it is free to be used without the need for permission, then it would be both polite and prudent to check with the author before publishing something which incorporates their work.
 
