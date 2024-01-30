@@ -18237,41 +18237,42 @@ Northern Oxfordshire is a region. Hampton Poyle and Steeple Barton are in Northe
 
 Note that all map-maker settings have single word names, though many are hyphenated, and that "colour" is always given the English and Canadian spelling, not the American form "color".
 
-
-- font					font (named in double-quotes)
-- minimum-map-width		integer (measured in points: 72 = 1 inch)
-- title					text (in double-quotes)
-- title-size				integer (measured in points)
-- title-font				font (named in double-quotes)
-- title-colour			colour (named in double-quotes)
-- map-outline				on/off
-- border-size				integer (measured in points)
-- vertical-spacing		integer (measured in points)
-- monochrome				on/off
-- annotation-size			integer (measured in points)
-- annotation-length		integer (length to abbreviate down to)
-- annotation-font			font (named in double-quotes)
-- subtitle				text (in double-quotes)
-- subtitle-size			integer (measured in points)
-- subtitle-font			font (named in double-quotes)
-- subtitle-colour			colour (named in double-quotes)
-- grid-size				integer (measured in points)
-- route-stiffness			integer (Bezier spline curve scale factor)
-- route-thickness			integer (measured in points)
-- route-colour			colour (named in double-quotes)
-- room-offset				offset (in percentages of grid-size)
-- room-size				integer (measured in points)
-- room-colour				colour (named in double-quotes)
-- room-name				text (in double-quotes)
-- room-name-size			integer (measured in points)
-- room-name-font			font (named in double-quotes)
-- room-name-colour		colour (named in double-quotes)
-- room-name-length		integer (length to abbreviate down to)
-- room-name-offset		offset (in percentages of grid-size)
-- room-outline			on/off
-- room-outline-colour		colour (named in double-quotes)
-- room-outline-thickness	integer (measured in points)
-- room-shape				shape (named in double-quotes)
+|Setting|Specification|
+|---|---|
+| font | font (named in double-quotes) |
+| minimum-map-width | integer (measured in points: 72 = 1 inch) |
+| title | text (in double-quotes) |
+| title-size | integer (measured in points) |
+| title-font | font (named in double-quotes) |
+| title-colour | colour (named in double-quotes) |
+| map-outline | on/off |
+| border-size | integer (measured in points) |
+| vertical-spacing | integer (measured in points) |
+| monochrome | on/off |
+| annotation-size | integer (measured in points) |
+| annotation-length | integer (length to abbreviate down to) |
+| annotation-font | font (named in double-quotes) |
+| subtitle | text (in double-quotes) |
+| subtitle-size | integer (measured in points) |
+| subtitle-font | font (named in double-quotes) |
+| subtitle-colour | colour (named in double-quotes) |
+| grid-size | integer (measured in points) |
+| route-stiffness | integer (Bezier spline curve scale factor) |
+| route-thickness | integer (measured in points) |
+| route-colour | colour (named in double-quotes) |
+| room-offset | offset (in percentages of grid-size) |
+| room-size | integer (measured in points) |
+| room-colour | colour (named in double-quotes) |
+| room-name | text (in double-quotes) |
+| room-name-size | integer (measured in points) |
+| room-name-font | font (named in double-quotes) |
+| room-name-colour | colour (named in double-quotes) |
+| room-name-length | integer (length to abbreviate down to) |
+| room-name-offset | offset (in percentages of grid-size) |
+| room-outline | on/off |
+| room-outline-colour | colour (named in double-quotes) |
+| room-outline-thickness | integer (measured in points) |
+| room-shape | shape (named in double-quotes) |
 
 ## Kinds of value accepted by the map-maker
 
