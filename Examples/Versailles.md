@@ -19,7 +19,7 @@ Instead of searching the mirror:
 ```
 
   
-This is the same as "a random thing which is in the location": phrase "in..." can be used briefly in Inform as it can in English.
+This is the same as "a random thing which is in the location": phrase "in..." can be used briefly in Inform as it can in English. (The verb "to be in" means the reversed containment relation.)
 
   
 But, on a little more thought, we might want to expand on this: the mirror perhaps should reflect not only things that are in the room, but anything that the player can see (even if it's on a supporter or carried by someone). So then we might instead write

@@ -29,7 +29,9 @@ out of I7 that looks like this:
 
 ``` inform7
 say "[show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show]".
+```
 
+``` inform7
 {*}"Uncommon Ground"
 
 The Mud Village is a room. "You stand at the center of a [show to yourself]quaint[to Lolita]thrilling[to everyone else]squalid[end show] mud village."
