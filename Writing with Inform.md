@@ -1308,7 +1308,7 @@ The Standard Rules don't make people behave differently according to their gende
 
 ## Articles and proper names
 
-^^{articles} ^^{definite articles: when creating things} ^^{indefinite articles: when creating things} ^^{mass nouns} ^^{`some: article} ^^{`a / an / the --> a: in defining things} ^^{`an / a / the --> an: in defining things} ^^{`the / a / an --> the: in defining things} ^^{singular-named / plural-named (thing)+prop+} ^^{plural-named / singular-named (thing)+prop+} ^^{singular-named (thing)+propcat+} ^^{plural-named (thing)+propcat+} ^^{proper-named / improper-named (thing)+prop+} ^^{improper-named / proper-named (thing)+prop+} ^^{improper-named (thing)+propcat+} ^^{proper-named (thing)+propcat+} ^^{indefinite article of (object)+prop+} ^^{indefinite article of (object)+propcat+}
+^^{articles} ^^{definite articles: when creating things} ^^{indefinite articles: when creating things} ^^{mass nouns} ^^{`some: article} ^^{`a / an / the --> a: in defining things} ^^{`an / a / the --> an: in defining things} ^^{`the / a / an --> the: in defining things} ^^{singular-named / plural-named (thing)+prop+} ^^{plural-named / singular-named (thing)+prop+} ^^{singular-named (thing)+propcat+} ^^{plural-named (thing)+propcat+} ^^{ambiguously plural (thing)+propcat+} ^^{proper-named / improper-named (thing)+prop+} ^^{improper-named / proper-named (thing)+prop+} ^^{improper-named (thing)+propcat+} ^^{proper-named (thing)+propcat+} ^^{indefinite article of (object)+prop+} ^^{indefinite article of (object)+propcat+}
 
 Suppose we have said that:
 
@@ -1357,7 +1357,13 @@ The water is hardly portable.
 
 rather than "The water are hardly portable."
 
-Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named").
+Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named"). If we are being perfectionists, we might even want to declare that something is "ambiguously plural": for example,
+
+``` inform7
+On the silver salver is a ring of keys. The ring of keys is ambiguously plural. 
+```
+
+This warns Inform that the player could refer to the object in either a singular (``TAKE RING``) or plural (``TAKE KEYS``) way.
 
 ## Carrying capacity
 
@@ -12063,11 +12069,9 @@ A concept is a kind of object. A concept can be privately-named or publicly-name
 
 ## Changing the meaning of pronouns
 
-[ZL: mention ambigously plural https://inform7.atlassian.net/browse/I7-2121 ]::
+^^{pronouns: setting pronouns} ^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+} ^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+} ^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+} ^^{(HER), in player commands+commandpart+} ^^{ambiguously plural (thing)+propcat+}
 
-^^{pronouns: setting pronouns} ^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+} ^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+} ^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+} ^^{(HER), in player commands+commandpart+}
-
-The pronouns IT, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take`` IT on the next, and IT will be understood as meaning whatever ``necklace`` meant last turn.
+The pronouns ``it``, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take it`` on the next, and ``it`` will be understood as meaning whatever ``necklace`` meant last turn. (``it`` will be set for things with singular names, ``them`` for things with plural names, and both will be set for a thing which has been given the `ambiguously plural` property - for example, so that ``examine basket of rolls`` would set both ``it`` and ``them`` to the basket-of-rolls thing.)
 
 All of that happens automatically, but once in a while the result can be unfortunate. Suppose that when the player examines the necklace, a security system automatically drugs her unconscious, and she wakes up in a cell, hours later, and is told that the cell is bare except for a key on the floor. If she types ``take it``, she clearly doesn't mean ``it`` to mean the necklace any more; she means the key. Inform's parser can't make guesses like this, so the following phrase can be used to help it.
 
