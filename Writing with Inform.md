@@ -1039,7 +1039,7 @@ Backdrops can be put in regions as well as rooms, and if so, then they are prese
 The Outdoors Area is a region. The Moon is a backdrop. The Moon is in the Outdoors Area. The Moon is in the Skylight Room.
 ```
 
-[ZL: mention map region? https://inform7.atlassian.net/browse/I7-2120 ]
+The property "map region" for a room holds the region it is in, in case this is useful.
 
 The special place "everywhere" can be given as the location of a backdrop to make it omnipresent:
 
@@ -3621,8 +3621,6 @@ The bird feed is on the sundial.
 
 ...then "if the bird feed is in the sundial" won't be true: the relationship here is one called support (being on top of, in effect), not containment. But there's no confusion because "on" and "in" are different words, so it's no problem that they have different meanings.
 
-[ZL: mention map region https://inform7.atlassian.net/browse/I7-2120 ]::
-
 **Meaning 2.** Much less common. If X is "in" Y and Y is a region, then the meaning is slightly different. Suppose the Garden Area is a region, and contains several rooms – the Croquet Lawn, the Terrace and so on. Then
 
 ``` inform7
@@ -3631,7 +3629,7 @@ if the bird feed is in the Garden Area, ...
 if the Terrace is in the Garden Area, ...
 ```
 
-are all true. This seems very natural, but in fact is quite different from the first meaning of "in". It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment.
+are all true. This seems very natural, but in fact is quite different from the first meaning of "in". It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment. Note also that "if the Terrace is in R", where "R" is a region, this is not the same thing as asking "if the map region of the Terrace is R". The "map region" of a room is the region it is immediately in (if any). If the Terrace is in a region called Garden Area which in turn is in the region Middlesex, then "if the Terrace is in Middlesex" is true, but "if the map region of the Terrace is Middlesex" is false.
 
 **How Inform decides.** So which meaning does Inform use, and when? Since these two meanings are so different, it clearly matters.
 
