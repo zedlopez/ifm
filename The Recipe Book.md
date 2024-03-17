@@ -1222,9 +1222,9 @@ We may want to change the default refusal message when the player tries to pick 
 
 [Morning After] introduces a simple rule that changes the behaviour of the whole story: whenever the player takes an item they haven't already looked at, they automatically examine it. This picks up the pace of exploration passages where the player is likely to be collecting a large number of objects.
 
-[ZL: https://inform7.atlassian.net/browse/I7-2348 ]::
+When objects are moved, there are sometimes other actions associated with that which we want to happen as well; see [Democratic Process] for a demonstration of forcing a player to vote before a ballot is placed in a machine.
 
-By default, when the player tries to put or insert an item that isn't carried, Inform prints a refusal message; [Democratic Process] and [Sand] offer ways instead to have the player first pick up the relevant items. (The former applies to single items the player is trying to place; the latter expands coverage to work even if the player uses a command affecting multiple objects.)
+[Sand] shows how to extend the ordinary command grammar of Inform to allow multiple objects to be inserted or placed in a single command.
 
 Taking also happens as a result of other commands. Such takes can be made unnecessary by turning off the "carrying requirements rule" under particular circumstances, or presented differently using the implicitly taking activity.
 
