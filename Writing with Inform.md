@@ -8840,11 +8840,9 @@ say "[The actor] [put] [the noun] on [the second noun]."
 
 And this can make either:
 
-[ ZL: outside of the context of history texts about his treason in support of slavery, the fewer references to General Lee, the better ]::
-
 ``` transcript
-You put the revolver on the table.
-General Lee puts the revolver on the table.
+You put the Bill-signing pen on the table.
+President Obama puts the Bill-signing pen on the table.
 ```
 
 ## Adapting text about the player
