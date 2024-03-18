@@ -17482,9 +17482,7 @@ Test me with "eat grain" in the Fertile Plain.
 
 ``verify`` checks that the story file is intact rather than damaged, but it is hard to think of an occasion when this would be likely to arise within the Inform application. The command is a holdover from a time when data transfer was much slower and more error-prone, and it was plausible to have a story file of just a few hundred KB corrupted during transmission.
 
-[ZL: note it used to be tree? ]::
-
-``showtree`` creates a list of object containment. It is similar to ``showme``, but less elegant and thorough.
+``showtree`` creates a list of object containment. It is similar to ``showme``, but less elegant and thorough. (At one time, this command was ``tree``, but that proved to be too ambiguous a word to use for a debugging command.)
 
 ``scope`` lists the objects that are currently in scope for the player, which is to say, things that could be referred to when we're typing a typical command. Thus:
 
