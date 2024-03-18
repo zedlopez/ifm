@@ -11401,18 +11401,14 @@ As usual, the square brackets indicate something which stands for text, rather t
 
 [ZL: insert usual visible thing rant]::
 
-For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to "one visible thing" – the "visible" just means it does not need to be touched, only seen – so neither of these would be allowable:
-
-[ZL: `Understand "photograph" as photographing.` *is* permitted.]::
+For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to "one visible thing" – the "visible" just means it does not need to be touched, only seen – so these two Understand sentences are both a little odd:
 
 ``` inform7
 Understand "photograph" as photographing.
 Understand "photograph [someone] standing next to [something]" as photographing.
 ```
 
-[ZL: ...which this seems to sort of acknowledge, but it would be better to not say it wasn't allowed to begin with.]::
-
-The first is probably bad because it supplies no things at all, the second is certainly because it supplies two: what we want, of course, is just the one. (The reason the first is only probably bad is that it's possible to tell Inform how to choose the object if the player doesn't: see the "supplying a missing noun" activity.)
+The first is actually allowed by Inform, even though it supplies no things at all, but should only be used in conjunction with a rule for the "supplying a missing noun" activity which makes an automatic choice of the missing thing. The second line, though, is always wrong and is rejected with a problem message.
 
 ## New commands for old grammar {PM_ThreeValuedLine} {PM_TooManyAliases} {PM_TooManyGrammarLines} {PM_GrammarIllFounded}
 
