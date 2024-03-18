@@ -1312,9 +1312,6 @@ The Standard Rules don't make people behave differently according to their gende
 
 Suppose we have said that:
 
-[ZL: perhaps refer to ambigously plural if only to say that it *doesn't* have to do with these?]::
-
-
 ``` inform7
 In the Ballroom is a man called Mr Darcy.
 ```
@@ -1359,13 +1356,21 @@ rather than "The water are hardly portable."
 
 Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named").
 
-If we are being perfectionists, we might even want to declare that something is "ambiguously plural". What is ambiguous for such items is not whether their full names are singular or plural, but whether shortened versions of their names as typed by the player might be. For example:
+On rare occasions, the same item might be referred to in either a singular or plural way: for example, a box of matches, or a book of lottery tickets. In their full names, they are singular nouns ("box of matches" is a singular), but abbreviated descriptions of them (like "matches") are plural nouns. A story in play generally writes these names in full, so this ambiguity doesn't matter. But players might abbreviate them. For example:
 
 ``` inform7
-On the silver salver is a ring of keys. The ring of keys is ambiguously plural. 
+On the silver salver is a bouquet of flowers.
 ```
 
-Now, there is only one ring of keys here, so this is a singular-named item. But Inform allows something with a multi-word name like this to be referred to in a variety of abbreviated ways: for example, ``TAKE RING`` and ``TAKE KEYS`` have the same effect. Marking this item "ambiguously plural" warns Inform that its name could be abbreviated to either a plural noun (here, ``KEYS``) or a singular one (``RING``). That enables Inform to allow subsequent commands to refer to this item as either ``IT`` or ``THEM``. This difference in behaviour is a very small one and only affects command parsing, but we were after all being perfectionists.
+Now, there is only one bouquet of flowers here, so this is a singular-named item. If the player types ``TAKE BOUQUET``, the story will reply ``Taken.``, and the player can then ``EXAMINE IT``, because the pronoun ``IT`` is understood as meaning the last singularly-named item referred to which wasn't a person. But what if the player instead types ``TAKE FLOWERS``, and then on the next command, ``EXAMINE THEM``? Now ``THEM`` will not be understood.
+
+This small lapse in command parsing is what the property "ambiguously plural" is intended to avoid:
+
+``` inform7
+On the silver salver is a bouquet of flowers. The bouquet of flowers is ambiguously plural.
+```
+
+Now when the player's commands refer to the bouquet of flowers, the words ``IT`` and ``THEM`` are both set to it. The effect is that ``TAKE BOUQUET. EXAMINE IT`` and ``TAKE FLOWERS. EXAMINE THEM`` will both work.
 
 ## Carrying capacity
 
