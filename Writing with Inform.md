@@ -1357,13 +1357,15 @@ The water is hardly portable.
 
 rather than "The water are hardly portable."
 
-Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named"). If we are being perfectionists, we might even want to declare that something is "ambiguously plural": for example,
+Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named").
+
+If we are being perfectionists, we might even want to declare that something is "ambiguously plural". What is ambiguous for such items is not whether their full names are singular or plural, but whether shortened versions of their names as typed by the player might be. For example:
 
 ``` inform7
 On the silver salver is a ring of keys. The ring of keys is ambiguously plural. 
 ```
 
-This warns Inform that the player could refer to the object in either a singular (``TAKE RING``) or plural (``TAKE KEYS``) way.
+Now, there is only one ring of keys here, so this is a singular-named item. But Inform allows something with a multi-word name like this to be referred to in a variety of abbreviated ways: for example, ``TAKE RING`` and ``TAKE KEYS`` have the same effect. Marking this item "ambiguously plural" warns Inform that its name could be abbreviated to either a plural noun (here, ``KEYS``) or a singular one (``RING``). That enables Inform to allow subsequent commands to refer to this item as either ``IT`` or ``THEM``. This difference in behaviour is a very small one and only affects command parsing, but we were after all being perfectionists.
 
 ## Carrying capacity
 
@@ -12071,7 +12073,7 @@ A concept is a kind of object. A concept can be privately-named or publicly-name
 
 ^^{pronouns: setting pronouns} ^^{(IT), in player commands+commandpart+} ^^{pronouns: (IT), in player commands+commandpart+} ^^{(THEM), in player commands+commandpart+} ^^{pronouns: (THEM), in player commands+commandpart+} ^^{(HIM), in player commands+commandpart+} ^^{pronouns: (HIM/HER), in player commands+commandpart+} ^^{(HER), in player commands+commandpart+} ^^{ambiguously plural (thing)+propcat+}
 
-The pronouns ``it``, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take it`` on the next, and ``it`` will be understood as meaning whatever ``necklace`` meant last turn. (``it`` will be set for things with singular names, ``them`` for things with plural names, and both will be set for a thing which has been given the `ambiguously plural` property - for example, so that ``examine basket of rolls`` would set both ``it`` and ``them`` to the basket-of-rolls thing.)
+The pronouns ``it``, ``him``, ``her`` and ``them`` are constantly adjusted during play, to save the player time when typing commands. If the player types ``examine necklace`` on one turn, it's sufficient to type ``take it`` on the next, and ``it`` will be understood as meaning whatever ``necklace`` meant last turn. (``it`` will be set for things with singular names, but ``them`` for things with plural names. Both at once will be set for a thing which has been given the `ambiguously plural` property - for example, so that ``examine basket of rolls`` would set both ``it`` and ``them`` to the basket-of-rolls thing if that had been made `ambiguously plural`.)
 
 All of that happens automatically, but once in a while the result can be unfortunate. Suppose that when the player examines the necklace, a security system automatically drugs her unconscious, and she wakes up in a cell, hours later, and is told that the cell is bare except for a key on the floor. If she types ``take it``, she clearly doesn't mean ``it`` to mean the necklace any more; she means the key. Inform's parser can't make guesses like this, so the following phrase can be used to help it.
 
