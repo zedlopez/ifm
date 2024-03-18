@@ -37,10 +37,8 @@ The wider community of Inform writers has made a great wealth of material availa
 
 ## Acknowledgements
 
-[ZL: "past 15 years" worth updating? ]::
-
 ^^{ifwiki+web+}
-^{@David Fisher}'s [Past raif topics](https://www.ifwiki.org/Past_raif_topics) pages on the [Interactive Fiction Wiki](https://www.ifwiki.org/) were an invaluable tool during the early design of these examples, as they catalog an enormous assortment of implementation problems encountered by IF authors over the past fifteen years.
+^{@David Fisher}'s [Past raif topics](https://www.ifwiki.org/Past_raif_topics) pages on the [Interactive Fiction Wiki](https://www.ifwiki.org/) were an invaluable tool during the early design of these examples, as they catalog an enormous assortment of implementation problems encountered by IF authors over the decades since 1990.
 
 Thanks also go to ^{@Nick Montfort} for several conversations during the development of Inform: these inspired a number of ideas about how the author should be able to control the textual output of a story, and suggested specific problem areas to work on.
 
@@ -62,8 +60,6 @@ One last preliminary: a handful of the examples do not show how to do anything a
 
 ## Varying What Is Written
 
-[ZL: missing: Fun with Participles ; Variety ; Variety 2 ; Narrative Register ; History Lab ; Relevant Relations ; Olfactory Settings ; Responsive ; Wesponses]::
-
 ^^{adaptive displayed text}^^{text substitutions}^^{randomness: text variations}
 Before getting to actual recipes, many recipe books begin with intimidating lists of high-end kitchen equipment (carbon-steel pans, a high-temperature range, a Provencal shallot-grater, a set of six pomegranate juicers): fortunately, readers who have downloaded Inform already have the complete kitchen used by the authors. But the other traditional preliminaries, about universal skills such as chopping vegetables, boiling water and measuring quantities, do have an equivalent.
 
@@ -75,11 +71,17 @@ Another reason to vary messages is to avoid unnatural phrasing. [Ballpark] turns
 
 [Blink], a short but demanding example from the extreme end of *Writing with Inform*, shows how the basic text variation mechanisms of Inform can themselves be extended. [Blackout] demonstrates text manipulation at a lower level, replacing every letter of a room name with "\*" when the player is in darkness.
 
-[ZL:: "included extension" ]::
-
-Inform's included extension Complex Listing allows us more control over the order and presentation of lists of items.
-
 For how to change printed text to upper, lower, sentence, or title casing, see [Rocket Man].
+
+[Variety] and [Variety 2] use a relation between actions and verbs so that, for example, the verb "to eat" could be associated with the action "eating". This enables some fancy tricks in describing actions. [History Lab] uses such tricks to show how items could be made to remember an appropriate verb to describe whatever last happened to them.
+
+[Olfactory Settings] shows some basic but powerful ways to make text fully adaptive, in the sense that it can change tense or person dynamically in play. [Narrative Register] shows how to make adaptive verbs adapt still further, by becoming more slangy, or more upbeat, and so on.
+
+[Responsive] modifies one of the standard "responses" from the Standard Rules — "You are carrying nothing." [Wesponses] goes very much further, modifying every response to write them as if read out with an exaggerated lisp.
+
+[Relevant Relations] provides a general way to present room descriptions in terms of what relationships exist between the things seen. Inform's regular method is excellent for human-scaled spatial situations, but what about a more abstract story, where things being "on" or "in" other things might not matter, whereas other relationships might?
+
+[Fun with Participles] also has some fun with room descriptions, making the sentences about what is present change during play.
 
 ## Varying What Is Read
 
@@ -567,9 +569,7 @@ In a plot that takes place over multiple locations or has several distinct scene
 
 [Entrevaux] constructs an organised system such that all scenes have their own lists of props and associated locations, and props are moved on and off automatically. Scene changes are also announced with a pause and a new title, such as "[Chapter 2, Adaptive Prose]: Abduction".
 
-[ZL: can't readily make Space Patrol link work]::
-
-[Space Patrol - Stranded on Jupiter!] inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
+[Space Patrol - Stranded on Jupiter] inserts an interlude in which the player's possessions and clothes are switched for new ones and the player moved to a new location–and then put back where they started from.
 
 ### See Also
 
@@ -720,10 +720,6 @@ Rule for printing the name of something (called the target):
 
 The mental model need not always be accurate, of course. We might, for instance, have occasion to keep track of where the player character last saw something, even if the object has since been moved; or keep track of falsehoods the player character has been told in conversation; or make the player refer to a character as "the bearded man" until he is properly introduced.
 
-[ZL: included... ]::
-
-Included with Inform is the extension Epistemology, by ^{@Eric Eve}, which provides one way of tracking this kind of information. Epistemology distinguishes between items that the player character has seen, because they're objects in a room the player has been to, and items that are familiar to the player for other reasons, such as a quest item they know about but haven't found yet, or an abstract conversation topic. Anything that is either seen or familiar is counted as "known".
-
 Modeling what the player does and does not know is only half the job, of course: we also need that information to affect the behaviour of the story in plausible ways.
 
 One obvious occasion to use player character knowledge is in the output of descriptions. We might want to respond to actions differently depending on what the player has previously done, as in [Tense Boxing], or change the way we describe objects in light of new knowledge about them, as in [Zero]. [Casino Banale] takes that idea much further, with a whole system of facts that can be narrated to the player in a somewhat flexible but interdependent order, as the player looks at relevant objects or notices them in room descriptions.
@@ -752,9 +748,7 @@ If the player mentions an object that is not "in scope" – say, a red hat left 
 
 This is not the only possible way for interactive fiction to handle such communication. Some games will respond differently to ``examine red hat`` and ``examine furszwiggle``, saying in the first case something like "You can't see that now" and in the second "I don't know the word 'furszwiggle'."
 
-[ZL: I'm not clear on what extension this is]::
-
-The drawback of such behaviour is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognised at all. If it is desirable, there is an extension that will reproduce this behaviour in Inform as well.
+The drawback of such behaviour is that the player can make premature discoveries. If they haven't found a sword yet, but think there may be a sword later in the story, they can type ``examine sword`` and see from the response whether their guess is correct. Nonetheless, there are people who prefer this alternative exactly because it does expose the limits of the story's understanding, preventing fruitless attempts to use a word that is not recognised at all.
 
 Using Inform's default behaviour, however, scope is an ad-hoc way of keeping a list of things that are common knowledge between the story and the player. The player knows many things that the story might not (like what a cell phone is); the story knows a few things the player may not (like the fact that there is a sword in an as-yet unvisited room). Neither of those things can fruitfully enter into commands because they have no mutually agreed-upon referent.
 
@@ -1071,9 +1065,7 @@ Before and After offer alternative easy forms of modification; the chapter on [B
 
 Changing the way an action works in all cases is usually better addressed by changing the main rulebook, rather than with one (or many) instead rules. We may add new check, carry out, and report rules to existing action rulebooks. The chapter on [Advanced Actions] describes these, and ends with some guidelines on when to use before, instead, and after, and when to use check, carry out, and report.
 
-[ZL: https://inform7.atlassian.net/browse/I7-2205 ]::
-
-Similarly, we may delete, move, or replace rules that are already present (see the chapter on [Rulebooks]). This is handy if we decide that an action has restrictions that we dislike and want to abolish. If the restriction we need to change is part of the accessibility rules–those which check whether the player can take, see, and touch items–we may need to look at Changing reachability or Changing visibility in the chapter on [Advanced Actions] (to revise what is allowed), at Deciding the scope of something in the chapter on [Activities] (to influence what can be seen when).
+Similarly, we may delete, move, or replace rules that are already present (see the chapter on [Rulebooks]). This is handy if we decide that an action has restrictions that we dislike and want to abolish. If the restriction we need to change is part of the accessibility rules–those which check whether the player can take, see, and touch items–we may need to look at "Changing reachability" or "Changing visibility" in the chapter on [Advanced Actions] (to revise what is allowed), or at "Deciding the scope of something" in the chapter on [Activities] (to influence what can be seen when).
 
 If, for instance, the player character is a burly fellow who can lift any other character they like:
 
@@ -1348,8 +1340,6 @@ We can also record a series of actions performed by the player or by another cha
 
 ## Actions on Multiple Objects
 
-[ZL: missing: Best Till Last]::
-
 ^^{actions: applying to multiple objects}^^{lists: the multiple object list}^^{+to+multiple object list}^^{deciding whether all includes+activity+} ^^{deciding whether all includes+activitycat+}^^{understanding: deciding whether (ALL) includes something+commandpart+}^^{(ALL), including things in+commandpart+}
 Inform allows a handful of actions–``take``, ``drop``, ``put``, ``insert``–to apply to more than one item at a time, so that the player can move things around easily.
 
@@ -1417,6 +1407,8 @@ Given that our hypothetical "multiply-giving" applies to each given object in tu
 
 [Western Art History 305] demonstrates how we might allow ``examine``, which doesn't normally permit multiple objects, to take them, but to give vaguer responses to a mass examination than an individual one.
 
+[The Best Till Last] shows a technique for arranging a multiple-object list into a more narratively satisfying order.
+
 ### See Also
 
 - [Examining] for groups of objects that have a collective description different from their individual descriptions, and for commands that search multiple things at once.
@@ -1449,10 +1441,6 @@ At other times, the player types something that is wrong in a predictable way: f
 and merely parse the remainder of the command. (That last command may be unlikely, but novice players do quite often type commands that refer unnecessarily to body parts.) [Cave-troll] demonstrates how.
 
 [WXPQ] demonstrates how to modify the error message the parser gives in response to a command it doesn't understand; this particular example focuses on the "That noun doesn't make sense in this context" message that arises from using the `"[any thing]"` or `"[any room]"` tokens, but the techniques could be adapted to handling other parser errors as well.
-
-[ZL: hasn't been current for a very long time]::
-
-For catching typing errors, ^{@Cedric Knight}'s extension Mistype may also be of use: it provides an automatic typo-correction function that the player can turn on or off.
 
 ## Alternatives To Standard Parsing
 
@@ -2000,9 +1988,6 @@ The matchbox, like the bucket, is a container. Containers come in all sizes and 
 ``` inform7
 The strongbox is a locked container. The little steel key unlocks the strongbox.
 ```
-[ZL: "built-in"]::
-
-Two built-in extensions enhance and modify the behaviour of locks and keys: Locksmith automates a number of steps, automatically unlocking doors when trying to open them (for instance). Skeleton Keys allows us to define multiple keys that unlock the same object, rather than being restricted to one matching key per item.
 
 For a container with a combination lock, rather than a key, see [Safety]; for a more sophisticated safe requiring digits dialed over multiple turns, see [Eyes, Fingers, Toes].
 
@@ -2131,10 +2116,6 @@ The computer display is on the desk. The description is "Giant green digits read
 
 This is easy because we know all the variations we want. But what if we want the player to write their own text, for instance, adding to a diary? This is trickier, because it means storing text as the player typed it, and replaying it later. (And suppose the player types reams and reams of text, not just a few words as we might have hoped?) [The Fourth Body] and [The Fifth Body] show how to use an external file–a multimedia trick requiring features only available if the project is set to the Glulx story file format–to handle even the most difficult cases.
 
-[ZL: "built-in"]::
-
-Should we want a computer that responds to vocal commands, as in ``ask computer about klingons``, the built-in extension Inanimate Listeners will allow the player to talk to inanimate objects as well as people.
-
 ## Painting and Labelling Devices
 
 ^^{paint (implementing)}
@@ -2189,9 +2170,7 @@ Telephones are much harder to achieve than televisions and in some ways as diffi
 
 A single telephone line is tricky enough to provide that one might just as well have a general solution providing a whole network. [Four Cheeses] demonstrates a system where we can dial either people or numbers: ``call janet on telephone``, or ``call 7103``, for instance.
 
-[ZL: Most of the US is on 10-digit numbers by now.]::
-
-While [Four Cheeses] provides only four-digit phone numbers, like internal company extensions, [Alias] shows how to manage US-style seven digit numbers.
+While [Four Cheeses] provides only four-digit phone numbers, like internal company extensions, [Alias] shows how to manage seven-digit numbers.
 
 Finally, we might occasionally want the player to be able to address a microphone or telephone receiver directly when the identity of the person on the other end is unknown, in the form ``tell microphone about crime``. Ordinarily Inform will disallow this because we're not allowed to talk to inanimate objects, but the extension Inanimate Listeners provides more options.
 
@@ -2398,14 +2377,14 @@ In the real world, physics is not negotiable. ("Gravity: it's not just a good id
 
 ## Mathematics
 
-[ZL: missing: the new Olympic Medals ]::
-
 ^^{calculation}
 It is uncommon, but not absolutely unheard-of, to need to do detailed mathematical calculations in interactive fiction.
 
 [The Fibonacci Sequence] demonstrates the calculation of a series of numbers; [Sieve of Eratosthenes] shows off how to calculate the prime numbers within a certain range.
 
 [Number Study] demonstrates conditional relations between numbers.
+
+[Olympic Medals] shows a non-standard way to sort a table of data numerically.
 
 # Out Of World Actions and Effects
 
