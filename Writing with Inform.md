@@ -1,5 +1,3 @@
-[ZL: I can't use square brackets inside these markdown-hack comments, so I'll substitute <angle-brackets>.]::
-
 [ZL: a mention of borogove.app is warranted somewhere]::
 
 # Welcome to Inform
@@ -734,9 +732,7 @@ Finally, it is best to avoid ambiguities rather than rely on Inform to know whic
 The life support unit fits the egg.
 ```
 
-[ZL: life is singular-named ]::
-
-in which Inform construed the verb as *support* and not *fits*, and then created items called "the life" (plural) and "unit fits the egg".
+in which Inform construed the verb as *support* and not *fits*, and then created items called "the life" and "unit fits the egg".
 
 That disclaimer completes the groundwork, and we are ready to begin on simulating a world to explore.
 
@@ -17508,8 +17504,6 @@ You can see a table here.
 ```
 
 The following numbers are object IDs for these objects, which can distinguish items with identical names. It is likely that the output of this will not be terribly interesting or different from checking ``showme``, except in cases where the author is deliberately changing the scope to be something other than "the set of things that are visible in the room with the player right now". This usually involves the Deciding the scope of something activity (see the chapter on [Activities]).
-
-[ZL: plenty helpful if you're OtisTDog, memory-leak-finder extraordinaire! ]::
 
 ``showheap`` shows how many bytes are currently free. This can sometimes to be helpful to tell when memory is slowly leaking due to a bug.
 
