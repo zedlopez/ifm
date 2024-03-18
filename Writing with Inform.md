@@ -15213,9 +15213,7 @@ To decide what text is (T - text) doubled:
 	decide on "[T][T]".
 ```
 
-[ZL: is "immediately it's formed" UK usage? sounds weird to my ears ]::
-
-"[T][T]" is substituted immediately it's formed. That's also a good thing, because "T" loses its meaning the moment the phrase finishes, which would make "[T][T]" meaningless anywhere else.
+"[T][T]" is substituted as soon as it is formed. That's also a good thing, because "T" loses its meaning the moment the phrase finishes, which would make "[T][T]" meaningless anywhere else.
 
 What's going on here is this: Inform substitutes text immediately if it contains references to a temporary value such as "T", and otherwise only if it needs to access the contents. This is why `"[time of day]"` isn't substituted until we need to print it out (or, say, access the third character): "time of day" is a value which always exists, not a temporary one.
 
