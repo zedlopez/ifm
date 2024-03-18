@@ -7235,9 +7235,14 @@ Unsuccessful attempt by Will going:
 	otherwise say "Will blunders around going nowhere, as usual."
 ```
 
-[ZL: should the below be ``rules`` instead of ``actions`` ?]::
+The value "reason the action failed" is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory – at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored – and can be found out either using ``actions`` or by consulting the Actions index:
 
-The value "reason the action failed" is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory – at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored – and can be found out either using ``actions`` or by consulting the Actions index.
+	> ACTIONS
+	Actions listing on.
+	> TAKE ME
+	[taking yourself]
+	You are always self-possessed.
+	[taking yourself - failed the can't take yourself rule]
 
 Finally, note that "unsuccessful attempt" rules apply only when the person in question is being asked to perform the action by somebody else – as in the examples above.
 
@@ -10286,8 +10291,6 @@ will only reliably work if there is no possibility of a tie. A safer bet is:
 ``` inform7
 if the lead pig is the weight of the heaviest thing on the platform
 ```
-
-[ZL: how far I've gotten]::
 
 ## Equations {EQUATIONS} {PM_EquationMisnumbered} {PM_EquationMisnamed} {PM_EquationSymbolMisdeclared} {PM_EquationSymbolMalformed} {PM_EquationSymbolVague} {PM_EquationSymbolNonValue} {PM_EquationSymbolEqualsKOV} {PM_EquationSymbolNonNumeric} {PM_EquationSymbolBadSub} {PM_EquationSymbolSpurious} {PM_EquationTokenUnrecognised} {PM_EquationLeadingZero} {PM_EquationOperatorUnrecognised} {PM_EquationTooComplex} {PM_EquationMispunctuated} {PM_EquationDoesntEquate} {PM_EquationEquatesBadly} {PM_EquationEquatesMultiply} {PM_EquationIncomparable}  {PM_EquationDimensionPower} {PM_EquationBadArithmetic} {PM_EquationBadTarget} {PM_EquationInsoluble} {PM_EquationSymbolMissing} {PM_EquationSymbolWrongKOV}
 
@@ -17508,7 +17511,7 @@ The following numbers are object IDs for these objects, which can distinguish it
 
 [ZL: plenty helpful if you're OtisTDog, memory-leak-finder extraordinaire! ]::
 
-``showheap`` shows how many bytes are currently free. This is usually not helpful.
+``showheap`` shows how many bytes are currently free. This can sometimes to be helpful to tell when memory is slowly leaking due to a bug.
 
 ``showverb`` (verbname) lists the Understand information associated with a particular verb. Similar information, in a vastly more palatable form, is available in Index / Actions / Commands, so the one time ``showverb`` becomes useful is when Inform is considering the understand lines in the wrong order and producing a result we didn't want: ``showverb`` will show us the order in which the lines are being assessed. The challenge will then be to add conditions to the Understand lines to move them into the correct order.
 
