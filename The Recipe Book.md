@@ -23,15 +23,13 @@ Test me with "enter gates".
 
 **The Recipe Book** is not a tutorial – it offers advice and examples to crib from, not theory or systematic teaching. The examples here are provided with the express intention that authors cut and paste useful passages into their own works, modifying as they go. This is an excellent way to get things working quickly.
 
-[ZL: https://inform7.atlassian.net/browse/I7-2249 Inform licence reference ]::
-
-In the traditional saying: good programmers write good code, but great programmers steal it. (Appropriately enough, nobody seems to know who said this first.) For the avoidance of any doubt–the example text is here to be taken, and this infringes no copyright, and requires no acknowledgement. So steal at will. The examples are a part of Inform itself, and as such, they are available to anyone who accepts the Inform licence.
+In the traditional saying: good programmers write good code, but great programmers steal it. (Appropriately enough, nobody seems to know who said this first.) For the avoidance of any doubt–the example text is here to be taken. Since it is part of the core Inform distribution, it is legally placed under the Artistic License 2.0, which allows its use with almost no restrictions. Its main stipulation is simply that authors who rework Inform into something different need to give the result a different name. For the avoidance of any doubt, that consideration does not apply to such small fragments of the Inform repository as the examples. So, please feel entirely free to copy and adapt code from the examples: this infringes no copyright, and requires no acknowledgement, even in a commercially sold work.
 
 Many programming languages for conventional computing, such as C, come with elaborate libraries of ready-written code – so elaborate, in fact, that they often need much larger manuals than the language itself, and can be hard to learn. Even expert programmers typically use only a small part of what is available in such libraries, giving up on the rest as too complex to use, or too difficult to find out about, or not quite what they need.
 
 The designers of Inform chose not to go down this road. Rather than providing a general system for liquids (say), which would have to be a quite complicated and opaque program, Inform provides a choice of examples showing how to get different effects. The writer can read the text which achieves these effects, and can simply cut and paste whatever might be useful, and rewrite whatever is not quite wanted.
 
-The wider community of Inform writers has made a great wealth of material available in the form of Extensions, too, and under a Creative Commons Attribution licence requiring only a namecheck: we don't cover the Extensions in this book, because it would grow far too long and be a constant labour to maintain, but it's well worth seeing what is out there.
+The wider community of Inform writers has made a great wealth of material available in the form of Extensions, too: we don't cover the Extensions in this book, because it would grow far too long and be a constant labour to maintain, but it's well worth seeing what is out there.
 
 ### See Also
 
@@ -2413,10 +2411,10 @@ It is uncommon, but not absolutely unheard-of, to need to do detailed mathematic
 
 ## Start-Up Features
 
-[ZL: https://inform7.atlassian.net/browse/I7-2249 Inform licence reference ; banner no longer strictly required ? ]::
-
 ^^{banner text}^^{when play begins+rb+}^^{rules: run at beginning of story}^^{initial state of the world: setting in (when play begins)+sourcepart+}^^{starting conditions: setting in (when play begins)+sourcepart+}^^{story structure: beginning}^^{files (data files): loading initial state from a data file}^^{randomness: randomising the initial state of the world}
-When the story file starts up, it often prints a short introductory passage of text (the "overture") and then a heading describing itself, together with some version numbering (the "banner"). It is traditional that the banner must appear eventually (and one of the few requirements of the Inform licence is that the author acknowledge Inform somewhere, for which the banner is sufficient) but some designs call for a multi-turn prologue before the banner finally appears, and marks the start of play in earnest. [Bikini Atoll] demonstrates this.
+When the story file starts up, it often prints a short introductory passage of text (the "overture") and then a heading describing itself, together with some version numbering (the "banner"). But it's possible to have a multi-turn prologue before the banner finally appears, and marks the start of play in earnest. [Bikini Atoll] demonstrates how to do this.
+
+At one time, the Inform licence required all Inform-written stories to display the banner sooner or later. That requirement disappeared when Inform adopted the Artistic License 2.0 as its terms of use. So authors are now free to abolish the banner entirely. All the same, it remains a culturally useful convention, in the same way that almost all television dramas past and present contain some form of opening titles, even if just a title card, and even if delayed until after a cold open.
 
 If a story file represents the latest in a sequence of story files representing chapters in some larger narrative, it will need some way to pick up where its predecessor left off. This can be done with the aid of external files (in the Glulx format, at least). [Alien Invasion Part 23] shows how.
 
