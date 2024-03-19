@@ -1070,9 +1070,7 @@ The player's first sight of something is the text used as its "initial appearanc
 The plain ring is here. "Cast aside, as if worthless, is a plain brass ring."
 ```
 
-[ZL: well... actually, technically, it's carried/worn, not held by, 'cause held by includes incorporation. and it's probably worth being explicit about this being about *direct* carrying, even if we haven't talked about enclosure yet. ]::
-
-This text appears as a separate paragraph in the text describing the Painted Room. It will continue to be used until the first time player picks the ring up (if this ever happens), so it normally describes things in their original, undisturbed context. (Inform uses an either/or property called "handled" for this: something is "handled" if it has at some point been held by the player.)
+This text appears as a separate paragraph in the text describing the Painted Room. It will continue to be used until the first time the player picks the ring up — if this ever happens — so it normally describes things in their original, undisturbed context. Inform uses an either/or property called "handled" to keep track of this: something is "handled" if it has at some point been carried or worn by the player.
 
 Thus when a piece of text stands alone as a sentence in its own right, then this is either the "description" of the most recently discussed room, or the "initial appearance" of the most recently discussed thing. Either way, it is used verbatim as a paragraph in the text shown to the player visiting the room in question.
 
