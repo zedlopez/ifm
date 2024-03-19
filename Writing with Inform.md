@@ -208,13 +208,13 @@ Instead of taking the crate, say "It's far too heavy to lift."
 In English grammar, it's usual to regard a full stop as closing its sentence even when it occurs inside quotation marks, provided there is no indication to the contrary, and this is also the rule used by Inform. Thus:
 
 ``` inform7
-The description is "Shiny." It is valuable.
+An apple is here. The description is "Shiny." It is edible.
 ```
 
 is read as equivalent to
 
 ``` inform7
-The description is "Shiny.". It is valuable.
+An apple is here. The description is "Shiny.". It is edible.
 ```
 
 Sentence breaks like this occur only when the final character of the quoted text is a full stop, question mark or exclamation mark (or one of these three followed by a close bracket) and the next word begins, in the source code, with a capital letter. A paragraph break also divides sentences, behaving as if it were a full stop.
@@ -228,14 +228,13 @@ The China Shop is a room. [Remember to work out what happens if the bull gets in
 Inform is all about text, so pieces of text are often quoted in Inform source. This example is typical:
 
 ``` inform7
-The description is "Shiny." It is valuable.
+An apple is here. The description is "Shiny." It is edible.
 ```
 
 Quotations always use double-quotation marks, which aren't part of the text. So the description here is just the five letters and full stop in between the marks:
 
-[ZL: formatting? ]::
-
 ``` transcript
+> EXAMINE APPLE
 Shiny.
 ```
 
