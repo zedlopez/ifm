@@ -4273,15 +4273,9 @@ Relative location can also be important: relative to other people, that is –
 Instead of eating something in the presence of Lady Bracknell, say "Lady Bracknell disapproves thoroughly of gentlemen who snack between meals, and there are few disapprovals in this world quite so thorough as Lady Bracknell's."
 ```
 
-[ZL: ...is in scope... ]::
+`In the presence of` means that this action takes place when Lady Bracknell is close at hand to the player. Most of the time that means that the player and Lady B. are in the same location, but the full answer is that Lady B. has to be what is called "in scope". This is the same concept used to work out what the player can refer to in most commands: for example, the command ``GIVE MUFFIN TO LADY BRACKNELL`` will be understood only if she is "in scope". Since it is possible to change scoping rules, the meaning of `in the presence of` may change accordingly. See [Understanding any, understanding rooms] for more.
 
-As might be guessed, this applies when the action takes place in the same location as the person named: and of course that person can also be described more vaguely ("... in the presence of a woman", say), and can just as easily be an inanimate thing ("... in the presence of the radio set").
-
-Lady Bracknell is a pushover compared to some matriarchs:
-
-``` inform7
-Instead of doing something other than looking, examining or waiting in the presence of the Queen: say "I'm afraid they take what you might call a zero tolerance approach to breaches of court etiquette here."; end the story saying "You have been summarily beheaded".
-```
+`In the presence of` need not be applied to specific people. It can be somebody described more vaguely (`... in the presence of a woman`, say), or can just as easily be an inanimate thing (`... in the presence of the radio set`).
 
 The last of the optional clauses we can tack on to the description of an action is the most general of all. We can add "when" and then any condition at all, as in:
 
