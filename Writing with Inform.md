@@ -3182,15 +3182,13 @@ It is in describing circumstances that Inform really capitalises on the concise,
 The simplest descriptions consist of a noun alone. Some refer to single things ("lantern", or "wine cask"), others to kinds of thing ("dead end" or "container"). But we have also seen adjectives alone:
 
 ``` inform7
-The oaken desk is **fixed in place**.
+The oaken desk is fixed in place.
 ```
 
 Here, "fixed in place" is a description which, to Inform's simple-minded grammar, is a single adjective. And of course adjectives and nouns can be combined:
 
-[ZL: bolds within code... ]::
-
 ``` inform7
-The cargo trunk is an **openable container**.
+The cargo trunk is an openable container.
 ```
 
 The description "openable container" consists of the noun "container", meaning a kind of thing, and the adjective "openable", which means one of the two possible states of an either/or property held by that thing.
@@ -3198,16 +3196,16 @@ The description "openable container" consists of the noun "container", meaning a
 As the next chapter, [Basic Actions] will show, rules also make great use of descriptions:
 
 ``` inform7
-Instead of throwing **something** at a **closed openable door**, say "Or you could just use the handle like anyone else, of course."
+Instead of throwing something at a closed openable door, say "Or you could just use the handle like anyone else, of course."
 ```
 
-We have already seen that we can list the items fitting a given description:
+That time, `something` and `closed openable door` were both descriptions. We have already seen a text substitution for saying the list of everything matching a given description, as in this example, where the description is `things in the basket`:
 
 ``` inform7
-"You look down at [the list of **things in the basket**]."
+"You look down at [the list of things in the basket]."
 ```
 
-It's also sometimes convenient to count them up:
+It's also sometimes convenient to count the number of eligible values:
 
 > phrase: {ph_numberof} number of (description of values) ... number
 >
@@ -3223,30 +3221,37 @@ It is because descriptions are so widely useful that they deserve a chapter of t
 
 ^^{descriptions (references to things): syntax} ^^{nouns, in descriptions} ^^{adjectives: in descriptions} ^^{quantifiers: existential} ^^{existence: descriptions of any such thing} ^^{pronouns: `something, anything...} ^^{`someone: in descriptions} ^^{`something: in descriptions} ^^{(somewhere), in descriptions+sourcepart+} ^^{(anyone), in descriptions+sourcepart+} ^^{(anything), in descriptions+sourcepart+} ^^{(anywhere), in descriptions+sourcepart+} ^^{(somebody), in descriptions+sourcepart+} ^^{(anybody), in descriptions+sourcepart+}
 
-Descriptions can contain a noun, but need not, and can contain any number of adjectives:
+Descriptions can contain a noun, but need not, and can contain any number of adjectives. There can also be so-called determiners, but those tend to say which things matching the description are meant, rather than what it means to match. For example:
 
-[ZL: list? ]::
+description              | determiner | adjective(s)     | noun
+------------------------ | ---------- | ---------------- | ----
+`supporter`              |            |                  | supporter
+`closed`                 |            | closed           |
+`a closed openable door` | a          | closed, openable | door
+`the open wine cask`     | the        | open             | wine cask
+`something portable`     | a          | portable         | thing
+`six containers`         | six        |                  | container
 
-``` inform7
-supporter = *the noun* supporter
-closed = *the adjective* closed
-the open wine cask = *the adjective* open + *the noun* wine cask
-something portable = (some) + *the noun* thing + *the adjective* portable
-```
+Inform does not allow more than one noun in the same description, as English very occasionally does for emphasis, as in "the man Jenkins".
 
-Note that we are not allowed to have more than one noun in the same description (something English occasionally does allow as a coded form of emphasis, as in "the man Jenkins" or "the harlot Helen").
+Nouns divide into common nouns, which we use for kinds like `door`, and proper nouns, which are specific values like `wine cask`. Composite words such as `something` are best understood by breaking them up: for example `something` is `some thing`, so is actually a reference to the kind `thing`.
 
-Nouns are simple enough, referring either to kinds or specific things. The noun "something" means "some thing", so is actually a reference to the kind "thing". Inform treats this as having the same meaning as "anything", and all told there are eight special nouns of this kind, but with only three different meanings between them:
+description              | determiner | adjective(s)     | noun
+------------------------ | ---------- | ---------------- | ----
+`something`              | a          |                  | thing
+`anything`               | a          |                  | thing
+`someone`                | a          |                  | person
+`anyone`                 | a          |                  | person
+`somebody`               | a          |                  | person
+`anybody`                | a          |                  | person
+`somewhere`              | a          |                  | room
+`anywhere`               | a          |                  | room
 
-[ZL: list? ]::
+As can be seen, these eight composite nouns really only have three different meanings between them.
 
-``` inform7
-something = anything
-someone = anyone = somebody = anybody
-somewhere = anywhere
-```
+So for instance "anybody male" or "somewhere dark" are valid descriptions. These eight nouns are unusual in being allowed to come at the front of a description: nouns are usually expected to be at the end.
 
-So for instance "anybody male" or "somewhere dark" are valid descriptions. These eight nouns are unusual in being allowed to come at the front of a description: nouns are usually expected to be at the end. (Inform also understands "nothing", "nowhere", "nobody", "no-one" and even "no one", which in a sense are opposites of "something" and the like, but for now we'll look at descriptions of things which do exist rather than don't.)
+Inform also understands "nothing", "nowhere", "nobody", "no-one" and even "no one", which in a sense are opposites of "something" and the like, but for now we'll look at descriptions of things which do exist rather than don't.
 
 ## Sources of adjectives
 
