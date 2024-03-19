@@ -5121,8 +5121,6 @@ It's sometimes useful to go the other way. When something has possessions, we ca
 
 ## Randomness
 
-[ZL: address range limits, esp. for z-machine https://inform7.atlassian.net/browse/I7-2380 ]::
-
 ^^{randomness: seeding the generator} ^^{randomness: random numbers} ^^{randomness: value kinds} ^^{randomness: enumerated values}^^^{randomness <-- chance <-- numbers: random numbers}
 
 Sometimes we want to introduce random behaviour into play. We usually do this by generating random values, and then acting differently depending on what they are. The following:
