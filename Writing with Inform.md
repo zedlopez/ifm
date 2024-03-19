@@ -130,8 +130,6 @@ Lastly, the icon ![help](doc_images/help.png) hints that there is a relevant pag
 
 ## The Skein or Testing panel
 
-[ZL: possibly outdated; I don't know. https://inform7.atlassian.net/browse/I7-1945 ]::
-
 ^^{user interface: Skein panel} ^^{Skein panel+ui+} ^^{user interface: Testing panel} ^^{Testing panel+ui+} ^^{user interface: Replay button} ^^{Replay button+ui+}
 
 The Replay button demonstrates that Inform must be quietly remembering the commands typed into the last run through the story. In fact it remembers, and automatically organises, *every* previous run.
@@ -1606,8 +1604,6 @@ maps turnwise directions as if they were east, that is, pointing rightwards on t
 
 # Kinds
 
-[ZL: something somewhere should stress always naming kinds in the singular https://inform7.atlassian.net/browse/I7-2289 ]::
-
 ## New kinds {NEWKINDS}
 
 ^^{kinds <-- types} ^^{kinds: defining} ^^{defining: kinds} ^^{kinds: hierarchy of kinds} ^^{kinds: of value} ^^{kinds: of thing} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{rooms+kind+} ^^{things+kind+} ^^{directions+kind+} ^^{regions+kind+} ^^{animals+kind+} ^^{man+kind+} ^^{woman+kind+} ^^{Inform 6 equivalent: classes} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
@@ -2133,16 +2129,12 @@ As a final note on kinds, when Inform reads something like this:
 Peter is a man. The accursed one is initially Peter.
 ```
 
-[ZL: `the accursed one` actually ends up a man that varies.]::
-
-it has to make a decision about the kind of "accursed one". Peter is a "man", so that seems like the right answer, but Inform wants to play safe in case the variable later needs to change to a woman called Jane, say, or even a black hat. So Inform in fact creates "accursed one" as an object that varies, not a man that varies, to give us the maximum freedom to use it. If we don't want that then we can override it:
+it has to make a decision about the kind of "accursed one". Peter is a "man", so Inform makes this a man that varies. But this means it can't later to change to a woman called Jane, say, or a black hat. So Inform allows us to be override its guesses:
 
 ``` inform7
+The accursed one is a thing that varies.
 Peter is a man. The accursed one is initially Peter.
-The accursed one is a man that varies.
 ```
-
-thus telling Inform exactly what is intended.
 
 ## Values that never vary
 
