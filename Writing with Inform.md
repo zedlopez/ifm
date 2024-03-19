@@ -2301,43 +2301,89 @@ Something skated over in the previous section is the question of how Inform give
 A nose is a kind of thing. A nose is part of every person. Antony and Cleopatra are people.
 ```
 
-might result in the creation of "Antony's nose", part of Antony, and "Cleopatra's nose", part of Cleopatra. In this way, Inform names the noses after their owners. It will always do this unless there are multiple indistinguishable things being created, as in the "five silver coins are in every banking room" example: those will all just be called "silver coin".
+might result in the creation of "Antony's nose", part of Antony, and "Cleopatra's nose", part of Cleopatra. In this way, Inform names the noses after their owners. It can safely do that because these noses are _part of_ their owners: there is something individual about Antony's nose.
 
-A small pitfall of this is that if we write:
+With other relations, or where multiple indistinguishable things are being created, names are not normally confected. For example:
 
 ``` inform7
-Marcus Tullius Cicero is a person.
+The Herb Garden is east of the Floral Display.
+
+A trowel is a kind of thing. Three trowels are in every room.
+
+A vehicle is in every room.
 ```
 
-then although "Marcus Tullius Cicero's nose" and "Cicero's nose" are both valid names for the consular nose, "Marcus's nose" is not.
-
-The standard naming scheme is often about right, but as usual Inform offers a way to improve it in particular cases. For example, if we write:
-
-[ZL: https://inform7.atlassian.net/browse/I7-2149 ]::
-
+results in each room containing four items simply called "trowel", "trowel", "trowel", "vehicle". But for single items, those names can be changed using `called`. For example:
 
 ``` inform7
+The Herb Garden is east of the Floral Display.
+
 Every room contains a vehicle (called its buggy).
+
+A trowel is a kind of thing. A trowel (called agricultural implement) is in every room.
 ```
 
-then we will find the world full of, say, the Garden buggy, the Patio buggy and so on – instead of the Garden vehicle, the Patio vehicle and so on, which is what we would have had without the "called..." part. Similarly, we could write:
+produces "Herb Garden's buggy" and "agricultural implement" in the HG, and "Floral Display's buggy" and "agricultural implement" in the FD. `it` can be used, too:
+
+``` inform7
+Rex is an animal in the Garden.
+
+Every animal wears a thing (called the collar belonging to it).
+```
+
+This causes Rex to be wearing "collar belonging to Rex".
+
+Looking back at the original case of noses, we can now see that:
+
+``` inform7
+A nose is a kind of thing. A nose is part of every person. Antony and Cleopatra are people.
+```
+
+was just an abbreviation for:
+
+``` inform7
+A nose is a kind of thing. A nose (called his nose) is part of every person. Antony and Cleopatra are people.
+```
+
+And this could be customised by:
+
+``` inform7
+A nose is a kind of thing. A nose (called his noble schnozzle) is part of every person.
+```
+
+which would mean that "Antony's noble schnozzle" and "Cleopatra's noble schnozzle" exist. So will "your noble schnozzle", incidentally, since the player is also normally a person, and indeed "Rex's noble schnozzle", since Rex is an animal and therefore also a person. Assemblies need to be used cautiously, or they will get out of control with all the items they create.
+
+Assemblies are not confined to physical relationships. Suppose we set up:
+
+``` inform7
+A colour is a kind of value. The colours are lime green, signal red and cerulean blue.
+```
+
+We could then assemble like so:
 
 ``` inform7
 A person (called its fan) likes every colour.
+```
+
+which creates "lime green's fan", "signal red's fan" and "cerulean blue's fan", three new people, or alternatively like so:
+
+``` inform7
 Every person likes a colour (called their favourite colour).
 ```
 
-The former would produce new people with names like "Green's fan", whereas the latter would produce new colours with names like "Daphne's favourite colour".
+which would produce new colours with names like "Antony's favourite colour". (And indeed "Rex's favourite colour", despite dogs being colour-blind.)
 
 So much for an informal description. Here is exactly what Inform does:
 
-> (1a) If there is a "called..." text, Inform uses it, expanding out "its" (or "his" or "her" or "their") to a possessive form of the name of the owner, so to speak, and "it" (or "he" or "she" or "they" or "him" or "them") to the name itself.
->
-> (1b) If there's no "called..." text, Inform behaves as if we had written "(called its K)", where K is the name of the kind.
->
-> (2) If this results in a value which isn't an object being given a name which already exists, Inform tacks on a number to force the new name to be different from existing ones: e.g., "Daphne's colour 2", "Daphne's colour 3", ...
+1) If multiple things are being created in a single assembly, they are each anonymously named after their kinds. Example: "Three vehicles are in every room."
 
-(The reason that (2) doesn't affect objects is that objects are allowed to have names clashing with other objects, or no name at all, whereas other values have to have names belonging to themselves alone.)
+2) If a single thing is being created, but no `called` text is given, and the relation is not `incorporation` (i.e., `part of`), then its name will likewise be just the name of its kind. Example: "A door is in every room."
+
+3) If a single thing is being created, and the relation is `incorporation` (i.e., `part of`), and there is no `called` text given, then it will have a name generated from the thing it is a part of. Example: "A container is part of every door."
+
+4) If a single thing is being created, and a `called` text is given, then it will have a name generated from this text, expanding out "its" (or "his" or "her" or "their") to a possessive form of the name of the owner, so to speak, and "it" (or "he" or "she" or "they" or "him" or "them") to the name itself. Example: "A vehicle (called its buggy) is in every room."
+
+5) If values rather than objects are created, rules (1) to (4) apply in the same way, but Inform tacks on a number if necessary to force each new name to be different from existing ones: e.g., "Daphne's colour 2", "Daphne's colour 3", ... (This is because, unlike objects, values must have unique names.)
 
 ## Postscript on simulation
 
