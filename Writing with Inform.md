@@ -1581,19 +1581,7 @@ Bangkok is south of Nakhon Sawan.
 Nakhon Sawan is north of Bangkok.
 ```
 
-The chapter began with the twelve directions built into Inform:
-
-``` inform7
-north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside
-```
-
-[ZL: an alterate set of directions seems pretty intense for end of ch. 3]::
-
-But the built-in set is not always appropriate. Sometimes this is too many; if we wanted to write about a Flatland, for instance, then up and down ought to go. But in practice it is better not to abolish them as directions but instead to forbid travelling in them. (See the Recipe Book for examples.)
-
-But away from our familiar Earth, the usual frame of reference loses its meaning. Terry Pratchett's "Discworld" comedies, set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. On board a Zeppelin airship, which constantly changes its course, the cockpit has no fixed compass bearing from the passenger cabin: it is not very naturally "north". In zero gravity, there is no up or down. Mars does not have a magnetic core, so a compass doesn't work there.
-
-New directions must always be created in opposing pairs, and each **must** be declared with a clear simple sentence of the form "X is a direction." For instance:
+The chapter began with the twelve directions built into Inform: north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside. That basically compass-based frame of reference is traditional in interactive fiction, but it doesn't suit every story. Terry Pratchett's "Discworld" comedies, set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. On board a Zeppelin airship, which constantly changes its course, the cockpit has no fixed compass bearing from the passenger cabin: it is not very naturally "north". Instead, it's fore rather than aft. For such situations, it's possible to create new directions. These have to be created in opposing pairs, and each **must** be declared with a clear simple sentence of the form "X is a direction." For instance:
 
 ``` inform7
 Turnwise is a direction. The opposite of turnwise is widdershins.
@@ -1608,24 +1596,13 @@ It is then possible to write, say, that:
 Ankh-Morpork is hubwards of Lancre and turnwise from Borogravia.
 ```
 
-Of course the Map page of the Index for the project normally draws a map based on compass bearings, so it will get a little befuddled by this. But the map drawn in the Index can be given hints to improve its legibility. More on this later, but for now note that
+The Map page of the Index for a project relies on regular compass bearings, so it will get a little befuddled by this. Purely as a convenience for the author (since players never see the Index), it's possible to give Inform hints to improve the map's legibility. More on this later, but for now note that
 
 ``` inform7
 Index map with turnwise mapped as east.
 ```
 
-maps turnwise directions as if they were east, that is, pointing rightwards on the page. (This has no effect on the story file produced; it does not mean turnwise is simply a new name for east; it affects only the look of the Index map, which is only a convenience for the author in any case.)
-
-At one time, directions had to have shortish names (up to three words only), but that's no longer true:
-
-``` inform7
-Just the tiniest smidge off magnetic north is a direction. The opposite of
-just the tiniest smidge off magnetic north is just the tiniest smidge
-off magnetic south.
-Just the tiniest smidge off magnetic south is a direction. The opposite of
-just the tiniest smidge off magnetic south is just the tiniest smidge
-off magnetic north.
-```
+maps turnwise directions as if they were east, that is, pointing rightwards on the page. But to reiterate: this has no effect on the story as experienced by a player.
 
 # Kinds
 
