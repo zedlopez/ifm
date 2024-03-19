@@ -1,5 +1,3 @@
-[ZL: a mention of borogove.app is warranted somewhere]::
-
 # Welcome to Inform
 
 ## Preface
@@ -13,13 +11,11 @@ Interactive fiction is a literary form which involves programming a computer so 
 > The sheer joy of making things... the fascination of fashioning complex puzzle-like objects of interlocking moving parts and watching them work in subtle cycles... the delight of working in such a tractable medium. The programmer, like the poet, works only slightly removed from pure thought-stuff. He builds his castles in the air, from air, creating by exertion of the imagination.
 > — ^{@Frederick P. Brooks}, The Mythical Man-Month, 1972
 
-**Writing with Inform** is one of two interlinked books included with Inform: a concise but complete guide to the system. The other book is **The Inform Recipe Book**, a comprehensive collection of examples, showing its practical use.
+**Writing with Inform** is one of two interlinked books included with Inform: a concise but complete guide to the system, which emphasises getting started quickly. Each subsequent chapter then extends the range of techniques available to make livelier and more intriguing situations. The other book is **The Inform Recipe Book**, a comprehensive collection of examples, intended to be copied, borrowed, and adapted by users as needed.
 
-These notes are arranged so that the reader can, in principle, write whole works of fiction as early as the end of the chapter on [Things]. Each subsequent chapter then extends the range of techniques available to make livelier and more intriguing situations.
+At one time, Inform looked to users like an app rather than a language — there is one app for MacOS, one for Windows, one for Linux — and those apps remain a very convenient and widely-used way to write interactive fiction in Inform. But nowadays there is also a well-designed online environment enabling Inform to be written using only a web browser, [borogove.app](https://borogove.app), and there is also extensive support for Inform as a suite of command-line tools for those who prefer to code from a terminal, or compile non-interactively in Docker containers, or GitHub actions. Those low-level tools have numerous housekeeping features which it wouldn't be sensible to cover here, because this is only a book about the Inform language. Manuals for the Inform toolchain can instead be found at [the core Inform repository on GitHub](https://github.com/ganelson/inform).
 
-Today's Inform language (sometimes called "Inform 7") is very different from its 20th-century predecessor, which was called Inform 6. A few advanced sections of this book show how unusual effects can be achieved by mixing low-level coding in Inform 6 notation with more usual Inform text. However, most users will never need this. For information about Inform 6, see [inform-fiction.org](https://inform-fiction.org).
-
-This book is also a guide to the Inform language, rather than a manual on how to use its supporting tools. Those tools, when used at the command line rather than inside the Inform app, have numerous features not covered here. [Manuals for all of Inform's tools](https://github.com/ganelson/inform) are available online.
+What we now call Inform is strictly speaking "Inform 7", not its 20th-century predecessor, Inform 6. Here "6" and "7" are part of the _names_ of these two different programming languages, and not version numbers. (Inform does have a version number, but it's currently up around "v10.2.0".) In this book, "Inform" always means I7, but I6 notation does make occasional appearances because there are advanced Inform features where this notation is used to express some advanced, low-level coding effects. Most users will never need to know anything about I6, but for those who do, its website is at [inform-fiction.org](https://inform-fiction.org), and its [GitHub repository is here](https://github.com/DavidKinder/Inform6).
 
 > Programming is best regarded as the process of creating works of literature, which are meant to be read... so we ought to address them to people, not to machines.
 > — ^{@Donald Knuth}, *Literate Programming,* 1981
@@ -35,6 +31,8 @@ Though ^{@David Kinder}'s Windows application does indeed visually follow the OS
 While Inform is not strictly speaking a project of the [Interactive Fiction Technology Foundation](https://iftechfoundation.org/) (IFTF), it benefits enormously from the Foundation's good work. In particular, the Narrascope conferences were invaluable in the period 2017-2022, and I thank ^{@Judith Pintar} and ^{@Andrew Plotkin} for arranging speaking slots at them.
 
 Inform in its widest sense incorporates work by so many people that it's simply impossible to thank all of them, but ^{@Zed Lopez}, ^{@Dannii Willis}, ^{@Mark Musante}, ^{@Brian Rushton}, ^{@Dan Fabulich}, ^{@Hugo Labrande}, ^{@Erik Temple}, ^{@Ron Newcomb}, ^{@Eric Eve}, ^{@Justin de Vesine} and ^{@Juhana Leinonen} all deserve special mention. Many hundreds of users have filed patient and careful bug reports, keeping us on the straight and narrow. They're contributors, too.
+
+The documentation for Inform is now a project in its own right, and ^{@Zed Lopez} deserves particular thanks for combing through all this text, and for work on the revision of 2024 when we migrated to using Markdown and a different set of tooling.
 
 The original development of Inform 7 was a long haul, and I would particularly like to thank ^{@Sonja Kesserich}, ^{@David Cornelson} and other volunteers for their early testing of a then-fragile system. The final months before the Public Beta release of Inform 7 were made more enjoyable, as well as more productive, by fruitful discussions leading to a cross-platform standard for bibliographic data and cover art. Special mentions to ^{@L. Ross Raszewski}, who wrote frighteningly efficient reference software in frighteningly little time; the librarians of the IF-Archive, Andrew Plotkin, David Kinder and ^{@Paul Mazaitis}; and my fellow authors of IF design systems – ^{@Mike Roberts} (of the Text Adventure Development System); ^{@Kent Tessman} (of Hugo); and ^{@Campbell Wild} (of ADRIFT).
 
