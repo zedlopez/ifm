@@ -563,8 +563,6 @@ Use full-length room descriptions.
 Use abbreviated room descriptions.
 ```
 
-[ZL: these seem more like ordinary words than representations of commands even if they're the same words as commands, so I'm not sure the command-formatting is indicated here.]::
-
 change the normal way room descriptions are shown: normally they are given in full, but in abbreviated mode, they're never given. (The latter is a bad idea in any publicly released story, but is provided for completeness and in case it may help testing.) Alternatively, we can set the traditional ^{Infocom}-style of room description to any of ``verbose``, ``brief`` and ``superbrief``:
 
 ``` inform7
@@ -903,17 +901,17 @@ The following description runs to only 33 words, but makes a surprisingly intric
 East of the Garden is the Gazebo. Above is the Treehouse. A billiards table is in the Gazebo. On it is a trophy cup. A starting pistol is in the cup.
 ```
 
-Inform needs to identify the places and objects being described by the nouns here, and to guess what it can about them. For instance, the pistol can be picked up but not walked inside, whereas the Treehouse is the reverse. (This is obvious to someone who knows what these words mean, less obvious to a computer which does not, but the text contains sufficient clues.) Inform does this by sorting the various nouns into different categories, which are called "kinds". For instance:
+Inform identifies eight "objects" mentioned in this short scenario, which it groups together into different categories called "kinds". Kinds affect the general behaviour of things. For instance, the pistol and the cup can be picked up but not walked inside, whereas the Gazebo and the Treehouse are the reverse. (This is obvious to someone who knows what these words mean, less obvious to a computer which does not, but the text contains sufficient clues.) Inform sorts out the situation above like so:
 
-[ZL: think this would be better without bullets]::
+Objects                       | Their kinds
+----------------------------- | -----------
+Garden, Gazebo, Treehouse     | room
+billiards table               | supporter
+cup                           | container
+starting pistol               | thing
+east, up (implied by `above`) | direction
 
-- Garden, Gazebo, Treehouse - **room**
-- billiards table - **supporter**
-- cup - **container**
-- starting pistol - **thing**
-- East, up (implied by "above") - **direction**
-
-(A container is something which can contain other things, and a supporter similarly.) For instance Inform knows that if one thing is in another, then the second thing is either a room or a container, and if one thing is on another, the second thing is a supporter. This worked nicely for the design above, but:
+Inform makes guesses at these kinds using some basic assumptions about how the world works. For example, it knows that if one thing is in another, then the second thing is either a room or a container, and if one thing is on another, then the second thing is a supporter. These guesses are usually right, but not always, so it can be necessary to say more. For example:
 
 ``` inform7
 In the Treehouse is a cardboard box.
