@@ -1612,9 +1612,9 @@ maps turnwise directions as if they were east, that is, pointing rightwards on t
 
 ^^{kinds <-- types} ^^{kinds: defining} ^^{defining: kinds} ^^{kinds: hierarchy of kinds} ^^{kinds: of value} ^^{kinds: of thing} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{rooms+kind+} ^^{things+kind+} ^^{directions+kind+} ^^{regions+kind+} ^^{animals+kind+} ^^{man+kind+} ^^{woman+kind+} ^^{Inform 6 equivalent: classes} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
 
-Values are to Inform what nouns are to English sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because they have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort all of these different ideas out. That's the main aim of Inform's concept of "kind".
+Values in Inform are the nouns in its sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because values have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort these values into categories, and those are called "kinds".
 
-Every value has a kind. The kind of 10 is "number"; the kind of 11:30 PM is "time"; the kind of "jinxed wizards pluck ivy from my quilt" is "text"; and so on. The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.
+Every value has a kind. The kind of `10` is "number"; the kind of `11:30 PM` is "time"; the kind of `"jinxed wizards pluck ivy from my quilt"` is "text"; the kind of `northeast` is "direction"; and so on. The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.
 
 Some kinds are more general than others. For example, if we write:
 
@@ -1624,21 +1624,19 @@ Growler is an animal in the Savannah.
 
 then Growler is an "animal", which is a kind of "thing", which is a kind of "object". When we talk about "the" kind of Growler, we mean "animal", the most specific one, but actually Growler belongs to all of those kinds.
 
-As we see from this example, kinds have a whole hierarchy. Some are specialised versions of other kinds; some are not. Browsing the Kinds index shows that Inform builds its model world out of "objects". (That's really what objects are: "object" is a kind of value used to make the ingredients of the model world.) The objects fall into four fundamental kinds, "room", "thing", "direction" and "region", and "thing" is more subdivided still.
-
-All the same, Inform starts out with a fairly simple arrangement. Because taxonomy – setting up kinds for everything – is so difficult, and depends so much on what you want it for, Inform creates relatively few kinds in advance: it has "animal" built in, but not "mammal" or "Bengal tiger". When we need more, we must make them ourselves. Let's see how we might invent these new kinds. The easy one is:
+As we see from this example, kinds have a whole hierarchy. Browsing the Kinds index for a project will show what kinds it has. At first sight this is a complicated diagram, but really Inform aims to start each new story with as simple a set of kinds as it can. It has some fundamental kinds like "room", "thing", "direction" and "region", but not "mammal" or "Bengal tiger". Every story will have different needs, so the idea is to create new kinds as we need them. For example, we could write:
 
 ``` inform7
-A Bengal tiger is a kind of animal.
+A Bengal tiger is a kind of animal. Growler is a Bengal tiger in the Savannah.
 ```
 
-Given that, we can then write:
+In general, it's best always to create kinds using the singular, because Inform knows how to turn singulars into plurals but not vice versa. Now that we have defined "Bengal tiger", Inform will understand the phrase "three Bengal tigers", for example, because it knows that "Bengal tigers" is the plural of "Bengal tiger". But this is not a good idea:
 
 ``` inform7
-Growler is a Bengal tiger in the Savannah.
+Bengal tigers are a kind of animal.
 ```
 
-That's easy enough. Adding "mammal" now looks awkward, though, because it seems to belong in between the two. All Bengal tigers are mammals, but not all animals are. But Inform can sort this out:
+So much for a specific kind like "Bengal tiger". How about a more general one, like "mammal"? This looks awkward because it seems to belong in between. All Bengal tigers are mammals, but not all animals are mammals. But Inform can sort this out:
 
 ``` inform7
 A mammal is a kind of animal. A Bengal tiger is a kind of mammal.
@@ -1648,9 +1646,9 @@ If we look at the Kinds index, we should indeed see a hierarchy:
 
 > object > person > animal > mammal > Bengal tiger
 
-though the diagram is laid out as a sort of tree, just as zoologists do.
+The full diagram is laid out rather like a zoologist's tree of life. Of course, a zoologist would say that a person is an animal, and indeed a mammal, so that this layout is all wrong. But Inform is for narratives, not for doing science. When people ask if an animal is in the garden, they wouldn't normally count somebody who is cutting the grass. In its everyday meaning, "animal" is a non-human, and Inform goes along with that.
 
-As another example, it may seem curious that Inform doesn't usually think "man" is a kind of "animal". This is really because, in English, people don't usually expect something like "if an animal is in the garden" to be true when it's only the Revd Mr Beebe going for a walk. People expect the word "animal" not to mean a human being, despite our common genetic ancestry. But if we want to rearrange Inform's default ideas, we can do that quite easily:
+If we really want to rearrange Inform's default ideas, we can in fact do so:
 
 ``` inform7
 A man is a kind of animal. A woman is a kind of animal.
@@ -1662,19 +1660,21 @@ Or indeed we could say:
 A human being is a kind of mammal. A man and a woman are kinds of human being.
 ```
 
-While this is an ideal way to make new kinds for the model world, we are more restricted in what we can do outside of objects. For instance,
+Making more specific kinds of existing ones is an excellent way to build out the physical world, but doesn't make sense for every sort of value. For instance,
 
 ``` inform7
-A glob is a kind of number. [Invalid]
+A glob is a kind of number.
 ```
 
-isn't allowed. The numbers are fixed and all exist already; they aren't like Bengal tigers which we can simply imagine, and fill the world with. "Number" is not a concept we can specialise any further. But what we can do is to invent entirely new concepts, like so:
+isn't allowed. The numbers are fixed and all exist already; we can write a story where the world has no Bengal tigers, but not a story where the world has no number between 4 and 6. That doesn't mean numbers are all alike, of course, and we will later see that we can use words like "even" and "odd" to describe numbers, and even create new adjectives like "unlucky" or "perfect" for them. But these are not kinds. Saying that 2 is an even number does not create a new number, and saying that 3 is an even number makes no sense. So it is not possible in Inform to create a "kind of number".
+
+But what we can do is to invent entirely new concepts, like so:
 
 ``` inform7
 A distance is a kind of value.
 ```
 
-We will see more of these later. (This isn't specialising anything – "value" is a sort of everything-category, and is too big and vague to be a kind.)
+We will see more of these later. The word "value" here does not count as a kind (it's too vague to be useful), so "distance", like "number", is a top-level kind and not a specialised form of something else.
 
 ## Using new kinds
 
