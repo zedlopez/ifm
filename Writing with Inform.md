@@ -128,21 +128,17 @@ Lastly, the icon ![help](doc_images/help.png) hints that there is a relevant pag
 
 {Linux:}The Index is accessible by typing "I" at the prompt, if you have set your browser.  You can set the browser by typing "S" to get to the settings panel, and then "I" for the IDE panel.  From the top-level Index you will be able to access Errors as well as other information.
 
-## The Skein
+## The Skein or Testing panel
 
 [ZL: possibly outdated; I don't know. https://inform7.atlassian.net/browse/I7-1945 ]::
 
-^^{user interface: Skein panel} ^^{Skein panel+ui+} ^^{user interface: Replay button} ^^{Replay button+ui+}
+^^{user interface: Skein panel} ^^{Skein panel+ui+} ^^{user interface: Testing panel} ^^{Testing panel+ui+} ^^{user interface: Replay button} ^^{Replay button+ui+}
 
 The Replay button demonstrates that Inform must be quietly remembering the commands typed into the last run through the story. In fact it remembers, and automatically organises, *every* previous run.
 
 Inform's approach to testing interactive fiction is to treat it as being like the analysis of other turn-based games, such as chess. It would be prohibitively difficult to work out every possible combination of moves: instead, we analyse those which go somewhere, and look for significant choices. Every Queen's Gambit begins with the same first three moves (1. d4, d5; 2. c4), but then there is a choice, as the next move decides whether we have a Queen's Gambit Accepted (dxc4) or Declined (e6). Books about chess often contain great tables of such openings, which run together for a while but eventually diverge. To learn chess, one must explore all of these variations.
 
-Inform's Skein panel is just such a table, built automatically. If we think of the list of typed commands as a thread, then the skein is (as the name suggests) braided together from all these threads. In the display, time begins at the top, with the **start** knot, and the threads of different play-throughs hang downwards from it.
-
-Double-clicking on a command translates the source afresh and replays the story from **start** down to that command, and then stops. We are then free to continue play by typing commands into the Story panel, of course, and these commands will automatically be recorded in the Skein as a new variation of play, diverging from the previous threads.
-
-The user interface for the Skein looks slightly different on different versions of the Inform apps (that is, the MacOS version is not quite the same as the Windows version, and so on), so this manual is not the best place to describe it. In any case, the best way to find out about it is probably to experiment.
+How this looks is different in different Inform apps, but this is usually presented in a panel called either Skein or Testing, which presents the "skein", a sort of braid made up of the threads of past commands and responses. Because the user interface looks slightly different on different versions of the Inform apps (that is, the MacOS version is not quite the same as the Windows version, and so on), this manual is not the best place to describe it. In any case, the best way to find out about it is probably to experiment.
 
 # The Source Text
 
@@ -403,9 +399,7 @@ Much of this can be seen, and seen more easily, in the World tab of the Index pa
 
 ^^{TEST+testcmd+} ^^{testing commands: >TEST} ^^{transcripts: creating with the TEST command} ^^{test (test name) with (commands)+assert+} ^^{PURLOIN+testcmd+} ^^{testing commands: >PURLOIN}
 
-The only way to thoroughly test a work of IF is to run a complete solution through it, and carefully check the resulting transcript of dialogue. The Skein and Transcript tools of the Inform application are provided for exactly this purpose.
-
-All the same, most works of interactive fiction contain occasional vignettes, either in terms of short scenes of narrative, or in the behaviour of particular things or rooms, which we would like to test without the fuss of using the full story-level Skein tool. The examples in the documentation are like this: in almost every example, typing ``test me`` puts the story through its paces.
+The only way to thoroughly test a work of IF is to run a complete solution through it, and carefully check the resulting transcript of dialogue. But most works of interactive fiction contain occasional vignettes, either in terms of short scenes of narrative, or in the behaviour of particular things or rooms. The examples in the documentation are like this: in almost every example, typing ``test me`` puts the story through its paces.
 
 Solutions or sequences for testing ("scripts") can be defined with sentences like so:
 
