@@ -2397,8 +2397,6 @@ But that is about all. There is as yet no element of surprise, no aim or sense o
 
 ## Text with substitutions {PM_TSWithPunctuation}
 
-[ZL: we don't hear about "empty" for text until adjectives in chapter on definitions; should be here, should mention text with adaptive text is never empty and that one may want to use `is ""` preferentially ]::
-
 ^^{text <-- strings of characters} ^^{text: displaying} ^^{text substitutions: text} ^^{descriptions (displayed): room descriptions with substituted text} ^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts}
 
 In the previous chapter, [Kinds], we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform's most useful devices: text substitution. The following gives a more complete example:
@@ -2421,7 +2419,7 @@ Thus the description of the Collapsed Dead End is "This is a dead end. You'll ha
 
 ^^{text substitutions: punctuation} ^^{punctuation: square brackets: text substitutions} ^^{`[ ]: text substitutions} ^^{punctuation: quotation marks: defining texts} ^^{`": defining texts} ^^{punctuation: apostrophe, meaning quotation mark} ^^{('), meaning (")+sourcepart+} ^^{punctuation: full stop: ending sentences with line breaks} ^^{`.: ending sentences with line breaks} ^^{punctuation: exclamation mark, ending sentences} ^^{(!), ending sentences+sourcepart+} ^^{punctuation: question mark, ending sentences} ^^{(?), ending sentences+sourcepart+} ^^{line breaks: produced by sentence-ending punctuation} ^^{+to+say "[']"} ^^{+tosay+"[']"}
 
-Text is so fundamental to Inform that the basics had to be covered back in the [Source Text] chapter, so let's begin this new chapter with a recap.
+Text is so fundamental to Inform that the basics had to be covered back in the [The Source Text] chapter, so let's begin this new chapter with a recap.
 
 Literal text is written in double-quotation marks. It's mostly true that what you see is what you get: the literal text "The Hands of the Silversmith" means just
 
@@ -2509,6 +2507,14 @@ say "I know just how this ends!";
 ```
 
 would come out quite differently – this doesn't affect the appearance of the text, but only the position where the next text will appear. Again, sometimes this is not what we want – the full rules are complicated enough to be worth a whole section later in the chapter.
+
+**A note about texts as values.** At this stage we have mostly seen text used in properties or in `say` phrases, but texts are values. Getting a little ahead of ourselves, we can write rules or phrases which manipulate texts, or test them, in the same way we might calculate with numbers. For example, if `T1` and `T2` are text values, then
+
+	if T1 is T2, ...
+
+is a condition which is true if they both currently work out to the same contents. Because of text substitutions, this can be true even if they appear to be different. For example, if a story contains rooms called `Draughting Office` and `Shipyards`, then whether `"[the Office]"` and `"[the location]"` are equal depends on where the player is. (If they _are_ equal, they will both be equivalent to the unsubstituted text `"Draughting Office"`; if not, one will be `"Draughting Office"` and the other `"Shipyards"`.)
+
+Inform provides the adjectives `empty` and `non-empty` for texts, but again care is needed over substitutions. `if T is empty` is never true for text with a substitution in it, so it is not quite the same test as `if T is ""`. For more on this, see [Defining adjectives for values].
 
 ## Text which names things
 
@@ -3361,6 +3367,8 @@ Similarly, two useful adjectives are built in to talk about text:
 empty - the text "", with no characters in it, not even spaces
 non-empty - any text which does have at least one character in
 ```
+
+Note that `empty` is not quite same test as `is ""`. If the value being looked at is a text substitution like `"[ingredient]"` in its unsubstituted form, and it just so happens that at the moment the `ingredient` substitution would produce no characters of text, then `"[ingredient]" is empty` would be false, even though `"[ingredient]" is ""` would be true: the difference is that the comparison made by `is` substitutes in before it makes the test, whereas `empty` tests without making substitutions, so it reads `"[ingredient]"` as potentially having content and therefore not being empty. See [Making new text with text substitutions] for more on the subtle difference between the substituted and unsubsituted form of a text substitution.
 
 Adjectives can have multiple definitions and, as long as each applies to a different sort of noun, there will be no problem. We could write:
 
