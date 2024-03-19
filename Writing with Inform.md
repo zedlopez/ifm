@@ -5099,23 +5099,21 @@ then "the number of colours" would evaluate to 7. As with other ways of talking 
 
 The descriptions outlined in the last few sections are intended to deal with almost all of the routine questions we might have about what currently resides where. It should be a last resort to use the following more primitive way to inspect the world.
 
-[ZL: holder of's inclusion of incorporation and the others' exclusion of it is worth mentioning]::
-
 > phrase: {ph_holder} holder of (object) ... object
 >
-> This phrase produces the container, supporter, carrier, wearer or room in which the object resides.
+> This phrase produces the container, supporter, carrier, wearer or room in which the object resides, or the thing which incorporates it, if it is a part of another object.
 
 It's sometimes useful to go the other way. When something has possessions, we can find them out one at a time by running through a list.
 
 > phrase: {ph_firstheld} first thing held by (object) ... object
 >
-> This phrase produces the first of the list of things held by the object. Example:
+> This phrase produces the first of the list of things contained in, supported by or worn by (but _not_ incorporated by) the object. Example:
 >
 >     first thing held by Baroness Orczy
 
 > phrase: {ph_nextheld} next thing held after (object) ... object
 >
-> This phrase produces the next item of the list of things held by something. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.
+> This phrase produces the next item of the list of things contained in, supported by or worn by (but _not_ incorporated by) whatever contains, supports or wears the object. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.
 >
 >     next thing held after the lapdog
 >
