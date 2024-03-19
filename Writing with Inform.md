@@ -3327,29 +3327,23 @@ In general, any noun can have adjectives applied to it, and this means that valu
 
 ``` inform7
 Definition: A number is round if the remainder after dividing it by 10 is 0.
+
 Definition: A time is late rather than early if it is at least 8 PM.
 ```
 
 That makes the numbers 20 and 170 but not 37 meet the description "a round number", and the times 8 PM and 11:23 PM but not 9 AM meet the description "a late time". Because they come up fairly often, Inform contains several adjectives for numbers built in:
 
-[ZL: lists? ]::
-
-
-``` inform7
-positive - one which is greater than zero (but not 0 itself)
-negative - one which is less than zero (but not 0 itself)
-even - a number like ..., -4, -2, 0, 2, 4, ...
-odd - a number like ..., -5, -3, -1, 1, 3, 5, ...
-```
+- `positive` - greater than zero (but not 0 itself)
+- `negative` - less than zero (but not 0 itself)
+- `even` - divisible exactly by 2, like ..., -4, -2, 0, 2, 4, ...
+- `odd` - not divisible exactly by 2, like ..., -5, -3, -1, 1, 3, 5, ...
 
 Similarly, two useful adjectives are built in to talk about text:
 
-``` inform7
-empty - the text "", with no characters in it, not even spaces
-non-empty - any text which does have at least one character in
-```
+- `empty` - the text "", with no characters in it, not even spaces
+- `non-empty` - any text which does have at least one character in
 
-Note that `empty` is not quite same test as `is ""`. If the value being looked at is a text substitution like `"[ingredient]"` in its unsubstituted form, and it just so happens that at the moment the `ingredient` substitution would produce no characters of text, then `"[ingredient]" is empty` would be false, even though `"[ingredient]" is ""` would be true: the difference is that the comparison made by `is` substitutes in before it makes the test, whereas `empty` tests without making substitutions, so it reads `"[ingredient]"` as potentially having content and therefore not being empty. See [Making new text with text substitutions] for more on the subtle difference between the substituted and unsubsituted form of a text substitution.
+Note that `T is empty` is not quite same test as `T is ""`. If the value being looked at is a text substitution like `"[ingredient]"` in its unsubstituted form, and it just so happens that at the moment the `ingredient` substitution would produce no characters of text, then `"[ingredient]" is empty` would be false, even though `"[ingredient]" is ""` would be true: the difference is that the comparison made by `is` substitutes in before it makes the test, whereas `empty` tests without making substitutions, so it reads `"[ingredient]"` as potentially having content and therefore not being empty. See [Making new text with text substitutions] for more on the subtle difference between the substituted and unsubsituted form of a text substitution.
 
 Adjectives can have multiple definitions and, as long as each applies to a different sort of noun, there will be no problem. We could write:
 
@@ -3466,10 +3460,8 @@ Definition: A container is small if its carrying capacity is 5 or less.
 
 then we can talk about things like this:
 
-``` inform7
-the largest container
-the smallest open container
-```
+- `the largest container`
+- `the smallest open container`
 
 Though we should be careful, in the second case, because we might get nothing: maybe all the containers are closed at the moment this is used. And in general there might be several equally large largest containers, in which case we should not rely on getting any particular one of those rather than another.
 
@@ -3481,46 +3473,34 @@ Note that Inform constructs comparatives and superlatives by a pretty simplistic
 
 A description can not only talk about things in terms of themselves, but also in terms of their relationships to the rest of the world. For instance,
 
-[ZL: lists? ]::
-
-``` inform7
-an open container on the table
-a woman inside a lighted room
-an animal carried by a man
-a woman taller than Mark
-something worn by somebody
-```
+- `an open container on the table`
+- `a woman inside a lighted room`
+- `an animal carried by a man`
+- `a woman taller than Mark`
+- `something worn by somebody`
 
 are all valid descriptions. These are really abbreviations, having missed out the words "which is" or "who is", as appropriate:
 
-``` inform7
-an open container which is on the table
-a woman who is inside a lighted room
-an animal which is carried by a man
-a woman who is taller than Mark
-something which is worn by somebody
-```
+- `an open container which is on the table`
+- `a woman who is inside a lighted room`
+- `an animal which is carried by a man`
+- `a woman who is taller than Mark`
+- `something which is worn by somebody`
 
 and indeed those are also valid descriptions. The other sentence verbs can all be used here, too. So for instance:
 
-``` inform7
-a man who does not wear anything
-something which supports something
-```
+- `a man who does not wear anything`
+- `something which supports something`
 
 And sometimes we should spell out "who is" regardless:
 
-``` inform7
-a man who is not Sherlock Holmes
-```
+- `a man who is not Sherlock Holmes`
 
 Since these clauses can be attached to the end of any valid description, descriptions can grow longer still:
 
-``` inform7
-something worn by a woman who is in a dark room
-```
+- `something worn by a woman who is in a dark room`
 
-Pedants who flinch when "which" is used to introduce a restrictive clause are welcome to use "that" instead.
+Pedants who flinch when `which` is used to introduce a restrictive clause are welcome to use `that` instead.
 
 ## Existence and there {PM_OutOfPlay}
 
@@ -3585,15 +3565,13 @@ if there is nobody in the Summerhouse, ...
 if there is nothing on the mantelpiece, ...
 ```
 
-[ZL: mention "contain" is reveral? ]::
-
 ## A word about in
 
 ^^{containment+rel+} ^^{containment+relcat+} ^^{regional-containment+rel+} ^^{regional-containment+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{regions+kind+: things in regions} ^^{regions+kind+: regional containment} ^^{rooms+kind+: grouping into regions}
 
 What does "in" mean? It's worth just a brief diversion to cover this, because "in" has two subtly different meanings.
 
-**Meaning 1.** Usually, if X is "in" Y then this is because of containment. A croquet ball is "in" a croquet box, which is "in" the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:
+**Meaning 1.** Usually, if X is "in" Y then this is because of containment. If Y contains X, then X is said to be in Y. A croquet ball is "in" a croquet box, which is "in" the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:
 
 ``` inform7
 The croquet ball is in the box.
@@ -4965,34 +4943,32 @@ An even greater abbreviation can be made when we are changing a number by 1 eith
 
 We have seen that while rooms are fixed, their contents move around, so we will need ways to examine the current whereabouts of things. The following examples show the kind of conditions allowed:
 
-[ZL: bold in code... list? ]::
-
-``` inform7
-if the genie's lamp **is in** Aladdin's Cave ...
-if Aladdin **is not in** Aladdin's Cave ...
-if Aladdin's Cave **contains** the genie's lamp ...
-if the genie's lamp **is carried by** Aladdin ...
-if Aladdin **is carrying** the genie's lamp ...
-if Aladdin **does not have** the genie's lamp ...
-if the table **supports** the genie's lamp ...
-if the table **is supporting** the genie's lamp ...
-if the genie's lamp **is supported by** the table ...
-if the genie's lamp **is on** the table ...
-if the genie's lamp **is on top of** the table ...
-if the genie's lamp **is in** the cupboard ...
-if the genie's lamp **is contained in** the cupboard ...
-if the genie's lamp **is inside** the cupboard ...
-if the genie's lamp **is within** the cupboard ...
-if the wick **is part of** the genie's lamp ...
-```
+condition                                  | subject | relationship  | object
+------------------------------------------ | ------- | ------------- | ------
+`if the lamp is in Aladdin's Cave`         | lamp    | in            | Cave
+`if Aladdin is not in Aladdin's Cave`      | Aladdin | not in        | Cave
+`if Aladdin's Cave contains the lamp`      | Cave    | contains      | lamp
+`if the lamp is carried by Aladdin`        | lamp    | carried by    | Aladdin
+`if Aladdin is carrying the lamp`          | Aladdin | carrying      | lamp
+`if Aladdin does not have the lamp`        | Aladdin | does not have | lamp
+`if the table supports the lamp`           | table   | supports      | lamp
+`if the table is supporting the lamp`      | table   | supporting    | lamp
+`if the lamp is supported by the table`    | lamp    | supported by  | table
+`if the lamp is on the table`              | lamp    | on            | table
+`if the lamp is on top of the table`       | lamp    | on top of     | table
+`if the lamp is in the cupboard`           | lamp    | in            | cupboard
+`if the lamp is contained in the cupboard` | lamp    | contained in  | cupboard
+`if the lamp is inside the cupboard`       | lamp    | inside        | cupboard
+`if the lamp is within the cupboard`       | lamp    | within        | cupboard
+`if the wick is part of the lamp`          | wick    | part of       | lamp
 
 These are exactly like the assertions which we use to set up the world, except that we make them questions by placing "if" in front. But we shall later see that we can also use three other tenses, not to mention plural forms, so that new verbal forms like "had not been inside" and "were not supported by" are legal here (which they would not be in assertions). What we are not allowed is to contract these verbs with apostrophes: "isn't", "hasn't" and "hadn't" are forbidden.
 
 Overwhelmingly the condition we check most is whether the player is carrying something. The following are therefore equivalent:
 
 ``` inform7
-if the genie's lamp is carried by the player ...
-if the genie's lamp is carried ...
+if the lamp is carried by the player ...
+if the lamp is carried ...
 ```
 
 And similarly for "not carried", "worn" and "not worn". To be precise, if a form of *to be carried* or *to be worn* is not followed by any other description, then "the player" is assumed to be doing the carrying or wearing.
@@ -5004,15 +4980,15 @@ And similarly for "not carried", "worn" and "not worn". To be precise, if a form
 The examples just given were all basically of the form "X *relation* Y" where X and Y were specific names of things. For example,
 
 ``` inform7
-if the genie's lamp is carried by Cinderella ...
-if the genie's lamp is inside the cupboard ...
+if the lamp is carried by Cinderella ...
+if the lamp is inside the cupboard ...
 ```
 
 Just as actions could be described with patterns to be matched ("taking an open container", say), so can the positions of things. Giving subtler descriptions of our X and Y sometimes broadens the possibilities, sometimes narrows them:
 
 ``` inform7
-if the genie's lamp is carried by a woman ...
-if the genie's lamp is inside the closed cupboard ...
+if the lamp is carried by a woman ...
+if the lamp is inside the closed cupboard ...
 ```
 
 In the first case, Y is allowed to be one of a whole range of things – any of the women existing in the world. This makes for a broader condition. In the second case, Y has not only to be the cupboard, but at a time when it is closed: which makes for a narrower condition. We can, of course, also vary X:
