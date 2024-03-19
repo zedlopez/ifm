@@ -3060,7 +3060,7 @@ These characters can be typed directly into the Source panel, and can be used ou
 
 (b) **Characters which can safely be used, but will be simplified.** As it reads in the text, Inform silently converts all kinds of dash (en-rules, em-rules, etc.) to simple hyphens; converts the multiplication symbol to a lower case "x"; converts all kinds of space other than tabs (em-spaces, non-breaking spaces, etc.) to simple spaces, and all kinds of quotation marks to "straight" (non-smart) marks.
 
-(c) **Characters which can be used provided they are in quoted text (other than boxed quotations), and which will probably but not certainly be visible to the player**. All other Latin letter-forms, including the œ ligature, East European forms such as ő, ş and ž, and Portuguese forms such as ũ; the Greek and Cyrillic alphabets, with their associated variants and accents; and the principal currency symbols, such as € and ¥.
+(c) **Characters which can be used provided they are in quoted text, and which will probably but not certainly be visible to the player**. All other Latin letter-forms, including the œ ligature, East European forms such as ő, ş and ž, and Portuguese forms such as ũ; the Greek and Cyrillic alphabets, with their associated variants and accents; and the principal currency symbols, such as € and ¥.
 
 Caution should be used with such characters outside of quotation marks: the outcome may depend on the format Inform is compiling to. For example, `Łodz Churchyard is a room.`, which uses the Polish `Ł`, works well enough if the story uses the Glulx setting (which is the default), but not the Z-machine. Should that be necessary, the following provides a way to get the `Ł` safely into quotation marks:
 
@@ -3122,15 +3122,15 @@ This is no longer the case: no such inclusion need now be made, and indeed, thos
 
 ## Displaying quotations
 
-[ZL: address that the only place where this will turn out as described (or, in fact, will not turn out something other than ugly) is in non-Glk Z-code terps, which is to say not in any of the IDEs or any of Parchment/iplayif , Lectrote, Spatterlight, or Gargoyle https://inform7.atlassian.net/browse/I7-2434 ]::
-
 ^^{quotations, displaying in boxes} ^^{boxed quotations} ^^{Inform 6 equivalent: `box}
+
+A feature of Inform now best avoided is that, in a limited way and only on a narrow set of platforms now rarely used, it can display a message in a sort of floating window over the main text. This is called a "boxed quotation" for historical reasons, and Inform allows one to be produced. But time has moved on from the simple terminal emulators which enabled crude text effects like this, and now boxed quotations will either be missing altogether or will look ugly on almost any modern platform.
 
 Text is normally printed in between the typed commands of the player, rolling upwards from the bottom of the screen, as if a dialogue is being typed by an old-fashioned teletype. But it can also be displayed in a bolder way, floating above the main text, and this is sometimes used to display quotations.
 
 > phrase: {ph_boxed} display the boxed quotation (text)
 >
-> This phrase displays the given text on screen in an overlaid box. For reasons to do with the way such quotations are plotted onto the screen, their text is treated literally: no substitutions in square brackets are obeyed. The quotation will only ever appear once, regardless of the number of times the "display the boxed quotation ..." phrase is reached. Rather than being shown immediately – and thus, probably, scrolling away before it can be seen – the display is held back until the next command prompt is shown to the player. Example:
+> This phrase displays the given text on screen in an overlaid box. For reasons to do with the way such quotations are plotted onto the screen, their text is treated literally: no substitutions in square brackets are obeyed, and no non-Latin characters can be used in it. The quotation will only ever appear once, regardless of the number of times the "display the boxed quotation ..." phrase is reached. Rather than being shown immediately – and thus, probably, scrolling away before it can be seen – the display is held back until the next command prompt is shown to the player. Example:
 >
 >	After looking in the Wabe, display the boxed quotation
 >		"And 'the wabe' is the grass-plot round
@@ -3140,10 +3140,8 @@ Text is normally printed in between the typed commands of the player, rolling up
 >		you know, because it goes a long way
 >		before it, and a long way behind it —
 >		— ^{@Lewis Carroll}".
->
-> This was the original example used in *Trinity*, by ^{@Brian Moriarty}, which invented the idea. A player exploring Kensington Gardens comes upon a location enigmatically called The Wabe; and by way of explanation, this quotation pops up.
 
-Note that exotic accented characters, such as the "Ł" in "Łodz", can't be displayed in boxed quotations. This is only a simple feature, and we should go in search of a suitable extension for fancier screen effects if we would like to do more.
+This was the original example used in *Trinity*, by ^{@Brian Moriarty}, which invented the idea. A player exploring Kensington Gardens comes upon a location enigmatically called The Wabe; and by way of explanation, this quotation pops up. Charming in the 1980s, the feature should probably not have been revived.
 
 ## Making new substitutions
 
