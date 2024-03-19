@@ -2391,8 +2391,6 @@ That concludes our tour through the design of the initial state of a simulated w
 
 But that is about all. There is as yet no element of surprise, no aim or sense of progress to be earned, and no narrative thread. We have painted the backcloth, and laid out the properties, but the actors have yet to take the stage.
 
-[ ZL: it would be *really, really* nice to have an additional section here with a short reference recapping all the object/property creation/assignment assertion syntax options from chapters 3-4 ]::
-
 # Text
 
 ## Text with substitutions {PM_TSWithPunctuation}
@@ -2530,14 +2528,7 @@ We can put almost any description of a value in square brackets in text, and Inf
 >
 > Here "time of day" is a value – it's a time that varies, and time is a sayable kind of value, so we might get "The dial reads 11:03 AM."
 
-The values we say most often are objects. If we simply put the name of what we want into square brackets, this will be substituted by the full printed name. We might find:
-
-[ZL: half-code half-transcript]::
-
-``` inform7
-"You admire [lantern]."
-= "You admire candle lantern."
-```
+The values we say most often are objects. If we simply put the name of what we want into square brackets, this will be substituted by the full printed name. For example, saying `"You admire [lantern]."` might produce ``You admire candle lantern.``
 
 But this reads oddly – clearly "the" or "a" is missing. So the following substitutions are used very often:
 
@@ -3048,45 +3039,38 @@ Whichever effect we use, we should be careful to ensure that we return to normal
 
 Inform 7 is infused by the English language, so it's a challenge using it to write a work of IF in any other language. (With that said, extensions do exist which have made considerable progress on this problem: nil desperandum.) But even a book in English contains occasional quotations or words borrowed from other tongues, so we are going to need more than plain A to Z.
 
-The world has a bewildering range of letters, accents, diacritics, markers and signs. Inform tries to support the widest range possible, but the works of IF produced by Inform are programs which then have to be run on a (virtual) computer whose abilities are more constrained: few players will have an Ethiopian font installed, after all. So a degree of caution is called for.
+The world has a bewildering range of letters, accents, diacritics, markers and signs. Inform tries to support the widest range possible, but a degree of caution is needed when using those not in common use in America or Europe, because players might not have the necessary fonts installed on their computers: few players will have an Ethiopian font, for example.
 
-(a) **Definitely safe to use.** Inform's highest level of support is for the letters found on a typical English typewriter keyboard, including both the $ and £ signs (but not the Yen or Euro symbols ¥ and €), and in addition the following:
+(a) **Definitely safe to use.** Inform's highest level of support is for the letters found on a typical English typewriter keyboard, including both the $ and £ signs (but not the Yen or Euro symbols ¥ and €), and in addition the Spanish inverted punctuation marks ¡, ¿, and the following extended letter forms:
 
-[ZL: might be case for bullet-less list ]::
+Lower case        | Upper case
+----------------- | ----------
+ä, á, à, ã, å, â  | Ä, Á, À, Ã, Å, Â
+ë, é, è, ê        | Ë, É, È, Ê
+ï, í, ì, î        | Ï, Í, Ì, Î
+ö, ó, ò, õ, ø, ô  | Ö, Ó, Ò, Õ, Ø, Ô
+ü, ú, ù, û        | Ü, Ú, Ù, Û
+ÿ, ý              | Ý but not Ÿ
+ñ                 | Ñ
+ç                 | Ç
+æ but not œ       | Æ but not Œ
+ß                 | no upper case form: use SS
 
-``` inform7
-ä, á, à, ã, å, â and Ä, Á, À, Ã, Å, Â
-ë, é, è, ê and Ë, É, È, Ê
-ï, í, ì, î and Ï, Í, Ì, Î
-ö, ó, ò, õ, ø, ô  and Ö, Ó, Ò, Õ, Ø, Ô
-ü, ú, ù, û and Ü, Ú, Ù, Û
-ÿ, ý and Ý (but not Ÿ)
-ñ and Ñ
-ç and Ç
-æ and Æ (but not œ or Œ)
-ß
-¡, ¿
-```
-
-These characters can be typed directly into the Source panel, and can be used outside quotation marks: we can call a room the Église, for instance.
+These characters can be typed directly into the Source panel, and can be used outside quotation marks. We can write `The Église is a room.`, for instance.
 
 (b) **Characters which can safely be used, but will be simplified.** As it reads in the text, Inform silently converts all kinds of dash (en-rules, em-rules, etc.) to simple hyphens; converts the multiplication symbol to a lower case "x"; converts all kinds of space other than tabs (em-spaces, non-breaking spaces, etc.) to simple spaces, and all kinds of quotation marks to "straight" (non-smart) marks.
 
-(c) **Characters which can be used provided they are in quoted text (other than boxed quotations), and which will probably but not certainly be visible to the player**. All other Latin letter-forms, including the œ ligature, East European forms such as ő, ş and ž, and Portuguese forms such as ũ; the Greek and Cyrillic alphabets, with their associated variants and accents; and the principal currency symbols, such as € and ¥. Such characters are not legal in unquoted text: so we could write
+(c) **Characters which can be used provided they are in quoted text (other than boxed quotations), and which will probably but not certainly be visible to the player**. All other Latin letter-forms, including the œ ligature, East European forms such as ő, ş and ž, and Portuguese forms such as ũ; the Greek and Cyrillic alphabets, with their associated variants and accents; and the principal currency symbols, such as € and ¥.
+
+Caution should be used with such characters outside of quotation marks: the outcome may depend on the format Inform is compiling to. For example, `Łodz Churchyard is a room.`, which uses the Polish `Ł`, works well enough if the story uses the Glulx setting (which is the default), but not the Z-machine. Should that be necessary, the following provides a way to get the `Ł` safely into quotation marks:
 
 ``` inform7
 The Churchyard is a room. The printed name of the Churchyard is "Łodz Churchyard".
 ```
 
-but not
+It should also be remembered that the player may not be able to type such characters in commands, or may have difficulty working out how to. (On the Z-machine, it will not be recognised even if typed: on Glulx, it may work.)
 
-``` inform7
-Łodz Churchyard is a room.
-```
-
-Moreover, the player is not allowed to type these characters in commands during play: or rather, the characters will not be recognised if the player does. They are for printing only.
-
-(d) **Characters which might work in quoted text, or might not**. The Arabic and Hebrew alphabets are fairly likely to be available; miscellaneous symbols are sometimes legible to the player, sometimes not. Other alphabets are chancier still. (If a work of IF depends on these being visible, it may be necessary to instruct players to use specific interpreters, or to provide a way for the player to test that all will be well.)
+(d) **Characters which might work in quoted text, or might not**. The Arabic and Hebrew alphabets are fairly likely to be available, but right-to-left support for them is another matter; miscellaneous symbols are sometimes legible to the player, sometimes not. Other alphabets are chancier still. (If a work of IF depends on these being visible, it may be necessary to instruct players to use specific interpreters, or to test that the effect looks right in multiple browsers on each of MacOS, Windows and Linux.)
 
 ## Unicode characters {PM_SayUnicode} {PM_MidTextUnicode} {PM_UnicodeOutOfRange}
 
@@ -3123,13 +3107,7 @@ Admittedly, character names can get a little verbose:
 
 Inform can "only" handle codes [unicode 32] up to [unicode 131071], and note that if the story settings are to compile to the Z-machine, this range stops at 65535: thus many emoji characters – say, [unicode fish cake with swirl design] – can only be used if the story will compile to Glulx or another modern target. But by default, stories are compiled the modern way, so this should not be a problem in practice.
 
-[ZL: not converting url since this is going to be rewritten...]::
-
-There are far too many possible names to list here: formally, any character name in the Basic Multilingual Plane or the Supplementary Multilingual Plane of version 15.0.0 of the Unicode standard can be used. See:
-
-``` inform7
-[Unicode plane](https://en.wikipedia.org/wiki/Plane_(Unicode))
-```
+There are far too many possible names to list here: formally, any character name in the Basic Multilingual Plane or the Supplementary Multilingual Plane of version 15.0.0 of the Unicode standard can be used.
 
 But before getting carried away, we should remember the hazards: Inform allows us to type, say, `"[unicode Saturn]"` (an astrological sign) but it appears only as a black square if the resulting story is played by an interpreter using a font which lacks the relevant sign. For instance, Zoom for OS X uses the Lucida Grande and Apple Symbol fonts by default, and this combination does contain the Saturn sign: but Windows Frotz tends to use the Tahoma font by default, which does not. (Another issue is that the fixed letter spacing font, such as used in the status line, may not contain all the characters that the font of the main text contains.) To write something with truly outré characters is therefore a little chancy: users would have to be told quite carefully what interpreter and font to use to play it.
 
