@@ -7594,13 +7594,13 @@ Taking inventory is an action applying to nothing.
 
 Actions can involve up to two different things. We can place additional requirements on any of these things by describing them as a "visible thing", "touchable thing" or "carried thing". (If we simply say "thing" or "things", as in the second example, Inform assumes the requirement to be "touchable".) These three conditions are increasingly strong:
 
-[ZL: was block previously. "visible thing"'s explanation is problematic ]::
+[ZL: "visible thing"'s explanation is problematic ]::
 
-To be **visible**, something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.
+- To be **visible**, something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.
 
-To be **touchable**, the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.
+- To be **touchable**, the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.
 
-To be **carried**, the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something "carried", like ``wear hat``, the thing in question – the hat – will sometimes be picked up automatically. This is called "implicit taking", and results in text like "(first taking the top hat)" being printed.)
+- To be **carried**, the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something "carried", like ``wear hat``, the thing in question – the hat – will sometimes be picked up automatically. This is called "implicit taking", and results in text like "(first taking the top hat)" being printed.)
 
 If an action involves two things, they need not have the same requirement as each other:
 
@@ -8022,16 +8022,16 @@ Loving relates various people to one person.
 
 what we are saying is that only people love; that they only love people; and that each person loves only one other person (at any given moment).
 
+Suppose, just in this discussion, we write "X ❤️ Y" to mean that X is related by the loving relation to Y. (This isn't Inform syntax: that comes later. It's just to explain relationships.)
+
 The "various" part comes in because, for instance, we might have:
 
-[ZL:: this *loving relation* thing looks like code and is confusing. I've seen people who thought it should work as written. ]::
-
-> Verenka *loving relation* Stankevich
-> Liubov *loving relation* Stankevich
+- Verenka ❤️ Stankevich
+- Liubov ❤️ Stankevich
 
 so that various people (Verenka and Liubov, to name but two) love one person (Stankevich). But we are forbidding anyone to love two other people at the same time: Stankevich must decide which of them to love, or pick someone else, or no-one at all. Similarly, we would not allow
 
-> Liubov *loving relation* Belinsky
+- Liubov ❤️ Belinsky
 
 It is sometimes convenient to give a name to the other side of a relationship, so to speak. We might imagine:
 
@@ -8221,6 +8221,14 @@ Peter is covering himself with a tent-like raincoat.
 ```
 
 Here we have "to cover oneself with", four words long; the limit is 29.
+
+The [Making new relations] sections set up a "loving relation" as an example, and used an emoji ❤️ to notate it. It's actually possible to tell Inform to do the same, perhaps surprisingly:
+
+``` inform7
+The verb to ❤️ means the loving relation. Peter ❤️ Jane.
+```
+
+Inform will stubbornly try to treat this symbol as if it were a regular English verb, though, so it will also allow `Jane is ❤️ed by Peter`, for example, turning "❤️" into "❤️ed" in the same way that it would turn "cover" into "covered".
 
 ## Defining new prepositions
 
