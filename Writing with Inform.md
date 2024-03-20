@@ -7592,25 +7592,29 @@ Depositing it in is an action applying to two things.
 Taking inventory is an action applying to nothing.
 ```
 
-Actions can involve up to two different things. We can place additional requirements on any of these things by describing them as a "visible thing", "touchable thing" or "carried thing". (If we simply say "thing" or "things", as in the second example, Inform assumes the requirement to be "touchable".) These three conditions are increasingly strong:
+When an action applies to things, rather than values, Inform allows some restrictions on access to be put in place. Inform often allows impossible actions to be tried — eating a door, say, or putting a suitcase inside itself — so that they can be stopped later on a checking process, and a good explanation can be given. Most of those rules have to be specific to the actions involved.
 
-[ZL: "visible thing"'s explanation is problematic ]::
+But some actions are impossible for spatial reasons. For example, if the Mona Lisa is inside a sealed glass box, and the player is outside that box, then many different actions are immediately out of the question: eating the painting, rubbing it, taking it, putting it in a rucksack, and so on. The reason in each case is the same: you can't get at it.
 
-- To be **visible**, something needs only to be possible to refer to by the player, which in practice means that it must be visible to the player-character. The noun or second noun produced by any action resulting from a command at the keyboard will always satisfy this minimal condition.
+So Inform provides a common system, shared by all actions, to check on this. Under this system, every thing involved in an action is subject to one of three possible levels of restriction:
 
-- To be **touchable**, the player-character must be able to physically touch the thing in question: this normally means that it must be in the same room, and there must be no physical barriers in between.
+1) `visible`. This is the weakest level of restriction — no restriction at all. The word "visible" is used very loosely here, and refers to the fact that typed commands only normally understand the names of things the player can see. Because of that almost all actions involve visible things, and so it's not a stringent requirement. But to reiterate: `visible` here actually means unrestricted. There is no requirement for the actor to be `able to see` the item in the sense of the `visibility relation`.
 
-- To be **carried**, the player-character must (directly) carry the thing in question. (But if the player types a command using an action requiring something "carried", like ``wear hat``, the thing in question – the hat – will sometimes be picked up automatically. This is called "implicit taking", and results in text like "(first taking the top hat)" being printed.)
+2) `touchable`. Here the actor must be `able to touch` the thing, as decided by the `touchability relation`. A full definition of that can be found in [The built-in verbs and their meanings], but roughly speaking it means the actor is in the same room as the object, and there are no physical barriers in between.
 
-If an action involves two things, they need not have the same requirement as each other:
+   This is the default level of restriction: so, for example, `an action applying to two things` requires both things to be `touchable`.
+
+   There is one small exception, which is that touchability is waived in the case when an actor other than the player would need to touch a door or backdrop. (This is a compromise to avoid difficulties arising from the ambiguous locations of such items.)
+
+3) `carried`. The strongest level of restriction. The actor must be directly carrying the thing in question. However, this strict rule is made less painful by an automatic process called "implicit taking". If an action requires something to be carried, and it isn't, then a silent taking action will be generated first. If this succeeds, then the original action can proceed after all, after some text like ``(first taking the top hat)`` is printed.
+
+If an action involves two things, they need not have the same requirement as each other. If we set this up:
 
 ``` inform7
 Waving it at is an action applying to one carried thing and one visible thing.
 ```
 
-Thus to ``wave magic wand at banyan tree``, the player must be holding the wand, but need only be able to see the tree.
-
-Note one special case. Requirements on touchability are waived in the case of "try" actions applied to people other than the player where the things they would need to touch are doors or backdrops. (This is a compromise to avoid difficulties arising from the ambiguous locations of such items.)
+then trigger an action with the command ``wave magic wand at banyan tree``, the player must be holding the wand, but need only be able to see the tree.
 
 ## Changing reachability {var_person_reaching}
 
