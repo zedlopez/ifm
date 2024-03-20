@@ -1,5 +1,5 @@
 Example: *** Four Cheeses
-Location: Making reciprocal relations
+Location: Making symmetric relations
 RecipeLocation: Telephones
 Index: Telephones reaching distant parties
 Description: A system of telephones on which the player can call distant persons and have conversations.

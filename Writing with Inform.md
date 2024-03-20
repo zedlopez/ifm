@@ -8047,23 +8047,21 @@ Pet-ownership relates various animals (called the pet) to one person.
 
 because "the pet of Flaubert" would be ambiguous: he might have owned dozens.
 
-## Making reciprocal relations
+## Making symmetric relations
 
-[ZL: I suggest saying "symmetric" rather than "reciprocal"... as is, we're never actually told when we get to "symmetric" that it means the same thing as the reciprocal mentioned here...]::
-
-^^{reciprocal relations} ^^{relations: reciprocal relations} ^^{(each other), in defining relations+sourcepart+} ^^{(another), in defining relations+sourcepart+} ^^{`called: in defining relations}
+^^{symmetric relations} ^^{relations: symmetric relations} ^^{(each other), in defining relations+sourcepart+} ^^{(another), in defining relations+sourcepart+} ^^{`called: in defining relations}
 
 The relationships described in this chapter so far are by no means always reciprocated. For instance, if a stone is on a table, then it is never true that the table is also on the stone. And the question may not even be meaningful to ask. If Peter wears a jacket, the jacket does not even have the possibility of wearing Peter.
 
-But sometimes we do want a relation which works both ways equally well. These are simple to set up:
+But sometimes we do want a so-called symmetric relation, one which automatically works both ways. These are simple to set up:
 
 ``` inform7
 Meeting relates people to each other.
 ```
 
-The effect is that various people know various other people, and this is always reciprocated. If Daisy knows Sophie then, automatically, Sophie knows Daisy. This even-handedness is maintained throughout play, so that whatever changes are made it is always true that if A knows B then B knows A.
+The effect is that various people know various other people, and this always goes both ways at once. If Daisy has met Sophie then, automatically, Sophie has met Daisy. This even-handedness is maintained throughout play, so that whatever changes are made it is always true that if A has met B then B has met A.
 
-And similarly for a reciprocal relation between one and another:
+And similarly for a reciprocal relation between one and `another`, where each person can be related either to nobody or to just one significant other:
 
 ``` inform7
 Marriage relates one person to another.
@@ -8075,7 +8073,7 @@ In this case, we can again give a name to the partner under a relation:
 Marriage relates one person to another (called the spouse).
 ```
 
-and now, for instance, we may have that the spouse of John is Yoko and the spouse of Yoko is John.
+and now, for instance, if the spouse of John is Yoko then the spouse of Yoko is automatically John, and they have no other spouses.
 
 Since many of these examples have involved people, it might be worth mentioning again that any kind can be involved, not just the "person" kind.
 
