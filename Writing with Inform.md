@@ -5566,8 +5566,6 @@ Note that "clock error" is a number, but "clock error minutes" is a time.
 
 We often want to arrange for something to happen at some point in the future. Here is yet another timepiece:
 
-[ZL: should call out that it's an arbitrary label with no meaning to "egg-timer" in the rule name ]::
-
 ``` inform7
 {*}An egg-timer is in the Chamber. "A plastic egg timer in the shape of a chicken can be pressed to set it going."
 
@@ -5579,7 +5577,7 @@ At the time when the egg-timer clucks:
 	say "Cluck! Cluck! Cluck! says the egg-timer."
 ```
 
-The event here is called "the egg-timer clucks". It only happens if we instruct so, using one of the following phrases:
+The event here is called `the egg-timer clucks`, but this event name could have been anything we chose: as it happens, the event involves the egg-timer, but it doesn't need to have `egg-timer` in the name. Events like this happen only when instructed to happen, using one of the following phrases:
 
 > phrase: {ph_timefromnow} (rule) in (time) from now
 >
@@ -6187,11 +6185,7 @@ After dropping something in the Auction House:
 
 which Inform allows because "noun", here, is a name for the object which is being acted on.
 
-Inform decides which definition to apply in a process called "pattern matching".
-
-[ZL: we're told (name – kind) here, but it's fairly promptly contradicted...]::
-
-The bracketed part of the example definition has the form "(name – kind)". The definition only applies if the text supplied agrees with the "kind" part – for instance, the diamonds agreed with "object", but 63 did not. If the definition  does apply, then the Inform works through the rest of the phrase using "name" to mean whatever value matched. For example:
+Inform decides which definition to apply in a process called "pattern matching". The bracketed part of the example definition has the form "(name – description)". The definition only applies if the text being matched refers to a value which fits the description – for instance, the diamonds agreed with "object", but 63 did not. If the definition does apply, then the Inform works through the rest of the phrase using "name" to mean whatever value matched. For example:
 
 ``` inform7
 To slam shut (box - an open container):
@@ -6213,7 +6207,7 @@ With great panache, you slam shut the Dutch armoire.
 
 and renders it closed.
 
-In fact any description can be given in the definition, and that includes a single, specific value. For instance, we could define:
+The description given in a definition can even be a single, specific value. For instance, we could define:
 
 ``` inform7
 To grant (bonus - a number) points:
@@ -7033,15 +7027,15 @@ The following flow chart shows the natural course of events when Inform deals wi
 
 ![achart](doc_images/achart.png)
 
-[ZL: somewhere we need a finer-grained version that includes all the many rules and rulebooks that are also a part of the action sequence...]::
-
 The coloured boxes on this chart represent "rulebooks", that is, collections of rules with a common purpose. The orange boxes for Before, Instead and After were covered in the chapter on [Basic Actions], but the blue boxes are new. The orange boxes are where we put rules to handle unusual situations, or unexpected events: special rules to cover the opening of a container which happens to be booby-trapped, or walking through a doorway into a room where a surprise party is about to be sprung.
 
 Blue boxes hold the mundane, everyday rules – the generic ways that particular actions behave. Every action provides these: "Check" rules, to see if it makes sense – for instance, to see that the player is not trying to take their own body, or a whole room, or something they already have; then "Carry out" rules, to actually do what the action is supposed to do – in the case of taking, to move an object into the player's possession; and finally "Report" rules, which tell the player what has happened – perhaps printing up "Taken."
 
 When we create a new action, we add a new column to the blue rows in this diagram. As we shall see, we can also put new rules into the existing blue boxes: for instance, if we wanted to increase physical realism by forbidding the player to carry more than a certain weight, we would want to add a new "check taking" rule, and this is entirely legal.
 
-In subsequent chapters, we will see ways to intervene at almost every point in the above diagram – from how "Can we see or touch things?" is reckoned, to each and every individual rule in all of these books. Action-processing may be the single most important thing Inform does, so the system is designed to be immensely flexible. On the other hand, that does make it a lot to take in at one look. Newcomers should probably concentrate on "Instead" and "After" as the basic tools for designing the situations turning up routinely in interactive fiction. There are guidelines at the end of this chapter offering advice on which tricks to use when it comes to more complicated needs.
+In subsequent chapters, we will see ways to intervene at almost every point in the above diagram – from how "Can we see or touch things?" is reckoned, to each and every individual rule in all of these books. In fact, the full system is still more elaborate than the diagram above: see the `action-processing rules` rulebook in the Index of a project for the full picture.
+
+Action-processing may be the single most important thing Inform does, so the system is designed to be immensely flexible. On the other hand, that does make it a lot to take in at one look. Newcomers should probably concentrate on "Instead" and "After" as the basic tools for designing the situations turning up routinely in interactive fiction. There are guidelines at the end of this chapter offering advice on which tricks to use when it comes to more complicated needs.
 
 ## Giving instructions to other people {var_person_asked}
 
@@ -7314,13 +7308,11 @@ Squicking is an action with past participle squacked, applying to one thing.
 
 The normal behaviour of an action is specified by its three associated rulebooks – check, carry out and report. In the case of our "photographing" example, these rulebooks will be:
 
-[ZL: had been in block previously]::
+1) **Check photographing**. Here, for instance, we need to verify that the player has the camera. If any of our checks fail, we should say why and stop the action. If they succeed, we say nothing.
 
-**Check photographing**. Here, for instance, we need to verify that the player has the camera. If any of our checks fail, we should say why and stop the action. If they succeed, we say nothing.
+2) **Carry out photographing**. At this stage no further checking is needed (or allowed): the action now definitively takes place. At this point we might, for instance, deduct one from the number of exposures left on the film in the camera, or award the player points for capturing something interesting for posterity. But we should say nothing.
 
-**Carry out photographing**. At this stage no further checking is needed (or allowed): the action now definitively takes place. At this point we might, for instance, deduct one from the number of exposures left on the film in the camera, or award the player points for capturing something interesting for posterity. But we should say nothing.
-
-**Report photographing**. At this stage no further activity is needed (or allowed): whatever effect the action had, it has happened and is now over. All we can do is to say what has taken place.
+3) **Report photographing**. At this stage no further activity is needed (or allowed): whatever effect the action had, it has happened and is now over. All we can do is to say what has taken place.
 
 So far we have not really gone into the business of what rulebooks are, and we don't do so here either – suffice to say that we can now create whatever rules we need:
 
