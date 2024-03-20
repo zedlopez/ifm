@@ -8056,10 +8056,10 @@ The relationships described in this chapter so far are by no means always recipr
 But sometimes we do want a so-called symmetric relation, one which automatically works both ways. These are simple to set up:
 
 ``` inform7
-Meeting relates people to each other.
+Knowing relates people to each other.
 ```
 
-The effect is that various people know various other people, and this always goes both ways at once. If Daisy has met Sophie then, automatically, Sophie has met Daisy. This even-handedness is maintained throughout play, so that whatever changes are made it is always true that if A has met B then B has met A.
+The effect is that various people know various other people, and this always goes both ways at once. If Daisy knows Sophie then, automatically, Sophie knows Daisy. This even-handedness is maintained throughout play, so that whatever changes are made it is always true that if A knows B then B knows A.
 
 And similarly for a reciprocal relation between one and `another`, where each person can be related either to nobody or to just one significant other:
 
@@ -8116,44 +8116,267 @@ But this is a phrase – not a typed command.
 
 ^^{relations: relationship to sentence verbs} ^^{sentence verbs: predefined} ^^{`is} ^^{equality+rel+ <-- `is: equality relation <-- comparisons: equality} ^^{equality+relcat+} ^^{provision+rel+ <-- `provides: provision relation} ^^{adjacency+rel+} ^^{adjacency+relcat+} ^^{rooms+kind+: adjacent}
 
-It is all very well to define new relations, but this does nothing if there is no way to assert that they are true, or to ask whether they are true or false. That requires a verb: in fact, a relation is nothing more than what Inform uses as the "meaning" of a verb. The assertion verbs built in to Inform have the following built-in relations as their meanings:
+Inform uses relations to give meaning to verbs. For example, this sentence appears in the Standard Rules which are automatically included in every story:
 
-[ ZL: This leads one to believe that these verbs mean their respective relations in the same fashion author-created verbs mean theirs, when, really, these all being special-cased out the wazoo. Maybe it's just me, but I ended up struggling with this for a substantial while before I finally got to where I was confident in recognising that, despite this section, the built-in relation/verbs are *not* like user-created ones. I recommend explicit coverage of the special cases where different verbs have different meanings in different contexts (have, hold), and coverage (in the docs, not just the Project Index) of what all the synonyms are; no one's going to guess that `to be held in/inside` is reversed containment, as opposed to `to be held by`, which is holding. ]::
+	The verb to wear means the wearing relation.
 
-**Verb - Relation**
-- to be - equality relation
-- to have - possession relation
-- to contain - containment relation
-- to support - support relation
-- to carry - carrying relation
-- to wear - wearing relation
-- to incorporate - incorporation relation
+Because of this sentence, sentences like `Watson is wearing a brown Army greatcoat.`, conditions like `if Holmes has not worn the deerstalker hat`, and changes like `now Mrs Hudson wears the apron`, are all understood by Inform to be talking about the wearing relation. Inform stories begin with a fairly small stock of verbs, allowing more to be added by authors as needed: see [Defining new assertion verbs]. This discussion, which can safely be skimmed or skipped altogether on a first reading, covers what is built in.
 
-Two of Inform's built-in relations are expressed using prepositions instead:
+### Why some built-in verbs and relations are special cases
 
-**Preposition - Relation**
-- to be part of - (reversed) incorporation relation
-- to be adjacent to - adjacency relation
+The closer we get to the core of English, the more irregular, ambiguous and expressive it becomes. The verb "to be" is right at the centre, so it is easy to see why Inform has to give it special treatment. In principle it means the `equality relation`, which is true if two values are equal. And that is just what it does mean in usages like `The time of day is 5:12 pm.`; `if the score is 10`; `now the score is 20`. But Inform also has to overload "to be" with other meanings, too. For example, `The Ballroom is dark.` is not trying to say that the Ballroom is equal to the property of darkness.
 
-It would be easy to make verbs for these if we wanted ("to adjoin", say) using the techniques of the next section.
+The `equality relation`, too, has special abilities: it can be used more flexibly than a new relation created by an Inform author can be. Equality can be applied to any two values with compatible kinds, for example, which is a much broader range of applicability than can be declared with a sentence like `Knowing relates people to each other.`
 
-The verb *to be* is grammatically different from any other, and its meaning is too complicated to be fully expressed by any one relation. A great deal of the Inform program is given over to its "meaning", which we are not allowed to change or imitate. The "equality relation" is simple enough, and is the one implied by conditions like
+"To be" is an extreme case, but there are several other built-in verbs which are special, or which mean relations which are special, or both. These special cases fall into two sets. One set, defined in the Basic Inform rules common to all stories, provides fundamentals of the English language like "to be", "to have", and "to mean". The other set is defined in the Standard Rules for interactive fiction, and provides some basics needed for story-telling. "To wear" is built in because clothing is commonly needed in stories, not because it is somehow a difficult English verb. Inform does provide special support for the `wearing relation` in that, for example, it won't allow both `Holmes wears the deerstalker` and `The deerstalker is on the table` to be true at the same time. But the actual verb "to wear" is not special at all.
 
-``` inform7
-if the score is 20, ...
-```
+### To be
 
-but *to be* can have more complicated implications – "if Mr Wickham is hungry" clearly doesn't test whether two quantities are equal. Fortunately the other verbs are much simpler.
+Basic Inform declares 15 different meanings for "to be", though some are very rarely used. The first 14 of these are all special sentence meanings hard-wired into the language by the compiler: they apply only when the syntax is just so, and they apply only to whole sentences, not to `if` conditions or uses of `now`. The 15th is the regular meaning, equality.
 
-There are a few other built-in verbs, as can be seen in the Index, but these are mostly for experts only. For example:
+verb    | meaning | example
+------- | ------- | -------
+`to be` | `built-in new-verb meaning` | `To achieve is a verb.`
+`to be` | `built-in new-plural meaning` | `The plural of cherub is cherubim.`
+`to be` | `built-in new-activity meaning` | `Printing a parser error is an activity.`
+`to be` | `built-in new-action meaning` | `Taking is an action applying to one thing.`
+`to be` | `built-in new-adjective meaning` | `In French petit is an adjective meaning...`
+`to be` | `built-in new-either-or meaning` | `A thing is either edible or inedible.`
+`to be` | `built-in accessible-to-inter meaning` | `The time advancing rule is accessible to Inter as "TIME_ADV_RULE".`
+`to be` | `built-in defined-by-inter meaning` | `The seed random number generator rule is defined by Inter as "SEED_RANDOM_NUMBER_GENERATOR_R".`
+`to be` | `built-in defined-by-table meaning` | `Some doors are defined by the Table of Portals.`
+`to be` | `built-in rule-listed-in meaning` | `The time passes rule is listed in the turn sequence rulebook.`
+`to be` | `built-in new-figure meaning` | `Figure 2 is the file "Butterfly.png".`
+`to be` | `built-in new-sound meaning` | `Sound of rustling leaves is the file "Rustling leaves.ogg".`
+`to be` | `built-in new-file meaning` | `The File of Glaciers is called "ice".`
+`to be` | `built-in episode meaning` | `This is episode 2 of "When in Rome".`
+`to be` | `equality relation` | `if N is 10`
 
-``` inform7
-**Verb - Relation**
-to mean - meaning relation
-to provide - provision relation
-```
+And is this the whole story for "to be"? It is not. Firstly, as noted above, the `equality relation` is not like other relations. `X is Y` will be treated as equality of two values if `X` and `Y` both refer to values of the same kind, but as asserting that `X` has some property `Y` if `X` is a value and `Y` is a property it can have (example: `The box is transparent.`) or similarly that `X` has the kind `Y` (example: `The box is a container.`).
 
-"To mean" can be used to make new verbs, as we'll soon see. Provision is to do with whether something can have a given property: for example, "if R provides the property lighted" tests whether R is able to have this property, not whether it actually has it at the moment.
+There are also two sorts of sentence used in Inform which look like usages of "to be" but which, from Inform's point of view at least, are not.
+
+1) A grammar book would say that "to be in" is the verb "to be" used in conjunction with a preposition "in". Inform thinks of `to be in` as a different verb from `to be`, with a different relation as its meaning. Indeed, the Standard Rules contain the line:
+
+		The verb to be in means the reversed containment relation.
+
+   And this is why `The insufflator is in the Gladstone bag.` means that the bag contains the insufflator: this sentence is not an attempt to apply the `equality relation`. Because of a quirk of English called subject-verb inversion, we also sometimes write `In the Gladstone bag is the insufflator.` This flips the meaning back from being the `reversed containment relation` to just the regular `containment relation`, so once again it says that the bag contains the insufflator. Inverted or not, Inform thinks of the "verb" as `to be in`, not `to be`. And the same goes for other prepositional phrases.
+
+2) "to be" serves as a form of auxiliary verb in the conjugation of other verbs. When Inform defines `to support`, that automatically enables sentences like `X is supporting Y`, or `Y is supported by X`. But again, Inform considers the verb in both sentences as `to support`, not `to be`.
+
+### Other built-in verbs from Basic Inform
+
+As with "to be", many of these — the ones described as built-in meanings rather than as relations — apply only to assertion sentences, and only if special syntaxes are used. Some are quite obscure and very seldom seen. If a verb does not have a meaning as a relation, it's still free to be given one by authors.
+
+verb | meaning | example
+---- | ------- | -------
+`to mean` | `built-in verb-means meaning` (1) | `The verb to mean means the meaning relation.`
+`to mean` | `meaning relation` | `The verb to wear means the wearing relation.`
+`to imply` | `built-in verb-means meaning` (1) | synonym for `to mean`
+`to imply` | `meaning relation` | synonym for `to mean`
+`to be able to be` | `built-in can-be meaning` | `A supporter can be enterable.`
+`to have` (2) | `possession relation` (3) | `The box has carrying capacity 10.`
+`to specify` | `built-in specifies-notation meaning` | `A length times a length specifies an area.`
+`to relate` | `built-in new-relation meaning` (4) | `Loving relates various people to one person.`
+`to relate` | `universal relation` (5) | `if the box relates to the coin by containment` 
+`to substitute for` | `built-in rule-substitutes-for meaning` | `The time passes slowly rule substitutes for the time passes rule.`
+`to do` | `built-in rule-does-nothing meaning` | `The time passes rule does nothing.` (6)
+`to translate into ... as` | `built-in translates-into-unicode meaning` | `Black king chess piece translates into Unicode as 9818.` (7)
+`to translate into ... as` | `built-in translates-into-i6 meaning` | `The taking inventory action translates into Inter as "Inv".`
+`to translate into ... as` | `built-in translates-into-language meaning` | `Thing translates into French as chose.`
+`to translate as` | `built-in use-translates meaning` | `Use American dialect translates as the configuration flag AMERICAN_DIALECT in BasicInformKit.`
+`to provide` | `provision relation` (8) | `if the noun provides carrying capacity`
+`to be greater than` | `numerically-greater-than relation` (9) | `if X is greater than 5`
+`to be less than` | `numerically-less-than relation` (9)  | `if X is less than 5`
+`to be at least` | `numerically-greater-than-or-equal-to relation` (9)  | `if X is at least 5`
+`to be at most` | `numerically-less-than-or-equal-to relation` (9)  | `if X is at most 5`
+
+In addition, there are four so-called "operators", which are like verbs except that they just have a single form and do not conjugate:
+
+operator | meaning | example
+-------- | ------- | -------
+`>` | `numerically-greater-than relation` (9) | `if X > 2`
+`<` | `numerically-less-than relation` (9) | `if X < 2`
+`>=` | `numerically-greater-than-or-equal-to relation` (9) | `if X >= 2`
+`<=` | `numerically-less-than-or-equal-to relation` (9) | `if X <= 2`
+
+Some footnotes:
+
+1) "To mean" and its synonym "to imply" are special in that they both create a new verb, and then give it a meaning.
+
+2) "To have" also turns up in the past tenses of other verbs: for example, in `if Holmes has worn the deerstalker`. But Inform regards that as a use of the verb `to wear`, not `to have`.
+
+3) The `possession relation` can also be used to talk about people carrying or wearing things: see below. The meaning here is in sentences like `The box has carrying capacity 10.` which assert that something has a given property value.
+
+4) As with "to mean", "to relate" has a special meaning which creates a new relation.
+
+5) The `universal relation` is awesomely powerful, in that it contains all other relations. Uniquely, it relates three things, not two: thus `X relates to Y by Z` expresses that the relation `Z` applies between `X` and `Y`.
+
+6) This can also occur with `if...`, `when...` or `unless...` caveats attached.
+
+7) Now withdrawn from the language: throws a problem message.
+
+8) The `provision relation` is special in that it applies to any value and any property, even when this seems absurd. For example, `if 20 provides carrying capacity` is perfectly legal. (The answer is no.) But it is intended for coping with objects, where it often happens that a variable contains some object, but where the exact kind is not known in advance.
+
+9) These size comparison relations can be applied to a wide range of number-like quantities, not just numbers, but they can only be tested, not asserted by `now`.
+
+### Built-in verbs from the Standard Rules
+
+These verbs mostly concern the spatial world of the story: how things fit together in space, whether they are near or far away, and so on.
+
+The table below does not list regular forms like `to be concealed by`, because those exist automatically because the verb `to conceal` exists: `X is concealed by Y` means the same thing as writing `Y conceals X`. Note in particular that `X is held by Y` means that `Y` holds `X`, as defined by the `holding relation`; whereas `X is held in Y` has a subtly different meaning, the `containment relation`.
+
+verb | meaning | example
+---- | ------- | -------
+`to have` | `possession relation` (1) | `if Watson has the army revolver`
+`to be in` | `reversed containment relation` (2) | `The coin is in the box.`
+`to be inside` | `reversed containment relation` (2) | `The coin is inside the box.`
+`to be within` | `reversed containment relation` (2) | `The coin is within the box.`
+`to be held in` | `reversed containment relation` (2) | `The coin is held in the box.`
+`to be held inside` | `reversed containment relation` (2) | `The coin is held inside the box.`
+`to contain` | `containment relation` (2) | `The box contains the coin.`
+`to be contained in` | `reversed containment relation` (2) | `The coin is contained in the box.`
+`to be on top of` | `reversed support relation` (3) | `The box is on top of the table.`
+`to be on` | `reversed support relation` (3) | `The box is on the table.`
+`to support` | `support relation` (3) | `The table supports the box.`
+`to be supported on` | `reversed support relation` (3) | `The box is supported on the table.`
+`to incorporate` | `incorporation relation` (4) | `The coin incorporates the head.`
+`to be part of` | `reversed incorporation relation` (4) | `The head is part of the coin.`
+`to be a part of` | `reversed incorporation relation` (4) | `The head is a part of the coin.`
+`to be parts of` | `reversed incorporation relation` (4) | `The head and the inscription are parts of the coin.`
+`to carry` | `carrying relation` (5) | `Henry carries the food.`
+`to wear` | `wearing relation` (6) | `Henry wears a hat.`
+`to hold` | `holding relation` (7) | `Henry holds the food.`
+`to enclose` | `enclosure relation` (8) | `The box encloses the coin.`
+`to be able to see` | `visibility relation` (9) | `if Amanda can see the soldier`
+`to be able to hear` | `audibility relation` (10) | `if Amanda can hear Flavia`
+`to be able to touch` | `touchability relation` (11) | `if Amanda can touch the coin`
+`to conceal` | `concealment relation` (12) | `if Flavia conceals the knife`
+`to be adjacent to` | `reversed adjacency relation` (13) | `if the location is adjancent to the Atrium`
+`to be regionally in` | `reversed regional-containment relation` (14) | `if the location is regionally in Gaul`
+`to be above` | `mapping up relation` (15) | `The Terrace is above the Atrium.`
+`to be mapped above` | `mapping up relation` (15) | `The Triclinium is mapped above the Atrium.`
+`to be below` | `mapping down relation` (15) | `The Hypocaust is below the Atrium.`
+`to be mapped below` | `mapping down relation` (15) | `The Well is mapped below the Atrium.`
+`to be through` | `leading-through relation` (16) | `if the Atrium is through the green door`
+`to unlock` | `lock-fitting relation` (17) | `The brass key unlocks the green door.`
+`to be about` | `topicality relation` (18) | `if B is about philosophy`
+`to be performable to` | `performability relation` (19) | `if B is performable to the actor`
+`to begin when` | `built-in scene-begins-when meaning` | `Train Stop begins when Train Wait ends.`
+`to end when` | `built-in scene-ends-when meaning` | `Train Stop ends when the turn count is 10.`
+`to end ... when` | `built-in scene-ends-when meaning` | `Train Stop ends unhappily when the turn count is 10.`
+
+So then we have to say what these relations apply to, and what they mean. We will call the two related objects `X` and `Y`. Some basic ground rules first:
+* Objects are sometimes "spatial" — belonging to the kinds `thing`, `room`, `region`, or `direction` — or not — belonging to the kind `abstract object`. 
+* Spatial objects can sometimes be contained in other spatial objects, can be supported by them, or carried by them, or worn by them, or can be part of them, but any given spatial object cannot do two of these at the same time, and need not do any.
+* Abstract objects can be "in" other abstract objects. What that might mean is up to the author making use of them.
+
+1) The `possession relation` can also be used to talk about properties: see the Basic Inform table above. If `X` or `Y` are both objects, then the relation is true if either the `carrying relation` or the `wearing relation` holds; note that in either case, `X` has to be a person and `Y` has to be a thing. Asserting possession with `now` is equivalent to asserting the `carrying relation`. Thus, `now Watson has the revolver` causes him to be carrying it.
+
+2) The `containment relation` is converted automatically to `regional-containment relation` (see below) if `X` is a region. Otherwise `X` must be either a room or a container, and `Y` must be a thing. `X` must immediately contain `Y`: if a coin is in a box which is in a crate, then the crate contains the box but does not contain the coin.
+
+   Beware that a backdrop, or a two-sided door, is only contained in a single room at a time, even though it is conceptually present in other places. Behind the scenes, these objects are moved as needed to preserve the illusion that they are in two places at once, but they are not. However, see the note on enclosure below.
+
+3) The `support relation` holds if `X` is a supporter, `Y` is a thing, and `Y` is immediately on top of `X`.
+
+4) The `incorporation relation` holds if `X` and `Y` are things, and `X` is (immediately) a part of `Y`.
+
+5) The `carrying relation` holds if `X` is a person and `Y` is a thing, and `X` is immediately holding `Y`. `Y` cannot at the same time be worn by `X`, so `now Holmes carries the deerstalker` will make it cease to be worn if Holmes was already wearing it.
+
+   `now X does not carry Y` is permitted in all cases. If `X carries Y` then `Y` is moved to the `holder of X`; if not, nothing happens. Note that if `X` is currently out of play (so that `holder of X` is `nothing`) then `Y` is made separately out of play.
+
+6) The `wearing relation` holds if `X` is a person and `Y` is a thing, and `X` is dressed in `Y`. `now Holmes does not wear the deerstalker` would cause him to be carrying it instead of wearing it.
+
+7) The `holding relation` holds for spatial objects if any of:
+   * the `containment relation` holds, i.e., `X` contains `Y`;
+   * the `support relation` holds, i.e., `X` supports `Y`;
+   * the `carrying relation` holds, i.e., `X` carries `Y`;
+   * the `wearing relation` holds, i.e., `X` wears `Y`;
+   * the `incorporation relation` holds, i.e., `Y` is part of `X`;
+   * `Y` is a region which is immediately inside another region `X`.
+
+   Note, however, that if a room is in a region, then it is _not_ held by that region. Thus containment, support, carrying, wearing and reverse incorporation all imply holding, but regional containment does not.
+
+   `now X holds Y` is permitted only if `Y` is a thing, and `X` is a room, container, supporter, or person; or if both are regions.
+
+   The `holding relation` holds for abstract objects if `Y` is in `X` and `now X holds Y` is permitted in all cases.
+
+   `now X does not hold Y` is never permitted.
+
+   At any given time, an object can be held by only one other object, and Inform provides a convenient phrase `holder of Y` to mean either `nothing` (if `Y` is not held at the moment) or this unique other object.
+
+8) The `enclosure relation` can only be tested, not asserted or changed with `now`. It holds if there is a sequence `X1`, `X2`, ..., `Xn`, which begins with `X` and finishes with `Y`, and such that for each pair of adjacent terms `A` and `B` in this sequence, _either_
+   * `A` and `B` are both abstract objects and `B` is in `A`, _or_
+   * `A` and `B` are both spatial objects and `A` is holding `B` (see above), _or_
+   * `B` is a two-sided door and `A` is one of the two rooms it joins, _or_
+   * `B` is a backdrop and `A` is one of the rooms it is currently present in.
+   
+   Note that holding implies enclosure, and therefore containment, support, carrying, wearing and reverse incorporation also imply enclosure. And since possession means carrying or wearing, possession implies enclosure, too. Again, though, regional containment does not.
+   
+   Enclosure is the only one of the spatial relations to be "transitive": that is, if `A` encloses `B`, and `B` encloses `C`, then `A` encloses `C`.
+   
+   All eight of the spatial relations so far are "anti-symmetric": for example, if `A` contains `B` then it cannot simultaneously be true that `B` contains `A`. In particular, in the case when `A` and `B` are the same, no object can possess, contain, support, incorporate, carry, wear, hold, or enclose itself. 
+ 
+   Inform goes to some trouble to prevent any object from ever enclosing itself, and authors should cooperate with that. It is possible to write low-level code which would violate this principle, but it is really _not_ a good idea.
+
+9) The `visibility relation` holds if _all_ of the following are true:
+   * `X` and `Y` are both things, _and_
+   * light is available in the current situation of `X`, _and_
+   * `Y` is in scope from the point of view of `X`.
+   
+   Note that rooms, regions and directions are not things, so `if the player can see north` or `if the player can see the Great Hall of Mirrors` are always false, which may be unexpected to authors. Visibility is used mainly to determine whether certain actions are possible, and actions do not act on rooms.
+
+10) The `audibility relation` holds if _both_ of the following are true:
+    * `X` and `Y` are both things, _and_
+    * `Y` is in scope from the point of view of `X`.
+   
+    Thus audibility implies visibility, but not vice versa. In the dark, something can be be audible but not visible. Audibility is used mainly to manage when dialogue beats are performed.
+
+11) The `touchability relation` holds if _all_ of the following are true:
+    * `X` and `Y` are both things, _and_
+    * the accessibility rulebook allows `Y` to be touched by `X`, _and_
+    * `Y` is in scope from the point of view of `X`.
+
+    When reckoning touchability, two-sided doors are considered to be in the room which is their front side, and backdrops in the first room they are said by the source to be in.
+
+12) The `concealment relation` holds if if _all_ of the following are true:
+    * `X` and `Y` are both things, _and_
+    * `X` encloses `Y`, _and_
+    * the `deciding the concealed possessions activity` says that `Y` is concealed.
+
+    Although this is most often used when `X` is a person, it works fine for containers and supporters too (though not for rooms, which are not things). Note too that `X` may be unaware of the concealed item, in the sense of being unable to touch or see it.
+
+13) The `adjacency relation` holds if between two rooms if there is a direct map connection between them; a connection through a door does not count. Note that regions are never adjacent to anything, not being rooms.
+
+14) The `regional-containment relation` provides a meaning for `if X is regionally in Y`, but this is not a verb used very much. This relation more often arises because Inform silently reads `if X is in Y` as `if X is regionally in Y`, whenever `Y` is a region. The relation is then true if _either_
+    * `X` is a room found in the region `Y`, _or_
+    * `X` is a region which is a sub-region of `Y`.
+
+15) The `mapping up relation` and `mapping down relation` are nothing very special. Every direction automatically creates a relation like this: the existence of `north` means that there is a `mapping north relation`, for example. This then supplies the meaning of `The Ballroom is north of the Lobby.` Because we also want to make the words `above` and `below` refer to `up` and `down`, a very small amount of extra compiler support is given to these two relations.
+
+16) The `leading-through relation` is not intended for authors to make use of, but is a device used internally by the Standard Rules to make it possible to ask what the other side of a two-sided door is.
+
+17) The `lock-fitting relation` holds if a given thing is the key to unlock a given door or container.
+
+18) The `topicality relation` holds if a given dialogue beat is about a given topic (which can be an abstract object, or can be something like a thing or person).
+
+19) The `performability relation` holds if a given dialogue beat can currently be performed to a given person.
+
+### Imperative verbs
+
+For the sake of completeness, Inform also has chapter (and other) headings, `Include ...` instructions which add extensions, and a handful of sentences which are written as imperatives.
+
+Imperatives are command-like sentences where the verb comes first. They direct the compiler to do something, rather than tell the compiler that something is true. None of these forms can be used in `if ...` or `now ...` conditions, or negated, and they do not prevent the same verbs (e.g. "to omit") from being given regular meanings too.
+
+imperative verb | meaning | example
+--------------- | ------- | -------
+`to use` | `built-in use meaning` | `Use serial comma.`
+`to include ... in` | `built-in include-in meaning` | `Include predicate calculus in the debugging log.`
+`to omit ... from` | `built-in omit-from meaning` | `Omit predicate calculus from the debugging log.`
+`to test ... with` | `built-in test-with meaning` | `Test me with "look / east".`
+`to understand ... as` | `built-in understand-as meaning` | `Understand "herring" as the red fish.`
+`to release along with` | `built-in release-along-with meaning` | `Release along with a website.`
+`to index map with` | `built-in index-map-with meaning` | `Index map with Chamber mapped north of Cave.`
 
 ## Defining new assertion verbs {PM_VerbRelationVague} {PM_VerbUnknownMeaning} {PM_VerbRelationUnknown} {PM_PresentPluralTwice} {PM_VerbMalformed} {PM_DuplicateVerbs1} {PM_PrepositionConjugated} {PM_PrepositionLong}
 
