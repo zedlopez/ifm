@@ -8774,11 +8774,7 @@ For efficiency reasons, there are no guarantees about what order these lists hav
 
 ^^{kinds: of relation} ^^{relations: kinds of relation} ^^{relations: used as values} ^^{values: relations as values} ^^{type-checking: of relation types} ^^{(relates), for arbitrary relation conditions+sourcepart+} ^^{empty / non-empty+adj+: for relations} ^^{non-empty / empty+adj+: for relations} ^^{relations: empty / non-empty+adj+} ^^{symmetric (relation)+adj+} ^^{equivalence (relation)+adj+} ^^{one-to-one (relation)+adj+} ^^{one-to-various (relation)+adj+} ^^{various-to-one (relation)+adj+} ^^{various-to-various (relation)+adj+}
 
-As we've seen, most relations have names – "containment relation", for instance. These are themselves values in Inform, though there are a few restrictions on how they are used. (Relations can contain a colossal amount of data, so we don't want to have to copy them casually.)
-
-[ZL: it would be good to mention relations as properties; apparently, a bunch of power users were surprised it was possible when I did it on IntFiction recently]::
-
-Consider these two examples:
+As we've seen, most relations have names – "containment relation", for instance. These are themselves values in Inform, though those values are not all of the same kind, because there is no single `relation` kind. Consider these two examples:
 
 ``` inform7
 Parity relates a number (called N) to a number (called M) when N minus M is even.
@@ -8798,7 +8794,9 @@ To chart (R - a relation of numbers):
 		say "[line break]";
 ```
 
-and now "chart parity relation" will work nicely, but "chart visibility relation" will be rejected (as it should be, because it relates things, not numbers). In general, if R is any relation, we can write
+and now "chart parity relation" will work nicely, but "chart visibility relation" will be rejected (as it should be, because it relates things, not numbers).
+
+That last example used a powerful trick: if `R` is any relation, we can write
 
 ``` inform7
 if R relates X to Y, ...
@@ -8808,31 +8806,52 @@ now R does not relate X to Y;
 
 to test, set and unset a relation R between two values. (Inform checks that the values X and Y have the right kind and produces a problem message if not.)
 
-Several useful adjectives can be applied to relations:
+As we have seen, a relation can be supplied as a parameter of a phrase. It can also be the value of a variable or, as in this example, a property:
 
-[ZL: I suggest making it more clear that of these, only empty is a function of the contents of the relation currently and the others are more like relation-properties; reading this, one doesn't know whether symmetric comes back true if the current contents of the relation happen to be symmetric]:: 
+	{*}"The Trojan Wars Lounge & Electronics Club, Inc."
 
-- **empty** - nothing relates to anything else
-- **symmetric** - by definition X relates to Y if and only if Y relates to X
-- **equivalence** - this is a relation "in groups", or an "equivalence relation"
-- **one-to-one** - it relates one K to one L
-- **one-to-various** - similarly
-- **various-to-one** - similarly
-- **various-to-various** - similarly
+	The Cocktail Bar is a room. Troilus and Cressida are here.
 
-So for example it's possible to ask
+	A detector is a kind of device.
 
-``` inform7
-if R is a symmetric one-to-one relation of texts, ...
-```
+	A detector has a relation of people called the relation detected.
 
-With some relations, it's possible to clear them out by writing:
+	Loving relates various people to various people. The verb to love means the loving relation. Troilus loves Cressida.
+
+	The Love-o-meter is a detector in the Bar. The relation detected is the loving relation.
+
+	Instead of examining a detector (called the gadget):
+		let the arrow count be 0;
+		let R be the relation detected of the gadget;
+		repeat with X running through people in the location:
+			repeat with Y running through people in the location:
+				if R relates X to Y:
+					say "A mauve arrow momentarily forms in mid-air from [X] to [Y].";
+					increment the arrow count;
+		if the arrow count is 0, say "Disappointingly little happens."
+
+	Test me with "x love-o-meter".
+
+Several useful adjectives can be applied to relations. Most of these test how the relation was set up:
+
+- `one-to-one` if it relates one K to one L
+- `one-to-various` if it relates one K to various L
+- `various-to-one` if it relates various K to one L
+- `various-to-various` if it relates various K to various L
+- `equivalence` if a relation `in groups`
+- `symmetric` if a relation `in groups` or `to each other`, so that X relates to Y if and only if Y relates to X
+
+So for example it's possible to ask `if R is a symmetric one-to-one relation of texts`.
+
+A surprisingly useful adjective for relations is `empty`, which means that in the current state of the relation, nothing relates to anything else. With some relations, it's possible to clear them out by writing:
 
 ``` inform7
 now R is empty;
 ```
 
-and with temporary relations (see the next section), it's even possible to change their valencies (one-to-one vs. one-to-various, etc.) using "now", but only when they are empty. The exceptions where "empty" can't be used are those which can't be changed at all, like the parity relation above, and a few built-in cases such as the support, containment and incorporation relations, where emptying would dissolve the model world in a disastrous way.
+The exceptions where "empty" can't be used are those which can't be changed at all, like the parity relation above, and a few built-in cases such as the support, containment and incorporation relations, where emptying would dissolve the model world in a disastrous way.
+
+With temporary relations (see the next section), it's even possible to change their valencies (one-to-one vs. one-to-various, etc.) using `now`, but only when they are `empty`.
 
 ## Temporary relations
 
