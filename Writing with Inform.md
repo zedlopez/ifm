@@ -11039,8 +11039,6 @@ To list the succession:
 		say "[accession entry]: [name entry] ([family entry])."
 ```
 
-[ZL: call out that it's just `through` and not `running through` ? ]::
-
 We can simply use this instead:
 
 > phrase: {ph_repeattable} repeat through (table name):
@@ -11052,7 +11050,7 @@ We can simply use this instead:
 >     	repeat through the Table of Recent Monarchs:
 >     		say "[accession entry]: [name entry] ([family entry])."
 
-Note that there is no loop variable here, unlike in other forms of "repeat", because it's the choice of row which keeps track of how far we have got.
+Note that there is no loop variable here, unlike in other forms of "repeat", because it's the choice of row which keeps track of how far we have got. Note also that it's `repeat through...`, not `repeat running through...`
 
 We can alternatively go backwards:
 
@@ -11103,9 +11101,7 @@ Element		Symbol	Atomic number	Atomic weight
 "Uranium"	"U"		92				238
 ```
 
-[ZL: this should emphasise that trying to read from a blank entry generates a runtime error, that these are like null pointers and not like unassigned values which get a default value for their kind. "useful to check" is understatement ]::
-
-In effect, blank entries don't exist. "--" is not a value, but only a hole where a value might be. It can be useful to check for this:
+In effect, blank entries don't exist. "--" is not a value, but only a hole where a value might be. Attempting to read a blank entry throws a run-time problem message, so if there is ever any doubt about whether an entry might be blank or not, it is essential to check for this:
 
 > phrase: {ph_thereis} if there is (a table entry):
 >
@@ -11405,17 +11401,11 @@ Topic			Muse
 "rachel"		"oval hair-cuts"
 ```
 
-[ZL: perhaps "subject of its own chapter, {Understanding}" and then omit the See also ? ]::
-
-Topics can use the full range of abilities of the "understanding" system which Inform uses to parse text, and which will be the subject of a later chapter. For now, note that the Sybil's topics might equally include "flora/eve" (matching the single word "flora" or the single word "eve"), or something more elaborate such as:
+Topics can use the full range of abilities of the "understanding" system which Inform uses to parse text, and which will be the subject of its own chapter, [Understanding]. For now, note that the Sybil's topics might equally include "flora/eve" (matching the single word "flora" or the single word "eve"), or something more elaborate such as:
 
 ``` inform7
 "Bridget" or "Bridge" or "Bridget Jones"
 ```
-
-### See Also
-
-- [Understanding] for the system Inform uses to parse text.
 
 ## Another scoring example
 
@@ -11505,7 +11495,7 @@ You exchange dictionaries, lexically crossing the Atlantic. Did you know that ac
 
 ^^{tables: creating multiple things with a table} ^^{things+kind+: creating: multiple things with a table} ^^{properties: defining properties with a table} ^^{defining: things: multiply using tables} ^^{tables: defining multiple kinds with a table} ^^{kinds: defining: multiple kinds with a table} ^^{defining: kinds: multiply using tables}
 
-Suppose we need to create a collection of items which differ in their properties, but are basically part of a larger pattern. For instance, here we set up what we need to make a collection of coloured shirts:
+Suppose we need to create a collection of objects which differ in their properties, but are basically part of a larger pattern. (Usually these objects will be things, but they don't have to be.) For instance, suppose we want a collection of coloured shirts:
 
 ``` inform7
 A jersey is a kind of thing. A jersey is wearable. A jersey has a number called year established. A jersey has a text called citation. The description of a jersey is "Since [year established], the Tour de France has awarded this jersey to the [citation]."
@@ -11532,15 +11522,11 @@ a green jersey		1953				"highest point scorer on sprints"
 a white jersey		1975				"best cyclist aged 25 or less"
 ```
 
-[ZL: "that particular property is simply not set for that particular item"... not really. They get the default value for its kind *unlike* other blank entries in other tables]::
-
-The first column provides names for the new things to be created. Subsequent columns provide property values. Note that we did not need to say that jerseys have a number called "year established" because Inform is able to infer this from the column heading and the presence of numbers in the column; similarly for "citation". Lastly, note that if any entry is blank (written "--") then that particular property is simply not set for that particular item.
+The first column provides names for the new things to be created. Subsequent columns provide property values. Note that we did not need to say that jerseys have a number called "year established" because Inform is able to infer this from the column heading and the presence of numbers in the column; similarly for "citation". An entry can be left blank (written `--`), and the result is then that the property is set to an appropriate default value: for `year established` this would be 0, for `citation` a blank text, and so on.
 
 Note that Inform reads articles such as "the" or "a" in the first column just as it would when something is created with any other sentence.
 
-[ZL: it'd be nice to have more discussion and an example here of defining subkinds. also, link Reliques?]::
-
-It's even possible to define kinds this way, though it's rare to need to create many kinds at once. (See the worked example [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph). There's no special syntax needed: rather than saying "Some jerseys are defined by..." we would say "Some kinds of jersey are defined by...")
+It's even possible to define kinds this way. It's rare to need to create many kinds at once. (See the worked example [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph). There's no special syntax needed: rather than saying "Some jerseys are defined by..." we would say "Some kinds of jersey are defined by...")
 
 ## Defining values with tables
 
