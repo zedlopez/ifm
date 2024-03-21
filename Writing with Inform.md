@@ -8573,7 +8573,7 @@ This is a nice way to make descriptions and conditions more expressive. We could
 
 	The magic wand is here.
 
-	Instead of waving the magic wand in the presence of a young person (called the kid):
+	After waving the magic wand in the presence of a young person (called the kid):
 		now the kid is aged 32;
 		say "Shazam! [The kid] is now a realtor from Des Moines."
 
@@ -10413,8 +10413,6 @@ The lead pig is in the Salt Mine. The weight of the lead pig is 45kg.
 But nobody would say it that way: they'd say "The lead pig weighs 45kg." So what we really need to complete our setup is a verb "to weigh".
 
 We have already created new verbs, but none of those methods are quite convenient for this. We want to relate something tangible (the lead pig) to something intangible (45kg), and there's no convenient relation to express this; if we set it up as a condition, we'd get something we couldn't assert, only test. Instead, we'll do something different this time:
-
-[ZL: this is the only mention of this feature and it's kind of buried here and lots of people are surprised to be told of it. It has a big effect on the expressivity of descriptions and warrants more prominence]::
 
 ``` inform7
 The verb to weigh means the weight property.
