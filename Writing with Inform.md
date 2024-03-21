@@ -9433,16 +9433,13 @@ You were pinned down by Dr Zarkov's force field. You weren't free to move. You c
 
 ^^{sentence verbs: as values} ^^{verbs: as values} ^^{verbs: meaningful / meaningless+adj+} ^^{verbs: modal / non-modal+adj+} ^^{modal / non-modal (verb)+adj+} ^^{non-modal / modal (verb)+adj+} ^^{meaningful / meaningless (verb)+adj+} ^^{meaning+rel+} ^^{meaning+relcat+}
 
-Each verb known to Inform is actually a value of the kind "verb". To refer to a verb as a value, we have to put the word "verb" in front, as in these examples:
-
-[ZL: document that this isn't "infinitive beyond 'to'" and it's not `verb be`, it's `verb are`]::
-
+Each verb known to Inform is actually a value of the kind "verb". To refer to this value, we put the word `verb` in front of its first-person plural. So for example:
 
 - `the verb contain`
 - `the verb might`
 - `the verb provoke`
 
-all of which appear in the Standard Rules.
+For irregular verbs this might be different from the infinitive form, but to avoid confusion Inform accepts either. Thus `the verb are` and `the verb be` are both ways to write the same value — the verb "to be" in value form. 
 
 Two adjectives are provided for use with verbs: "modal" (or "non-modal") to pick out verbs like might, could, should, and so on; and "meaningful" (or "meaningless") to pick out verbs which have a defined meaning as an Inform relation. For example, in the Standard Rules, the verb contain is meaningful, the verb might is modal, and the verb provoke is meaningless.
 
