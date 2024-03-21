@@ -4401,6 +4401,16 @@ And this will automatically be reflected in any rules which concern the conseque
 
 (Note that we were only allowed to say that "Kissing Mr Carr is unmaidenly behaviour." because Inform already knew from earlier sentences – see the example below – that Mr Carr was a person, and therefore that "kissing Mr Carr" made sense as a description of an action.)
 
+Note that what appears on the left of these sentences is an action _pattern_, not an action _name_. This is actually a good thing, because it gives us great flexibility. But it means that this works:
+
+	Throwing something at something is unmaidenly behaviour.
+
+But this does not:
+
+	Throwing it at is unmaidenly behaviour.
+
+See [New actions] for more on this distinction.
+
 ## Repeated actions
 
 ^^{rules: applying to repeated actions} ^^{actions: rules for repetitions} ^^{time: counting actions with (for the Nth time)+sourcepart+} ^^{counting: actions with (for the Nth time)+sourcepart+} ^^{(first time), counting actions+sourcepart+}
@@ -7227,9 +7237,9 @@ try Will Going trying going west
 It is not often that we need to create new actions, but a large work of interactive fiction with no novelty actions is a flavourless dish. Here we shall create an action for photographing things.
 
 ``` inform7
-The Ruins is a room. "You find this clearing in the rainforest oddly familiar." The camera is in the Ruins. "Your elephantine camera hangs from a convenient branch."
+The Ruins is a room. "You find this clearing in the rainforest oddly familiar." The camera is in the Ruins. "Your elephantine camera hangs from a convenient branch." A carved post is here.
 
-Photographing is an action applying to one visible thing and requiring light.
+Photographing is an action applying to one thing and requiring light.
 ```
 
 In theory that text is already sufficient to make the new action, but what we have so far is rudimentary to say the least. The two qualifications give Inform the useful information that we cannot photograph in the dark, and that we need to be photographing something – not, as in the case of waiting or taking inventory, acting without reference to any particular thing external to ourselves.
@@ -7258,23 +7268,58 @@ Occasionally, when writing general rules about actions, it can be useful to find
 >
 > This condition is true if the action being processed is one which can only be performed if the actor has light to see by. For example, it's true for "examining", but false for "dropping".
 
-[ZL: deserves more emphasis! present it as functionally mandatory. stress that while references to the action name per se must be always be `scraping it with`, before/instead/after must never use "it", but check/carry out/report may . https://mastodon.gamedev.place/@drpeterbatesuk/110118139731229015 https://inform7.atlassian.net/browse/I7-2320 ]::
-
-As further examples, here we create "blinking" and "scraping X with Y". Note the use of "it" to indicate that the name of an object should go here.
+Here are two further examples, one involving no nouns, and one involving two:
 
 ``` inform7
-Blinking is an action applying to nothing. Scraping it with is an action applying to two things.
+Blinking is an action applying to nothing.
+Scraping it with is an action applying to two things.
 ```
 
-The photographing action now exists, but with two provisos: (a) it never happens, because Inform does not know what commands by the player should cause it, and (b) even if it were to happen, nothing would follow, because Inform does not know what to do. (There are no check, carry out or report rules yet.)
+These actions now exist, but are not yet useful because (1) they never happen, and (2) even they did happen, nothing would follow, because Inform has not yet been given rules for what they should say and do.
 
-The first problem is easily overcome:
+Problem (1) is easily overcome:
 
 ``` inform7
-Understand "photograph [something]" as photographing.
+Understand "blink" as blinking.
+
+Understand "scrape [something] with [something]" as scraping it with.
 ```
 
-We will return to the whole subject of parsing, as this process of understanding the player's commands is called, later. But this gives the gist of it.
+Now when the player types ``BLINK``, the blinking action will be generated, and ``SCRAPE POTATO WITH BRUSH`` similarly. We will return to the whole subject of parsing, as this process of understanding the player's commands is called, later on, but this gives the gist of it. As for problem (2), see the next section.
+
+But it's worth pausing first to establish that there are three different ways to write about actions in Inform. Suppose we run this:
+	
+	The Inform Test Kitchen is a room. The sweet potato and the wire brush are here.
+	
+	Scraping it with is an action applying to two things.
+
+	When play begins:
+		showme the scraping it with action;
+		showme scraping potato with brush.
+
+This shows two subtly different values, with different kinds:
+
+``` transcript
+action name: scraping it with
+action: scraping the sweet potato with the wire brush
+```
+
+1) `scraping it with action` refers to the action without thinking about any particular use of it. It means the business of scraping in general, not any one instance of scraping. The word `it` stands in for the position of the first noun. (This is why we wrote `Scraping it with is...` in the declaration, and why the `Understand` line ended with `as scraping it with`.) This is a value with the kind `action name`. Similarly for our other examples: `photographing action` and `blinking action` are also values of the kind `action name`.
+
+2) On the other hand, `scraping the sweet potato with the wire brush` is a specific act of scraping, and that is a value of the kind `action`. Similarly for `photographing the carved post` and `blinking`, which are also `action` values.
+
+The third way to talk about actions is to generalise about them with a so-called "action pattern". These are not values, but are conditions which actions might or might meet. (It's the difference between numbers like 2, 7 or -40, and requirements like "being between 1 and 10".) For example:
+
+	Instead of scraping a door with something:
+		if scraping an open door with something, say "[The noun] swings away.";
+		say "You give [the noun] a good scrape."
+
+The rule is set to run only if the current action matches the pattern `scraping a door with something`; the `if` produces the text about swinging away only if the current action matches `scraping an open door with something`. This, on the other hand, does not work:
+
+	Instead of scraping it with:
+		...
+
+And that is because `scraping it with` is not a pattern: `it` does not say anything about what goes in the first position.
 
 ### See Also
 
@@ -7341,6 +7386,10 @@ Check photographing:
 	if the noun is the camera:
 		say "That would require some sort of contraption with mirrors." instead.
 ```
+
+As a pedantic footnote here: It sometimes comes as a surprise to power users of Inform that with a two-noun action like our example `scraping it with`, rules like `Check scraping it with` can legally be written (and similarly for carry out and report). This appears to contradict what we said about rules like `Instead of scraping it with` being wrong, because `scraping it with` is an action name not an action pattern.
+
+In fact this is not a contradiction. For reasons of efficiency, there is not one single `Check` rulebook with hundreds or thousands of rules in: there is one for each action, whose name consists of the word `Check` followed by the action name. So `Check photographing` is the rulebook holding the example rules above. Similarly for `Check scraping it with`. As it happens, it is _also_ legal to write `Check scraping something with`, or `Check scraping a door with something edible`, and similar. So there is no actual need to write `Check scraping it with`, but it's not a bug that this is allowed.
 
 ## Action variables {PM_ActionVarsPastTense} {PM_ActionVarAnd} {PM_ActionVarOverspecific} {PM_ActionVarUnknownKOV} {PM_ActionVarValue} {PM_BadMatchingSyntax}
 
