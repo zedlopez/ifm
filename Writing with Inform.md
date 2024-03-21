@@ -10811,8 +10811,6 @@ The built-in "Metric Units" extension includes all of the standard ways that phy
 
 # Tables
 
-[ZL: we are in desperate need of a definition / explanation of "table entry", syntactically ]::
-
 ## Laying out tables {TABLES} {PM_TableCoincidesWithKind} {PM_TableColumnEmptyLists} {PM_TablePlayerEntry} {PM_TableVariableEntry} {PM_TableDescriptionEntry} {PM_TableUnknownEntry} {PM_TableIncompatibleEntry} {PM_TableMisnamed} {PM_TableNameDuplicate} {PM_TableNameAmbiguous} {PM_TableTooManyColumns} {PM_TableColumnArticle} {PM_TableColumnAlready} {PM_TableWithoutRows} {PM_TableUndefined} {PM_TableOfQuantifiedKind} {PM_TableOfBuiltInKind} {PM_TableOfExistingKind} {PM_TableDefiningObject} {PM_TableWithBlankNames} {PM_TableEntryGeneric} {PM_TableKindlessColumn}  {PM_TableColumnBrackets} {PM_TableRowFull}
 
 ^^{tables <-- columns, in tables <-- rows, in tables}^^^{tables <-- entries, in tables} ^^{tables: formatting} ^^{tables: defining} ^^{defining: tables} ^^{tables: tabs in formatting tables} ^^{tabs vs spaces, in tables+ofsource+} ^^{spaces vs tabs (in tables)} ^^{line breaks: in formatting tables} ^^{type-checking: in tables}
@@ -11225,6 +11223,11 @@ if the Undiscovered Periodic Table is empty, ...
 ```
 
 tests whether all of its rows are blank; if even one cell contains a value then the table is "non-empty".
+
+## Complete syntax for a table
+
+
+
 
 ## Adding and removing rows
 
@@ -11716,6 +11719,59 @@ pumped	2		"you feel able to run for the Nebraska State Legislature"
 Here the amendment is made to the second row of the original table. The value in the leftmost column, "pumped", matches two rows in the original, so Inform moves on to the next column, reads "2", and finds that only one row in the original still qualifies – so that is the one replaced.
 
 For the present, at least, the columns used for matching may only contain: numbers, times, objects, action names, activities, figure names, sound names, truth states and any new kinds of value or units which have been declared.
+
+## Recap of the syntax for tables
+
+There is no new information in this section: it's a recap giving a full description of the syntax for writing tables in a single place.
+
+Like a rule or a phrase, a **table** has its own syntax and occupies a single paragraph in the source text. This paragraph is internally divided into lines. The table contains the following:
+
+* The **title line**. This must begin with the word `Table`. It then consists of a number, or `of` and then a textual name, or a number and a name divided by a hyphen; and then, optionally, _either_ `(continued)` _or_ `(amended)`. Examples:
+
+  - `Table 2` 
+  - `Table of Selected Elements` 
+  - `Table 2 - Selected Elements (continued)` 
+  - `Table 2 (continued)` 
+  - `Table of Selected Elements (amended)` 
+
+* The **heading row**, divided up into one or more headings by tab characters. The first heading is in column 1, the second is in column 2, and so on.
+
+  * Each **heading** consists of a column title and then, optionally, the name of a kind written in brackets. Examples:
+
+    - `Element`
+    - `Discoverer (text)`
+    - `Atomic weight (a number)`
+    - `Topic`
+    - `Question (a topic)`
+
+    Exceptionally, the heading `Topic` is read as if it were `Topic (a topic)`, i.e., giving both the name and the kind of this column as "topic".
+
+* Optionally, one or more **entry rows**, similarly divided up into one or more entries with tab characters. The first entry is in column 1, the second is in column 2, and so on.
+
+  * Each **entry** must be one of the following:
+  
+    1) Any Inform constant value. Examples: `5`, `{ "socks", "shoes" }`, `the verb contain`.
+    
+       * If the heading for this column gave a kind, this value must be compatible with that kind. For example, if the heading read `Atomic weight (a number)`, then `17` would be valid, but `"No"` would not.
+
+       * If the heading for this column gave a kind as `topic`, note that material inside double-quotes is read as a topic value, not a text value. Topics have the same syntax as the double-quoted text found in `Understand` sentences, and are patterns of words rather than printable matter.
+       
+         - For example, `"area [number]"` is valid as a `topic` but not as a `text`. It means "match pairs of words like ``AREA 51`` or ``AREA SIX``".
+         - Whereas `"++[time of day]++"` and `"area [51]"` are valid as `texts` but not as a `topic`.
+
+       * If the heading did not give a kind, then there must be a kind such that all values of entries in this column compatible with that kind. For example, `10`, `3.765` and `-21` are all compatible with `real number`. But there is no kind which can hold `12:02 am` and `"sixpence"`, which are too unlike each other.
+    
+       * A special rule applies if the heading for this column is `topic`. The column must then contain `Understand`-style grammar. This looks like a quoted text, perhaps with substitutions in square brackets, but in fact it follows the syntax rules for the sort of word pattern found after `Understand`.
+    
+    2) A blank marker `--`, meaning that no value appears in this position. `--` is not a value: it is a notation meaning the absence of one.
+    
+    3) The name of a kind, such as `a text`, but _only_ in the first data row, and _only if_ all subsequent entries in this column are blank, and _only if_ a kind has not already been given in brackets in this column's heading. The table entry in this position is again a blank.
+
+  * The number of entries must not be greater than the number of headings in the heading row.
+
+  * If the number of entries is less than the number of headings in the heading row, the missing columns are filled out as if `--` had been typed in the remaining entries: in other words, short rows are filled out with blanks.
+
+* Optionally, a **blank row line** consisting of `with`, then a literal positive number, then `blank row` or `blank rows`. Example: `with 64 blank rows`. This simply abbreviates typing 64 entry rows in which each entry was typed as `--`.
 
 # Understanding
 
