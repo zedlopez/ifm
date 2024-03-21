@@ -8540,28 +8540,80 @@ Here we're making use of:
 >
 > The result is 0 if the two endpoints are the same, or -1 if no route exists.
 
-[ZL:: dated. maybe worth not removing, just noting: dated ]::
+Another example would be the "six degrees of separation" game, which can be tried out in many walks of life. Suppose we have:
 
-Another example would be the "six degrees of separation" game, where it is claimed that any two people on Earth are connected by a sequence of up to six acquaintances. In an Inform implementation, we might talk about "the next step via the friendship relation from George Bush to Saddam Hussein", for instance, a phrase likely to evaluate to Donald Rumsfeld, and then
+	{*}An astronaut is a kind of person. Joint-crewing relates astronauts to each other.
 
-``` inform7
-the number of steps via the friendship relation from George Bush to Saddam Hussein
+	To connect (First - astronaut) with (Second - astronaut):
+		say "[First]";
+		let crew member be First;
+		while crew member is not Second:
+			let the next crew member be the next step via the joint-crewing relation from the crew member to Second;
+			if crew member is not an astronaut:
+				say " cannot be connected to [Second].";
+				stop;
+			say "[line break]  ";
+			if the crew member is not First, say "who ";
+			now the crew member is the next crew member;
+			say "flew with [crew member]";
+		say ".";
+
+So this now needs some data about the pioneers of astronautics, with a long table like the following (but with many more named astros, and many more missions):
+
+	{**}Boris Volynov, Alexei Yeliseyev, Yevgeni Khrunov, Thomas Stafford, John Young, Eugene Cernan, Neil Armstrong, Buzz Aldrin, and Michael Collins are astronauts.
+
+	Table of Crew Rosters
+	Mission		Crew
+	"Soyuz 5"	{ Boris Volynov, Alexei Yeliseyev, Yevgeni Khrunov }
+	"Apollo 10"	{ Thomas Stafford, John Young, Eugene Cernan }
+	"Apollo 11"	{ Neil Armstrong, Buzz Aldrin, Michael Collins }
+
+We then need to use this data to populate the relation:
+
+	{**}The verb to fly with means the joint-crewing relation.
+
+	When play begins:
+		repeat through the Table of Crew Rosters:
+			repeat with First running through the crew entry:
+				repeat with Second running through the crew entry:
+					if First is not Second:
+						now First flies with Second.
+
+And with all this done, we can find some routes. `number of steps via the joint-crewing relation from Armstrong to Leonov` evaluates to 4. `next step via the joint-crewing relation from Armstrong to Leonov` evaluates to Michael Collins. And `connect Armstrong with Leonov` produces the output:
+
+``` transcript
+Neil Armstrong
+  flew with Michael Collins
+  who flew with John Young
+  who flew with Thomas Stafford
+  who flew with Alexei Leonov.
 ```
 
-would be... but that would be telling.
+The longest path between any two pre-1990 astronauts who do connect is:
 
-As with route-finding through the map, finding "the next step via" a relation can be slow. For instance, suppose we have dozens of articles of clothing all partially revealing each other, connected by two relations – overlying and underlying. Then "the next step via" these relations allows us to establish what can be worn on top of what else. If we need to calculate this often, and there are enormous wardrobes of clothes to choose from, speed starts to matter.
-
-Once again there is a choice of algorithms: "fast" and "slow", where "fast" needs much more memory. To make route-finding for a given relation "fast", we have to declare it that way:
-
-``` inform7
-Overlying relates various garments to various garments with fast route-finding.
-Overlapping relates various garments to each other with fast route-finding.
+``` transcript
+Vitaly Zholobov
+  flew with Boris Volynov
+  who flew with Alexei Yeliseyev
+  who flew with Nikolai Rukavishnikov
+  who flew with Vladimir Lyakhov
+  who flew with Valery Polyakov
+  who flew with Ulf Merbold
+  who flew with John Young
+  who flew with Michael Collins
+  who flew with Neil Armstrong
+  who flew with David Scott
+  who flew with James McDivitt
+  who flew with Edward White.
 ```
+
+As with route-finding through the map, finding `the next step via` a relation can be slow. Once again there is a choice of algorithms: "fast" and "slow", where "fast" needs much more memory. To make route-finding for a given relation "fast", we have to declare it that way:
+
+	Joint-crewing relates various astronauts to various astronauts with fast route-finding.
 
 Otherwise, the "slow" method will be used.
 
-This "with fast route-finding" note can only be added to various-to-various relations. (Although route-finding through various-to-one and one-to-various relations is fully supported, it exploits the relative simplicity of these problems to use a more efficient algorithm than either "fast" or "slow".)
+This `with fast route-finding` note can only be added to various-to-various relations. (Although route-finding through various-to-one and one-to-various relations is fully supported, it exploits the relative simplicity of these problems to use a more efficient algorithm than either "fast" or "slow".)
 
 ### See Also
 
