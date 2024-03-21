@@ -8438,37 +8438,17 @@ imperative verb | meaning | example
 
 ^^{relations: defining sentence verbs for relations} ^^{defining: sentence verbs for relations} ^^{the verb (V) means (relation)+assert+ --> verb means} ^^{(means), defining sentence verbs+sourcepart+: the verb (V) means (relation)+assert+} ^^{sentence verbs: defining for relations} ^^{English: forms for sentence verbs} ^^{English: irregular verbs}
 
-Here is an example definition of a new verb:
+Creating a new verb is easy:
+
+	To admire is a verb.
+
+But this is of limited use because it doesn't give "to admire" a meaning. Better is to write something like this:
 
 ``` inform7
 The verb to sport means the wearing relation.
 ```
 
-Once this is done, we can write the assertion
-
-``` inform7
-Mr Wickham sports a Tory rosette.
-```
-
-which will do the the same thing as
-
-``` inform7
-Mr Wickham wears a Tory rosette.
-```
-
-because both verbs have the same relation as their meaning.
-
-Earlier versions of Inform needed to be told how to make other parts of the verb, but that's rarely true now. Just writing:
-
-``` inform7
-The verb to sport means the wearing relation.
-```
-
-is enough for Inform to understand "she sports", "they sport", "he sported", "it is sported", "she is sporting", "he had sported" and so on. It works with irregular verbs, too; it has a very comprehensive dictionary. But it's legal to spell out the conjugation if need be:
-
-``` inform7
-The verb to sport (she sports, they sport, he sported, it is sported) implies the knowledge relation.
-```
+That creates the verb "to sport", if it doesn't exist already, and gives it a meaning, all in one sentence. Inform can now use sentences like `Mr Wickham sports a Tory rosette.`, whereas it remains helpless to act on `Mr Darcy admires Miss Elizabeth.`, because it doesn't know what "admires" means.
 
 Occasionally it's convenient to have the relation the other way around. For instance:
 
@@ -8476,36 +8456,53 @@ Occasionally it's convenient to have the relation the other way around. For inst
 The verb to grace means the reversed wearing relation.
 ```
 
-With that defined, these two sentences have identical meanings:
+Reversed in this sense means that the things related – the subject and object of the verb – are the other way round. So these two sentences have identical meanings:
 
 ``` inform7
 Mr Wickham sports a Tory rosette.
 A Tory rosette graces Mr Wickham.
 ```
 
-[ZL: I think it's *key* to discuss that there are 'for saying only' and 'for meaning only' (my coinage for things that can be used in sentences in your code but not in a say statement) verbs. single-word verbs like `to grace` are both, but when you assert a meaning for a single-word verb, you *also* get the for-meaning-only verbs "to be gracing" and "to be graced by", which means the reversed relation; with verbs longer than a single word (or whose meaning is a reversed relation), there are no bonus verbs and you have to create them yourself if you want them.]:: 
+Inform uses the regular rules of English grammar to work out the many forms it can take in sentences (though see the notes below on multi-word verbs). This is how it knew that `sports` was a usage of `sport`, even though those are different spellings. It can read this verb in singular and plural, and in four different tenses. It also recognises `to be sporting` and `to be sported by`, as in these examples:
 
-Reversed in this sense means that the things related – the subject and object of the verb – are the other way round.
+	if Wickham was sporting the rosette, ...
+	if the rosette had been sported by Wickham, ...
 
-The Phrasebook index contains all the verbs associated with assertions, in the Verbs section. When we add new verbs to our source, those will appear in the Phrasebook as well.
+Inform's system of "adaptive text" allows a still wider range of linguistic tricks with verbs, which is why people sometimes create verbs without giving them meanings, just to be able to print them back in interesting ways (though, again, see the notes below on multi-word verbs). See [More on adapting verbs] for more.
 
-The verbs above ("to grace", "to sport") are short ones, but we're free to make them longer than that. For example:
+1) Only a single-word verb like "to sport" can be used for adaptive text, in texts like `"[The noun] [sport] the rosette."`. If we create the verb "to run amok in", then `"[The noun] [run amok in] the Spice Bazaar."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Spice Bazaar."`
 
-``` inform7
-The verb to cover oneself with means the wearing relation.
+2) Multiple-word verbs do not pick up the two `to be ...` forms mentioned above. So whereas `to sport` allowed `to be sporting` and `to be sported by`, `to run amok in` does not allow `to be running amok in` and `to be run amok in by`. Inform takes the view that multiple-word "verbs" may be grammatically complicated already (often having a preposition — in this case, `in`) and that it runs some risk of producing nonsense.
 
-Peter is covering himself with a tent-like raincoat.
-```
+   Of course, if we do want them, they can still be created manually:
 
-Here we have "to cover oneself with", four words long; the limit is 29.
+       The verb to run amok in means the territory relation.
+       The verb to be running amok in means the territory relation.
+       The verb to be run amok in by means the reversed territory relation.
 
-The [Making new relations] sections set up a "loving relation" as an example, and used an emoji ❤️ to notate it. It's actually possible to tell Inform to do the same, perhaps surprisingly:
+3) But with that said, multiple-word verbs are still often useful:
 
-``` inform7
-The verb to ❤️ means the loving relation. Peter ❤️ Jane.
-```
+       The verb to cover up with means the wearing relation.
+       Peter is covering up with a tent-like raincoat.
 
-Inform will stubbornly try to treat this symbol as if it were a regular English verb, though, so it will also allow `Jane is ❤️ed by Peter`, for example, turning "❤️" into "❤️ed" in the same way that it would turn "cover" into "covered".
+   Here there are three words in the verb: the limit is 29.
+
+   As this example suggests, conjugation is performed on the first word, which is assumed to be the actual verb. So it is not a good idea to write:
+   
+       The verb to air dry means the air-drying relation.
+
+   because this will generate `airs dry`, not `air dries`. Better to use a hyphen and squash this into being a single-word verb after all:
+   
+       The verb to air-dry means the air-drying relation.
+
+4) In general, Inform does not like to have verbs which look like symbols. Still, these work (though the emoji one requires the Glulx setting):
+
+       The verb to >---> means the wearing relation.
+       The verb to ❤️ means the loving relation. Bingley ❤️ Jane.
+
+   Be warned that Inform will stubbornly try to treat this symbol as if it were a regular English verb, though, so it will also allow `Jane is ❤️ed by Bingley`, for example, turning `❤️` into `❤️ed` in the same way that it would turn `cover` into `covered`.
+
+5) Inform has a fairly comprehensive knowledge of English verb conjugations, so it is rare to need to spell things out, but we can: `The verb to sport (she sports, they sport, he sported, it is sported) implies the wearing relation.` This is very much a last resort.
 
 ## Defining new prepositions
 
@@ -9149,6 +9146,8 @@ And this can make either:
 You put the Bill-signing pen on the table.
 President Obama puts the Bill-signing pen on the table.
 ```
+
+Only a single-word verb can be used for adaptive text. If we create the verb "to run amok in", then `"[The noun] [run amok in] the Furnace Room."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Furnace Room."`
 
 ## Adapting text about the player
 
