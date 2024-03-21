@@ -8734,8 +8734,6 @@ We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible 
 
 Although most of the examples in this chapter have involved objects, relations can connect almost any values together. We can create relations in groups, one to various relations, various to one relations, one to one relations, and various to various relations for any combination of kinds. For example:
 
-[ZL: these examples would be easier to follow with unlike kinds on the two sides of the relationship ]::
-
 ``` inform7
 Partnership relates various texts to various texts.
 
@@ -9868,9 +9866,17 @@ logarithm of -10
 
 ^^{numbers: arithmetic} ^^{real numbers: arithmetic} ^^{calculation: arithmetic} ^^{calculation: rounding to the nearest multiple} ^^{comparisons: of numbers} ^^{greater than+relverb+} ^^{less than+relverb+} ^^{at least+relverb+} ^^{at most+relverb+} ^^{roots, of numbers}^^^{+to+(arithmetic value) plus (arithmetic value) --> plus}^^^{+to+(arithmetic value) + (arithmetic value) --> +}^^^{+to+(arithmetic value) minus (arithmetic value) --> minus}^^^{+to+(arithmetic value) - (arithmetic value) --> -}^^^{+to+(arithmetic value) multiplied by (arithmetic value) --> multiplied by}^^^{+to+(arithmetic value) times (arithmetic value) --> times}^^^{+to+(arithmetic value) * (arithmetic value) --> *}^^^{+to+(arithmetic value) divided by (arithmetic value) --> divided by}^^^{+to+(arithmetic value) / (arithmetic value) --> /}^^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest} ^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}
 
-We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, \* and /, or can spell them out in words as "plus", "minus", "times" (or "multiplied by"), and "divided by". Definitively:
+We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, \* and /, or can spell them out in words as "plus", "minus", "times" (or "multiplied by"), and "divided by".
 
-[ZL: warn about unpredictable associativity and precedence and even that operators and their verbal equivalents differ]::
+English sentences are not a great way to write complex formulae: [Equations] are provided for that. But simple calculations do work, and Inform does have a basic idea that multiplication and division take precedence over addition and subtraction:
+
+``` transcript
+"1 plus 2 times 4" = number: 9
+"1 times 2 plus 4" = number: 6
+"2 minus 3 minus 1" = number: 0
+```
+
+Brackets can be used to clarify: `2 minus 3 minus 1` produces `2 minus (3 minus 1)`, not `(2 minus 3) minus 1`, but the bracketed version is clearer in both cases.
 
 > phrase: {ph_plus} (arithmetic value) + (arithmetic value) ... value & (arithmetic value) plus (arithmetic value) ... value
 >
