@@ -11491,8 +11491,6 @@ You exchange dictionaries, lexically crossing the Atlantic. Did you know that ac
 
 ## Defining things with tables {PM_TableDefiningNothing} {PM_TableDefiningTheImpossible}
 
-[ZL: I suggest either re-titling this defining objects with tables or emphasising that this applies to any subkind of object, not just things, or both]::
-
 ^^{tables: creating multiple things with a table} ^^{things+kind+: creating: multiple things with a table} ^^{properties: defining properties with a table} ^^{defining: things: multiply using tables} ^^{tables: defining multiple kinds with a table} ^^{kinds: defining: multiple kinds with a table} ^^{defining: kinds: multiply using tables}
 
 Suppose we need to create a collection of objects which differ in their properties, but are basically part of a larger pattern. (Usually these objects will be things, but they don't have to be.) For instance, suppose we want a collection of coloured shirts:
@@ -11526,7 +11524,26 @@ The first column provides names for the new things to be created. Subsequent col
 
 Note that Inform reads articles such as "the" or "a" in the first column just as it would when something is created with any other sentence.
 
-It's even possible to define kinds this way. It's rare to need to create many kinds at once. (See the worked example [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph). There's no special syntax needed: rather than saying "Some jerseys are defined by..." we would say "Some kinds of jersey are defined by...")
+It's even possible to define kinds this way. It's rare to need to create many kinds at once, and really only sensible when for some reason a host of very similar subkinds are needed.
+
+	Oaxaca, Espírito Santo, Lambayeque, Valle del Cauca, Ecuador, Venezuela, Rio de Janeiro are regions.
+
+	A bromeliad is a kind of thing. Some kinds of bromeliad are defined by the Table of Alphabetically Early South American Bromeliads.
+
+	Table of Alphabetically Early South American Bromeliads
+	name						habitat
+	pitcairnia abundans			Oaxaca
+	pitcairnia abyssicola		Espírito Santo
+	pitcairnia acicularis		Lambayeque
+	pitcairnia adscendens		Valle del Cauca
+	pitcairnia aequatorialis	Ecuador
+	pitcairnia agavifolia		Venezuela
+	pitcairnia alata			Ecuador
+	pitcairnia albiflos			Rio de Janeiro
+
+	Pontões Capixabas is a room. Pontões Capixabas is in Espírito Santo. Three pitcairnia abyssicolas are here.
+
+There are more examples in a very early demonstration piece for Inform: see [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph).
 
 ## Defining values with tables
 
