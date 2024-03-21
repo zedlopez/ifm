@@ -11526,6 +11526,8 @@ Note that Inform reads articles such as "the" or "a" in the first column just as
 
 It's even possible to define kinds this way. It's rare to need to create many kinds at once, and really only sensible when for some reason a host of very similar subkinds are needed.
 
+	{*}"By the Rivers of Serra da Mantiqueira"
+	
 	Oaxaca, Espírito Santo, Lambayeque, Valle del Cauca, Ecuador, Venezuela, Rio de Janeiro are regions.
 
 	A bromeliad is a kind of thing. Some kinds of bromeliad are defined by the Table of Alphabetically Early South American Bromeliads.
@@ -11541,7 +11543,15 @@ It's even possible to define kinds this way. It's rare to need to create many ki
 	pitcairnia alata			Ecuador
 	pitcairnia albiflos			Rio de Janeiro
 
-	Pontões Capixabas is a room. Pontões Capixabas is in Espírito Santo. Three pitcairnia abyssicolas are here.
+	Pontões Capixabas is a room. In Pontões Capixabas are three pitcairnia abyssicolas and a pitcairnia agavifolia. Pontões Capixabas is in Espírito Santo.
+
+	Instead of examining a bromeliad (called the plant):
+		if the location is in the habitat of the plant:
+			say "You see these all over [habitat of the plant].";
+		otherwise:
+			say "You usually only see these in [habitat of the plant]."
+
+	Test me with "examine abyssicola / examine agavifolia".
 
 There are more examples in a very early demonstration piece for Inform: see [Reliques of Tolti-Aph](https://github.com/I7-Examples/The-Reliques-of-Tolti-Aph).
 
