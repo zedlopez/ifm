@@ -8549,6 +8549,34 @@ The verb to be able to approach means the approachability relation.
 
 Now we can ask if Poirot "can approach" Hotchkiss, and so on.
 
+## Verbs which mean properties
+
+So far `The verb ... means ...` has always had a relation as its meaning. But here is an alternative:
+
+	A person has a number called age.
+	
+	The verb to be aged means the age property.
+
+And then, for example:
+
+	Alice and Bethany are people. Alice is aged 43. Bethany is aged 16.
+
+So is this a completely new sort of meaning for a verb? In fact not: under the surface, it's another kind of relation in disguise. `Alice is aged 43` says that a relation we might call "age property being equal to" holds between `Alice` and the number `43`.
+
+This is a nice way to make descriptions and conditions more expressive. We could write, say, `if three people are aged 20`. Developing this example further, and using an adjective as well:
+
+	Definition: A person is young if their age is 18 or less.
+
+	Instead of examining a young person (called the kid): say "Oh, round about [age of the kid in words]."
+
+	Instead of examining somebody aged 16: say "Supposedly sweet."
+
+	The magic wand is here.
+
+	Instead of waving the magic wand in the presence of a young person (called the kid):
+		now the kid is aged 32;
+		say "Shazam! [The kid] is now a realtor from Des Moines."
+
 ## Indirect relations
 
 ^^{relations: indirect} ^^{relations: paths through} ^^{relations: distance through} ^^{pathfinding: arbitrary relations} ^^{route-finding, fast/slow} ^^{fast route-finding+useopt+: for particular relations} ^^{slow route-finding+useopt+: for particular relations} ^^{distance: measuring with (number of steps)+sourcepart+} ^^{counting: steps in an indirect relation}
