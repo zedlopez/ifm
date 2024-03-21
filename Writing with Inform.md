@@ -7053,8 +7053,7 @@ Action-processing may be the single most important thing Inform does, so the sys
 
 So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the "person" kind, that is, which includes all the men, women and animals in the story, and not only the player.
 
-[ZL: I suggest some acknowledgement that `asking it to` is a weird pseudo-action, or at least consequences thereof, like that it can't have check, carry out, report rules. I think it would be very worthwhile to have somewhere the complete life-cycle of request action in terms of the action sequence]::
-
+[ZL: I think it would be very worthwhile to have somewhere the complete life-cycle of request action in terms of the action sequence]::
 
 In interactive fiction, players conventionally ask other characters to do something with commands like so:
 
@@ -7068,6 +7067,8 @@ Clearly "will, go west" should not produce the same action as "go west", because
 going west
 asking Will to try going west
 ```
+
+These both use the `going action`: the notation `asking... to try...` is not some kind of `asking` action in its own right. (There _is_ an asking action, for things like asking somebody for directions, but this is unrelated to that.)
 
 As a result, we can write rules like so:
 
@@ -7389,7 +7390,9 @@ Check photographing:
 
 As a pedantic footnote here: It sometimes comes as a surprise to power users of Inform that with a two-noun action like our example `scraping it with`, rules like `Check scraping it with` can legally be written (and similarly for carry out and report). This appears to contradict what we said about rules like `Instead of scraping it with` being wrong, because `scraping it with` is an action name not an action pattern.
 
-In fact this is not a contradiction. For reasons of efficiency, there is not one single `Check` rulebook with hundreds or thousands of rules in: there is one for each action, whose name consists of the word `Check` followed by the action name. So `Check photographing` is the rulebook holding the example rules above. Similarly for `Check scraping it with`. As it happens, it is _also_ legal to write `Check scraping something with`, or `Check scraping a door with something edible`, and similar. So there is no actual need to write `Check scraping it with`, but it's not a bug that this is allowed.
+In fact this is not a contradiction. For reasons of efficiency, there is not one single `Check` rulebook with hundreds or thousands of rules in: there is one for each action, whose name consists of the word `Check` followed by the action name. So `Check photographing` is the rulebook holding the example rules above. Similarly for `Check scraping it with`.
+
+As it happens, it is _also_ legal to write `Check scraping something with`, or `Check scraping a door with something edible`, and similar. Moreover something like `Check asking somebody to try scraping something with something` will work where `Check asking somebody to try scraping it with:` will not. So there is no actual need to use `it` in the names of `Check` rules, and it's perhaps better style not to, but the fact that `Check scraping it with` works is not a bug.
 
 ## Action variables {PM_ActionVarsPastTense} {PM_ActionVarAnd} {PM_ActionVarOverspecific} {PM_ActionVarUnknownKOV} {PM_ActionVarValue} {PM_BadMatchingSyntax}
 
