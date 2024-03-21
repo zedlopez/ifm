@@ -11009,9 +11009,6 @@ repeat with N running from 1 to the number of rows in the Table of Recent Monarc
 
 This works, but is repetitive. We often want to work on a single row for a while, either to change things or think about the contents, and it is tiresome to keep specifying the row over and over again. The following shorthand provides some relief:
 
-[ZL: it would be good to tell us that `choose row N` is O(1) and everything else is O(N) where N is the number of filled rows. and also that there's no way to pass a row around as a value, but you can pass a row number and another to-phrase or whatever could select the row again. ]::
-
-
 > phrase: {ph_chooserow} choose a/the/-- row (number) in/from (table name)
 >
 > This phrase selects the row with the given number. Row numbers in a table start from 1, so
@@ -11036,13 +11033,13 @@ Note that since "accession" is a column name, "accession entry" means the entry 
 
 > phrase: {ph_chooserowwith} choose a/the/-- row with (table column) of (value) in/from (table name)
 >
-> This phrase selects the first row, working down from the top of the given table, in which the given column has the given value. Example:
+> This phrase selects the _first_ row, working down from the top of the given table, in which the given column has the given value. Example:
 >
 >     choose row with a name of "Victoria" in the Table of Recent Monarchs;
 >
 > A run-time problem message is produced if the value isn't found anywhere in that column.
 
-[ZL: there should also be emphasis that there's no concept of enforcing column uniqueness: there could any number of rows for which it's the case that a given column has a given value. ]::
+There can of course be any number of rows where a given column entry has the same value. In our example table of monarchs, there were six rows with a `family` of `Hanover`, and two with an `accession` of 1936. On the other hand, the `name` entries were all unique. It is very much up to an author what sort of data is stored in a table, how the data is sorted, and whether it has repeats.
 
 Sometimes it will happen that a column's name clashes with the name of something else: for instance, if we call a column "apples" but we also have a kind called "apple", so that the word "apples" could mean either some fruit or the column. Inform will generally prefer the former meaning as more likely. In case of such trouble, we can simply refer to "the apples column" rather than just "the apples": for instance, "choose row with an apples column of..." rather than "choose row with an apples of..."
 
@@ -11051,6 +11048,10 @@ We can also choose a row quite at random:
 > phrase: {ph_chooserandomrow} choose a/the/-- random row in/from (table name)
 >
 > This phrase makes a uniformly random choice of non-blank rows in the given table. Note that although a table always has at least one row, it can't be guaranteed that it always has a non-blank row, so it's possible for this to fail: if it does, a real-time problem message is thrown.
+
+We have now seen several ways to choose rows. For small and medium-sized tables, good advice is to use whichever method involves least work. But when tables grow large, speed may be an issue here. `choose row N` is a very fast operation, which takes the same length of time however large the table or row number. But `choose row with a name of ...` means a lot of comparisons, checking each row. With big data sets, we may be better off writing our own search tactics. 
+
+Another advantage of choosing by row number is that rows as such are not values in Inform, but numbers of course are. So we can remember that we are at row 362 by storing the number 362 somewhere, and return to that position later using `choose row 362 from ...`.
 
 ## Repeating through tables
 
