@@ -12713,9 +12713,7 @@ Before printing the name of a woman, say "Ms ".
 
 With this rule in place, someone called "Daphne" will always be described as "Ms Daphne", and so on. The language looks as if we were imposing a rule on an action called "printing the name of", but there is no such action: instead, it is an "activity". To spell out the difference:
 
-[ZL: "for a fictional actor such as the protagonist" ? ]::
-
-> **An *action* is a simulated task for the fictional protagonist.**
+> **An *action* is a simulated task for a character in the story, such as the protagonist.**
 >
 > **An *activity* is a real task for the computer program doing the simulation.**
 
@@ -12723,11 +12721,11 @@ Activities allow us to influence or change some of the standard habits of Inform
 
 ## How activities work
 
-[ZL: none of the built-in activities last beyond a turn, but there's nothing stopping other activities from doing so ]::
-
 ^^{activities} ^^{going on (activity)+adj+} ^^{activities: golden rules for constructing}
 
-All activities start, continue for a while and then finish: however, no activity ever runs on for more than a single turn. Several activities can be going on at the same time. For instance, suppose the following is printed as part of the description of a grocery:
+All activities start, continue for a while and then finish. As a general rule, no activity ever lasts more than a turn, and although one activity often interrupts another one, that new activity then finishes before the old one does. They therefore sit inside each other like Russian nesting dolls. While Inform does provide low-level ways to control activities which could be used to break these conventions, the built-in activities all follow them, and authors are well advised to follow suit.
+
+As an example of that nesting, suppose the following is printed as part of the description of a grocery:
 
 ``` inform7
 You can see a banana, an apple and a star-fruit here.
@@ -12771,27 +12769,46 @@ but as we shall see, it's usually simpler to attach "while printing the name" pr
 
 The activity "printing the name of something" is the process of printing up the name of something on screen: ordinarily, this means saying the text in the object's "printed name" property.
 
-[ZL: this confuses the situation: we've already been told very explicitly that all activities finish by the end of a turn ]::
+Actions very often break off and finish midway through their processing stages, because something happens in the story, or because it turns out that the action was impossible. A taking action might end at the before, instead or check stage, for example. Activities are easier to understand because they have just three rulebooks — before, for and after — and because they generally work through all three right to the end of processing, and thus finish in an orderly way.
 
-As with actions, rules can be attached to activities which change or augment what would normally happen. In fact the situation is simpler, because (unlike an action) an activity almost always finishes, so we almost always do reach its "after" stage. There are also only three rulebooks attached to an activity, as compared with the six affecting an action.
+For example, the three rulebooks for printing the name are called `before printing the name`, `for printing the name` and `after printing the name`, and this is the general pattern. What normally happens is a three-stage process:
 
-The three rulebooks for printing the name are called "before printing the name", "for printing the name" and "after printing the name", and this is the general pattern. What happens is:
+1) All `before printing the name of` rules are considered.
+2) The most specific, applicable `rule for printing the name of` is considered.
+3) All `after printing the name of` rules are considered.
 
-1. All "before printing the name of" rules are considered.
-2. The most specific, applicable "rule for printing the name of" is considered.
-3. All "after printing the name of" rules are considered.
+Why is this what "normally" happens, not what "always" happens?
 
-[ZL: ... when you've invoked it with `carry out`. If you're manually managing the activity execution, not necessarily. also, it'd be nice to spell out the effect of effect of `instead` in `for` and `after`. ]::
+* Like action rules, activity rules can use the `instead` keyword to finish their rulebooks early. In the `before` and `after` stages, this can be useful:
 
-Whereas an action's later stages never take place if an early stage ends unexpectedly, an activity always goes through all three of its stages. Invoking the word "instead" in a before rule for an action will terminate not only the before rules but the whole action: the same thing for an activity will only terminate the before rules, and the for and after rules will take place as usual.
+       Before printing the name of a device: say "<< " instead.
 
-[ZL: it's somewhat into the weeds, but there's frequently no `for` rule: the default is a thing that happens because no `for` rule was found. But someone reading the Standard Rules looking for the `for` rules they're being told exist would be confused.]::
+       Before printing the name of something: say "( ".
 
-The actual task is usually carried out by one single rule tucked into the back of the "for..." rulebook: it is the rule for printing the name of whatever is concerned, hence the name. Inform's standard activities are all of this pattern: they start out with no "before" or "after" rules, and just one "for" rule.
+       After printing the name of a device: say " >>" instead.
 
-[ZL: and now there's acknowledgement of a thing we were told never happens.]::
+       After printing the name of something: say " )".
 
-Why the part about an activity only "almost always" finishing? One reason is that the story might end during it; but another is that it's possible, though uncommon, to abandon an activity partway. Very few of the activities supplied with Inform ever do this, and those that do are noted in the sections which follow.
+  These rules might then result in the names of two items being printed as ``<< electric toaster >>`` and ``( slice of bread )``. The use of `instead` in the first before rule causes the second one not to be reached, and similar for the after rules. Without the `instead` keywords, the device's name would have been printed as ``<< ( electric toaster >> )``.
+  
+* The `for` rulebook of an activity has the opposite convention. It runs just one rule, not all of them, so using `instead` would make no difference there. Instead, though, `continue the activity` can be used to allow a `for` rule to hand the job on to another rule, as if it had not been the one chosen:
+  
+       For printing the name of a device (called the machine):
+           if the machine is switched off, continue the activity;
+           say "ACTIVE DEVICE".
+
+  The effect there is that if the device is switched off, this rule chooses to do nothing, telling Inform to choose the next most applicable `for` rule to handle matters. (Probably Inform's built in `standard name printing rule`, which then prints ``electric toaster``.)
+
+* As was mentioned earlier, Inform provides some low-level tricks for running activities in non-standard ways. It hardly ever breaks the above pattern for any of the built-in activities, and in the few cases when it might, that is noted in the remaining sections of this chapter.
+
+* In particular, it's possible to set up an activity so that Inform provides a fall-back functionality even in the case where no "for" rules exist for the activity at all. Again, Inform uses this ability as little as possible, and only where there are efficiency or reliability reasons to do so.
+
+* Some calamity might occur which ends the story while an activity is mid-way, in which case the rest of the activity might not take place. "When it's time for the fallout / And St Peter calls us all out, / We'll just drop our agendas and adjourn" (Tom Lehrer).
+
+  Again, though, some built-in activities continue even after the story has ended, in order to avoid potential confusion. `Printing the name of` is one of those. So this rule does what might be expected, i.e., it _does_ suddenly end the story, but it doesn't actually end it mid-sentence:
+
+      For printing the name of Lord Voldemort:
+	      end the story saying "What part of He Who Must Not Be Named did you not understand?"
 
 ## While clauses {PM_BadWhenWhile}
 
@@ -12827,15 +12844,13 @@ Activities are all about influencing the standard mechanisms which Inform uses, 
 
 There are two kinds of activity: those which relate to a specific value (usually an object but not necessarily), and those which do not. Here are some examples of activities being created:
 
-
-
 ``` inform7
 Assaying is an activity.
 Analysing something is an activity.
 Announcing something is an activity on numbers.
 ```
 
-[ZL: we never get told outright that the name should be a present participle.]::
+These names are all present participles (note the "-ing"s), which emphasises that they are about an ongoing process. This naming convention is good style, and all of the built-in activities follow it, but it is not actually compulsory. `Barbra Streisand is an activity.` would be quite legal.
 
 Inform looks for the clue "something" (or "of something") after the activity's name to see if it will work on a value: so analysing and announcing will do, but assaying won't. If we don't specify a kind, Inform assumes the value will be an object, as if we had written:
 
