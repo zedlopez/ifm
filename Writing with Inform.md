@@ -12438,37 +12438,20 @@ The Wabe is a room. The blue peacock and the sundial are in the Wabe.
 
 means that the player can type ``examine blue peacock`` or ``push sundial`` or ``showme wabe`` or ``take blue``, and so on. This is almost always a good thing, and here there's no problem, because peacocks and sundials are not usually disguised. But here is a case where a disguise is needed:
 
-[ZL: this leaves everyone with the idea that privately-named is part of a strategy to keep things secret, and they get surprised when the player is able to interact with privately-named things, e.g., through inference.]::
-
 ``` inform7
-The secret document is a privately-named thing in the drawer.
-The printed name of the secret document is "[if the secret document is handled]secret document[otherwise]dusty paper".
-Understand "dusty" and "paper" as the secret document.
-Understand "secret" and "document" as the secret document when the secret document is handled.
-After taking the secret document for the first time: say "Heavens! It is the secret document!"
+The ZZ91 file is a privately-named thing in the drawer.
+The printed name of ZZ91 is "[if the ZZ91 file is handled]secret document[otherwise]dusty paper".
+Understand "dusty" and "paper" as ZZ91 when ZZ91 is not handled.
+Understand "secret" and "document" as ZZ91 when ZZ91 is handled.
+After taking ZZ91 for the first time:
+	say "Heavens! It is a secret document! You blow the dust right off it!"
 ```
 
-As this demonstrates, the either/or property "privately-named" makes Inform create a thing or room which starts out with no automatic understandings at all. The name it happens to have in the source text is ignored. If we simply write:
+Despite the clandestine sound of the property `privately-named`, all it means is that Inform creates the object (here, the `ZZ91 file`) without automatically Understanding the words in its name (``ZZ91``, ``FILE``) as referring to it. This doesn't mean the player can never interact with it: for one thing, ``TAKE ALL`` would pick it up. It just means that the only `Understand` grammar attached to the object will be what the author explicitly declares. So in this case, the file can be called ``DUSTY``, ``PAPER`` or ``DUSTY PAPER`` before it is taken, but not after; and can be called ``SECRET``, ``DOCUMENT`` or ``SECRET DOCUMENT`` after.
 
-``` inform7
-The ungraspable concept is a privately-named thing in the Dining Room.
-```
+The reverse property is `publicly-named`, which is the default.
 
-then nothing the player can type will ever refer to it; though they will see it, and even be able to pick it up by typing ``take all``.
-
-[ZL: plus regions, directions, concepts ]::
-
-The reverse property is "publicly-named", which all things and rooms are by default.
-
-Inform has four built-in kinds of object (room, thing, direction and region), and all of those have this either/or property. When we create new kinds, they're normally kinds of those four fundamental ones, so they pick up the same behaviour. But if we create a new kind of object outside of these four, that won't be true unless we make it so:
-
-[ZL: this has become a bad example...]::
-
-``` inform7
-A concept is a kind of object. A concept can be privately-named or publicly-named. A concept is usually publicly-named.
-```
-
-(Privately-named is a property which only affects how Inform creates the object, and it can't usefully be given or taken away during play. "Understand ... when ..." is the way to change names during play.)
+`Privately-named` only affects how Inform _compiles_ the object, so it can't usefully be given or taken away during play. As in the example above, `Understand ... when ...` is the way to change names during play.
 
 ## Changing the meaning of pronouns
 
