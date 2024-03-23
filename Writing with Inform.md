@@ -14489,7 +14489,32 @@ As this suggests, Inform performs its automatic sorting using a precise collecti
 
 ^^{rules: preamble} ^^{rules: defining} ^^{defining: rules} ^^{rules: naming} ^^{names: of rules} ^^{this is the (name) rule...+assert+} ^^{(first), listed first in rulebook+sourcepart+} ^^{(last), listed last in rulebook+sourcepart+} ^^{during (scene)+sourcearg+} ^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{while (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules} ^^{to (phrase name)...+assert+} ^^{at (time)...+assert+} ^^{definition+assert+}
 
-In general, a rule looks like this:
+Not counting a few instructions (`Understand ...` or `Include ...`) and headings (`Section 2`), Inform source text is a mixture of two basic ingredients. There are "assertion sentences", which say that something is true. `A mammal is a kind of animal.`, or `The parcel is on the low table.`, are typical assertions. And then there is "imperative code", which tells Inform exactly what to do, step by step, in some situation. Here are some examples:
+
+	Definition: A thing (called the item) is verbose:
+		if the item is the Tolstoy novel, decide no;
+		if the number of characters in the printed name of the item is greater than 10, decide yes;
+		decide no.
+
+	To dispel (illusory item - a thing):
+		now the illusory item is out of play;
+		say "[The illusory item] vanishes into nothingness."
+
+	When play begins:
+		showme the list of verbose things.
+
+	Instead of taking the parcel, say "It's far too heavy to pick up."
+	
+	Instead of taking the parcel: dispel the parcel.
+
+	At 11:02 am:
+		say "The clock chimes, late as usual."
+
+Of these six examples, only four are rules. The first two, the `Definition` and the `To ...` phrase, are not rules. A definition is applied when Inform wants to know whether or not a given thing satisfies it. For example, the definition of `verbose` will be needed when Inform has to work out the `list of verbose things`. See [New conditions, new adjectives]. The `To dispel...` business will happen only if some other piece of imperative code explicitly calls for it, with a line like `dispel the parcel`. See [Phrases].
+
+Although the `At 11:02 am` example _is_ a rule, we won't discuss it further in this section. As the wording suggests, it takes effect at a given time of day. That's very much an exception in the world of rules, which are almost all filed into rulebooks.
+
+The general shape of all of these clumps of imperative code is:
 
 ``` inform7
 preamble:
@@ -14499,55 +14524,53 @@ preamble:
 	phrase N.
 ```
 
-though in a few common cases (where the preamble begins with Before, After, Instead of, Every turn, or When, and there is only one phrase in the list) the colon can be replaced with a comma. Three kinds of declaration are special, and these we can tell apart by the first word:
+In a few common cases, where the preamble begins with `Before`, `After`, `Instead of`, `Every turn`, or `When`, and where there is only one phrase in the list, the colon can be replaced with a comma. So these are equivalent:
 
-[ZL: took me a long time to have confidence in saying "there are 3 kinds of imperative code blocks: rules, definitions, to-phrases (which could be subdivided into to-say, to-decide, plain-to). At <time> is a special-case of rules that are followed despite not being in rulebooks and when <scene> begins and when <scene> ends are conventional rulebooks that are created for each scene. everything outside a code block is (and must be) an assertion. everything inside a code block is (and must be) a phrase. (the *creation* of a code block is, itself, an assertion.) a definition doesn't always look like a code block because there's an alternate syntax for simple cases." ]::
-[ZL: a thing that trips up newbies all the time is trying to use phrases outside of code blocks like they were assertions. this is an example of the thing I wrote elsewhere about how avoiding technical jargon made things more confusing. WI doesn't ever express a term equivalent to "imperative code block". It would be helpful if it did ]::
+	Instead of taking the parcel, say "It's far too heavy to pick up."
 
-- `To [...]` - a new phrase: see the chapter on Phrases
-- `At [...]` - something due to happen at a given time: see Time
-- `Definition: [...]` - a new adjective: see Descriptions
+	Instead of taking the parcel: say "It's far too heavy to pick up."
 
-All other declarations (that is, starting with any other word) create rules fit for going into rulebooks. The preamble can either just be a name, which is required to end with the word "rule", or it can give circumstances and have no name, or it can do both:
+With all of that said, the part before the colon (or the comma) is the so-called "preamble". The preamble can say what the rule's name is, or when it takes effect, or both. Here is a preamble giving only a name: 
 
-[ZL: "circumstances" gets defined only following this use of it, making the following initially confusing]::
+	This is the redraw the map rule: ...
 
-``` inform7
-This is the ...name of rule...
-...circumstances...
-...circumstances... (this is the ...name of rule...)
-```
+This gives no indication of when the rule should be used, and the answer is that it therefore won't be used, unless the author writes an assertion which places it explicitly into some rulebook which _will_ be used (`The redraw the map rule is listed in...`), or uses a special phrase to make it happen (`follow the redraw the map rule`).
 
-The circumstances should be a sequence of the following ingredients, each of which is optional except the name of the rulebook:
+Here is a preamble which says when the rule should take effect, but does not give names:
 
-- first *or* last
-- *followed by* ...rulebook name...
-- *followed by* about *or* for *or* of *or* on *or* rule
-- *followed by* ...what to apply to...
-- *followed by* while *or* when ...condition...
-- *followed by* during ...a scene...
+	When play begins: ...
 
-The word "first" or "last", if present, is significant: it tells Inform exactly where the new rule should be placed into its rulebook, and so overrides the normal practice of placing the rule according to how specific it is.
+And this is a preamble which does both:
 
-On the other hand, the use of any of the following:
+	Carry out taking inventory (this is the print empty inventory rule): ...
 
-- `for`
-- `of`
-- `rule about`
-- `rule for`
-- `rule on`
+Note that if a name _is_ given, it must end with the word `rule`.
 
-is purely to make the text easier to read: Inform does not make any direct use of these words (except perhaps that it may help to avoid ambiguities by separating the rulebook name from what is being applied to). Thus in the rule
+Our remaining example rules tell Inform what rulebook they should be listed in, and in fact this is what almost all rules do.
 
-[ZL: except for in activities when the `for` is significant]::
+* `When play begins` places the rule into the `when play begins rulebook`, which Inform works through... well, you can guess.
 
-``` inform7
-Instead of kissing Clark: ...
-```
+* `Instead of taking the parcel` places the rule into the `instead rulebook`, which Inform works through when processing actions. The rule takes effect only if the action matches the `taking the parcel` description.
 
-the word "instead" is the rulebook's name, while "of" is technically optional. "Instead rule about kissing Clark: ..." would work just as well.
+Inform allows a few extra words to be used in these preambles for clarity, or because the author prefers to. `A when play begins rule` would have had the same effect as just `When play begins`. `An instead rule for taking the parcel` would have been equivalent to `Instead of taking the parcel`.
 
-In this whole list of possible ingredients, only the rulebook name is compulsory. We could define a rule called simply "Instead: ..." if we wanted – though its universal applicability would make it pretty disruptive, with every action stopped in its tracks.
+How does Inform read such an instruction about where to file a rule? It works through from left to right:
+
+1) Optional: `a` or `the`.
+2) Optional: the word `first` or `last`.
+3) Required: a rulebook name, but without the word `rulebook` or `rules` at the end.
+4) Optional: the word `rule`.
+5) Optional: one of
+   * the preposition `about` or `for` or `of` or `on` followed by some applicability text, _or_
+   * just the applicability text on its own.
+6) Optional: `while` or `when` followed by a condition.
+7) Optional: `during` followed by the name of a scene.
+
+For example, `instead of taking the parcel` contained (3) `instead` and then (5) `of` plus `taking the parcel`. `When play begins` contained just (3). `A last when play ends rule when the score is greater than 10` consists of (1) `a`, (2) `last`, (3) `when play ends`, (4) `rule`, (6) `when` plus `the score is greater than 10`.
+
+If the preamble begins `first`, it is placed early in the rulebook. It will literally be first if it's the only one asking for that, or will be among those which did if not. And similarly for `last`.
+
+Rules are designed to be highly flexible, which is why so much is optional. We could even define a rule with the one-word preamble `Instead` if we wanted — though its universal applicability would make it pretty disruptive, with every action stopped in its tracks.
 
 ## New rulebooks {NEWRULEBOOKS}
 
