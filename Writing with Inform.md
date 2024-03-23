@@ -13775,8 +13775,6 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 **2. The default behaviour.** Is provided by a sequence of seven rules:
 
-[ZL: ordered list right for this?]::
-
 1. The "don't mention player's supporter in room descriptions rule" excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like "Boudoir (on the four-poster bed)", so the player can't be unaware of this item.
 
 2. The "don't mention scenery in room descriptions rule" excludes scenery.
@@ -14301,7 +14299,7 @@ So far we have seen many rules, and the term "rulebook" has frequently but vague
 - check taking, carry out taking, report taking
 - *and three similar rulebooks for each of the 90 or so actions*
 
-[ZL: this comment is necessary to allow these to be separate lists]::
+[comment to break to a new list]::
 - persuasion
 - unsuccessful attempt
 - reaching inside
@@ -14312,12 +14310,12 @@ So far we have seen many rules, and the term "rulebook" has frequently but vague
 - when play ends
 - every turn
 
-[ZL: and it must be non-empty... ]::
+[comment to break to a new list]::
 - when Confrontation Scene begins
 - when Confrontation Scene ends
 - *and two similar rulebooks for each scene we create, if any*
 
-[ZL: ...]::
+[comment to break to a new list]::
 - before printing the name of
 - for printing the name of
 - after printing the name of
@@ -14351,12 +14349,9 @@ and a command to ``take`` something is tried, then only one of these rules will 
 
 Inside their rulebook, the rules are not listed in the order of definition in the source text. Rule (1) comes before rule (2) because it applies in more specific circumstances. This is the main idea: a rulebook gathers together rules about making some decision, or taking some action, and sorts them in order to give the more specific rules first choice about whether they want to intervene.
 
-Whereas only some rules are named (the two "instead" rules above have no name, for instance), every rulebook has a name. For convenience, the following forms of rule and rulebook name are synonymous:
+Only some rules have names — rules (1) and (2) are nameless — but every rulebook is named. (These are rules belonging to the `instead rulebook`.) When rules do have names, they always end in `rule`: the `can't go through closed doors rule`, for example. It's good style for rules to have quite verbose names like this, because they aren't referred to in source text very often, but when they are, clarity is much better than brevity.
 
-[ZL: it seems to no longer be true that advance time = the advance time rule]::
-
-- `advance time` = `the advance time rule`
-- `the instead rules` = `instead rulebook` = `instead`
+Rulebook names similarly end in `rulebook`, but Inform also recognises the name with `rules` at the end. So `instead rules` means the same thing as `instead rulebook`.
 
 The names of built-in rules have been chosen as descriptively as possible: the "can't go through closed doors rule", for instance. Names for rules tend to be verbose, but this is a situation where clarity is very much better than brevity.
 
@@ -14496,10 +14491,12 @@ As this suggests, Inform performs its automatic sorting using a precise collecti
 
 In general, a rule looks like this:
 
-[ZL: it's ambiguous how the following blocks should be formatted.]::
-
 ``` inform7
-preamble : list of one or more phrases divided by semicolons
+preamble:
+	phrase 1;
+	phrase 2;
+	...
+	phrase N.
 ```
 
 though in a few common cases (where the preamble begins with Before, After, Instead of, Every turn, or When, and there is only one phrase in the list) the colon can be replaced with a comma. Three kinds of declaration are special, and these we can tell apart by the first word:
@@ -18003,9 +18000,7 @@ Bar
 You can see a table (on which is a key) here.
 ```
 
-[ZL: does vicinity mean "to the room enclosing"? ]::
-
-``gonear`` transports the player instantly to the vicinity of the named object, so for instance
+``gonear`` transports the player instantly to the room which encloses the named object. For a door or a backdrop, multiple rooms may do, and gonear then usually chooses the first room one. For example:
 
 ``` transcript
 >gonear grain
@@ -18454,18 +18449,12 @@ Release along with cover art, a "Platinum" website, a file of "Collegio magazine
 
 This is identical to the previous version except for the "Platinum": note the quotation marks. When it needs to find a template, Inform searches the following places in sequence:
 
-[ZL: replace with a numbered list?]::
-
-``` inform7
-(a) the "Templates" subfolder of the project's own .materials folder, if this subfolder should exist;
-(b) the "Templates" folder in the user's own library - on Mac OS X, this is:
-	~/Library/Inform/Templates
-or on Windows:
-	My Documents\Inform\Templates
-or on Linux:
-	/Inform/Templates
+1) the "Templates" subfolder of the project's own .materials folder, if this subfolder should exist;
+2) the "Templates" folder in the user's own library:
+   - on MacOS, this is `~/Library/Inform/Templates`
+   - on Windows, `My Documents\Inform\Templates`
+   - or on Linux, `/Inform/Templates`
 (c) the built-in stock of templates, currently only "Standard" and "Classic".
-```
 
 What Inform looks for is a folder name matching that of the template – so in our case we need to provide a folder called "Platinum", and put it in either location (a) or (b).
 
