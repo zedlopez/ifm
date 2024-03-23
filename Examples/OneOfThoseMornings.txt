@@ -1,5 +1,5 @@
 Example: * One of Those Mornings
-Location: Understanding any, understanding rooms
+Location: Scope
 RecipeLocation: Background
 Index: FIND command
 Description: A ``find`` command that allows the player to find a lost object anywhere

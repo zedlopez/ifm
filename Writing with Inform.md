@@ -4273,7 +4273,7 @@ Relative location can also be important: relative to other people, that is –
 Instead of eating something in the presence of Lady Bracknell, say "Lady Bracknell disapproves thoroughly of gentlemen who snack between meals, and there are few disapprovals in this world quite so thorough as Lady Bracknell's."
 ```
 
-`In the presence of` means that this action takes place when Lady Bracknell is close at hand to the player. Most of the time that means that the player and Lady B. are in the same location, but the full answer is that Lady B. has to be what is called "in scope". This is the same concept used to work out what the player can refer to in most commands: for example, the command ``GIVE MUFFIN TO LADY BRACKNELL`` will be understood only if she is "in scope". Since it is possible to change scoping rules, the meaning of `in the presence of` may change accordingly. See [Understanding any, understanding rooms] for more.
+`In the presence of` means that this action takes place when Lady Bracknell is close at hand to the player. Most of the time that means that the player and Lady B. are in the same location, but the full answer is that Lady B. has to be what is called "in scope". This is the same concept used to work out what the player can refer to in most commands: for example, the command ``GIVE MUFFIN TO LADY BRACKNELL`` will be understood only if she is "in scope". Since it is possible to change scoping rules, the meaning of `in the presence of` may change accordingly. See [Scope] for more.
 
 `In the presence of` need not be applied to specific people. It can be somebody described more vaguely (`... in the presence of a woman`, say), or can just as easily be an inanimate thing (`... in the presence of the radio set`).
 
@@ -11796,7 +11796,7 @@ During play, the computer and the player alternate in writing messages to each o
 Suppose we return to the earlier example of a newly created action:
 
 ``` inform7
-Photographing is an action applying to one visible thing and requiring light.
+Photographing is an action applying to one thing and requiring light.
 ```
 
 We then supply lines of grammar (as they are called) for Inform to recognise, like so:
@@ -11807,20 +11807,16 @@ Understand "photograph [someone]" as photographing.
 Understand "photograph [an open door]" as photographing.
 ```
 
-[ZL: actually, technically, a thing that's either animate or, for some actions but not others, talkable, and in scope. and I think it muddies the waters to imply that the brackets' meaning here is in common with their meaning in a text]:: 
+The part in quotation marks after the word `Understand` looks like text — something which Inform can say, or can manipulate in various letter-by-letter ways. The square brackets even look like text substitutions. In fact, though, `"photograph [an open door]"` is _not_ a text value. It is a pattern used to match the words in a command. It will match the word ``PHOTOGRAPH`` followed by the name of an open door which is currently "in scope" (a concept we will come back to, but which roughly means nearby). It will not match any other wording.
 
-As usual, the square brackets indicate something which stands for text, rather than text to be taken verbatim. `"[someone]"` needs to be the name of anything of the kind "person", for instance (though as usual that person will need to be in sight of the player for the name to be accepted). The first word – in these examples "photograph" – must be something definite, not a substitution like this.
-
-[ZL: insert usual visible thing rant]::
-
-For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to "one visible thing" – the "visible" just means it does not need to be touched, only seen – so these two Understand sentences are both a little odd:
+For obvious reasons, this pattern of words needs to match the expectations of the action. Photographing applies to `one thing`, so these instructions are both a little odd: one supplies no things, and the other supplies two.
 
 ``` inform7
 Understand "photograph" as photographing.
 Understand "photograph [someone] standing next to [something]" as photographing.
 ```
 
-The first is actually allowed by Inform, even though it supplies no things at all, but should only be used in conjunction with a rule for the "supplying a missing noun" activity which makes an automatic choice of the missing thing. The second line, though, is always wrong and is rejected with a problem message.
+The first is actually allowed by Inform, even though it supplies no things at all, but should only be used in conjunction with a rule for the `supplying a missing noun` activity which makes an automatic choice of the missing thing. But the second line is always wrong and is rejected with a problem message.
 
 ## New commands for old grammar {PM_ThreeValuedLine} {PM_TooManyAliases} {PM_TooManyGrammarLines} {PM_GrammarIllFounded}
 
@@ -11898,74 +11894,57 @@ The commands "take" and "get" will still exist, but now they'll only have their 
 
 ^^{understanding: arbitrary objects} ^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens} ^^{someone+token+} ^^{something+token+} ^^{something preferably held+token+} ^^{things+token+} ^^{things inside+token+} ^^{other things+token+} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar} ^^{actions: applying to multiple objects}
 
-[ZL: this assertion that someone == person, immediately followed by an admission that it doesn't, confused me for a long time and irked me longer. and we never do get an explanation that `<something>` means any object in scope as opposed to `<thing>`.]::
+The square-bracketed parts of `Understand` grammar are called "tokens". Rather than matching a single specific word, they will normally match a range of possibilities. For example, the grammar `"[number]"` will match ``SIX`` or ``1935``, whereas `"number"` only matches the word ``NUMBER``.
 
-We have already seen `"[something]"` and `"[someone]"`, which are standard examples of "tokens of grammar" – patterns matched by suitable named things. There are several other standard tokens, provided not so much from necessity but to allow the story parser to be more graceful and responsive. `"[someone]"` matches the same possibilities as `"[a person]"` would, but the parser handles it a little better in cases of failure. These special tokens are best explained by looking at some of the examples in the standard grammar, which can be browsed in the Index of any story.
+Any description of an object can be used as a token: `"[a door]"` matches the name of any door in scope, for example, and `"[an open door]"` matches only those which are currently open. But it is usually not a good idea to write overly specific tokens like this. The command ``DETONATE`` might be intended to be used only with things of the kind `bomb`, for example, but we would still want to _understand_ the command ``DETONATE BANANA``, in order to reject it with a better reply than just ``You can't see any such thing.``
 
-``` inform7
-Understand "wear [something preferably held]" as wearing.
-```
+Inform also has a miscellaneous range of useful tokens with special wordings, which the command parser is particularly good at handling well. Between them, they handle all of the commonly-needed cases, so these are the tokens most often used by authors (and by the Standard Rules) in practice. For the most part, they match what their wordings suggest, but command parsing is a finicky business and there are some subtleties which experts occasionally need to be aware of.
 
-[ZL: the action specification requiring a carried thing is what creates the implicit take, not `something preferably held`. There should be more discussion of what `preferably held` really means.]::
+1) `"[something]"`. Matches the name of any object in scope.
 
-Here we expect that the named item will be one that is held by the player, and the parser will use this to resolve ambiguities between names of things carried and not carried. (If the action is one which positively requires that its noun be something carried, a command matching this token against something not carried will generate an automatic attempt to take it.)
+   The word "thing" is used colloquially here, and doesn't literally mean the object has to have the kind `thing`. In practice, it almost always will, but the `directions` are also usually in scope, for example.
+   
+   Suppose we `Understand "photograph [something]" as photographing.` An attempt to type ``PHOTOGRAPH NORTHWEST`` will then be understood, because the northwest direction is in scope, but such a command would generate an action which the accessibility rules would immediately reject, saying ``You must name something more substantial.`` So it is hardly ever necessary to worry about the difference, but the token `"[a thing]"` would be stricter, excluding the names of directions. ``PHOTOGRAPH NORTHWEST`` would then be met with ``You can't see any such thing.``
 
-``` inform7
-Understand "take [things]" as taking.
-Understand "drop [things preferably held]" as dropping.
-```
+2) `"[something preferably held]"`. Matches the name of any object in scope, but where there is some ambiguity about which object is being named, prefer something the player is holding.
 
-`"[things]"` is like `"[something]"` but allows a list of items, or a vague plural like "all", to be typed. The result will be a sequence of actions, one for each item thus described. `"[things preferably held]"` is the analogous token for `"[something preferably held]"`.
+   For example:
+   
+       Understand "wear [something preferably held]" as wearing.
 
-``` inform7
-Understand "take [things inside] from [something]" as removing.
-```
+   If the player types ``WEAR HAT``, and is carrying a black hat while there is also a white hat on the table, this command will now be read as referring to the black hat. Otherwise, the command might have been replied to with a ``Which do you mean...?`` question.
 
-`"[things inside]"` matches only what is inside the second-named thing, and ensures that (for instance) the command "take all from box" does not also try to take the box.
+3) `"[someone]"`. Matches the name of any person in scope.
 
-``` inform7
-Understand "put [other things] in/inside/into [something]" as inserting it into.
-```
+   This is slightly preferable to typing `"[a person]"`. It matches the same possibilities, but when it fails to match, the command parser produces more graceful replies.
 
-Similarly, `"[other things]"` will allow anything except the second-named thing. (Like `"[things inside]"` it is really only needed for handling containers.)
+4) `"[things]"`. Like `"[something]"`, but allows ``ALL`` or a plural like ``SIX COINS`` to be recognised, resulting in not one object being matched, but many. ``ALL`` will match all of the objects in scope except for the player, for example. The result will be a sequence of actions, one for each match.
 
-[ZL: warrants mention of `visible thing`'s relation to this]::
+5) `"[things preferably held]"`. Like `"[something preferably held]"`, but also like `"[things]"` in that it matches multiple objects. For ``ALL`` the preference for being held would make no difference, but for ``SIX COINS`` it might, in a very coin-rich environment. The command parser will then try to choose as many as possible of the six coins needed from the player, and only then use coins which are merely nearby.
 
-Finally there is `"[any things]"`, which should be used only with care. This is like `"[things]"` but with no restriction at all on where the item comes from: it might be invisible, or from a different room, or out of play altogether. If we use this, we had better remember that it would match ``all``, with quite extravagant consequences.
+6) `"[things inside]"`. Meaningful only in grammar for actions applying to two things. Matches only what is contained in the thing referred to by the _other_ name in the command.
 
-## The text token {text_token}
+   Inform's built-in set of actions use this to recognise ``TAKE ALL FROM THE BOX`` so that the ``ALL`` matches only items which are in the box (and in scope: if the box is opaque and closed, ``ALL`` would match nothing in this case, because the contents would not be in scope). If the Standard Rules had written:
 
-^^{understanding: arbitrary text} ^^{text+token+} ^^{topics: understanding} ^^{topic understood (- snippet)+glob+} ^^{grammar tokens: for text} ^^{snippets}
+       Understand "take [things inside] from [something]" as removing.
 
-[ZL: confusion regarding topic/text previously noted...]::
+   then ``TAKE ALL FROM THE BOX`` would produce matches including the box itself, which is clearly not what the player intended.
 
-Most actions involve items: taking a vase, perhaps. As we shall see, they might also involve values, or a mixture of the two: turning a dial to 17 would involve both a thing (the dial) and a number (17). A few of Inform's built-in actions, however, can act on any text at all. For instance, asking the Sybil about the Persian army would involve a thing (the Sybil) and some text ("Persian army"). Inform does not try to understand automatically what that text might mean, or to relate it to any items, places or values it knows about: instead, Inform leaves that to the specific story to work out for itself, since the answer is bound to depend on the context. (In the chapter on [Tables], we saw ways to compile tables of responses to particular topics of conversation.)
+7) `"[other things]"`. Meaningful only in grammar for actions applying to two things. Like `"[things]"`, except that it excludes the _other_ name in the command.
 
-The token for "accept any text here" is just `"[text]"`. For instance, if we create an action with:
+   Again, this is only rarely useful except to the Standard Rules, which uses it to ensure that ``PUT ALL ON TABLE`` does not even try to put the table on the table. (That action would inevitably fail if it were tried, of course, and we don't want to exasperate the player by trying it.)
 
-``` inform7
-Getting help about is an action applying to one topic.
-```
+8) `"[any door]"`, `"[any locked container]"`, `"[any thing]"`, etc. Matches the name of any object of the given kind, completely ignoring scope.
 
-We can then provide grammar for this action like so:
+   Note that `"[anything]"` is read as `"[any thing]"`; `"[anybody]"` and `"[anyone]"` as `"[any person]"`; and `"[anywhere]"` as `"[any room]"`.
 
-``` inform7
-Understand "help on [text]" as getting help about.
-```
+   `any` should be used only with care, and is best when combined with a specific kind which won't be too large. For more, see [Scope].
 
-When text like this is successfully matched, it is placed in a value called "the topic understood". (The term "topic" is used traditionally, really: most of the times one needs this feature, it's for a topic of conversation, or a topic being looked up in a book.)
+9) `"[any things]"`. This should be used only with care. As the wording suggests, this is `any` combined with `"[things]"`, and that is a frightening thought. ``ALL`` would then match a potentially huge number of objects.
 
-The fact that `"[text]"` can match anything means that it's difficult to tell which version of a command was intended if they disagree only from a `"[text]"` onwards. For example, given:
+   This is a special case. `any` with another plural — `"[any doors]"`, say — does not do this.
 
-``` inform7
-Yelling specifically is an action applying to one topic.
-Understand "yell [text]" as yelling specifically.
-Understand "yell [text] at/to [someone]" as answering it that (with nouns reversed).
-```
-
-[ZL: this is the only mention of the phrase "autocompletion of commands" and I, right now, am unsure what it's supposed to mean.]::
-
-...Inform will in fact try the second possibility first, as being the more specific, but the result may freeze out the first possibility altogether due to autocompletion of commands.
+10) `"[text]"`. Matches _anything at all, even gibberish_. This is listed here as a special case because it has to be handled in unusual ways. It gets its own section in this book: see [The text token].
 
 ## Actions applying to kinds of value
 
@@ -11985,45 +11964,211 @@ The substitution `"[a number]"` matches any number (actually any whole number th
 Understand "adjust [something] to [something]" as adjusting it to.
 ```
 
-## Understanding any, understanding rooms
+because this grammar line would produce two things, not one thing and one number, which is what we said `adjusting it to` needs.
 
-^^{scope} ^^{any+token+} ^^{anywhere+token+} ^^{anybody+token+} ^^{anyone+token+} ^^{anything+token+} ^^{understanding: things: not in scope with (any)+sourcepart+} ^^{grammar tokens: for rooms} ^^{grammar tokens: for things not in scope}
+Not every kind can be understood, but many can, including those we create ourselves. For example, if we define:
 
-Ordinarily, if we write
+	State is a kind of value. Solid, liquid, gas and plasma are states.
+
+then we can define an action `applying to one state`, say, and then the token `"[a state]"` would recognise ``SOLID``, ``LIQUID``, ``GAS`` or ``PLASMA`` but no other words. Similarly for:
+
+	A weight is a kind of value. 10kg specifies a weight.
+
+which would enable `"[a weight]"` to match ``27KG``, for example.
+
+The issue of "scope" does not arise for values which are not objects. Scope is all about where things are in the physical world, but the number 17, or for that matter the concept of being a gas, makes equal sense everywhere. So although it's quite legal to write `"[any number]"`, using the `any` to mean anywhere, the effect is exactly the same as writing just `"[a number]"`.
+
+## The text token {text_token}
+
+^^{understanding: arbitrary text} ^^{text+token+} ^^{topics: understanding} ^^{topic understood (- snippet)+glob+} ^^{grammar tokens: for text} ^^{snippets}
+
+In the previous section, we saw that `"[number]"` matches any number, and so on for many other kinds of value. So it's natural to wonder: how about text?
+
+The answer is that there is indeed `"[text]"` token, but that it does _not_ produce a text value, despite the name. Instead, it produces a value which represents a so-called "snippet" of a full command. For example, if the player types ``ASK SYBIL ABOUT HELEN OF TROY``, the `"[text]"` token in the grammar for the ``ASK`` command produces the snippet ``HELEN OF TROY``.
+
+What can we do with that? In effect the command is only partially parsed: this snippet of the final three words is being left to us to parse later.
+
+Here is an example of an action applying to a "topic":
+
+	{*}The Enigmatic Void is a room.
+
+	Getting help about is an action applying to one topic.
+	
+	Understand "help on [text]" as getting help about.
+
+	Carry out getting help about:
+		showme the topic understood.
+
+The word "topic" here is used rather loosely, but is traditional in interactive fiction. If we try the above example, we might see:
+
+	>HELP ON SPACE TIME CONTINUUM
+	"topic understood" = snippet: SPACE TIME CONTINUUM
+
+What happens here is that a special variable called `topic understood` is set equal to the unparsed snippet of the player's command. And this is not a `text` value: it is a `snippet` value. If we want to turn it into a text, we can do so:
+
+	Carry out getting help about:
+		let T be "[topic understood]";
+		showme T.
+
+...would instead result in:
+
+	>HELP ON SPACE TIME CONTINUUM
+	"T" = text: SPACE TIME CONTINUUM
+
+So if we wanted to, we could then poke our way through the text character-by-character, and so on. But in fact it's generally annoying to have to do that, which is why Inform gives us the snippet value instead. The snippet is better because we can use the command parser to analyse it further. This is often done with tables of possibilities: see [Topic columns] for worked examples of that.
+
+The fact that `"[text]"` can match anything means that it's difficult to tell which version of a command was intended if they disagree only from a `"[text]"` onwards. For example, given:
 
 ``` inform7
-Understand "manipulate [something]".
+Yelling specifically is an action applying to one topic.
+Understand "yell [text]" as yelling specifically.
+Understand "yell [text] at/to [someone]" as answering it that (with nouns reversed).
 ```
 
-then the `"[something]"` will only match what is within reach or sight: this is the concept of "scope", which is what prevents a player from spookily acting on objects from a distance. The parser itself prevents the manipulation rules from ever being invoked on such distant items, which is as it should be.
+How can Inform know which action to cause if given the command ``YELL GIBBERISH AT MAUREEN``? Is this an instruction to yell ``GIBBERISH AT MAUREEN``, or to yell ``GIBBERISH`` at the luckless Maureen? Inform will usually try the second possibility first, as being the more specific, but there is some risk that the command ``YELL HUZZAH`` may _also_ trigger the second possibility, because of a feature of the command parser called "autocompletion". If Maureen is the only person present, the parser may decide that ``YELL HUZZAH`` was intended for her ears, and read it as if ``YELL HUZZAH AT MAUREEN`` had been the full command.
 
-[ZL: visible thing rant / lack of detail about scope ]::
+All of this is to say: it's best to avoid situations where `"[text]"` can appear both inside a command and at the end of a command, when the first word is the same.
 
-Sometimes, though, we positively want to allow this possibility. If we use the special word "any", as in
+## Scope
 
-``` inform7
-Understand "manipulate [any door]".
-```
+^^{scope} ^^{any+token+} ^^{anywhere+token+} ^^{anybody+token+} ^^{anyone+token+} ^^{anything+token+} ^^{understanding: things: not in scope with (any)+sourcepart+} ^^{grammar tokens: for rooms} ^^{grammar tokens: for things not in scope} ^^{SCOPE+testcmd+} ^^{testing commands: >SCOPE} 
 
-[ZL: "will not cause the parser to reject the command" may be clearer than "is now possible to type". an explicit discussion somewhere calling more attention to the parser as a sort of gatekeeper that must accept commaands before they ever reach an action would be nice.]::
+At first sight, the command parser seems like a component of Inform which ought to look at the words typed, and find a meaning in them, without knowing anything about the state of the story. Suppose the player is in Piccadilly Circus and types ``TAKE CROWN JEWELS``, even though the crown jewels are locked up miles away in the Tower of London. Shouldn't the parser recognise that? It seems like a clearly expressed wish. Of course, the resulting `taking the Crown Jewels` action should not be allowed to happen, but that's an issue for the rules about taking to sort out. It shouldn't be the _parser_ which decides what is and is not allowed to happen.
 
-then any door, anywhere in the model world, can be allowed in the player's command. (Of course, the manipulation rules may not do what the player hopes: all that has happened is that the command is now possible to type.) The "any" can be followed by any description of items or rooms, and the latter opens up new possibilities, since rooms are ordinarily never allowed to be named in the player's commands.
+In a way, that seems reasonable. But then consider:
 
-For example, the following gives the player the ability to walk between rooms without giving explicit directions of movement.
+* Merely the fact that ``TAKE CROWN JEWELS`` resulted in a reply like ``The crown jewels are in the steel cage.`` rather than ``You can't see any such thing.`` gives an unscrupulous player information which should not be available. 
 
-``` inform7
-Going by name is an action applying to one thing.
+* There might be thousands of named things in the story. If all their names have to be recognisable all of the time, the parser will be slower and will handle ambiguous requests less well. If the story begins in a child's bedroom in 1971 and the player types ``GET SPACESHIP``, a reply like ``Which do you mean, the toy spaceship or Apollo 14?`` is unfortunate.
 
-Carry out going by name: say "You walk to [the noun]."; move the player to the noun.
+Instead, then, the parser normally only recognises names of objects which are somehow close to where the player currently is in the story. This restricted sort of access to the world is called "scope", and objects which are "in scope" are the currently nearby ones whose names would be recognised. But it is not a restriction on what actions can or cannot happen. It is a restriction on what names are recognised in commands.
 
-Understand "go to [any adjacent visited room]" as going by name.
-```
+Most authors can forget about scope almost all of the time, and just let the parser do its thing. But every so often, it's useful to be able to tinker with what is, and is not, in scope. A good way to get a sense of this is to wander around any story with much to it and type the debugging command ``SCOPE`` from time to time, which will list what's in scope to the player at any given point. (In principle, scope applies to anybody, even though other characters do not get to type commands. In a game where the player is Sherlock Holmes, Professor Moriarty will have a scope of his own. Most of the time these will be different.)
 
-(This is really only a sketch: in a finished work, "go to" would produce helpful errors if non-adjacent but visited rooms were named, and we might also worry about rules applying to movement, because the method above will circumvent them.)
+So, then, tokens like `"[something"]` or `"[someone]"` or even `"[an open door]"` only match the names of objects which are in scope. (See the section on [Standard tokens of grammar].)
 
-[ZL: `<anything>` really *does* have a domain restricted to things, unlike `<something>`; again, this warrants mention ]::
+But we do sometimes want to enable commands to mention things from far away, or which are even out of play altogether. The simplest way to do that is to use `any`. For example, the following gives the player the ability to walk between rooms without giving explicit directions of movement.
 
-As might be expected, `"[anything]"` means the same as `"[any thing]"`; `"[anybody]"` and `"[anyone]"` mean the same as `"[any person]"`; and `"[anywhere]"` means the same as `"[any room]"`.
+	Going by name is an action applying to one thing.
+
+	Carry out going by name: say "You walk to [the noun]."; move the player to the noun.
+
+	Understand "go to [any adjacent visited room]" as going by name.
+
+In a finished work, we would want ``GO TO`` to produce helpful errors if non-adjacent but visited rooms were named, and so on, but the important point here is that `any` has placed certain room names in scope, something which ordinarily never happens.
+
+As might be expected, `"[anything]"` means the same as `"[any thing]"` (and because of that is required to match a `thing`, unlike `"[something]"`, which can match any object); `"[anybody]"` and `"[anyone]"` mean the same as `"[any person]"`; and `"[anywhere]"` means the same as `"[any room]"`.
+
+So, then, `any` allows scope restrictions to be completely bypassed. We can also modify scope in more nuanced ways with the [Deciding the scope of something] activity. But supposing we don't do that, what exactly _is_ in scope for a given actor? That's the subject of the next section.
+
+## Formal definition of scope
+
+This section can safely be skipped by most Inform authors, but for experts it provides answers to questions like "exactly what is visible to the player?", or "when exactly is this action in the presence of somebody?".
+
+### When scope is used by Inform
+
+As we have seen, scope is a concept of nearby-ness which is used by the command parser to see which names to recognise in commands. The command ``TAKE HOLY GRAIL`` will be understood only if the Holy Grail is in scope, and so on. Scope roughly means "within sight or touch", but only roughly. It's a concept used in Inform in other places too:
+
+* To define the `visibility relation`. `A` can see `B` if:
+  - there is light where `A` is, _and_
+  - `B` is in scope for `A`.
+* To define the `audibility relation`. `A` can see `B` if `B` is in scope for `A`.
+* To define the `touchability relation`. `A` can touch `B` if:
+  - `B` is in scope for `A`, _and_
+  - the accessibility rulebook does not prevent this.
+* To decide whether an action is happening `in the presence of` something or somebody. For example, this rule will take effect if and only if the sarcophagus is in scope for the player:
+
+      Before doing something in the presence of the sarcophagus:
+          say "The mummy shakes the sarcophagus menacingly."
+
+### Main scope definitions
+
+The following method determines scope, provided that the activity [Deciding the scope of something] has not pre-empted or added to it.
+
+1) When the command parser is matching the special `"[things inside]"` token:
+
+   - (1a) The other item named by the command is searched for scope. Note that that other item will have to have been in scope, or this would never be considered.
+
+2) Otherwise, if the actor is the player and it is dark where the player is:
+
+   - (2a) All directions are in scope.
+   - (2b) The player is _both_ in scope _and_ searched for scope.
+   - (2c) If the player is inside or on top of something, that container or supporter is in scope.
+
+3) Otherwise, if the actor is out of play:
+
+   - (3a) All directions are in scope.
+   - (3b) The actor is in scope.
+
+4) Otherwise:
+
+   - (4a) All directions are in scope.
+   - (4b) The actor's scope ceiling is searched for scope. The _scope ceiling_ is worked out by going "up one level" to whatever supports or contains the actor, and repeating this process until we reach either a room or a closed opaque container.
+   - (4c) If the actor is inside or on top of something, that container or supporter is in scope.
+
+5) When a thing or room is _searched for scope_:
+
+   - (5a) If it is a person, anything it carries or wears but does not conceal is _both_ in scope _and_ searched for scope.
+   - (5b) If it is a supporter, anything it supports but does not conceal is _both_ in scope _and_ searched for scope.
+   - (5c) If it is a room, anything it contains but does not conceal is _both_ in scope _and_ searched for scope.
+   - (5d) If it is a container which is either open or transparent, anything it contains  but does not conceal is _both_ in scope _and_ searched for scope.
+   - (5e) Concealment is determined by the [Deciding the concealed possessions of something] activity, but by default nothing is concealed.
+
+6) When something is in scope, anything it incorporates is in scope.
+
+### How light and darkness are determined
+
+Even that is not everything, because we still have to say how Inform decides whether there is light or darkness where an actor is.
+
+7) There is light where an actor is if the room, container or supporter of the actor offers light. If not, or if the actor is out of play, there is darkness.
+
+8) An object _offers light_ if _any of the following_:
+
+	- it is a `lit` thing;
+	- it is a `lighted` room;
+	- it contains, supports, wears, carries or incorporates something which has light;
+	- it is supported, worn, carried or incorporated by something which offers light;
+	- it is contained by a room which offers light;
+	- it is contained by an open or transparent container which offers light.
+
+9) A thing _has light_ if _any of the following_:
+
+	- it is `lit`;
+	- it supports, carries or wears something which has light;
+	- it is an open or transparent container which contains something which has light.
+
+The gist of rules (7) to (9) here is that there is light for the actor if there's a light source somewhere in the room, provided that no closed opaque container makes a barrier between the actor and the light source.
+
+### Hypotheticals
+
+Here are some hypothetical scenarios, to show how these rules more or less realistically approximate real-life experience. Suppose we are in the British Museum courtyard, where there's a sarcophagus and a packing case, which contains a Canopus jar. It is mid-afternoon. The player, in the true spirit of Lord Elgin, is plundering the place and is now inside the packing case.
+
+- Suppose the case is closed, and it's dark inside. The case itself _is_ in scope, which prevents ``ENTER CASE`` followed by ``CLOSE CASE`` leaving a player unable to escape because ``OPEN CASE`` won't be recognised. But the Canopus jar is now out of scope. If the player carries a rucksack with a coil of rope inside, both are in scope.
+- Same scenario, but this time the player has a torch. Now the case behaves just like a little room of its own, except that (4c) means the case itself is in scope. The jar is now in scope.
+- Same scenario, but now the packing case is made of transparent perspex instead of wood. Now even the sarcophagus is in scope, on the grounds that the player can see it through the walls of the container.
+
+Note that rule (4b) means that the room containing the player is never itself in scope, even when (as is usually the case) it is the player's "scope ceiling". Its contents are in scope, but it itself is not. So in all of these scenarios, ``EXAMINE BRITISH MUSEUM`` will be disallowed because ``BRITISH MUSEUM`` is not the name of something in scope.
+
+Rule (6) looks straightforward but has some caveats:
+
+- If the player is wearing a hat and a small green feather is part of the hat, then both the hat and the feather are in scope, even in the dark.
+- If the packing case has a metal clasp which is `part of` it, then the clasp is in scope both inside and outside the case.
+
+This may be a helpful start when experimenting with such hypotheticals:
+
+	{*}"Some Scope for Misunderstandings"
+
+	The British Museum is a room. A sarcophagus is in the British Museum.
+
+	The case is an open openable enterable opaque container in the British Museum. A Canopus jar is in the case.
+
+	The torch is a device. The player is carrying the torch. Carry out switching on the torch: now the torch is lit.  Carry out switching off the torch: now the torch is not lit. 
+
+	The player wears a felt hat. A green feather is part of the hat.
+
+	The player carries a rucksack. In the rucksack is a coil of rope.
+
+	Test me with "showme / enter case / close case / showme / switch on torch / showme".
 
 ## Understanding names
 
@@ -12037,9 +12182,9 @@ This normally happens automatically. For instance, writing
 The St Bernard is an animal in the Monastery Cages.
 ```
 
-[ZL: there should be a more clear and explicit discussion that any of `st`, `bernard`, `bernard st`, or `the the a st` in a command could mean the St Bernard]::
+means that the command parser recognises ``ST BERNARD`` as referring to the dog. It also recognises ``BERNARD`` and ``THE ST BERNARD`` and even ``ST``, and some other variations too. Some of those variations look a little odd, but the command parser takes the view that it is better to accept some strange commands which players will never type than to reject reasonable ones which they might.
 
-makes ``st bernard`` refer to the dog, and ``monastery cages`` refer to the room. But sometimes, as here, that isn't really enough. Why shouldn't the player type ``examine dog``? One way to allow this is to write:
+And in that spirit, it would be good to accept a command like ``EXAMINE DOG``. One way we could do this is to write:
 
 ``` inform7
 Understand "dog" as the St Bernard.
@@ -12065,11 +12210,9 @@ Now ``take birds`` and ``take ducks`` are equivalent. Plurals can even, strange 
 The magpie is in the Lake. Understand "birds" as the plural of the magpie.
 ```
 
-And now ``take birds`` tries to take all four ducks and the magpie too.
+And now ``TAKE BIRDS`` tries to take all four ducks and the magpie too.
 
-[ZL: it possibly warrants mention that container, supporter, direction all have nine letters, so by default, a container *can* be referred to as a container and a supporter can be referred to as a supporter, unless one has changed dictionary resolution.]::
-
-In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``examine animals`` would scrutinise the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
+In fact, it is the norm that any given thing can be referred to by the plural of its kind name. ``EXAMINE ANIMALS`` would scrutinise the St. Bernard, even if it were alone, but would not automatically work for the ducks: things only receive the plural name of the most specific kind to which they belong.
 
 If you don't want this behaviour, it can be suppressed with a use option:
 
@@ -12084,8 +12227,6 @@ Use no automatic plural synonyms.
 In many cases, if K is the name of a kind of value, then Inform automatically makes an Understand token called `"[K]"` which matches only values of K. An example is `"[number]"`, which matches text like 203 or ``seven``. There is a chart of the kinds of value in the Kinds index for a project, showing which ones can be understood in this way.
 
 In particular, any newly created kind of value can always be understood. We make good use of that in the example story "Studious":
-
-[ZL: "exquisitely bored and boringly exquisite" is a truly fabulous line.]::
 
 ``` inform7
 {*}"Studious"
@@ -12165,9 +12306,7 @@ Understand "lamp" as the lantern.
 Understand "old lamp" as the lantern.
 ```
 
-[ZL: except, as noted above, a thing normally *can* be called by its plural kind name.]::
-
-It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called "April", but not "woman". (The exception is when we do not specify any name for her – in that case, Inform will give up and call her just "woman".)
+It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called "April", but not "woman". (The exception is when we do not specify any name for her – in that case, Inform will give up and call her just "woman". Also, Inform _does_ allow the plural name of a kind to be used. ``TAKE THREE COINS`` would pick up three different things of the kind `coin`, if that were a kind, and if there were three of them to hand.)
 
 With care, we can do the same trick for entire kinds of thing at once. So there is not usually any form of words which can refer to anything of a given kind. If we should want this, we have to say so explicitly:
 
@@ -12209,7 +12348,11 @@ We have already seen "or" used in "Understand" sentences:
 Understand "scarlet" or "crimson" as red.
 ```
 
-[ZL: or "and"...]::
+For convenience, `and` can also be used instead of `or` here:
+
+``` inform7
+Understand "scarlet" and "crimson" as red.
+```
 
 In general, any number of alternative forms can be given which are to be understood as the same thing (in this case the colour red). When the alternatives are in any way complicated, "or" should always be used, but a shorthand form is allowed for simple cases where it is only a matter of a single word having several possibilities:
 
@@ -12237,9 +12380,7 @@ Understand "reach underneath/under/beneath/-- [something]" as looking under.
 
 because "--" is read by Inform as "no word at all". If "--" is an option, it can only be given once and at the end of the list of possibilities.
 
-[ZL: only between words... or between the next to last word and -- ]::
-
-To recapitulate: the slash "/" can only be used between single, literal words, and is best for the wayward prepositions of English ("in/into/inside", and so forth). For anything more complex, always use "or".
+To recapitulate: the slash `/` can only be used between single, literal words, or between the next to last word and `--`. It is best for the wayward prepositions of English ("in/into/inside", and so forth). For anything more complex, always use "or".
 
 ## New tokens {PM_MixedOutcome} {PM_TwoValuedToken} {NEWTOKENS}
 
@@ -12597,8 +12738,6 @@ Understand "act" as a mistake.
 
 While that works – the command to ``act`` is indeed rejected – it is not very good, because no very helpful message is brought up. The following is much better:
 
-[ZL: not sure what to do with command text in code...]::
-
 ``` inform7
 Understand "act" as a mistake ("To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.").
 ```
@@ -12612,38 +12751,34 @@ Understand "act" as a mistake ("To join the actors, you have to adopt a role in 
 That still has the drawback that the command ``act hamlet`` will not be recognised: so the final version we want is probably
 
 ``` inform7
-Understand "act [text]" as a mistake ("To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.") when the location is the Garden Theatre.
+Understand "act" or "act [text]" as a mistake ("To join the actors, you have to adopt a role in the play! Try PLAY HAMLET or similar.") when the location is the Garden Theatre.
 ```
 
-[ZL: "act <text>" won't match "any word (or none)": it fails to match when it's none. We would need two `understand` statements. (can't use square brackets in comments) ]::
-
-since the `"[text]"` part will soak up any words the player types (or none), meaning that any command at all whose first word is "act" will be matched.
-
-[ZL: it is perhaps worth mentioning the potential for cheap debug commands: `Understand "turns" as a mistake ("Turns: <turn count>"). (can't use square brackets in comments) ]::
-
-We need to be careful to avoid circular things like this:
-
-[ZL: I forget whether I've said this already, but I suggest that all source snippets demonstrating something that *won't* work explicitly have "<invalid>" (but with proper square brackets) at line's end to head off the case of an author skimming only just enough to see the example itself]::
+We need to be careful to avoid circular things like this, which don't do what the author hoped:
 
 ``` inform7
 Understand "[text]" as a mistake ("'[the topic understood]' is something I really wish you wouldn't say.") when the topic understood is a topic listed in table 1.
 ```
 
-This doesn't work because `the topic understood` isn't set until the line has been understood, but Inform checks the "when..." condition before it tries to understand the line. Indeed, even this:
+The trouble is that `the topic understood` isn't set until the line has been understood, but Inform checks the `when...` condition _before_ it tries to understand the line. Indeed, even this:
 
 ``` inform7
 Understand "[text]" as a mistake ("'[the topic understood]' is something I really wish you wouldn't say.").
 ```
 
-is unsafe (quite apart from being unwise!) – again, `topic understood` doesn't exist for a mistake, because in a mistake, nothing is understood.
+is unsafe, because `topic understood` doesn't exist for a mistake. When there's a mistake, nothing was understood.
 
-The following is often useful during beta-testing of a new work, though we would not want it in the final published edition. Many authors like to ask their testers not to try anything in particular, simply to play naturally: but to record the transcript of the session, and email it back to the author. The following command is a device to allow the tester to type a comment in to the transcript:
+It's sneaky but possible to use mistakes to implement out-of-world commands in a way which bypasses actions entirely:
+
+	Understand "turns" as a mistake ("This is turn [turn count in words].").
+
+As another example, the following can be useful when beta-testing of a new work, though we would not want it in the final published edition. Many authors like to ask their testers not to try anything in particular, simply to play naturally: but to record the transcript of the session, and email it back to the author. The following command is a device to allow the tester to type a comment in to the transcript:
 
 ``` inform7
 Understand "* [text]" as a mistake ("Noted.").
 ```
 
-For instance, the tester might type "\* ``didn't we say darcy was tall?``", to which the story would reply "Noted." – and the author can search for such comments when receiving the transcript.
+For instance, the tester might type "\* ``DIDN'T WE SAY DARCY WAS TALL?``", to which the story would reply "Noted." – and the author can search for such comments when receiving the transcript.
 
 If we are careful, we can make the reply depend on what was typed in the mistaken command:
 
@@ -12704,11 +12839,7 @@ Understand "put [something preferably held] on" as wearing.
 Understand "put [other things] on/onto [something]" as putting it on.
 ```
 
-[ZL: okay, there's another mention of auto-completion, but this time it has a hyphen.]::
-
-One produces a single object, the other produces two. Inform gives precedence to the first of these, that is, it tries the one with fewer values first. This is important when reading commands like ``put march on washington shirt on``, and also prevents bogus auto-completions, in which ``put hat on`` might wrongly be auto-completed as if it were ``put hat on the table``.
-
-[ZL: I'll note that there's inconsistency in the following chapter (and probably elsewhere) regarding whether lists within lists are numbered, lettered, or roman-numeraled. I haven't changed them but I think it'd be ideal if there were a consistent style]::
+One produces a single object, the other produces two. Inform gives precedence to the first of these, that is, it tries the one with fewer values first. This is important when reading commands like ``put march on washington shirt on``, and also prevents bogus autocompletions, in which ``put hat on`` might wrongly be autocompleted by the parser and read as if it were ``put hat on the table``.
 
 # Activities
 
@@ -13683,11 +13814,9 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 ^^{scope} ^^{`in the presence of} ^^{`presence of} ^^{containment+rel+: placing the contents of something in scope} ^^{Inform 6 equivalent: scope rules} ^^{Inform 6 Designer's Manual+title+}
 
-**1. When it happens.** "Scope" is a term of art in interactive fiction programming: it means the collection of things which can be interacted with at any given moment, which depends on who you are and where you are. Commands typed by the player will only be allowed to go forward into actions if the things they refer to are "in scope". Inform also needs to determine scope at other times, too: for instance, when deciding whether a rule conditional on being "in the presence of" something is valid. It is a bad idea to say anything during this activity.
+**1. When it happens.** "Scope" is a term of art in interactive fiction programming: it roughly means "what is nearby". See [Scope] for more. The command parser uses scope to decide which names of things to react to, and scope is also used to determine the `visibility relation`, the `audibility relation`, and the `touchability relation`, and whether or not an action is happening `in the presence of` something or somebody.
 
-[ZL: it would be nice to spell out the rules and to not refer to the DM4 ]::
-
-**2. The default behaviour.** Is complicated: see the [Inform Designer's Manual, 4th edition, page 227](https://inform-fiction.org/manual/html/s32.html). Briefly, the scope for someone consists of everything in the same place as them, unless it is dark.
+**2. The default behaviour.** For efficiency reasons, the `for` rules for this activity start out empty. Assuming no `for` rule intervenes, what happens in that the algorithm described in [Formal definition of scope] takes effect. But put briefly, the scope for someone consists of everything in the same place as them, unless it is dark or there is some opaque barrier in between.
 
 **3. Examples.** (a) We very rarely want to forbid the player to refer to things close at hand, but often want to allow references to distant ones. For instance, a mirage of something which is not present at all:
 
