@@ -11225,11 +11225,6 @@ if the Undiscovered Periodic Table is empty, ...
 
 tests whether all of its rows are blank; if even one cell contains a value then the table is "non-empty".
 
-## Complete syntax for a table
-
-
-
-
 ## Adding and removing rows
 
 ^^{tables: adding rows} ^^{tables: removing rows} ^^{tables: blank entries} ^^{tables: blank rows} ^^{tables: blank columns}
@@ -11403,42 +11398,58 @@ In effect the table has allowed us to combine three very similar rules into one.
 
 ## Topic columns
 
-[ZL: as noted in my long screed, this is the first mention of topics and a reader has no real chance to understand the subject from the docs.]::
-
 ^^{tables: topic columns} ^^{topics: in table columns} ^^{punctuation: slash: separating synonymous words in topics} ^^{`/: separating synonymous words in topics}
 
-When double-quoted matter appears in a column of a table, Inform will normally treat that as text for printing out. The exception is when the column is called "topic", where it is treated as text for comparing against what the player has typed. There is really only one operation allowed with topic columns, the "...listed in..." construction, but fortunately it is the one most often needed.
+A column whose name is just `Topic`, or whose name has `(topic)` in brackets after it, is special. It is used for matching fragments of a typed-in command, so the use of topics here is really an overlap with the `Understand...` system for making sense of typed command. That will be the subject of its own chapter, [Understanding].
 
-Let us suppose that the Sybil has a penchant for telling passers-by which is the Greek muse for what. We might write:
+For example, suppose the player meets a Sybil who has a penchant for telling passers-by which is the Greek muse for what. ``ASK SYBIL ABOUT POLYHYMNIA``, the player at once types. How is Inform to work out what to say? Here is a solution:
 
-``` inform7
-{*}After asking the Sybil about a topic listed in the Table of Sybil's Replies, say "The Sybil declaims for a while, the gist being that the muse in question looks after [muse entry]."
-```
+	{*}After asking the Sybil about a topic listed in the Table of Sybil's Replies:
+		say "The Sybil declaims for a while, the gist being that the muse in question looks after [muse entry]."
 
-We can then provide a simple table giving her responses:
+	Table of Sybil's Replies
+	Topic			Muse
+	"calliope"		"epic poetry"
+	"clio"			"history"
+	"erato"			"love poetry"
+	"euterpe"		"music"
+	"melpomene"		"tragedy"
+	"polyhymnia"	"sacred poetry"
+	"terpsichore"	"dancing"
+	"thalia"		"comedy"
+	"urania"		"astronomy"
+	"monica"		"tidiness"
+	"phoebe"		"massage"
+	"rachel"		"oval hair-cuts"
 
-``` inform7
-{**}Table of Sybil's Replies
-Topic			Muse
-"calliope"		"epic poetry"
-"clio"			"history"
-"erato"			"love poetry"
-"euterpe"		"music"
-"melpomene"		"tragedy"
-"polyhymnia"	"sacred poetry"
-"terpsichore"	"dancing"
-"thalia"		"comedy"
-"urania"		"astronomy"
-"monica"		"tidiness"
-"phoebe"		"massage"
-"rachel"		"oval hair-cuts"
-```
+What is special about `Topic` columns is that they do _not_ contain text in the ordinary way, even though that's what the entries look like, because of the quotation marks. The entry `"polyhymnia"` (about half-way down) is not read as a value of the kind `text` — a string of letters, `p` then `o` then... and so on; it is read as a very simple "grammar" which looks at a fragment of typed command to see if it is equal to the word ``POLYHYMNIA`` or not. This is a value of the kind `topic`, not `text`. Topic values can't normally be typed in Inform, but they do occur in these columns, and in the text-like part following the word `Understand`.
 
-Topics can use the full range of abilities of the "understanding" system which Inform uses to parse text, and which will be the subject of its own chapter, [Understanding]. For now, note that the Sybil's topics might equally include "flora/eve" (matching the single word "flora" or the single word "eve"), or something more elaborate such as:
+Topics do not have to be single words, and do not have to be fixed pieces of wording. For example:
 
-``` inform7
-"Bridget" or "Bridge" or "Bridget Jones"
-```
+	Table of Sybil's Replies (continued)
+	"suzanne vega"	"love songs"
+	"muse [number]"	"dreary everyday stuff"
+
+And we can now ``ASK SYBIL ABOUT MUSE 17``, or ``ASK SYBIL ABOUT SUZANNE VEGA``
+Note that there is no point capitalising topics (`"Suzanne Vega"`, or `"Polyhymnia"`) because commands are read case-insensitively. As texts, `"clio"` and `"CLIO"` and `"Clio"` would all be different from each other, but as topics, they are all the same because they match the same word.
+
+Topics can be written to use the full range of abilities of the "understanding" system, so for more possibilities, see the chapter [Understanding]. With that said, topic columns in tables are mostly used for quite simple cases like the ones above, because that is what authors most often need. Still, one more feature is worth drawing attention to here.
+
+It would be clumsy to have to write:
+
+	Table of Sybil's Replies (continued)
+	"flora"	"flowers"
+	"eve"	"flowers"
+
+where we want ``EVE`` to be another name for ``FLORA``. So:
+
+	Table of Sybil's Replies (continued)
+	"flora/eve"	"flowers"
+
+The `/` notation works only for single words, so if we wanted to have alternative possibilities some or all of which were longer, then:
+
+	Table of Sybil's Replies (continued)
+	"Bridget" or "Bridge" or "Bridget Jones"	"publishing"
 
 ## Another scoring example
 
