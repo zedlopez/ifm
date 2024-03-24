@@ -17906,9 +17906,6 @@ When Inform begins writing a table, or text, to a file, it initially marks the f
 
 In order to write non-story-file programs as B, communicating with story files as A, we need to know the file format used by Inform. An Inform file is currently a Unix text file (with 10 as the line division character), encoded as ASCII Latin-1. (We would like to use Unicode at some point in the future, but the Glk and Glulx layers are still not fully converted to Unicode.) It opens with a single header line in the form:
 
-[ZL: https://inform7.atlassian.net/browse/I7-1828 ]::
-
-
 ```
 * //IFID// leafname
 ```
@@ -18358,6 +18355,8 @@ Inform is fully compliant with the Treaty. In particular, each new project creat
 The important thing is that **the IFID number must be unique to this one work out of all the IF ever created.**
 
 Inform will make sure this is true, **unless** we do something to break this ourselves. For instance, if we take an existing project, copy it as a file, then work divergently on the original and on the copy so that they become two radically different works, they will still each have the same ID. This is a bad thing: if we want to duplicate a project but then turn it into something new, the best way to do that is to create a new project, and to copy and paste the source from the old to the new.
+
+In particular, be aware that using "Save as..." in the Inform apps generally saves a clone of the current project _but with a fresh IFID_. This is intended so that people who use "Save as..." on an old project to begin a new one do not accidentally reuse its IFID.
 
 ## The Release button and the Materials folder {PM_NoSuchPublicRelease} {release_files}
 
