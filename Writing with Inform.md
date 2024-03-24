@@ -12386,35 +12386,39 @@ To recapitulate: the slash `/` can only be used between single, literal words, o
 
 ^^{understanding: synonyms: as grammar tokens} ^^{grammar tokens: defining} ^^{defining: grammar tokens} ^^{punctuation: slash: separating synonymous words in grammar} ^^{`/: separating synonymous words in grammar}
 
-[ZL: this should have more explanation of why you'd want such a new token and how you'd use it.]::
+Inform provides a stock of tokens to use which, between them, cover most needs pretty well: see [Standard tokens of grammar]. But like most aspects of Inform, this can be extended with new tokens to the author's design.
 
-We have now made good use of square-bracketed tokens, such as `"[something]"`, in a variety of "Understand..." sentences. It is sometimes convenient to create new tokens of our own, to match whatever grammar we choose: this enables complicated knots of grammar to be used in many different "Understand..." sentences without having to write it all out each time.
+Why might this be convenient? Mainly to avoid repetition. For example, suppose we have to set up multiple commands like ``PLACE CUSHION AGAINST BOMB`` or ``PUSH CUSHION AGAINST BOMB``, but we want to make sure the player will get the same result with a whole variety of possible variations on this. It would be repetitive to write:
 
-For instance, here are new tokens: one for each of two groups of alternative prepositions.
+	Understand "place [something] beneath/under/by/near/beside/alongside/against [something]" as placing.
+	Understand "place [something] next to [something]" as placing.
+	Understand "place [something] in front of [something]" as placing.
+	Understand "push [something] beneath/under/by/near/beside/alongside/against [something]" as placing.
+	Understand "push [something] next to [something]" as placing.
+	Understand "push [something] in front of [something]" as placing.
 
-``` inform7
-Understand "beneath/under/by/near/beside/alongside/against" or "next to" or "in front of" as "[beside]".
+What's really going on here is that we want to accept a slew of different prepositions as being equivalent to each other in these two verbs. So this is more elegant:
 
-Understand "on/in/inside" or "on top of" as "[within]".
-```
+	Placing it against is an action applying to two things.
 
-Again, note that the slash indicates a choice between words only, not between entire phrases. For instance, if we write:
+	Understand "beneath/under/by/near/beside/alongside/against" or "next to" or "in front of" as "[against]".
 
-``` inform7
-Understand "red bird/robin" as "[robin]".
-```
+	Understand "place [something] [against] [something]" as placing it against.
+	Understand "push [something] [against] [something]" as placing it against.
 
-then the two alternative forms are "red bird" and "red robin", not "red bird" and "robin". By contrast,
+So this example creates an entirely new grammar token, `"[against]"`, and then makes use of it twice. Unlike the tokens seen so far in this chapter, this token does not match an object or a value: it simply matches some fixed wording, and does not record which variant on this fixed wording the command contained. So the line
 
-``` inform7
-Understand "red bird" or "robin" as "[robin]".
-```
+	Understand "place [something] [against] [something]" as placing it against.
 
-will understand either "red bird" or "robin" but not "red robin". If we want to capture all three forms, we might define
+produces just two things, as the `placing it against` requires, despite the fact that three tokens are present. (But see the next section for how to define a new token which _does_ produce a value.)
 
-``` inform7
-Understand "red bird/robin" or "robin" as "[robin]".
-```
+Something to be aware of, as with other grammar, is that the slash `/` indicates a choice between words only, not between entire phrases. For instance, if we had tried:
+
+	Understand "beneath/next to/in front of" as "[against]".
+
+then this would have matched ``BENEATH TO FRONT OF``, ``NEXT TO FRONT OF``, ``BENEATH IN FRONT OF``, or ``NEXT IN FRONT OF``, but nothing else. It means "a choice of ``BENEATH`` or ``NEXT``, then a choice of ``TO`` or ``IN``, then ``FRONT``, then ``OF``. If in doubt, it's better to use `or` to spell things out:
+
+	Understand "beneath" or "next to" or "in front of" as "[against]".
 
 ## Tokens can produce values
 
@@ -12569,8 +12573,6 @@ Any of these may optionally have a condition tacked on: for instance,
 Understand "mix [colour] paint" as mixing paint when the location is the Workshop.
 Understand "rouge" as red when the make-up set is visible.
 ```
-
-[ZL: there should be mention that an understand's when clause can't test things regarding scope. my recollection is that testing visibility is also problematic, but I'm not positive off-hand]::
 
 In principle, "when ..." can take in any condition at all. In practice a little care should be exercised not to do anything too slow, or which might have side-effects. (For instance, referring the decision to a phrase which then printed text up would be a bad idea.) Moreover, we must remember that the "noun" and "second noun" are not known yet, nor do we know what the action will be. So we cannot safely say "when the noun is the fir cone", for instance, or refer to things like "the number understood". (We aren't done understanding yet.) If we want more sophisticated handling of such cases, we need to write checking rules and so on in the usual way.
 
