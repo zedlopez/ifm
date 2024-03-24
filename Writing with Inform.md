@@ -14892,18 +14892,16 @@ and by using a named outcome for the current rulebook as if it were a phrase, as
 low background noise;
 ```
 
-[ZL: and if you're Zed the newbie in March of 2021, you're wondering: but what if you've specified named outcomes in a rulebook that produces a result. the docs should address that these don't really get along. https://intfiction.org/t/named-outcomes-for-rulebooks-producing-a-result/49847 ]::
+There is still a third way: we can stop a rule and at the same time produce a value. Producing a value allows much greater flexibility than producing a named outcome: a rulebook producing a number can end in a more or less infinite number of possible ways, after all. The two cannot be combined: if a rulebook is to produce a value, it cannot also have named outcomes.
 
-There is still a third way: we can stop a rule and at the same time produce a value. This isn't needed very often – none of the built-in rulebooks in the Standard Rules produces a value.
-
-As we've seen, every rulebook has one kind of value as its basis, and it also has another kind of value for it to produce. If we call these K and L, then we have altogether four ways to write down the kind of a rulebook:
+As we've seen, every rulebook has one kind of value as its basis, and it also has another kind of value for it to produce. If we call these `K` and `L`, then we have altogether four ways to write down the kind of a rulebook:
 
 - `rulebook`
 - `K based rulebook`
 - `rulebook producing L`
 - `K based rulebook producing L`
 
-If we don't mention K, Inform assumes the rulebook is action based. If we don't mention L, Inform assumes L is "nothing", that is, Inform assumes no value is ever produced. Thus
+If we don't mention `K`, Inform assumes the rulebook is action based. If we don't mention `L`, Inform assumes `L` is "nothing", that is, Inform assumes no value is ever produced. Thus
 
 ``` inform7
 Drum summons rules is a rulebook.
