@@ -14440,23 +14440,29 @@ This does not actually destroy the rules in question: they could still, for inst
 
 Here is another way to abolish an already-existing rule:
 
-[ZL: see I7-2330. should it be the case that rule responses can't be referred to if the rule has been said to do nothing? If so, document ]::
-
 ``` inform7
 The print final score rule does nothing.
 ```
 
-The rule continues to be listed in any rulebook it would normally be listed in: but now it doesn't do anything. More usefully, we can attach a condition:
+The rule continues to be listed in any rulebook it would normally be listed in: but now it doesn't do anything. As a result, any responses it might have had no longer exist. As it happens, this one has no responses, but consider these two different ways to frustrate the normal operation of the same rule:
+
+	The can't exit when not inside anything rule does nothing.
+
+	The can't exit when not inside anything rule is not listed in any rulebook.
+
+The first way effectively deletes the content of a rule, as if its definition were:
+
+	The can't exit when not inside anything rule: do nothing.
+
+As a result, the response `can't exit when not inside anything rule response (A)`, which is part of its normal contents, no longer exists. On the other hand, the second method for frustrating the rule takes it out of its normal rulebook, so that it will not normally take effect, but does not delete its definition. The `can't exit when not inside anything rule response (A)` then continues to exist.
+
+If we say that the rule does nothing only under under some `if` or `unless` condition, as here:
 
 ``` inform7
 The print final score rule does nothing if the score is 0.
 ```
 
-or:
-
-``` inform7
-The print final score rule does nothing unless the score is 100.
-```
+...then the rule's response would once again continue to exist (as it must, because it might be issued if the score were _not_ 0).
 
 We can also substitute a rule of our own:
 
@@ -15101,10 +15107,6 @@ if character number 1 in "[time of day]" is "1", ...
 
 will be true at, for example, 11:30 PM and 1:22 AM, but not at 3:15 PM. What happens here is that Inform expands the time of day into a text, say "11:30 PM", then extracts the first character, say "1", and tests it.
 
-[ZL: I'd suggest either dropping it altogether or if you do mention it, mention that `indexed text` continues to be a supported synonym for `text` ]::
-
-Until 2012, Inform had two kinds of text – plain "text", and "indexed text" – but there's now only "text", which has all of the abilities of both.
-
 ## Memory limitations
 
 ^^{text: memory limits} ^^{text: Z-machine limitations} ^^{limits: for manipulating text} ^^{memory limits: for manipulating text} ^^{Z-machine: memory limits} ^^{Z-machine: character set limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits} ^^{use options: catalogue: `dynamic memory allocation} ^^{dynamic memory allocation+useopt+} ^^{use options: catalogue: `maximum text length} ^^{maximum text length+useopt+}
@@ -15224,11 +15226,9 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 
 Finally, on the larger scale still, we also have:
 
-[ZL: worth mentioning that the results of this phrase will always have whitespace trimmed from both sides: there just isn't a good way to get at raw lines including any leftmost or rightmost spaces. on the bright side, `line number 1 in T` is a good way to trim whitespace when T won't have newlines... ]::
-
 > phrase: {ph_linenum} line number (number) in (text) ... text
 >
-> This phrase produces the Nth line from the text, counting from 1. Unless explicit use is made of line-breaking, lines and paragraphs will be the same – it doesn't refer to lines as visible on screen, because we have no way of knowing what size screen the player might have.
+> This phrase produces the Nth line from the text, counting from 1. Unless explicit use is made of line-breaking, lines and paragraphs will be the same – it doesn't refer to lines as visible on screen, because we have no way of knowing what size screen the player might have. Note that white space is trimmed from both sides of what Inform considers a "line" here.
 
 > phrase: {ph_numlines} number of lines in (text) ... number
 >
@@ -18527,30 +18527,33 @@ HTML templates like "index.html" and "source.html" are fully valid HTML pages in
 
 When it turns the template into the final web page, what Inform does is to replace certain capitalised words in square brackets with the appropriate text:
 
-[ZL: I think this is a place that would benefit from a bullet-less list]::
-
-
-- [TITLE] becomes the story title
-- [AUTHOR] becomes the author's name
-- [YEAR] becomes the story creation year
-- [BLURB] becomes the story description
-- [RELEASE] becomes the release number
-- [COVER] becomes an image of the cover art (the small 120x120 cover image)
-- [DOWNLOAD] becomes the download link
-- [AUXILIARY] becomes the list of feelie-like files, if any
-- [IFID] becomes the IFID
-- [STORYFILE] becomes the "leafname" of the story file, e.g., "Bronze.gblorb"
-- [TEMPLATE] becomes the name of the template used to make the page
-- [SMALLCOVER] becomes the filename of the cover when used at a smaller size
-- [BIGCOVER] becomes the filename of the cover when used at full size
-- [TIMESTAMP] and [DATESTAMP] become the time and date of releasing
+Placeholder    | Becomes
+-------------- | -------
+`[TITLE]`      | the story title
+`[AUTHOR]`     | the author's name
+`[YEAR]`       | the story creation year
+`[BLURB]`      | the story description
+`[RELEASE]`    | the release number
+`[COVER]`      | an image of the cover art (the small 120x120 cover image)
+`[DOWNLOAD]`   | the download link
+`[AUXILIARY]`  | the list of feelie-like files, if any
+`[IFID]`       | the IFID
+`[STORYFILE]`  | the "leafname" of the story file, e.g., "Bronze.gblorb"
+`[TEMPLATE]`   | the name of the template used to make the page
+`[SMALLCOVER]` | the filename of the cover when used at a smaller size
+`[BIGCOVER]`   | the filename of the cover when used at full size
+`[TIMESTAMP]`  | the time of releasing
+`[DATESTAMP]`  | the date of releasing
 
 Everything else is left alone. In source pages, five further placeholders are available:
 
-- [SOURCE] becomes the portion of the source text on this page
-- [SOURCELINKS] becomes the navigational links
-- [SOURCENOTES] becomes the footnote matter at the bottom of the source
-- [PAGENUMBER] and [PAGEEXTENT] are such that the text "page [PAGENUMBER] of [PAGEEXTENT]" produces, e.g., "page 2 of 7"
+Placeholder     | Becomes
+--------------- | -------
+`[SOURCE]`      | the portion of the source text on this page
+`[SOURCELINKS]` | the navigational links
+`[SOURCENOTES]` | the footnote matter at the bottom of the source
+`[PAGENUMBER]`  | the first number in "page 2 of 7"-like page counts
+`[PAGEEXTENT]`  | the second number in "page 2 of 7"-like page counts
 
 Both [SOURCE] and [SOURCENOTES] must exist on the page, and [SOURCENOTES] must appear after [SOURCE] does in the file. (Of course the CSS in "style.css" might move the copy around on screen, but that's another matter.)
 
