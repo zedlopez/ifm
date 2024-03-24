@@ -1,5 +1,5 @@
 Example: * Timeless
-Location: Two rulebooks used internally
+Location: The internal rulebooks which keep stories running
 RecipeLocation: The Passage Of Time
 Index: Instant EXAMINE and LOOK
 Description: A set of actions which do not take any game time at all.

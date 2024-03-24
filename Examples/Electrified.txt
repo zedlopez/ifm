@@ -1,5 +1,5 @@
 Example: * Electrified
-Location: Two rulebooks used internally
+Location: The internal rulebooks which keep stories running
 RecipeLocation: Electricity and Magnetism
 Index: Dangerous objects not to be touched
 Description: Adding a rule before the basic accessibility rule that will prevent the player from touching electrified objects under the wrong circumstances.

@@ -1,5 +1,5 @@
 Example: ** Endurance
-Location: Two rulebooks used internally
+Location: The internal rulebooks which keep stories running
 RecipeLocation: The Passage Of Time
 Index: All actions given different durations
 Description: Giving different actions a range of durations using a time allotment rulebook.

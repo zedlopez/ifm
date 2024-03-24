@@ -7053,8 +7053,6 @@ Action-processing may be the single most important thing Inform does, so the sys
 
 So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the "person" kind, that is, which includes all the men, women and animals in the story, and not only the player.
 
-[ZL: I think it would be very worthwhile to have somewhere the complete life-cycle of request action in terms of the action sequence]::
-
 In interactive fiction, players conventionally ask other characters to do something with commands like so:
 
 ``` transcript
@@ -12532,8 +12530,6 @@ The only difference is that in the "describing" case, the property's name alone 
 
 Sometimes it makes sense for the name of something to involve the names of other things to which it is related. For instance, if we say ``take the bottle of wine``, we mean that the bottle currently contains wine – if it were the very same bottle containing water, we would call it something else.
 
-[ZL: it was a long time before I discovered that understanding by relation didn't need to have the thing related to mentioned in the same command.]::
-
 For names which must involve related names, a special form of token is provided. For instance, we could say:
 
 ``` inform7
@@ -13196,8 +13192,6 @@ Inform does _not_ police these golden rules. If we want to use these somewhat ha
 ## Introduction to the list of built-in activities
 
 ^^{activities: catalogue}
-
-[ZL: I don't see that there's any hope of improving this prior to a large-scale reorganisation, but as I've said elsewhere, these would be much easier to follow if we had a comprehensive account of how room description works (as Ron Newcomb has in his I7 Programming Manual) and how parsing works (and then something else for what remains.]::
 
 Activities tend to be about process, rather than outcome. Many of the things Inform does – printing up lists of items, reading commands from the keyboard, and so on – are done as activities, because that way the process can be nudged a little. Too many works of interactive fiction betray their mechanical nature by making it visible that the general machinery being used does not quite seem natural for this or that situation. Activities enable us to add the many graceful touches which avoid that: which contribute nothing to a work, and also everything.
 
@@ -14720,11 +14714,11 @@ After inserting something into the well:
 
 ## Rulebook variables {PM_RulebookVariableAnd} {PM_RulebookVariableTooSpecific} {PM_RulebookVariableBadKind} {PM_RulebookVariableVague}
 
-[ZL: might be a worthwhile place to mention that `actor` is an action-processing variable and unavailable to, e.g., to-phrases]::
-
 ^^{rulebooks: variables for rulebooks} ^^{variables: for rulebooks} ^^{defining: rulebook variables} ^^{`called: in defining rulebook variables}
 
-When a rulebook is intended to perform some complicated task or calculation, it is sometimes useful for earlier rules to be able to leave information which will help later ones.
+We have already seen that actions can have named values which stay with them while the action is being processed, but do not exist at other times: the variable called `actor`, for example. And activities have a similar ability. See [Action variables] and [Activity variables], respectively.
+
+In fact even single rulebooks can have variables of their own. When a rulebook is intended to perform some complicated task or calculation, such variables can be a convenient way for earlier rules to be able to leave information which will help later ones.
 
 For instance, suppose we want a rulebook which is intended to print out the player's current aptitude. We will suppose that this is a number from 0 upwards: the higher, the apter. The player gets bonus aptitude marks for achievements, but marks deducted for accidents, and so on. Moreover, we want to design this system so that it's easy to add further rules. The natural solution is to have a number which varies (or 'variable') acting as the running aptitude total: it should start at 0 and be altered up or down by subsequent rules. First, we should make the rulebook, and then add a variable:
 
@@ -15020,32 +15014,127 @@ This is only useful in complicated situations where one rulebook uses another wh
 
 [ZL: https://inform7.atlassian.net/browse/I7-2324 ]::
 
-## Two rulebooks used internally {rules_internal}
+## The internal rulebooks which keep stories running {rules_internal}
 
 ^^{actions: processing sequence} ^^{turns: turn sequence} ^^{action processing+rb+} ^^{turn sequence+rb+} ^^{when play begins+rb+} ^^{rules: run at beginning of story} ^^{when play ends+rb+} ^^{rules: run at end of story}
 
-Rulebooks handle almost all of the important tasks which an Inform work of IF must carry out in order to keep play going. We have seen them used in clarifying the player's command, supplying missing ingredients, processing the action to see what should happen, responding, and so on: by this point in the documentation, it must look as if Inform uses rulebooks for everything.
+Rulebooks handle almost all of the important tasks which keep a story going. We have seen them used in clarifying the player's command, supplying missing ingredients, processing the action to see what should happen, responding, and so on: by this point in the documentation, it must look as if Inform uses rulebooks for everything.
 
-This is nearly true. There is not actually a super-rulebook controlling everything. (Such a super-rulebook would need to repeat itself and never finish, something a rulebook is not allowed to do.) Instead, what happens during play looks like so:
+And in fact this is more or less true. The life cycle of an Inform story as it plays looks like this:
 
-[ZL: at such time as there are large-scale changes to the docs, this could use some 25 pages or so of elaboration ]::
+1) The `startup rulebook` runs.
+2) The `turn sequence rulebook` is run repeatedly until the story ends.
+3) The `shutdown rulebook` runs.
 
-1. Following the "when play begins" rulebook.
-2. Repeating until the story finishes:
-   - Reading and parsing a command into an action;
-   - Following the "action processing" rulebook;
-   - Following the "turn sequence" rulebook.
-3. Following the "when play ends" rulebook.
+Looking inside any complicated machinery can make it harder rather than easier to understand what is basically going on, and some of the rules run in the above process are quite unimportant for writers to know about — the `recover Glk objects rule`, for example. A full accounting can be seen in the Index for a project, but the following summary covers the most useful points to know.
 
-The command parser occasionally calls on the services of activity rulebooks to help it, but otherwise gets on with its job in ways that we do not "see" as Inform 7 users. The rest of what happens involves rulebooks, and in particular two important beneath-the-surface rulebooks: action processing and turn sequence.
+To begin with, the `startup rulebook` runs the following rules in turn:
 
-The **action processing rules** are used whenever an action must be tried, by whoever tries it. This usually happens in response to player commands, but not always: it might happen because of a "try...", and it can certainly interrupt an existing action.
+- `virtual machine startup rule`
+- `when play begins stage rule`
+- `fix baseline scoring rule`
+- `display banner rule`
+- `initial room description rule`
 
-[ZL: this confusingly denies that the action-processing rules are part of the turn sequence rules ]::
+The first of these rules runs the `starting the virtual machine` activity, and this is a highly technical business best left alone by authors. But the other four are quite simple to follow. In fact, these are their definitions, taken verbatim from the Standard Rules:
 
-The **turn sequence rules** are used at the end of each turn, and include housekeeping as well as timekeeping. They consult the "every turn" rulebook, and advance the time of day, among other useful tasks.
+	Startup rule (this is the when play begins stage rule):
+		follow the when play begins rulebook.
 
-In general, we should only modify the operation of these two crucial rulebooks as a last resort. Play can evidently fall to pieces if they cease to work normally.
+	Startup rule (this is the fix baseline scoring rule):
+		now the last notified score is the score.
+
+	Startup rule (this is the display banner rule):
+		say "[banner text]".
+
+	Startup rule (this is the initial room description rule):
+		try looking.
+
+The fact that the startup rulebook is arranged in this sequence is why `When play begins` rules happen before the banner and then the first room description in a typical story. If we rearranged these rules, as is in fact possible for authors to do, that would no longer be true.
+
+The `shutdown rulebook` is also fairly straightforward, consisting at time of writing of the following:
+
+- `when play ends stage rule`
+- `resurrect player if asked rule`
+- `print player's obituary rule`
+- `ask the final question rule`
+
+Note that the `resurrect player if asked rule` can cause the story to go back into the turn sequence again, which happens only if a `When play ends` rule has requested this to happen. The `print player's obituary rule` in fact just runs the `printing the player's obituary activity`.
+
+So let's forget about the start and end of the story, and look at the `turn sequence rulebook`, a very important rulebook which is run round and around to make turn-based play happen. At time of writing, this is what it contains:
+
+- `parse command rule`
+- `declare everything initially unmentioned rule`
+- `before-generation rule `
+- `generate action rule`
+- `early scene changing stage rule`
+- `every turn stage rule`
+- `timed events rule`
+- `advance time rule`
+- `update chronological records rule`
+- `late scene changing stage rule`
+- `adjust light rule`
+- `note object acquisitions rule`
+- `notify score changes rule`
+
+These names are mostly fairly self-explanatory. The `parse command rule` is the one inviting the player to type a command — say, ``SWITCH KETTLE ON`` — and understanding it to be an action. But that action is not yet acted on. This is what happens in the `generate action rule`, which tries the action.
+
+Action trying can in fact happen many times during a single turn: one action can cause another to be tried, even midway, as when an action like `wearing the felt hat` causes `taking the felt hat` to be tried silently first. It is even possible for actions to be tried at other points in the turn sequence rules, if the author wants to. For example, writing this:
+
+	Every turn:
+		try taking inventory.
+
+would cause the action `taking inventory` during the `every turn stage rule`, which of course is the rule which runs the `every turn` rulebook.
+
+So there is no one place in the turn sequence when actions are processed. But there is just one method used to process them, and it's called the `action processing rulebook`. This is the second of the two important internal rulebooks to know about. At time of writing, it looks like this:
+
+- `announce items from multiple object lists rule`
+- `set pronouns from items from multiple object lists rule`
+- `before stage rule`
+- `basic visibility rule`
+- `basic accessibility rule`
+- `carrying requirements rule`
+- `instead stage rule`
+- `requested actions require persuasion rule`
+- `carry out requested actions rule`
+- `descend to specific action-processing rule`
+- `end action-processing in success rule  `
+
+There's quite a lot to see there. The two rules mentioning multiple objects are used when commands like ``TAKE ALL`` have been typed, so that the action being processed is only one of a chain of similar actions happening in succession. For example, in:
+
+	> TAKE ALL
+	Geiger counter: Taken.
+	screwdriver: Taken.
+
+it is the `announce items from multiple object lists rule` which prints up those helpful ``Geiger counter:`` and ``screwdriver:`` labels; and the `set pronouns from items from multiple object lists rule` takes care of setting pronouns like ``IT`` and ``HER`` from items in that list. (Pronouns are set automatically in the command parser when a name is more explicit, as in ``TAKE SCREWDRIVER``.)
+
+The `before stage rule` is the one running the `before rulebook`, and similarly for the `instead stage rule`. In between is where restrictions such as accessibility are considered. For example, if an action is `applying to one touchable thing`, then it's the `basic accessibility rule` which enforces this. The `carrying requirements rule` is the one which rejects an action if the noun should be held by the actor but is not, and which also triggers a silent attempt to take the item in order to make things right.
+
+The `requested actions require persuasion rule` is where requests like ``JANELLE, SWITCH MACHINE OFF`` are vetted. If this rule were removed, all requests would always be obeyed, which isn't very realistic. Characters in a story have their own agendas. So by default this rule blocks the action, but it runs the `persuasion rulebook` to see if the author wants the action to take place instead.
+
+The `carry out requested actions rule` similarly applies only to requests. This converts a request action like `asking Janelle to try switching the machine off` into an actual action `switching the machine off`, but where Janelle is the actor, not the player. That action is then tried, which means that the action-processing rulebook is run again. The original request action then ends, its work done.
+
+So, when we reach the `descend to specific action-processing rule`, we know that we are no longer dealing with what might be a request to somebody else to do something: we know that the actor intends to perform the action. What this rule does, for implementation reasons not worth going into here, is to run a second, inner set of rules, the `specific action-processing rulebook`. This looks like so:
+
+- `work out details of specific action rule`
+- `investigate player's awareness before action rule`
+- `check stage rule`
+- `carry out stage rule`
+- `after stage rule`
+- `investigate player's awareness after action rule`
+- `report stage rule`
+- `default action success rule`
+
+The `work out details of specific action rule` is an implementation trick best ignored. The rest of these rules mostly work through the remaining four of the six normal stages of action processing (i.e., before, instead, check, carry out, after and report).
+
+The two rules mentioning the "player's awareness" are used to decide whether to tell the player what has happened. Clearly an action like `taking the Geiger counter` must be reported to the player. But `Edward Teller taking the Geiger counter` must not be if Teller is somewhere else in the story, out of sight. The `specific action-processing rulebook` monitors this using a rulebook variable called `within the player's sight` (a `truth state`, i.e., which is `true` or `false`). The rules for setting this are found in still another rulebook, the `player's action awareness rulebook`, which contains:
+
+- `player aware of his own actions rule`
+- `player aware of actions by visible actors rule`
+- `player aware of actions on visible nouns rule`
+- `player aware of actions on visible second nouns rule `
+
+And, that's about the whole story. But a brief summary would come down to this: there are lots of internal rulebooks which keep Inform stories running, and the two which advanced users might want to meddle with are the `turn sequence rulebook` and the `action-processing rulebook`. Even then, modifying their operation is a last resort. The story can evidently fall to pieces if they cease to work normally.
 
 ## The Laws for Sorting Rulebooks
 
@@ -17680,9 +17769,9 @@ This creates a new named constant "File of Glaciers" to refer to the file, throu
 
 Quoted filenames should contain only letters and digits, should be 23 characters or fewer, and should begin with a letter. (In particular they can contain no slashes or dots – no subfolders or extensions can be indicated.) The actual filename this translates to will vary from platform to platform, but "ice.glkdata" is typical, stored in some sensible folder.
 
-[ZL: I think it'd be good to declare explicitly that these ownership/permission concepts aren't related to any ownership/permission concepts native to the system's OS... ]::
+Every file has an "owner" – not a person, but the project which normally writes to it. This is nothing to do with ownership or permission rules about files which the host computer might have, where a file might be owned by another user account or by the system itself, and so on. It's simply that when Inform writes a file, it marks it with the identity of the story which caused this to happen. Ownership in the Inform sense is used to prevent one story from reading a file which only makes sense to a different story, because that won't end well.
 
-Every file has an owner – not a person, but the project which normally writes to it. Inform assumes that the current project will be owning any file which it declares – the File of Glaciers, for instance. But we can optionally specify that it is owned by somebody else:
+Inform assumes that the current project will be owning any file which it declares – the File of Glaciers, for instance. But we can optionally specify that it is owned by somebody else:
 
 ``` inform7
 The file of Boundaries (owned by another project) is called "milnor".
