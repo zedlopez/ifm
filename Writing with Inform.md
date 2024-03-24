@@ -15202,49 +15202,145 @@ In the case of "going" actions, the first noun is a direction. The special const
 
 # Advanced Text
 
-[ZL: could stand some more emphasis on things here: https://intfiction.org/t/most-common-mistakes-and-crutches-for-those-starting-out-with-inform-7/55818/17 , https://intfiction.org/t/most-common-mistakes-and-crutches-for-those-starting-out-with-inform-7/55818/22 ]::
-
-## Changing texts
-
-^^{text <-- indexed text, now the same as text} ^^{text: indexed text, now the same as text} ^^{characters (letters): in text values}
-
-So far, we have dealt with text as something which comes in little packets: we have printed it out, read it in from the keyboard, and compared it with other text. But we have never tried to open the packets and get at the contents, letter by letter, or to make any alterations, or look for certain combinations of letters. These tricks are surprisingly seldom needed – a surprise, that is, given that everything Inform does is textual – but they are in fact open to us. For example:
-
-``` inform7
-if character number 1 in "[time of day]" is "1", ...
-```
-
-will be true at, for example, 11:30 PM and 1:22 AM, but not at 3:15 PM. What happens here is that Inform expands the time of day into a text, say "11:30 PM", then extracts the first character, say "1", and tests it.
-
-## Memory limitations
+## Hazards to be aware of
 
 ^^{text: memory limits} ^^{text: Z-machine limitations} ^^{limits: for manipulating text} ^^{memory limits: for manipulating text} ^^{Z-machine: memory limits} ^^{Z-machine: character set limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits} ^^{use options: catalogue: `dynamic memory allocation} ^^{dynamic memory allocation+useopt+} ^^{use options: catalogue: `maximum text length} ^^{maximum text length+useopt+}
+^^{text <-- indexed text, now the same as text} ^^{text: indexed text, now the same as text} ^^{characters (letters): in text values}
 
-Inform creates "story files" for very small virtual computers (capable of running on phones, for instance) where memory is tight. If we create a number variable and keep on adding 1 to it, the value simply gets bigger. But if we make some text and keep on adding a letter "x" to it, the text takes up more and more space, growing into longer and longer runs of "x"s until there is no more space to hold it.
+So far, we have dealt with text as something which comes in little packets: we have printed it out, read it in from the keyboard, and compared it with other text. But we have never tried to open the packets and get at the contents, letter by letter, or to make any alterations, or look for certain combinations of letters.
 
-The following warnings are rather like the tiny print about side-effects on medicine bottles: that is, we mostly ignore them, and if the drugs should kill us, well, at least we have the consolation of knowing we were warned. There are basically three limitations on text:
+Inform can do all of these things. For example,
 
-(1) An amount of memory has to be set aside for text (and other flexible-sized data), and Inform guesses the amount needed. Story files using the Glulx format (see the Settings panel) are able to increase this as necessary in play, so there's no problem if the guess was wrong. But Z-machine story files are stuck with whatever amount of memory was initially chosen.
+	character number 1 in "Jackson Pollock"
+	word number 2 in "Jackson Pollock"
 
-That choice can be increased with a use option, like so:
+produce `"J"` and `"Pollock"` respectively. This all good fun, and enables some spectacular textual tricks. So what makes it "Advanced", that is, why is this chapter called "Advanced Text"?
 
-``` inform7
-Use dynamic memory allocation of at least 16384.
-```
+The answer is that there are some unexpected hazards in dealing with text. The rest of this section is a sort of health warning, like the tiny print about side-effects on medicine bottles.
 
-Inform raises its estimate of the amount needed to ensure that this amount is always at least its own guess, and also at least any amount declared like this. (And then it rounds up to the nearest power of 2, as it happens.) The default value of "dynamic memory allocation" is 8192. In practice, this use option isn't needed much, though, because any story needing large amounts of dynamic memory will likely be on Glulx in any case.
+### The "when was this?" problem
 
-(2) Text has a maximum length. This maximum is normally 1000 characters, which ought to be plenty, but can be raised by sentences such as:
+Features like `character number ... in ...` are easy to understand with straightforward pieces of text, but what if there are text substitutions in square brackets? Matters then become trickier.
 
-``` inform7
-Use maximum text length of at least 2000.
-```
+	character number 1 in "[time of day]"
 
-What happens if this is broken, that is, if we try to use text overrunning this length? The Z-machine may simply crash, so if there is any chance that any single text may grow unpredictably large, Glulx should always be used. On Glulx, overrunning text is truncated safely, except that under Glulx 3.1.0 or better the story file will try to use dynamic memory allocation to expand the limit as needed to avoid truncation. (Testing shows that text is slow to manipulate once it grows beyond about 20,000 characters in length, but this is not really surprising.)
+now depends on what the time is: at 11:30 PM, for example, it is `"1"`. That too seems fair enough, but we have to remember that once text has a substitution in, it is not so much a string of characters as it is a machine for generating a string of characters. The process of turning `"[time of day]"` into, say, `"11:30 PM"` is called _substitution_, and it can be tricky to work out when substitution takes place, and if so, whether it happens just once or many times. Consider:
 
-(3) Under the Z-machine, text may only contain characters from the so-called ZSCII character set – standard numbers, letters, punctuation marks and the commonest West European accented letters. Anything more exotic is likely to be flattened into a question mark "?". Under Glulx, any character can be used.
+	The long-case clock is in the Observatory. "The clock shows [time of day]."
 
-All of this makes the Z-machine sound very inferior, for text purposes. But note that Z can handle all of the examples in this chapter perfectly happily.
+The value `initial appearance of the long-case clock` does not change in play. It always evaluates to `"The clock shows [time of day]."`, an _unsubstituted_ text. In general, texts substitute as late as they can, and often only just before they are printed out. If we:
+
+	say the initial appearance of the long-case clock;
+
+then something like ``The clock shows 11:30 PM.`` will be printed, because substitution happens just as we print. Similarly, if we try to extract characters or words from this text, substitution will occur first.
+
+All of which is reasonable. But now suppose this:
+
+	The long-case clock is in the Observatory. "The clock shows [time of day]."
+
+	The remembered view is a text that varies.
+
+	When play begins: now the remembered view is the initial appearance of the long-case clock.
+
+	Every turn: say "You remember thinking: [remembered view][paragraph break]".
+
+An author might assume that on every turn, ``You remember thinking: The clock shows 9:00 am.`` is printed. After all, what we're printing back is the contents of `remembered view`, a variable which was set at 9 a.m. So why does it in fact print ``You remember thinking: The clock shows 9:01 am.``, and then ``... 9:02 am.``, and so on, on subsequent turns?
+
+It's because `remembered view` holds the _unsubstituted_ form of the text. Substitution did not happen until printing. Since it was printed out once at 9:00 AM, then at 9:01 AM, then at 9:02 AM, ..., it was substituted many times, always with the current time of day.
+
+As it happens, there are ways to deal with this issue. For example:
+
+	When play begins: now the remembered view is the substituted form of the initial appearance of the long-case clock.
+
+which uses a built-in `substituted form of` phrase to force substitution to happen earlier. With that done, at 9:00 AM, `remembered view` gets set to `"The clock shows 9:00 AM."`, an unsubstituted text, and now it will always print back that way, even ten minutes later.
+
+As another example, consider this:
+
+	Every turn:
+		let T be "[a random number from 1 to 10 in words]";
+		say "T is [T], and number of characters in T is [number of characters in T]."
+
+On some turns, this might say something like ``T is six, and number of characters in T is 3.``, which seems fair enough. But on other turns, maybe it will say ``T is nine, and number of characters in T is 5.`` The cause again is that `T` is unsubstituted text, and that it was substituted twice here. The first time, it substituted to `"nine"`, but the second time to `"seven"`, which has 5 characters.
+
+And so the moral is: Inform sometimes substitutes texts for purposes other than printing — in order to extract data from them, perhaps.
+
+Having seen cases where it might be easy to think that a text is substituted when it isn't, here's now a case of the opposite issue. Suppose:
+
+	The cuckoo clock is in the Observatory. "The cuckoo clock is disused."
+
+	When play begins:
+		let T be "The cuckoo sings [time of day].";
+		now the initial appearance of the cuckoo clock is T.
+
+This sets the initial appearance to `"The cuckoo sings [time of day]."` That text is unsubstituted. So the appearance of the cuckoo clock will change as the minutes pass by, as we intended.
+
+All well and good. But suppose we added a line to the rule:
+
+	When play begins:
+		let T be "The cuckoo sings [time of day].";
+		replace the text "sings" in T with "chirps";
+		now the initial appearance of the cuckoo clock is T.
+
+This sets the appearance to the unsubstituted text `"The cuckoo chirps 9:00 a.m."` What happens is that `T` is initially unsubstituted... but that it has to substituted permanently in order for the change to be made to its wording. It was then an unchanging text when it became the appearance of the cuckoo clock.
+
+In short, the health warning is this: the fluid nature of text with substitutions, and the question of when it is substituted, sometimes means that funny things appear to be happening.
+
+### The "it depends on what the meaning of the word 'is' is" problem
+
+Relatedly, once we begin dealing with text as data, we will need to make comparisons. It's easy to see what `is` means for numbers: 101 is 101, and is not 37. And in general, `A is B` ought to mean that the values `A` and `B` are equal.
+
+Again, though, text substitutions make this more nuanced. For example, does this print ``Yes.``?
+
+	To say the word marble: say "marble".
+
+	When play begins:
+		if "[the word marble]" is "marble", say "Yes."
+
+The answer is that it does. The left-hand text is substituted before the comparison is made, so that Inform ends up testing whether `"marble"` is `"marble"`, and it is. And similarly,
+
+	the initial appearance of the long-case clock is "The clock shows 9:00 a.m."
+
+is `true` at the start if play (i.e., when it is indeed 9:00 a.m.).
+
+On the other hand, the adjective `empty` does not always do what authors expect. For example:
+
+	To say a Trappist vow: do nothing.
+
+	When play begins:
+		if "[a Trappist vow]" is "", say "The vow has no characters.";
+		if "[a Trappist vow]" is empty, say "The vow is empty.";
+
+The text `"[a Trappist vow]"` is considered not to be empty, even though _if it were substituted_ it would be. The adjective `empty` is tested on texts as they stand, without forcing them to be substituted first.
+
+### The "sorcerer's apprentice" problem
+
+Goethe's poem _Der Zauberlehrling_ (1797) is not perhaps the chief cause of his fame, but it did lead indirectly to an Atari 2600 video game cartridge in 1983 ("it's not a total disaster" — _Video Games_ magazine). In any case, the myth was an ancient one. The sorcerer goes out, leaving his apprentice in charge. The apprentice naively enchants a broom to mop the floor for him, and it works, until he realises he doesn't know the magic to stop it. He tries splitting the broom in half, but each half carries on mopping, and now his problem has doubled. And so forth. This is one of those "don't mess with what you don't understand" fables that parents of all nations approve of.
+
+The magic for us here is the ability to generate text, in a way which may cause it to grow. For example:
+
+	When play begins:
+		let T be "This is a magic broom. ";
+		repeat with N running from 1 to 10:
+			now T is "[T][T]";
+		say T.
+
+This looks innocent enough and indeed it works, but `T` doubles in length ten times and ends up 23,552 characters long: that's 5120 words. If the 10 repetitions had been 20, the result would have been much, much worse. The moral here is that it's sometimes easy to type instructions in a casual way which generate a _lot_ of text.
+
+Is that such a problem? Well, yes and no. Memory in a computer is finite, and texts like `T` have to be stored in memory. This tends not to be a problem on the Glulx virtual machine, which is the default setting for Inform projects, but if we are trying to fit into the very small Z-machine instead, then computations like the one above may fail. Texts on that machine are limited to 1000 characters in length, though this truncation limit can be raised:
+
+	Use maximum text length of at least 2000.
+
+Moreover, any amount of heavy computation in the Z-machine is difficult, and juggling texts, lists or other flexible sorts of data will soon exhaust the small run-time memory available. By default the Z-machine provides 8192 bytes of such memory, and although this can be raised:
+
+	Use dynamic memory allocation of at least 16384.
+
+...it cannot be raised very far, because there are only 65536 bytes of addressable memory to play with in the Z-machine, and even most of those are needed for other purposes.
+
+These two memory limits are moot for most projects, since most projects use Glulx, which can claim large amounts of memory without too much trouble. All the same, time is still a limited resource. It's slow to deal with large texts. As the sorcerer could have told us, had we been in a listening mood, the art of this sort of computation to have at least a rough idea in mind of how large the texts we are making might be, in the worst case.
+
+### The "what do you mean, I can't have emoji?" problem
+
+We now live in a world where computers routinely handle a super-alphabet called Unicode which contains more or less every letter-form of every written culture, past or present. Once again, the default Glulx setting enables Inform to do the same, but projects using the Z-machine, which is a much more basic platform, are heavily constrained on which characters they can display or recognise when typed. Under the Z-machine, text may only contain characters from the so-called ZSCII character set — standard numbers, letters, punctuation marks and the commonest West European accented letters.
 
 ## Characters, words, punctuated words, unpunctuated words, lines, paragraphs
 
@@ -15277,7 +15373,7 @@ We can also use the adjective "empty":
 if the description of the location is empty, ...
 ```
 
-The empty text, `""`, is the only one with 0 characters. But note that `if T is empty` is never true for text with a substitution in it (such text has at least the potential to produce characters even if it might not at the moment), so it is not quite the same test as `if T is ""`.
+The empty text, `""`, is the only one with 0 characters. But note that `if T is empty` is never true for text with a substitution in it (see [Hazards to be aware of]), so it is not quite the same test as `if T is ""`.
 
 We can also extract the contents by word, again numbered from 1. Thus:
 
@@ -15465,15 +15561,7 @@ Up to now, we have only been able to judge two texts by seeing if they are equal
 
 > phrase: {ph_exactlymatches} if (text) exactly matches the text (text):
 >
-> This condition is true if the second text matches the first, starting at the beginning and finishing at the end. This appears to be the same as testing if one is equal to the other, but that's not quite true: for example,
->
->     if "[score]" exactly matches the text "[best score]", ...
->
-> is true if the score and best score currently print out as the same text, which will be true if they are currently equal as numbers; but
->
->     if "[score]" is "[best score]", ...
->
-> is never true – these are different texts, even if they sometimes look the same.
+> This condition is true if the second text matches the first, starting at the beginning and finishing at the end. Both texts are read in substituted form.
 
 We can also find exactly *where* in the text the match occurred.
 
@@ -16057,100 +16145,75 @@ But these are all just special cases of the grand-daddy of all replacement phras
 
 ## Summary of regular expression notation
 
-[ZL: not sure what best format here is. If we make them anything other than inform7 the formatting will look wrong. Really, they're two-column tables]::
-
-
 ^^{regular expressions} ^^{text: regular expressions} ^^{characters (letters): special meanings in regular expressions} ^^{regular expressions: syntax reference}
 
-### matching
-
-[ZL: there will need to be some CSS for separating tables vertically ]::
-
-
-| | Positional restrictions |
-|---|---|
-| ^ | Matches (accepting no text) only at the start of the text|
-| $ | Matches (accepting no text) only at the end of the text|
-| \\b | Word boundary: matches at either end of text or between a \\w and a \\W|
-| \\B | Matches anywhere where \\b does not match|
-
-| | Backslashed character classes |
-|---|---|
-| \\char | If char is other than a-z, A-Z, 0-9 or space, matches that literal char|
-| \\\\\\\\\ | For example, this matches literal backslash "\\\\"|
-| \\n | Matches literal line break character|
-| \\t | Matches literal tab character (but use this only with external files)|
-| \\d | Matches any single digit|
-| \\l | Matches any lower case letter (by Unicode 4.0.0 definition)|
-| \\p | Matches any single punctuation mark: . , ! ? - / " : ; ( ) [ ] { }|
-| \\s | Matches any single spacing character (space, line break, tab)|
-| \\u | Matches any upper case letter (by Unicode 4.0.0 definition)|
-| \\w | Matches any single word character (neither \\p nor \\s)|
-| \\D | Matches any single non-digit|
-| \\L | Matches any non-lower-case-letter|
-| \\P | Matches any single non-punctuation-mark|
-| \\S | Matches any single non-spacing-character|
-| \\U | Matches any non-upper-case-letter|
-| \\W | Matches any single non-word-character (i.e., matches either \\p or \\s)|
-
-| | Other character classes |
-|---|---|
-| . | Matches any single character|
-| <...> | Character range: matches any single character inside|
-| <^...> | Negated character range: matches any single character not inside|
-
-| | Inside a character range |
-|---|---|
-| e-h | Any character in the run "e" to "h" inclusive (and so on for other runs)|
-| > | Starting with ">" means that a literal close angle bracket is included|
-| \\ | Backslash has the same meaning as for backslashed character classes: see above|
-
-| | Structural |
-|---|---|
-| \| | Divides alternatives: "fish\|fowl" matches either |
-| (?i) | Always matches: switches to case-insensitive matching from here on|
-| (?-i) | Always matches: switches to case-sensitive matching from here on |
-
-| | Repetitions |
-|---|---|
-| ...? | Matches "..." either 0 or 1 times, i.e., makes "..." optional|
-| ...* | Matches "..." 0 or more times: e.g. "\s*" matches an optional run of space|
-| ...+ | Matches "..." 1 or more times: e.g. "x+" matches any run of "x"s|
-| ...{6} | Matches "..." exactly 6 times (similarly for other numbers, of course)|
-| ...{2,5} | Matches "..." between 2 and 5 times|
-| ...{3,} | Matches "..." 3 or more times|
-| ....? | "?" after any repetition makes it "lazy", matching as few repeats as it can|
-
-| | Numbered subexpressions |
-|---|---|
-| (...) | Groups part of the expression together: matches if the interior matches|
-| \\1 | Matches the contents of the 1st subexpression reading left to right|
-| \\2 | Matches the contents of the 2nd, and so on up to "\9" (but no further)|
-
-| | Unnumbered subexpressions |
-|---|---|
-| (# ...) | Comment: always matches, and the contents are ignored|
-| (?= ...) | Lookahead: matches if the text ahead matches "...", but doesn't consume it|
-| (?! ...) | Negated lookahead: matches if lookahead fails|
-| (?<= ...) | Lookbehind: matches if the text behind matches "...", but doesn't consume it|
-| (?<! ...) | Negated lookbehind: matches if lookbehind fails|
-| (> ...) | Possessive: tries to match "..." and if it succeeds, never backtracks on this|
-| (?(1)...) | Conditional: if \\1 has matched by now, require that "..." be matched|
-| (?(1)...\|...) | Conditional: ditto, but if \\1 has not matched, require the second part|
-| (?(?=...)...\|...) | Conditional with lookahead as its condition for which to match|
-| (?(?<=...)...\|...) | Conditional with lookbehind as its condition for which to match|
-
-| | In replacement text |
-|---|---|
-| \\char | If char is other than a-z, A-Z, 0-9 or space, expands to that literal char|
-| \\\\\\\\ | In particular, "\\\\\\\\" expands to a literal backslash "\\\\"|
-| \\n | Expands to a line break character|
-| \\t | Expands to a tab character (but use this only with external files)|
-| \\0 | Expands to the full text matched|
-| \\1 | Expands to whatever the 1st bracketed subexpression matched|
-| \\2 | Expands to whatever the 2nd matched, and so on up to "\9" (but no further)|
-| \\l0 | Expands to \0 converted to lower case (and so on for "\l1" to "\l9")|
-| \\u0 | Expands to \0 converted to upper case (and so on for "\u1" to "\u9")|
+| Notation | Matches... |
+|------ | --- |
+|       | **Positional restrictions** |
+| `^`   | Matches (accepting no text) only at the start of the text|
+| `$`   | Matches (accepting no text) only at the end of the text|
+| `\\b` | Word boundary: matches at either end of text or between a `\\w` and a `\\W` |
+| `\\B` | Matches anywhere where `\\b` does not match|
+| | **Backslashed character classes** |
+| `\\`_char_ | If _char_ is other than `a`-`z`, `A`-`Z`, `0`-`9` or space, matches that literal character |
+| `\\n` | Matches literal line break character|
+| `\\t` | Matches literal tab character (but use this only with external files)|
+| `\\d` | Matches any single digit|
+| `\\l` | Matches any lower case letter (by Unicode 4.0.0 definition)|
+| `\\p` | Matches any single punctuation mark: `. , ! ? - / " : ; ( ) [ ] { }`|
+| `\\s` | Matches any single spacing character (space, line break, tab)|
+| `\\u` | Matches any upper case letter (by Unicode 4.0.0 definition)|
+| `\\w` | Matches any single word character (neither `\\p` nor `\\s`)|
+| `\\D` | Matches any single non-digit|
+| `\\L` | Matches any non-lower-case-letter|
+| `\\P` | Matches any single non-punctuation-mark|
+| `\\S` | Matches any single non-spacing-character|
+| `\\U` | Matches any non-upper-case-letter|
+| `\\W` | Matches any single non-word-character (i.e., matches either `\\p` or `\\s`)|
+|       | **Other character classes** |
+| `.`   | Matches any single character|
+| `<...>` | Character range: matches any single character inside|
+| `<^...>` | Negated character range: matches any single character not inside|
+|       | **Inside a character range** |
+| `e-h` | Any character in the run `e` to `h` inclusive (and so on for other runs)|
+| `>` | Starting with `>` means that a literal close angle bracket is included|
+| `\\` | Backslash has the same meaning as for backslashed character classes: see above|
+| | **Structural** |
+| `\|` | Divides alternatives: `fish\|fowl` matches either |
+| `(?i)` | Always matches: switches to case-insensitive matching from here on|
+| `(?-i)` | Always matches: switches to case-sensitive matching from here on |
+| | **Repetitions** |
+| `...?` | Matches "..." either 0 or 1 times, i.e., makes "..." optional|
+| `...*` | Matches "..." 0 or more times: e.g. `\s*` matches an optional run of space|
+| `...+` | Matches "..." 1 or more times: e.g. `x+` matches any run of `x`s|
+| `...{6}` | Matches "..." exactly 6 times (similarly for other numbers, of course)|
+| `...{2,5}` | Matches "..." between 2 and 5 times|
+| `...{3,}` | Matches "..." 3 or more times|
+| `....?` | `?` after any repetition makes it "lazy", matching as few repeats as it can|
+| | **Numbered subexpressions** |
+| `(...)` | Groups part of the expression together: matches if the interior matches|
+| `\\1` | Matches the contents of the 1st subexpression reading left to right|
+| `\\2` | Matches the contents of the 2nd, and so on up to `\\9` (but no further)|
+| | **Unnumbered subexpressions** |
+| `(# ...)` | Comment: always matches, and the contents are ignored|
+| `(?= ...)` | Lookahead: matches if the text ahead matches "...", but doesn't consume it|
+| `(?! ...)` | Negated lookahead: matches if lookahead fails|
+| `(?<= ...)` | Lookbehind: matches if the text behind matches "...", but doesn't consume it|
+| `(?<! ...)` | Negated lookbehind: matches if lookbehind fails|
+| `(> ...)` | Possessive: tries to match "..." and if it succeeds, never backtracks on this|
+| `(?(1)...)` | Conditional: if `\\1` has matched by now, require that "..." be matched|
+| `(?(1)...\|...)` | Conditional: ditto, but if `\\1` has not matched, require the second part|
+| `(?(?=...)...\|...)` | Conditional with lookahead as its condition for which to match|
+| `(?(?<=...)...\|...)` | Conditional with lookbehind as its condition for which to match|
+| | **In replacement text** |
+| `\\char` | If char is other than `a`-`z`, `A`-`Z`, `0`-`9` or space, expands to that literal char|
+| `\\n` | Expands to a line break character|
+| `\\t` | Expands to a tab character (but use this only with external files)|
+| `\\0` | Expands to the full text matched|
+| `\\1` | Expands to whatever the 1st bracketed subexpression matched|
+| `\\2` | Expands to whatever the 2nd matched, and so on up to `\\9` (but no further)|
+| `\\l0` | Expands to \0 converted to lower case (and so on for `\\l1` to `\\l9`)|
+| `\\u0` | Expands to \0 converted to upper case (and so on for `\\u1` to `\\u9`)|
 
 # Lists
 
@@ -18195,9 +18258,15 @@ so that we can review that there are enough objects available and that the list 
 
 Just occasionally, we might also want to build a version of a story that will allow beta-testers access to the debugging commands. This is especially relevant for long stories: if we're testing a story with a lot of playtime and the testers have already thoroughly reviewed the first portion of the story, we might want to let them have access to testing commands that fast-forward to later sections.
 
-[ZL: There should be a more specific account of: compiling with Go: includes `not for release` sections/excludes `for release only` sections; includes debug commands; does *not* write anything to project.materials/Release. Release for testing: includes `not for release` sections/excludes `for release only` sections; includes debug commands; *does* write to project.materials/Release. Release: does *not* include `not for release` sections; includes debug commands; *does* write to project.materials/Release. Release: includes `for release only` sections/excludes `not for release` sections; doesn't include debug commands; does write to project.materials/Release.]::
-
 To do this, we can use the "Release for Testing" feature. Release for testing builds a version of the story that *does* include testing commands and any sections labelled "Not for release".
+
+To sum up these three methods for compiling:
+
+Compile how? | `for release only` sections | `not for release` sections | testing verbs | Writes to `Release`
+----------------------------- | --- | --- | --- | ---
+Go button                     | no  | yes | yes | no
+Release button                | yes | no  | no  | yes
+Release for testing menu item | no  | yes | yes | yes
 
 ## Testing for thoroughness
 
@@ -19280,8 +19349,6 @@ But most writers of extensions do so to contribute to the Inform community, and 
 
 However, the Inform project does recognise some extensions as "public". Public extensions are the ones archived on the Inform website for the free use of all Inform writers. Those who wish to contribute an extension as a public one are obliged to follow a number of guidelines, which are mostly stylistic points intended to make the range of extensions easier to work with. Extension writers are asked to join in the spirit of these rules and help make the whole cooperative enterprise work harmoniously. Extensions which do play by these rules are also accepted into the Public Library, which makes them easy for all Inform users everywhere to find and obtain them.
 
-[ ZL: nothing Inform has ever said about CC-BY is true. https://intfiction.org/t/attribution-etiquette-question-when-updating-changing-someone-elses-extension/60201/4 and I think it's misinformation that's ultimately dangerous to the community ]::
-
 Writers who wish to make their extensions public on the Inform website should also be clear that by doing so, they are donating their work to the community on the basis of the broadest form of Creative Commons licence: that is, they retain copyright and the right to be identified as the author (and as we shall see they are automatically credited in any work of IF which uses their extension), but are giving unlimited permission to use, circulate and republish their extensions in any form, even as part of commercial works (should that arise). To publish a public extension is a public-spirited act, done for only the reward of a modest acknowledgement.
 
 If the author of an extension has not made it public, or indicated in some other way that it is free to be used without the need for permission, then it would be both polite and prudent to check with the author before publishing something which incorporates their work.
@@ -19480,9 +19547,6 @@ Inform therefore provides a way for extensions to declare the formats they are c
 Version 2 of Basic Screen Effects (for Z-Machine version 8 only) by ^{@Emily Short} begins here.
 ```
 
-[ZL: https://inform7.atlassian.net/browse/I7-2172 ]::
-
-
 Other examples might be "(for Glulx only)", or "(for Z-machine only)". If no such proviso is given, the extension is assumed to be compatible with every story file format.
 
 Extensions are also able to include material which is only used on some story file formats and not others – in principle, this might allow the same facilities to be provided to the author whatever story file format is used, but to achieve these effects differently depending on the current Settings. The convention here is exactly like "not for release": if a heading or subheading in the source text contains a bracketed proviso, then the material under that heading (and under its dependent subheadings) will be ignored if the current story file format does not match. For example:
@@ -19500,6 +19564,10 @@ To reveal the explosion:
 ```
 
 would ensure that "reveal the explosion" works nicely whichever story file format is used.
+
+The terms `Glulx` and `Z-machine` above are used a little loosely, for historical reasons. They really mean to choose between a 32-bit architecture, as exemplified by the Glulx virtual machine for interactive fiction devised around 2000, and a 16-bit architecture, as exemplified by the Z-machine from around 1980. The difference is partly in the size of numbers which can be stored, but affects many other things as well, as all modern IF uses the default `Glulx` setting, that is, 32-bit.
+
+However, it is now possible to compile Inform projects to C programs too, in which case they will run as executables on whatever computer then compiles those C programs: they will not run in virtual machines but on actual ones. The C output option also uses 32-bit, and so when compiling to C, which can only be done using Inform as a command-line tool, headings `(for Glulx only)` are used and those `(for Z-machine only)` are not. Inform does also support `(for C only)` and `(not for C)`, but these should only be used if really necessary.
 
 ## Extensions can include other extensions
 
