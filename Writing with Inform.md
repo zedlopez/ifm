@@ -15010,8 +15010,6 @@ Finally, we can "anonymously abide":
 
 This is only useful in complicated situations where one rulebook uses another which... and so on. Its effect is exactly the same as "abide", except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it's used as the source of the value "reason the action failed" (see the chapter on [Advanced Actions]).
 
-[ZL: https://inform7.atlassian.net/browse/I7-2324 ]::
-
 ## The internal rulebooks which keep stories running {rules_internal}
 
 ^^{actions: processing sequence} ^^{turns: turn sequence} ^^{action processing+rb+} ^^{turn sequence+rb+} ^^{when play begins+rb+} ^^{rules: run at beginning of story} ^^{when play ends+rb+} ^^{rules: run at end of story}
@@ -15138,8 +15136,6 @@ And, that's about the whole story. But a brief summary would come down to this: 
 
 ^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules} ^^{laws for sorting rulebooks} ^^{Rules page of Index panel+ui+} ^^{user interface: Index panel: Rules page} ^^{Index panel+ui+: Rules page} ^^{room gone from/to (- object)+actvar+}
 
-[ZL: it's worth detailing that `First <rulebook>:` and `The foo rule is listed first in the <rulebook>` don't necessarily mean the same thing https://intfiction.org/t/first-last-keyword-rules-each-seems-to-have-two-different-meanings/56393 ]::
-
 Large works created by Inform are heaped high with rules, most of them instead rules, but with a leavening of befores and afters as well. What will happen if these conflict with each other? For instance:
 
 ``` inform7
@@ -15148,9 +15144,21 @@ Instead of opening a container, say "Your mother-in-law looks on with such evide
 Instead of opening an open container, say "Your daughter tuts in theatrical exasperation at your, like, lameness."
 ```
 
-Such clashes are resolved by sorting the rulebooks in order of specificity: thus your daughter gets in before your mother-in-law, because although both have rules hanging on the "opening" action, "an open container" is more specific than "a container". The full set of Laws used by Inform to sort rulebooks is quite elaborate. As we've seen, practical consequences can be investigated using the Rules index; and in most cases, the results are either natural (as above) or irrelevant (because the two rules being compared could not both activate at the same time anyway); but the full set of Laws is laid out below, for reference. It is probably a bad idea to write source text which absolutely relies on non-obvious rule sorting conventions, just the same, because this will make the source text harder to read and understand.
+And the general answer is that a more specific rule takes precedence over a less specific one, so that your daughter gets in before your mother-in-law: `an open container` is more specific than `a container`. But "more specific" is a slippery term, so the description below lays out exactly what Inform does.
 
-Sorting is done by comparing rules in pairs to decide which is more specific. We shall call these rules X and Y. The Laws are tried in sequence; the first Law to distinguish X and Y gets to decide which is more specific. If no Law is able to decide, X and Y go into the rulebook in order of their appearance in the source text – that is, whichever is defined first appears earlier in the rulebook and therefore takes priority.
+### First, last, and being listed first or last
+
+Before getting into the details, note that Inform provides two ways to jump or hang back in the queue:
+
+1) A rule can be said to be `first` or `last`. For example, `A first instead rule for opening: ...` will take precedence over any `instead` rule not marked as `first`. It's important to note that multiple `first` and `last` rules can be written for the same rulebook, so this particular rule might not literally be first. And similarly for `last`, at the back end, of course.
+
+2) Rulebooks can be rearranged using sentences like `X is listed last in R.`, or `X is listed after Y in R.` In general, those instructions take precedence even over rules having been declared as `first` or `last` as in (1) above.
+
+### The sorting rules
+
+So we will now see what happens if the normal ordering is _not_ changed.
+
+As sketched above, sorting is done by comparing rules in pairs to decide which is more specific. We shall call these rules X and Y. The Laws are tried in sequence; the first Law to distinguish X and Y gets to decide which is more specific. If no Law is able to decide, X and Y go into the rulebook in order of their appearance in the source text – that is, whichever is defined first appears earlier in the rulebook and therefore takes priority.
 
 **Law I – Number of aspects constrained**. For action-based rulebooks, rules are scored from 0 to 6 according to whether they constrain any of: (i) the exotic "going" clauses (pushing, by and through), (ii) the location of the action (in, from and to), (iii) the things directly involved (actor, noun, second noun, "nowhere" in the case of "going"), (iv) the presence of others (in the presence of...), (v) the time at which the action occurs (when, or "for the nth time" or "for the nth turn"), and/or (vi) the scene the action occurs in (during). For value based rulebooks, rules are scored from 0 to 3 according to whether they constrain: (i) the value parameter, (ii) the scene in which the rulebook is followed (when, during), and/or (iii) any condition which must hold or activities going on at the same time (when/while). A higher score is more specific than a lower one.
 
