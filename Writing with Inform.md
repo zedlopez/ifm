@@ -15271,15 +15271,13 @@ The maximum character number varies with the current length of the text, and can
 >
 > produce 13 and 0 respectively.
 
-[ZL: ...unless there's adaptive text in the text... ]::
-
 We can also use the adjective "empty":
 
 ``` inform7
 if the description of the location is empty, ...
 ```
 
-The empty text, "", is the only one with 0 characters.
+The empty text, `""`, is the only one with 0 characters. But note that `if T is empty` is never true for text with a substitution in it (such text has at least the potential to produce characters even if it might not at the moment), so it is not quite the same test as `if T is ""`.
 
 We can also extract the contents by word, again numbered from 1. Thus:
 
