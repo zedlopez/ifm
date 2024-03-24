@@ -15,7 +15,7 @@ Interactive fiction is a literary form which involves programming a computer so 
 
 At one time, Inform looked to users like an app rather than a language — there is one app for MacOS, one for Windows, one for Linux — and those apps remain a very convenient and widely-used way to write interactive fiction in Inform. But nowadays there is also a well-designed online environment enabling Inform to be written using only a web browser, [borogove.app](https://borogove.app), and there is also extensive support for Inform as a suite of command-line tools for those who prefer to code from a terminal, or compile non-interactively in Docker containers, or GitHub actions. Those low-level tools have numerous housekeeping features which it wouldn't be sensible to cover here, because this is only a book about the Inform language. Manuals for the Inform toolchain can instead be found at [the core Inform repository on GitHub](https://github.com/ganelson/inform).
 
-What we now call Inform is strictly speaking "Inform 7", not its 20th-century predecessor, Inform 6. Here "6" and "7" are part of the _names_ of these two different programming languages, and not version numbers. (Inform does have a version number, but it's currently up around "v10.2.0".) In this book, "Inform" always means I7, but I6 notation does make occasional appearances because there are advanced Inform features where this notation is used to express some advanced, low-level coding effects. Most users will never need to know anything about I6, but for those who do, its website is at [inform-fiction.org](https://inform-fiction.org), and its [GitHub repository is here](https://github.com/DavidKinder/Inform6).
+What we now call Inform is strictly speaking "Inform 7", not its 20th-century predecessor, Inform 6. Here "6" and "7" are part of the _names_ of these two different programming languages, and not version numbers. (Inform does have a version number, but it's currently up around "v10.2.0".) In this book, "Inform" always means I7, but I6 notation does make occasional appearances because there are advanced Inform features where this notation is used to express some advanced, low-level coding effects. Most users will never need to know anything about I6, but for those who do, its website is at [inform-fiction.org](https://inform-fiction.org), and here is the [Inform 6 git  repository](https://github.com/DavidKinder/Inform6).
 
 > Programming is best regarded as the process of creating works of literature, which are meant to be read... so we ought to address them to people, not to machines.
 > — ^{@Donald Knuth}, *Literate Programming,* 1981
@@ -5117,13 +5117,13 @@ It's sometimes useful to go the other way. When something has possessions, we ca
 
 > phrase: {ph_firstheld} first thing held by (object) ... object
 >
-> This phrase produces the first of the list of things contained in, supported by or worn by (but _not_ incorporated by) the object. Example:
+> This phrase produces the first of the list of things contained in, supported by, carried by or worn by (but _not_ incorporated by) the object. Example:
 >
 >     first thing held by Baroness Orczy
 
 > phrase: {ph_nextheld} next thing held after (object) ... object
 >
-> This phrase produces the next item of the list of things contained in, supported by or worn by (but _not_ incorporated by) whatever contains, supports or wears the object. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.
+> This phrase produces the next item of the list of things contained in, supported by, carried by or worn by (but _not_ incorporated by) whatever contains, supports or wears the object. Example: suppose Baroness Orczy is carrying a lapdog and a string of pearls.
 >
 >     next thing held after the lapdog
 >
@@ -11142,6 +11142,18 @@ In effect, blank entries don't exist. "--" is not a value, but only a hole where
 >
 >     if there is no symbol corresponding to an atomic number of 30 in the Table of Selected Elements ...
 >     if there is no atomic number in row 2 of the Table of Selected Elements ...
+
+The reference here to a _table entry_ can be any of the following possibilities:
+
+Reference to a table entry   | Example
+---------------------------- | -------
+`TC entry`                 | `if there is an atomic weight entry`
+`TC in row N in/of/from T` | `if there is a symbol in row 5 of Table 2.1`
+`TC listed in T`           | `if there is an atomic number listed in Table 2.1`
+`TC corresponding to TC of V in/from T` | `if there is an element corresponding to atomic weight of 65 in Table 2.1`
+`TC of V in/from T`        | `if there is an atomic number of 56 in Table 2.1`
+
+Where `TC` is the name of a table column, `N` is a row number (counting from 1 as the top row), `T` is a table, and `V` is some value which might or might not be stored in the table.
 
 ## Blank columns
 
