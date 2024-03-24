@@ -13000,8 +13000,6 @@ Inform looks for the clue "something" (or "of something") after the activity's n
 Analysing something is an activity on objects.
 ```
 
-[ZL TODO discuss parameter object vs. container/supporter in question ]::
-
 As always in Inform, the names of activities are themselves values.
 
 - `assaying activity` has kind `activity on nothing`
@@ -13077,21 +13075,21 @@ After analysing something (called the sample):
 	say "Your professional opinion of [the sample] is that it is [first impression]."
 ```
 
-[ZL: this was baffling to me for a long time. I think it would be valuable to provide a frame that one will almost always just use `carry out ...` and never need to worry about any of these, but that if one *wants to* write one's own low-level activity controller in a fashion analogous to how kits use activities, for instance, to be able to have arbitrary code between `before` and `for` or `for` and `after`, this is how one *could* do it, and outside that context, one needn't worry about any of these phrases. ]::
-
 ## Beginning and ending activities manually
 
-^^{activities: beginning/ending by hand} ^^{activities: abandoning} ^^{activities: golden rules for constructing}
+^^{activities: beginning/ending by hand} ^^{activities: abandoning by hand}
 
-If we have declared a new activity, like "analysing", the normal way to make it happen would be to write
+If we have declared a new activity, like "analysing", what we should almost always use to run the activity is the standard phrase `carry out`, like so:
 
 ``` inform7
 carry out the analysing activity with the pitchblende;
 ```
 
-which goes through the whole machinery of rules – before, for, after – and then resumes, the activity having started, taken place and come to an end.
+See [New activities]. This goes through the whole machinery of rules – before, for, after – in the normal way.
 
-But there are times when it is not convenient to write a suitable "for ..." rule, or where we need more control, and do not wish to hand the whole business over to a single phrase. For such times we are allowed to write:
+However, as was mentioned earlier in this chapter, Inform has low-level features making it possible to run activities in non-standard ways. These features should only be used when absolutely necessary (for example for performance reasons), and even then, care should be taken to preserve the usual conventions for how the three activity stages are run. To reiterate: Inform authors will never need the features in this section, and will only ever need `carry out`.
+
+But with that said, here goes.
 
 > phrase: {ph_beginactivity} begin the (activity) activity
 >
@@ -13099,7 +13097,7 @@ But there are times when it is not convenient to write a suitable "for ..." rule
 >
 >     begin the assaying activity;
 >
-> In all cases a matching "end the ... activity" or else "abandon the ... activity" phrase must be reached.
+> It is the user's responsibility to ensure that in all cases a matching "end the ... activity" or else "abandon the ... activity" phrase is subsequently reached.
 
 > phrase: {ph_beginactivitywith} begin the (activity on values) activity with (value)
 >
@@ -13107,7 +13105,7 @@ But there are times when it is not convenient to write a suitable "for ..." rule
 >
 >     begin the analysing activity with the pitchblende;
 >
-> In all cases a matching "end the ... activity with ..." or else "abandon the ... activity with..." phrase must be reached.
+> It is the user's responsibility to ensure that in all cases a matching "end the ... activity" or else "abandon the ... activity" phrase is subsequently reached.
 
 And when we are done:
 
@@ -13117,7 +13115,7 @@ And when we are done:
 >
 >     end the assaying activity;
 >
-> This must only happen to match an earlier "begin the ... activity" phrase.
+> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier "begin the ... activity" phrase.
 
 > phrase: {ph_endactivitywith} end the (activity on values) activity with (value)
 >
@@ -13125,7 +13123,7 @@ And when we are done:
 >
 >     end the analysing activity with the pitchblende;
 >
-> This must only happen to match an earlier "begin the ... activity with..." phrase.
+> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier "begin the ... activity" phrase.
 
 So the usual structure is like so:
 
@@ -13179,9 +13177,19 @@ It is also legal to force an early end to an activity with:
 >
 >     abandon the analysing activity with the pitchblende;
 
-[ZL: a WI reader without low-level knowledge has no idea what it could possibly mean for the activity to end with a different something. maybe it's in order to just include an I7 `parameter object` object variable and then this could say: if you change its value during an activity, change it back before the end.]::
+Bad things may happen if we do not follow the golden rules:
 
-We need to follow three golden rules: all activities must end, they must never last longer than a turn, and if activity B starts during activity A then it must also finish during activity A. We must also be careful to make sure that if an activity applies to something, then it begins and ends with the same something (the pitchblende, in the above example).
+* all activities must go through all three stages in sequence, or be abandoned 
+either _between_ the before and for stage, or _between_ the for and after stage;
+
+* if activity B starts during activity A then it must finish before the end of 
+activity A;
+
+* an activity must not, in any case, last longer than a turn;
+
+* if an activity is applied to some object or value, as in the above examples where it is applied to the pitchblende, then all uses of the above low-level phrases must be applied to the same object.
+
+Inform does _not_ police these golden rules. If we want to use these somewhat hazardous features, we need to be careful doing so.
 
 ## Introduction to the list of built-in activities
 
@@ -14802,26 +14810,30 @@ The cosmic analysis rules are a rulebook. The cosmic analysis rules have default
 
 Finally, note that the default outcome for a rulebook is really the default outcome for any rule in that rulebook: if no rules in the rulebook ever apply, for instance if there aren't any and the rulebook is empty, then the rulebook ends with no outcome at all.
 
-[ZL: it warrants emphasis that this should only be counted on if you know the test is coming immediately after following the rule, which can be surprisingly hard to be sure of during, say, the action-processing sequence.]::
-
 We can test the latest outcome like so:
 
 > phrase: {ph_succeeded} if rule succeeded:
 >
-> This condition is true if the most recently followed rule or rulebook ended in success. Example:
+> This condition is true if the most recently followed rule or rulebook ended in success, though it should be used only with care, in circumstamces when it's clear what the most recent rule is. This, for example, is safe enough:
 >
 >     follow the hypothetical clever rule;
 >     if rule succeeded:
 >     	...
+>
+> But if some text had been produced between the `follow` and the text, and if that text had named an object, for example, then an activity would have been run to perform the naming, and that involves rules running.
+> 
+> Note that this is not the opposite of "rule failed", because there's a third possibility: that it ended with no outcome.
 
 > phrase: {ph_failed} if rule failed:
 >
-> This condition is true if the most recently followed rule or rulebook ended in failure. Example:
+> This condition is true if the most recently followed rule or rulebook ended in failure, though it should be used only with care, in circumstamces when it's clear what the most recent rule is. This, for example, is safe enough:
 >
 >     follow the hypothetical clever rule;
 >     if rule failed:
 >     	...
 >
+> But if some text had been produced between the `follow` and the text, and if that text had named an object, for example, then an activity would have been run to perform the naming, and that involves rules running.
+> 
 > Note that this is not the opposite of "rule succeeded", because there's a third possibility: that it ended with no outcome.
 
 ## Named outcomes {PM_MisplacedRulebookOutcome} {PM_WrongEndToPhrase} {PM_BadOutcomeClarification} {PM_DefaultNamedOutcomeTwice} {PM_DefaultOutcomeAlready} {PM_DuplicateOutcome} {PM_NonOutcomeProperty}
