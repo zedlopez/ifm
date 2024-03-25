@@ -12552,6 +12552,12 @@ The Toyshop is a room. The red box is a box in the Toyshop. Some crayons are in 
 
 and now ``take box of crayons`` will work, because ``crayons`` matches against `"[something related by containment]"` for the red box – or it does for as long as the crayons are there. We can have similar matches against relations of all kinds, but have to name the relation explicitly. (See the examples at the end of this section for plenty of cases.)
 
+Note that ``BOX OF CRAYONS`` in this example is a single item. The command ``EXAMINE BOX OF CRAYONS`` generates the action `examining the red box`, because that is the one currently containing the crayons. We could instead have written:
+
+	Understand "home of the [something related by containment]" as a box.
+
+and then ``EXAMINE HOME OF THE CRAYONS`` would have worked instead, but would again have generated the action `examining the red box`.
+
 We can also reverse the sense. If we write:
 
 ``` inform7
