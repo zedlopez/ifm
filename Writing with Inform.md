@@ -12562,6 +12562,22 @@ The Toyshop is a room. The crate and the hammock are in the Toyshop. In the crat
 
 then ``take the box in the hammock`` will work: here, the relation goes the other way, because the box is being contained by the other-named item, rather than doing the containing.
 
+The following example demonstrates a subtle trap:
+
+	Understand "[something related by R]" as a thing.
+
+where `R` is a relation where certain things are related to themselves. For example, that would happen with:
+
+	Understand "[something related by visibility]" as a thing.
+
+This would mean that the Toymaker, say, can be referred to by the name of any object visible to the Toymaker. The result is that the parser goes in endless circles: when trying to match text against the possible names of the Toymaker, it sees that it ought to match against the names of everything visible to the Toymaker. But that includes the Toymaker himself. So the parser needs to match the possible names of the Toymaker. So... and so on, without end.
+
+This trap can be avoided either by using a relation which will not loop the parser into circles like this, or by using grammar which begins with some fixed wording. This, for example:
+
+	Understand "viewer of [something related by visibility]" as a thing.
+
+works fine, because now the parser trying to match a name will look first for ``VIEWER OF`` up front, and only then try to match a name against the rest. This process could go on a while (``EXAMINE VIEWER OF VIEWER OF VIEWER OF VIEWER OF VIEWER OF VIEWER OF VIEWER OF VIEWER OF TOYMAKER``), but not forever, because each fresh round of name-parsing consumes two of the words, and the words eventually run out.
+
 ## Context: understanding when {PM_BadWhen}
 
 ^^{when (condition)+sourcearg+: arbitrary conditions for (understand)+sourcepart+} ^^{understanding: conditionally} ^^{understanding: limiting cases where understand rules apply} ^^{understanding: (when) clauses for+sourcepart+} ^^{conditions: for (understand)+sourcepart+} ^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+} ^^{item described (- object)+glob+}
@@ -15073,7 +15089,6 @@ So let's forget about the start and end of the story, and look at the `turn sequ
 
 - `parse command rule`
 - `declare everything initially unmentioned rule`
-- `before-generation rule `
 - `generate action rule`
 - `early scene changing stage rule`
 - `every turn stage rule`
