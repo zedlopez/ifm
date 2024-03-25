@@ -22,7 +22,7 @@ text: "The Recipe Book.md"
 # General source-text category. Used for all sorts of cases. (Thus, no
 # label is attached.)
 index notation: ^{headword+source+} = source
-index notation: ^{`headword} = source
+index notation: ^{|headword} = source
 
 # Category for player commands.
 index notation: ^{headword+command+} = command
