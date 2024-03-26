@@ -47,5 +47,5 @@ And then to give the whole exchange a play's format:
 		now left hand status line is "Fragment of a Greek Tragedy";
 		now right hand status line is "A. E. Housman".
 
-(Because this example manipulates commands outside of the normal parser, the mechanism for ``test`` will not work here. Try typing commands such as: ``tell chorus about journey`` / ``tell chorus about feet`` / ``tell chorus about shropshire`` / ``tell chorus about zeus``)
+(Because this example manipulates commands outside of the normal parser, the mechanism for ``TEST`` will not work here. Try typing commands such as: ``TELL CHORUS ABOUT JOURNEY`` / ``TELL CHORUS ABOUT FEET`` / ``TELL CHORUS ABOUT SHROPSHIRE`` / ``TELL CHORUS ABOUT ZEUS``)
 

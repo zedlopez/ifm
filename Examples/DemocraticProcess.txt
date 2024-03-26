@@ -5,7 +5,7 @@ Index: PUT and INSERT automatically TAKE first
 Description: Making something happen automatically before an item is put into a box.
 For: Z-Machine
 
-`stop the action` is most useful when we need to write rules that will have to stop the action some of the time but at other times let it pass. For example, let's create a polling station, where the idea is to ``take ballot``, ``vote``, and then ``put ballot in machine``:
+`stop the action` is most useful when we need to write rules that will have to stop the action some of the time but at other times let it pass. For example, let's create a polling station, where the idea is to ``TAKE BALLOT``, ``VOTE``, and then ``PUT BALLOT IN MACHINE``:
 
 	{*}"Democratic Process"
 	
@@ -26,7 +26,7 @@ For: Z-Machine
 	Report voting:
 		say "You perform your solemn duty, nobly inking in a cross."
 
-We need some rules to prevent blank ballots being put into the machine. A neat way to do that is to automate the process, so that ``put ballot in machine`` automatically triggers ``vote``, and ``vote`` in turn automatically takes the ballot if the player hasn't got it:
+We need some rules to prevent blank ballots being put into the machine. A neat way to do that is to automate the process, so that ``PUT BALLOT IN MACHINE`` automatically triggers ``VOTE``, and ``VOTE`` in turn automatically takes the ballot if the player hasn't got it:
 
 	{**}Before inserting the unmarked ballot into something:
 		say "(first writing in your vote)[line break]";

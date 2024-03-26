@@ -27,7 +27,7 @@ And we can even add new ways to talk about the ways things are mapped, borrowing
 
 	{**}[The verb to be abaft of means the mapping aft relation.]
 
-Now, to prevent the player from using ``north`` onboard ship, or ``aft`` on land:
+Now, to prevent the player from using ``NORTH`` onboard ship, or ``AFT`` on land:
 
 	{**}A room can be nautical or earthbound. A room is usually not nautical. A direction can be nautical or earthbound. A direction is usually not nautical. Starboard, port, fore, aft, up, down, the inside and the outside are nautical.
 	

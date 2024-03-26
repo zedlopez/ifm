@@ -87,5 +87,5 @@ And we would also like to understand properties under the same circumstances as 
 	
 	Test me with "inventory / examine letter / get letter / i / put letter in ceo box / inventory / get letter / x letter / g / g / i / x letter / g / g / i / put letter in hold box / get letter / g / g / i".
 
-That last "repeat" is merely a device to shuffle the order of items in the satchel so that the player will not always encounter the letters in a neatly presorted order, despite our defining them that way. (Of course, that means that the test produced by ``test me`` cannot be very exciting...)
+That last "repeat" is merely a device to shuffle the order of items in the satchel so that the player will not always encounter the letters in a neatly presorted order, despite our defining them that way. (Of course, that means that the test produced by ``TEST ME`` cannot be very exciting...)
 

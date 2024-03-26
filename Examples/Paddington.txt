@@ -2,10 +2,10 @@ Example: ** Paddington
 Location: Check, carry out, report
 RecipeLocation: Glass and Other Damage-Prone Substances
 Index: CUT [something] WITH [something] command
-Description: A ``cut`` [something] ``with`` [something] command which acts differently on different types of objects.
+Description: A ``CUT [SOMETHING] WITH [SOMETHING]`` command which acts differently on different types of objects.
 For: Z-Machine
 
-Suppose we intend a game in which the player needs to cut things open on a regular basis. We'll want to check whether they have the proper tools handy, and deal graciously with commands such as ``cut`` [something] when no tool is specified. So:
+Suppose we intend a game in which the player needs to cut things open on a regular basis. We'll want to check whether they have the proper tools handy, and deal graciously with commands such as ``CUT [something]`` when no tool is specified. So:
 
 	{*}"Paddington"
 	

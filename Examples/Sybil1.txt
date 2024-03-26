@@ -2,7 +2,7 @@ Example: * Sybil 1
 Location: Reading and talking
 RecipeLocation: Saying Simple Things
 Index: Sybil 1. ASK, TELL, and ANSWER conflated
-Description: Direct all ``ask``, ``tell``, and ``answer`` commands to ``ask``, and accept multiple words for certain cases.
+Description: Direct all ``ASK``, ``TELL``, and ``ANSWER`` commands to ``ASK``, and accept multiple words for certain cases.
 For: Z-Machine
 
 Sometimes we do not particularly want to deal with all the variations on asking, telling, or answering someone something, but want to direct everything to a single conversational command:
@@ -15,7 +15,7 @@ Sometimes we do not particularly want to deal with all the variations on asking,
 	
 	Instead of asking the Sybil about "persians", say "She nods gravely."
 
-And similarly, a difference between ``give`` and ``show`` is sometimes overkill:
+And similarly, a difference between ``GIVE`` and ``SHOW`` is sometimes overkill:
 
 	{**}Instead of showing something to someone, try giving the noun to the second noun.
 	

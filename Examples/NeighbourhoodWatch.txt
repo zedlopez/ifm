@@ -13,13 +13,13 @@ Suppose we want a locked door that can be opened with a key, but is also openabl
 	
 	The brass key is carried by the player. It unlocks the shabby door.
 
-The next part is going to require that we modify the normal operation of the ``lock`` command. Locking ordinarily requires that the player supply two objects: a thing they want to unlock, and the key they want to use on it. The full command is ``lock door with the key``, and Inform will not accept simply ``lock door`` as locking.
+The next part is going to require that we modify the normal operation of the ``LOCK`` command. Locking ordinarily requires that the player supply two objects: a thing they want to unlock, and the key they want to use on it. The full command is ``LOCK DOOR WITH THE KEY``, and Inform will not accept simply ``LOCK DOOR`` as locking.
 
 Therefore, we're going to need to create our own new variant on the lock verb (and the unlock verb, while we're at it). The full procedure for this is laid out in the chapters on [Advanced Actions] and [Understanding], but here is an example:
 
 	{**}Understand "lock [something]" as locking keylessly. Locking keylessly is an action applying to one thing.
 
-Here we've created a new action – locking something without a key – and we've told Inform to understand ``lock door`` as this action, rather than an incomplete command to "lock door with [something]".
+Here we've created a new action – locking something without a key – and we've told Inform to understand ``LOCK DOOR`` as this action, rather than an incomplete command to "lock door with [something]".
 
 Now we add some instructions so that the game will not let us use this keyless unlocking command unless we're in the right place or are properly equipped:
 
@@ -29,7 +29,7 @@ Now we add some instructions so that the game will not let us use this keyless u
 		if the player carries the brass key and the player is in the Stairwell, try locking the noun with the brass key instead;
 		if the player is in the Stairwell, say "You can't lock the door from this side without the key." instead.
 
-This check rule is performed before the keyless locking action succeeds. The first thing we do is try to use the key if the player is outside and has the key: this way, ``lock door`` will turn automatically into ``lock door with the key``, under circumstances where that is both possible and necessary.
+This check rule is performed before the keyless locking action succeeds. The first thing we do is try to use the key if the player is outside and has the key: this way, ``LOCK DOOR`` will turn automatically into ``LOCK DOOR WITH THE KEY``, under circumstances where that is both possible and necessary.
 
 The second thing is to check whether the player is outside but keyless, and, if so stop the action from being performed successfully. Here we print a failure message followed by the word "instead", which tells Inform that we've substituted some other outcome for the usual performance of the action.
 

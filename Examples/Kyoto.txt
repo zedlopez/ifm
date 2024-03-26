@@ -2,10 +2,10 @@ Example: ** Kyoto
 Location: Success and failure
 RecipeLocation: Glass and Other Damage-Prone Substances
 Index: THROW [something] AT [something] command enhanced
-Description: Expanding the effects of the ``throw`` something ``at`` something command so that objects do make contact with one another.
+Description: Expanding the effects of the ``THROW SOMETHING AT`` something command so that objects do make contact with one another.
 For: Z-Machine
 
-Suppose we want to expand the function of the existing ``throw something at`` command so that a thrown object actually does make contact most of the time. A glance at the Actions index tells us that the Throwing it at rulebook currently looks like this:
+Suppose we want to expand the function of the existing ``THROW SOMETHING AT`` command so that a thrown object actually does make contact most of the time. A glance at the Actions index tells us that the Throwing it at rulebook currently looks like this:
 
 	Throwing something at something (past tense thrown it at)
 		"drop [something held] at/against/on/onto [something]"

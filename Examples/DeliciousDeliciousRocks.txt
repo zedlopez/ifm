@@ -7,11 +7,9 @@ For: Z-Machine
 
 In some cases, we may want to add new stages to action processing. One possibility is a stage where we check the sanity of what the player is trying to do before executing any of the other commands; so that we avoid, for instance
 
-``` transcript
->eat rock
-(first taking the rock)
-That's plainly inedible.
-```
+	> EAT ROCK
+	(first taking the rock)
+	That's plainly inedible.
 
 Here is how we might insert such a stage in our action processing, using rulebook manipulation.
 

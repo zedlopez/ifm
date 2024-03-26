@@ -13,25 +13,7 @@ Generally this produces good behaviour. Occasionally, though, two objects have s
 	
 	Understand the consumption property as describing an apple.
 
-The player can meaningfully type
-
-``` transcript
->eat bitten apple
-```
-
-or
-
-``` transcript
->eat pristine apple
-```
-
-but if they type
-
-``` transcript
->eat apple
-```
-
-Inform will, annoyingly, ask
+The player can meaningfully type ``EAT BITTEN APPLE`` or ``EAT PRISTINE APPLE`` but if they type ``EAT APPLE`` Inform will, annoyingly, ask
 
 	Which do you mean, an apple or the apple?
 

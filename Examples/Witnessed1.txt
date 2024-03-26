@@ -98,7 +98,7 @@ And this last bit, borrowed from the chapter on [Understanding], adds some speci
 
 	{**}Does the player mean doing something other than searching to a battery compartment: it is unlikely. [We discourage Inform from choosing a compartment when the player uses just the name of a device or the word 'battery'.]
 
-We also need to deal with commands like ``put battery in flashlight``, where Inform might construe ``battery`` as the D battery, the flashlight's battery compartment, or the cassette recorder's battery compartment – and might also construe ``flashlight`` as either the flashlight's battery compartment or the flashlight itself.
+We also need to deal with commands like ``PUT BATTERY IN FLASHLIGHT``, where Inform might construe ``BATTERY`` as the D battery, the flashlight's battery compartment, or the cassette recorder's battery compartment – and might also construe ``FLASHLIGHT`` as either the flashlight's battery compartment or the flashlight itself.
 
 	{**}Does the player mean inserting into a battery compartment:
 		if the noun is nothing:

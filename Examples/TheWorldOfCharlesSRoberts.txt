@@ -30,7 +30,7 @@ Now to forbid the use of the compass directions:
 	
 	Before going a squared-off direction, say "In this hexagonally-divided landscape, squared-off directions are not allowed." instead.
 
-A slight nuisance is that, with things as they are above, typing ``backward`` produces the response "Which do you mean, backward, backward left or backward right?" To avoid that silly question, we write:
+A slight nuisance is that, with things as they are above, typing ``BACKWARD`` produces the response "Which do you mean, backward, backward left or backward right?" To avoid that silly question, we write:
 
 	{**}Does the player mean going backward: it is very likely. Does the player mean going forward: it is very likely.
 

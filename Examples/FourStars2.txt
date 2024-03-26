@@ -9,10 +9,8 @@ As we have seen, a well-written understand rule will often solve the problem of 
 
 For instance, suppose we wanted to extend [Four Stars 1] to add a tomcat on the balcony that will be heard whenever the player listens from the next room, as in:
 
-``` transcript
->listen
-You hear the soothing whalesong from the Bose speaker and the yowling from the tomcat.
-```
+	> LISTEN
+	You hear the soothing whalesong from the Bose speaker and the yowling from the tomcat.
 
 To do this, we need to make sure that in the rule that assembles our listening description,
 

@@ -5,9 +5,9 @@ Index: About Inform's regular expression support
 Description: Some footnotes on Inform's regular expressions, and how they compare to those of other programming languages.
 For: Untestable
 
-There is not really any unanimity about what regular expression language is. The unix tools sed and grep extend on Kleene's original grammar. Henry Spencer's regex library extended on this again, and was a foundation for Perl, but Perl once again went further. Philip Hazel's ``pcre``, despite the name Perl Compatible Regular Expressions, makes further extensions still, and so on.
+There is not really any unanimity about what regular expression language is. The unix tools sed and grep extend on Kleene's original grammar. Henry Spencer's regex library extended on this again, and was a foundation for Perl, but Perl once again went further. Philip Hazel's PCRE, despite the name Perl Compatible Regular Expressions, makes further extensions still, and so on.
 
-Inform's regular expressions are modelled on those of Perl, as the best de facto standard we have, but a few omissions have been inevitable. Inform's regex matcher must occupy source code less than one hundredth the size of ``pcre``, and it has very little memory. Inform aims to behave exactly like Perl except as follows:
+Inform's regular expressions are modelled on those of Perl, as the best de facto standard we have, but a few omissions have been inevitable. Inform's regex matcher must occupy source code less than one hundredth the size of PCRE, and it has very little memory. Inform aims to behave exactly like Perl except as follows:
 
 1. Inform allows angle brackets as synonymous with square brackets, for reasons explained above. This means literal angle brackets have to be escaped as "\<" and "\>" in Inform regular expressions, which is unnecessary in Perl.
 

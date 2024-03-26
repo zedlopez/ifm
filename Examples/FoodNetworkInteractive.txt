@@ -27,5 +27,5 @@ And since we've promised a sub-menu of recipes:
 	
 	Whole Foods is a room.
 
-To test it, type ``help`` and then experiment.
+To test it, type ``HELP`` and then experiment.
 

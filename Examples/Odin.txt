@@ -9,10 +9,8 @@ In recent years there has been a strong trend towards providing unique descripti
 
 The trick here is that leaving items completely undescribed leads to rather dull exchanges like this:
 
-``` transcript
->x table
-You see nothing special about the table.
-```
+	> X TABLE
+	You see nothing special about the table.
 
 ...which can leave the player with the impression that the author was simply too lazy to describe everything. So it can be a good idea to replace that default message with a different one more appropriate to the game. For instance:
 
