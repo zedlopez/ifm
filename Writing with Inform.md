@@ -92,7 +92,7 @@ Clicking Go with this text in the Source panel will result in a short delay, aft
 
 ^^{user interface: Replay button} ^^{Replay button+ui+}
 
-Replay works identically to Go, except that it does something further: once the story is created, it automatically plays through the same commands as were typed into the previous version. For instance: suppose we click Go to bring Midsummer Day into being, and find ourselves playing the story. We type "look" and find that there is not much to see. Going back to the source, we add
+Replay works identically to Go, except that it does something further: once the story is created, it automatically plays through the same commands as were typed into the previous version. For instance: suppose we click Go to bring Midsummer Day into being, and find ourselves playing the story. We type ``LOOK`` and find that there is not much to see. Going back to the source, we add
 
 	"A white canvas parasol raised up on stakes driven into the grass."
 
@@ -102,7 +102,7 @@ so that the source now reads
 	
 	The Gazebo is a room. "A white canvas parasol raised up on stakes driven into the grass."
 
-Instead of clicking Go, we click Replay, and can sit back and watch what has changed. In this example, it only saves us the trouble of typing "look", but once stories become long and elaborate, Replay is invaluable: and especially when we notice in play that something very minor is wrong – a spelling error, say – and want to fix it immediately, without fuss.
+Instead of clicking Go, we click Replay, and can sit back and watch what has changed. In this example, it only saves us the trouble of typing ``LOOK``, but once stories become long and elaborate, Replay is invaluable: and especially when we notice in play that something very minor is wrong – a spelling error, say – and want to fix it immediately, without fuss.
 
 {Linux:}Replay is not implemented in the text-mode Linux interface.
 
@@ -138,66 +138,86 @@ How this looks is different in different Inform apps, but this is usually presen
 
 ^^{|is <-- to be} ^^{initial state of the world <-- beginning of story <-- introduction} ^^{starting conditions} ^^{assertions}^^^{initial state of the world <-- story structure: beginning}
 
-Designing an interactive fiction can be divided into two related activities. One is the creation of the world as it appears at the start of play: where and what everything is. The other is to specify the rules of play, which shape how the player interacts with that initially created world. A new Inform project is void and without form, so to speak, with nothing created: but it starts with hundreds of standard rules already in place.
+Designing an interactive fiction divides into two parts. One part is the creation of the world as it appears at the start of the story: where and what everything is. The other is to specify what people say and do when the story is running, by giving rules which shape how the player interacts with the world.
 
-The same division between creating things, and laying down rules, is visible in Inform source text. The creation of the world is done by making unconditional factual statements about it. For example,
+A new Inform project starts with a world which is void and without form, so to speak, with nothing created: but it starts with hundreds of standard rules already in place.
 
-	The wood-slatted crate is in the Gazebo. The crate is a container.
+The same division between creating things, and laying down rules, is visible in Inform source text. The creation of the world is done by making unconditional factual statements (sometimes called "assertions") about it. For example:
 
-Inform calls sentences like these "assertions". The verb is always written in the present tense (thus the crate "is", not "will be"). Further examples are:
+	The Gazebo is a room. The wood-slatted crate is in the Gazebo.
+	The crate is a container.
+
+The verb is always written in the present tense (so the crate `is`, not `will be`, in the Gazebo). But the verb is not necessarily `is`:
 
 	Mr Jones wears a top hat. The crate contains a croquet mallet.
 
-The words "is", "wears" and "contains" are forms of three of the basic verbs built in to Inform. There are only a few built-in assertion verbs, of which the most important are *to be*, *to have*, *to carry*, *to wear*, *to contain* and *to support*. (As we shall see, further assertion verbs can be created if needed.)
+Verbs like `is`, `wears` and `contains` are from a small basic stock built in to Inform: *to be*, *to have*, *to carry*, *to wear*, *to contain*, *to support* and a few others less frequently used. Authors can then add whatever new verbs make it easier to tell the story. For example, in a romance, *to love* might be convenient, but in other stories not.
 
-The world described by these assertions is the starting condition of the story: what happens when play begins is another matter. If somebody picks up the crate and walks off with it, then it will no longer be in the Gazebo. Mr Jones may remove his hat.
+In the same way, sentences like `The Gazebo is a room.` and `The crate is a container.` use a very small built-in set of common nouns: in this case, `room` and `container`. But other common nouns can easily be added. Inform would initially reject the sentence `The Gazebo is a garden area.` because it does not know what a `garden area` is, but the author can teach it by writing `A garden area is a kind of room.` So, once again, a small core vocabulary will gradually be expanded by the author to meet the needs of the story.
+
+The world described by these assertions is the starting condition of the story: what happens when play begins is another matter. If somebody picks up the crate and walks off with it, then it will no longer be in the Gazebo. Mr Jones may remove his hat. This is what is done with _rules_, which are the subject of the next section.
 
 ## Making rules
 
 ^^{rules: defining} ^^{defining: rules}^^^{defining <-- creating} ^^{+to+if (a condition)} ^^{+to+now (a condition)} ^^{Phrases page of Index panel+ui+} ^^{user interface: Index panel: Phrases page} ^^{Index panel+ui+: Phrases page}
 
-The other kind of sentence tells Inform what should happen in certain circumstances, and reads like an instruction issued to someone:
+So, then, part of the source text for a story is taken up with assertions like `The crate contains a croquet mallet.` Those describe only the initial situation. But the source text also has to say what happens as the player interacts with the situation. It does that with rules.
+
+Rules tell Inform what should happen in certain circumstances. They read like an instruction issued to someone:
 
 	Instead of taking the crate, say "It's far too heavy to lift."
 
-This is a "rule", and it changes the crate's behaviour. The player who tries typing "take crate", "pick up the crate" or similar will be met only with the unhelpful reply "It's far too heavy to lift." The many different kinds of thing which the player can do are called "actions", and are always written as participles: "taking ...", for instance, or "putting ... on ...".
+This rule changes the crate's behaviour. The player who tries typing ``TAKE CRATE``, ``PICK UP THE CRATE`` or similar will be met only with the unhelpful reply ``It's far too heavy to lift.`` The many different kinds of thing which the player can do are called _actions_, and are always written as participles: `taking the crate`, for instance, or `putting the crate on the table`.
 
-Inform is built on a mass of several hundred rules, some quite complex, and it could even be said that Inform *is* that mass of rules. We never see the complexity behind the scenes because the whole aim is to provide a basic, penny-plain, vanilla flavoured sort of realism. It would be surprising if one could put the crate inside itself, so a rule exists to forbid this. It would be surprising if one could drop something which was already on the ground, and so on. These basic rules of realism are the ones which every new Inform project starts with.
+Whereas the world of the story initially has no rooms, no people and no things, and the author has to create everything, it begins with a mass of several hundred rules, some quite complex, and it could even be said that Inform *is* that mass of rules. The aim is to provide a basic, penny-plain, vanilla flavoured sort of realism. It would be surprising if one could put the crate inside itself, so a rule exists to forbid this. It would be surprising if one could drop something on the ground if it was already on the ground, and so on. These hundreds of unseen rules can be browsed in the Index of a project, and we will later see how to modify or waive them, but almost all authors want these rules to apply almost all of the time.
 
-A rule always starts with a situation which it applies to, and then follows with one or more things to do. Here's an example where the situation is "Before taking the crate" – the player is just starting to try to pick the box up – and there's a three-step process to follow, but steps 2 and 3 happen only if step 1 comes out in a particular way:
+A rule always starts with a situation which it applies to, and then follows with one or more things to do. Here's an example where the situation is `Before taking the crate` – the player is just starting to try to pick the box up:
 
 	Before taking the crate:
 		if the player is wearing the hat:
 			now the hat is in the crate;
 			say "As you stoop down, your hat falls into the crate."
 
-The steps to follow here are called "phrases". Inform knows about 400 built-in phrases, but most of them are needed only occasionally. These three are used over and over again:
+The steps to follow here are called "phrases". Inform knows about 400 built-in phrases (and once again, authors can add more), but most of them are needed only occasionally. These three are used over and over again:
 
-> **if** tells Inform to do something only if some "condition" holds, here "the player is wearing the hat";
-> **now** tells Inform to change the situation, here so that the hat moves to the crate; and
-> **say** tells Inform to say something, that is, to write some text for the player to read.
+* `if` tells Inform to do something only if some _condition_ holds, here `the player is wearing the hat`;
+* `now` tells Inform to change the situation, here so that the hat moves to the crate; and
+* `say` tells Inform to write some story text for the player to read.
 
-Every one of the built-in phrases has a definition somewhere in this book. The full definition of "say" will come later, but in the simple form above it writes out the given text for the player to read. (Normally this text is simply shown on screen, not spoken aloud, unless software adapted for partially sighted people is being used.) Phrase definitions are all linked to in the Phrases page of a project's Index.
+Every one of the built-in phrases has a definition somewhere in this book. The full definition of `say` will come later, but in the simple form above it writes out the given text for the player to read. (Normally this text is simply shown on screen, not spoken aloud, unless software adapted for partially sighted people is being used.) Phrase definitions are all linked to in the Phrases page of a project's Index.
 
 ## Punctuation {PM_UnendingQuote} {PM_UnendingComment} {PM_TooMuchQuotedText} {PM_WordTooLong} {PM_EnigmaticPronoun} {PM_EnigmaticThey}
 
 ^^{punctuation} ^^{punctuation: full stop: ending sentences with line breaks} ^^{|.: ending sentences with line breaks}^^^{punctuation: full stop <-- full stop <-- period}^^^{punctuation: full stop <-- punctuation: period}^^^{punctuation: square brackets <-- square brackets} ^^{punctuation: square brackets: comments} ^^{|[ ]: comments} ^^{punctuation: square brackets: text substitutions} ^^{|[ ]: text substitutions} ^^{punctuation: question mark, ending sentences <-- question mark} ^^{(?), ending sentences+sourcepart+} ^^{punctuation: exclamation mark, ending sentences <-- exclamation mark} ^^{(!), ending sentences+sourcepart+} ^^{punctuation: apostrophe, meaning quotation mark <-- apostrophe} ^^{('), meaning (")+sourcepart+}^^^{punctuation: quotation marks <-- quotation marks} ^^{punctuation: quotation marks: defining texts} ^^{|": defining texts} ^^{comments: in source text} ^^{line breaks: produced by sentence-ending punctuation}
 
-An example rule from the previous section demonstrates one of Inform's conventions about punctuation, and is worth pausing to look at again.
+The first thing we all learn about punctuation is that full stops finish a sentence. So this is read as two sentences, not one:
 
-	Instead of taking the crate, say "It's far too heavy to lift."
+	Mr Jones wears a top hat. The crate contains a croquet mallet.
 
-In English grammar, it's usual to regard a full stop as closing its sentence even when it occurs inside quotation marks, provided there is no indication to the contrary, and this is also the rule used by Inform. Thus:
+But a full stop also closes a sentence in Inform even when it occurs inside quotation marks, provided there is no indication to the contrary. Thus:
 
 	An apple is here. The description is "Shiny." It is edible.
 
-is read as equivalent to
+is read as three sentences, not two. It is equivalent to:
 
 	An apple is here. The description is "Shiny.". It is edible.
 
-Sentence breaks like this occur only when the final character of the quoted text is a full stop, question mark or exclamation mark (or one of these three followed by a close bracket) and the next word begins, in the source code, with a capital letter. A paragraph break also divides sentences, behaving as if it were a full stop.
+(which also works). Sentence breaks like this occur only when the final character of the quoted text is a full stop `.`, question mark `?` or exclamation mark `!`, or one of these three followed by a close bracket `)`; and only when the next word of the source text begins with a capital letter. (So in this example, the `I` of `It` is the letter in question.)
 
-Material in square brackets [like so] is "comment", in computing jargon: it is considered as being an aside, a private note by the author, and not read in by Inform. This allows us to make notes to ourselves like so:
+A paragraph break also divides sentences, behaving as if it were a full stop. So this:
+
+	Mr Jones wears a top hat
+	
+	The crate contains a croquet mallet.
+
+is two sentences, not one with a strange vertical gap in it. But this is not good style, and authors should try to use normal English punctuation when possible. Also, note that a single line break is not a paragraph break. This:
+
+	Mr Jones wears a top hat
+	The crate contains a croquet mallet.
+
+...is read as one sentence, not two, even though it doesn't make very good sense that way. All of this is to say that punctuation is not just decoration in Inform: it affects what the source text means.
+
+Material in square brackets `[like so]` is _comment_, in computing jargon: it is considered as being an aside, a private note by the author, and not read in by Inform. This allows us to make notes to ourselves like so:
 
 	The China Shop is a room. [Remember to work out what happens if the bull gets in here!]
 
@@ -205,37 +225,55 @@ Inform is all about text, so pieces of text are often quoted in Inform source. T
 
 	An apple is here. The description is "Shiny." It is edible.
 
-Quotations always use double-quotation marks, which aren't part of the text. So the description here is just the five letters and full stop in between the marks:
-
-	> EXAMINE APPLE
-	Shiny.
+Quotations always use double-quotation marks, which aren't part of the text. So the description here is just the five letters and full stop in between the marks.
 
 That seems straightforward, but there are three conventions to watch out for.
 
-1. Square brackets [ and ] inside quoted text don't literally mean [ and ]. They're used to describe what Inform should say, but in a non-literal way. For example,
+1. Square brackets `[` and `]` inside quoted text don't literally mean "[" and "]". They're used to describe what Inform should say, but in a non-literal way. For example,
 
-	"Your watch reads [time of day]."
+       "Your watch reads [time of day]."
 
-might produce ``Your watch reads 9:02 AM.`` These are called "text substitutions". They're highly flexible, and they can take many different forms.
+   might produce ``Your watch reads 9:02 AM.`` These are called _text substitutions_. They're highly flexible, and can take many different forms.
 
 2. Single quotation marks at the edges of words are printed as double. So:
 
-	"Simon says, 'It's far too heavy to lift.'"
+	   "Simon says, 'It's far too heavy to lift.'"
 
-produces ``Simon says, "It's far too heavy to lift."``
+   produces ``Simon says, "It's far too heavy to lift."``
 
 3. Texts which end with sentence-ending punctuation – full stop, question mark, exclamation mark – are printed with a line break after them. So:
 
-	say "i don't know how this ends";
-	say "I know just how this ends!";
+	   say "I don't know how this ends";
+	   say "I know just how this ends!";
 
-would come out quite differently – this doesn't affect the appearance of the text, but only the position where the next text will appear. Something to be careful about is that this only applies when the punctuation occurs at the end of a "say", as in these examples. (It doesn't apply when a varying textual value is printed, using some text substitution, because then the pattern of where line breaks occur would be unpredictable – sometimes the value might end in a punctuation mark, sometimes not.)
+   would come out quite differently – this doesn't affect the appearance of the text, but only the position where the next text will appear. Something to be careful about is that this only applies when the punctuation occurs at the end of a `say`, as in these examples. (It doesn't apply when a varying textual value is printed, using some text substitution, because then the pattern of where line breaks occur would be unpredictable – sometimes the value might end in a punctuation mark, sometimes not.)
 
-These three punctuation rules for texts feel very natural with practice, and Inform users sometimes don't realise the third rule is even there, because it just seems the right thing to happen. But occasionally the rules get in the way of what we want to do. (For instance, how do we get a literal [ or ]? What if we want a single quote mark where Inform thinks we want a double, or vice versa?) So we'll come back to these rules in more detail in the chapter on [Text].
+These three punctuation rules for texts feel very natural with practice, and Inform users sometimes don't realise the third rule is even there, because it just seems the right thing to happen. But occasionally the rules get in the way of what we want to do. (For instance, how do we get a literal ``[`` or ``]``? What if we want a single quote mark where Inform thinks we want a double, or vice versa?) So we'll come back to these rules in more detail in the chapter on [Text].
 
-Inform also reads other punctuation marks. Colon ":" and semicolon ";" turned up in the previous section, in the writing of rules.
+Inform also reads other punctuation marks. Colon `:` and semicolon `;` turned up in the previous section, in the writing of rules.
 
-As these examples begin to show, Inform source imitates the conventions of printed books and newspapers whenever there is a question of how to write something not easily fitting into words. The first example of this is how Inform handles headings, but to see why these are so useful we first look at Problems.
+	Before taking the crate:
+		if the player is wearing the hat:
+			now the hat is in the crate;
+			say "As you stoop down, your hat falls into the crate."
+
+The colon `:` indicates that a run of instructions (called _phrases_ in Inform, for traditional reasons) follows, and note that there are two of them in this definition. The semicolon `;` divides one phrase from another. But this would be wrong:
+
+	Before taking the crate:
+		if the player is wearing the hat:
+			now the hat is in the crate.
+			say "As you stoop down, your hat falls into the crate."
+
+The only difference is the full stop `.` at the end of the third line. That ends the rule, so Inform then tries to read the `say` line is if it were a new sentence or rule, which will not make any sense.
+
+Rules can leave out the colon and replace it with a comma `,` in just one case, when there is only one phrase which follows. So this:
+
+	Instead of taking the crate, say "It's far too heavy to lift."
+
+means the same as:
+
+	Instead of taking the crate:
+		say "It's far too heavy to lift."
 
 ### See Also
 
@@ -245,17 +283,13 @@ As these examples begin to show, Inform source imitates the conventions of print
 
 ^^{error messages: for source text} ^^{problem messages: for source text}
 
-The language used in the source reads as if it were English aimed at a human reader (and this is intentional: the designer, after all, is a human reader and needs to be able to understand their own source), but in reality Inform can only understand a very modest range of sentences and will complain if its limits are passed. Subtler problems arise if the source contains contradictions. For instance, the following "Problem" might be produced:
+The language used in the source reads as if it were English aimed at a human reader, but in reality Inform can only understand a very modest range of sentences and will complain if its limits are passed. Subtler problems arise if the source contains contradictions. For instance, the following "Problem" might be produced:
 
-``` problems
-**Problem.** You wrote 'A starting pistol is in the cup' ![Reveal](doc_images/Reveal.png), but in another sentence 'A Panama hat is on the cup' ![Reveal](doc_images/Reveal.png): the trophy cup cannot both contain things and support things, which is what you're implying here. If you need both, the easiest way is to make it either a supporter with a container attached or vice versa. For instance: 'A desk is here. On the desk is a newspaper. An openable container called the drawer is part of the desk. In the drawer is a stapler.'
-```
+> **Problem.** You wrote 'A starting pistol is in the cup' ![Reveal](doc_images/Reveal.png), but in another sentence 'A Panama hat is on the cup' ![Reveal](doc_images/Reveal.png): the trophy cup cannot both contain things and support things, which is what you're implying here. If you need both, the easiest way is to make it either a supporter with a container attached or vice versa. For instance: 'A desk is here. On the desk is a newspaper. An openable container called the drawer is part of the desk. In the drawer is a stapler.'
 
-This is a rather discursive error message, and if a similar problem were to occur in the same run through, it would be curtailed to:
+As this one shows, some Problem messages give long explanations, or hints as to how to avoid them. If a similar problem were to occur in the same run through, the same Problem message would be curtailed to something briefer:
 
-``` problems
-**Problem.** You wrote 'A firing pistol is in the box' ![Reveal](doc_images/Reveal.png), but in another sentence 'A fedora hat is on the box' ![Reveal](doc_images/Reveal.png): again, the croquet box cannot both contain things and support things.
-```
+> **Problem.** You wrote 'A firing pistol is in the box' ![Reveal](doc_images/Reveal.png), but in another sentence 'A fedora hat is on the box' ![Reveal](doc_images/Reveal.png): again, the croquet box cannot both contain things and support things.
 
 ## Headings {HEADINGS} {PM_HeadingOverLine} {PM_HeadingStopsBeforeEndOfLine} {PM_BadTitleSentence}
 
@@ -283,41 +317,45 @@ We will later see that more bibliographic information can also be placed here, i
 
 needs quotes as otherwise the full stop after the K will be mistaken for the end of a sentence.
 
-A sentence which is the only one in its paragraph and which begins with any of the words "volume", "book", "part", "chapter" or "section" is considered to be a heading or a sub-heading. It must not contain a typed line break, and in order to stand alone in its paragraph there should be a skipped line both before and after it. For instance:
+A sentence which is the only one in its paragraph and which begins with any of the words `Volume`, `Book`, `Part`, `Chapter` or `Section` is considered to be a heading or a sub-heading. For instance:
 
 	Section 2 - Flamsteed's Balloon
 
-Headings can be written in any format, provided they start with one of the five indicator words, and they are hierarchical: a "Part ..." heading is considered more significant than a "Chapter ..." heading but not so significant as a "Book ..." heading, and so on. (We do not need to use all five kinds of heading.)
+It must not contain a typed line break, and in order to stand alone in its paragraph there should be a skipped line both before and after it. There's no need for a number to have any particular format, or to be used at all:
+
+	Book of Locations
+
+	Part II - The Sky
+
+Headings are hierarchical: a `Part` heading is considered more significant than a `Chapter` heading but not so significant as a `Book` heading, and so on. Most stories do not use all five levels, of course.
 
 ## Why using headings is a good idea
 
 ^^{headings <-- index+ofsource+} ^^{subheadings} ^^{source text: subdivisions} ^^{outline+ofsource+} ^^{Contents page of Index panel+ui+} ^^{user interface: Index panel: Contents page} ^^{Index panel+ui+: Contents page} ^^{disambiguation: of source text}
 
-Reports of problems, as we have seen, often quote back the source to justify themselves. Rather than quoting line numbers ("Midsummer Day, line 2017" or something similar) Inform uses the ![Reveal](doc_images/Reveal.png) icon. The down side of this is that a glance at the list of problems might give little hint of whereabouts in the source the difficulties lie. Inform therefore makes use of headings to give a general indication:
+Reports of problems, as we have seen, often quote back the source to justify themselves. Rather than quoting line numbers (```Midsummer Day, line 2017``` or something similar) Inform uses the ![Reveal](doc_images/Reveal.png) icon. The down side of this is that a glance at the list of problems might give little hint of whereabouts in the source the difficulties lie. So Inform also uses headings to give a general indication:
 
-``` problems
-In Part the First, Chapter 1 - Attic Area:
-
-**Problem.** You wrote 'South of the Attic is the Winery' ![Reveal](doc_images/Reveal.png), but in another sentence 'South of the Attic is the Old Furniture' ![Reveal](doc_images/Reveal.png): this looks like a contradiction, which might be because I have misunderstood what was meant to be the subject of one or both of those sentences.
-
-In Chapter 2 - Deeper In:
-
-**Problem.** You wrote 'The Disused Observatory is south of the Dark Room' ![Reveal](doc_images/Reveal.png), but in another sentence 'South of the Dark Room is the Cupboard' ![Reveal](doc_images/Reveal.png): again, this looks like a contradiction.
-```
+> **In Part the First, Chapter 1 - Attic Area:**
+> 
+> **Problem.** You wrote 'South of the Attic is the Winery' ![Reveal](doc_images/Reveal.png), but in another sentence 'South of the Attic is the Old Furniture' ![Reveal](doc_images/Reveal.png): this looks like a contradiction, which might be because I have misunderstood what was meant to be the subject of one or both of those sentences.
+> 
+> **In Chapter 2 - Deeper In:**
+> 
+> **Problem.** You wrote 'The Disused Observatory is south of the Dark Room' ![Reveal](doc_images/Reveal.png), but in another sentence 'South of the Dark Room is the Cupboard' ![Reveal](doc_images/Reveal.png): again, this looks like a contradiction.
 
 Secondly, headings are used in the Contents page of the Index, and they allow rapid navigation through the source, by jumping to any heading or subheading with a single click.
 
-Finally, headings are used when working out what a name refers to. Suppose the source contains both a "four-poster bed" and also a "camp bed", and we write something like "The pillow is on the bed." Inform decides which bed is meant by giving priority to whichever is defined in the current section (so far), or failing that the current chapter, or current part, or current book, or finally the current volume. This allows us to write, for instance,
+Finally, headings are used when working out what a name refers to. Suppose the source contains both a `four-poster bed` and also a `camp bed`, and we write something like `The pillow is on the bed.` Inform decides which bed is meant by giving priority to whichever is defined in the current section (so far), or failing that the current chapter, or current part, or current book, or finally the current volume. This allows us to write, for instance,
 
 	The four-poster bed is in the Boudoir. The pillow is on the bed.
 
-and not have the pillow mysteriously turn up on the camp bed, which hasn't been mentioned since way back in Chapter 2, the [Source Text].
+and not have the pillow mysteriously turn up on the `camp bed`, which hasn't been mentioned for a long time.
 
 ## The ``SHOWME`` command
 
 ^^{SHOWME+testcmd+} ^^{testing commands: >SHOWME} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page} ^^{user interface: Release button} ^^{Release button+ui+}
 
-Problem messages are generated when the source text does not make sense to Inform. Even if it does make sense, though, there is no guarantee that it does what the author intends, and the only way to find out is to test the result by playing through it (or asking others to). For the most part one plays as if one were the eventual reader of the work, but sometimes it is highly convenient to have the god-like powers which are an author's prerogative. These are provided by the testing commands, which are present at every stage until the final release version (generated by the Release button). They will be introduced in this manual as they become relevant: here is the first.
+Problem messages are generated when the source text does not make sense to Inform. Even if it does make sense, though, there is no guarantee that it does what the author intends, and the only way to find out is to test it. When testing, it is sometimes highly convenient to have the god-like powers which are every author's right. These are provided by special testing commands, which are present in the story right up until the final release version (generated by the Release button). They will be introduced in this manual as they become relevant: here is the first.
 
 The testing command ``SHOWME`` prints out a brief summary about a room or thing, and any contents or parts it may have. Typing ``SHOWME`` on its own shows the current room, but any item or room in the story, however distant, can be named instead. For instance:
 
@@ -327,18 +365,19 @@ The testing command ``SHOWME`` prints out a brief summary about a room or thing,
 		yourself - person
 		pillow
 
-	>showme diamonds
+	> SHOWME DIAMONDS
 	diamonds - thing
 	location: in the strongbox on the dresser in the Drawing Room
 	unlit; inedible; opaque; portable; singular-named; improper-named
 	description: The diamonds glitter dangerously.
 	printed name: diamonds
 
-Much of this can be seen, and seen more easily, in the World tab of the Index panel: but that only shows the initial state of play, whereas the ``SHOWME`` command reveals the situation in mid-story. ("Room", "supporter" and so on are kinds, of which more in Chapter 3, [Things].)
+Much of this can be seen, and seen more easily, in the World tab of the Index panel: but that only shows the initial state of play, whereas the ``SHOWME`` command reveals the situation in mid-story. (`Room`, `supporter` and so on are kinds, of which more in Chapter 3, [Things].)
 
 ### See Also
 
-- [High-level debugging commands] for more convenient testing commands like this one.
+- [The ``TEST`` command] for another frequently-used testing command.
+- [High-level debugging commands] for the full roster of them.
 
 ## The ``TEST`` command {PM_TestMultiWord} {PM_TestDuplicate} {PM_TestBadRequirements} {PM_TestContainsUndo} {PM_TestCommandTooLong} {PM_TestDoubleWith} {PM_UnknownInternalTest}
 
@@ -346,13 +385,13 @@ Much of this can be seen, and seen more easily, in the World tab of the Index pa
 
 The only way to thoroughly test a work of IF is to run a complete solution through it, and carefully check the resulting transcript of dialogue. But most works of interactive fiction contain occasional vignettes, either in terms of short scenes of narrative, or in the behaviour of particular things or rooms. The examples in the documentation are like this: in almost every example, typing ``TEST ME`` puts the story through its paces.
 
-Solutions or sequences for testing ("scripts") can be defined with sentences like so:
+Tests work through a script of commands, set up like so:
 
 	Test balloon with "get balloon / blow balloon / drop balloon".
 
 This has no effect on the design itself, but ensures that when the story is played, typing ``TEST BALLOON`` will run through the given three commands in sequence, as if we had typed ``GET BALLOON`` and then ``BLOW BALLOON`` and then ``DROP BALLOON``.
 
-The name for the test (balloon in this example) has to be a single word. Typing just ``TEST`` at the story prompt gives a list of all the test scripts known to the story. Test scripts can make use of each other, for instance:
+The name for the test (`balloon` in this example) has to be a single word. Typing just ``TEST`` at the story prompt gives a list of all the test scripts known to the story. Test scripts can make use of each other, for instance:
 
 	Test all with "test balloon / test door".
 
@@ -362,7 +401,7 @@ Many tests will only be sensible in given places, which may be hard to reach fro
 
 	Test balloon with "get balloon / blow balloon / drop balloon" holding the balloon.
 
-The "... holding the balloon" means that the balloon will be transferred to the player's ownership immediately before the test script is run, unless it is already held. Similarly:
+The `holding the balloon` means that the balloon will be transferred to the player's ownership immediately before the test script is run, unless it is already held. Similarly:
 
 	Test jam with "get jam / taste jam / eat jam" in the Kitchen.
 
@@ -370,7 +409,7 @@ Or we might want to say both:
 
 	Test jam with "get jam / taste jam / eat jam" in the Kitchen holding the jam.
 
-(Single quotation marks in test scripts are interpreted the same way in test scripts as they are in other text: that is, they are sometimes read as double-quotes unless they appear to be present as apostrophes. The notation ['] forces a single quotation mark if necessary. Similarly, [/] forces a literal forward slash, and prevents the / from being read as dividing up two commands.)
+(Single quotation marks in test scripts are interpreted the same way in test scripts as they are in other text: that is, they are sometimes read as double-quotes unless they appear to be present as apostrophes. The notation `[']` forces a single quotation mark if necessary. Similarly, `[/]` forces a literal forward slash, and prevents the `/` from being read as dividing up two commands.)
 
 Sometimes when testing it's convenient to get hold of something not easily available at the moment. The testing command ``PURLOIN`` does this:
 
@@ -382,6 +421,10 @@ The jewelled Turkish clockwork hat is in the sealed glass box.
 ```
 
 This can also make test scripts shorter, but of course it's important to make sure that people without ``PURLOIN`` powers can still play through.
+
+### See Also
+
+- [High-level debugging commands] for the full set of testing commands.
 
 ## Material not for release
 
@@ -396,9 +439,9 @@ Special testing commands, like ``TEST`` and ``SHOWME``, are automatically exclud
 	Carry out universal opening: now all doors are open.
 	Report universal opening: say "Open Sesame!"
 
-Clearly we do not wish the final reader to be able to type ``OPEN SESAME``, so this whole heading will be disregarded in the Release version, as will any heading whose name includes "not for release".
+Clearly we do not wish the final reader to be able to type ``OPEN SESAME``, so this whole heading will be disregarded in the Release version, as will any heading whose name includes `not for release`.
 
-Note that if a chapter, say, is marked as "not for release", then its subheadings (mere sections) will also not be for release. If in doubt, check the "Contents" index: if any section is "not for release" then so are all of its subheadings.
+Note that if a chapter, say, is marked as `not for release`, then its subheadings (mere sections) will also not be for release. If in doubt, check the "Contents" index: if any section is `not for release` then so are all of its subheadings.
 
 The reverse effect is produced by:
 
@@ -406,63 +449,39 @@ The reverse effect is produced by:
 
 That is, it marks material included only in a Release version.
 
-## Installing extensions {PM_BogusExtension}
+## Including extensions {PM_BogusExtension} {PM_IncludeExtQuoted} {PM_ExtVersionMalformed} {PM_ExtMiswordedBeginsHere} {PM_ExtInadequateVM} {PM_ExtMisidentifiedEnds}
 
-^^{extensions: installing} ^^{files (compiling): extensions} ^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
+^^{extensions: installing} ^^{files (compiling): extensions} ^^{extensions: using} ^^{include (extension) by (extension author)+assert+} ^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
 
-The original Inform of 1993 provided no special facilities for "extensions" – in effect, additional packets of rules providing extra features – but the creation and circulation of these extensions soon became a flourishing part of Inform culture. Today's Inform actively promotes sharing of such extensions, both to bring writers together and to support good practice. For the user of an extension, the advantage is clear: why go to great trouble to (say) work out how to make doors open automatically as needed, when somebody else has already perfected this? For the writer of an extension, there is the satisfaction of producing a good solution to a ticklish problem, and contributing to the public good.
+_Extensions_ are additional packets of rules or other facilities which provide additional features to an Inform story. Writing and sharing extensions has always been a flourishing part of Inform culture. For the user of an extension, the advantage is clear: why go to great trouble to (say) work out how to make doors open automatically as needed, when somebody else has already perfected this? For the writer of an extension, there is the satisfaction of producing a good solution to a ticklish problem, and contributing to the public good.
 
-Newcomers will probably not need extensions for quite some while, but there is nothing difficult about using them, so a few brief notes are worth giving here. (The final chapter of the documentation, [Extensions] covers the writing of new extensions.)
+As a typical example of what extensions do, `Locksmith by Emily Short` provides a more detailed handling of locks and sets of keys. It would be invaluable for a story which a lot of locked doors, such as a murder mystery, but plenty of other stories would have no need of it. Because of that, these features are left to an extension to provide, rather than being built in.
 
-Extensions are identified by name (say "Following People") and also by author (say "Mary Brown"). They need to be installed before they can be used, which means downloading them from the Internet. By far the easiest way to do this is to use the Public Library feature of Inform: then the application can do everything, letting us either choose individual extensions or download them en masse. But it's also possible to install extensions by hand.
+Extension names consist of a title, then `by`, then the name of an author. For example, this is a valid extension name:
 
-{OSX,^app:}When using Inform on Mac OS X, use the File menu item **Show Extensions Folder** to open the relevant folder in the Finder. Each author has a subfolder of this folder, and their extensions live inside it.
+	Following People by Mary Brown
 
-{Windows,^app:}When using Inform on Windows, this means storing them in the folder
+To be used, an extension must first be got hold of. There are several ways to do that:
 
-{Windows,^app:}	My Documents\Inform\Extensions
+1) download it from, say, Mary Brown's website;
+2) copy it over from another project;
+3) download it from the Public Library feature of the Inform apps, which offer access to some popular extensions from the Inform website.
 
-{Windows,^app:}Each author has a subfolder of this folder, and their extensions live inside it. Our example extension should therefore be placed as:
+In cases (1) and (2), we would then need to use a feature of the Inform app to add an extension file to a project. An extension can either be a simple file with the file extension `.i7x` (say, `Locksmith.i7x`), or a mass of resources zipped up into a single file and with the extension `.i7xd`. The Inform app is equally happy to use either.
 
-{Windows,^app:}	My Documents\Inform\Extensions\Mary Brown\Following People.i7x
+In case (3), installation happens automatically when the download completes.
 
-{Linux,^app:}When using Inform on Linux, this means storing them in the folder
+Either way, an important change made to Inform in 2023 was that each project now has its own independent set of extensions. In the past, it was possible to download an extension to a central pool kept on the user's computer somewhere, and then they would be shared by all of that user's stories. This is no longer true. **Each project now has its own independent set of extensions.** The Extensions tab in the Inform app shows what is currently installed in a project.
 
-{Linux,^app:}	~/Inform/Extensions/
-
-{Linux,^app:}where "~" signifies your home folder. (This will have been created for you the first time you ran i7.)  Each author has a subfolder of this folder, and their extensions live inside it. Our example extension should therefore be placed as:
-
-{Linux,^app:}	~/Inform/Extensions/Mary Brown/Following People.i7x
-
-{GNOME,^app:}When using Inform on Linux, this means storing them in the folder
-
-{GNOME,^app:}	~/Inform/Extensions/
-
-{GNOME,^app:}where "~" signifies your home folder. (This will have been created for you the first time you ran i7.)  Each author has a subfolder of this folder, and their extensions live inside it. Our example extension should therefore be placed as:
-
-{GNOME,^app:}	~/Inform/Extensions/Mary Brown/Following People.i7x
-
-In fact, though, Inform can automatically install extensions for us: we need only select the "Install Extension..." item on the File menu.
-
-The actual extension file should always be named with a ".i7x" suffix, meaning "I7 extension" – for instance, "Following People.i7x".
-
-To provide an example, ^{@Emily Short}'s useful extension "Locksmith" is one of a small number of extensions which come ready-installed as part of the basic Inform package, and need not be downloaded and installed.
-
-Each time that Inform translates any source text, it performs a quick check of the extensions available, and updates its own internal records. A directory of the extensions currently installed can be found by clicking on "Installed Extensions" from the Extensions panel. This is also worth visiting in order to browse the Public Library, a selection of extensions contributed by Inform users.
-
-## Including extensions {PM_IncludeExtQuoted} {PM_ExtVersionMalformed} {PM_ExtMiswordedBeginsHere} {PM_ExtInadequateVM} {PM_ExtMisidentifiedEnds}
-
-^^{extensions: using} ^^{include (extension) by (extension author)+assert+} ^^{Locksmith+ext+} ^^{extensions: specific extensions: Locksmith}
-
-We talk about "including" such an extension into a work of IF because the process merges rules and behaviours from the extension with those we have described ourselves. It's not uncommon for contributions by five or six different people to be pooled together this way.
-
-Including an extension is only a matter of writing a single sentence in the source. For instance:
+Once an extension is installed, it still needs to be _included_. This is done with a sentence in the source text for the project, usually somewhere at the top. For example:
 
 	Include Locksmith by Emily Short.
 
 Note that it is compulsory to name both extension and author.
 
-Many extensions come with their own documentation. Again, follow the "Installed Extensions" link to see what's available from them.
+Many extensions come with their own documentation. Again, the Extensions tab in the app shows this.
+
+Newcomers will probably not need extensions for quite some while, let alone need to write new ones, but they're quite straightforward to make. The final chapter of this book, [Extensions], covers the writing of new extensions.
 
 ## Use options {PM_UONotNumerical} {PM_UnknownUseOption} {OPTIONS}
 
@@ -472,11 +491,11 @@ One more preliminary. Inform has a small number of optional settings which affec
 
 	Use American dialect.
 
-makes the resulting work of IF use American spellings (except where the designer spells otherwise) and the American convention for spelling out numbers (thus, "one hundred seventeen" not "one hundred and seventeen"). Similarly:
+makes the resulting work of IF use American spellings (except where the designer spells otherwise) and the American convention for spelling out numbers (thus, ``one hundred seventeen`` not ``one hundred and seventeen``). Similarly:
 
 	Use the serial comma.
 
-uses a comma when printing lists: thus "Julian, Dick, George, and Anne" rather than "Julian, Dick, George and Anne". A more profound change is made by
+uses a comma when printing lists: thus ``Julian, Dick, George, and Anne`` rather than ``Julian, Dick, George and Anne``. A more profound change is made by
 
 	Use scoring.
 
@@ -505,49 +524,13 @@ We can combine any number of options in a single "Use" sentence, so for example:
 
 brings about both of these changes.
 
-## Administering classroom use {OPTIONSFILE}
-
-^^{use options: catalogue: |American dialect} ^^{American dialect+useopt+} ^^{use options: catalogue: |the serial comma} ^^{serial comma+useopt+} ^^{use options: catalogue: |telemetry recordings} ^^{telemetry recordings+useopt+} ^^{Options.txt} ^^{files (compiling): Options.txt}
-
-Inform is increasingly used in education, where teachers sometimes need to install it on a whole room of computers at once, and want to monitor their students' progress. There is no special "classroom" version of Inform, but a couple of small administration features in the standard Inform – usually never needed – might be helpful to teachers.
-
-When Inform starts up, it now looks for a file called Options.txt inside the user's home folder for Inform. (On Mac OS X, this is "~/Library/Inform"; on Windows, "My Documents\Inform", and so on.) If the file is present, then the text in it is added to the source text of everything Inform translates.
-
-This must be used only to set use options, specify test commands, and give release instructions. For example, the following is a valid "Options.txt":
-
-	Use American dialect.
-	Test fish with "fish/fish with pole/angle".
-	Release along with source text.
-
-The idea is that this file can be used for setting up a standard configuration on multiple machines in a classroom setting. Here the instructor can make sure the Release button will do what she would like, and can arrange for each student's copy of Inform to respond to given Test commands: for instance, if the class has an assignment to create a simulation of a camera, the instructor could set up "Options.txt" so that ``TEST CAMERA`` would run through some commands the camera ought to respond to.
-
-A new use option, `Use telemetry recordings.`, causes Inform to copy its outcome and problem messages to files in its home folder (see above) as they occur. These files are dated, so that for instance
-
-	Telemetry 2009-03-25.txt
-
-contains all of the recorded activity on 25 March 2009. Telemetry only records the contents of the "Problems" panel – notes of success or failure, and problem messages – and nothing is transmitted via any network, so it isn't really surveillance. The user can deliberately add a note to the current telemetry file by writing something like this in source text:
-
-	* "I don't get it! What's a kind? Why can't the lamp be lighted?"
-
-(This is a way to make a note for the benefit of someone who will read the telemetry file – for instance, to comment on a problem message that has just appeared. Note the double-quotes. Otherwise, it's meant to look like the standard way that beta-testers mark up IF transcripts.)
-
-These two features have been added in response to requests from education users. Let's suppose that Mr Lebling, who teaches 5th grade in Minnesota, wants to set things up just right for his class. He installs Inform on the ten computers they will use, and also copies an Options.txt file from his memory stick onto each one. The Options.txt file reads:
-
-	Use serial comma.
-	Use American dialect.
-	Use telemetry recordings.
-
-Now Mr Lebling's class won't be confronted with English spellings, and so on. And most of the kids are happy, but Mr Lebling gets the feeling that young Marc wasn't really paying attention, so after class he checks that day's Telemetry file for that computer to see what Marc was up to, and whether he was stuck on something.
-
-^^{@Dave Lebling} ^^{@Marc Blank}
-
 ## Limits and the Settings panel {PM_BadICLIdentifier} {STORYFILES}
 
 ^^{limits: of Inform 6 compiler} ^^{limits: of story file} ^^{memory limits} ^^{memory economy+useopt+} ^^{Inform 6} ^^{Z-machine} ^^{Glulx} ^^{virtual machine} ^^{Z-machine: memory limits} ^^{Glulx: memory limits} ^^{virtual machine: memory limits} ^^{use options: catalogue: |memory economy} ^^{use options: catalogue: Inform 6 memory limits}
 
 No computer has unlimited capacity, and a large, complex project may eventually bump its head against the ceiling.
 
-Inform is a system for translating textual descriptions of interactive fiction into "story files". No single format of story file is standard to the IF community. The formats developed over the history of IF differ in three key respects:
+Inform is a system for translating textual descriptions of interactive fiction into _story files_. No single format of story file is standard to the IF community. The formats developed over the history of IF differ in three key respects:
 
 - the range of computers or devices capable of playing them;
 - how large they are, that is, how much play they can express;
@@ -555,19 +538,15 @@ Inform is a system for translating textual descriptions of interactive fiction i
 
 Inform can write to two different formats. Neither of these is proprietary, and neither was created by the authors of Inform: each format is a community property, defined by published standards documents. An individual Inform project can make its own choice of story file format, using that project's Settings panel. Outside the Inform app, Inform can even be used at the command line to generate C programs rather than story files, and those can be compiled to run on almost any computer.
 
-Newly created projects are set up with the Glulx format. This has largely taken over from an earlier format called the Z-machine, but Inform can still generate a version 8 Z-machine file (a so-called "z8") if required. The Z-machine is of historic importance, and may continue to be useful for certain tasks where Glulx support is not yet available, but most users will want to keep the Glulx format set all of the time.
+Newly created projects are set up with the Glulx format. This has largely taken over from an earlier format called the Z-machine, but Inform can still generate a version 8 Z-machine file (a so-called "z8") if required. The Z-machine is of great historic importance, but most users will want to keep the Glulx format set all of the time. The Z-machine itself came in a number of versions, and Inform 7 can only usefully make stories for its largest form (though even that was tiny by modern standards). Authors who want to use Inform to compile new works of IF for highly memory-constrained retro hardware — for example, vintage Commodore 64s or BBC Micros from the early 1980s, whose total memory is smaller than the storage now needed for a single app icon — are better off using Inform 6 than Inform 7, and using special libraries tailored for a low memory overhead. See for example [the Puny Inform project website](https://github.com/johanberntsson/PunyInform).
 
-Internally, the Inform application uses a tool called Inform 6 (which was once the entire Inform system) as the final stage in manufacturing the story file. Inevitably, though, this can go wrong if the story is so large or complex that it exceeds some fundamental limitation of the current story file format. This is only likely to happen with the Z-machine format, since Glulx has a huge capacity; so the cure here is to switch to Glulx in the Settings. But if that's not possible for some reason – say, if we want a story file playable on a tiny handheld computer unable to manage Glulx – we still have a few options. Unless the story is very large (in which case there is little we can do), the "z8" format is most likely to be exhausted for lack of what is called "readable memory", with a message like so:
-
-	This program has overflowed the maximum readable-memory size of the Z-machine format. See the memory map below: the start of the area marked "above readable memory" must be brought down to $10000 or less.
-
-followed by a tabulation of how the Z-machine's storage has been used, a large but not very useful diagram. The first time one runs into the problem on a large project, it can be postponed, by adding the following to the source:
+But users who do select the Z-machine option should find that everything works well enough provided they keep the story modest in size. The first time one runs into hard limits on such a project, the issue can be postponed, by adding the following to the source:
 
 	Use memory economy.
 
 (Economy cuts down the verbosity of some of the testing commands, but otherwise subtracts no performance.) Writing this into the source is the equivalent of a diver switching to an emergency oxygen tank: it gives us a generous safety margin, but also tells us that now is the time to wrap things up.
 
-If we hit the problem again, genuine cuts must be made. As a general rule, the most memory-expensive ingredients of an Inform design are various-to-various relations between large kinds such as "thing" or, if there are many rooms, "room". Other than that, if a kind has been festooned with new properties and we have created dozens of items of that kind, then we can get a fairly large saving simply by doing without one of those properties; and so on.
+Beyond that, genuine cuts would need to be made. As a general rule, the most memory-expensive ingredients of an Inform design are various-to-various relations between large kinds such as "thing" or, if there are many rooms, "room". Other than that, if a kind has been festooned with new properties and we have created dozens of items of that kind, then we can get a fairly large saving simply by doing without one of those properties; and so on.
 
 The ultimate memory-saving device, of course, is the one used by book publishers when there are too many pages to bind: to cut the design into two stories, Part I and Part II.
 
@@ -587,7 +566,15 @@ It may be that someone else has already identified the bug and even that a worka
 
 ^^{English: really understanding} ^^{natural language, really understanding}
 
-No. No computer does, and Inform does not even try to read the whole wide range of text: it is a practical tool for a particular purpose, and it deals only with certain forms of sentence useful to that purpose. Inform source text may look like "natural language", the language we find natural among ourselves, but in the end it is a computer programming language. Many things which seem reasonable to the human reader are not understood by Inform. For instance, Inform understands
+No.
+
+No computer does, not even the AI voice assistants on modern phones, or large language models like ChatGPT. A true understanding of language means a true understanding of emotional life and culture too, and perhaps even of what it means to be alive. Some philosophers think it may be impossible for a computer to achieve that.
+
+But certainly plenty of modern software services seem able to _fake_ an understanding of language fairly well. Many queries seem to be handled very well, but others bizarrely, and often with users unable to see why one thing should be easy and another difficult. It's an approximate business, where users have no guarantee that what worked today will work tomorrow.
+
+Inform takes a different approach. It is a programming language, meaning that it gives a way for authors to express precisely what a computer should do. Authors may have trouble remembering the right way to do something, but once they do remember, they can rely on that working.
+
+Inform aims to be "legible", in the sense that a casual read-through of some source text usually gives a fairly good idea of what it does. `The gold chain is in the window-seat` is not hard to follow, for example. But Inform does not aim to accept everything a human might write. For instance, Inform understands
 
 	something which is carried by the player
 
@@ -597,7 +584,7 @@ but not (at present, anyway)
 
 even though both are perfectly good English. So it is not always safe to assume that Inform will understand any reasonable instruction it is given: when in doubt, we must go back to the manual.
 
-More philosophically, to "understand" involves contextual knowledge. Just because Inform recognises and acts on a sentence, does it really understand what we meant? It will turn out that Inform is both good and bad at this. For instance, from
+More philosophically, just because Inform recognises and acts on a sentence, does it really understand what we meant? It will turn out that Inform is both good and bad at this. For instance, from
 
 	Mr Darcy wears a top hat.
 
@@ -609,13 +596,13 @@ then Inform would not guess that the top hat is clothing. This is because it doe
 
 Finally, it is best to avoid ambiguities rather than rely on Inform to know which meaning is patently absurd. For instance, in
 
-> Heatwave bone breaks clog hospital.
+> **Heatwave bone breaks clog hospital**
 
-(a headline once printed by the *Oxford Mail* newspaper) a human reader quickly realises that there is no clog hospital being broken. But if Inform had been taught the verbs *to break* and *to clog* then that is exactly the conclusion it would have drawn. Or an example which genuinely arose in beta-testing:
+(a headline once printed by the *Oxford Mail* newspaper) a human reader quickly realises that there is no clog hospital being broken by a heatwave bone. But if Inform had been taught the verbs *to break* and *to clog* then that is exactly the conclusion it would have drawn. Or an example which genuinely arose in beta-testing:
 
 	The life support unit fits the egg.
 
-in which Inform construed the verb as *support* and not *fits*, and then created items called "the life" and "unit fits the egg".
+in which Inform construed the verb as `support` and not `fits`, and then created items called "the life" and "unit fits the egg".
 
 That disclaimer completes the groundwork, and we are ready to begin on simulating a world to explore.
 
