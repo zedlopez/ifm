@@ -30,7 +30,7 @@ Next, we'll teach Inform some vocabulary to distinguish between the player and e
 	Instead of examining a selfish nose:
 		say "You cross your eyes, but can't get a good look."
 
-Here is the part that actually determines the preferences. "Does the player mean..." can result in five outcomes: "it is very unlikely", "it is unlikely", "it is possible" (the neutral default), "it is likely", and "it is very likely". This is discussed in greater detail in the Understanding chapter. Here, we want to discourage references to the player's own nose and encourage references to the nose of Rudolph, so:
+Here is the part that actually determines the preferences. `Does the player mean...` can result in five outcomes: `it is very unlikely`, `it is unlikely`, `it is possible` (the neutral default), `it is likely`, and `it is very likely`. This is discussed in greater detail in the Understanding chapter. Here, we want to discourage references to the player's own nose and encourage references to the nose of Rudolph, so:
 
 	{**}Does the player mean doing something when the noun is a selfish nose or the second noun is a selfish nose: it is very unlikely.
 	

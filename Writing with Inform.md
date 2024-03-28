@@ -1323,33 +1323,47 @@ because they are too vague. Inform needs to know exactly where the fob watch and
 
 ^^{kinds <-- types} ^^{kinds: defining} ^^{defining: kinds} ^^{kinds: hierarchy of kinds} ^^{kinds: of value} ^^{kinds: of thing} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{rooms+kind+} ^^{things+kind+} ^^{directions+kind+} ^^{regions+kind+} ^^{animals+kind+} ^^{man+kind+} ^^{woman+kind+} ^^{Inform 6 equivalent: classes} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
 
-Values in Inform are the nouns in its sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because values have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort these values into categories, and those are called "kinds".
+Values in Inform are the nouns in its sentences. They represent numbers, times of day, pieces of text, places, people, doors, and so on. Because values have such an enormous variety, and because we often want to talk about what some of them have in common, we need a way to sort these values into categories, and those are called _kinds_. Some examples:
 
-Every value has a kind. The kind of `10` is "number"; the kind of `11:30 PM` is "time"; the kind of `"jinxed wizards pluck ivy from my quilt"` is "text"; the kind of `northeast` is "direction"; and so on. The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.
+The Kinds index panel shows the kinds present in the current Inform project, which will always include a wide range of built-in kinds, and usually also some new ones created in that project.
 
 Some kinds are more general than others. For example, if we write:
 
-	Growler is an animal in the Savannah.
+	The Savannah is a room. The time of day is 11:30 am.
+	
+	Growler is an animal in the Savannah. "Growler crouches in the tall grass."
 
-then Growler is an "animal", which is a kind of "thing", which is a kind of "object". When we talk about "the" kind of Growler, we mean "animal", the most specific one, but actually Growler belongs to all of those kinds.
+then Growler is an `animal`, which is a kind of `person`, which is a kind of `thing`, which is a kind of `object`. When we talk about _the_ kind of Growler, we mean `animal`, the most specific one, but actually Growler belongs to all of those kinds. The Savannah is a `room`, which is a kind of `object`, too, but not everything is. To diagram the values involved in the story above:
 
-As we see from this example, kinds have a whole hierarchy. Browsing the Kinds index for a project will show what kinds it has. At first sight this is a complicated diagram, but really Inform aims to start each new story with as simple a set of kinds as it can. It has some fundamental kinds like "room", "thing", "direction" and "region", but not "mammal" or "Bengal tiger". Every story will have different needs, so the idea is to create new kinds as we need them. For example, we could write:
+> `time` ▹ the constant `11:30 am`
+>
+> `time` ▹ the variable `time of day`
+>
+> `text` ▹ the constant `"Growler crouches in the tall grass."`
+>
+> `object` ▸ `room` ▹ the Savannah
+>
+> `object` ▸ `thing` ▸ `person` ▸ `animal` ▹ Growler
+>
+> `object` ▸ `thing` ▸ `person` ▹ yourself
+
+As we see from this example, kinds have a whole hierarchy. Browsing the Kinds index for a project will show what kinds it has. At first sight this is a complicated diagram, but really Inform aims to start each new story with as simple a set of kinds as it can. It has some fundamental kinds like `room`, `thing`, `direction` and `region`, but not `mammal` or `Bengal tiger`. Every story will have different needs, so the idea is to create new kinds as we need them. For example, we could write:
 
 	A Bengal tiger is a kind of animal. Growler is a Bengal tiger in the Savannah.
 
-In general, it's best always to create kinds using the singular, because Inform knows how to turn singulars into plurals but not vice versa. Now that we have defined "Bengal tiger", Inform will understand the phrase "three Bengal tigers", for example, because it knows that "Bengal tigers" is the plural of "Bengal tiger". But this is not a good idea:
+In general, it's best always to create kinds using the singular, because Inform knows how to turn singulars into plurals but not vice versa. Now that we have defined `Bengal tiger`, Inform will understand the phrase `three Bengal tigers`, for example, because it knows that `Bengal tigers` is the plural of `Bengal tiger`. But this is not a good idea:
 
 	Bengal tigers are a kind of animal.
 
-So much for a specific kind like "Bengal tiger". How about a more general one, like "mammal"? This looks awkward because it seems to belong in between. All Bengal tigers are mammals, but not all animals are mammals. But Inform can sort this out:
+So much for a specific kind like `Bengal tiger`. How about a more general one, like `mammal`? This looks awkward because it seems to belong in between. All Bengal tigers are mammals, but not all animals are mammals. But Inform can sort this out:
 
 	A mammal is a kind of animal. A Bengal tiger is a kind of mammal.
 
-If we look at the Kinds index, we should indeed see a hierarchy:
+So now we have:
 
-> object > person > animal > mammal > Bengal tiger
+> `object` ▸ `thing` ▸ `person` ▸ `animal` ▸ `mammal` ▸ `Bengal tiger` ▹ Growler
 
-The full diagram is laid out rather like a zoologist's tree of life. Of course, a zoologist would say that a person is an animal, and indeed a mammal, so that this layout is all wrong. But Inform is for narratives, not for doing science. When people ask if an animal is in the garden, they wouldn't normally count somebody who is cutting the grass. In its everyday meaning, "animal" is a non-human, and Inform goes along with that.
+Of course, a zoologist would say that a human being is a sort of animal, and indeed a mammal, so that this layout is all wrong. But Inform is for narratives, not for doing science. When people ask if an animal is in the garden, they wouldn't normally count somebody who is cutting the grass. In its everyday meaning, "animal" implies non-human, and Inform goes along with that.
 
 If we really want to rearrange Inform's default ideas, we can in fact do so:
 
@@ -1363,13 +1377,13 @@ Making more specific kinds of existing ones is an excellent way to build out the
 
 	A glob is a kind of number.
 
-isn't allowed. The numbers are fixed and all exist already; we can write a story where the world has no Bengal tigers, but not a story where the world has no number between 4 and 6. That doesn't mean numbers are all alike, of course, and we will later see that we can use words like "even" and "odd" to describe numbers, and even create new adjectives like "unlucky" or "perfect" for them. But these are not kinds. Saying that 2 is an even number does not create a new number, and saying that 3 is an even number makes no sense. So it is not possible in Inform to create a "kind of number".
+isn't allowed. The numbers are fixed and all exist already; we can write a story where the world has no Bengal tigers, but not a story where the world has no number between 4 and 6. That doesn't mean numbers are all alike, of course, and we will later see that we can use words like `even` and `odd` to describe numbers, and even create new adjectives like `unlucky` or `perfect` for them. But these are not kinds. Saying that 2 is an even number does not create a new number, and saying that 3 is an even number makes no sense. So it is not possible in Inform to create a `kind of number`.
 
 But what we can do is to invent entirely new concepts, like so:
 
 	A distance is a kind of value.
 
-We will see more of these later. The word "value" here does not count as a kind (it's too vague to be useful), so "distance", like "number", is a top-level kind and not a specialised form of something else.
+We will see more of these later. The word `value` here does not count as a kind (it's too vague to be useful), so `distance`, like `number`, is a top-level kind and not a specialised form of something else.
 
 ## Using new kinds
 
@@ -1379,7 +1393,7 @@ This seems a good point to see what we can do with new kinds. Here we invent a n
 
 	A dead end is a kind of room.
 
-Any dead end that we make is also a room, so it has all of the properties and behaviour of a room. For instance, every room is either "lighted" or "dark", and the default is to be lighted. But we can reverse that convention for dead ends, and we can also fill in some other properties:
+Any `dead end` that we make is also a `room`, so it has all of the properties and behaviour of a room. For instance, every room is either `lighted` or `dark`, and the default is to be lighted. But we can reverse that convention for `dead ends`, and we can also fill in some other properties:
 
 	A dead end is a kind of room with printed name "Dead End" and description "This is a dead end. You'll have to go back the way you came." A dead end is usually dark.
 	
@@ -1387,17 +1401,27 @@ Any dead end that we make is also a room, so it has all of the properties and be
 	
 	In the Undertomb is the candle lantern. It is lit.
 
-As a result of this, three different rooms adjoin the Undertomb, all dead ends. This is much more concise than spelling them out one at a time would be.
+As a result of this, three different `rooms` adjoin the Undertomb, all `dead ends`. This is much more concise than spelling them out one at a time would be.
+
+> `object` ▸ `room` ▹ "The Undertomb"
+>
+> `object` ▸ `thing` ▹ candle lantern
+>
+> `object` ▸ `room` ▸ `dead end` ▹ "Dead End"
+>
+> `object` ▸ `room` ▸ `dead end` ▹ "Collapsed Dead End"
+>
+> `object` ▸ `room` ▸ `dead end` ▹ "Tortuous Alcove"
 
 Inform often doesn't mind in what order it is told about the world, but it may need to know the name of a kind before that kind can be used. For example,
 
 	A coffer is a kind of container. In the Crypt is an open coffer.
 
-makes sense to Inform and results in the creation of a new thing, just called "coffer" in the absence of any other name to give it, whose kind is "coffer" and which is initially open. Whereas if Inform reads:
+makes sense to Inform and results in the creation of a new thing, just called `coffer` in the absence of any other name to give it, whose kind is `coffer` and which is initially `open`. Whereas if Inform reads:
 
 	In the Crypt is an open coffer.
 
-without knowing that "coffer" is a kind, it simply makes a thing called "open coffer" (and which is not a container). Inform has to be careful like this: English is simply too overflowing with multiple meanings. An "open railway ticket", for instance, is not a "railway ticket" that one can put objects into.
+without knowing that `coffer` is a kind, it simply makes a thing called `open coffer` (and which is not a `container`). Inform has to be careful like this: English is simply too overflowing with multiple meanings. An `open railway ticket`, for instance, is not a `railway ticket` that one can put objects into.
 
 ## Degrees of certainty
 
@@ -1405,23 +1429,23 @@ without knowing that "coffer" is a kind, it simply makes a thing called "open co
 
 When we write:
 
-	A dead end is usually dark.
+	A dead end is a kind of room with printed name "Dead End" and description "This is a dead end. You'll have to go back the way you came." A dead end is usually dark.
 
-we are saying that it will be dark rather than lighted unless we should specify otherwise. So it would be fine to add:
+that last sentence is saying that it will be `dark` rather than `lighted` unless we should specify otherwise. So it would be fine to write:
 
-	The Tortuous Alcove is lighted.
+	The Tortuous Alcove is a lighted dead end.
 
-because although dead ends are usually dark, this one is evidently an exception. On the other hand, if we had originally written
+because although `dead ends` are usually dark, this one is evidently an exception. On the other hand, if we had originally written
 
 	A dead end is always dark.
 
-then Inform would not have permitted any exception to be made, and would have reported a problem if we had tried to make the Tortuous Alcove lighted. Besides "usually" and "always", we can also employ "seldom" and "never", which are their negatives. Thus, "never lighted" means the same as "always dark".
+then Inform would not have permitted any exception to be made, and would have reported a problem if we had tried to make the Tortuous Alcove `lighted`. Besides `usually` and `always`, we can also employ `seldom` and `never`, which are their negatives. Thus, `seldom lighted` means the same as `usually dark`, and `never lighted` means `always dark`.
 
 ## Plural assertions {PM_PluralOfQuoted} {PM_PluralIsQuoted}
 
 ^^{assertions: plural} ^^{defining: things: using plurals} ^^{things+kind+: creating: using plurals} ^^{kinds: defining: kinds of thing} ^^{defining: kinds of thing} ^^{things+kind+: kinds of} ^^{|plural of: in source text} ^^{plurals: defining} ^^{defining: plurals} ^^{English: defining plural forms}
 
-As the following examples show, sentences can make several assertions at once by using the plural. Suppose we have defined a kind called "high-up fixture", for instance like so:
+As the following examples show, sentences can make several assertions at once by using the plural. Suppose we have defined a kind called `high-up fixture`, for instance like so:
 
 	A high-up fixture is a kind of thing. A high-up fixture is usually fixed in place.
 
@@ -1441,91 +1465,117 @@ Inform constructs plurals by a form of Conway's pluralisation algorithm, which i
 
 	A brother in law is a kind of man. The plural of brother in law is brothers in law.
 
-We are allowed to define more than one plural for the same singular text, and for the names of things, rooms or kinds, all alternative versions will be used interchangeably. (For instance, Inform defines both "people" and "persons" as plurals of "person".)
+We are allowed to define more than one `plural of` the same singular text, and for the names of things, rooms or kinds, all alternative versions will be used interchangeably. (For instance, Inform defines both `people` and `persons` as plurals of `person`.)
 
 ## Kinds of value {KINDSVALUE}
 
 ^^{kinds: of value <-- |enumerated value} ^^{kinds: defining: kinds of value} ^^{defining: kinds of value} ^^{values: kinds of value} ^^{kinds: enumerated values} ^^{units of measure}
 
-So much for making new and more specialised kinds of object – for example, new kinds of room, or new kinds of animal. This allows us to describe the physical world in elegant ways, but what about concepts which aren't so physical?
+So much for making new and more specialised kinds of `object` – for example, new kinds of `room`, or of `animal`. This allows us to describe the physical world in elegant ways, but what about concepts which aren't so physical?
 
-Without getting into philosophy, we can probably agree that numbers like 1, 2, 3, ..., and texts like "Jackdaws love my big sphinx of quartz", are not physical. Inside Inform, those are values, but not objects. Inform already has a good stock of this sort of concept built in, so it may not immediately seem clear why we need to create new ones. But in fact this is very useful. To describe the physical world, we need concepts like (for example) distance and brightness. We want to say that two armchairs are 12 feet apart, or that a given light-bulb is very dim. Here, "twelve feet" and "very dim" are clearly not physical objects; they need to be values, but not objects.
+To Inform, numbers like 1, 2, 3, ... and texts like `"Jackdaws love my big sphinx of quartz"` are not physical. They are values, but not objects, so they don't belong to the `object` kind. In fact, `number` and `text` are not kinds of any greater kind.
 
-As these two examples suggest, sometimes we want a quantitative way to measure things, sometimes not. ^{@Thomas Hardy}, in his novel "The Return of the Native", writes:
+> `number` ▹ 1821
+>
+> `text` ▹ `"Jackdaws love my big sphinx of quartz"`
+
+Inform already has a good stock of this sort of concept built in, so it may not immediately seem clear why we need to create new ones. Most stories are not very calculational, after all, and don't obviously need new sorts of values.
+
+To see why we might, let's turn to a classic novel: ^{@Thomas Hardy}'s _The Return of the Native_ (1878). Here the narration involves a colour:
 
 > When he drew nearer he perceived it to be a spring van, ordinary in shape, but singular in colour, this being a lurid red.
 
-Hardy doesn't tell us that the wavelength of the light is 700nm, he tells us that the colour is "lurid red", and we understand. Later in the same chapter, Hardy writes:
+Hardy doesn't tell us that the wavelength of the light is 700nm, he tells us that the colour is "lurid red", and we understand. Colours turn up often in this novel:
+
+> He was a brown spot in the midst of an expanse of olive-green gorse.
+
+So perhaps we need an idea of colour where the values include `lurid red`, `brown` and `olive-green`.
+
+But on the other hand, we also have sentences like this one:
 
 > The loads were all laid together, and a pyramid of furze thirty feet in circumference now occupied the crown of the tumulus.
 
-and now we do have a quantitative measurement: thirty feet. This is how people write about the world, and how they read about it. So Inform needs to provide both sorts of measurement.
+and now we do have a quantitative measurement: "thirty feet".
 
-(a) Here is a qualitative example. Suppose we would like a candle lantern to burn down, gradually diminishing in brightness. Then we'll need a way to talk about the current strength of the flame, but only in vague terms. Here goes:
+These are the two ways in which writers size up the world, so Inform provides both sorts of measurement: the qualitative and the quantitative.
 
-	Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.
+1) Here is a qualitative example. Suppose we would like a candle lantern to burn down, gradually diminishing in brightness. Then we'll need a way to talk about the current strength of the flame, but only in vague terms. Here goes:
 
-"Brightness" is now a kind of value on a par with (for instance) "number" or "text". There are only four possible values, named as above. Kinds of value like this, where there are just a few named possibilities, are extremely useful, as we'll see.
+	   Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.
 
-(b) Now a quantitative example:
+   So this creates, for example,
 
-	Weight is a kind of value. 1kg specifies a weight.
+   > `brightness` ▹ `guttering`
 
-The difference here is not the way we create the kind, but the way we tell Inform what the possible values are. Instead of a list, we teach Inform some notation. As a result, "26kg" is now a value, for instance. Quantitative kinds like this are sometimes called "units", because – as in this example – they're often units in the sense of measuring things. Many Inform projects never need units, but they can still be very useful, and they're described in detail in the chapter on [Numbers and Equations].
+   This makes `Brightness` a kind of value on a par with `number` or `text`. But whereas they both have an almost infinite range of possible values, there are just four possible values of `brightness`, named as above. Kinds of value like this, with just a few named possibilities, are extremely useful, as we'll see.
+
+2) Now a quantitative example:
+
+	   Weight is a kind of value. 1kg specifies a weight.
+
+   The difference here is not the way we create the kind, but the way we tell Inform what the possible values are. Instead of a list, we teach Inform some notation. So now, for example:
+
+   > `weight` ▹ `26kg`
+
+   And this, like `number`, has an enormous range of possible values.
+
+   Quantitative kinds like this are sometimes called "units", because – as in this example – they're often units in the sense of measuring things. Many Inform projects never need units, but they can still be very useful, and they're described in detail in the chapter on [Numbers and Equations].
 
 ## Properties again {PM_ValueCantHaveProperties} {PM_ValueCantHaveVProperties}
 
 ^^{properties} ^^{relations} ^^{properties: either/or properties} ^^{either/or properties} ^^{properties: value properties} ^^{value properties} ^^{properties: holding text} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page} ^^{even / odd (number)+adj+} ^^{odd / even (number)+adj+}
 
-So now we have seen two fundamental ideas: "value" and "kind". We have seen how to make a source text which refers to many values – for example, Growler the Bengal tiger, 23kg, "Collapsed Dead End", blazing, 7, all values of different kinds.
+So now we have seen two fundamental ideas: _value_ and _kind_. We have seen how to make a source text which refers to many values – for example, Growler the Bengal tiger, 23kg, "Collapsed Dead End", blazing, 7, all values of different kinds.
 
-But we don't just want a way to refer to values, we want to lay out facts about them. Inform understands two sorts of fact, which it calls properties and relations. Properties are about single values in isolation: Growler is male. Relations are about how values interact with each other: Growler likes Bambi. (Or would like to eat Bambi, anyway.) Relations are really the central organising idea of Inform, and we've seen them many times already:
+But we don't just want a way to refer to values, we want to lay out facts about them. Inform understands two sorts of fact, which it calls _properties_ and _relations_. Properties are about single values in isolation: Growler is male. Relations are about how values interact with each other: Growler likes Bambi. (Or would like to eat Bambi, anyway.) Relations are really the central organising idea of Inform, and we've seen them many times already:
 
 	Growler is in the Savannah.
 
-expresses a relation called "containment" between Growler and the Savannah. Much more about this in the chapter on [Relations]: for now, let's go back to the simpler idea of properties.
+expresses that the `containment relation` holds between the Savannah and Growler. Much more about this in the chapter on [Relations]: for now, let's go back to the simpler idea of properties.
 
-In Inform terms, a "property" is any fact about a value (other than its kind) which the author is allowed to choose. For example,
+In Inform terms, a _property_ is any fact about a single value (other than its kind). For example,
 
 	Growler is an animal. Growler is male. The description of Growler is "What immortal hand or eye could frame thy fearful symmetry?".
 
-The first of these sentences talks about Growler's kind, but the other two sentences tell Inform about his properties. Properties are divided into either/or properties – "male" versus "female" – and value properties – such as the description of something, which can be any text.
+The first of these sentences talks about Growler's kind, but the other two sentences tell Inform about his properties. Properties are divided into _either/or properties_ – `male` versus `female` – and _value properties_ – such as the `description` of something, which can be any `text`.
 
-The Kinds index shows which kinds of object are allowed to have properties. Every object is, so there's no problem with Growler. In general, if Inform can find a sensible way to store properties, then it will allow them. But it won't allow (for example) properties of numbers. There are only a finite number of Bengal tigers in the world (fewer than three thousand, alas), so Inform can easily store individual description texts for each one of them. But there are an infinite range of numbers. (Inform does allow adjectives like "even" or "odd" to be used about number – saying "if 7 is odd" is fine, for example – but they are not properties in the Inform sense, because the author doesn't get to choose. The author can choose whether Growler is a male or female tiger, but not whether 7 is an even or an odd number.)
+Not all values can have properties. All objects can, so Growler is fine. There is only a finite number of Bengal tigers in the world (fewer than three thousand, alas), so Inform can easily store individual description texts for each one. But there is an infinite range of numbers. Although Inform does allow adjectives like `even` or `odd` to be used about numbers, those are descriptions and not properties. The author can declare that `Growler is female`, setting a property, but cannot declare that `7 is even.` That's not something which is up to the author to decide.
+
+_Footnote added in 2024_. During the lifetime of Inform 7, the Bengal Tiger has made a very slight comeback, and there are perhaps four thousand now.
 
 ## New either/or properties {PM_EitherOrAsValue} {PM_QualifiedCanBe} {PM_NonObjectCanBe} {PM_MiscellaneousEOProblem} {PM_ThisIsEitherOr}
 
 ^^{properties: either/or properties: defining} ^^{either/or properties: defining} ^^{defining: either/or properties} ^^{Inform 6 equivalent: attributes}
 
-Properties can't be handed out completely freely. In the previous chapter, [Things], we saw that we were allowed to make a chair "portable" and to make a room "dark". But if we try this the other way round, Inform produces a Problem message. This is because every property must be created in a way which lays out what values are allowed to have it. The Standard Rules built into Inform say that
+Properties can't be handed out completely freely. In the previous chapter, [Things], we saw that we were allowed to make a chair `portable` and to make a room `dark`. But if we try this the other way round, Inform produces a Problem message. This is because every kind has its own set of permitted properties: or to put it the other way round, every property has its own set of kinds it can belong to. The Standard Rules built into Inform say that
 
 	A thing can be fixed in place or portable.
 
-and as a result it won't allow "The Savannah is portable" because the Savannah is a room, not a thing.
+and as a result it won't allow `The Savannah is portable` because the Savannah is a `room`, not a `thing`.
 
-We must do the same. To go back to our example "dead end" kind:
+We must do the same. To go back to our example `dead end` kind:
 
 	A dead end is either secret or ordinary.
 
-This creates just one new property, not two. The names are taken as the two states of a single either/or property: secret means not ordinary, ordinary means not secret. Alternatively, we could just say:
+This creates just one new property, not two. The names are taken as the two states of a single either/or property: `secret` means `not ordinary`, `ordinary` means `not secret`. Alternatively, we could just say:
 
 	A dead end can be secret.
 
-in which case the opposite of "secret" would be "not secret".
+in which case the only way to express the opposite of `secret` would be to write `not secret`.
 
-Now we have a property which can be given to any value of the kind "dead end". We're also free to add to the definitions of kinds which already exist, including those built into Inform: for instance,
+By giving them new properties, we can add to the definitions of any kinds which already exist, including those built into Inform: for instance,
 
 	A room is either indoors or outdoors.
 
-If we make the above definitions then all dead ends will be "ordinary" and all rooms "outdoors" unless the source text says otherwise. That is, in the absence of other information it's assumed that an either/or property is not true. We could reverse by writing:
+If we make the above definitions then all `dead ends` will be `ordinary` and all rooms `outdoors` unless the source text says otherwise. That is, in the absence of other information it's assumed that an either/or property is _not_ true. We could reverse by writing:
 
 	A dead end is usually secret. A room is usually indoors.
 
-A property can be used by several kinds at once. For example, the built-in either/or property "open" is used by both doors and containers, even though door isn't a kind of container and container isn't a kind of door. In fact, although it's more usual to declare properties for whole kinds, they can actually be given to single values one at a time, if we like:
+A property can be used by several kinds at once. For example, the built-in either/or property `open` is used by both `doors` and `containers`, even though `door` isn't a kind of `container` and `container` isn't a kind of `door`. In fact, although it's more usual to declare properties for whole kinds, they can actually be given to single values one at a time, if we like:
 
 	The umbrella is carried by the player. The umbrella can be open.
 
-And now the umbrella, which is a thing and not a door or container, can also have the property.
+And now the umbrella, which is a `thing` and not a `door` or `container`, can also have the property. But other things cannot, unless further sentences like this are written.
 
 ## New value properties {PM_PropertyOfKind1} {PM_PropertyCalledArticle} {PM_PropertyCalledPresence} {PM_PropertyNameForbidden} {PM_PropertyUninitialisable} {PM_BadVisibilityWhen} {PM_PropertyTooSpecific} {PM_PropertyKindUnknown} {PM_PropertyKindVague} {PM_PropertyKindClashes} {PM_BadProvides} {PM_RedundantThatVaries}
 
@@ -1535,11 +1585,11 @@ So much for either/or properties. Now we move on to properties which have values
 
 	A dead end has some text called the river sound. The river sound of a dead end is usually "a faint whispering of running water". The Tortuous Alcove has river sound "a gurgle of running water".
 
-The property "river sound" is now applicable only to dead ends, so we would not be allowed to talk about "the river sound of the Savannah", say. Moreover, it's required to hold a piece of text. If we tried the following:
+The property `river sound` is now applicable only to `dead ends`, so we would not be allowed to talk about `the river sound of the Savannah`, say. Moreover, it's required to hold a piece of `text`. If we tried the following:
 
 	The river sound of the Tortuous Alcove is 7.
 
-...then Inform would object, because the number 7 is the wrong kind of value to go into the "river sound" property. If we need a numerical property, we can try this instead:
+...then Inform would object, because the number 7 is the wrong kind of value to go into the `river sound` property. If we need a numerical property, we can try this instead:
 
 	A dead end has a number called the difficulty rating. The Tortuous Alcove has difficulty rating 7.
 
@@ -1547,17 +1597,17 @@ Suppose that we were to add:
 
 	The Exquisitely Narrow Defile is a dead end.
 
-The Defile must have a river sound, of course, because we said that every dead end would have one. We haven't said what that river sound will be, but Inform can work it out, because we did say this:
+The Defile must have a `river sound`, of course, because we said that every `dead end` would have one. We haven't said what that sound will be, but Inform can work it out, because we did say this:
 
 	The river sound of a dead end is usually "a faint whispering of running water".
 
-If there are no instructions at all about the value of a property, Inform fills in the default value of the appropriate kind – in this case, it would be a blank text. (A table of the kinds which can be used for properties, and their default values, can be found in the Kinds index.)
+If there are no instructions at all about the value of a property, Inform fills in the default value of the appropriate kind – in this case, it would be a blank `text`. (A table of the kinds which can be used for properties, and their default values, can be found in the Kinds index.)
 
 ## Using new kinds of value in properties
 
 ^^{kinds: defining: kinds of value} ^^{defining: kinds of value} ^^{values: kinds of value} ^^{kinds: enumerated values} ^^{text substitutions: new kinds of value} ^^{values: displaying} ^^{text substitutions: enumerated values} ^^{properties: holding a new kind of value} ^^{properties: value properties: defining} ^^{value properties: defining} ^^{defining: value properties} ^^{(of), for properties+sourcepart+}
 
-It turns out to be very useful to create a new kind of value, and then create a property to hold it. So useful, in fact, that Inform provides two shortened forms for doing so. Here is the first, and the second (making "conditions") is in the section following.
+It turns out to be very useful to create a new kind of value, and then create a property to hold it. So useful, in fact, that Inform provides two shortened forms for doing so. Here is the first, and the second (making _conditions_) is in the section following.
 
 Suppose we go back to our example of the candle lantern whose brightness we have to measure. It's clear that what we want to do is to define:
 
@@ -1567,13 +1617,13 @@ And now we can use the technique of the previous section:
 
 	The lantern has a brightness called the flame strength. The flame strength of the lantern is blazing.
 
-This works very nicely. The "flame strength" property is now only allowed to have one of four values we allowed: guttering light, weak light, radiant light or blazing light. So we have succeeded in recording our measurement.
+This works very nicely. The `flame strength` property is now only allowed to have one of four values we allowed: `guttering light`, `weak light`, `radiant light` or `blazing light`. So we have succeeded in recording our measurement.
 
-But it seems artificial to call the brightness of the lantern "flame strength", when we could instead simply call it "brightness". Much simpler to write:
+But it seems artificial to call the brightness of the lantern `flame strength`, when we could instead simply call it `brightness`. Much simpler to write:
 
 	The lantern has a brightness. The lantern is blazing.
 
-Now "brightness" is the name of both the property and the kind of value. What's particularly nice is that we can now use the names of the possible brightnesses – "weak", "blazing" and so on – as adjectives. Inform knows that "The lantern is blazing" must be talking about the brightness property, because "blazing" is a brightness.
+Now `brightness` is the name of _both_ the property _and_ the kind of value. What's particularly nice is that we can now use the names of the possible brightnesses – `weak`, `blazing` and so on – as adjectives. Inform knows that `The lantern is blazing.` must be talking about the `brightness` property, because `blazing` is a `brightness`.
 
 Now we can improve our dead ends:
 
@@ -1583,7 +1633,7 @@ The `"[brightness of the lantern]"` is printed not as literal text, but as whate
 
 	This is a dead end, where crags in the uneven rock are caught by the blazing flame you hold aloft. Despite a faint whispering of running water there is no sign of the stream.
 
-So now we have a lantern, which has a brightness as a property. But we can build on this further if we like. A brightness such as "guttering" is a value, so it can have properties in its own right. That can be quite useful, in fact:
+So now we have a lantern, which has a `brightness` as a property. But we can build on this further if we like. A `brightness` such as `guttering` is a value, so it can have properties in its own right. That can be quite useful, in fact:
 
 	A brightness can be adequate or inadequate. A brightness is usually adequate. Guttering is inadequate.
 
@@ -1591,7 +1641,7 @@ This is convenient because it divides up the brightnesses:
 
 	The player carries a book. The description of the book is "[if the brightness of the lantern is adequate]Many secrets are now yours.[otherwise]No, the print's too tiny by this awful light."
 
-And while we're at it, let's give each brightness its own corresponding temperature:
+And while we're at it, let's give each `brightness` its own corresponding `temperature`:
 
 	Temperature is a kind of value. 100C specifies a temperature.
 	
@@ -1615,7 +1665,7 @@ Now for an even more abbreviated way to create a new kind of value, and at the s
 
 This is just like our example of the lantern having possible brightnesses, but it's quicker to do, because we don't need to create or name the kind of value. (The trade-off is that we can't use it for anything else as well.)
 
-Initially the cask will be "customs sealed", the first value we gave. We could now write, for instance,
+Initially the cask will be `customs sealed`, the first value we gave. We could now write, for instance,
 
 	The description of the cask is "A well-caulked Spanish wine cask.[if liable to tax] It really is a shame to have to pay duty on it!"
 
@@ -1624,39 +1674,39 @@ Or, as a second example, here we're going to allow a whole kind to have the prop
 	Colour is a kind of value. The colours are red, green and white.
 	A colour can be bright, neutral or flat. Green is neutral.
 
-Now in fact these properties are not anonymous: Inform has worked out names for them, even though we didn't give any. The usual arrangement is that the name is the name of the object with the word "condition" tacked on: for instance, "cask condition". So we could write:
+Now in fact these properties are not anonymous: Inform has worked out names for them, even though we didn't give any. The usual arrangement is that the name is the name of the object with the word `condition` tacked on: for instance, `cask condition`. So we could write:
 
 	The printed name of the cask is "wine cask ([cask condition])".
 
-so that sometimes this would be "wine cask (liable to tax)", sometimes "wine cask (stolen goods)" and so on.
+so that sometimes this would be written out in the story as ``wine cask (liable to tax)``, sometimes ``wine cask (stolen goods)`` and so on.
 
 But only usually, because we might need to define several different conditions of the same thing, and then the names would collide. For instance, suppose we write:
 
 	A fruit is a kind of thing. A fruit can be citrus, berry, melon, or pome.
 
-This makes a property and a kind of value each called "fruit condition". But now suppose we add that:
+This makes a property and a kind of value each called `fruit condition`. But now suppose we add that:
 
 	A fruit can be unripened, ripe, overripe, or mushy.
 
-This is a quite unrelated property – a fruit could have any combination of these two properties, in fact. Left to itself, Inform will call the second one "fruit condition 2", which isn't really ideal if we ever do need to refer to it in other source text. So we are also allowed to give these conditions names of our own choosing:
+This is a quite unrelated property – a fruit could have any combination of these two properties, in fact. Left to itself, Inform will call the second one `fruit condition 2`, which isn't really ideal if we ever do need to refer to it in other source text. So we are also allowed to give these conditions names of our own choosing:
 
 	A fruit can be unripened, ripe, overripe, or mushy (this is its squishiness property).
 
-And now the resulting property and kind of value would be called "squishiness".
+And now the resulting property and kind of value would be called `squishiness`.
 
 ## Default values of kinds
 
 ^^{kinds: default values of kinds <-- default properties of kinds} ^^{values: kinds of value: default values} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
 
-Just about every kind has a "default value". Inform needs this when it knows that something has to be a value of a given kind, but it hasn't been told what the value is. For example, in the previous chapter, [Things] we saw that every thing has a "description" text, but we also created plenty of things without describing them. So if Inform reads
+Just about every kind has a _default value_. Inform needs this when it knows that something has to be a value of a given kind, but it hasn't been told what the value is. For example, in the previous chapter on [Things], we saw that every `thing` has a `description` text, but we also created plenty of things without describing them. So if Inform reads
 
 	The conference pear is in the bowl.
 
 and it isn't told anything else about the pear, what should it set the description of the pear to?
 
-The answer is that Inform knows the description has to be a value of the kind "text", so it uses the default value of "text". Not very interestingly, this is just the blank text "".
+The answer is that Inform knows the description has to be a value of the kind `text`, so it uses the default value of `text`. Not very interestingly, this is just the blank text `""`.
 
-Being uninteresting is exactly the idea, of course. The default number is 0, for instance. (Default values are tabulated in the Kinds index.)
+Being uninteresting is exactly the idea, of course. The default number is 0, for instance. Default values are tabulated in the Kinds index.
 
 It's sometimes useful to be able to refer to the default value of a kind without having to spell out what this is (especially if the kind is something obscure, or we're trying to write a rule for an extension which has to work in situations we don't fully know about).
 
@@ -1674,7 +1724,7 @@ It's sometimes useful to be able to refer to the default value of a kind without
 >
 >     Brightness is a kind of value. The brightnesses are guttering, weak, radiant and blazing.
 >
-> then "default value of brightness" is guttering, the first brightness created.  When it comes to kinds of object, we sometimes have to be a little careful. For example,
+> then `default value of brightness` is guttering, the first `brightness` created.  When it comes to kinds of object, we sometimes have to be a little careful. For example,
 >
 >     default value of room
 >
@@ -1688,45 +1738,45 @@ It's sometimes useful to be able to refer to the default value of a kind without
 
 ^^{variables: global <-- values: varying <-- global variables} ^^{defining: global variables} ^^{Inform 6 equivalent: global variable} ^^{(that varies), in defining global variables+sourcepart+} ^^{(which varies), in defining global variables+sourcepart+} ^^{(initially), in defining global variables+sourcepart+} ^^{location (- object)+glob+} ^^{kinds: default values of kinds} ^^{type-checking: for global variables} ^^{Kinds page of Index panel+ui+} ^^{user interface: Index panel: Kinds page} ^^{Index panel+ui+: Kinds page}
 
-Sometimes a value important to the simulated world will not naturally belong to any thing or room, and should not be kept in a property. In fact, we have seen a value that varies already: "location", which holds the room in which the story is presently taking place. Here's how we might make a new one:
+Sometimes a value important to the simulated world will not naturally belong to any `thing` or `room`, because it is not a property of anything in particular. In fact, we have seen a value that varies already: `location`, which holds the `room` in which the story is presently taking place (properly speaking, which encloses the player's body). Here's how we might make a new one:
 
 	The prevailing wind is a direction that varies. The prevailing wind is southwest.
 
-Or "which varies" would also be allowed, as would the more traditional computing term "variable":
+Or `which varies` would also be allowed, as would the more traditional computing term `variable`:
 
 	The prevailing wind is a direction variable. The prevailing wind is southwest.
 
-A briefer way to do this is to use the word "initially", which alerts Inform to the possibility that the value will change in future:
+A briefer way to do this is to use the word `initially`, which alerts Inform to the possibility that the value will change in future:
 
 	The prevailing wind is initially southwest.
 
-This creates the variable and gives it an initial value all in one sentence.
+This _both_ creates the variable _and_ gives it an initial value, in a single sentence.
 
-It's not compulsory to give an initial value. If we do not, Inform will use the default value for its kind. (See the table in the Kinds index.) For example, writing just
+It's not compulsory to give an initial value. If we do not, Inform will use the default value for its kind. (For more on that, see [Default values of kinds].) For example, writing just
 
 	The grand tally is a number that varies.
 
-will start it at the value 0, because that's the default value for numbers.
+will start it at the value 0, because that's the default value for the kind `number`.
 
 We can have variables of any of the kinds of value, including new ones, but should watch out for a potential error. If we write:
 
 	The receptacle is a container that varies.
 
-in a world which has no containers at all, Inform will object, because it will be unable to put any initial value into the receptacle variable. A similar complaint will be made if we write:
+in a world which has no `containers` at all, Inform will object, because it will be unable to put any initial value into the `receptacle` variable. A similar complaint will be made if we write:
 
 	Colour is a kind of value. The fashionable shade is a colour that varies.
 
-without ever having defined any colours. Something else we are not permitted is:
+without ever having defined any `colours`. Something else we are not permitted is:
 
 	The receptacle is an open container that varies.
 
-because the openness of a given container may change during play, so that the value in the variable might suddenly become invalid even though the variable itself had not changed.
+because the openness of a given `container` may change during play, so that the value in the variable might suddenly become invalid even though the variable itself had not changed.
 
 As a final note on kinds, when Inform reads something like this:
 
 	Peter is a man. The accursed one is initially Peter.
 
-it has to make a decision about the kind of "accursed one". Peter is a "man", so Inform makes this a man that varies. But this means it can't later to change to a woman called Jane, say, or a black hat. So Inform allows us to be override its guesses:
+it has to make a decision about the kind of `accursed one`. Peter is a `man`, so Inform makes this a `man that varies`. But this means it can't later to change to a woman called Jane, say, or a black hat. So Inform allows us to be override its guesses:
 
 	The accursed one is a thing that varies.
 	Peter is a man. The accursed one is initially Peter.
@@ -1735,13 +1785,13 @@ it has to make a decision about the kind of "accursed one". Peter is a "man", so
 
 ^^{constant values <-- values: constant <-- global constants} ^^{defining: constant values} ^^{Inform 6 equivalent: constants} ^^{(always), in defining constant values+sourcepart+}
 
-It's sometimes useful to name even values which don't change. For example, suppose the story involves driving, and the same speed limit value comes up in many places. Rather than typing "55" (say) every time it comes up, we might prefer to write:
+It's sometimes useful to name even values which don't change. For example, suppose the story involves driving, and the same speed limit value comes up in many places. Rather than typing `55` (say) every time it comes up, we might prefer to write:
 
 	The speed limit is always 55.
 
-at the start of the source text, and then talk about "the speed limit" every time we would otherwise have typed "55". Just as the word "initially" alerts Inform that we want the named value to change during play, the word "always" tells it that we don't.
+at the start of the source text, and then talk about `the speed limit` every time we would otherwise have typed `55`. Just as the word `initially` alerts Inform that we want the named value to change during play, the word `always` tells it that we don't.
 
-This might seem pointless, because "speed limit" only means the same thing as "55" and takes more typing. But there are two reasons why authors might want to use this feature anyway. One is that it's easier for a human reader to understand the significance of a line like:
+This might seem pointless, because `speed limit` only means the same thing as `55` and takes more typing. But there are two reasons why authors might want to use this feature anyway. One is that it's easier for a human reader to understand the significance of a line like:
 
 	if the speed is greater than the speed limit, ...
 
@@ -1751,17 +1801,13 @@ Another is that it makes it easier to change our minds about the value, because 
 
 which is much easier than combing through a long source text trying to find many individual things which need changing.
 
-"Speed limit" is then a number constant. Any attempt to set this elsewhere, or change its value, will result in a Problem message, and moreover it can be used in contexts where only constant values are allowed. For example,
+`Speed limit` is then a `number` constant. Any attempt to set this elsewhere, or change its value, will result in a Problem message, and moreover it can be used in contexts where only constant values are allowed. For example,
 
 	The generic male appearance is always "He is a dude."
 	
 	Trevor is a man. The description of Trevor is the generic male appearance.
 
-means that the ``SHOWME TREVOR`` testing command produces, among other data:
-
-``` transcript
-description: "He is a dude."
-```
+means that typing ``EXAMINE TREVOR`` produces the reply ``He is a dude.``
 
 ## Duplicates {PM_TooManyDuplicates}
 
@@ -1775,37 +1821,39 @@ Although it is only useful to a limited extent, we can make any number of copies
 	
 	The Geometry Lab is a room. In the Geometry Lab are three triangles and two squares.
 
-The description "three triangles" makes three identical things, each of the kind "triangle", and similarly for the squares. When the above is compiled, the player can type ``TAKE TWO TRIANGLES`` or ``TAKE ALL THE TRIANGLES`` and so forth.
+The description `three triangles` makes three identical things, each of the kind `triangle`, and similarly for the squares. When the above is compiled, the player can type ``TAKE TWO TRIANGLES`` or ``TAKE ALL THE TRIANGLES`` and so forth.
 
-Four caveats. Firstly, a counted-out description like "two squares" is only allowed if it combines a number with the name of a kind which is already known (perhaps modified with adjectives, so "two open doors" is fine). If we say:
+Four caveats:
 
-	Two circles are in the Lab.
+1) Firstly, a counted-out description like `two squares` is only allowed if it combines a number with the name of a kind which is already known (perhaps modified with adjectives, so `two open doors` is fine). If we say:
 
-without having defined "circle" as a kind in advance, then only a single object will be created – whose name is "two circles". (This is because many natural names start with numbers: "six of clubs", for instance, referring to a single playing card, or "12 Hollywood Close" meaning a single house. We wouldn't want such names to be misinterpreted.)
+	   Two circles are in the Lab.
 
-The second caveat is that excessive duplication is expensive in memory and running time. It is perfectly legal to say
+   without having defined `circle` as a kind in advance, then only a single object will be created – whose name is `two circles`. (This is because many natural names start with numbers: `six of clubs`, for instance, referring to a single playing card, or `12 Hollywood Close` meaning a single house. We wouldn't want such names to be misinterpreted.)
 
-	In the Lab are 75 triangles.
+2) Excessive duplication is expensive in memory and running time. It is perfectly legal to say
 
-but the resulting story may be a little sluggish: and Inform draws the line at 100, refusing to create more duplicates than that in any single place. If we really need more than about fifty duplicated objects – say, a tombola containing raffle tickets numbered 1 to 1000 – it is usually better to find some less literal way to simulate this: for instance, only having a single raffle ticket, but with a randomly chosen number on it.
+	   In the Lab are 75 triangles.
 
-If there are very many items in the same place, commands like ``TAKE ALL`` and ``DROP ALL`` may mysteriously not quite deal with all of them – this is because the parser, the run-time program which deciphers typed commands, has only limited memory to hold the possibilities. It can be raised with a use option like so:
+   but the resulting story may be a little sluggish: and Inform draws the line at 100, refusing to create more duplicates than that in any single place. If we really need more than about fifty duplicated objects – say, a tombola containing raffle tickets numbered 1 to 1000 – it is usually better to find some less literal way to simulate this: for instance, only having a single raffle ticket, but with a randomly chosen number on it.
 
-	Use maximum things understood at once of at least 200.
+   If there are very many items in the same place, commands like ``TAKE ALL`` and ``DROP ALL`` may mysteriously not quite deal with all of them – this is because the parser, the run-time program which deciphers typed commands, has only limited memory to hold the possibilities. It can be raised with a use option like so:
 
-(The default is, as above, 100. Note the "at least".)
+	   Use maximum things understood at once of at least 200.
 
-Thirdly, note that Inform's idea of "identical" is based on what the player could type in a command to distinguish things. In a few cases this can make items unexpectedly identical. For example:
+   (The default is, as above, 100. Note the `at least`.)
 
-	The Lab is a room. A chemical is a kind of thing. Some polyethylene and polyethylene-terephthalate are chemicals in the Lab.
+3) Inform's idea of "identical" is based on what the player could type in a command to distinguish things. In a few cases this can make items unexpectedly identical. For example:
 
-results surprisingly in "You can see two chemicals here", because the run-time system truncates the words that are typed – ``POLYETHYLENE`` and ``POLYETHYLENE-TEREPHTHALATE`` look like the same word in a typed command. So Inform decides that these are indistinguishable chemicals. Typically words are truncated after 9 letters, though (unless the Glulx setting is used) punctuation inside a word, such as an apostrophe, can make this happen earlier. The best way to avoid trouble is simply to use more easily distinguishable names. For example:
+	   The Lab is a room. A chemical is a kind of thing. Some polyethylene and polyethylene-terephthalate are chemicals in the Lab.
 
-	Some polyethylene and polyethylene terephthalate are chemicals in the Lab.
+   results surprisingly in ``You can see two chemicals here.``, because the run-time system truncates the words that are typed – ``POLYETHYLENE`` and ``POLYETHYLENE-TEREPHTHALATE`` look like the same word in a typed command. So Inform decides that these are indistinguishable chemicals. Words are typically truncated after 9 letters. The best way to avoid trouble is simply to use more easily distinguishable names. For example:
 
-works fine, because now only one chemical can be called ``TEREPHTHALATE``, and that means they can be distinguished.
+	   Some polyethylene and polyethylene terephthalate are chemicals in the Lab.
 
-Finally: numbers up to twelve may be written out in words in the source text, but larger ones must be written as numerals. So "twelve" or "12", but "13" only.
+   works fine, because now only one chemical can be called ``TEREPHTHALATE``, and that means they can be distinguished.
+
+4) Finally: numbers up to twelve may be written out in words in the source text, but larger ones must be written as numerals. So `twelve` or `12`, but `13` only.
 
 ## Assemblies and body parts {PM_AssemblyLoop} {PM_AssemblyRegress} {PM_ComplexEvery}
 
@@ -1815,17 +1863,17 @@ In the previous chapter, [Things], we saw that it was possible to make sub-parts
 
 	The white door is in the Drawing Room. The handle is part of the white door.
 
-creates a door with an attached handle. But what if we want to say that not just this door, but every door, should have a handle? To do this we first need to create a kind called "handle", since there will clearly need to be many handles. The solution is:
+creates a door with an attached handle. But what if we want to say that not just this door, but every door, should have a handle? To do this we first need to create a kind called `handle`, since there will clearly need to be many handles. The solution is:
 
 	A handle is a kind of thing. A handle is part of every door.
 
-"Every" is a loaded word and best used sparingly. A sentence like "A handle is part of every handle" would, if taken literally, mean that a handle takes forever to make and is never finished. Inform will reject this, but the moral is clear: we should think about what we are doing with "every".
+`Every` is a loaded word and best used sparingly. A sentence like `A handle is part of every handle.` would, if taken literally, mean that a `handle` takes forever to make and is never finished. Inform will reject this, but the moral is clear: we should think about what we are doing with `every`.
 
 We will usually want to work with smaller collections – not literally every room, but with a whole set of them all the same. We can do that like so:
 
 	A silver coin is a kind of thing. A banking room is a kind of room. Five silver coins are in every banking room.
 
-The effect of sentences like these is to make what we might call "assemblies" instead of single things. When a banking room is created, so are five more silver coins; when a door is created, so is another handle. Such sentences act not only on items created later on in the source text, but also on all those created so far.
+The effect of sentences like these is to make so-called _assemblies_ instead of single things. When a banking room is created, so are five more silver coins; when a door is created, so is another handle. Such sentences act not only on items created later on in the source text, but also on all those created so far.
 
 This is especially useful for body parts. If we would like to explore Voltaire's suggestion that history would have been very different if only Cleopatra's nose had been shorter, we will need noses:
 
@@ -1836,9 +1884,9 @@ Of course, if we make an assembly like this then we had better remember that the
 	Cleopatra is a woman in Alexandria. The player is Cleopatra.
 	A nose is a kind of thing. A nose is part of every person.
 
-but if those lines are in reverse order then Cleopatra's nose is assembled before she becomes the player, with the result that it ends up called "Cleopatra's nose" rather than "your nose" in play – which is very regal but probably not what we want. To avoid this, settle the player's identity early on in the source text.
+but if those lines are in reverse order then Cleopatra's nose is assembled before she becomes the player, with the result that it ends up called ``Cleopatra's nose`` rather than ``your nose`` in play – which is very regal but probably not what we want. To avoid this, settle the player's identity early on in the source text.
 
-All of the assemblies above make objects. Most make these new objects "part of" existing ones, but as we saw, they can also be "in" or "on" them. In fact, though, assemblies work in much more general ways: they can assemble values of almost any kind, placed in almost any relationship. To make use of that, we need to create a new verb, a topic which won't be covered properly until a later chapter, but here goes:
+All of the assemblies above make objects. Most make these new objects `part of` existing ones, but as we saw, they can also be `in` or `on` them. In fact, though, assemblies work in much more general ways: they can assemble values of almost any kind, placed in almost any relationship. To make use of that, we need to create a new verb, a topic which won't be covered properly until a later chapter, but here goes:
 
 	A colour is a kind of value. The colours are red, green and blue.
 	
@@ -1846,11 +1894,11 @@ All of the assemblies above make objects. Most make these new objects "part of" 
 	
 	Every person likes a colour.
 
-Now every time a person is created, so is a colour which that person will like. If there are two people in the world, the player and Daphne, then we now have five colours: red, green, blue, Daphne's colour and the player's colour. Alternatively, we can assemble the other way around:
+Now every time a `person` is created, so is a `colour` which that person will like. If there are two `people` in the world, the player and Daphne, then we now have five `colours`: red, green, blue, Daphne's colour and the player's colour. Alternatively, we can assemble the other way around:
 
 	A person likes every colour.
 
-Now we're telling Inform that every time a colour is made, a new person is also made – someone who will like that colour. So this sentence effectively makes three new people, one who likes red, one who likes green, and one who likes blue.
+Now we're telling Inform that every time a `colour` is made, a new `person` is also made – someone who will like that `colour`. So this sentence effectively makes three new people, one who likes red, one who likes green, and one who likes blue.
 
 ## Names made in assembly
 
@@ -1916,21 +1964,15 @@ which would produce new colours with names like "Antony's favourite colour". (An
 
 So much for an informal description. Here is exactly what Inform does:
 
-1) If multiple things are being created in a single assembly, they are each anonymously named after their kinds. Example: "Three vehicles are in every room."
+1) If multiple things are being created in a single assembly, they are each anonymously named after their kinds. Example: `Three vehicles are in every room.`
 
-2) If a single thing is being created, but no `called` text is given, and the relation is not `incorporation` (i.e., `part of`), then its name will likewise be just the name of its kind. Example: "A door is in every room."
+2) If a single thing is being created, but no `called` text is given, and the relation is not `incorporation` (i.e., `part of`), then its name will likewise be just the name of its kind. Example: `A door is in every room.`
 
-3) If a single thing is being created, and the relation is `incorporation` (i.e., `part of`), and there is no `called` text given, then it will have a name generated from the thing it is a part of. Example: "A container is part of every door."
+3) If a single thing is being created, and the relation is `incorporation` (i.e., `part of`), and there is no `called` text given, then it will have a name generated from the thing it is a part of. Example: `A container is part of every door.`
 
-4) If a single thing is being created, and a `called` text is given, then it will have a name generated from this text, expanding out "its" (or "his" or "her" or "their") to a possessive form of the name of the owner, so to speak, and "it" (or "he" or "she" or "they" or "him" or "them") to the name itself. Example: "A vehicle (called its buggy) is in every room."
+4) If a single thing is being created, and a `called` text is given, then it will have a name generated from this text, expanding out `its` (or `his` or `her` or `their`) to a possessive form of the name of the owner, so to speak, and `it` (or `he` or `she` or `they` or `him` or `them`) to the name itself. Example: `A vehicle (called its buggy) is in every room.`
 
 5) If values rather than objects are created, rules (1) to (4) apply in the same way, but Inform tacks on a number if necessary to force each new name to be different from existing ones: e.g., "Daphne's colour 2", "Daphne's colour 3", ... (This is because, unlike objects, values must have unique names.)
-
-## Postscript on simulation
-
-That concludes our tour through the design of the initial state of a simulated world. We have seen how to create rooms and to stock them with containers, supporters, devices, doors, men and women. The player of such a simulation can explore, move things around, open and close certain doors and containers, lock or unlock them provided a suitable key is found, switch machines on or off, and so on.
-
-But that is about all. There is as yet no element of surprise, no aim or sense of progress to be earned, and no narrative thread. We have painted the backcloth, and laid out the properties, but the actors have yet to take the stage.
 
 # Text
 
