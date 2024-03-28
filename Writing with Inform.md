@@ -620,7 +620,7 @@ At its simplest, the interactive fiction will be simulating a physical world to 
 	
 	A wicker cage is here. "There is a small wicker cage discarded nearby."
 	
-	The Debris Room is west of the Crawl. "You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. A note on the wall says, 'Magic word ^{XYZZY}'."
+	The Debris Room is west of the Crawl. "You are in a debris room filled with stuff washed in from the surface. A low wide passage with cobbles becomes plugged with mud and debris here, but an awkward canyon leads upward and west. A note on the wall says, 'Magic word XYZZY'."
 	
 	The black rod is here. "A three foot black rod with a rusty star on one end lies nearby."
 	
@@ -653,25 +653,25 @@ Two more directions are provided by Inform: "inside" and "outside". These are be
 
 	Inside from the Meadow is the woodcutter's hut.
 
-The "from" is important, as it clarifies that we intend to link two different locations, not to create an item – the hut – in a single location – the meadow.
+The `from` is important, as it clarifies that we intend to link two different locations, not to create an item – the hut – in a single location – the meadow.
 
 A problem which sometimes arises when laying out maps is that Inform allows short forms of room names to be used as abbreviations. This is usually a good idea, but has unfortunate results if we write:
 
 	The Airport Road is west of the Fish Packing Plant. The Airport is west of the Airport Road.
 
-...because "Airport" is taken as a reference to "Airport Road", so Inform makes only two locations, one of which supernaturally leads to itself. We can avoid this by writing:
+...because `Airport` is taken as a reference to `Airport Road`, so Inform makes only two locations, one of which supernaturally leads to itself. We can avoid this by writing:
 
 	The Airport Road is west of the Fish Packing Plant. A room called the Airport is west of the Airport Road.
 
-Using "called" is often a good way to specify something whose name might give rise to confusion otherwise. It always makes something new, and it is also neatly concise, because we can establish something's kind and name in the same sentence. As another example, suppose we want to create a room called "South of the Hut", to south of the Hut. We can't do so like this:
+Using `called` is often a good way to specify something whose name might give rise to confusion otherwise. It always makes something new, and it is also neatly concise, because we can establish something's kind and name in the same sentence. As another example, suppose we want to create a room called `South of the Hut`, to south of the Hut. We can't do so like this:
 
 	South of the Hut is a room. South of the Hut is south of the Hut.
 
-...because Inform will read that first sentence as placing a (nameless) room to the south of a room called "Hut". Once again "called" can save the day:
+...because Inform will read that first sentence as placing a (nameless) room to the south of a room called `Hut`. Once again `called` can save the day:
 
 	South of the Hut is a room called South of the Hut.
 
-It is best to use "called" in the simplest way possible, and in particular, best not to use "called" twice in the same sentence. Consider:
+It is best to use `called` in the simplest way possible, and in particular, best not to use `called` twice in the same sentence. Consider:
 
 	The kitchen cabinet contains a container called a mixing bowl and a portable supporter called a platter.
 
@@ -695,7 +695,7 @@ Besides reading this sentence at face value, Inform also deduced that the Crawl 
 
 	The Hidden Alcove is east of the Debris Room.
 
-These two sentences are not contradictory: Inform allows them both, simply accepting that the world is more complicated than it first assumed. There are relatively few situations where Inform has to make educated guesses, but when it does, it tries always to follow Occam's Razor by constructing the simplest model world consistent with the information in the Source text.
+These two sentences are not contradictory: Inform allows them both, simply accepting that the world is more complicated than it first assumed. There are relatively few situations where Inform has to make educated guesses, but when it does, it tries always to follow Occam's Razor by constructing the simplest model world consistent with the information in the source text.
 
 We can even explicitly make a route which turns around as it leads between two rooms:
 
@@ -716,15 +716,15 @@ Inform makes guesses about the first sentence, and makes a two-way connection; b
 
 ^^{kinds: catalogue: region} ^^{regions+kind+ <-- kinds: catalogue: region} ^^{rooms+kind+: grouping into regions} ^^{index map} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
 
-Rooms represent individual places to which one can go, but we tend to think of the world around us in larger pieces: we think of a house and a garden, rather than each of the single rooms of the house and all corners of its garden. To Inform a collection of rooms is called a "region", and we can create one like so:
+Rooms represent individual places to which one can go, but we tend to think of the world around us in larger pieces: we think of a house and a garden, rather than each of the single rooms of the house and all corners of its garden. To Inform a collection of rooms is called a _region_, and we can create one like so:
 
 	The Arboretum is east of the Botanical Gardens. Northwest of the Gardens is the Tropical Greenhouse.
 	
 	The Public Area is a region. The Arboretum and Gardens are in the Public Area.
 
-The real usefulness of creating regions like "Public Area" will only appear later, when we begin defining rules of play which apply in some areas but not others, but in the mean time we can see the effect by turning to the World tab of the Index. In the World Index, Inform draws a map – or at least a stylised attempt at a diagram of the rooms and their connections: this will not always correspond to how we imagine things, but with any luck it should mostly be right.
+The real usefulness of creating regions like `Public Area` will only appear later, when we begin defining rules of play which apply in some areas but not others, but in the mean time we can see the effect by turning to the World tab of the Index. In the World Index, Inform draws a map – or at least a stylised attempt at a diagram of the rooms and their connections: this will not always correspond to how we imagine things, but with any luck it should mostly be right.
 
-Rooms are represented by coloured squares, and the colour-coding is done by region. In the above example, the two "Public Area" rooms are coloured green (as it happens); the Greenhouse, since it belongs to no region, is a neutral grey.
+Rooms are represented by coloured squares, and the colour-coding is done by region. In the above example, the two Public Area rooms are coloured green (as it happens); the Greenhouse, since it belongs to no region, is a neutral grey.
 
 Regions can be put inside each other:
 
@@ -746,7 +746,7 @@ The following description runs to only 33 words, but makes a surprisingly intric
 	
 	East of the Garden is the Gazebo. Above is the Treehouse. A billiards table is in the Gazebo. On it is a trophy cup. A starting pistol is in the cup.
 
-Inform identifies eight "objects" mentioned in this short scenario, which it groups together into different categories called "kinds". Kinds affect the general behaviour of things. For instance, the pistol and the cup can be picked up but not walked inside, whereas the Gazebo and the Treehouse are the reverse. (This is obvious to someone who knows what these words mean, less obvious to a computer which does not, but the text contains sufficient clues.) Inform sorts out the situation above like so:
+Inform identifies eight _objects_ mentioned in this short scenario, which it groups together into different categories called _kinds_. Kinds affect the general behaviour of things. For instance, the pistol and the cup can be picked up but not walked inside, whereas the Gazebo and the Treehouse are the reverse. (This is obvious to someone who knows what these words mean, less obvious to a computer which does not, but the text contains sufficient clues.) Inform sorts out the situation above like so:
 
 Objects                       | Their kinds
 ----------------------------- | -----------
@@ -760,7 +760,7 @@ Inform makes guesses at these kinds using some basic assumptions about how the w
 
 	In the Treehouse is a cardboard box.
 
-results in the cardboard box being made only a "thing": because nothing has been put inside it, there is no reason for Inform – which does not know what a cardboard box looks like – to guess that it is a "container". So we need to add:
+results in the cardboard box being made only a `thing`: because nothing has been put inside it, there is no reason for Inform – which does not know what a cardboard box looks like – to guess that it is a `container`. So we need to add:
 
 	The box is a container.
 
@@ -776,15 +776,15 @@ Some containers, like bottles, can be opened: others, like buckets, cannot. If t
 
 	The cardboard box is a closed container. The glass bottle is a transparent open container. The box is fixed in place and openable.
 
-There are only four different properties referred to here. Closed means not open, and vice versa, so these two adjectives both refer to the same property. (As might be expected, when a container is open, one can see inside and place things within, or take them out.) The glass bottle and the box being containers is a matter of their kinds, which is something fundamental and immutable, so "container" does not count as a property.
+There are only four different properties referred to here. `Closed` means not `open`, and vice versa, so these two adjectives both refer to the same property. (As might be expected, when a container is open, one can see inside and place things within, or take them out.) The glass bottle and the box being containers is a matter of their kinds, which is something fundamental and immutable, so `container` does not count as a property.
 
-A "transparent" container is one which we can see inside even when it is closed, and the opposite is an "opaque" container.
+A `transparent` container is one which we can see inside even when it is closed, and the opposite is an `opaque` container.
 
-The property of being "fixed in place" ensures that the player cannot pick the item up and walk away with it: this is useful for such things as oak trees or heavy furniture. The opposite condition is to be "portable".
+The property of being `fixed in place` ensures that the player cannot pick the item up and walk away with it: this is useful for such things as oak trees or heavy furniture. The opposite condition is to be `portable`.
 
-A container which is "openable" can be opened or closed by the player; as might be expected, the opposite is "unopenable".
+A container which is `openable` can be opened or closed by the player; as might be expected, the opposite is `unopenable`.
 
-With a really large cardboard box, we might imagine that the player could get inside: such a container should be declared "enterable".
+With a really large cardboard box, we might imagine that the player could get inside: such a container should be declared `enterable`.
 
 ## Properties depend on kind {PM_PropertyNotPermitted}
 
@@ -796,7 +796,7 @@ Another way that kind influences properties can be seen from an earlier example:
 
 	The Gazebo is a room. A billiards table is in the Gazebo. On it is a trophy cup. A starting pistol is in the cup.
 
-The cup, the pistol and the table are all allowed to have the "fixed in place" property, but in fact only the table actually has it: the cup and the pistol are created as "portable" instead. This is because Inform knows that most things are portable, but that supporters – such as the table – are usually fixed in place. If this assumption is wrong, we need only add the line:
+The cup, the pistol and the table are all allowed to have the `fixed in place` property, but in fact only the table actually has it: the cup and the pistol are created as `portable` instead. This is because Inform knows that most things are `portable`, but that supporters – such as the table – are usually `fixed in place`. If this assumption is wrong, we need only add the line:
 
 	The table is portable.
 
@@ -804,38 +804,38 @@ The cup, the pistol and the table are all allowed to have the "fixed in place" p
 
 ^^{scenery (thing)+prop+} ^^{scenery (thing)+propcat+} ^^{immobile things: |scenery} ^^{things+kind+: immobile: |scenery} ^^{hiding things from room descriptions by making them scenery <-- concealment+rel+: in a room} ^^{descriptions (displayed): hiding things from room descriptions} ^^{supporters+kind+: mentioned because of supported things}
 
-As we have just seen, making something "fixed in place" will prevent it from being picked up or moved. But it remains substantial enough to be described in its own paragraph of text when the player visits its location. This can be unfortunate if it has also been described already in the body of the main description for that location. For instance, if we wrote:
+As we have just seen, making something `fixed in place` will prevent it from being picked up or moved. But it remains substantial enough to be described in its own paragraph of text when the player visits its location. This can be unfortunate if it has also been described already in the body of the main description for that location. For instance, if we wrote:
 
 	The Orchard is a room. "Within this quadrille of pear trees, a single gnarled old oak remains as a memory of centuries past." The gnarled old oak tree is fixed in place in the Orchard.
 
 This would end up describing the oak twice, once in the paragraph about the Orchard, then again in a list of things within it:
 
 ``` transcript
-**Orchard**
+Orchard
 Within this quadrille of pear trees, a single gnarled old oak remains as a memory of centuries past.
 
 You can see a gnarled old oak tree here.
 ```
 
-We avoid this by making it "scenery" instead of "fixed in place":
+We avoid this by making it `scenery` instead of `fixed in place`:
 
 	The gnarled old oak tree is scenery in the Orchard.
 
-Any thing can be scenery, and this does not bar it from playing a part in the story: it simply means that it will be immobile and that it will not be described independently of its room. Being immobile, scenery should not be used for portable objects that are meant to be left out of the room description.
+Any `thing` can be `scenery`, and this does not bar it from playing a part in the story: it simply means that it will be immobile and that it will not be described independently of its room. Being immobile, scenery should not be used for `portable` objects that are meant to be left out of the room description.
 
-If a supporter is scenery, it may still be mentioned in the room description after all, but only as part of a paragraph about other items, such as
+If a `supporter` is `scenery`, it may still be mentioned in the room description after all, but only as part of a paragraph about other items, such as
 
 ``` transcript
 On the teak table are a candlestick and a copy of the Financial Times.
 ```
 
-If the player takes the candlestick and the Times, the teak table will disappear from mention. (Scenery containers do not behave in this way: their contents are assumed to be less immediately visible, and will be mentioned only if the player looks inside them.)
+If the player takes the candlestick and the Times, the teak table will disappear from mention. (`Scenery containers` do not behave in this way: their contents are assumed to be less immediately visible, and will be mentioned only if the player looks inside them.)
 
 ## Backdrops {kind_backdrop} {PM_EverywhereNonBackdrop} {PM_CantChangeEverywhere} {PM_EverywhereMisapplied}
 
 ^^{kinds: catalogue: backdrop} ^^{backdrops+kind+ <-- kinds: catalogue: backdrop} ^^{scenery (thing)+prop+: backdrops made automatically scenery} ^^{rooms+kind+: things in more than one room} ^^{things+kind+: in more than one room} ^^{regions+kind+: backdrops in regions} ^^{(everywhere), placing backdrops+sourcepart+} ^^{|nowhere: placing backdrops}
 
-It is a cardinal rule that nothing can be in more than one place at the same time, but rules were made to be broken, and an exception is allowed for a special kind of thing called a "backdrop". For instance:
+It is a cardinal rule that nothing can be in more than one place at the same time, but rules were made to be broken, and an exception is allowed for a special kind of thing called a `backdrop`. For instance:
 
 	{*}"Streaming"
 	
@@ -849,13 +849,13 @@ Backdrops can be put in regions as well as rooms, and if so, then they are prese
 
 	The Outdoors Area is a region. The Moon is a backdrop. The Moon is in the Outdoors Area. The Moon is in the Skylight Room.
 
-The property "map region" for a room holds the region it is in, in case this is useful.
+The property `map region` for a room holds the region it is in, in case this is useful.
 
-The special place "everywhere" can be given as the location of a backdrop to make it omnipresent:
+The special place `everywhere` can be given as the location of a backdrop to make it omnipresent:
 
 	The sky is a backdrop. The sky is everywhere.
 
-Inform assumes that backdrops are also scenery unless told otherwise, so this will not result in messages like "You can also see the sky here." being included in room descriptions. In the case of the stream above, we could artfully mention it in passing in the room descriptions of the Upper Cave and the Rock Pool.
+Inform assumes that backdrops are also scenery unless told otherwise, so this will not result in messages like ``You can also see the sky here.`` being included in room descriptions. In the case of the stream above, we could artfully mention it in passing in the room descriptions of the Upper Cave and the Rock Pool.
 
 ### See Also
 
@@ -865,7 +865,7 @@ Inform assumes that backdrops are also scenery unless told otherwise, so this wi
 
 ^^{properties: value properties} ^^{value properties} ^^{properties: holding text} ^^{description of (room)+prop+} ^^{description of (room)+propcat+} ^^{text: in properties}
 
-The properties we have seen so far have all been either/or: either open or closed, either transparent or opaque, either fixed in place or portable, either openable or not openable. However, some properties can have a much wider range of possibilities. For instance, the "description" of a room is the text revealed when the player first enters it, or types "look". This needs to be textual: Inform would complain if, for instance, we tried to set the description of something to the number 42. We have already seen a concise way to set the description of a room:
+The properties we have seen so far have all been either/or: either `open` or `closed`, either `transparent` or `opaque`, either `fixed in place` or `portable`, either `openable` or not. However, some properties can have a much wider range of possibilities. For instance, the `description` of a room is the text revealed when the player first enters it, or types ``LOOK``. This needs to be textual: Inform would complain if, for instance, we tried to set the description of something to the number 42. We have already seen a concise way to set the description of a room:
 
 	The Painted Room is north of the Undertomb. "This is the Painted Room, where strange wall drawings leap out of the dark at the gleam of your candle: men with long wings and great eyes, serene and morose."
 
@@ -885,11 +885,11 @@ The player's first sight of something is the text used as its "initial appearanc
 
 	The plain ring is here. "Cast aside, as if worthless, is a plain brass ring."
 
-This text appears as a separate paragraph in the text describing the Painted Room. It will continue to be used until the first time the player picks the ring up — if this ever happens — so it normally describes things in their original, undisturbed context. Inform uses an either/or property called "handled" to keep track of this: something is "handled" if it has at some point been carried or worn by the player.
+This text appears as a separate paragraph in the text describing the Painted Room. It will continue to be used until the first time the player picks the ring up — if this ever happens — so it normally describes things in their original, undisturbed context. Inform uses an either/or property called `handled` to keep track of this: something is `handled` if it has at some point been carried or worn by the player.
 
-Thus when a piece of text stands alone as a sentence in its own right, then this is either the "description" of the most recently discussed room, or the "initial appearance" of the most recently discussed thing. Either way, it is used verbatim as a paragraph in the text shown to the player visiting the room in question.
+Thus when a piece of text stands alone as a sentence in its own right, then this is either the `description` of the most recently discussed `room`, or the `initial appearance` of the most recently discussed `thing`. Either way, it is used verbatim as a paragraph in the text shown to the player visiting the room in question.
 
-But a thing also has an ordinary "description", which is used to give a close-up look at it. This text is ordinarily only revealed to the player when a command like "examine ring" is keyed in:
+But a `thing` also has an ordinary `description`, which is used to give a close-up look at it. This text is ordinarily only revealed to the player when a command like ``EXAMINE RING`` is keyed in:
 
 	The description of the plain ring is "No better than the loops of metal the old women use for fastening curtains."
 
@@ -901,7 +901,7 @@ But a thing also has an ordinary "description", which is used to give a close-up
 
 ^^{kinds: catalogue: door} ^^{doors+kind+ <-- kinds: catalogue: door} ^^{connections between rooms: doors} ^^{through+relverb+}
 
-The map of an interactive fiction is the layout of rooms and the entrances and exits which connect them. So far, these map connections have always run from one room to another, like so:
+The _map_ of an interactive fiction is the layout of rooms and the entrances and exits which connect them. So far, these map connections have always run from one room to another, like so:
 
 	The Painted Room is north of the Undertomb.
 
@@ -909,14 +909,14 @@ However, we can also interpose doors between rooms, like so:
 
 	The heavy iron grating is east of the Orchard and west of the Undertomb. The grating is a door.
 
-The second sentence is needed since otherwise Inform will take "heavy iron grating" to be the name of a third room, whereas what we want is for the grating to be something physically present in both the Orchard and in the Undertomb, and acting as a conduit between them. To this end it needs to be a "door", a kind we have not so far seen. In the absence of any other instruction, a newly created door will be fixed in place, closed and openable.
+The second sentence is needed since otherwise Inform will take `heavy iron grating` to be the name of a third room, whereas what we want is for the grating to be something physically present in both the Orchard and in the Undertomb, and acting as a conduit between them. To this end it needs to be a `door`, a kind we have not so far seen. In the absence of any other instruction, a newly created door will be `fixed in place`, `closed` and `openable`.
 
 The grating really does come in between the two rooms: the grating is what lies immediately east of the Orchard, not the Undertomb room. So if we wrote the following:
 
 	The Undertomb is east of the Orchard. The heavy iron grating is east of the Orchard and west of the Undertomb. The grating is a door.
 
 then Inform would say that this is a contradiction: we said the Undertomb was east of the Orchard, but then we said that the grating was east of the Orchard.
-Inform's "door" kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin's beguiling novel "The Tombs of Atuan", from which the above rooms are stolen, it is not a grating which interposes, but:
+Inform's `door` kind can be used for all manner of conduits, so the word door need not be taken literally. In Ursula K. Le Guin's beguiling novel _The Tombs of Atuan_ (1970), from which the above rooms are stolen, it is not a grating which interposes, but:
 
 ^^{@Le Guin, Ursula K.}
 
@@ -926,7 +926,7 @@ In real life, most doors are two-sided, and can be used from either of the rooms
 
 	The blue door is a door. It is south of Notting Hill. Through it is the Flat Landing.
 
-(Note the use of "it" here as an optional abbreviation.) This will make a door visible only on the Notting Hill side; no map connection will be made in the reverse direction, unless we ask for one.
+(Note the use of `it` here as an optional abbreviation.) This will make a door visible only on the Notting Hill side; no map connection will be made in the reverse direction, unless we ask for one.
 
 So much for creating and describing individual doors. Once we need to write about doors in general, we are likely to want a way to find out where a given door sits in the map. The following phrases reveal this:
 
@@ -984,21 +984,21 @@ Yet a third way to say this is:
 
 	The blue door has matching key the brass Yale key.
 
-This introduces three new properties: a door can be locked or unlocked; lockable or not lockable; and it can have a matching key, which must be another thing. The same thing can be the matching key of many different locks: and note that a door can be locked and even lockable without having a matching key at all, in which case the player trying to open it will be permanently out of luck. Doors are ordinarily unlocked, not lockable, and without a matching key.
+This introduces three new properties: a door can be `locked` or `unlocked`; `lockable` or not; and it can have a `matching key`, which must be another `thing`. The same thing can be the matching key of many different locks: and note that a door can be locked and even lockable without having a matching key at all, in which case the player trying to open it will be permanently out of luck. Doors are ordinarily unlocked, not lockable, and without a matching key.
 
-Containers can also have locks, in exactly the same way, and are allowed to have the same properties. On the other hand supporters never have locks: it makes no sense to be able to lock a tabletop, for instance, and Inform will not allow any discussion of the matching key of a supporter, or of a supporter being locked or unlocked.
+Containers can also have locks, in exactly the same way, and are allowed to have the same properties. On the other hand supporters never have locks: it makes no sense to be able to lock a tabletop, for instance, and Inform will not allow any discussion of the `matching key` of a `supporter`, or of a `supporter` being `locked` or `unlocked`.
 
 ## Devices and descriptions {kind_device}
 
 ^^{kinds: catalogue: device} ^^{devices+kind+} ^^{switched on / off (device)+prop+} ^^{switched on (device)+propcat+} ^^{switched off (device)+propcat+} ^^{Inform 6 equivalent: |switchable} ^^{turning devices on / off} ^^{descriptions (displayed): varying with properties} ^^{text substitutions <-- text: substitutions}
 
-A "device" is another of the standard kinds of thing, and should be used for anything which can be switched on or off: a light switch, say, or a slide projector. Devices are generally machines, clockwork or electrical. A device is always either "switched on" or "switched off", but is switched off unless we specify otherwise.
+A `device` is another of the standard kinds of thing, and should be used for anything which can be switched on or off: a light switch, say, or a slide projector. Devices are generally machines, clockwork or electrical. A device is always either `switched on` or `switched off`, but is switched off unless we specify otherwise.
 
-That makes three kinds of thing which will likely change their appearance according to which of their two possible states they are in: doors and containers, which can be open or closed; and devices, which can be switched on or switched off. We would like to produce text accordingly, and we can do this using Inform's ability to make (almost) any piece of text change with circumstances. For instance:
+That makes three kinds of thing which will likely change their appearance according to which of their two possible states they are in: `doors` and `containers`, which can be `open` or `closed`; and `devices`, which can be `switched on` or `switched off`. We would like to produce text accordingly, and we can do this using Inform's ability to make (almost) any piece of text change with circumstances. For instance:
 
 	The coffin is an openable container in the Undertomb. "[if open]The lid of a plank coffin yawns open.[otherwise]A plank coffin lies upon the dirt floor of the Tomb."
 
-We could use a similar trick to make the appearance of a device change "if switched on". There will be much more about text substitutions, as instructions in square brackets like these are called, in later chapters.
+We could use a similar trick to make the appearance of a device change `if switched on`. There will be much more about text substitutions, as instructions in square brackets like these are called, in later chapters.
 
 ### See Also
 
@@ -1008,17 +1008,15 @@ We could use a similar trick to make the appearance of a device change "if switc
 
 ^^{light} ^^{darkness <-- light: lack of} ^^{lighted / dark (room)+prop+} ^^{dark / lighted (room)+prop+} ^^{lighted (room)+propcat+} ^^{dark (room)+propcat+} ^^{lit / unlit (thing)+prop+} ^^{unlit / lit (thing)+prop+} ^^{lit (thing)+propcat+} ^^{unlit (thing)+propcat+} ^^{containers+kind+: open / closed} ^^{containers+kind+: transparent / opaque} ^^{open / closed (container/door)+prop+} ^^{closed / open (container/door)+prop+} ^^{open (container/door)+propcat+} ^^{closed (container/door)+propcat+} ^^{transparent / opaque (container)+prop+} ^^{opaque / transparent (container)+prop+} ^^{transparent (container)+propcat+} ^^{opaque (container)+propcat+}
 
-Rooms can be "dark" or "lighted", though they are lighted by default, and are lighted in all the examples we have seen so far.
-
-whence?
+Rooms can be `dark` or `lighted`, though they are lighted by default, and are lighted in all the examples we have seen so far. So a room must be explicitly declared `dark` for it to be such:
 
 	The Sinister Cave is a dark room. "A profoundly disquieting rock formation, apparently sculptured by some demonic hand, this is not a cave in which to relax."
 
-When the player is in a dark room, they can still go in various directions, but they cannot see the room description or interact with any of the objects in the room, except those they are holding. This means that, unless we should change the Cave in some way during play, the text above ("A profoundly...") will only be read if the player succeeds in bringing light into the Cave, perhaps by bringing along the following:
+When the player is in a `dark` room, they can still go in various directions, but they cannot see the room description or interact with any of the objects in the room, except those they are holding. This means that, unless we should change the Cave in some way during play, the text above (`"A profoundly..."`) will only be read if the player succeeds in bringing light into the Cave, perhaps by bringing along the following:
 
 	The flaming torch is in the Sandy Passage. "Stuck loosely into the sand is a flaming torch." The flaming torch is lit.
 
-A thing with the property of being "lit" will enable the player to see inside dark rooms, and to carry out other activities requiring light, such as examining items. A lit thing in an open container will still light up a room; a lit thing in a closed container will not, unless the container has been given the "transparent" property.
+A thing with the property of being `lit` will enable the player to see inside dark rooms, and to carry out other actions requiring light, such as examining things. A `lit thing` in an `open container` will still light up a room; a `lit thing` in a `closed container` will not, unless the container has been given the `transparent` property.
 
 It is possible to adjust the way darkness behaves, and we will see more on this topic in the chapter on [Activities].
 
@@ -1030,23 +1028,19 @@ It is possible to adjust the way darkness behaves, and we will see more on this 
 
 ^^{kinds: catalogue: vehicle} ^^{vehicles+kind+} ^^{containers+kind+: vehicle as kind of container} ^^{enterable (container)+prop+: vehicles made automatically enterable} ^^{pushing things} ^^{things+kind+: pushable between rooms} ^^{pushable between rooms (thing)+prop+} ^^{pushable between rooms (thing)+propcat+} ^^{animals+kind+: rideable} ^^{Rideable Vehicles+ext+} ^^{extensions: specific extensions: Rideable Vehicles}
 
-Next in the tour of standard kinds is the "vehicle". This behaves like (indeed, is) an enterable container, except that it will not be portable unless this is specified.
+Next in the tour of standard kinds is the `vehicle`. This behaves like (indeed, is) an `enterable container`, except that it will not be `portable` unless this is specified.
 
 	In the Garage is a vehicle called the red sports car.
 
-The player can enter the sports car and then move around riding inside it, by typing directions exactly as if on foot: and the story will print names of rooms with "(in the red sports car)" appended, lest this be forgotten.
+The player can enter the sports car and then move around riding inside it, by typing directions exactly as if on foot: and the story will print names of rooms with ``(in the red sports car)`` appended, lest this be forgotten.
 
-We have already seen that some things are portable, others fixed in place. In fact we can also make a third sort of thing: those which, although not portable, can be pushed from one room to another with commands like "push the wheelbarrow north". At a pinch, we might just be willing to allow:
+We have already seen that some things are portable, others fixed in place. In fact we can also make a third sort of thing: those which, although not portable, can be pushed from one room to another with commands like ``PUSH THE WHEELBARROW NORTH``. At a pinch, we might just be willing to allow:
 
 	The red sports car is pushable between rooms.
 
-But of course this is a property which almost any thing can have, not just a vehicle. (Only "almost" because Inform will not allow a door to be pushable between rooms, in the interests of realism rather than surrealism.)
+But of course this is a property which almost any `thing` can have, not just a `vehicle`. (Only "almost" because Inform will not allow a `door` to be `pushable between rooms`, in the interests of realism rather than surrealism.)
 
-If we need vehicles which the passenger sits on top of, like a horse or a tractor, the standard "vehicle" kind will not be ideal. However, by loading one of the extensions which comes ready-installed:
-
-	Include Rideable Vehicles by Graham Nelson.
-
-...we are provided with two more kinds, "rideable vehicle" and "rideable animal", just right for the tractor and the horse respectively. (As with all extensions, the documentation can be seen by clicking Go on some source which contains the above line, and then turning to the Contents index; or from the Installed Extensions tab of the Extensions panel.)
+If we need vehicles which the passenger sits on top of, like a tractor, the standard `vehicle` kind will not be ideal. The extension `Rideable Vehicles by Graham Nelson` can help with this, and also allows animals such as horses to be rideable.
 
 ### See Also
 
@@ -1056,19 +1050,19 @@ If we need vehicles which the passenger sits on top of, like a horse or a tracto
 
 ^^{kinds: catalogue: person} ^^{person+kind+ <-- people <-- kinds: catalogue: person} ^^{kinds: catalogue: man} ^^{man+kind+ <-- men+kind+} ^^{kinds: catalogue: woman} ^^{woman+kind+} ^^{kinds: catalogue: animal} ^^{animals+kind+} ^^{pronouns} ^^{male / female / neuter (person)+prop+} ^^{female / male / neuter (person)+prop+} ^^{neuter / male / female (person)+prop+} ^^{male (person)+propcat+} ^^{female (person)+propcat+} ^^{neuter (person)+propcat+}
 
-Rounding out the standard kinds provided by Inform are four for living things: "person", which is a kind of thing, and "man", "woman" and "animal", all kinds of person. For instance:
+Rounding out the standard kinds provided by Inform are four for living things: `person`, which is a kind of thing, and `man`, `woman` and `animal`, all kinds of person. For instance:
 
 	In the Ballroom is a man called Mr Darcy.
 
 For the time being, men and women will be little more than waxworks: they will come to life only when we go beyond the present stage of creating an initial state of the world.
 
-People can be male or female: this is an either/or property for the "person" kind, and it affects play at run-time a little, because the player can use "him" and "her" to refer to male or female people encountered. Men and women are always male and female respectively, and for animals we can choose either way, for example making a stallion male or a nanny goat female. Animals are male unless we say otherwise.
+People can be `male` or `female`: this is an either/or property for the `person` kind, and it affects play at run-time a little, because the player can use ``HIM`` and ``HER`` to refer to male or female people encountered. Men and women are always male and female respectively, and for animals we can choose either way, for example making a stallion male or a nanny goat female.
 
-If our animal is instead something like a beetle or an earthworm, where gender doesn't seem to matter or even to exist, we can use the further property "neuter":
+If our animal is instead something like a beetle or an earthworm, where gender doesn't seem to matter or even to exist, we can use the further property `neuter`:
 
 	The spider is a neuter animal in the Bathroom.
 
-The Standard Rules don't make people behave differently according to their genders, and the main difference comes down to language: whether we want the animal to be called "her", or "it". Because of the existence of "neuter", we sometimes need to be cautious about the use of the adjective "male": since Inform, partly for historical reasons, uses an either/or property for masculinity, neuter animals are also "male".
+The Standard Rules don't make people behave differently according to their genders, and the main difference comes down to language: whether we want the animal to be called "HER", or "IT". Because of the existence of `neuter`, we sometimes need to be cautious about the use of the adjective `male`: since Inform, partly for historical reasons, uses an either/or property for masculinity, neuter animals are also `male`.
 
 ## Articles and proper names
 
@@ -1078,7 +1072,7 @@ Suppose we have said that:
 
 	In the Ballroom is a man called Mr Darcy.
 
-When the Ballroom is visited, the man is listed in the description of the room as "Mr Darcy", not as "a Mr Darcy". This happened not because Inform recognised that Darcy is a proper name, or even because men tend to have proper names, but because Inform noticed that we did not use "a", "an", "the" or "some" in the sentence which created him. The following shows most of the options:
+When the Ballroom is visited, the man is listed in the description of the room as ``Mr Darcy``, not as ``a Mr Darcy``. This happened not because Inform recognised that Darcy is a proper name, or even because men tend to have proper names, but because Inform noticed that we did not use `a`, `an`, `the` or `some` in the sentence which created him. The following shows most of the options:
 
 	The Belfry is a room. A bat is in the Belfry. The bell is in the Belfry. Some woodworm are in the Belfry. A man called William Snelson is in the Belfry. A woman called the sexton's wife is in the Belfry. A man called a bellringer is in the Belfry.
 	
@@ -1090,33 +1084,25 @@ In the resulting story, we read:
 You can see a bat, a bell, some woodworm, William Snelson, the sexton's wife, a bellringer and your local vicar here.
 ```
 
-The subtlest rule here is in the handling of "the". We wrote "The bell is in the Belfry", but this did not result in the bell always being called "the" bell: in fact, writing "A bell is in the Belfry" would have had the same effect. On the other hand, "A woman called the sexton's wife is in the Belfry." led to the wife always being known as "the" sexton's wife, not "a" sexton's wife, because Inform thinks the choice of article after "called" shows more of our intention than it would elsewhere. These rules will never be perfect in all situations, so we are also allowed to specify indefinite articles by hand, as the vicar's case shows.
+The subtlest rule here is in the handling of `the`. We wrote `The bell is in the Belfry`, but this did not result in the bell always being called ``the bell``: in fact, writing `A bell is in the Belfry` would have had the same effect. On the other hand, `A woman called the sexton's wife is in the Belfry.` led to the wife always being known as ``the sexton's wife``, not ``a sexton's wife``, because Inform thinks the choice of article after `called` shows more of our intention than it would elsewhere. These rules will never be perfect in all situations, so we are also allowed to specify indefinite articles by hand, as the vicar's case shows.
 
-"Some" is worth a closer look, because English uses it in several different ways. By introducing the woodworm with "some", above, we established that it was plural. We might imagine that there are many worms, even though they are represented by a single thing in Inform. We can expect to see text in the story such as:
-
-	You can see some woodworm here.
-	The woodworm are fixed in place.
+`Some` is worth a closer look, because English uses it in several different ways. By introducing the woodworm with `some`, above, we established that it was plural. We might imagine that there are many worms, even though they are represented by a single thing in Inform. We can expect to see text in the story such as ``The woodworm are fixed in place.``, rather than ``...is fixed in place.``
 
 But suppose we wanted something which there is an amount of, but which is not made up of individual items – a so-called mass noun like "water", or "bread". Now we can write:
 
 	The water is here. The indefinite article is "some".
 
-and this time Inform does not treat the "some water" thing as a plural, so we might read:
+and this time Inform does not treat the `some water` thing as a plural, so the story might produce sentences like ``The water is hardly portable.`` rather than ``The water are hardly portable.``
 
-	You can see some water here.
-	The water is hardly portable.
-
-rather than "The water are hardly portable."
-
-Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties "singular-named" (vs "plural-named") and "proper-named" (vs "improper-named").
+Finally, we can override these settings, if they still come out not as we intend, by explicitly changing the either/or properties `singular-named` (vs `plural-named`) and `proper-named` (vs `improper-named`).
 
 On rare occasions, the same item might be referred to in either a singular or plural way: for example, a box of matches, or a book of lottery tickets. In their full names, they are singular nouns ("box of matches" is a singular), but abbreviated descriptions of them (like "matches") are plural nouns. A story in play generally writes these names in full, so this ambiguity doesn't matter. But players might abbreviate them. For example:
 
 	On the silver salver is a bouquet of flowers.
 
-Now, there is only one bouquet of flowers here, so this is a singular-named item. If the player types ``TAKE BOUQUET``, the story will reply ``Taken.``, and the player can then ``EXAMINE IT``, because the pronoun ``IT`` is understood as meaning the last singularly-named item referred to which wasn't a person. But what if the player instead types ``TAKE FLOWERS``, and then on the next command, ``EXAMINE THEM``? Now ``THEM`` will not be understood.
+Now, there is only one bouquet of flowers here, so this is a `singular-named` item. If the player types ``TAKE BOUQUET``, the story will reply ``Taken.``, and the player can then ``EXAMINE IT``, because the pronoun ``IT`` is understood as meaning the last singularly-named item referred to which wasn't a person. But what if the player instead types ``TAKE FLOWERS``, and then on the next command, ``EXAMINE THEM``? Now ``THEM`` will not be understood.
 
-This small lapse in command parsing is what the property "ambiguously plural" is intended to avoid:
+This small lapse in command parsing is what the property `ambiguously plural` is intended to avoid:
 
 	On the silver salver is a bouquet of flowers. The bouquet of flowers is ambiguously plural.
 
@@ -1126,33 +1112,33 @@ Now when the player's commands refer to the bouquet of flowers, the words ``IT``
 
 ^^{containers+kind+: carrying capacity} ^^{supporters+kind+: carrying capacity} ^^{person+kind+: carrying capacity} ^^{player: carrying capacity} ^^{carrying capacity of (container/supporter/person)+prop+} ^^{carrying capacity of (container/supporter/person)+propcat+}
 
-The containers and supporters created so far have been boundlessly capacious: or rather, though we seldom notice the difference, have had a maximum carrying capacity of 100 items. This is clearly unrealistic for a small purse or a modest mantelpiece. We can impose upper limits with sentences like so:
+The containers and supporters created so far have been boundlessly capacious: or rather, though we seldom notice the difference, have had a maximum `carrying capacity` of 100, meaning that they can contain or support at most 100 items directly. This is clearly unrealistic for a small purse or a modest mantelpiece. We can impose upper limits with sentences like so:
 
 	The carrying capacity of the jewelled purse is 2.
 	
 	The bijou mantelpiece has carrying capacity 3.
 
-Attempts by the player to overfill, or overload, will now be rebuffed with a message such as "There is no room on the mantelpiece".
+Attempts by the player to overfill, or overload, will now be rebuffed with a message such as ``There is no room on the mantelpiece.``
 
-The player is not a container or a supporter, but nevertheless does have a carrying capacity: this is interpreted to mean the maximum number of items which can be carried at once.
+The player is not a `container` or a `supporter`, but is a `person`, and so nevertheless does have a `carrying capacity`: this is interpreted to mean the maximum number of items which can be carried at once.
 
 	The carrying capacity of the player is 4.
 
-These restrictions only apply to the player (and other in-world characters): as the omnipotent creators, we are not restrained by them. Nothing prevents this:
+These restrictions constrain the actions of the fictional characters in the story. But they do not constrain us, as the omnipotent creator of their world. So nothing prevents this:
 
 	The carrying capacity of the jewelled purse is 2. The diamond, the ruby and the sapphire are in the purse.
 
-The player will be able to remove all three items, but only put two of them back. (This is probably something we only want very occasionally: perhaps to create a sack stuffed almost to bursting point.)
+During play, all three items will be able to be extracted from the purse with commands like ``TAKE DIAMOND``, but only two can then be put back. (We might occasionally want an initially over-filled container like this: perhaps to create a sack stuffed almost to bursting point.)
 
 ## Possessions and clothing
 
 ^^{possessions} ^^{carrying+rel+} ^^{carrying+relcat+} ^^{wearing+rel+} ^^{wearing+relcat+}^^^{wearing+rel+ <-- clothing} ^^{wearable (thing)+prop+} ^^{wearable (thing)+propcat+} ^^{Inform 6 equivalent: |clothing} ^^{worn (thing)+adj+} ^^{carried (thing)+adj+} ^^{held (thing)+adj+}
 
-We have seen how to place objects in rooms, and in containers or on supporters. But what about people? Perhaps it could be said that they "contain" the fillings in their teeth, or "support" a top hat, but this is not very natural. Inform therefore never speaks of things being "in" or "on" people. Instead, they have two sorts of possessions: the things they carry, and the things they wear. (Body parts, such as arms and legs, are different again: see "parts" below for a clue to how to do these.) Thus:
+We have seen how to place objects in rooms, and in containers or on supporters. But what about people? Perhaps it could be said that they "contain" the fillings in their teeth, or "support" a top hat, but this is not very natural. Inform therefore never speaks of things being `in` or `on` people. Instead, they have two sorts of possessions: the things they `carry`, and the things they `wear`. (Body parts, such as arms and legs, are different again: see [Parts of things] below for a clue to how to do these.) Thus:
 
 	Mr Darcy wears a top hat. Mr Darcy carries a silver sword.
 
-In fact, Inform deduces from this not only who owns the hat and the sword, but also that Darcy has the kind "person", because only people can wear or carry.
+In fact, Inform deduces from this not only who owns the hat and the sword, but also that Darcy has the kind `person`, because only people can wear or carry.
 
 As all the assertion verbs do, "to wear" and "to carry" have participles which Inform knows about. So we could equally well write:
 
@@ -1162,11 +1148,11 @@ If we do not specify who does the wearing, or carrying, then this is assumed to 
 
 	A brass lantern and a rusty iron key are carried. The mosquito-repellent hat is worn.
 
-It would make no sense to "wear" the key, for instance, so Inform needs to distinguish between what is clothing and what is not. It does this with an either/or property called "wearable": if something has this property then the player will be allowed to wear it, provided it can first be picked up. Anything which is worn by somebody at the start of play is assumed to be wearable (unless we say otherwise). But if nobody is initially wearing the item in question, then we have to be explicit:
+It would make no sense to `wear` the key, for instance, so Inform needs to distinguish between what is clothing and what is not. It does this with an either/or property called `wearable`: if something has this property then the player will be allowed to wear it, provided it can first be picked up. Anything which is worn by somebody at the start of play is assumed to be `wearable` (unless we say otherwise). But if nobody is initially wearing the item in question, then we have to be explicit:
 
 	The player carries a scarlet gown. The gown is wearable.
 
-(When we come to asking questions about the current situation, we will need to remember that "to carry" and "to wear" are different. Thus "if Lancelot carries the plate armour" will not be true if he is wearing it rather than carrying it under his arm. As we will later see, we can instead vaguely say "if Lancelot has the plate armour" to mean either carrying or wearing.)
+"To carry" and "to wear" are different verbs, with different meanings. For example, `if Lancelot carries the plate armour` will not be true if he is wearing it rather than carrying it under his arm. As we will later see, we can instead vaguely say `if Lancelot has the plate armour` if what we mean is "if he is either carrying or wearing the armour".
 
 ### See Also
 
@@ -1186,9 +1172,9 @@ When the player has only limited carrying capacity, play is likely to be tiresom
 	
 	In the Attic are a CD entitled No Smoke Without Fire, a 70s photograph of an American winning Wimbledon, a fraxinus branch, an urn holding your late great-aunt's remains, a convention badge from the American Society of Hypertension and a ghost story by M R James.
 
-This example story introduces a new kind of container, the "player's holdall". This is a kind of which most stories will contain at most one example, but in principle there can be any number. A player's holdall is a capacious bag into which the player automatically places surplus items whenever their hands are full: trying the above example story and getting the items one by one will give the general idea.
+This example story introduces a new kind of container, the `player's holdall`. This is a kind of which most stories will contain at most one example, but in principle there can be any number. A `player's holdall` is a capacious bag into which the player automatically places surplus items whenever their hands are full: trying the above example story and getting the items one by one will give the general idea.
 
-Of course, if the carrying capacity of the player is never reached then there will never be any surplus items and a player's holdall will behave just like any other (portable, usually openable) container.
+Of course, if the `carrying capacity` of the player is never reached then there will never be any surplus items and a `player's holdall` will behave just like any other (`portable`, usually `openable`) `container`.
 
 ### See Also
 
@@ -1198,7 +1184,7 @@ Of course, if the carrying capacity of the player is never reached then there wi
 
 ^^{food} ^^{eating+action+} ^^{edible / inedible (thing)+prop+} ^^{inedible / edible (thing)+prop+} ^^{edible (thing)+propcat+} ^^{inedible (thing)+propcat+}
 
-We have nearly reached the end of the chapter on Things, but one either/or property for things remains: every thing is either "edible" or "inedible". Unless we say otherwise, things are inedible. But for instance we might write:
+We have nearly reached the end of the chapter on Things, but one either/or property for things remains: every thing is either `edible` or `inedible`. Unless we say otherwise, things are `inedible`. But for instance we might write:
 
 	The player carries a Macintosh apple. The Macintosh is edible.
 
@@ -1208,9 +1194,9 @@ We have nearly reached the end of the chapter on Things, but one either/or prope
 
 ^^{incorporation+rel+ <-- part of+relverb+} ^^{incorporation+relcat+} ^^{components} ^^{things+kind+: parts of things}
 
-Everything has one and only one kind. This is both good and bad: good for clarity, bad if something needs to behave in two different ways at once. How might we simulate a car with an ignition key, given that no single thing can be both a "vehicle" and a "device" at the same time?
+Everything has one and only one kind. This is both good and bad: good for clarity, bad if something needs to behave in two different ways at once. How might we simulate a car with an ignition key, given that no single thing can be both a `vehicle` and a `device` at the same time?
 
-The Inform world model takes the view that such a car is too complicated to be simulated with a single thing. Instead it should be simulated as a vehicle (the car) which has a device (the ignition) attached. This is done using a third kind of containment to those seen so far ("in..." and "on..."): "part of".
+The Inform world model takes the view that such a car is too complicated to be simulated with a single thing. Instead it should be simulated as a `vehicle` (the car) which has a `device` (the ignition) attached. This is done using a new relationship: `part of`.
 
 	{*}"Buttons"
 	
@@ -1224,85 +1210,19 @@ The Inform world model takes the view that such a car is too complicated to be s
 	
 	The cake, the twist and the almond are edible.
 
-The machine and the desk each have several "parts" representing subsidiary pieces of themselves. The desk is a "supporter" (it needs to be, for the liquorice twist to be on top) but also has three "containers" attached, each of which can be opened or closed independently.
+The machine and the desk each have several _parts_ representing subsidiary pieces of themselves. The desk is a `supporter` (it needs to be, for the liquorice twist to be on top) but also has three `containers` attached, each of which can be opened or closed independently.
 
 In the interests of realism, the standard rules of play protect these composite things. Thus if the desk were to be moved elsewhere (rolling on sugar casters perhaps) then its parts would move with it, and the player is not allowed to detach parts of things: the drawers can be opened or closed, but not pulled out altogether.
 
-Note that rooms and regions are not allowed to have parts. (Rooms are already parts of regions, and to divide up rooms, we can either make several rooms or place containers or other obstacles in a single one.)
-
-## Concealment
-
-^^{concealment+rel+} ^^{concealment+relcat+} ^^{concealed (thing)+adj+} ^^{hiding things carried by other characters} ^^{concealed possessions} ^^{deciding the concealed possessions of something+activity+} ^^{deciding the concealed possessions of something+activitycat+} ^^{possessions: deciding the concealed possessions of something+activity+} ^^{particular possession (- thing)+glob+} ^^{described / undescribed (thing)+prop+} ^^{undescribed / described (thing)+prop+} ^^{described (thing)+propcat+} ^^{undescribed (thing)+propcat+} ^^{yourself (- person)+const+}
-
-Though realism can become tiresome in interactive fiction, there are times when we cannot go along with Inform's normal assumption that all of a person's possessions are visible to everybody else. People are not like containers, which either show all of their holdings or not, according to whether they are open or transparent. If a man is carrying a fishing rod and a wallet, one will be on open show, the other not. Some clothing is outwardly visible, but not all.
-
-Whether or not something is concealed is not like the either/or properties we have seen so far – such as being "open" or "closed" – because it is not really a property of the thing itself, but depends on the habitual behaviour of its current owner. To talk about behaviour we have to use sentences of a kind not seen so far, and which will not fully be explained for some chapters to come.
-
-But straightforward cases are easy to write, if only by imitating the following examples.
-
-Here we make the Cloaked Villain invariably conceal anything she is holding or wearing:
-
-	Rule for deciding the concealed possessions of the Cloaked Villain: yes.
-
-At which point we think about it more carefully, and then rewrite:
-
-	Rule for deciding the concealed possessions of the Cloaked Villain: if the particular possession is the sable cloak, no; otherwise yes.
-
-(A rule which says neither "yes" nor "no" will decide yes, but it's best to spell out exactly what's wanted.)
-
-Parts are treated exactly as if clothes or items being held, and the following will make the face and inscription on a coin invisible unless the player is holding it – the idea being that they are too small to be seen from farther away.
-
-	{*}The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.
-
-There is also an either/or property called "described"/"undescribed", intended to be used only as a last resort, but which has the ability to hide something from room descriptions. This not really hiding: the idea is that "undescribed" should be used only for cases where some other text already reveals the item, or where its presence is implicit. Even then, it should only be used when the item is intended to be taken or moved by the player at some point – if the item isn't intended to move, it's much better to make it "scenery". (There's only one commonly-found example – the player's own body, the "yourself", is undescribed.)
-
-Note that the "undescribed" property is automatically removed from anything carried by, worn by or part of the player, even indirectly; and that nothing on top of an "undescribed" supporter will be visible in a room description, even if it itself is "described". (Scenery supporters don't suffer from that restriction, which is one reason scenery is a better option when possible.)
-
-## The location of something
-
-^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play} ^^{things+kind+: location of} ^^{enclosure+rel+} ^^{enclosure+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{location (- object)+glob+} ^^{Inform 6 equivalent: |IndirectlyContains}
-
-The model world created by Inform is partitioned into rooms. This means that everything which exists in the model world, exists in one of the rooms. If we write a sentence such as
-
-	Professor Wilderspin is a man.
-
-and say nothing more about Wilderspin, then he does not physically exist at the start of the story: he is said to be "out of play", and stays that way until we move him into one of the rooms. A better metaphor might be that he is waiting in the wings, ready to come onto the stage.
-
-Every thing is either out of play, or can be found in one of the rooms, and the property "location of X" gives us the room in question. The following condition tests, in effect, whether Wilderspin is in play:
-
-	if the location of Wilderspin is a room, ...
-
-Which uses a new phrase:
-
-> phrase: {ph_locationof} location of (object) ... room
->
-> This phrase produces the room which, perhaps indirectly, contains the object given. Example: if the player stands in Biblioll College and wears a waistcoat, inside which is a fob watch, then
->
->     location of the fob watch
->
-> is Biblioll College. In general, a thing cannot be in two rooms at once, but there are two exceptions: two-sided doors, present on both sides, and backdrops. The "location of" a door is its front side, but a backdrop has no location. (Objects which are not things at all, such as rooms and directions, also have no location.)
-
-We very often want to know the location of the player, and this is more simply called just "the location". (This is actually a value that varies rather than a phrase, but that's a technicality we can ignore here.)
-
-The idea of indirect containment is useful enough to have a name: Inform calls it "enclosure". A thing encloses whatever is a part of itself, or inside itself, or on top of itself, and it also encloses anything that they enclose. And when something moves around, anything it encloses will move with it. In the example above, Biblioll College (a room) and the player (a person) both enclose the fob watch and the waistcoat. (The small print: a door is enclosed by the rooms on both sides; a backdrop is never enclosed.)
-
-Enclosure is only useful when being used as a question. So the following is fine:
-
-	if the player encloses the fob watch, ...
-
-But these will produce problem messages:
-
-	The player encloses the fob watch. The location of the trilobite is the Museum.
-
-because they are too vague. Inform needs to know exactly where the fob watch and the trilobite will begin the story, whereas these sentences leave room for doubt about who or what is actually holding them.
+Note that `rooms` and `regions` are not allowed to have parts. (Rooms are already parts of regions, and to divide up rooms, we can either make several rooms or place containers or other obstacles in a single one.)
 
 ## Directions {kind_direction} {PM_TooManyDirections} {PM_ImproperlyMadeDirection} {PM_DirectionTooLong} {PM_NamelessDirection}
 
 ^^{kinds: catalogue: direction} ^^{directions+kind+} ^^{opposite of (direction)+prop+} ^^{opposite of (direction)+propcat+} ^^{directions+kind+: defining} ^^{defining: directions} ^^{index map} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
 
-"Direction" is a kind which is quite unlike most of those seen so far. While it has to do with the physical world, a direction does not exactly belong to it. One cannot find "southeast" sitting on a shelf. "Direction" is not a kind of thing, nor a kind of room: it is a kind in its own right.
+`Direction` is a kind which is quite unlike most of those seen so far. While it has to do with the physical world, a direction does not exactly belong to it. One cannot find `southeast` sitting on a shelf. `Direction` is not a kind of `thing`, and nor is it a kind of `room`: it is a kind in its own right.
 
-Every direction has an "opposite" property, which is always another direction. These occur in matched pairs. The opposite of north is south, just as the opposite of south is north. The opposite of southeast is northwest, the opposite of inside is outside, and so on. When Inform reads a sentence like...
+Every direction has an `opposite` property, which is always another `direction`. These occur in matched pairs. The opposite of north is south, just as the opposite of south is north. The opposite of southeast is northwest, the opposite of inside is outside, and so on. When Inform reads a sentence like...
 
 	Bangkok is south of Nakhon Sawan.
 
@@ -1310,7 +1230,9 @@ Every direction has an "opposite" property, which is always another direction. T
 
 	Nakhon Sawan is north of Bangkok.
 
-The chapter began with the twelve directions built into Inform: north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside. That basically compass-based frame of reference is traditional in interactive fiction, but it doesn't suit every story. Terry Pratchett's "Discworld" comedies, set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. On board a Zeppelin airship, which constantly changes its course, the cockpit has no fixed compass bearing from the passenger cabin: it is not very naturally "north". Instead, it's fore rather than aft. For such situations, it's possible to create new directions. These have to be created in opposing pairs, and each **must** be declared with a clear simple sentence of the form "X is a direction." For instance:
+The chapter began with the twelve directions built into Inform: north, northeast, east, southeast, south, southwest, west, northwest, up, down, inside, outside.
+
+That basically compass-based frame of reference is traditional in interactive fiction, but it doesn't suit every story. Terry Pratchett's _Discworld_ comedies (1983-2015), set on a rotating disc, use the directions turnwise, widdershins, hubwards and rimwards. Or suppose a story takes place on board a Zeppelin airship, which constantly changes its course. The cockpit then has no fixed compass bearing from the passenger cabin, and is not very naturally "north". Instead, it's fore rather than aft. For such situations, it's possible to create new directions. These have to be created in opposing pairs, and each **must** be declared with a clear simple sentence of the form `X is a direction.` For instance:
 
 	Turnwise is a direction. The opposite of turnwise is widdershins.
 	Widdershins is a direction. The opposite of widdershins is turnwise.
@@ -1326,6 +1248,74 @@ The Map page of the Index for a project relies on regular compass bearings, so i
 	Index map with turnwise mapped as east.
 
 maps turnwise directions as if they were east, that is, pointing rightwards on the page. But to reiterate: this has no effect on the story as experienced by a player.
+
+## Concealment
+
+^^{concealment+rel+} ^^{concealment+relcat+} ^^{concealed (thing)+adj+} ^^{hiding things carried by other characters} ^^{concealed possessions} ^^{deciding the concealed possessions of something+activity+} ^^{deciding the concealed possessions of something+activitycat+} ^^{possessions: deciding the concealed possessions of something+activity+} ^^{particular possession (- thing)+glob+} ^^{described / undescribed (thing)+prop+} ^^{undescribed / described (thing)+prop+} ^^{described (thing)+propcat+} ^^{undescribed (thing)+propcat+} ^^{yourself (- person)+const+}
+
+The final sections of this chapter can safely be skipped on a first reading.
+
+Though realism can become tiresome in interactive fiction, there are times when we cannot go along with Inform's normal assumption that all of a person's possessions are visible to everybody else. People are not like containers, which either show all of their holdings or not, according to whether they are `open` or `transparent`. If a man is carrying a fishing rod and a wallet, one will be on open show, the other not. Some clothing is outwardly visible, but not all.
+
+Whether or not something is _concealed_ is not like the either/or properties we have seen so far – such as being `open` or `closed` – because it is not really a property of the thing itself, but depends on the behaviour of its owner. To talk about behaviour we have to use sentences of a kind not seen so far, and which will not fully be explained for some chapters to come.
+
+But straightforward cases are easy to write, if only by imitating the following examples. Here we make the Cloaked Villain invariably conceal anything she is holding or wearing:
+
+	Rule for deciding the concealed possessions of the Cloaked Villain: yes.
+
+At which point we think about it more carefully, and then rewrite:
+
+	Rule for deciding the concealed possessions of the Cloaked Villain:
+		if the particular possession is the sable cloak, no;
+		otherwise yes.
+
+(A rule which concludes neither `yes` nor `no` will decide yes, but it's best to spell out exactly what's wanted.)
+
+Parts are treated exactly as if clothes or items being held, and the following will make the face and inscription on a coin invisible unless the player is holding it – the idea being that they are too small to be seen from farther away.
+
+	{*}The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.
+
+There is also an either/or property called `described` versus `undescribed`, intended to be used only as a last resort, but which has the ability to hide something from room descriptions. The idea is that `undescribed` should be used only for cases where some other text already reveals the item, or where its presence is implicit. Even then, it should only be used when the item is intended to be taken or moved by the player at some point – if the item isn't intended to move, it's much better to make it `scenery`. (There's only one commonly-found example – the player's own body, a `person` called `yourself`, is undescribed.)
+
+Note that the `undescribed` property is automatically removed from anything carried by, worn by or part of the player, even indirectly; and that nothing on top of an `undescribed supporter` will be visible in a room description, even if it itself is `described`. (`Scenery supporters` don't suffer from that restriction, which is one reason `scenery` is a better option when possible.)
+
+## The location of something
+
+^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play} ^^{things+kind+: location of} ^^{enclosure+rel+} ^^{enclosure+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{location (- object)+glob+} ^^{Inform 6 equivalent: |IndirectlyContains}
+
+The model world created by Inform is partitioned into rooms. This means that everything which exists in the model world, exists in one of the rooms. If we write a sentence such as
+
+	Professor Wilderspin is a man.
+
+and say nothing more about Wilderspin, then he does not physically exist at the start of the story: he is said to be `out of play`, and stays that way until we move him into one of the rooms. A better metaphor might be that he is waiting in the wings, ready to come onto the stage.
+
+Every thing is either out of play, or can be found in one of the rooms, and the phrase `location of X` gives us the room in question. The following condition tests, in effect, whether Wilderspin is in play:
+
+	if the location of Wilderspin is a room, ...
+
+More formally:
+
+> phrase: {ph_locationof} location of (object) ... room
+>
+> This phrase produces the room which, perhaps indirectly, contains the object given. Example: if the player stands in Biblioll College and wears a waistcoat, inside which is a fob watch, then
+>
+>     location of the fob watch
+>
+> is Biblioll College. In general, a thing cannot be in two rooms at once, but there are two exceptions: two-sided doors, present on both sides, and backdrops. The "location of" a door is its front side, but a backdrop has no location. (Objects which are not things at all, such as rooms and directions, also have no location.)
+
+We very often want to know the location of the player, and this is more simply called just "the location". (This is actually a value that varies rather than a phrase, but that's a technicality we can ignore here.)
+
+The idea of indirect containment is useful enough to have a name: Inform calls it _enclosure_. A thing encloses whatever is a part of itself, or inside itself, or on top of itself, and it also encloses anything that they enclose. And when something moves around, anything it encloses will move with it. In the example above, Biblioll College (a room) and the player (a person) both enclose the fob watch and the waistcoat. For a more exhausting definition of enclosure, which is a little more subtle than it seems, see [The built-in verbs and their meanings].
+
+Enclosure is only useful when being used as a question. So the following is fine:
+
+	if the player encloses the fob watch, ...
+
+But these will produce problem messages:
+
+	The player encloses the fob watch. The location of the trilobite is the Museum.
+
+because they are too vague. Inform needs to know exactly where the fob watch and the trilobite will begin the story, whereas these sentences leave room for doubt about who or what is actually holding them.
 
 # Kinds
 
