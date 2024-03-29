@@ -2740,17 +2740,17 @@ And now Inform will act on `"[Security Notice]"` differently from `"[security no
 
 ^^{descriptions (references to things)} ^^{things+kind+: references to (descriptions)} ^^{+tosay+"[list of (description)]" --> list of} ^^{+to+say "[list of (description)]"}
 
-It is in describing circumstances that Inform really capitalises on the concise, expressive power of natural language, and this chapter brings together the facts about "descriptions".
+It is in describing circumstances that Inform really capitalises on the concise, expressive power of natural language, and this chapter brings together the facts about _descriptions_.
 
-The simplest descriptions consist of a noun alone. Some refer to single things ("lantern", or "wine cask"), others to kinds of thing ("dead end" or "container"). But we have also seen adjectives alone:
+The simplest descriptions consist of a noun alone. Some refer to single things (`lantern`, or `wine cask`), others to kinds of thing (`dead end` or `container`). But we have also seen adjectives alone:
 
 	The oaken desk is fixed in place.
 
-Here, "fixed in place" is a description which, to Inform's simple-minded grammar, is a single adjective. And of course adjectives and nouns can be combined:
+Here, `fixed in place` is a description which, to Inform's simple-minded grammar, is a single adjective. And of course adjectives and nouns can be combined:
 
 	The cargo trunk is an openable container.
 
-The description "openable container" consists of the noun "container", meaning a kind of thing, and the adjective "openable", which means one of the two possible states of an either/or property held by that thing.
+The description `openable container` consists of the noun `container`, meaning a kind of thing, and the adjective `openable`, which means one of the two possible states of an either/or property held by that thing.
 
 As the next chapter, [Basic Actions] will show, rules also make great use of descriptions:
 
@@ -2768,7 +2768,7 @@ It's also sometimes convenient to count the number of eligible values:
 >
 >     number of open doors
 >
-> produces the number of doors, anywhere in the model world, which are currently open. A Problem message is produced if the number is potentially infinite, or impractical to count: for instance, Inform rejects "number of odd numbers".
+> produces the number of doors, anywhere in the model world, which are currently open. A Problem message is produced if the number is potentially infinite, or impractical to count: for instance, Inform rejects `number of odd numbers`.
 
 It is because descriptions are so widely useful that they deserve a chapter of their own, and this is it.
 
@@ -2804,43 +2804,43 @@ description              | determiner | adjective(s)     | noun
 
 As can be seen, these eight composite nouns really only have three different meanings between them.
 
-So for instance "anybody male" or "somewhere dark" are valid descriptions. These eight nouns are unusual in being allowed to come at the front of a description: nouns are usually expected to be at the end.
+So for instance `anybody male` or `somewhere dark` are valid descriptions. These eight nouns are unusual in being allowed to come at the front of a description: nouns are usually expected to be at the end.
 
-Inform also understands "nothing", "nowhere", "nobody", "no-one" and even "no one", which in a sense are opposites of "something" and the like, but for now we'll look at descriptions of things which do exist rather than don't.
-
-## Sources of adjectives
-
-^^{adjectives} ^^{properties: value properties: used as adjectives} ^^{value properties: used as adjectives} ^^{properties: either/or properties: used as adjectives} ^^{either/or properties: used as adjectives}
-
-We have seen two sorts of adjectives so far: those which refer to either/or properties, like "open" and "closed", and those which come out of new kinds of value. If we define
-
-	Texture is a kind of value. The textures are rough, stubbly and smooth. Everything has a texture.
-
-...then "rough", "stubbly" and "smooth" all become adjectives. (That last sentence "Everything has a texture" was essential, because without it Inform would not know that these words could meaningfully be applied to things.)
-
-In addition to these adjectives, we can create new ones (as we shall see), and a few special adjectives such as "visible", "touchable" and "adjacent" are already defined for us by Inform.
+Inform also understands `nothing`, `nowhere`, `nobody`, `no-one` and even `no one`, which in a sense are opposites of `something` and the like, but for now we'll look at descriptions of things which do exist rather than don't.
 
 ## Defining new adjectives {PM_DefinitionBadCondition} {PM_DefinitionWithoutCondition} {PM_AdjDomainSlippery} {PM_AdjDomainSurreal} {PM_AdjDomainUnknown} {PM_ArticleAsAdjective}
 
-^^{adjectives: defining} ^^{defining: adjectives} ^^{definition+assert+} ^^{(rather than), in defining adjectives+sourcepart+} ^^{|called: in defining adjectives} ^^{descriptions (references to things): defining adjectives for descriptions} ^^{punctuation: colon} ^^{|:}
+^^{adjectives} ^^{properties: value properties: used as adjectives} ^^{value properties: used as adjectives} ^^{properties: either/or properties: used as adjectives} ^^{either/or properties: used as adjectives} ^^{adjectives: defining} ^^{defining: adjectives} ^^{definition+assert+} ^^{(rather than), in defining adjectives+sourcepart+} ^^{|called: in defining adjectives} ^^{descriptions (references to things): defining adjectives for descriptions} ^^{punctuation: colon} ^^{|:}
 
-Suppose we want to coin a word for supporters currently supporting something. We can do so with the following sentence:
+We have already seen one way to make new adjectives: they automatically come into being when new properties are created. For example:
+
+	A door can be creaky or quiet.
+
+This creates adjectives `creaky` and `quiet`. Or alternatively:
+
+	Texture is a kind of value. The textures are rough, stubbly and smooth. Everything has a texture.
+
+makes `rough`, `stubbly` and `smooth` adjectives. That last sentence `Everything has a texture` was essential, because without it Inform would not know that these words could meaningfully be applied to things. Then they would only be nouns, not adjectives.
+
+But not all adjectives refer to property values. For example, the built-in adjective `even` as applied to a `number` value is not a property: when Inform wants to know whether a number is even, it applies a _definition_.
+
+And we can create that sort of adjective, too. Suppose we want to coin a word for supporters currently supporting something. We can do so with the following sentence:
 
 	Definition: A supporter is occupied if something is on it.
 
-Note the colon, which is essential, and the usage of "it" in the definition part to refer to the object in question. (For this purpose we would write "it" even if we were defining a term about, say, a woman instead of a supporter, so that "she" or "her" might seem more appropriate – but see below.)
+Note the colon, which is essential, and the usage of `it` in the definition part to refer to the object in question. (For this purpose we would write `it` even if we were defining a term about, say, a woman instead of a supporter, so that `she` or `her` might seem more appropriate – but see below.)
 
-This creates the adjective "occupied", and gives it a definition valid for supporters. That restriction on validity means that non-supporters would always fail the description "something occupied"; which might be unfortunate if we wanted to talk about rooms being occupied. We could give a second definition thus:
+This creates the adjective `occupied`, and gives it a definition valid for supporters. That restriction on validity means that non-supporters would always fail the description `something occupied`; which might be unfortunate if we wanted to talk about rooms being occupied. We could give a second definition thus:
 
 	Definition: A room is occupied if a person is in it.
 
-These are entirely different senses of the word "occupied" – a mantelpiece is occupied if an invitation is on it, but for a drawing room to be occupied there must be human presence – and Inform applies whichever sense is relevant when deciding whether or not a given object is "occupied".
+These are entirely different senses of the word `occupied` – a mantelpiece is occupied if an invitation is on it, but for a drawing room to be occupied there must be human presence – and Inform applies whichever sense is relevant when deciding whether or not a given object is `occupied`.
 
 Often, though not always, we also want to give a name to the opposite possibility. We can do that as follows:
 
 	Definition: A room is occupied rather than unoccupied if a person is in it.
 
-The "rather than..." part of the definition is optional, but it saves having to write a boringly similar definition of "unoccupied" out in longhand. (Note that Inform does not guess the meaning of "unoccupied" unless it has been explicitly told it. Such guesses are too risky, when so many "un-" words fail to conform to this pattern: "unified", "uncle", "ungulate" and so on.)
+The `rather than...` part of the definition is optional, but it saves having to write a boringly similar definition of `unoccupied` out in longhand. (Note that Inform does not guess the meaning of `unoccupied` unless it has been explicitly told it. Such guesses are too risky, when so many "un-" words fail to conform to this pattern: "unified", "uncle", "ungulate" and so on.)
 
 Newly defined adjectives cannot be used when creating things, because they are not explicit enough. Inform could not satisfy:
 
@@ -2848,7 +2848,7 @@ Newly defined adjectives cannot be used when creating things, because they are n
 
 because there is not enough information: by whom is the Ballroom occupied? How large, exactly? On the other hand, newly defined adjectives are very helpful in conditions and for rules, as we shall see later on.
 
-It is occasionally clumsy having to refer to the subject of a definition using "it". We can avoid this and give the definition better legibility by supplying a name instead. For instance:
+It is occasionally clumsy having to refer to the subject of a definition using `it`. We can avoid this and give the definition better legibility by supplying a name instead. For instance:
 
 	Definition: a direction (called thataway) is viable if the room thataway from the location is a room.
 
@@ -2870,7 +2870,7 @@ In general, any noun can have adjectives applied to it, and this means that valu
 	
 	Definition: A time is late rather than early if it is at least 8 PM.
 
-That makes the numbers 20 and 170 but not 37 meet the description "a round number", and the times 8 PM and 11:23 PM but not 9 AM meet the description "a late time". Because they come up fairly often, Inform contains several adjectives for numbers built in:
+That makes the numbers 20 and 170 but not 37 meet the description `a round number`, and the times 8 PM and 11:23 PM but not 9 AM meet the description `a late time`. Because they come up fairly often, Inform contains several adjectives for numbers built in:
 
 - `positive` - greater than zero (but not 0 itself)
 - `negative` - less than zero (but not 0 itself)
@@ -2879,7 +2879,7 @@ That makes the numbers 20 and 170 but not 37 meet the description "a round numbe
 
 Similarly, two useful adjectives are built in to talk about text:
 
-- `empty` - the text "", with no characters in it, not even spaces
+- `empty` - the text `""`, with no characters in it, not even spaces
 - `non-empty` - any text which does have at least one character in
 
 Note that `T is empty` is not quite same test as `T is ""`. If the value being looked at is a text substitution like `"[ingredient]"` in its unsubstituted form, and it just so happens that at the moment the `ingredient` substitution would produce no characters of text, then `"[ingredient]" is empty` would be false, even though `"[ingredient]" is ""` would be true: the difference is that the comparison made by `is` substitutes in before it makes the test, whereas `empty` tests without making substitutions, so it reads `"[ingredient]"` as potentially having content and therefore not being empty. See [Making new text with text substitutions] for more on the subtle difference between the substituted and unsubsituted form of a text substitution.
@@ -2889,11 +2889,11 @@ Adjectives can have multiple definitions and, as long as each applies to a diffe
 	A thing can be round, square or funny-shaped.
 	A container can be odd or ordinary.
 
-And these definitions of "round" and "odd" will not interfere with the ones applying to numbers, because Inform can always look at the noun to see which definition is meant in any given case. For instance,
+And these definitions of `round` and `odd` will not interfere with the ones applying to numbers, because Inform can always look at the noun to see which definition is meant in any given case. For instance,
 
 	if the score is round, ...
 
-must mean "round" in the sense of numbers, because the score is a number. Inform itself makes good use of this; "empty" also has meanings applying to rulebooks, lists and activities, for instance, as will be seen later.
+must mean `round` in the sense of numbers, because the score is a number. Inform itself makes good use of this; `empty` also has meanings applying to rulebooks, lists and activities, for instance, as will be seen later.
 
 Although it's more usual to give a definition to apply to a whole kind, we can actually give a specific definition to apply to just a single object or named value. For example:
 
@@ -2901,7 +2901,7 @@ Although it's more usual to give a definition to apply to a whole kind, we can a
 	Definition: red is subtle if the player is female.
 	Definition: a colour is subtle if it is blue.
 
-The first definition of "subtle" takes precedence, of course, since it has the more specific domain – it applies only to red. The effect of this is that, if the player's female, the subtle colours are red and blue; if not, just blue.
+The first definition of `subtle` takes precedence, of course, since it has the more specific domain – it applies only to red. The effect of this is that, if the player's female, the subtle colours are red and blue; if not, just blue.
 
 ## Whereabouts on a scale?
 
@@ -2909,14 +2909,14 @@ The first definition of "subtle" takes precedence, of course, since it has the m
 
 Adjectives are often used in English to give a sense of where something is on a sliding scale. We talk about "a tall man" and "a short man", but without meaning that all men are either tall or short. If pushed, we might say that tall means about 6 feet and up, short means about 5 feet 6 and down, but we more often compare one person's height against another's.
 
-Inform allows us to use adjectives in the same way. For example, every container has a number called its "carrying capacity". We can define:
+Inform allows us to use adjectives in the same way. For example, every container has a number called its `carrying capacity`. We can define:
 
 	Definition: A container is huge if its carrying capacity is 20 or more.
 	Definition: A container is large if its carrying capacity is 10 or more.
 	Definition: A container is standard if its carrying capacity is 7.
 	Definition: A container is small if its carrying capacity is 5 or less.
 
-These definitions are similar to those in the previous section, but have a very specific (and strictly enforced) shape to them. The adjective must be a single word. We have to say "its" (i.e., of it), not the ungrammatical "it's"; we have to specify a property, and a literal value of it, and we must either give an exact value or else conclude with "or more" or "or less". If we create something with one of these properties:
+These definitions are similar to those in the previous section, but have a very specific (and strictly enforced) shape to them. The adjective must be a single word. We have to say `its` (i.e., of it), not the ungrammatical `it's`; we have to specify a property, and a literal value of it, and we must either give an exact value or else conclude with `or more` or `or less`. If we create something with one of these properties:
 
 	The basket is a large container in the Shop. The thimble is a small container in the Shop. The matchbox is a standard container in the Shop.
 
@@ -2931,7 +2931,7 @@ Sometimes the meaning of adjectives must depend on their context, as we see from
 
 	A person has a number called height. Definition: A man is tall if his height is 72 or more. Definition: A woman is tall if her height is 68 or more.
 
-Inform then judges whether someone is or is not "tall" using different standards for men and for women, and
+Inform then judges whether someone is or is not `tall` using different standards for men and for women, and
 
 	In the Shop are a tall man and a tall woman.
 
@@ -2950,15 +2950,15 @@ we not only say how to test if something is large (see if its capacity is at lea
 	if the basket is larger than the thimble ...
 	if the thimble is not larger than the basket ...
 
-are both true. If we also define "huge" and "small", as in the previous section, we also get comparisons "huger than" and "smaller than". Note that "huger than" has exactly the same meaning as "larger than": we can use whichever wording seems more natural. (For bacilli, for instance, we would probably not say "huger than", even though the meaning would be unambiguous.)
+are both true. If we also define `huge` and `small`, as in the previous section, we also get comparisons `huger than` and `smaller than`. Note that `huger than` has exactly the same meaning as `larger than`: we can use whichever wording seems more natural. (For bacilli, for instance, we would probably not say `huger than`, even though the meaning would be unambiguous.)
 
-We can also compare two things to see if they share the same value of a property. For instance, to go back to the heights example, once we define "tall" and "short", we get that exactly one of the following will be true:
+We can also compare two things to see if they share the same value of a property. For instance, to go back to the heights example, once we define `tall` and `short`, we get that exactly one of the following will be true:
 
 	if Adam is taller than Eve ...
 	if Adam is the same height as Eve ...
 	if Adam is shorter than Eve ...
 
-Though it will not always seem natural wording, we can use the comparison "the same P as" for any property P which has a value. Do we think "if the basket is the same carrying capacity as the thimble" is good English? Maybe, maybe not. But we are always at liberty to spell things out in full:
+Though it will not always seem natural wording, we can use the comparison `the same P as` for any property P which has a value. Do we think "if the basket is the same carrying capacity as the thimble" is good English? Maybe, maybe not. But we are always at liberty to spell things out in full:
 
 	if the carrying capacity of the basket is the carrying capacity of the thimble ...
 
@@ -2992,7 +2992,7 @@ A description can not only talk about things in terms of themselves, but also in
 - `a woman taller than Mark`
 - `something worn by somebody`
 
-are all valid descriptions. These are really abbreviations, having missed out the words "which is" or "who is", as appropriate:
+are all valid descriptions. These are really abbreviations, having missed out the words `which is` or `who is`, as appropriate:
 
 - `an open container which is on the table`
 - `a woman who is inside a lighted room`
@@ -3005,7 +3005,7 @@ and indeed those are also valid descriptions. The other sentence verbs can all b
 - `a man who does not wear anything`
 - `something which supports something`
 
-And sometimes we should spell out "who is" regardless:
+And sometimes we should spell out `who is` regardless:
 
 - `a man who is not Sherlock Holmes`
 
@@ -3019,13 +3019,13 @@ Pedants who flinch when `which` is used to introduce a restrictive clause are we
 
 ^^{(there is), declaring existence+sourcepart+} ^^{(nobody), testing that no such person exists+sourcepart+} ^^{|nothing: testing that no such thing exists} ^^{descriptions (references to things): existence} ^^{descriptions (references to things): non-existence} ^^{existence: testing that such a thing exists} ^^{non-existence: testing that no such thing exists} ^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play}
 
-"There" is a curious word in English, which mostly refers to some place which is being talked about – but which can sometimes mean the whole world. In ^{@Ian Fleming}'s novel "From Russia With Love", a chapter narrating a committee meeting of SMERSH officers in Istanbul ends with one of the Russians saying:
+"There" is a curious word in English, which mostly refers to some place which is being talked about – but which can sometimes mean the whole world. In ^{@Ian Fleming}'s novel _From Russia With Love_ (1957), a chapter narrating a committee meeting of SMERSH officers in Istanbul ends with one of the Russians saying:
 
-	There is a man called Bond.
+> There is a man called Bond.
 
 What does this "there" mean? It really just means that Bond exists. In fact, he's watching the meeting through a concealed periscope, but the SMERSH general doesn't know that. All he is saying is that Bond is out there somewhere, and is not imaginary, or dead.
 
-Inform also allows "there is" (or "there are") to talk about what exists, or does not. This is especially useful if, for some reason, we don't want to give a name to something. For example:
+Inform also allows `there is` (or `there are`) to talk about what exists, or does not. This is especially useful if, for some reason, we don't want to give a name to something. For example:
 
 	There is a door in the Summerhouse.
 
@@ -3035,7 +3035,7 @@ Another reason might be that we want to create something but not put it anywhere
 
 then it creates a man, gives him the name Bond, but places him initially off-stage – not in any room, that is, but available to be brought into play later on, like an actor who is not needed until Act II.
 
-"There" also provides a useful way to test what exists:
+`There` also provides a useful way to test what exists:
 
 	if there is a woman in the Summerhouse, ...
 
@@ -3043,7 +3043,7 @@ Or even:
 
 	if there is a woman, ...
 
-which will be true if the model world contains even a single woman, on-stage or off. The alternative "there are" can also be used:
+which will be true if the model world contains even a single woman, on-stage or off. The alternative `there are` can also be used:
 
 	if there are women in the Summerhouse, ...
 
@@ -3051,7 +3051,7 @@ but note that this does not necessarily imply more than one woman is present, de
 
 	if there is more than one woman in the Summerhouse, ...
 
-or, of course, we needn't use "there is" at all:
+or, of course, we needn't use `there is` at all:
 
 	if more than one woman is in the Summerhouse, ...
 
@@ -3080,11 +3080,11 @@ This kind of "in" talks only about direct containment. If we ask
 
 then the answer is that it isn't – it is in the box which is itself in the Summerhouse, but that's not the same thing.
 
-This is almost always the meaning of "in" that we intend. This is only one of a number of relationships between objects – there are also "part of", "on", "worn by" and "carried by", for example. If we have
+This is almost always the meaning of "in" that we intend. This is only one of a number of relationships between objects – there are also `part of`, `on`, `worn by` and `carried by`, for example. If we have
 
 	The bird feed is on the sundial.
 
-...then "if the bird feed is in the sundial" won't be true: the relationship here is one called support (being on top of, in effect), not containment. But there's no confusion because "on" and "in" are different words, so it's no problem that they have different meanings.
+...then `if the bird feed is in the sundial` won't be true: the relationship here is one called support (being on top of, in effect), not containment. But there's no confusion because `on` and `in` are different words, so it's no problem that they have different meanings.
 
 **Meaning 2.** Much less common. If X is "in" Y and Y is a region, then the meaning is slightly different. Suppose the Garden Area is a region, and contains several rooms – the Croquet Lawn, the Terrace and so on. Then
 
@@ -3092,25 +3092,27 @@ This is almost always the meaning of "in" that we intend. This is only one of a 
 	if the bird feed is in the Garden Area, ...
 	if the Terrace is in the Garden Area, ...
 
-are all true. This seems very natural, but in fact is quite different from the first meaning of "in". It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment. Note also that "if the Terrace is in R", where "R" is a region, this is not the same thing as asking "if the map region of the Terrace is R". The "map region" of a room is the region it is immediately in (if any). If the Terrace is in a region called Garden Area which in turn is in the region Middlesex, then "if the Terrace is in Middlesex" is true, but "if the map region of the Terrace is Middlesex" is false.
+are all true. This seems very natural, but in fact is quite different from the first meaning of "in". It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment. Note also that `if the Terrace is in R`, where `R` is a region, this is not the same thing as asking `if the map region of the Terrace is R`. The `map region` of a room is the region it is immediately in (if any). If the Terrace is in a region called Garden Area which in turn is in the region Middlesex, then `if the Terrace is in Middlesex` is true, but `if the map region of the Terrace is Middlesex` is false.
 
 **How Inform decides.** So which meaning does Inform use, and when? Since these two meanings are so different, it clearly matters.
 
-The answer is that meaning 1 is always the meaning of "X is in Y" unless Y is explicitly the name of a region. Thus:
+The answer is that meaning 1 is always the meaning of `X is in Y` unless Y is explicitly the name of a region. Thus:
 
 	if the croquet box is in the Garden Area, ...
 
-is meaning 2, because "Garden Area" is the name of a region. That seems fair enough, but values are indeed sometimes given names (becoming "variables", or values "that vary"). Suppose "mystery value" is a name for a value which is an object, but which has different identities at different times. Then Inform reads
+is meaning 2, because `Garden Area` is the name of a region. That seems fair enough, but values are indeed sometimes given names (becoming "variables", or values "that vary"). Suppose `mystery value` is a name for a value which is an object, but which has different identities at different times. Then Inform reads
 
 	if the croquet box is in the mystery value, ...
 
-as meaning 1, because whatever "mystery value" is, it isn't explicitly a region name, even if from time to time it might happen to be equal to a region.
+as meaning 1, because whatever `mystery value` is, it isn't explicitly a region name, even if from time to time it might happen to be equal to a region.
 
 That sometimes makes meaning 2 difficult to express. If we ever need it, and this is fairly rare, we can write it like so:
 
 	if the croquet box is regionally in the mystery value, ...
 
-because "regionally in" is always meaning 2 of "in".
+because `regionally in` is always meaning 2 of "in".
+
+For much more of this sort of definitional angst, see [The built-in verbs and their meanings].
 
 ## A word about nothing
 
@@ -3122,13 +3124,13 @@ Like "in", "nothing" has two slightly different meanings, though here there's mu
 
 	Definition: a container is bare if nothing is in it.
 
-And similar for conditions like "if the box contains nothing". It's a word which describes the absence of things: it says that, though there might have been many possible items here, it turned out that there were none.
+And similar for conditions like `if the box contains nothing`. It's a word which describes the absence of things: it says that, though there might have been many possible items here, it turned out that there were none.
 
-**Meaning 2.** "Nothing" as a value. This is much less commonly seen, but sometimes Inform stores a value such as a property (or a variable) which always has to be an object. In some circumstances, "nothing" is then a special value meaning that this is not set at present. For instance,
+**Meaning 2.** "Nothing" as a value. This is much less commonly seen, but sometimes Inform stores a value such as a property (or a variable) which always has to be an object. In some circumstances, `nothing` is then a special value meaning that this is not set at present. For instance,
 
 	Definition: a container is impossible if its matching key is nothing.
 
-The "matching key" property of a container is always an object, but is allowed to be "nothing" when there isn't a matching key anywhere. (If such a container is locked, nobody will ever be able to unlock it.)
+The `matching key` property of a container is always an object, but is allowed to be `nothing` when there isn't a matching key anywhere. (If such a container is locked, nobody will ever be able to unlock it.)
 
 **How Inform decides.** So which meaning does Inform use, and when? The answer is that it depends on the relationship being talked about. When this is "is", values are being compared and we are using meaning 2. But when it is any other relationship, like "is in" – which talks about containment – then we are using meaning 1.
 
@@ -3138,14 +3140,14 @@ The "matching key" property of a container is always an object, but is allowed t
 
 Two of the adjectives built into Inform are:
 
-- "visible" - the player can see this
-- "touchable" - the player can touch this
+- `visible` - the player can see this
+- `touchable` - the player can touch this
 
-So we can write descriptions such as "someone visible" or "a touchable container". We also have adjectives "invisible" and "untouchable", as might be expected. The visibility adjectives are particularly useful because the following is likely to go wrong:
+So we can write descriptions such as `someone visible` or `a touchable container`. We also have adjectives `invisible` and `untouchable`, as might be expected. The visibility adjectives are particularly useful because the following is likely to go wrong:
 
 	if Helen is in a dark room, ...
 
-This tests whether the room is dark, of itself; Helen may in fact be able to see by means of a torch, but the room is still "dark".
+This tests whether the room is dark, of itself; Helen may in fact be able to see by means of a torch, but the room is still `dark`.
 
 We can also talk about what other people can see and touch:
 
@@ -3156,29 +3158,29 @@ are synonymous. Similarly for touch; and we can write such conditions as
 	if Helen cannot see Agamemnon, ...
 	if Cressida can see Troilus, ...
 
-Note that it is essential to establish who does the seeing and touching: so "something which can be seen" will not be allowed, whereas "something which can be seen by Helen" will.
+Note that it is essential to establish who does the seeing and touching: so `something which can be seen` will not be allowed, whereas `something which can be seen by Helen` will.
 
-In fact, inside Inform the adjective "invisible" (for instance) has the following straightforward definition:
+In fact, inside Inform the adjective `invisible` (for instance) has the following straightforward definition:
 
 	Definition: Something is invisible if the player cannot see it.
 
-The exact definitions of visibility and touchability are complicated, because there are so many ways in which vision and touch can be obstructed, but the gist is that they behave as one would expect. Note that in darkness, nothing is visible, and that nobody can see from one room to another. In general anything invisible is also untouchable, but there are a few exceptions to do with being in the dark. Lastly, the player's own body (usually called "yourself" during play) is both visible (in light) and touchable.
+The exact definitions of visibility and touchability are complicated, because there are so many ways in which vision and touch can be obstructed, but the gist is that they behave as one would expect. Note that in darkness, nothing is visible, and that nobody can see from one room to another. In general anything invisible is also untouchable, but there are a few exceptions to do with being in the dark. Lastly, the player's own body (usually called `yourself` during play) is both visible (in light) and touchable.
 
 ## Adjacent rooms and routes through the map
 
 ^^{rooms+kind+: adjacent} ^^{adjacency+rel+} ^^{adjacency+relcat+} ^^{mapping (direction)+rel+} ^^{mapping (direction)+relcat+} ^^{adjacent (room)+adj+} ^^{use options: catalogue: |fast route-finding} ^^{fast route-finding+useopt+} ^^{use options: catalogue: |slow route-finding} ^^{slow route-finding+useopt+} ^^{pathfinding} ^^{route-finding, fast/slow} ^^{distance: measuring with (number of moves)+sourcepart+} ^^{(using doors), in route-finding+sourcepart+} ^^{directions+kind+: finding adjacent rooms} ^^{counting: moves along a route}
 
-Another useful adjective built into Inform is "adjacent". Two rooms are said to be adjacent if there is a map connection between them which does not pass through some barrier such as a door. This is easily tested:
+Another useful adjective built into Inform is `adjacent`. Two rooms are said to be adjacent if there is a map connection between them which does not pass through some barrier such as a door. This is easily tested:
 
 	if the Hallway is adjacent to the Study ...
 
-We usually want to know about the places adjacent to the current scene of the action, so that is what the adjective "adjacent" means when applied to rooms. For instance:
+We usually want to know about the places adjacent to the current scene of the action, so that is what the adjective `adjacent` means when applied to rooms. For instance:
 
 	if somebody is in an adjacent room, ...
 
-As with the case of "visible", the adjective is a cut-down version of the more general relationship. This often happens: "worn" and "carried", for instance, imply "by the player" unless something else is specified.
+As with the case of `visible`, the adjective is a cut-down version of the more general relationship. This often happens: `worn` and `carried`, for instance, imply `by the player` unless something else is specified.
 
-If we want to ask a more direct question, we can obtain specific map connections as follows. (Recall that every map connection leads either to a door, to a room, or to nothing.) If we know which direction we want to look in, then the easiest thing is to use its relation – every direction in the map, say "north", has its own relation, say "mapped north of". So:
+If we want to ask a more direct question, we can obtain specific map connections as follows. (Recall that every map connection leads either to a door, to a room, or to nothing.) If we know which direction we want to look in, then the easiest thing is to use its relation – every direction in the map, say `north`, has its own relation, say `mapped north of`. So:
 
 	if the Ballroom is mapped north of the Hallway, ...
 
@@ -3186,31 +3188,31 @@ Alternatively, and particularly if the direction is not a constant,
 
 > phrase: {ph_roomdirof} room (direction) from/of (room) ... room
 >
-> This phrase produces the room which the given map direction leads to, or the special value "nothing" if it leads nowhere. If it leads to a door, the result is the room through that door. Examples:
+> This phrase produces the room which the given map direction leads to, or the special value `nothing` if it leads nowhere. If it leads to a door, the result is the room through that door. Examples:
 >
 >     say "You look north into [the room north from the Garden]."
 >     if the room north from the Garden is nothing, say "The grass leads nowhere."
 
 > phrase: {ph_doordirof} door (direction) from/of (room) ... door
 >
-> This phrase produces the door which the given map direction leads to, or the special value "nothing" if it leads nowhere or to a room. Examples:
+> This phrase produces the door which the given map direction leads to, or the special value `nothing` if it leads nowhere or to a room. Examples:
 >
 >     let the barrier be the door north from the Garden;
 >     if the barrier is a door, say "Well, [the barrier] is in the way.";
 
 > phrase: {ph_roomordoor} room-or-door (direction) from/of (room) ... object
 >
-> This phrase produces the object which the given map direction leads to, which will always be either a room, a door or the special value "nothing". The phrase is used mainly by the Standard Rules, for technical reasons, and usually it's better to use "room ... from ..." or "door ... from ..." instead.
+> This phrase produces the object which the given map direction leads to, which will always be either a room, a door or the special value `nothing`. The phrase is used mainly by the Standard Rules, for technical reasons, and usually it's better to use `room ... from ...` or `door ... from ...` instead.
 
 The map can be a great sprawling mass of rooms and doors connected together, and it can be quite hard to find a way through it one step at a time.
 
 > phrase: {ph_bestroute} best route from (object) to (object) ... object
 >
-> This phrase produces a direction to take in order to get from A to B by the shortest number of movements between rooms, or produces "nothing" if there is no way through at all. Example:
+> This phrase produces a direction to take in order to get from A to B by the shortest number of movements between rooms, or produces `nothing` if there is no way through at all. Example:
 >
 >     The description of the brass compass is "The dial points quiveringly to [best route from the location to the Lodestone Room]."
 >
-> Best routes are ordinarily forbidden to go through doors, but if the suffix "using doors" is added as an option then any open or openable and unlocked door may be used on the way; and if "using even locked doors" is given, then any door at all will do. Since magnetism is no respecter of property, that seems right here:
+> Best routes are ordinarily forbidden to go through doors, but if the suffix `using doors` is added as an option then any open or openable and unlocked door may be used on the way; and if `using even locked doors` is given, then any door at all will do. Since magnetism is no respecter of property, that seems right here:
 >
 >     The description of the brass compass is "The dial points quiveringly to [best route from the location to the Lodestone Room, using even locked doors]."
 
@@ -3218,13 +3220,13 @@ In practice this simple approach sometimes produces impossible journeys, rather 
 
 > phrase: {ph_bestroutethrough} best route from (object) to (object) through (description of objects) ... object
 >
-> This phrase produces a direction to take in order to get from A to B by the shortest number of movements between rooms which match the given description, or produces "nothing" if there is no way through at all. Example:
+> This phrase produces a direction to take in order to get from A to B by the shortest number of movements between rooms which match the given description, or produces `nothing` if there is no way through at all. Example:
 >
 >     best route from the Drawbridge to the Keep through visited rooms
 >
-> The condition – in this case, that "visited rooms" must be used – also applies to both ends of the journey, so if either Drawbridge or Keep are unvisited then this is "nothing". (Similarly, saying something like "...through containers" would mean there is never a route.)
+> The condition – in this case, that `visited rooms` must be used – also applies to both ends of the journey, so if either Drawbridge or Keep are unvisited then this is `nothing`. (Similarly, saying something like `...through containers` would mean there is never a route.)
 
-Lastly, the following phrases can find out how long the journey would be. (They are quite a bit faster than using the "best route..." phrases repeatedly and counting.)
+Lastly, the following phrases can find out how long the journey would be. (They are quite a bit faster than using the `best route...` phrases repeatedly and counting.)
 
 > phrase: {ph_bestroutelength} number of moves from (object) to (object) ... number
 >
@@ -3241,7 +3243,7 @@ Route-finding makes it possible to write quite sophisticated conditions concisel
 	Use fast route-finding.
 	Use slow route-finding.
 
-If neither is specified, "fast" is used where the project uses the Glulx virtual machine (see the Settings panel), and "slow" on the Z-machine, where memory is tighter. Fast route-finding is ideally suited to situations where dozens of characters are constantly route-finding through the map as they meander around in a landscape.
+If neither is specified, `fast` is used where the project uses the Glulx virtual machine (see the Settings panel), and `slow` on the Z-machine, where memory is tighter. Fast route-finding is ideally suited to situations where dozens of characters are constantly route-finding through the map as they meander around in a landscape.
 
 ### See Also
 
@@ -3256,7 +3258,7 @@ When testing conditions, we normally talk only about specific things, or else as
 	if the oaken door is open
 	if a woman is carrying an animal
 
-But we can also use "all", "each" or "every" to check the whole range:
+But we can also use `all`, `each` or `every` to check the whole range:
 
 	if each door is open
 	if anyone is carrying all of the animals
@@ -3270,7 +3272,7 @@ Inform allows other English "determiners" (as they are sometimes called), as wel
 
 are true if at least one case is true, if a majority (any number greater than one half) or at least 80 per cent of the possible cases are true, respectively.
 
-And we can also use "none" and "no". These three are all ways to say the same thing:
+And we can also use `none` and `no`. These three are all ways to say the same thing:
 
 	if no door is open
 	if all of the doors are not open
@@ -3284,7 +3286,7 @@ All, each and every can be applied to values, too – but only in some cases. Fo
 
 	Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet. A colour can be found or unfound.
 
-And suppose that, during play, we assign the "found" property to any colour which the player notices on a wall. We might then want to write conditions like so:
+And suppose that, during play, we assign the `found` property to any colour which the player notices on a wall. We might then want to write conditions like so:
 
 	if every colour is found
 	if most of the colours are found
@@ -3295,7 +3297,7 @@ But we always have to bear in mind that Inform might have no reasonable way to d
 	if every number is positive
 	if any text is palindromic
 
-(even supposing the adjective "palindromic" has been defined) – there are practically infinitely many possible numbers and texts, so the search cannot sensibly be done.
+(even supposing the adjective `palindromic` has been defined) – there are practically infinitely many possible numbers and texts, so the search cannot sensibly be done.
 
 ## Counting while comparing
 
@@ -3309,7 +3311,7 @@ Lastly we can also ask for a more specific number of possibilities, like so:
 	if all but two of the devices are switched on
 	if there are more than six locked doors
 
-Likewise for "less than", "at least", "all except". Something to watch out for is that
+Likewise for `less than`, `at least`, `all except`. Something to watch out for is that
 
 	if two doors are open
 
@@ -3317,16 +3319,16 @@ will be found true if there are (say) three open doors: after all, if three door
 
 	if exactly two doors are open
 
-The "all but" counts – say, "if all but two doors are open" – are exact: if, in fact, all of the doors are open then this will be found false.
+The `all but` counts – say, `if all but two doors are open` – are exact: if, in fact, all of the doors are open then this will be found false.
 
-We can often use these counting forms with values, too. As with the use of "all", this is allowed only if the kind of value is one which can reasonably be searched through. For example:
+We can often use these counting forms with values, too. As with the use of `all`, this is allowed only if the kind of value is one which can reasonably be searched through. For example:
 
 	if more than three scenes are happening
 	if there are more than two non-recurring scenes
 
-are allowed because the built-in kind of value "scene" (of which much more later on) has only a small number of possible values.
+are allowed because the built-in kind of value `scene` (of which much more later on) has only a small number of possible values.
 
-Lastly, note that the "the" in text like "two of the doors" matters: without it, the phrase will not be recognised as a requirement on the number. (This is to make sure that names of things like "two of hearts" are not misinterpreted.)
+Lastly, note that the `the` in text like `two of the doors` matters: without it, the phrase will not be recognised as a requirement on the number. (This is to make sure that names of things like `two of hearts` are not misinterpreted.)
 
 # Basic Actions
 

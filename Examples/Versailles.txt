@@ -19,11 +19,7 @@ But, on a little more thought, we might want to expand on this: the mirror perha
 	Instead of searching the mirror:
 		say "You see [a random visible thing] reflected back at you."
 
-There's still a risk, though, that this will produce the response
-
-	You see the mirror reflected back at you.
-
-because, of course, the mirror is itself visible. So instead we might write
+There's still a risk, though, that this will produce the response ``You see the mirror reflected back at you.`` because, of course, the mirror is itself visible. So instead we might write
 
 	Instead of searching the mirror:
 		say "You see [a random visible thing which is not the mirror] reflected back at you."
