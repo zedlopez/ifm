@@ -33,5 +33,5 @@ The reason for this example is to show the use of saying `"[run paragraph on]"`.
 
 	honey: Wax-sealed honey has been cached in many of the hexagonal nurseries.
 
-Without the running on, the prompts "hive:" and "honey:" would be separated from the descriptions following them, which would look a little odd.
+Without the running on, the labels ``hive:`` and ``honey:`` would be separated from the descriptions following them, which would look a little odd.
 

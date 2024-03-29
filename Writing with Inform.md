@@ -1980,7 +1980,7 @@ So much for an informal description. Here is exactly what Inform does:
 
 ^^{text <-- strings of characters} ^^{text: displaying} ^^{text substitutions: text} ^^{descriptions (displayed): room descriptions with substituted text} ^^{punctuation: square brackets: text substitutions} ^^{|[ ]: text substitutions} ^^{punctuation: quotation marks: defining texts} ^^{|": defining texts}
 
-In the previous chapter, [Kinds], we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform's most useful devices: text substitution. The following gives a more complete example:
+In the previous chapter, [Kinds], we gave properties to certain kinds of things in order to change their appearance and behaviour, and saw brief glimpses of one of Inform's most useful devices: _text substitution_. The following gives a more complete example:
 
 	{*}"The Undertomb"
 	
@@ -1990,9 +1990,23 @@ In the previous chapter, [Kinds], we gave properties to certain kinds of things 
 	
 	A dead end has some text called river sound. The river sound of a dead end is usually "a faint whispering of running water". The Tortuous Alcove has river sound "a gurgle of running water".
 
-The novelty here is the text in square brackets in the first paragraph. They imply more or less what they would when a journalist is quoting something in a newspaper article. The actual words "river sound" are not part of the text. Instead, when Inform prints up the description of a dead end, it will substitute the appropriate river sound in place of these words.
+The novelty here is the text in square brackets in the first paragraph. They imply more or less what they would when a journalist is quoting something in a newspaper article:
 
-Thus the description of the Collapsed Dead End is "This is a dead end. You'll have to go back the way you came, consoled only by a faint whispering of running water.", whereas the description of the Tortuous Alcove is "This is a dead end. You'll have to go back the way you came, consoled only by a gurgle of running water." As the player explores these dead ends, subtle differences will appear in their room descriptions.
+	"This is a dead end. You'll have to go back the way you came, consoled only by [river sound]."
+
+The actual words `river sound` are not part of the text. Instead, when Inform prints up the description of a dead end, it will substitute the appropriate river sound in place of these words. Looking in the Collapsed Dead End, a player reads:
+
+``` transcript
+This is a dead end. You'll have to go back the way you came, consoled only by a faint whispering of running water.
+```
+
+Whereas in the Tortuous Alcove:
+
+``` transcript
+This is a dead end. You'll have to go back the way you came, consoled only by a gurgle of running water.
+```
+
+And this is because `[river sound]` was substituted with the value of the `river sound` property of each of the rooms. And so, as the player explores these dead ends, subtle differences will appear in their room descriptions.
 
 ## How Inform reads quoted text
 
@@ -2002,15 +2016,15 @@ Text is so fundamental to Inform that the basics had to be covered back in the [
 
 Literal text is written in double-quotation marks. It's mostly true that what you see is what you get: the literal text `"The Hands of the Silversmith"` prints back as ``The Hands of the Silversmith``.
 
-But four characters are read in unexpected ways: [, ], ' and ". The rules are as follows:
+But four characters are read in unexpected ways: `[`, `]`, `'` and `"`. The rules are as follows:
 
-**Exception 1.** Square brackets [ and ] are used to describe what Inform should say, but in a non-literal way. For example,
+**Exception 1.** Square brackets `[` and `]` are used to describe what Inform should say, but in a non-literal way. For example,
 
 	"Your watch reads [time of day]."
 
 might produce ``Your watch reads 9:02 AM.``
 
-These are called "text substitutions". They're highly flexible, and they can take many different forms. But as useful as they are, they do seem to stop us from making actual ``[`` and ``]`` characters come through on screen. To get around that:
+These are called _text substitutions_. They're highly flexible, and they can take many different forms. But as useful as they are, they do seem to stop us from making actual ``[`` and ``]`` characters come through on screen. To get around that:
 
 > phrase: {phs_bracket} say "[bracket]"
 >
@@ -2018,27 +2032,23 @@ These are called "text substitutions". They're highly flexible, and they can tak
 >
 >     "He [bracket]Lord Astor[close bracket] would, wouldn't he?"
 >
-> prints as "He [Lord Astor] would, wouldn't he?".
+> prints as ``He [Lord Astor] would, wouldn't he?``.
 
 > phrase: {phs_closebracket} say "[close bracket]"
 >
-> This text substitution expands to a single close square bracket, avoiding the problem that a literal ] in text would look to Inform like the closing of a substitution. Example:
+> This text substitution expands to a single close square bracket, avoiding the problem that a literal `]` in text would look to Inform like the closing of a substitution. Example:
 >
 >     "He [bracket]Lord Astor[close bracket] would, wouldn't he?"
 >
-> prints as "He [Lord Astor] would, wouldn't he?".
+> prints as ``He [Lord Astor] would, wouldn't he?``.
 
 **Exception 2.** Single quotation marks at the edges of words are printed as double. So:
 
 	"Simon says, 'It's far too heavy to lift.'"
 
-produces
+produces ``Simon says, "It's far too heavy to lift."``
 
-``` transcript
-Simon says, "It's far too heavy to lift."
-```
-
-This is good because typing a double quotation mark inside the quote wouldn't work – it would end the text then and there. Single quotation marks inside words, such as the one in "it's", remain apostrophes.
+This is good because typing a double quotation mark inside the quote wouldn't work – it would end the text then and there. Single quotation marks inside words, such as the one in "It's", remain apostrophes.
 
 The rule looks odd at first, but turns out to be very practical. The only problem arises if we need an apostrophe at the start or end of a word, or a double inside one. Again, substitutions can fix this:
 
@@ -2048,9 +2058,7 @@ The rule looks odd at first, but turns out to be very practical. The only proble
 >
 >     Instead of going outside, say "Lucy snaps, 'What's the matter? You don't trust my cookin[apostrophe] mister?'"
 >
-> produces:
->
->     Lucy snaps, "What's the matter? You don't trust my cookin' mister?"
+> produces ``Lucy snaps, "What's the matter? You don't trust my cookin' mister?"``
 >
 > A more abbreviated form would be:
 >
@@ -2064,7 +2072,7 @@ The rule looks odd at first, but turns out to be very practical. The only proble
 >
 >     "The compass reads 41o21'23[quotation mark]E."
 >
-> which produces: The compass reads 41o21'23"E. (Note that ["] is not allowed; a double-quotation mark is never allowed inside double-quoted text, not even in a text substitution.)
+> which produces: ``The compass reads 41o21'23"E.`` (Note that `["]` is not allowed; a double-quotation mark is never allowed inside double-quoted text, not even in a text substitution.)
 
 **Exception 3.** Texts which end with sentence-ending punctuation – full stop, question mark, exclamation mark – are printed with a line break after them. So:
 
@@ -2089,11 +2097,11 @@ We can put almost any description of a value in square brackets in text, and Inf
 
 > phrase: {ph_say} say "[(sayable value)]"
 >
-> This text substitution takes the value and produces a textual representation of it. Most kinds of value, and really all of the useful ones, are "sayable" – numbers, times, objects, rules, scenes, and so on. Example:
+> This text substitution takes the value and produces a textual representation of it. Most kinds of value, and really all of the useful ones, are `sayable` – numbers, times, objects, rules, scenes, and so on. Example:
 >
 >     The description of the wrist watch is "The dial reads [time of day]."
 >
-> Here "time of day" is a value – it's a time that varies, and time is a sayable kind of value, so we might get "The dial reads 11:03 AM."
+> Here `time of day` is a value – it's a `time` that varies, and `time` is a `sayable` kind of value, so we might get ``The dial reads 11:03 AM.``
 
 The values we say most often are objects. If we simply put the name of what we want into square brackets, this will be substituted by the full printed name. For example, saying `"You admire [lantern]."` might produce ``You admire candle lantern.``
 
@@ -2106,7 +2114,7 @@ But this reads oddly – clearly "the" or "a" is missing. So the following subst
 >     Instead of examining something (called the whatever):
 >     	"You can only just make out [a whatever]."
 >
-> which might produce "You can only just make out a lamp-post.", or "You can only just make out Trevor.", or "You can only just make out some soldiers." The "a" or "an" in the wording is replaced by whatever indefinite article applies, if any.
+> which might produce ``You can only just make out a lamp-post.``, or ``You can only just make out Trevor.``, or ``You can only just make out some soldiers.`` The `a` or `an` in the wording is replaced by whatever indefinite article applies, if any.
 
 > phrase: {phs_A} say "[A (object)]" & say "[An (object)]"
 >
@@ -2115,7 +2123,7 @@ But this reads oddly – clearly "the" or "a" is missing. So the following subst
 >     Instead of examining something (called the whatever):
 >     	"[A whatever] can be made out in the mist."
 >
-> which might produce "A lamp-post can be made out in the mist.", or "Trevor can be made out in the mist.", or "Some soldiers can be made out in the mist." The "A" or "An" in the wording is replaced by whatever indefinite article applies, if any.
+> which might produce ``A lamp-post can be made out in the mist.``, or ``Trevor can be made out in the mist.``, or ``Some soldiers can be made out in the mist.`` The `A` or `An` in the wording is replaced by whatever indefinite article applies, if any.
 
 > phrase: {phs_the} say "[the (object)]"
 >
@@ -2124,7 +2132,7 @@ But this reads oddly – clearly "the" or "a" is missing. So the following subst
 >     Instead of examining something (called the whatever):
 >     	"You can only just make out [the whatever]."
 >
-> which might produce "You can only just make out the lamp-post.", or "You can only just make out Trevor.", or "You can only just make out the soldiers." The "the" in the wording is replaced by whatever definite article applies, if any.
+> which might produce ``You can only just make out the lamp-post.``, or ``You can only just make out Trevor.``, or ``You can only just make out the soldiers.`` The `the` in the wording is replaced by whatever definite article applies, if any.
 
 > phrase: {phs_The} say "[The (object)]"
 >
@@ -2133,14 +2141,14 @@ But this reads oddly – clearly "the" or "a" is missing. So the following subst
 >     Instead of examining something (called the whatever):
 >     	"[The whatever] may be a trick of the mist."
 >
-> which might produce "The lamp-post may be a trick of the mist.", or "Trevor may be a trick of the mist.", or "The soldiers may be a trick of the mist." The "The" in the wording is replaced by whatever definite article applies, if any.
+> which might produce ``The lamp-post may be a trick of the mist.``, or ``Trevor may be a trick of the mist.``, or ``The soldiers may be a trick of the mist.`` The `The` in the wording is replaced by whatever definite article applies, if any.
 
-This may not look very useful, because why not simply put "the", or whatever, into the ordinary text? The answer is that there are times when we do not know in advance which object will be involved. For instance, as we shall later see, there is a special value called "the noun" which is the thing to which the player's current command is applied (thus, if the player typed ``TAKE BALL``, it will be the ball). So:
+This may not look very useful, because why not simply put "the", or whatever, into the ordinary text? The answer is that there are times when we do not know in advance which object will be involved. For instance, as we shall later see, there is a special value called `the noun` which is the thing to which the player's current command is applied (thus, if the player typed ``TAKE BALL``, it will be the ball). So:
 
 	After taking something in the Classroom:
 		"You find [a noun]."
 
-might produce replies like "You find a solid rubber ball.", "You find an ink-stained blouse.", "You find some elastic bands.", or even "You find Mr Polycarp." (the school's pet hamster, perhaps).
+might produce replies like ``You find a solid rubber ball.``, ``You find an ink-stained blouse.``, ``You find some elastic bands.``, or even ``You find Mr Polycarp.`` (the school's pet hamster, perhaps).
 
 ## Text with numbers
 
@@ -2150,7 +2158,7 @@ When a numerical value is given in a square-bracketed substitution, it is ordina
 
 	"You've been wandering around for [turn count] turns now."
 
-might print as "You've been wandering around for 213 turns now.", if the story has been played out for exactly that many commands. But if we prefer:
+might print as ``You've been wandering around for 213 turns now.``, if the story has been played out for exactly that many commands. But if we prefer:
 
 > phrase: {phs_numwords} say "[(number) in words]"
 >
@@ -2158,7 +2166,7 @@ might print as "You've been wandering around for 213 turns now.", if the story h
 >
 >     "You've been wandering around for [turn count in words] turns now."
 >
-> might produce "You've been wandering around for two hundred and thirteen turns now." The "and" here is natural on one side of the Atlantic but not the other – so with the "Use American dialect." option in place, it disappears.
+> might produce ``You've been wandering around for two hundred and thirteen turns now.`` The ``and`` here is natural on one side of the Atlantic but not the other – so with the `Use American dialect.` option in place, it disappears.
 
 Either way, though, there is some risk of the following:
 
@@ -2168,11 +2176,11 @@ We can avoid this using the special substitution:
 
 > phrase: {phs_s} say "[s]"
 >
-> This text substitution prints a letter "s" unless the last number printed was 1. Example:
+> This text substitution prints a letter ``s`` unless the last number printed was 1. Example:
 >
 >     "You've been wandering around for [turn count in words] turn[s] now."
 >
-> produces "... for one turn now." or "... for two turns now." as appropriate. Note that it reacts only to numbers, not to other arithmetic values like times (or, for instance, weights from the "Metric Units" extension).
+> produces ``... for one turn now.`` or ``... for two turns now.`` as appropriate. Note that it reacts only to numbers, not to other arithmetic values like `times`.
 
 This only solves one case, but it's memorable, and the case is one which turns up often.
 
@@ -2190,55 +2198,73 @@ We often want running text to include lists of items.
 >
 > And, if this were from a dramatisation of the novel by Miss Fielding rather than Miss Austen, we might find:
 >
->     Mr Darcy glares proudly at you. He is wearing a pair of Newcastle United boxer shorts and carrying a self-help book.
+> ```transcript``
+> Mr Darcy glares proudly at you. He is wearing a pair of Newcastle United boxer shorts and carrying a self-help book.
+> ```
 >
-> If the description matches nothing – for instance, if Darcy has empty hands – then "nothing" is printed.
+> If the description matches nothing – for instance, if Darcy has empty hands – then ``nothing`` is printed.
 
 As with all lists in Inform, the serial comma is only used if the "Use serial comma." option is in force. So by default we would get "a fishing pole, a hook and a sinker", rather than "a fishing pole, a hook, and a sinker".
 
 We then need variations to add indefinite or definite articles, and to capitalise the first item. For example,
 
-	"Mr Darcy impatiently bundles [the list of things carried by Darcy] into your hands and stomps out of the room."
+	"Mr Darcy impatiently bundles [the list of things carried by Darcy] into your hands and stomps out."
 
 might result in
 
-	Mr Darcy impatiently bundles the self-help book and the Christmas card into your hands and stomps out of the room.
+``` transcript
+Mr Darcy impatiently bundles the self-help book and the Christmas card into your hands and stomps out.
+```
 
 > phrase: {phs_alistof} say "[a list of (description of objects)]"
 >
 > This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article. Example:
 >
->     a maritime bill of lading, some hemp rope and Falconer's Naval Dictionary
+> ``` transcript
+> a maritime bill of lading, some hemp rope and Falconer's Naval Dictionary
+> ```
 
 > phrase: {phs_Alistof} say "[A list of (description of objects)]"
 >
 > This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article, and the first is capitalised, so that it can be used at the beginning of a sentence. Example:
 >
->     A maritime bill of lading, some hemp rope and Falconer's Naval Dictionary
+> ``` transcript
+> A maritime bill of lading, some hemp rope and Falconer's Naval Dictionary
+> ```
 
 > phrase: {phs_thelistof} say "[the list of (description of objects)]"
 >
 > This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article. Example:
 >
->     the maritime bill of lading, the hemp rope and Falconer's Naval Dictionary
+> ``` transcript
+> the maritime bill of lading, the hemp rope and Falconer's Naval Dictionary
+> ```
 
 > phrase: {phs_Thelistof} say "[The list of (description of objects)]"
 >
 > This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article, and the first is capitalised, so that it can be used at the beginning of a sentence. Example:
 >
->     The maritime bill of lading, the hemp rope and Falconer's Naval Dictionary
+> ``` transcript
+> The maritime bill of lading, the hemp rope and Falconer's Naval Dictionary
+> ```
 
 So much for articles. A more insidious problem comes with something like this:
 
-	"The places you can go are [list of rooms]."
+``` inform7
+"The places you can go are [list of rooms]."
+```
 
 The trouble is that the list may end up either singular or plural. We might be expecting something like:
 
-	The places you can go are Old Bailey, Bridget's Flat and TV Centre.
+``` transcript
+The places you can go are Old Bailey, Bridget's Flat and TV Centre.
+```
 
 But if there is only one room, then the result might be:
 
-	The places you can go are Bridget's Flat.
+``` transcript
+The places you can go are Bridget's Flat.
+```
 
 which is wrong. We can get around this with careful wording and a slightly different substitution:
 
@@ -2248,22 +2274,22 @@ which is wrong. We can get around this with careful wording and a slightly diffe
 >
 > This text substitution produces a list, in sentence form, of everything matching the description. The whole list starts with "is" (if there's one item or none) or "are" (more than one). Examples:
 >
->     is marlin-spike
->     are maritime bill of lading, hemp rope and Falconer's Naval Dictionary
+> - ``is marlin-spike``
+> - ``are maritime bill of lading, hemp rope and Falconer's Naval Dictionary``
 
 > phrase: {phs_isalistof} say "[is-are a list of (description of objects)]"
 >
-> This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article, and the whole list starts with "is" (if there's one item or none) or "are" (more than one). Examples:
+> This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its indefinite article, and the whole list starts with ``is`` (if there's one item or none) or ``are`` (more than one). Examples:
 >
->     is a marlin-spike
->     are a maritime bill of lading, some hemp rope and Falconer's Naval Dictionary
+> - ``is a marlin-spike``
+> - ``are a maritime bill of lading, some hemp rope and Falconer's Naval Dictionary``
 
 > phrase: {phs_isthelistof} say "[is-are the list of (description of objects)]"
 >
-> This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article, and the whole list starts with "is" (if there's one item or none) or "are" (more than one). Examples:
+> This text substitution produces a list, in sentence form, of everything matching the description. Each item is prefaced by its definite article, and the whole list starts with ``is`` (if there's one item or none) or ``are`` (more than one). Examples:
 >
->     is the marlin-spike
->     are the maritime bill of lading, the hemp rope and Falconer's Naval Dictionary
+> - ``is the marlin-spike``
+> - ``are the maritime bill of lading, the hemp rope and Falconer's Naval Dictionary``
 
 > phrase: {phs_alistofconts} say "[a list of (description of objects) including contents]"
 >
@@ -2281,7 +2307,7 @@ Text sometimes needs to take different forms in different circumstances. Perhaps
 >
 >     The wine cask is a container. The printed name of the cask is "[if open]broached, empty cask[otherwise]sealed wine cask".
 >
-> we find that the cask is described as "a broached, empty cask" when open, and "a sealed wine cask" when closed. A longer example which begins and ends with fixed text, but has two alternatives in the middle:
+> we find that the cask is described as ``a broached, empty cask`` when open, and ``a sealed wine cask`` when closed. A longer example which begins and ends with fixed text, but has two alternatives in the middle:
 >
 >     The Customs Wharf is a room. "Amid the bustle of the quayside, [if the cask is open]many eyes stray to your broached cask. [otherwise]nobody takes much notice of a man heaving a cask about. [end if]Sleek gondolas jostle at the plank pier."
 
@@ -2319,25 +2345,25 @@ We sometimes need to be careful about the printing of line breaks:
 
 	The Cell is a room. "Ah, [if unvisited]the unknown cell. [otherwise]the usual cell."
 
-This room description has two possible forms: "Ah, the unknown cell. ", at first sight, and then "Ah, the usual cell." subsequently. But the second form is rounded off with a line break because the last thing printed is a ".", whereas the first form isn't, because it ended with a space. The right thing would have been:
+This room description has two possible forms: ``Ah, the unknown cell. ``, at first sight, and then ``Ah, the usual cell.`` subsequently. But the second form is rounded off with a line break because the last thing printed is a ``.``, whereas the first form isn't, because it ended with a space. The right thing would have been:
 
 	The Cell is a room. "Ah, [if unvisited]the unknown cell.[otherwise]the usual cell."
 
-allowing no space after "unknown cell."
+allowing no space after ``unknown cell.``
 
-When varying descriptions are being given for kinds of rooms or things, it can be useful to make use of a special value called "item described", which refers to the particular one being looked at right now. For example:
+When varying descriptions are being given for kinds of rooms or things, it can be useful to make use of a special value called `item described`, which refers to the particular one being looked at right now. For example:
 
 	A musical instrument is a kind of thing. The tuba and the xylophone are musical instruments. The description of a musical instrument is usually "An especially shiny, well-tuned [item described]."
 
-The tuba now has the description "An especially shiny, well-tuned tuba.", and similarly for the xylophone.
+The tuba now has the description ``An especially shiny, well-tuned tuba.``, and similarly for the xylophone.
 
-The "item described" value can similarly be used in any textual property of a room or thing, and in particular can be used with the "initial appearance" and "printed name" properties, which are also forms of description.
+The `item described` value can similarly be used in any textual property of a room or thing, and in particular can be used with the `initial appearance` and `printed name` properties, which are also forms of description.
 
 ## Text with random alternatives {PM_ComplicatedSayStructure} {PM_ComplicatedSayStructure2} {PM_ComplicatedSayStructure5} {PM_ComplicatedSayStructure4} {PM_ComplicatedSayStructure3}
 
 ^^{text substitutions: random variations} ^^{text substitutions: sequential variations} ^^{randomness: text variations}
 
-Sometimes we would like to provide a little quirky variation in text, especially in messages which will be seen often. We can achieve this with the "[one of]... [or] ... [or] ..." construction.
+Sometimes we would like to provide a little quirky variation in text, especially in messages which will be seen often. We can achieve this with the `[one of]... [or] ... [or] ...` construction.
 
 > phrase: {phs_oneof} say "[one of]"
 >
@@ -2345,11 +2371,11 @@ Sometimes we would like to provide a little quirky variation in text, especially
 >
 >     "You flip the coin. [one of]Heads[or]Tails[purely at random]!"
 >
-> Here there are just two alternatives, and the strategy is "purely at random". Exactly half of the time the text will be printed as "You flip the coin. Heads!"; and the other half, "You flip the coin. Tails!".
+> Here there are just two alternatives, and the choice made is random. Exactly half of the time the text will be printed as ``You flip the coin. Heads!``; and the other half, ``You flip the coin. Tails!``. But as with tossing coins, nothing's to stop the same outcome coming up time after time just by luck.
 
 > phrase: {phs_or} say "[or]"
 >
-> This text substitution produces no text, and can be used only in a "[one of]..." construction. It divides alternative wordings. Example:
+> This text substitution produces no text, and can be used only in a `"[one of]..."` construction. It divides alternative wordings. Example:
 >
 >     "You flip the coin. [one of]Heads[or]Tails[purely at random]!"
 
@@ -2357,15 +2383,15 @@ There are seven possible endings, each making the choice of which text to follow
 
 > phrase: {phs_purelyrandom} say "[purely at random]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are chosen uniformly randomly.
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are chosen uniformly randomly.
 
 > phrase: {phs_thenpurelyrandom} say "[then purely at random]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are chosen in sequence until all have been seen, but that after that they are chosen uniformly randomly.
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are chosen in sequence until all have been seen, but that after that they are chosen uniformly randomly.
 
 > phrase: {phs_random} say "[at random]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are chosen at random except that the same choice cannot come up twice running. This is useful to avoid the deadening effect of repeating the exact same message. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are chosen at random _except that the same choice cannot come up twice running_. This is useful to avoid the deadening effect of repeating the exact same message. Example:
 >
 >     "The light changes randomly again; now it's [one of]green[or]amber[or]red[at random]."
 >
@@ -2373,13 +2399,13 @@ There are seven possible endings, each making the choice of which text to follow
 
 > phrase: {phs_thenrandom} say "[then at random]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are chosen in sequence until all have been seen, and then after that, at random except that the same choice cannot come up twice running. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are chosen in sequence until all have been seen, and then after that, at random except that the same choice cannot come up twice running. Example:
 >
 >     "Maybe the murderer is [one of]Colonel Mustard[or]Professor Plum[or]Cardinal Cerise[then at random]."
 
 > phrase: {phs_sticky} say "[sticky random]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that a random choice is made the first time the text is printed, but that it sticks from there on. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that a random choice is made the first time the text is printed, but that it sticks from there on. Example:
 >
 >     "The newspaper headline is: [one of]War Casualties[or]Terrorists[or]Banks[sticky random] [one of]Continue To Expand[or]Lose Out[sticky random]."
 >
@@ -2387,7 +2413,7 @@ There are seven possible endings, each making the choice of which text to follow
 
 > phrase: {phs_decreasing} say "[as decreasingly likely outcomes]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are chosen at random, except that the first is most likely to be chosen, the second is next most likely, and so on down to the rarest at the end. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are chosen at random, except that the first is most likely to be chosen, the second is next most likely, and so on down to the rarest at the end. Example:
 >
 >     "Zorro strides by, [one of]looking purposeful[or]grim-faced[or]deep in thought[or]suppressing a yawn[or]scratching his ribs[or]trying to conceal that he has cut himself shaving[as decreasingly likely outcomes]."
 >
@@ -2397,7 +2423,7 @@ But suppose we want to tuck some useful information in these messages, and we wa
 
 > phrase: {phs_order} say "[in random order]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. A random order is chosen for the alternative passages of text, and they are used in that order as the text is printed again and again. When one random cycle finishes, a new one begins. The effect is somewhat like the "shuffle album" feature on an iPod. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. A random order is chosen for the alternative passages of text, and they are used in that order as the text is printed again and again. When one random cycle finishes, a new one begins. The effect is somewhat like the "shuffle album" feature in a music-playing app. Example:
 >
 >     "You dip into the chapter on [one of]freshwater fish[or]hairless mammals[or]extinct birds[or]amphibians such as the black salamander[in random order]."
 >
@@ -2407,13 +2433,13 @@ Another fix is to avoid randomness altogether:
 
 > phrase: {phs_cycling} say "[cycling]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are used one at a time, in turn: after the last one is reached, we start again from the first. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are used one at a time, in turn: after the last one is reached, we start again from the first. Example:
 >
 >     "The pundits discuss [one of]the weather[or]world events[or]celebrity gossip[cycling]."
 
 > phrase: {phs_stopping} say "[stopping]"
 >
-> This text substitution produces no text, and can be used only to end a "[one of]..." construction. It indicates that the alternatives are used one at a time, in turn: once the last one is reached, it's used forever after. Example:
+> This text substitution produces no text, and can be used only to end a `"[one of]..."` construction. It indicates that the alternatives are used one at a time, in turn: once the last one is reached, it's used forever after. Example:
 >
 >     "[one of]The phone rings[or]The phone rings a second time[or]The phone rings again[stopping]."
 
@@ -2435,7 +2461,7 @@ Something to watch out for is that texts are sometimes being printed internally 
 
 	Before printing the name of the traffic signal: say "[one of]green[or]amber[or]red[cycling] ".
 
-This looks good for some purposes, but may not cycle in the sequence expected, and can result in incorrect indefinite articles being printed – "an red traffic signal", for example. What's happening is that the name is being printed internally to see whether it begins with a vowel; that prints "amber traffic signal", but invisibly to us, and since this does begin with a vowel, "an" is visibly printed; then the name is visibly printed, but now it has changed to "red traffic signal", and so the result on screen is "an red traffic signal". There are many ways to avoid this (for example, to give the traffic signal a state which changes every turn, not every time the name is printed), but it's a trap to look out for.
+This looks good for some purposes, but may not cycle in the sequence expected, and can result in incorrect indefinite articles being printed – ``an red traffic signal``, for example. What's happening is that the name is being printed internally to see whether it begins with a vowel; that prints ``amber traffic signal``, but invisibly to us, and since this does begin with a vowel, ``an`` is visibly printed; then the name is visibly printed, but now it has changed to ``red traffic signal``, and so the result on screen is ``an red traffic signal``. There are many ways to avoid this (for example, to give the traffic signal a state which changes every turn, not every time the name is printed), but it's a trap to look out for.
 
 ## Line breaks and paragraph breaks
 
@@ -2443,9 +2469,9 @@ This looks good for some purposes, but may not cycle in the sequence expected, a
 
 Inform controls the flow of text being said so that it will read, to the player, in a natural way. There are two principles:
 
-(a) pieces of text ending with full stop, exclamation or question marks will be followed by line breaks (or "new lines", as some computer programming languages would call them); and
+1) pieces of text ending with full stop, exclamation or question marks will be followed by line breaks; and
 
-(b) pieces of text produced by different rules in Inform will be separated by paragraph breaks.
+2) pieces of text produced by different rules in Inform will be separated by paragraph breaks.
 
 The effect is that authors can forget about paragraph spacing most of the time, but the mechanism is not impossible to fool, so text substitutions are provided to override the usual principles. First, to manipulate line breaks:
 
@@ -2457,9 +2483,11 @@ The effect is that authors can forget about paragraph spacing most of the time, 
 >
 > Line breaks are not paragraph breaks, so the result is:
 >
->     There is an endless sense of
->     falling and
->     falling.
+> ``` transcript
+> There is an endless sense of
+> falling and
+> falling.
+> ```
 >
 > with no extra vertical spacing between these lines.
 
@@ -2469,11 +2497,11 @@ The effect is that authors can forget about paragraph spacing most of the time, 
 >
 >     "The chorus sing [one of]Jerusalem[or]Rule, Britannia![no line break][at random]."
 >
-> Here the `"[no line break]"` stops Inform from thinking that the exclamation mark means a sentence ending – it's part of the name of the song "Rule, Britannia!". So we get
+> Here the `"[no line break]"` stops Inform from thinking that the exclamation mark means a sentence ending – it's part of the name of the song _Rule, Britannia!_ (1740). So we get
 >
 >     The chorus sing Rule, Britannia!.
 >
-> with no line break between the "!" and ".".
+> with no line break between the ``!`` and ``.``.
 
 And similarly for paragraph breaks. Because Inform can be pretty trigger-happy with these, the first need is for a way to stop them:
 
@@ -2485,15 +2513,19 @@ And similarly for paragraph breaks. Because Inform can be pretty trigger-happy w
 >
 > This allows the reply to, say, ``TAKE ENVELOPE`` to be
 >
->     Very well. Taken.
+> ``` transcript
+> Very well. Taken.
+> ```
 >
 > rather than
 >
->     Very well.
+> ``` transcript
+> Very well.
 >
->     Taken.
+> Taken.
+> ```
 >
-> which is how texts produced by different rules would normally be shown. (It's a traditional printer's term. See Oldfield's Manual of Typography, 1892, under "When two paragraphs are required to be made into one, or, in technical language, 'to run on'.")
+> which is how texts produced by different rules would normally be shown. (It's a traditional printer's term. See _Oldfield's Manual of Typography_, 1892, under "When two paragraphs are required to be made into one, or, in technical language, 'to run on'.")
 
 But sometimes we actually want paragraph breaks in unexpected places. One way is to force them outright:
 
@@ -2505,15 +2537,17 @@ But sometimes we actually want paragraph breaks in unexpected places. One way is
 >
 > Paragraph breaks have a little vertical spacing in them, unlike mere line breaks, so the result is:
 >
->     This is not right.
+> ``` transcript
+> This is not right.
 >
->     No, something is terribly wrong.
+> No, something is terribly wrong.
+> ```
 
 More subtly, we can give Inform the option:
 
 > phrase: {phs_condparabreak} say "[conditional paragraph break]"
 >
-> This text substitution either produces a paragraph break, or no text at all. It marks a place where Inform can put a paragraph break if necessary; in effect it simulates what Inform does every time a "before" or similar rule finishes. If there is text already printed, and text then follows on, a paragraph break is made. But if not, nothing is done. This is sometimes useful when producing a large amount of text which changes with the circumstances so that it is hard to predict in advance whether a paragraph break is needed or not.
+> This text substitution either produces a paragraph break, or no text at all. It marks a place where Inform can put a paragraph break if necessary; in effect it simulates what Inform does every time a `before` or similar rule finishes. If there is text already printed, and text then follows on, a paragraph break is made. But if not, nothing is done. This is sometimes useful when producing a large amount of text which changes with the circumstances so that it is hard to predict in advance whether a paragraph break is needed or not.
 
 Really finicky authors might possibly want to know this:
 
@@ -2531,8 +2565,10 @@ Finally, there are two special sorts of paragraph break for special circumstance
 >
 > might result in
 >
->     (first opening the valise)
->     You rummage through the valise for tickets, but find nothing.
+> ``` transcript
+> (first opening the valise)
+> You rummage through the valise for tickets, but find nothing.
+> ```
 
 > phrase: {phs_runparaonsls} say "[run paragraph on with special look spacing]"
 >
@@ -2636,7 +2672,7 @@ Admittedly, character names can get a little verbose:
 
 	"[unicode Greek small letter omega with psili and perispomeni and ypogegrammeni]"
 
-Inform can "only" handle codes [unicode 32] up to [unicode 131071], and note that if the story settings are to compile to the Z-machine, this range stops at 65535: thus many emoji characters – say, [unicode fish cake with swirl design] – can only be used if the story will compile to Glulx or another modern target. But by default, stories are compiled the modern way, so this should not be a problem in practice.
+Inform can "only" handle codes in the range 32 to 131071, and note that if the project Settings are to compile to the Z-machine, this range stops at 65535: thus many emoji characters – say, `"[unicode fish cake with swirl design]"` – can only be used if the story will compile to Glulx or another modern target. But by default, stories are compiled the modern way, so this should not be a problem in practice.
 
 There are far too many possible names to list here: formally, any character name in the Basic Multilingual Plane or the Supplementary Multilingual Plane of version 15.0.0 of the Unicode standard can be used.
 
@@ -2653,24 +2689,26 @@ This is no longer the case: no such inclusion need now be made, and indeed, thos
 
 ^^{quotations, displaying in boxes} ^^{boxed quotations} ^^{Inform 6 equivalent: |box}
 
-A feature of Inform now best avoided is that, in a limited way and only on a narrow set of platforms now rarely used, it can display a message in a sort of floating window over the main text. This is called a "boxed quotation" for historical reasons, and Inform allows one to be produced. But time has moved on from the simple terminal emulators which enabled crude text effects like this, and now boxed quotations will either be missing altogether or will look ugly on almost any modern platform.
+A feature of Inform now best avoided is that, in a limited way and only on a narrow set of platforms now rarely used, it can display a message in a sort of floating window over the main text. This is called a _boxed quotation_ for historical reasons, and Inform allows one to be produced. But time has moved on from the simple terminal emulators which enabled crude text effects like this, and now boxed quotations will either be missing altogether or will look ugly on almost any modern platform.
 
 Text is normally printed in between the typed commands of the player, rolling upwards from the bottom of the screen, as if a dialogue is being typed by an old-fashioned teletype. But it can also be displayed in a bolder way, floating above the main text, and this is sometimes used to display quotations.
 
 > phrase: {ph_boxed} display the boxed quotation (text)
 >
-> This phrase displays the given text on screen in an overlaid box. For reasons to do with the way such quotations are plotted onto the screen, their text is treated literally: no substitutions in square brackets are obeyed, and no non-Latin characters can be used in it. The quotation will only ever appear once, regardless of the number of times the "display the boxed quotation ..." phrase is reached. Rather than being shown immediately – and thus, probably, scrolling away before it can be seen – the display is held back until the next command prompt is shown to the player. Example:
+> This phrase displays the given text on screen in an overlaid box. For reasons to do with the way such quotations are plotted onto the screen, their text is treated literally: no substitutions in square brackets are obeyed, and no non-Latin characters can be used in it. The quotation will only ever appear once, regardless of the number of times the `display the boxed quotation ...` phrase is reached. Rather than being shown immediately – and thus, probably, scrolling away before it can be seen – the display is held back until the next command prompt is shown to the player. Example:
 >
->	After looking in the Wabe, display the boxed quotation
->		"And 'the wabe' is the grass-plot round
->		a sun-dial, I suppose? said Alice,
->		surprised at her own ingenuity.
->		Of course it is. It's called 'wabe,'
->		you know, because it goes a long way
->		before it, and a long way behind it —
->		— ^{@Lewis Carroll}".
+>	  After looking in the Wabe, display the boxed quotation
+>         "And 'the wabe' is the grass-plot round
+>         a sun-dial, I suppose? said Alice,
+>         surprised at her own ingenuity.
+>         Of course it is. It's called 'wabe,'
+>         you know, because it goes a long way
+>         before it, and a long way behind it —
+>         — Lewis Carroll".
 
 This was the original example used in *Trinity*, by ^{@Brian Moriarty}, which invented the idea. A player exploring Kensington Gardens comes upon a location enigmatically called The Wabe; and by way of explanation, this quotation pops up. Charming in the 1980s, the feature should probably not have been revived.
+
+^^{@Lewis Carroll}
 
 ## Making new substitutions
 
@@ -2683,7 +2721,7 @@ If we have some textual effect which needs to occur in several different message
 	To say security notice:
 		say "This area is a Prohibited Place within the meaning of the Official Secrets Act 1939. "
 
-This is only the tip of the iceberg in how to define ways to do things using "To...", as we shall see. The definition makes "say the security notice" a new phrase known to Inform. A text substitution is exactly a phrase whose name begins with "say" (well – except for the "say" phrase itself), so the effect is that `"[security notice]"` is a new text substitution. Several of the examples in this chapter make use of this trick.
+This is only the tip of the iceberg in how to define ways to do things using `To...`, as we shall see. The definition makes `say the security notice` a new phrase known to Inform. A text substitution is exactly a phrase whose name begins with `say` (well – except for the `say` phrase itself), so the effect is that `"[security notice]"` is a new text substitution. Several of the examples in this chapter make use of this trick.
 
 Inform often ignores the casing of the text it reads, but sometimes uses it as a clue to meaning. We have already seen that `"[an item]"` and `"[An item]"` produce different results, for instance. Similarly, it's possible to define two text substitutions which are the same except for the initial casing. We might write:
 
