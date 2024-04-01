@@ -115,7 +115,7 @@ Alternatively:
 		repeat with item running through portable things enclosed by the Generic Floor:
 			clear the item.
 
-The "enclosed by" line clears even things left on, say, small un-portable side-tables or whatever; but because we do "in" first, we make sure to move any containers or supporters undisturbed. The next bit could be more tidily incorporated into our previous "before going outside" rule, but since we are writing this code to be optionally pasted onto the end of the first bit, we'll express the rule separately:
+The `enclosed by` line clears even things left on, say, small un-portable side-tables or whatever; but because we do `in` first, we make sure to move any containers or supporters undisturbed. The next bit could be more tidily incorporated into our previous `before going outside` rule, but since we are writing this code to be optionally pasted onto the end of the first bit, we'll express the rule separately:
 
 	{**}Before going outside in the Lift when something is in Limbo:
 		unless there is a floor corresponding to a level of the current level of the Lift in the Table of Floors:

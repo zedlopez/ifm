@@ -5,7 +5,7 @@ Index: Person who answers what, where, and when questions differently
 Description: Allowing the player to use question words, and using that information to modify the response given by the other character.
 For: Z-Machine
 
-Suppose we want the player to ask questions of slightly more complexity–we might want to build in a system that understood "who", "what", "where", and "when", for instance. We could use a topic table for this, too:
+Suppose we want the player to ask questions of slightly more complexity–we might want to build in a system that understood ``WHO``, ``WHAT``, ``WHERE``, and ``WHEN``, for instance. We could use a topic table for this, too:
 
 	{*}"The Queen of Sheba"
 	
@@ -26,7 +26,7 @@ Suppose we want the player to ask questions of slightly more complexity–we mig
 	"Solomon/he/himself"	who	"'As you see,' he says, holding out his arms to each side."
 	"Solomon/he/himself"	what	"'I am an ordinary man,' he answers."
 
-One of the nice things about this system is that it only resets the "current question" when we get a new question word. For instance, this test will produce different replies to the question about Solomon himself, because the second time he is still in the mode of answering "what" questions:
+One of the nice things about this system is that it only resets the `current question` when we get a new question word. For instance, this test will produce different replies to the question about Solomon himself, because the second time he is still in the mode of answering ``WHAT`` questions:
 
 	{**}Test me with "ask solomon about himself / ask solomon what rain is / ask solomon about himself".
 

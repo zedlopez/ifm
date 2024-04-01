@@ -9,7 +9,7 @@ Our previous implementation of televisions ([Channel 1]) doesn't accept ``TUNE F
 
 When we are designing commands which involve two elements (here, a television and a channel number), it's usually a good idea to allow the player to specify those elements in either order, as we saw demonstrated briefly in [New commands for old grammar].
 
-We might, therefore, want to add a few refinements: first by defining a `"[channel]"` token that will accept input of the forms `"[number]"` and "channel [number]", and second by creating some additional "Understand" lines that will accept variant versions of the player's input.
+We might, therefore, want to add a few refinements: first by defining a `"[channel]"` token that will accept input of the forms `"[number]"` and "channel [number]", and second by creating some additional `Understand` lines that will accept variant versions of the player's input.
 
 	{*}"Channel 2"
 	

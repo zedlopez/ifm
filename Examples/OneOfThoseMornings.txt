@@ -19,7 +19,7 @@ Suppose that, contrary to the usual rules of interactive fiction, we want to all
 		otherwise:
 			say "You left [the noun] [if the noun is on a supporter]on[otherwise]in[end if] [the holder of the noun]."
 
-The holder of the noun can be a room, a supporter, or a container: the phrase is not picky. We would want to be a little more careful if it were ever possible for an item to have been "removed from play" in our game, since then the holder could be nothing, and that would have odd results. In this particular example, though, that will not arise.
+The holder of the noun can be a room, a supporter, or a container: the phrase is not picky. We would want to be a little more careful if it were ever possible for an item to have been `removed from play` in our game, since then the holder could be nothing, and that would have odd results. In this particular example, though, that will not arise.
 
 And that's it, as far as the ``FIND`` command goes. The rest is local colour.
 

@@ -2,7 +2,7 @@ Example: *** Hot Glass Looks Like Cold Glass
 Location: Understanding mistakes
 RecipeLocation: Heat
 Index: Refusing to understand "hot"
-Description: Responding to references to a property that the player isn't yet allowed to mention (or when not to use "understand as a mistake").
+Description: Responding to references to a property that the player isn't yet allowed to mention (or when not to use `understand as a mistake`).
 For: Z-Machine
 
 Suppose we have a situation where the player is allowed to talk about the heat of an object only if they're properly equipped to detect it.

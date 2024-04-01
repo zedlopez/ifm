@@ -21,7 +21,7 @@ We make the ghost a person rather than some other kind of thing so that it will 
 
 This is, technically, an assembly – except instead of saying that every device has a button part, or that there are three daffodils in every garden room, the assembly is based on a non-physical relation that we just designed.
 
-Based on the "representation" relation, we now devise a conditional relation that applies only when the represented thing is not itself in view:
+Based on the `representation` relation, we now devise a conditional relation that applies only when the represented thing is not itself in view:
 
 	{**}Indication relates a ghost (called X) to a person (called Y) when X represents Y and Y is not visible.
 	

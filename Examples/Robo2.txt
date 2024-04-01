@@ -78,7 +78,7 @@ Of course, we also need to be able to switch learning mode off, and store any sc
 	Report Robo stopping:
 		say "Robo is now standing by."
 
-Next, we need to be able to play these programs back again. We'll give Robo a "current program" to store which program it's currently working on, and a number called "stage" which will record where it is in the script. Our previous implementation simply had Robo erase entries from its script list as it performed them, but this time we would like Robo to be able to remember and rerun the same scripts over and over, so we need something a little more subtle.
+Next, we need to be able to play these programs back again. We'll give Robo a `current program` to store which program it's currently working on, and a number called `stage` which will record where it is in the script. Our previous implementation simply had Robo erase entries from its script list as it performed them, but this time we would like Robo to be able to remember and rerun the same scripts over and over, so we need something a little more subtle.
 
 	{**}Section 4 - Running Learned Programs
 	
@@ -189,7 +189,7 @@ We could also have written this so that Robo learns new scripts by accepting the
 	> ROBO, EAST
 	> ROBO, STOP
 
-...would store the script 'library theft' with the actions taking the book and going east. The implementation there would have been mostly identical, except that instead of an "after doing something..." rule, we would have captured commands as we asked Robo to perform them, and added those to the command list in progress. The alternative code might look something like this:
+...would store the script ``LIBRARY THEFT`` with the actions `taking the book` and `going east`. The implementation there would have been mostly identical, except that instead of an `after doing something...` rule, we would have captured commands as we asked Robo to perform them, and added those to the command list in progress. The alternative code might look something like this:
 
 	Before Robo doing something other than stopping when Robo is watching:
 		add the current action to the current instruction set;

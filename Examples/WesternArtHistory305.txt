@@ -19,7 +19,7 @@ We could if we wanted tweak the description to be different in style in differen
 
 	{**}Understand "examine [things]" as examining.
 
-Now to make use of the special object. If the player types ``EXAMINE PAINTINGS``, the multiple object list will become a list of the visible paintings. The following rule looks at this list: if it contains more than one painting, it replaces them with the painting-collective instead. Now there's only one examining action, so we get a reply like "There's an abstract painting, a pointilist painting and a French academic painting." instead of a list of descriptions of each in turn.
+Now to make use of the special object. If the player types ``EXAMINE PAINTINGS``, the multiple object list will become a list of the visible paintings. The following rule looks at this list: if it contains more than one painting, it replaces them with the painting-collective instead. Now there's only one `examining` action, so we get a reply like ``There's an abstract painting, a pointilist painting and a French academic painting.`` instead of a list of descriptions of each in turn.
 
 	{**}A multiple action processing rule when the current action is examining (this is the examine kinds rule):
 		let L be the multiple object list;

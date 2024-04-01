@@ -123,7 +123,7 @@ First, we should specifically disallow the player from looking at the person on 
 	Rule for printing a refusal to act in the dark when acting through the line:
 		say "You're not on a video phone, so you can only hear." instead.
 
-Second, though the existing reaching inside rules are adequate to stop us from touching the person on the other end of the line, the response that's currently printed is a bit generic: it just says "You can't reach into [the room containing the person]." Let's add our own custom reply, instead:
+Second, though the existing `reaching inside rules` are adequate to stop us from touching the person on the other end of the line, the response that's currently printed is a bit generic: it just says "You can't reach into [the room containing the person]." Let's add our own custom reply, instead:
 
 	{**}A rule for reaching inside a room (called destination):
 		if the other party of the player is enclosed by the destination:

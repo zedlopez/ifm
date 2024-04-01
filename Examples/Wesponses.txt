@@ -27,7 +27,7 @@ However, suppose what we want is to give the parser a speech impediment that sli
 
 Notice that this doesn't affect the printed names of objects in the room description or other kinds of output text – only those that are issued by the response mechanism.
 
-It would also not work to try to give our parser a nervous personality by simply adding "Um, " to the beginning of each response, because responses are not guaranteed to be full standalone sentences. For example, we could imagine writing
+It would also not work to try to give our parser a nervous personality by simply adding ``Um, `` to the beginning of each response, because responses are not guaranteed to be full standalone sentences. For example, we could imagine writing
 
 	Rule for issuing the response text of a response (called R) when response inhibition is false:
 		now response inhibition is true;

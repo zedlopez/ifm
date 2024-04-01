@@ -16,7 +16,7 @@ Suppose we have an item that produces an interesting result the first time the p
 
 	[Your score has just gone down by two points.]
 
-The calm response to "rusty nail" looks odd now, and the score change is disconnected from the event that caused it.
+The calm response to ``rusty nail`` looks odd now, and the score change is disconnected from the event that caused it.
 
 To manage this, we might institute a system so that interesting objects are handled last in their list, like so:
 

@@ -73,7 +73,7 @@ Now we are free to create entire treasure rooms at a single blow:
 	
 	The U-Stor-It Facility is a room. The sea trunk, the shipping crate, and a metal box are chests in the U-Stor-It Facility. The metal box contains a sapphire, a gold coin, and a signed photograph of Babe Ruth.
 
-Even though we have never explicitly defined it, the metal box has a "metal box's lid", which we can use at need.
+Even though we have never explicitly defined it, the metal box has a `metal box's lid`, which we can use at need.
 
 	{**}The metal box's lid supports a small card. The description of the small card is "It reads, 'Back in 5 mins - Pandora.'"
 	

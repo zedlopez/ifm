@@ -3336,15 +3336,11 @@ Lastly, note that the `the` in text like `two of the doors` matters: without it,
 
 ^^{actions} ^^{success: for actions} ^^{failure: for actions} ^^{taking+action+} ^^{ACTIONS+testcmd+} ^^{testing commands: >ACTIONS}
 
-"Actions" are what we get if we try to break down a narrative into its irreducible parts. We might casually say that we are "going shopping", but this involves many smaller steps: going north, going east, entering the shop, examining a loaf of bread, taking it, giving money to the baker, and so on.
+_Actions_ are what we get if we try to break down a narrative into its smallest moments. We might casually say that we are "going shopping", but this involves many smaller steps: going north, going east, entering the shop, examining a loaf of bread, taking it, giving money to the baker, and so on.
 
-An action is an impulse to do something. This may or may not be a reasonable aspiration, and may or may not be achieved. The player's exploration of an interactive fiction is made by a sequence of actions, so much of the designing process comes down to responding to these actions.
+An action is an impulse to do something. This may or may not be a reasonable aspiration, and may or may not be achieved. The player explores the story by generating a sequence of actions, so writing the story is all about anticipating and responding to these actions.
 
-We write actions using present participles. For instance, if the player types "take napkin" or "get the napkin" or something similar then the resulting action would be written as:
-
-	taking the napkin
-
-The details of what words the player actually typed are unimportant to us: we deal only in actions.
+Actions are written with present participles. For instance, if the player types ``TAKE NAPKIN`` or ``GET THE NAPKIN`` or something similar then the resulting action is `taking the napkin`. Once the command has been understood, the exact wording doesn't matter any more: the action is what matters.
 
 Every action ends in success or failure. In this context, success means only that the player's intention has been fulfilled. If the player sets out to take the napkin, but finds a million-pound banknote in its folds instead, the action will be deemed to be a failure.
 
@@ -3370,13 +3366,13 @@ A good way to get a sense of the constant flow of actions is to use this command
 
 ^^{rules} ^^{instead of (action)+rb+} ^^{rules: instead rules} ^^{actions: using instead rules to change outcome} ^^{punctuation: comma: comma replacing colon} ^^{|,: comma replacing colon}
 
-An action is ordinarily handled by running it through Inform's extensive rulebooks of what might be called normal behaviour. An action such as "taking the napkin", for instance, will be run through numerous checks to see if it is physically reasonable, and then provided all is well, the napkin will be moved into the possession of the player.
+An action is ordinarily handled by running it through Inform's extensive rulebooks of what might be called normal behaviour. An action such as `taking the napkin`, for instance, will be run through numerous checks to see if it is physically reasonable, and then provided all is well, the napkin will be moved into the possession of the player.
 
 Instead, though, we can bypass the rules to do with an action and do something else:
 
 	Instead of eating the napkin: say "Why not wait for the actual dinner to arrive?"
 
-This is an example of a "rule": a set of circumstances followed by a list of instructions. When those circumstances apply, the instructions are carried out. In the case of an "instead" rule, after this is done the action is immediately ended (and counts as a failure, since the original intention has been thwarted).
+This is an example of a _rule_: a set of circumstances followed by a list of instructions. When those circumstances apply, the instructions are carried out. In the case of an `instead` rule, after this is done the action is immediately ended (and counts as a failure, since the original intention has been thwarted).
 
 A friendly alternative can be used when there is only a single instruction, as here: in such rules the colon can be replaced with a comma. Thus:
 
@@ -3390,9 +3386,9 @@ Despite what was said in the previous section, instead rules do not quite bypass
 
 	examining the napkin; looking; looking under the dining table
 
-and if it is dark then none of these actions will be allowed, and any instead rules about them will not even be reached. Similarly, Inform knows that most actions require physical access to their objects: so "taking the napkin" would be blocked if the napkin were, say, inside a closed glass bottle, whereas "examining the napkin" would not. So an instead rule can only take effect if the action has already passed these basic reasonability tests.
+and if it is dark then none of these actions will be allowed, and any instead rules about them will not even be reached. Similarly, Inform knows that most actions require physical access to their objects: so `taking the napkin` would be blocked if the napkin were, say, inside a closed glass bottle, whereas `examining the napkin` would not. So an instead rule can only take effect if the action has already passed these basic reasonability tests.
 
-"Before" rules genuinely precede checking of any kind. They also differ from instead rules in that they do not automatically stop the action in its tracks. Rather, they are provided as an opportunity to ensure that something else is done first. For example:
+`Before` rules genuinely precede checking of any kind. They also differ from instead rules in that they do not automatically stop the action in its tracks. Rather, they are provided as an opportunity to ensure that something else is done first. For example:
 
 	Before taking the napkin, say "(first unfolding its delicate origami swan)".
 
@@ -3402,7 +3398,7 @@ whence
 	(first unfolding its delicate origami swan)
 	Taken.
 
-We have seen that instead rules automatically stop actions, whereas before rules automatically allow them to continue. We sometimes want to change this. The magic word "instead" can therefore be tacked on to any instruction in a before rule, and will have the effect of immediately stopping the action at that instruction. Thus the following two rules are (almost) equivalent:
+We have seen that instead rules automatically stop actions, whereas before rules automatically allow them to continue. We sometimes want to change this. The magic word `instead` can therefore be tacked on to any instruction in a before rule, and will have the effect of immediately stopping the action at that instruction. Thus the following two rules are (almost) equivalent:
 
 	Before taking the key, instead say "It seems to be soldered to the keyhole."
 	
@@ -3428,15 +3424,15 @@ Finally, we can prevent Inform from stopping the action when it otherwise might:
 >     	say "(first unfolding its delicate origami swan)[command clarification break]";
 >     	continue the action.
 >
-> An "instead" rule ordinarily stops the action when it finishes, so the "continue the action" is needed to make things carry on. (This rule would have been better written as a "before" rule, in fact, but it shows the idea.)
+> An `instead` rule ordinarily stops the action when it finishes, so the `continue the action` is needed to make things carry on. (This rule would have been better written as a `before` rule, in fact, but it shows the idea.)
 
-As a general principle, it is good style to use instead rules whenever blocking actions, and before rules only when it is genuinely necessary to do something first but then to continue: in fact, it is good style to use "stop the action" or "continue the action" as little as possible.
+As a general principle, it is good style to use instead rules whenever blocking actions, and before rules only when it is genuinely necessary to do something first but then to continue: in fact, it is good style to use `stop the action` or `continue the action` as little as possible.
 
 ## Try and try silently {PM_UnknownTryAction1} {PM_UnknownTryAction2} {PM_ActionNotSpecific} {PM_ActionTooSpecific}
 
 ^^{actions: performing with (try)+sourcepart+} ^^{actions: suppressing success messages with (try silently)+sourcepart+}
 
-the [Source Text] chapter noted that surveys of Inform source text showed that the three most popular phrases used by authors are "say", "if" and "now". The fourth most popular is "try", which allows us to trigger off actions ourselves, rather than waiting for the player to type something which generates them. Thus:
+the [Source Text] chapter noted that surveys of Inform source text showed that the three most popular phrases used by authors are `say`, `if` and `now`. The fourth most popular is `try`, which allows us to trigger off actions ourselves, rather than waiting for the player to type something which generates them. Thus:
 
 > phrase: {ph_try} try (action)
 >
@@ -3450,7 +3446,7 @@ the [Source Text] chapter noted that surveys of Inform source text showed that t
 >
 > is not allowed, since it doesn't say exactly what is to be eaten.
 
-The word "try" is intended to make clear that there is no guarantee of success. For example:
+The word `try` is intended to make clear that there is no guarantee of success. For example:
 
 	Before locking the front door, try closing the front door.
 
@@ -3486,7 +3482,7 @@ And this is neater because it won't produce a pointless "You close the front doo
 
 ^^{after (action)+rb+} ^^{rules: after rules} ^^{actions: using after rules to change output} ^^{+to+continue the action} ^^{actions: +to+continue the action}
 
-There is pleasantly little to be said about "after" rules. If an action has survived all the rules in its way, and has actually succeeded, then we need to give the player a response which acknowledges this. Inform's normal rules will be sufficient to say something undramatic: for instance, if "taking the napkin" has succeeded then it will reply "Taken." to the player.
+There is pleasantly little to be said about `after` rules. If an action has survived all the rules in its way, and has actually succeeded, then we need to give the player a response which acknowledges this. Inform's normal rules will be sufficient to say something undramatic: for instance, if `taking the napkin` has succeeded then it will reply "Taken." to the player.
 
 An after rule is an opportunity to say something more interesting:
 
@@ -3500,7 +3496,7 @@ An after rule is an opportunity to say something more interesting:
 
 ^^{actions: involving speech} ^^{rules: for speech} ^^{understanding: arbitrary text: for conversations and consulting} ^^{books (implementing): consulting} ^^{consulting (thing) about+action+} ^^{asking (actor) about+action+} ^^{telling (actor) about+action+} ^^{answering (actor)+action+} ^^{dialogue: >ASK / TELL}
 
-A few actions apply not to items alone, but also involve what might be called conversation. The first is the one used for looking things up in books (which is conversation of a kind, even if the author is not present): "consulting ... about ...". For example,
+A few actions apply not to items alone, but also involve what might be called conversation. The first is the one used for looking things up in books (which is conversation of a kind, even if the author is not present): `consulting ... about ...`. For example,
 
 	{*}In the Grove is a book of sybilline verses.
 	
@@ -3508,7 +3504,7 @@ A few actions apply not to items alone, but also involve what might be called co
 	
 	After consulting the book about "future events", say "It's a bit, what's the word? Delphic."
 
-Note that what follows "about" here is a piece of text in double-quotes, and not the name of something. It can be almost any text at all, and in fact we shall later see (in the chapter on [Understanding]) that we can match complicated patterns of words, too.
+Note that what follows `about` here is a piece of text in double-quotes, and not the name of something. It can be almost any text at all, and in fact we shall later see (in the chapter on [Understanding]) that we can match complicated patterns of words, too.
 
 Similar actions are used for conversing with people:
 
@@ -3532,9 +3528,9 @@ Games with a lot of conversation often involve great heaps of rules like the one
 
 ^^{senses} ^^{actions: involving senses} ^^{rules: for senses} ^^{rooms+kind+: listening to (with no object)} ^^{rooms+kind+: smelling (with no object)} ^^{listening to+action+} ^^{smelling+action+} ^^{touching+action+} ^^{tasting+action+}
 
-The five senses are all simulated with actions. Sight is so informative that it is handled by a whole range of actions: "looking", which describes the general scene; "examining something", which takes a closer look at a specific thing; "looking under something", and so on.
+The five senses are all simulated with actions. Sight is so informative that it is handled by a whole range of actions: `looking`, which describes the general scene; `examining something`, which takes a closer look at a specific thing; `looking under something`, and so on.
 
-The other senses have one action each: "listening to something", "touching something", "tasting something" and "smelling something". It makes no sense to touch or taste the general scene, but listening and smelling are a different matter: we often just listen, without listening to anything specific. If the player types the command "listen", Inform understands that as listening to the current location: similarly for the bare command "smell". Thus:
+The other senses have one action each: `listening to something`, `touching something`, `tasting something` and `smelling something`. It makes no sense to touch or taste the general scene, but listening and smelling are a different matter: we often just listen, without listening to anything specific. If the player types the command "listen", Inform understands that as listening to the current location: similarly for the bare command "smell". Thus:
 
 	Instead of listening to the Seashore, say "The song of gulls."
 	
@@ -3548,7 +3544,7 @@ A description can include more than one choice of action. For instance:
 
 	examining or searching the desk
 
-matches either of "examining the desk" or "searching the desk". We can have more than two actions, of course:
+matches either of `examining the desk` or `searching the desk`. We can have more than two actions, of course:
 
 	examining, looking under or searching the desk
 
@@ -3560,7 +3556,7 @@ because it makes no sense to "wait the desk". On the other hand, this is fine:
 
 	waiting or searching
 
-The general rule is that if we specify one or more objects ("the desk" in the above example), then each of the actions we quote must take at least that many objects.
+The general rule is that if we specify one or more objects (`the desk` in the above example), then each of the actions we quote must take at least that many objects.
 
 For example, the following saves us writing the same basic rule three times over:
 
@@ -3570,23 +3566,23 @@ For example, the following saves us writing the same basic rule three times over
 
 ^^{rules: applying to all but some actions} ^^{actions: rules for all but some actions} ^^{(doing something / anything), describing actions+sourcepart+} ^^{|except: describing actions}
 
-The special description "doing something" (or "doing anything") matches any action, and "doing something to ..." also allows the noun to be specified.
+The special description `doing something` (or `doing anything`) matches any action, and `doing something to ...` also allows the noun to be specified.
 
 For instance, the following puts its object out of bounds:
 
 	Instead of doing something to the cucumber sandwich, say "Lady Bracknell stares disapprovingly down her pince-nez at you, in a way which no amount of hunger or curiosity could overcome."
 
-We sometimes need to be a little careful here: "waiting" qualifies as "doing something", but not as "doing something to something", because there is no object. "Putting the handbag on the cucumber sandwich" would also not qualify as "doing something to the cucumber sandwich" – only to the handbag.
+We sometimes need to be a little careful here: `waiting` qualifies as `doing something`, but not as `doing something to something`, because there is no object. `Putting the handbag on the cucumber sandwich` would also not qualify as `doing something to the cucumber sandwich` – only to the handbag.
 
 More often, we would like to restrict the range of allowable actions to a select few. For instance:
 
 	Instead of doing something other than looking, examining or waiting: say "You must learn patience."
 
-(Or we can write "except" instead of "other than".) Or we might have an object, too:
+(Or we can write `except` instead of `other than`.) Or we might have an object, too:
 
 	Instead of doing something other than examining, taking or dropping with the dagger: say "Don't fool around with that dagger. It's exceedingly sharp."
 
-Note the "with", which is crucial here. Without it, the rule is subtly different:
+Note the `with`, which is crucial here. Without it, the rule is subtly different:
 
 	Instead of doing something other than examining, taking or dropping the dagger: say "Don't fool around with that dagger. It's exceedingly sharp."
 
@@ -3604,13 +3600,13 @@ This is fine as far as it goes, but clumsy. What if the player had examined a hu
 
 	Instead of examining something, say "[The noun] is none of your concern!"
 
-The "noun" and, when necessary, the "second noun" are values which can be used in any rule about actions, and it follows that they can also be substituted into text, as this example demonstrates. Results might include:
+The `noun` and, when necessary, the `second noun` are values which can be used in any rule about actions, and it follows that they can also be substituted into text, as this example demonstrates. Results might include:
 
 	Lady Bracknell is none of your concern!
 	
 	The silver cigarette case is none of your concern!
 
-This seems a good moment to mention that if you use "The" in a substitution, then a capitalised "The" will be used so long as this is grammatically correct (Lady Bracknell, as a proper noun, takes no article); "the" becomes a lower-case "the" along the same lines; and "a" a lower-case indefinite article.
+This seems a good moment to mention that if you use `The` in a substitution, then a capitalised `The` will be used so long as this is grammatically correct (Lady Bracknell, as a proper noun, takes no article); `the` becomes a lower-case `the` along the same lines; and `a` a lower-case indefinite article.
 
 	Instead of examining something in the Drawing Room, say "Under Lady Bracknell's eye, you feel constrained. Besides, it is only [a noun]."
 
@@ -3622,11 +3618,11 @@ Three elaborations of action descriptions increase the range of possibilities fu
 
 	Instead of taking something in the Supernatural Void, say "In this peculiar mist you feel unable to grasp anything."
 
-Like the objects to which the action applies, this location – the "in" clause – can take any description, not just an explicit place like "Supernatural Void":
+Like the objects to which the action applies, this location – the `in` clause – can take any description, not just an explicit place like "Supernatural Void":
 
 	Instead of listening in a dead end, say "You strain to hear further clues as to the course of the underground river, but to no avail."
 
-But we often want a rule to apply in any of a set of rooms: and where, unlike the "dead end" example above, the rooms have nothing much in common except where they happen to lie on a map. For instance, we might want a rule to apply only inside a given building, or a garden consisting of five miscellaneous rooms. If so, we can create a "region" as a convenient way to refer to that group of rooms:
+But we often want a rule to apply in any of a set of rooms: and where, unlike the `dead end` example above, the rooms have nothing much in common except where they happen to lie on a map. For instance, we might want a rule to apply only inside a given building, or a garden consisting of five miscellaneous rooms. If so, we can create a `region` as a convenient way to refer to that group of rooms:
 
 	The Arboretum is east of the Botanical Gardens. Northwest of the Gardens is the Tropical Greenhouse.
 	
@@ -3646,7 +3642,7 @@ Relative location can also be important: relative to other people, that is –
 
 `In the presence of` need not be applied to specific people. It can be somebody described more vaguely (`... in the presence of a woman`, say), or can just as easily be an inanimate thing (`... in the presence of the radio set`).
 
-The last of the optional clauses we can tack on to the description of an action is the most general of all. We can add "when" and then any condition at all, as in:
+The last of the optional clauses we can tack on to the description of an action is the most general of all. We can add `when` and then any condition at all, as in:
 
 	Instead of eating something when the radio set is switched on, say "Something about the howling short-wave static puts you right off luncheon."
 
@@ -3658,7 +3654,7 @@ This supposes that the radio is so loud that it can be heard from any room: we c
 
 ^^{going+action+} ^^{going+action+: going nowhere+action+} ^^{going+action+: going from+action+} ^^{going+action+: going to+action+} ^^{going+action+: default failure response} ^^{going+action+: rules for going to and from places} ^^{|nowhere: rules for going nowhere} ^^{actions: (going), special cases+sourcepart+} ^^{rules: for (going), special cases+sourcepart+} ^^{actions: rules applying to rooms and regions} ^^{rules: applying to rooms and regions} ^^{rooms+kind+: rules applying to rooms} ^^{(in), location conditions for rules+sourcepart+} ^^{connections between rooms: rules applying to map connections}
 
-Going is an action defined like any other: it is the one which happens when the player tries to go from one location to another. But it is unlike other actions because it happens in two locations, not just one, and has other complications such as vehicles and doors to contend with. To make it easier to write legible and flexible rules, "going" is allowed to be described in a number of special ways not open to other actions, as demonstrated by the following example story:
+Going is an action defined like any other: it is the one which happens when the player tries to go from one location to another. But it is unlike other actions because it happens in two locations, not just one, and has other complications such as vehicles and doors to contend with. To make it easier to write legible and flexible rules, `going` is allowed to be described in a number of special ways not open to other actions, as demonstrated by the following example story:
 
 	{*}"Going Going"
 	
@@ -3670,27 +3666,27 @@ Going is an action defined like any other: it is the one which happens when the 
 	
 	Before going to the Catalogue Room, say "You emerge back into the Catalogue Room."
 
-Note that "going nowhere" means trying a map connection which is blank, and if no rules intervene then "You can't go that way" is normally printed. Unless "nowhere" is specified, descriptions of going apply only when there is a map connection. So "going from the Musicology Section" would not match if the player were trying to go east from there, since there is no map connection to the east. Similarly, "going somewhere" excludes blank connections.
+Note that `going nowhere` means trying a map connection which is blank, and if no rules intervene then "You can't go that way" is normally printed. Unless `nowhere` is specified, descriptions of going apply only when there is a map connection. So `going from the Musicology Section` would not match if the player were trying to go east from there, since there is no map connection to the east. Similarly, `going somewhere` excludes blank connections.
 
-The places gone "from" or "to" can be specific named regions instead of rooms. This is convenient when there are several different ways into or out of an area of map but a common rule needs to apply to all: so, for example,
+The places gone `from` or `to` can be specific named regions instead of rooms. This is convenient when there are several different ways into or out of an area of map but a common rule needs to apply to all: so, for example,
 
 	Before going from the Cultivated Land to the Wilderness, ...
 	Before going nowhere from the Wilderness, say "Tangled brush forces you back."
 
-Note that it must be "going nowhere from the Wilderness", not "...in the Wilderness". (Note also the caveat that the regions must be named: "going from a region", or something similarly nonspecific, will not work.)
+Note that it must be `going nowhere from the Wilderness`, not `...in the Wilderness`. (Note also the caveat that the regions must be named: `going from a region`, or something similarly nonspecific, will not work.)
 
-An important point about "going... from" is that, as mentioned in general terms above, it requires that there is actually a map connection that way: whereas "going... in" does not. Suppose there is no map connection north from the Wilderness. Then:
+An important point about `going... from` is that, as mentioned in general terms above, it requires that there is actually a map connection that way: whereas `going... in` does not. Suppose there is no map connection north from the Wilderness. Then:
 
 	Instead of going north from the Wilderness, say "You'll never read this."
 	Instead of going north in the Wilderness, say "Oh, it's too cold."
 
-The first of these never happens, because it is logically impossible to go north from the Wilderness: but the second does happen. (Technically, this is because "going north" is the action, and "in the Wilderness" a separate condition tacked onto the rule.) This distinction is often useful – it allows us to write rules which apply only to feasible movements.
+The first of these never happens, because it is logically impossible to go north from the Wilderness: but the second does happen. (Technically, this is because `going north` is the action, and `in the Wilderness` a separate condition tacked onto the rule.) This distinction is often useful – it allows us to write rules which apply only to feasible movements.
 
 This may be a good place to mention a small restriction on the ways we can specify an action for a rule to apply to, and how it can be overcome. The restriction is that the action should only involve constant quantities, so that the following does not work:
 
 	The Dome is a room. The Hutch is north of the Dome. The rabbit is in the Hutch. Before going to the location of the rabbit, say "You pick up a scent!"
 
-because "the location of the rabbit" is a quantity which changes in play (the player can pick up the rabbit and take it to the Dome, for instance). However, we can get around this restriction by defining a suitable adjective, like so:
+because `the location of the rabbit` is a quantity which changes in play (the player can pick up the rabbit and take it to the Dome, for instance). However, we can get around this restriction by defining a suitable adjective, like so:
 
 	The Dome is a room. The Hutch is north of the Dome. The rabbit is in the Hutch. Definition: a room is rabbit-infested if it is the location of the rabbit. Before going to a rabbit-infested room, say "You pick up a scent!"
 
@@ -3710,7 +3706,7 @@ And, lastly, rules which apply to movements through particular doors:
 	
 	Before going through the green baize door, say "Through you go..." After going through the green baize door: try looking; say "...and here you are."
 
-(Note that these apply whether the action is "going east" or "entering the green baize door", each having the same effect.) The last rule is worth a second look: the normal way that a "going" action is reported is to produce the room description of the new location. So if an "after" rule stops the action before we get to reporting, we have to produce any room description by hand (hence the "try looking" to cause the looking action). Alternatively, we could simply say something and let the normal course of events take place:
+(Note that these apply whether the action is `going east` or `entering the green baize door`, each having the same effect.) The last rule is worth a second look: the normal way that a `going` action is reported is to produce the room description of the new location. So if an `after` rule stops the action before we get to reporting, we have to produce any room description by hand (hence the `try looking` to cause the looking action). Alternatively, we could simply say something and let the normal course of events take place:
 
 	After going through the green baize door: say "...and here you are:"; continue the action.
 
@@ -3718,7 +3714,7 @@ Finally, going is an action which can also happen while the player is pushing so
 
 	Instead of going from the Office with the trolley, say "But it looks perfectly placed here. Why push any further?"
 
-"Going" is not the only action which moves the player. Another is "exiting", an action which moves the player out of whatever they are currently in or on. This action is often caused by the player typing just ``OUT`` or ``GET DOWN``, and there's no noun as such. But Inform allows the syntax "exiting from" to make it easier to write rules about the exiting of particular containers or supporters:
+`Going` is not the only action which moves the player. Another is `exiting`, an action which moves the player out of whatever they are currently in or on. This action is often caused by the player typing just ``OUT`` or ``GET DOWN``, and there's no noun as such. But Inform allows the syntax `exiting from` to make it easier to write rules about the exiting of particular containers or supporters:
 
 	After exiting from the Mini Cooper:
 		say "You painstakingly unpack your limbs from the tiny car."
@@ -3734,13 +3730,13 @@ Especially when people need to react to events going on around them, it is helpf
 	
 	Instead of unmaidenly behaviour in the Inn, say "How unmaidenly!"
 
-Here a new kind of action called "unmaidenly behaviour" has been created and then used in the description of an instead rule. The convenience of this approach is that when further actions suddenly occur to us as also being unmaidenly – say, attacking Mr Carr – we only need to add a single line:
+Here a new kind of action called `unmaidenly behaviour` has been created and then used in the description of an instead rule. The convenience of this approach is that when further actions suddenly occur to us as also being unmaidenly – say, attacking Mr Carr – we only need to add a single line:
 
 	Attacking Mr Carr is unmaidenly behaviour.
 
 And this will automatically be reflected in any rules which concern the consequences of failing to be ladylike.
 
-(Note that we were only allowed to say that "Kissing Mr Carr is unmaidenly behaviour." because Inform already knew from earlier sentences – see the example below – that Mr Carr was a person, and therefore that "kissing Mr Carr" made sense as a description of an action.)
+(Note that we were only allowed to say that `Kissing Mr Carr is unmaidenly behaviour.` because Inform already knew from earlier sentences – see the example below – that Mr Carr was a person, and therefore that `kissing Mr Carr` made sense as a description of an action.)
 
 Note that what appears on the left of these sentences is an action _pattern_, not an action _name_. This is actually a good thing, because it gives us great flexibility. But it means that this works:
 
@@ -3764,17 +3760,17 @@ We come at last to the final thing which can be specified about an action, and a
 	
 	Instead of going nowhere for the 20th time, say "Do stop walking into walls, there's a good fellow."
 
-Note that we are allowed to spell out numbers up to twelve in English words, but beyond that must use digits (thus "twelfth" is allowed but not "thirteenth": "13th" should be used instead). The following example is instructive:
+Note that we are allowed to spell out numbers up to twelve in English words, but beyond that must use digits (thus `twelfth` is allowed but not `thirteenth`: `13th` should be used instead). The following example is instructive:
 
 	Instead of taking something for the fourth time, say "No. I'm capricious."
 
-This means that it is the fourth time a "taking..." action has been tried, and does not mean that the same item was taken each time. Also, note that we are counting the number of times the action has been tried, not the number of times it succeeded.
+This means that it is the fourth time a `taking...` action has been tried, and does not mean that the same item was taken each time. Also, note that we are counting the number of times the action has been tried, not the number of times it succeeded.
 
 ## Actions on consecutive turns
 
 ^^{rules: applying to consecutively repeated actions} ^^{actions: rules for consecutive repetitions} ^^{turns: counting actions with (for the Nth turn)+sourcepart+} ^^{counting: actions with (for the Nth turn)+sourcepart+} ^^{(doing it), a repeated action+sourcepart+} ^^{rules: abbreviating actions with (doing it)+sourcepart+} ^^{abbreviations: rule actions with (doing it)+sourcepart+}
 
-We can also reckon the number of consecutive turns on which an action has been repeated, by talking about "turns" instead of "times", as demonstrated in the following example story. Note also that we are allowed to use the phrase "doing it" to mean "the same description as the previous one except for the part about turns or times", like so:
+We can also reckon the number of consecutive turns on which an action has been repeated, by talking about `turns` instead of `times`, as demonstrated in the following example story. Note also that we are allowed to use the phrase `doing it` to mean "the same description as the previous one except for the part about turns or times", like so:
 
 	{*}"Waiting Room"
 	
@@ -3790,11 +3786,11 @@ We can also reckon the number of consecutive turns on which an action has been r
 	
 	After waiting for four to six turns, say "This is getting mighty dull." After waiting for seven to eight turns, say "Really, exceptionally dull." After waiting for nine turns, end the story saying "You have died of boredom, something previously thought medically impossible".
 
-Note once again that numbers above twelve must not be written out, so "more than twelve times" would be acceptable, but we would write "more than 13 times".
+Note once again that numbers above twelve must not be written out, so `more than twelve times` would be acceptable, but we would write `more than 13 times`.
 
 ## Postscript on actions
 
-In this chapter, all actions have been carried out by the player, all have been drawn from the standard stock of built-in actions ("unlocking", "taking", "going" and so forth), and all of those built-in actions have been allowed to work in the standard way – we have seen how to prevent the taking of something, and how to give this unexpected consequences, but not how to make taking work in an entirely different way.
+In this chapter, all actions have been carried out by the player, all have been drawn from the standard stock of built-in actions (`unlocking`, `taking`, `going` and so forth), and all of those built-in actions have been allowed to work in the standard way – we have seen how to prevent the taking of something, and how to give this unexpected consequences, but not how to make taking work in an entirely different way.
 
 All three of those restrictions will later be lifted in the chapter on [Advanced Actions], but otherwise we have covered the ground thoroughly, and it is time to move on to the techniques enabling us to do more than make tart replies to the player: it is time to change the world.
 
@@ -3806,7 +3802,7 @@ All three of those restrictions will later be lifted in the chapter on [Advanced
 
 So far, what we have done in response to the player's commands amounts to little more than a few ripostes. The simulated world does change during play, as the player moves from room to room or picks up things, but all of this is happening automatically, not at our direct instruction. How then can we make the world change?
 
-Recall that the world consists of rooms, in which are things, and that all of these have properties appropriate to their kinds. Some properties are either/or ("open" or "closed" but not both and not neither), while others have values (the "matching key" of a lockable door, for instance). Finally, we may also have created some free-standing values or "variables".
+Recall that the world consists of rooms, in which are things, and that all of these have properties appropriate to their kinds. Some properties are either/or (`open` or `closed` but not both and not neither), while others have values (the `matching key` of a lockable door, for instance). Finally, we may also have created some free-standing values or "variables".
 
 We take the last example first, as it is the simplest. Suppose we have:
 
@@ -3820,25 +3816,25 @@ We take the last example first, as it is the simplest. Suppose we have:
 		say "A fresh gust of wind bowls you over.";
 		now the prevailing wind is east.
 
-The new phrase here is "now". This automatically checks that the new value is one which makes sense in the given context, so for instance it would not allow either of these:
+The new phrase here is `now`. This automatically checks that the new value is one which makes sense in the given context, so for instance it would not allow either of these:
 
 	now the prevailing wind is 25;
 	now the prevailing wind is the Heath;
 
-the former being a number, and the latter a room, so that neither is a direction. Similarly, "now" will not allow constant values to be changed. So
+the former being a number, and the latter a room, so that neither is a direction. Similarly, `now` will not allow constant values to be changed. So
 
 	Colour is a kind of value. The colours are blue, red and mauve.
 	
 	After pulling the psychedelic lever:
 		now blue is mauve.
 
-...will result in a problem message; it's like writing "now 1 is 2". The difference between "the prevailing wind" and "blue" is that the wind was declared to be a "direction that varies", whereas blue wasn't.
+...will result in a problem message; it's like writing `now 1 is 2`. The difference between `the prevailing wind` and `blue` is that the wind was declared to be a `direction that varies`, whereas blue wasn't.
 
 ## Changing the command prompt {var_prompt}
 
 ^^{prompt, changing the prompt} ^^{command prompt (- text)+glob+} ^^{when play begins+rb+} ^^{time of day (- time)+glob+}
 
-The command prompt is the text printed by Inform to ask the player for another command. Ordinarily this is simply a greater-than-sign, ">", so we tend not to notice it as text at all. Internally, though, it is a variable value called "command prompt", which means we can change it.
+The command prompt is the text printed by Inform to ask the player for another command. Ordinarily this is simply a greater-than-sign, ">", so we tend not to notice it as text at all. Internally, though, it is a variable value called `command prompt`, which means we can change it.
 
 For example, this will be a more conversational sort of prompt:
 
@@ -3848,15 +3844,15 @@ Whereas this will be more up-to-the-minute and demanding:
 
 	When play begins: now the command prompt is "[time of day] >".
 
-("Time of day" is another variable value, which is fairly self-explanatory, but will be covered in detail later on.) The prompt can be changed at any point, so can be used to indicate the current situation, or even as a sly way to introduce a sort of conversation between computer and player.
+(`Time of day` is another variable value, which is fairly self-explanatory, but will be covered in detail later on.) The prompt can be changed at any point, so can be used to indicate the current situation, or even as a sly way to introduce a sort of conversation between computer and player.
 
 ## Changing the status line {var_sl}
 
 ^^{status line} ^^{screen top} ^^{scoring: in status line} ^^{score (- number)+glob+} ^^{turn count (- number)+glob+} ^^{left hand status line (- text)+glob+} ^^{right hand status line (- text)+glob+} ^^{time of day (- time)+glob+}
 
-The status line is the black bar along the top of a story being played, which ordinarily displays the current position; in a story with scoring, it also usually shows the score and number of moves taken. Like the command prompt, it is not fixed but results from values which can be changed: the "left hand status line" and "right hand status line".
+The status line is the black bar along the top of a story being played, which ordinarily displays the current position; in a story with scoring, it also usually shows the score and number of moves taken. Like the command prompt, it is not fixed but results from values which can be changed: the `left hand status line` and `right hand status line`.
 
-The default values are `"[the player's surroundings]"` for the left hand status line and "[score]/[turn count]" for the right hand status line (if there's scoring; it's blank otherwise). Score and turn count are numbers which vary in play (more about scoring later); `"[the player's surroundings]"` is a text substitution really intended for just this purpose:
+The default values are `"[the player's surroundings]"` for the left hand status line and `"[score]/[turn count]"` for the right hand status line (if there's scoring; it's blank otherwise). Score and turn count are numbers which vary in play (more about scoring later); `"[the player's surroundings]"` is a text substitution really intended for just this purpose:
 
 > phrase: {phs_surroundings} say "[the/-- player's surroundings]"
 >
@@ -3893,7 +3889,7 @@ Inform protects its model world from accidental damage in several ways, one of w
 
 	now the oaken door is unvisited
 
-More subtle problems arise if it is not possible to tell, when the story is being constructed, what the object in question will be: for instance, if we try to change a randomly chosen object to be "unvisited". Inform therefore makes additional checks during play, printing up a suitable message only if the rules are violated. The net effect is that it is impossible for the oaken door ever to have the "unvisited" property.
+More subtle problems arise if it is not possible to tell, when the story is being constructed, what the object in question will be: for instance, if we try to change a randomly chosen object to be `unvisited`. Inform therefore makes additional checks during play, printing up a suitable message only if the rules are violated. The net effect is that it is impossible for the oaken door ever to have the `unvisited` property.
 
 ## Change of properties with values
 
@@ -3911,13 +3907,13 @@ Secondly, the object in question has to be allowed to have the given property. T
 
 	now the initial appearance of the Closet is "Dusty"
 
-(since "initial appearance" is a property which only things can have, not rooms). Finally, the object has to actually have the property, not just have the right to have that property. Thus:
+(since `initial appearance` is a property which only things can have, not rooms). Finally, the object has to actually have the property, not just have the right to have that property. Thus:
 
 	now the printed name of the Closet is "Suddenly Spooky Closet"
 
-...is only permitted if the Closet is designed with a "printed name". In fact this is certain to be true: all rooms and things automatically have a printed name, which is the short boldface description in the case of rooms, and the usual text briefly describing something in the case of things.
+...is only permitted if the Closet is designed with a `printed name`. In fact this is certain to be true: all rooms and things automatically have a printed name, which is the short boldface description in the case of rooms, and the usual text briefly describing something in the case of things.
 
-"Now" is a simple way to change many things in Inform, but it's cumbersome to change the map of the model world using "now", because the map is such a complicated arrangement. (It's not a property: it's a sort of mesh of relations.) So a special phrase exists to change map connections:
+`Now` is a simple way to change many things in Inform, but it's cumbersome to change the map of the model world using `now`, because the map is such a complicated arrangement. (It's not a property: it's a sort of mesh of relations.) So a special phrase exists to change map connections:
 
 > phrase: {ph_changeexit} change (direction) exit of (room) to (room)
 >
@@ -3925,7 +3921,7 @@ Secondly, the object in question has to be allowed to have the given property. T
 >
 >     change the east exit of the Closet to the Tsar's Imperial Dining Salon
 >
-> Since "nothing" is not a room, this doesn't allow us to change the exit to nothing, so there is a separate definition of:
+> Since `nothing` is not a room, this doesn't allow us to change the exit to nothing, so there is a separate definition of:
 >
 >     change the west exit of the Closet to nothing
 
@@ -3945,7 +3941,7 @@ This seems a useful point to clarify something already seen. We normally call a 
 
 	the printed name of the West Ballroom
 
-We are sometimes allowed to omit the "of the ..." part, and simply call it "the printed name", for the sake of brevity. For instance, the following room description:
+We are sometimes allowed to omit the `of the ...` part, and simply call it `the printed name`, for the sake of brevity. For instance, the following room description:
 
 	The West Ballroom is a room. "A handsome sweep of chequered floor beckons the eye into the [printed name]."
 
@@ -3953,13 +3949,13 @@ will result in "West Ballroom" being substituted for `"[printed name]"`. Since t
 
 	Instead of examining something, say "Hmm, let me see: [printed name]..."
 
-Here the owner of the "printed name" is assumed to be the noun referred to in the action – in other words, the "something" alluded to in the rule.
+Here the owner of the `printed name` is assumed to be the noun referred to in the action – in other words, the `something` alluded to in the rule.
 
 ## Moving things
 
 ^^{things+kind+: changing location of} ^^{player: moving the player} ^^{|without printing a room description} ^^{|printing an abbreviated room description} ^^{rooms+kind+: descriptions: moving without printing one} ^^{+to+now (a condition): changing the locations of things} ^^{immobile things: |fixed in place} ^^{things+kind+: immobile: |fixed in place} ^^{immobile things: moving anyway} ^^{things+kind+: immobile: moving anyway} ^^{fixed in place / portable (thing)+prop+} ^^{portable / fixed in place (thing)+prop+} ^^{fixed in place (thing)+propcat+} ^^{portable (thing)+propcat+} ^^{carrying+rel+} ^^{carrying+relcat+} ^^{wearing+rel+} ^^{wearing+relcat+}
 
-We have now seen how to change the properties of rooms and things, and also any freestanding values which may have a bearing on the model world. We are not allowed to change the kind of anything during play. Our remaining freedom is to move things around. It would make no sense to move rooms around, because rooms are the fixed reference points in our geography, but anything else is mobile. This even includes things which are supposedly "fixed in place", for unlike the player, we have god-like powers. (There are minor restrictions: backdrops are trickier to move, since they are present in several rooms at once – see the next section. And doors, at the junction between two rooms, cannot be moved.)
+We have now seen how to change the properties of rooms and things, and also any freestanding values which may have a bearing on the model world. We are not allowed to change the kind of anything during play. Our remaining freedom is to move things around. It would make no sense to move rooms around, because rooms are the fixed reference points in our geography, but anything else is mobile. This even includes things which are supposedly `fixed in place`, for unlike the player, we have god-like powers. (There are minor restrictions: backdrops are trickier to move, since they are present in several rooms at once – see the next section. And doors, at the junction between two rooms, cannot be moved.)
 
 Here is how to move something:
 
@@ -3989,13 +3985,13 @@ then it will be carried rather than worn. We could arrange for it to be worn ins
 
 	now the genie's turban is worn by Aladdin;
 
-"Now..." is a much more flexible phrase than "move": more on this shortly.
+`Now...` is a much more flexible phrase than `move`: more on this shortly.
 
 ## Moving backdrops
 
 ^^{+to+now (a condition): changing the locations of backdrops} ^^{backdrops+kind+: changing the location of backdrops} ^^{+to+move (backdrop) to (region)} ^^{regions+kind+: moving a backdrop to a new region} ^^{things+kind+: changing location of} ^^{(everywhere), placing backdrops+sourcepart+} ^^{|nowhere: placing backdrops}
 
-A backdrop can be in several rooms at once. When created, its position can be given as any specific collection of rooms, or as a region, or even as "everywhere". For instance:
+A backdrop can be in several rooms at once. When created, its position can be given as any specific collection of rooms, or as a region, or even as `everywhere`. For instance:
 
 	The Upper Cave is above the Rock Pool. The Ledge is east of the Pool.
 	
@@ -4026,9 +4022,9 @@ and either way, the stream is now found in the Rock Pool and the Ledge but nowhe
 >
 >     move the stream backdrop to all wet rooms;
 >
-> This phrasing, "move the ... backdrop to all ..." is deliberately meant to look unlike the simpler "move ... to ...", to emphasise that this kind of movement is possible only for backdrops.
+> This phrasing, `move the ... backdrop to all ...` is deliberately meant to look unlike the simpler `move ... to ...`, to emphasise that this kind of movement is possible only for backdrops.
 
-What then happens is that the stream is present in whichever rooms are currently wet. But the stream's position is ordinarily checked only after movements, for efficiency's sake. So if the player is in a room which suddenly changes from being dry to being wet, the stream will not magically appear (though it will be there if the player goes out and comes in again). If this is not good enough, the phrase "update backdrop positions" can be used to ensure the accuracy of all backdrop locations after a dramatic change:
+What then happens is that the stream is present in whichever rooms are currently wet. But the stream's position is ordinarily checked only after movements, for efficiency's sake. So if the player is in a room which suddenly changes from being dry to being wet, the stream will not magically appear (though it will be there if the player goes out and comes in again). If this is not good enough, the phrase `update backdrop positions` can be used to ensure the accuracy of all backdrop locations after a dramatic change:
 
 > phrase: {ph_updatebackdrop} update backdrop positions
 >
@@ -4073,7 +4069,7 @@ This will ordinarily result in a room description of the Bodleian Library being 
 		say "A bored demon catches your eye (they really do have very inquisitive fingers) and throws you back out into the Antechamber.";
 		move the player to the Antechamber, without printing a room description.
 
-Thus tacking on the option "without printing a room description", remembering to add the comma, omits the description which would otherwise be produced. A compromise is to use the option "printing an abbreviated room description": this gives a full description if the player has never been here before, but only a brief one if it is a familiar scene.
+Thus tacking on the option `without printing a room description`, remembering to add the comma, omits the description which would otherwise be produced. A compromise is to use the option `printing an abbreviated room description`: this gives a full description if the player has never been here before, but only a brief one if it is a familiar scene.
 
 The player's point of view can also be moved by shifting to another character. Suppose the story features two people, Alice and Bob, and the player at the keyboard is giving commands to Alice, and seeing everything from her point of view. The phrase:
 
@@ -4081,13 +4077,13 @@ The player's point of view can also be moved by shifting to another character. S
 
 switches the perspective so that now Bob is the one controlled by the human player, and it's Bob's point of view which counts. The human being at the keyboard may feel a sense of having jumped abruptly from place to place, but in fact neither Alice nor Bob has moved.
 
-A change of player can sometimes cause confusing things to happen, if it takes place as part of a successful action. Suppose there's an action called "possessing", which enables the player to possess somebody else's body; and suppose the player types ``POSSESS ADELE``. The action succeeds, so that the player moves into the mind of Adele. But that means that at the end of the action, the player is no longer the actor – that is, no longer the person who began the action; and consequently, Inform won't use the report rulebook to say what has just happened. It's a strange business, moving into another body.
+A change of player can sometimes cause confusing things to happen, if it takes place as part of a successful action. Suppose there's an action called `possessing`, which enables the player to possess somebody else's body; and suppose the player types ``POSSESS ADELE``. The action succeeds, so that the player moves into the mind of Adele. But that means that at the end of the action, the player is no longer the actor – that is, no longer the person who began the action; and consequently, Inform won't use the report rulebook to say what has just happened. It's a strange business, moving into another body.
 
 ## Removing things from play
 
 ^^{things+kind+: removing from play} ^^{deleting things from the world} ^^{non-existence: removing things from play} ^^{non-existence: starting things out of play} ^^{things+kind+: starting out of play} ^^{out of play} ^^{on-stage / off-stage (thing)+adj+} ^^{off-stage / on-stage (thing)+adj+} ^^{+to+now (a condition): changing the locations of things} ^^{|nowhere: placing things}
 
-Some things will occasionally be in a limbo state called being "off-stage": like actors or props not needed in Act II, but perhaps to be brought back on-stage later, they wait on the sidelines. Anything created with no apparent location will start the story off-stage, as in the case of the lamp here:
+Some things will occasionally be in a limbo state called being `off-stage`: like actors or props not needed in Act II, but perhaps to be brought back on-stage later, they wait on the sidelines. Anything created with no apparent location will start the story off-stage, as in the case of the lamp here:
 
 	Aladdin's Cave is a room. The genie's lamp is a container.
 
@@ -4095,7 +4091,7 @@ Some things will occasionally be in a limbo state called being "off-stage": like
 
 	The lamp is nowhere.
 
-to emphasise the point. In this context, "nowhere" means "in no room". Moving the lamp onto the stage-set, so to speak, is easy:
+to emphasise the point. In this context, `nowhere` means `in no room`. Moving the lamp onto the stage-set, so to speak, is easy:
 
 	now the lamp is in the Cave;
 
@@ -4107,7 +4103,7 @@ and we can whisk it away again like so:
 
 	now the lamp is nowhere;
 
-(We can't say "now the lamp is somewhere" because that's too vague about exactly where it is.) In older builds of Inform, the usual thing was to write "remove the lamp from play", but that's now a deprecated phrase: better to use "nowhere" instead.
+(We can't say `now the lamp is somewhere` because that's too vague about exactly where it is.) In older builds of Inform, the usual thing was to write `remove the lamp from play`, but that's now a deprecated phrase: better to use `nowhere` instead.
 
 > phrase: {ph_remove} remove (object) from play
 >
@@ -4125,21 +4121,21 @@ Inform also understands two adjectives for this:
 	if the gold coin is on-stage, ...
 	if the gold coin is off-stage, ...
 
-Because these are adjectives, they can be used in a few ways which "nowhere" and "somewhere" can't, such as:
+Because these are adjectives, they can be used in a few ways which `nowhere` and `somewhere` can't, such as:
 
 	say "Ah, so many absent friends. Who now remembers [list of off-stage people]?"
 
-Note that "on-stage" and "off-stage" apply only to things. Rooms, directions and regions are the stage itself: so it makes no sense to ask the question of whether they are "on-" or "off-". Doors are always on-stage; a backdrop, say "the sky", is always on-stage unless it has been taken off by writing something like "now the sky is nowhere".
+Note that `on-stage` and `off-stage` apply only to things. Rooms, directions and regions are the stage itself: so it makes no sense to ask the question of whether they are `on-` or `off-`. Doors are always on-stage; a backdrop, say `the sky`, is always on-stage unless it has been taken off by writing something like `now the sky is nowhere`.
 
 ## Now... {PM_BadNow1} {PM_BadNow2} {PM_BadNow3} {PM_CantForceRelation} {PM_CantForceExistence} {PM_CantForceGeneralised} {PM_CantForceCalling} {PM_CantChangeKind} {PM_RedefinedNow}
 
 ^^{+to+now (a condition): for arbitrary conditions} ^^{things+kind+: changing multiples with (now)+sourcepart+} ^^{properties: changing multiple things with (now)+sourcepart+} ^^{+to+if (a condition)}
 
-"Now" has already appeared several times in this chapter, being used like a Swiss army knife to change values of all kinds:
+`Now` has already appeared several times in this chapter, being used like a Swiss army knife to change values of all kinds:
 
 	now the score is 100;
 
-In fact, "now" is by far the most flexible phrase known to Inform.
+In fact, `now` is by far the most flexible phrase known to Inform.
 
 > phrase: {ph_now} now (a condition)
 >
@@ -4152,7 +4148,7 @@ In fact, "now" is by far the most flexible phrase known to Inform.
 >     now all the doors are open;
 >     now all of the things in the sack are in the box;
 >
-> Inform issues a problem message if the condition asks to do the impossible ("now 3 is an even number") or is vague ("now the duck is not in the Lily Pond") or not in the present tense ("now the front door had been open").
+> Inform issues a problem message if the condition asks to do the impossible (`now 3 is an even number`) or is vague (`now the duck is not in the Lily Pond`) or not in the present tense (`now the front door had been open`).
 
 We've now seen all three things which can be done with a condition S which describes the world:
 
@@ -4170,7 +4166,7 @@ For instance,
 
 ^^{calculation: incrementing} ^^{calculation: decrementing}^^^{calculation <-- arithmetic <-- maths}^^^{calculation <-- numbers: calculation with}
 
-Once we begin to deal with named values (or table entries, list entries or other ways to describe places where values are kept), we find that we often want to change them. We could if we wanted always use "now" for this, but it can be a little clumsily worded if we want to increase or decrease something:
+Once we begin to deal with named values (or table entries, list entries or other ways to describe places where values are kept), we find that we often want to change them. We could if we wanted always use `now` for this, but it can be a little clumsily worded if we want to increase or decrease something:
 
 	now the score is the score plus six;
 
@@ -4204,7 +4200,7 @@ An even greater abbreviation can be made when we are changing a number by 1 eith
 >
 >     decrement the score;
 
-"Increment" and "decrement" are traditional computing terms, though they have been used in engineering for at least a century and in finance for longer still.
+`Increment` and `decrement` are traditional computing terms, though they have been used in engineering for at least a century and in finance for longer still.
 
 ## Checking on whereabouts
 
@@ -4231,14 +4227,14 @@ condition                                  | subject | relationship  | object
 `if the lamp is within the cupboard`       | lamp    | within        | cupboard
 `if the wick is part of the lamp`          | wick    | part of       | lamp
 
-These are exactly like the assertions which we use to set up the world, except that we make them questions by placing "if" in front. But we shall later see that we can also use three other tenses, not to mention plural forms, so that new verbal forms like "had not been inside" and "were not supported by" are legal here (which they would not be in assertions). What we are not allowed is to contract these verbs with apostrophes: "isn't", "hasn't" and "hadn't" are forbidden.
+These are exactly like the assertions which we use to set up the world, except that we make them questions by placing `if` in front. But we shall later see that we can also use three other tenses, not to mention plural forms, so that new verbal forms like `had not been inside` and `were not supported by` are legal here (which they would not be in assertions). What we are not allowed is to contract these verbs with apostrophes: "isn't", "hasn't" and "hadn't" are forbidden.
 
 Overwhelmingly the condition we check most is whether the player is carrying something. The following are therefore equivalent:
 
 	if the lamp is carried by the player ...
 	if the lamp is carried ...
 
-And similarly for "not carried", "worn" and "not worn". To be precise, if a form of *to be carried* or *to be worn* is not followed by any other description, then "the player" is assumed to be doing the carrying or wearing.
+And similarly for `not carried`, `worn` and `not worn`. To be precise, if a form of *to be carried* or *to be worn* is not followed by any other description, then `the player` is assumed to be doing the carrying or wearing.
 
 ## More flexible descriptions of whereabouts
 
@@ -4249,7 +4245,7 @@ The examples just given were all basically of the form "X *relation* Y" where X 
 	if the lamp is carried by Cinderella ...
 	if the lamp is inside the cupboard ...
 
-Just as actions could be described with patterns to be matched ("taking an open container", say), so can the positions of things. Giving subtler descriptions of our X and Y sometimes broadens the possibilities, sometimes narrows them:
+Just as actions could be described with patterns to be matched (`taking an open container`, say), so can the positions of things. Giving subtler descriptions of our X and Y sometimes broadens the possibilities, sometimes narrows them:
 
 	if the lamp is carried by a woman ...
 	if the lamp is inside the closed cupboard ...
@@ -4269,7 +4265,7 @@ a condition which will be true if, anywhere in the story's world, any woman is h
 
 ^^{|called: in describing things} ^^{punctuation: brackets: for calling values} ^^{|( ): for calling values} ^^{names: for things named generally} ^^{|something: naming value of}
 
-Conditions like "if somebody is in an adjacent room" allow complicated tests to be performed with a minimum of fuss, but it's rare that we want to know only whether they are true: more likely we also want to know *which* person, and *which* room.
+Conditions like `if somebody is in an adjacent room` allow complicated tests to be performed with a minimum of fuss, but it's rare that we want to know only whether they are true: more likely we also want to know *which* person, and *which* room.
 
 For this purpose, we are allowed to supply a name for any such vaguely-described object which comes up, and then to use that name thereafter.
 
@@ -4279,7 +4275,7 @@ We can even name more than one of the things discovered:
 
 	Instead of waiting when a woman (called the kidnapper) is holding an animal (called the pet), say "How can you think of rest when, somewhere out there, [pet] has been cruelly kidnapped by [the kidnapper]?"
 
-Note the brackets, which are essential. The result of typing "wait" is then
+Note the brackets, which are essential. The result of typing ``WAIT`` is then
 
 	How can you think of rest when, somewhere out there, a lapdog has been cruelly kidnapped by Baroness Orczy?
 
@@ -4303,13 +4299,13 @@ because there is too much potential ambiguity – are we trying to call the play
 
 ^^{counting: things} ^^{things+kind+: counting} ^^{+to+number of (description of values)}
 
-It is very often useful to know how many things are in a given situation, and for this purpose we have the "number of ..." construction. For instance:
+It is very often useful to know how many things are in a given situation, and for this purpose we have the `number of ...` construction. For instance:
 
 	the number of edible things carried
 	the number of things on the table
 	the number of people in the Dining Room
 
-Whereas "a woman is holding an animal" makes the same test as "an animal is held by a woman", getting the same result, counting is not so even-handed:
+Whereas `a woman is holding an animal` makes the same test as `an animal is held by a woman`, getting the same result, counting is not so even-handed:
 
 	the number of women holding animals
 	the number of animals held by women
@@ -4326,7 +4322,7 @@ For instance:
 	When play begins:
 		now the right hand status line is "Explored: [number of visited rooms]/[number of rooms]".
 
-Provided that the possible range is finite, we can also use "number of" to count values which match a description. For instance:
+Provided that the possible range is finite, we can also use `number of` to count values which match a description. For instance:
 
 	the number of non-recurring scenes
 
@@ -4334,7 +4330,7 @@ or if we were to define
 
 	Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 
-then "the number of colours" would evaluate to 7. As with other ways of talking about whole ranges of values, this only works if the range is manageable. "The number of numbers" cannot sensibly be worked out: there are infinitely many, for all practical purposes, and similarly for "the number of texts".
+then `the number of colours` would evaluate to 7. As with other ways of talking about whole ranges of values, this only works if the range is manageable. `The number of numbers` cannot sensibly be worked out: there are infinitely many, for all practical purposes, and similarly for `the number of texts`.
 
 ## Looking at containment by hand
 
@@ -4409,7 +4405,7 @@ Testing IF which makes random choices can be rather frustrating, because a probl
 >
 >     When play begins, seed the random-number generator with 1234.
 >
-> The seed value "1234" can be anything positive; a different sequence of random numbers will be produced for each different seed value. A seed value of 0 restores the RNG to properly random behaviour again.
+> The seed value `1234` can be anything positive; a different sequence of random numbers will be produced for each different seed value. A seed value of 0 restores the RNG to properly random behaviour again.
 
 Alternatively, it's possible the "fix" the RNG by clicking the "Make random outcomes predictable when testing" option on the Settings panel. This makes the behaviour predictable whenever the story is played within Inform, but (unlike the rule above) has no effect on the story file once released.
 
@@ -4417,7 +4413,7 @@ Alternatively, it's possible the "fix" the RNG by clicking the "Make random outc
 
 ^^{randomness: random things}
 
-Writing "a random number" is not allowed, because the possible range is too large, but that was the only reason why not.
+Writing `a random number` is not allowed, because the possible range is too large, but that was the only reason why not.
 
 > phrase: {ph_randomdesc} a/-- random (description of values) ... value
 >
@@ -4426,7 +4422,7 @@ Writing "a random number" is not allowed, because the possible range is too larg
 >     a random visited room
 >     a random scene
 >
-> A problem message is issued if the range is too large (for instance, "a random text"). Unexpected results may follow if no value fits the description, unless we are describing objects, in which case the result is the special value "nothing".
+> A problem message is issued if the range is too large (for instance, `a random text`). Unexpected results may follow if no value fits the description, unless we are describing objects, in which case the result is the special value `nothing`.
 
 For instance:
 
@@ -4450,7 +4446,7 @@ We have already seen an example of how to write a rule which applies just once, 
 
 	When play begins: say "Welcome to Old Marston Grange, a country house cut off by fog."
 
-The "when play begins" rules are checked only at the start of a story, not when a saved session is restored from disc. What happens is that these rules are followed, then the story's banner is printed, then the initial room description is printed up, and then the player is asked for a first command.
+The `when play begins` rules are checked only at the start of a story, not when a saved session is restored from disc. What happens is that these rules are followed, then the story's banner is printed, then the initial room description is printed up, and then the player is asked for a first command.
 
 ## Awarding points {var_score}
 
@@ -4460,9 +4456,9 @@ Traditionally-written stories award points throughout play, as an indication of 
 
 	Use scoring.
 
-Without this, the ``SCORE``, ``NOTIFY ON`` and ``NOTIFY OFF`` commands do not work; the final score is not shown at the end of a story; and the status line above the player's text area shows only the turn count, not (as is more usual) both the score and the turn count. Changing the "score" (see below) has no visible effect, though it is not actually illegal.
+Without this, the ``SCORE``, ``NOTIFY ON`` and ``NOTIFY OFF`` commands do not work; the final score is not shown at the end of a story; and the status line above the player's text area shows only the turn count, not (as is more usual) both the score and the turn count. Changing the `score` (see below) has no visible effect, though it is not actually illegal.
 
-With "Use scoring" in place, we can award points as follows:
+With `Use scoring` in place, we can award points as follows:
 
 	increase the score by 5;
 
@@ -4478,7 +4474,7 @@ The player may simply take the trophy, drop it again, take it again, ... and win
 		increase the score by 5;
 		say "Well done!"
 
-("Was handled", not "is handled", because this rule happens after the trophy has been taken – so by the time this rule has been considered, the trophy is always handled.) Rather than being an open-ended scoring system, IF normally has a maximum possible score, which can be specified with a sentence like so:
+(`Was handled`, not `is handled`, because this rule happens after the trophy has been taken – so by the time this rule has been considered, the trophy is always handled.) Rather than being an open-ended scoring system, IF normally has a maximum possible score, which can be specified with a sentence like so:
 
 	The maximum score is 10.
 
@@ -4506,7 +4502,7 @@ Another tradition of interactive fiction is that the player has a current 'rank'
 
 Typographically, tables in Inform look as much as possible like those found in non-fiction books: they can have many columns, so this is only a simple example (drawn from the actual rankings used by ^{Infocom}'s *Zork I*, 1979). Each line in the source represents one row in the table, and the entries on a line must be separated by at least one tab character. (An entry might of course have several words with spaces in between, so a space is not enough to separate entries: this is the only context when Inform distinguishes between spaces and tabs.) The table must occupy a single whole paragraph, with no skipped lines or missing entries. We are free to use extra tabs to indent it if we like.
 
-Ordinarily we must explicitly ask to use the information presented in a table, but the table of rankings is a special case: Inform uses it automatically, if it is provided at all. To be recognised it must have the name "Rankings" and must have two columns named and arranged as shown. The scores should be given in ascending order. Customarily, the score in the final row should be the maximum possible achieved in the story – so that only a player with maximum possible score can be awarded the final ranking – and the value of "maximum score" is automatically set to this bottom-row value if it has not been explicitly set anywhere else in the source text.
+Ordinarily we must explicitly ask to use the information presented in a table, but the table of rankings is a special case: Inform uses it automatically, if it is provided at all. To be recognised it must have the name `Rankings` and must have two columns named and arranged as shown. The scores should be given in ascending order. Customarily, the score in the final row should be the maximum possible achieved in the story – so that only a player with maximum possible score can be awarded the final ranking – and the value of `maximum score` is automatically set to this bottom-row value if it has not been explicitly set anywhere else in the source text.
 
 ## When play ends {rules_wpe}
 
@@ -4514,7 +4510,7 @@ Ordinarily we must explicitly ask to use the information presented in a table, b
 
 Short of something like a power cut, the story can only end when one of the two participants chooses to end it: either the player, by deciding that enough is enough, or us.
 
-In story-telling, there are many kinds of ending: happy, sad, decisive, bittersweet, surprise. Inform doesn't try to interfere in that kind of artistic choice, but it does need to know one thing about the ending: is it final, or not? Many authors like to make additional menu items available if the player has completed the story right through, but not if she has reached an early or wrong ending. (See the activity "amusing a victorious player", for example.)
+In story-telling, there are many kinds of ending: happy, sad, decisive, bittersweet, surprise. Inform doesn't try to interfere in that kind of artistic choice, but it does need to know one thing about the ending: is it final, or not? Many authors like to make additional menu items available if the player has completed the story right through, but not if she has reached an early or wrong ending. (See the activity `amusing a victorious player`, for example.)
 
 > phrase: {ph_end} end the story
 >
@@ -4548,21 +4544,21 @@ We can test the current state like so:
 
 > phrase: {ph_ended} if story has ended:
 >
-> This condition is true if an end has been declared using one of the "end the story..." phrases.
+> This condition is true if an end has been declared using one of the `end the story...` phrases.
 
 > phrase: {ph_notended} if story has not ended:
 >
-> This condition is true if no end has been declared using one of the "end the story..." phrases.
+> This condition is true if no end has been declared using one of the `end the story...` phrases.
 
 > phrase: {ph_finallyended} if story has ended finally:
 >
-> This condition is true if an end has been declared using one of the "end the story finally..." phrases, so that an ending has been reached which the author feels is a completion of the player's experience.
+> This condition is true if an end has been declared using one of the `end the story finally...` phrases, so that an ending has been reached which the author feels is a completion of the player's experience.
 
 > phrase: {ph_notfinallyended} if story has not ended finally:
 >
-> This condition is true if an end has been declared using one of the "end the story..." phrases, but not "finally", so the author feels that the player can get further experience by playing again and trying different approaches.
+> This condition is true if an end has been declared using one of the `end the story...` phrases, but not `finally`, so the author feels that the player can get further experience by playing again and trying different approaches.
 
-The rulebook "when play ends" is the matching bookend to "when play begins". It is followed when the story decides to end (not when the player simply gives up and quits), and before any epitaph like
+The rulebook `when play ends` is the matching bookend to `when play begins`. It is followed when the story decides to end (not when the player simply gives up and quits), and before any epitaph like
 
 ``` transcript
 *** You have been poisoned ***
@@ -4576,24 +4572,24 @@ Surprisingly, the end is not always the end:
 
 > phrase: {ph_resume} resume the story
 >
-> This phrase causes an ended story to resume exactly as if no "end the story..." phrase had been used. Example:
+> This phrase causes an ended story to resume exactly as if no `end the story...` phrase had been used. Example:
 >
 >     When play ends:
 >     	if the story has not ended finally:
 >     		say "Oh dear. Still, here's another chance.";
 >     		resume the story.
 >
-> The phrase is likely to be sensible only as part of a "when play ends" rule. Other traditional uses include giving the player three lives, as in an old-school arcade machine.
+> The phrase is likely to be sensible only as part of a `when play ends` rule. Other traditional uses include giving the player three lives, as in an old-school arcade machine.
 
 ## Every turn {rules_et} {PM_NumberOfTurns}
 
 ^^{every turn+rb+} ^^{rules: run every turn} ^^{turns: rules run every turn} ^^{rules: arbitrary conditions for rules, using (when)+sourcepart+} ^^{when (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for rules} ^^{Inform 6 equivalent: |each_turn} ^^{Inform 6 equivalent: daemons} ^^{turn count (- number)+glob+}
 
-The passage of time in interactive fiction is broken up into a succession of turns, in each of which the player types a request and is given a response. Usually each such request triggers one action, but sometimes a whole sequence are fired off, as when the player types "get all" in a cluttered room.
+The passage of time in interactive fiction is broken up into a succession of turns, in each of which the player types a request and is given a response. Usually each such request triggers one action, but sometimes a whole sequence are fired off, as when the player types ``GET ALL`` in a cluttered room.
 
-As we've seen, the variable "turn count" holds the number of turns of play so far. By convention turn number 0 is the time when Inform prints up the banner and any initial text; it becomes turn number 1 when the player's first command is typed.
+As we've seen, the variable `turn count` holds the number of turns of play so far. By convention turn number 0 is the time when Inform prints up the banner and any initial text; it becomes turn number 1 when the player's first command is typed.
 
-One of the last things to happen in each turn is that Inform will apply any rules which have been set to occur "every turn", like so:
+One of the last things to happen in each turn is that Inform will apply any rules which have been set to occur `every turn`, like so:
 
 	Every turn, say "The summer breeze shakes the apple-blossom."
 
@@ -4603,7 +4599,7 @@ This is equivalent to writing:
 
 Note that the text about blossom, which will quickly become tiresome, is said at the end of every turn, not at the beginning, and in particular not before the player's first opportunity to type a command.
 
-As usual when defining rules, we can add stipulations: any condition can be attached using "when".
+As usual when defining rules, we can add stipulations: any condition can be attached using `when`.
 
 	Every turn when the location is the Orchard, say "The summer breeze shakes the apple-blossom."
 	
@@ -4619,13 +4615,13 @@ A sentence like the following allows the initial time to be set up as something 
 
 	The time of day is 3:13 PM.
 
-Here, "3:13 PM" is a constant value of a kind not seen before: it's a kind of value called "time", and the value "time of day" is a time that varies. After one turn it will be 3:14 PM, then 3:15 PM and so on.
+Here, `3:13 PM` is a constant value of a kind not seen before: it's a kind of value called `time`, and the value `time of day` is a time that varies. After one turn it will be 3:14 PM, then 3:15 PM and so on.
 
 Note that the sentence above is an assertion (a statement about the initial state of affairs), not an instruction which can be part of a rule. It would be equivalent to write:
 
 	When play begins: now the time of day is 3:13 PM.
 
-We more often change "time of day" to take care of drastic events:
+We more often change `time of day` to take care of drastic events:
 
 	At the time when the player loses consciousness:
 		now the time of day is 10:12 AM;
@@ -4663,7 +4659,7 @@ Clocks and watches vary considerably in how much detail they show, and we tend n
 
 	{*}The Clock Chamber is a room. "The dark chamber behind the clock face, a mill-room of gears which grind down the seconds. Through the glass you can see the reversed hands reading [the time of day to the nearest five minutes in words]."
 
-The phrase "... to the nearest ..." rounds off the given time, just as it sounds; as we'll see later, it can actually round off any arithmetic values, not just times. For instance, "9:58 PM to the nearest ten minutes" is 10:00 PM.
+The phrase `... to the nearest ...` rounds off the given time, just as it sounds; as we'll see later, it can actually round off any arithmetic values, not just times. For instance, `9:58 PM to the nearest ten minutes` is 10:00 PM.
 
 In talking about lengths of time, rather than times of day, it's useful to have these:
 
@@ -4729,7 +4725,7 @@ Similarly, we have conditions:
 
 ^^{time: calculations} ^^{calculation: with time} ^^{numbers: converting to times}
 
-We will occasionally need to perform more complex calculations with time, and in order to do that, we have a way to convert the time of day to numbers. Thus the phrase "the minutes part of ..." takes a time and produces a number from 0 to 59; similarly "the hours part of ..." extracts a number from 0 to 23, using the twenty-four hour clock.
+We will occasionally need to perform more complex calculations with time, and in order to do that, we have a way to convert the time of day to numbers. Thus the phrase `the minutes part of ...` takes a time and produces a number from 0 to 59; similarly `the hours part of ...` extracts a number from 0 to 23, using the twenty-four hour clock.
 
 > phrase: {ph_minspart} minutes part of (time) ... number
 >
@@ -4747,7 +4743,7 @@ We will occasionally need to perform more complex calculations with time, and in
 >
 > produces 8.
 
-To go the other way, we can convert any number to a duration by writing "minutes" or "hours" after it. For instance:
+To go the other way, we can convert any number to a duration by writing `minutes` or `hours` after it. For instance:
 
 	{*}The clock error is a number that varies. To thump the mechanism: now the clock error is a random number from -10 to 10.
 	
@@ -4755,7 +4751,7 @@ To go the other way, we can convert any number to a duration by writing "minutes
 	
 	When play begins, thump the mechanism. Instead of attacking the broken clock: thump the mechanism; say "You thump the clock, which now reads [clock error minutes after the time of day].".
 
-Note that "clock error" is a number, but "clock error minutes" is a time.
+Note that `clock error` is a number, but `clock error minutes` is a time.
 
 ## Future events {PM_AtWithoutTime} {PM_UnusedTimedEvent} {TIMEDEVENTS}
 
@@ -4796,7 +4792,7 @@ If we know in advance what time we want something to happen, we can more simply 
 
 	At 4 PM: say "The great bells of the clock tower chime four."
 
-(Note that in either case such rules begin with the word "at": they are the only rules allowed to begin with the word "at".)
+(Note that in either case such rules begin with the word `at`: they are the only rules allowed to begin with the word `at`.)
 
 A small warning: timed events like these only have a chance to occur during the turn sequence, that is, once every turn. In most stories, one turn takes one minute, so there will in due course be a turn happening at exactly (say) 11:35 AM. But if the clock is being advanced faster than this, it's possible that there are turns at (say) 11:32 AM and then not until 11:37 AM. But an event set for 11:35 AM will nevertheless happen – it will run at the first available turn after that time, which will be 11:37 AM. Events can thus happen up to half an hour late, though Inform cancels them if the elapsed time is greater than that.
 
@@ -4818,7 +4814,7 @@ Secondly, we can talk about the past as well as the present, which is very usefu
 
 	Instead of waiting when we have taken the lantern, say "No, your acquisitive nature is roused now, and simply waiting will no longer do."
 
-More on the past tense later follows in the next section: note that "we are taking" has become "we have taken". For the rule to apply, it is not enough that the action "taking the lantern" has been tried: it must have succeeded. Note also that it's enough for any actor in the story to have successfully taken the lantern: it doesn't have to be the player.
+More on the past tense later follows in the next section: note that `we are taking` has become `we have taken`. For the rule to apply, it is not enough that the action `taking the lantern` has been tried: it must have succeeded. Note also that it's enough for any actor in the story to have successfully taken the lantern: it doesn't have to be the player.
 
 ## The past and perfect tenses {PM_PastSubordinate} {PM_PTAPMakesCallings} {PM_PastTableLookup} {PM_PastCallings}  {PM_PastActionCalled} {PM_NonPresentTense} {PM_PastTableEntries}
 
@@ -4826,7 +4822,7 @@ More on the past tense later follows in the next section: note that "we are taki
 
 The remaining sections of this chapter go into more technical ways to think about the progress of the story through time, and can be skipped at a first reading.
 
-Conditions are clauses which require Inform to make a decision: is such-and-such true, or not true? We have already seen conditions attached to rules using "when":
+Conditions are clauses which require Inform to make a decision: is such-and-such true, or not true? We have already seen conditions attached to rules using `when`:
 
 	Instead of waiting when the Sorting Hat is in the Hall: ...
 
@@ -4834,13 +4830,13 @@ and, as we shall later see, we will often want to write instructions like:
 
 	if the Sorting Hat is in the Hall, say "Hermione blinks apprehensively."
 
-The condition is "the Sorting Hat is in the Hall", and during play this will sometimes be true and sometimes false.
+The condition is `the Sorting Hat is in the Hall`, and during play this will sometimes be true and sometimes false.
 
-A condition in the form "X is Y" is of course written in the present tense, and refers to the current state of affairs. Three other tenses are allowed. First, the present perfect:
+A condition in the form `X is Y` is of course written in the present tense, and refers to the current state of affairs. Three other tenses are allowed. First, the present perfect:
 
 	if X has been Y ...
 
-is true if it has ever been the case that "X is Y" at the start of any turn (or any action). So, for instance,
+is true if it has ever been the case that `X is Y` at the start of any turn (or any action). So, for instance,
 
 	if the gate has been open ...
 
@@ -4850,7 +4846,7 @@ Next is the past tense:
 
 	if X was Y ...
 
-holds if and only if "X is Y" was true at the start of the most recent action. This is convenient when trying to describe what has changed in the course of the action, but sometimes also when making the action itself happen. For instance:
+holds if and only if `X is Y` was true at the start of the most recent action. This is convenient when trying to describe what has changed in the course of the action, but sometimes also when making the action itself happen. For instance:
 
 	if the lantern was switched on, now the lantern is switched off;
 	if the lantern was switched off, now the lantern is switched on;
@@ -4859,13 +4855,13 @@ Completing the set is the past perfect:
 
 	if X had been Y ...
 
-which records whether "X has been Y" was true at the start of the most recent action. All these verbs can of course be negated (though "wasn't" and "hadn't" are disallowed as poor style: we use "was not" and "had not" instead). So for example,
+which records whether `X has been Y` was true at the start of the most recent action. All these verbs can of course be negated (though "wasn't" and "hadn't" are disallowed as poor style: we use `was not` and `had not` instead). So for example,
 
 	if the player had not been in the Ballroom ...
 
 is true if the player hadn't visited the Ballroom at the start of the most recent action.
 
-Something we must watch out for is that variables might not have the same values in the past that they have now. As a result, writing conditions such as "if the noun has been open" is a bad idea, because in the past "the noun" very likely referred to something different. It is really only safe to talk in the past tense about definite, fixed things: "if the Great Gates of Kiev have been open" would be fine.
+Something we must watch out for is that variables might not have the same values in the past that they have now. As a result, writing conditions such as `if the noun has been open` is a bad idea, because in the past `the noun` very likely referred to something different. It is really only safe to talk in the past tense about definite, fixed things: `if the Great Gates of Kiev have been open` would be fine.
 
 ## How many times?
 
@@ -4878,7 +4874,7 @@ There are two further ways to examine the historical record. Given any condition
 - `if (...condition...) 2 times...`
 - `if (...condition...) two times...`
 
-(all of which are synonymous: the words once, twice, thrice, one, two, three, four, five, six, seven, eight, nine, ten, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth and tenth all mean what they obviously should). The result is true if the condition holds now and has held for only one previous spell in the past. A condition holding for, say, fifteen consecutive turns without a break counts as only one "time" – so what we mean by "twice" here is that it is true now, was previously false for a while, and was previously true for a while before that, but no more. In effect, then,
+(all of which are synonymous: the words once, twice, thrice, one, two, three, four, five, six, seven, eight, nine, ten, first, second, third, fourth, fifth, sixth, seventh, eighth, ninth and tenth all mean what they obviously should). The result is true if the condition holds now and has held for only one previous spell in the past. A condition holding for, say, fifteen consecutive turns without a break counts as only one `time` – so what we mean by `twice` here is that it is true now, was previously false for a while, and was previously true for a while before that, but no more. In effect, then,
 
 	if the player is in the Ballroom for the third time ...
 
@@ -4886,11 +4882,11 @@ is true if this is the third visit to the Ballroom. We can also say
 
 	if the player is in the Ballroom for more than the third time ...
 
-or similarly "less than", "at least", "at most". It would be more natural, though, to say
+or similarly `less than`, `at least`, `at most`. It would be more natural, though, to say
 
 	if the player has been in the Ballroom three times ...
 
-The adjective "only" (or equivalently "exactly") can be added to obtain
+The adjective `only` (or equivalently `exactly`) can be added to obtain
 
 	if the player has been in the Ballroom only three times ...
 
@@ -4904,7 +4900,7 @@ means there have been exactly three visits, the third of which is still going on
 
 ^^{historical conditions: turns} ^^{conditions: historical: number of turns} ^^{rules: counting turns for conditions} ^^{turns: counting conditions with (for the Nth turn)+sourcepart+} ^^{counting: conditions with (for the Nth turn)+sourcepart+} ^^{|exactly: counting conditions} ^^{(only), counting conditions+sourcepart+} ^^{conditions: historical: warning concerning variables and other varying qualities} ^^{historical conditions: warning concerning variables and other varying qualities}
 
-So much for "times" – spells in which a condition is true. We can also test the length of time, in turns of play, that something has been true. Thus:
+So much for `times` – spells in which a condition is true. We can also test the length of time, in turns of play, that something has been true. Thus:
 
 	if ... for three turns;
 
@@ -4918,7 +4914,7 @@ will be false if the hat is not currently worn (even if it has been often in the
 - `if the floppy hat has been worn for only 3 turns ...`
 - `if the floppy hat has been worn for exactly three turns ...`
 
-all requiring that the hat wasn't worn four turns ago. As before, "more than", "less than", "at least" and "at most" so forth can also be used – say, "for at least 21 turns".
+all requiring that the hat wasn't worn four turns ago. As before, `more than`, `less than`, `at least` and `at most` so forth can also be used – say, `for at least 21 turns`.
 
 A warning: we must be careful when writing something like
 
@@ -4934,11 +4930,11 @@ Lastly, note that the beginning of play – when (usually) initial text and a ba
 
 ^^{scenes}
 
-As we have seen, Inform divides up space into individual places called "rooms", and allows us to group rooms together into "regions" if we find that convenient. And Inform also divides time up, into individual turns. These too we can group together: the equivalent of a region is a "scene".
+As we have seen, Inform divides up space into individual places called `rooms`, and allows us to group rooms together into `regions` if we find that convenient. And Inform also divides time up, into individual turns. These too we can group together: the equivalent of a region is a `scene`.
 
 To put this another way, if we think of the interactive fiction as a stage play, then up to now it has simply contained endless dialogue and stage directions – there has been no convenient way to divide up its running time into dramatic episodes, in the same way that a playwright might make Act II take place in the same drawing-room as Act I, but (let us say) six months later, after many things have changed. The script contains cues for one scene to end and another to begin: when those cues are reached, the stage hands rearrange props, actors reposition themselves and so on.
 
-Inform also allows us to create scenes, with cues for them to start and end, and some stage machinery (so to speak) making it easy to move the action on. But interactive fiction is *interactive*, so the metaphor of the theatre only goes so far. We can have several different scenes going on at once – perhaps with the relevant events taking place in different rooms, which the player is free to walk between. And the player may make a choice which changes the story-line, causing scenes to happen which otherwise would not have happened, and so on. Scenes can even be "recurring", that is, can repeat themselves.
+Inform also allows us to create scenes, with cues for them to start and end, and some stage machinery (so to speak) making it easy to move the action on. But interactive fiction is *interactive*, so the metaphor of the theatre only goes so far. We can have several different scenes going on at once – perhaps with the relevant events taking place in different rooms, which the player is free to walk between. And the player may make a choice which changes the story-line, causing scenes to happen which otherwise would not have happened, and so on. Scenes can even be `recurring`, that is, can repeat themselves.
 
 So organising the story-line into scenes is not simply a matter of making a list (Scene 1, then Scene 2, then Scene 3, *finis*). It is more like a chart in which one scene can lead in several possible ways to others – a sort of map of time, which as we shall see Inform displays in its "Scenes" index.
 
@@ -4956,9 +4952,9 @@ This works, and shows up in the "Scenes" index, but does nothing. We have given 
 
 	Train Stop begins when the player is in the Station for the third turn.
 
-In theory any condition can be used to cue the scene – here, it's "the player is in the Station for the third turn" – but it's wise to look for a state of affairs which will last at least a brief time, because scene changes only happen at the start and end of turns. (Something like "...when examining the timetable" may be true only for a part of the middle of a turn, and so go unnoticed.)
+In theory any condition can be used to cue the scene – here, it's `the player is in the Station for the third turn` – but it's wise to look for a state of affairs which will last at least a brief time, because scene changes only happen at the start and end of turns. (Something like `...when examining the timetable` may be true only for a part of the middle of a turn, and so go unnoticed.)
 
-Every scene has two rulebooks attached, one at each end, so to speak. These look very like "when play begins" and "when play ends", and work in the same way. Thus:
+Every scene has two rulebooks attached, one at each end, so to speak. These look very like `when play begins` and `when play ends`, and work in the same way. Thus:
 
 	When Train Stop begins:
 		now the Flying Scotsman is in the Station;
@@ -4970,7 +4966,7 @@ Every scene has two rulebooks attached, one at each end, so to speak. These look
 
 Thus when the scene begins, our imaginary stage-hands wheel in a steam train; when it ends, they get rid of it again. Note that we know where the player will be at the start of the scene, but by the end they may have wandered off across the fields, so we must be careful not to report something they might not be in a position to see.
 
-When Train Stop begins, we printed some text, but we did this by hand. We didn't need to, because Inform automatically prints out the description of a scene (if it has one) when the scene begins. Scenes can have properties, just like objects, and in particular they have the "description" property. For example, we could write:
+When Train Stop begins, we printed some text, but we did this by hand. We didn't need to, because Inform automatically prints out the description of a scene (if it has one) when the scene begins. Scenes can have properties, just like objects, and in particular they have the `description` property. For example, we could write:
 
 	Arrival is a scene. "There's a flourish of trumpets."
 
@@ -4984,7 +4980,7 @@ We can also write rules like this which apply to a whole variety of scenes at on
 	
 	When a scene which is bright ends: say "So passes the bright [scene being changed]."
 
-Here, instead of naming a scene ("Train Stop"), we've given a description ("a scene which is bright"). When a scene begins, these general rules come before those which name the scene exactly; when it ends, the reverse is true.
+Here, instead of naming a scene (`Train Stop`), we've given a description (`a scene which is bright`). When a scene begins, these general rules come before those which name the scene exactly; when it ends, the reverse is true.
 
 ## Using the Scene index
 
@@ -4998,7 +4994,7 @@ The Scenes page of the index is intended to help with this. The Plot section sho
 
 	Train Stop ends when the time since Train Stop began is 3 minutes.
 
-Note the useful value "time since Train Stop began":
+Note the useful value `time since Train Stop began`:
 
 > phrase: {ph_scenetimesincebegan} time since (scene) began ... time
 >
@@ -5016,11 +5012,11 @@ The actual times, in case they are needed, can be obtained with:
 
 > phrase: {ph_scenetimewhenbegan} time when (scene) began ... time
 >
-> This phrase produces the time (i.e., the value of the "time of day" variable) at the moment when the given scene began.
+> This phrase produces the time (i.e., the value of the `time of day` variable) at the moment when the given scene began.
 
 > phrase: {ph_scenetimewhenended} time when (scene) ended ... time
 >
-> This phrase produces the time (i.e., the value of the "time of day" variable) at the moment when the given scene ended.
+> This phrase produces the time (i.e., the value of the `time of day` variable) at the moment when the given scene ended.
 
 The testing command ``SCENES`` causes Inform to monitor the beginning and ending of scenes, and report on them. For instance:
 
@@ -5041,11 +5037,11 @@ Scenes are not only useful for changing the setting, by moving items or people a
 
 	Before going north during the Train Stop, say "The train blocks your way." instead.
 
-Any rule can have the clause "during ..." attached, provided that clause goes at the end and either explicitly names a scene, or gives a description of which scenes would match. This is especially useful with "every turn":
+Any rule can have the clause `during ...` attached, provided that clause goes at the end and either explicitly names a scene, or gives a description of which scenes would match. This is especially useful with `every turn`:
 
 	Every turn during the Train Stop, say "Water is sluiced out of the tank and into the engine."
 
-We can test whether a scene is happening with the adjective "happening":
+We can test whether a scene is happening with the adjective `happening`:
 
 	if Train Stop is happening, ...
 
@@ -5065,14 +5061,14 @@ We can test whether a scene is happening with the adjective "happening":
 >
 > This condition is true if the given scene has never ended.
 
-We need to be a bit careful: it's possible to set things up so that the Train Stop scene will play out more than once, so "Train Stop is happening" and "Train Stop has happened" might both be true at once.
+We need to be a bit careful: it's possible to set things up so that the Train Stop scene will play out more than once, so `Train Stop is happening` and `Train Stop has happened` might both be true at once.
 
-The kind of value "scene" is one which is allowed to have properties – it has a tick in the "properties" column in the chart in the Kinds index – and this can be very useful in describing scenes. For instance, we could write:
+The kind of value `scene` is one which is allowed to have properties – it has a tick in the "properties" column in the chart in the Kinds index – and this can be very useful in describing scenes. For instance, we could write:
 
 	A scene can be thrilling or dull. Train Stop is dull.
 	A scene has a text called cue speech. The cue speech of Train Stop is "All aboard!".
 
-Inform has the adjectives "recurring", "non-recurring" and "happening" all built in to describe scenes, and the above would add "thrilling" and "dull". Moreover, the "during" clause of a rule can give a description of a scene as easily as a specific scene name. For instance:
+Inform has the adjectives `recurring`, `non-recurring` and `happening` all built in to describe scenes, and the above would add `thrilling` and `dull`. Moreover, the `during` clause of a rule can give a description of a scene as easily as a specific scene name. For instance:
 
 	Before going north during a dull non-recurring scene, ...
 
@@ -5128,7 +5124,7 @@ All scenes are ordinarily set up so that they can happen only once. But sometime
 	Train Stop begins when Train Wait ends.
 	Train Wait begins when Train Stop ends.
 
-The difference here is that these scenes have been declared as "recurring". In all other respects they are the same as any other scene.
+The difference here is that these scenes have been declared as `recurring`. In all other respects they are the same as any other scene.
 
 ## Multiple endings
 
@@ -5141,7 +5137,7 @@ Any scene can have up to 31 alternate endings, differentiated by name (unless th
 	Brief Encounter ends happily when ...
 	Brief Encounter ends wisely but sadly when ...
 
-"Ends happily" and "ends wisely but sadly" behave just like "ends". We can have rules "When Brief Encounter ends happily, ..." and so forth, in addition to rules "When Brief Encounter ends, ..." – if a rule doesn't specify any particular ending, it applies to all of them.
+`Ends happily` and `ends wisely but sadly` behave just like `ends`. We can have rules `When Brief Encounter ends happily, ...` and so forth, in addition to rules `When Brief Encounter ends, ...` – if a rule doesn't specify any particular ending, it applies to all of them.
 
 We can also link rules together from these branches, so
 
@@ -5160,7 +5156,7 @@ We might later need to know which of these paths has been taken, and to help wit
 - `if Brief Encounter ended wisely but sadly ...`
 - `if Brief Encounter did not end wisely but sadly ...`
 
-(For a scene which repeats, note that these conditions apply only to the most recent repetition: and that such conditions are always false if the scene is currently going on. "Brief Encounter did not end happily" will be true only when the scene has finished but in a different way.)
+(For a scene which repeats, note that these conditions apply only to the most recent repetition: and that such conditions are always false if the scene is currently going on. `Brief Encounter did not end happily` will be true only when the scene has finished but in a different way.)
 
 ## Why are scenes designed this way?
 
@@ -5170,7 +5166,7 @@ In the part it plays in stories, time is like space. The endings of a scene (alo
 
 Just as Inform uses a simple but practical design for the boundaries between rooms (map connections and doors, that is), it also simplifies transitions between scenes. Scenes are based on states of things: we give circumstances for them to begin or end. There is no phrase with the power to say "make Act II begin right now", so perhaps it is worth explaining why not. The state-based approach was chosen because:
 
-- it guarantees that each action falls entirely inside, or entirely outside, of any given scene (and therefore that "during..." clauses in the conditions for a rule are not affected by rule ordering);
+- it guarantees that each action falls entirely inside, or entirely outside, of any given scene (and therefore that `during...` clauses in the conditions for a rule are not affected by rule ordering);
 - it ensures that scene changes occur outside actions, like every turn rules;
 - it promotes a style of writing which makes it clearer to the reader of the source text when a scene begins and ends, and what conditions are guaranteed to be true during it;
 - it makes it possible for the Scenes index page to show this information in a communicative way.
@@ -5195,7 +5191,7 @@ Just to run through the four sorts of phrase with examples:
 		move the Flying Scotsman to the Station;
 		say "The Flying Scotsman pulls up at the platform."
 
-Rules like this begin with a "preamble", the beginning part which tells Inform when or how they apply, and then follow on with a list of instructions – here, just two of them. "move ... to ..." and "say ..." are both phrases. Inform provides about 130 of these built-in. It's actually not quite true that they all do something, because one of them is:
+Rules like this begin with a "preamble", the beginning part which tells Inform when or how they apply, and then follow on with a list of instructions – here, just two of them. `move ... to ...` and `say ...` are both phrases. Inform provides about 130 of these built-in. It's actually not quite true that they all do something, because one of them is:
 
 > phrase: {ph_nothing} do nothing
 >
@@ -5204,11 +5200,11 @@ Rules like this begin with a "preamble", the beginning part which tells Inform w
 >     This is the largely ineffective rule:
 >     	do nothing.
 
-(b) Phrases to decide whether a condition is true. These are the ones which can  be used in an "if":
+(b) Phrases to decide whether a condition is true. These are the ones which can  be used in an `if`:
 
 	if action requires light: ...
 
-Not all conditions come from phrases. For example, "if the front door is closed" and "if Peter is wearing the sandals" have meanings which come from the verbs "to be" and "to wear". Inform provides about 60 built-in conditions, which give a friendly wording for questions which would be lengthy or difficult to write in any other way.
+Not all conditions come from phrases. For example, `if the front door is closed` and `if Peter is wearing the sandals` have meanings which come from the verbs `to be` and `to wear`. Inform provides about 60 built-in conditions, which give a friendly wording for questions which would be lengthy or difficult to write in any other way.
 
 (c) Phrases to decide a value. For example:
 
@@ -5216,7 +5212,7 @@ Not all conditions come from phrases. For example, "if the front door is closed"
 
 produces a number, 4 of course, and can be used whenever a number is expected. Inform provides about 100 built-in phrases like this.
 
-(d) Text substitutions. These are actually just phrases whose definition begins with "To say ...". Example:
+(d) Text substitutions. These are actually just phrases whose definition begins with `To say ...`. Example:
 
 	"It's now [time of day in words]."
 
@@ -5241,7 +5237,7 @@ What makes this definition a simple one is that the wording is fixed. The only w
 	Instead of entering the cage:
 		spring the trap.
 
-In the next section we'll see how to give more complicated definitions which, like "move ... to ...", allow for the wording to change with the circumstances.
+In the next section we'll see how to give more complicated definitions which, like `move ... to ...`, allow for the wording to change with the circumstances.
 
 ## Pattern matching {PM_TokenWithoutOpenBracket} {PM_TokenWithoutCloseBracket} {PM_TokenWithEmptyBrackets} {PM_TokenWithNestedBrackets} {PM_BadTypeIndication} {PM_TokenMisunderstood} {PM_PhraseTooLong} {PM_AdjacentTokens}  {PM_SaySlashed}
 
@@ -5258,7 +5254,7 @@ This does very little, of course, but it does allow the wording to be different 
 	admire Mr Cogito;
 	admire the honey sandwich;
 
-and our single definition covers all of these possibilities. The bracketed part of the definition, "(item – an object)", tells Inform to expect an object in that position, and Inform enforces this carefully. So this definition might tell Inform what "admire the barricade" means, but not what
+and our single definition covers all of these possibilities. The bracketed part of the definition, `(item – an object)`, tells Inform to expect an object in that position, and Inform enforces this carefully. So this definition might tell Inform what `admire the barricade` means, but not what
 
 	admire "blue cheese";
 	admire 63;
@@ -5274,19 +5270,19 @@ The object does not need to be named literally, but can be anything which works 
 	After dropping something in the Auction House:
 		admire the noun.
 
-which Inform allows because "noun", here, is a name for the object which is being acted on.
+which Inform allows because `noun`, here, is a name for the object which is being acted on.
 
-Inform decides which definition to apply in a process called "pattern matching". The bracketed part of the example definition has the form "(name – description)". The definition only applies if the text being matched refers to a value which fits the description – for instance, the diamonds agreed with "object", but 63 did not. If the definition does apply, then the Inform works through the rest of the phrase using "name" to mean whatever value matched. For example:
+Inform decides which definition to apply in a process called "pattern matching". The bracketed part of the example definition has the form `(name – description)`. The definition only applies if the text being matched refers to a value which fits the description – for instance, the diamonds agreed with `object`, but 63 did not. If the definition does apply, then the Inform works through the rest of the phrase using `name` to mean whatever value matched. For example:
 
 	To slam shut (box - an open container):
 		say "With great panache, you slam shut [the box].";
 		now the box is closed.
 
-When this phrase is followed, "box" means whatever open container the pattern-matcher found when it was called for. For example, if Inform reads
+When this phrase is followed, `box` means whatever open container the pattern-matcher found when it was called for. For example, if Inform reads
 
 	slam shut the Dutch armoire;
 
-then it acts on this by following the definition of "slam shut ...", using the Dutch armoire object as the value of "box", so it prints:
+then it acts on this by following the definition of `slam shut ...`, using the Dutch armoire object as the value of `box`, so it prints:
 
 	With great panache, you slam shut the Dutch armoire.
 
@@ -5314,19 +5310,19 @@ would increase the score by 6. In general Inform always follows the principle th
 	To grant (bonus - a number) points: ...
 	To grant (bonus - 7) points: ...
 
-both apply to the case of "grant 7 points", Inform uses the second, because it's the more specific of the two possibilities.
+both apply to the case of `grant 7 points`, Inform uses the second, because it's the more specific of the two possibilities.
 
 Sometimes it will not be possible to tell if the value supplied meets the requirements until the story is actually playing. If, at run-time, no definition fits some phrase which has to be carried out, a run-time problem message is produced.
 
-Finally, and more straightforwardly, we can specify variations in wording using slashes between alternative words in a "To ..." definition. For instance:
+Finally, and more straightforwardly, we can specify variations in wording using slashes between alternative words in a `To ...` definition. For instance:
 
 	To grant (bonus - a number) point/points: ...
 
-allows the final word to be either "point" or "points". Slashes like this can only be used with literal words, not bracketed values, and give alternative forms only of a single word at a time; the alternative "--" means "no word at all", and thus makes it optional:
+allows the final word to be either `point` or `points`. Slashes like this can only be used with literal words, not bracketed values, and give alternative forms only of a single word at a time; the alternative `--` means "no word at all", and thus makes it optional:
 
 	To grant (bonus - a number) point/points/--: ...
 
-makes "grant 3" do the same as "grant 3 points".
+makes `grant 3` do the same as `grant 3 points`.
 
 If we need more variation than that, we should make more than one definition.
 
@@ -5334,7 +5330,7 @@ If we need more variation than that, we should make more than one definition.
 
 We've already seen the ``SHOWME`` command, which can be typed into the Story panel to look at the state of something, usually a thing or room. ``SHOWME`` is a testing command which has no effect once the work is released; eventual players can't use it.
 
-Inform also has a phrase called "showme", which works in much the same way:
+Inform also has a phrase called ``SHOWME``, which works in much the same way:
 
 > phrase: {ph_showme} showme (value)
 >
@@ -5354,9 +5350,9 @@ Inform also has a phrase called "showme", which works in much the same way:
 >
 >     "score" = number: 0
 >
-> Inform uses the quotation marks and equals sign to show that it had to do some work to find the answer. "score" wasn't a constant value – it was a variable, and Inform had to look up the current value.
+> Inform uses the quotation marks and equals sign to show that it had to do some work to find the answer. `score` wasn't a constant value – it was a variable, and Inform had to look up the current value.
 
-"showme" is a convenient way to see what's going on inside a phrase which isn't behaving as expected, or to find out the kind of a value. Here are some trickier examples. Suppose our design includes:
+``SHOWME`` is a convenient way to see what's going on inside a phrase which isn't behaving as expected, or to find out the kind of a value. Here are some trickier examples. Suppose our design includes:
 
 	The matching key of the blue door is the brass Yale key.
 
@@ -5369,17 +5365,17 @@ we get, when the story starts up,
 
 	"matching key of the blue door" = object: brass Yale key
 
-Why is this an "object", when we know that the key is actually a "thing"? After all, if we "showme key" instead, we get:
+Why is this an `object`, when we know that the key is actually a `thing`? After all, if we ``SHOWME KEY`` instead, we get:
 
 	thing: brass Yale key
 
-The answer is a little technical: it's because Inform guarantees that the matching key is always an object, but not that it's always a thing – it just happens to be a thing at the moment. There's not really a contradiction, because a "thing" is a kind of "object", so in fact the key is both. If we try "showme matching key", we get something like this:
+The answer is a little technical: it's because Inform guarantees that the matching key is always an object, but not that it's always a thing – it just happens to be a thing at the moment. There's not really a contradiction, because a `thing` is a kind of `object`, so in fact the key is both. If we try ``SHOWME MATCHING KEY``, we get something like this:
 
 	objects valued property: property 23
 
-which is even more technical – people never need to print the names of abstract property names during play, so Inform doesn't provide any good way of doing it. It is reduced to printing out an internal ID number ("property 23") instead of the name ("matching key"). This can't be helped: "showme" is a way to lift the lid and see what's going on inside Inform's machinery, and some of the corners are dark.
+which is even more technical – people never need to print the names of abstract property names during play, so Inform doesn't provide any good way of doing it. It is reduced to printing out an internal ID number (`property 23`) instead of the name (`matching key`). This can't be helped: ``SHOWME`` is a way to lift the lid and see what's going on inside Inform's machinery, and some of the corners are dark.
 
-All the same, "showme" can be very useful in tinkering with rules to make them work properly. It prints nothing at all in a Release version of a project, so it's impossible for these private notes to be shown accidentally to our eventual readers.
+All the same, ``SHOWME`` can be very useful in tinkering with rules to make them work properly. It prints nothing at all in a Release version of a project, so it's impossible for these private notes to be shown accidentally to our eventual readers.
 
 ## Conditions and questions {kind_truthstate} {PM_TruthStateToDecide}
 
@@ -5413,15 +5409,15 @@ Another example of a condition not easily written as a sentence is:
 
 Whether it's put to the player like this or not, testing a condition is really asking a question, and there is always a yes/no answer. In Inform this answer is not usually a value (unlike in some other computer programming languages), but it can be made into one.
 
-Firstly, we need a special kind of value to hold answers like this. It's called "truth state", and it has just two possible values, written as "true" and "false". We then need:
+Firstly, we need a special kind of value to hold answers like this. It's called `truth state`, and it has just two possible values, written as `true` and `false`. We then need:
 
 > phrase: {ph_whether} whether or not (a condition) ... truth state
 >
-> This phrase converts a condition into its result as a value, which is always either "true" or "false". Example:
+> This phrase converts a condition into its result as a value, which is always either `true` or `false`. Example:
 >
 >     whether or not 20 is an odd number
 >
-> produces the truth state "false". This is mostly useful for storing up results to look at later:
+> produces the truth state `false`. This is mostly useful for storing up results to look at later:
 >
 >     let victory be whether or not all the treasures are in the cabinet;
 >
@@ -5438,7 +5434,7 @@ As another example, in most stories this:
 
 	"whether or not in darkness" = truth state: false
 
-In short, "truth state" is a kind of value like any other. That means it can be the kind of a variable:
+In short, `truth state` is a kind of value like any other. That means it can be the kind of a variable:
 
 	Salvation earned is a truth state that varies.
 
@@ -5456,7 +5452,7 @@ Inform's most powerful phrases are those which control the others, making them r
 >
 >     if the red door is open, say "You could try going east?"
 
-The sense of an "if" can be reversed by using the word "unless" instead:
+The sense of an `if` can be reversed by using the word `unless` instead:
 
 > phrase: {ph_unless} unless (a condition) , (a phrase) & unless (a condition):
 >
@@ -5464,7 +5460,7 @@ The sense of an "if" can be reversed by using the word "unless" instead:
 >
 >     unless the red door is closed, say "You could try going east?"
 
-"Unless" is clearly unnecessary, but it can be a good way to make the source text easier for humans to read.
+`Unless` is clearly unnecessary, but it can be a good way to make the source text easier for humans to read.
 
 As we have seen, there are many different forms of condition in Inform. They usually take a form quite like an assertion sentence, except that they're questions and not statements of fact. For example:
 
@@ -5481,13 +5477,13 @@ This produces the baffled reply:
 **Problem.** In the line 'if 10 is a door, say "Huzzah!"' ![Reveal](doc_images/Reveal.png), I can't determine whether or not '10 is a door', because it seems to ask if a number is some sort of door.
 ```
 
-## Begin and end {PM_BeginWithoutEnd} {PM_BlockNestingTooDeep} {PM_EndWithoutBegin} {PM_WrongEnd} {PM_CantUseOutsideStructure} {PM_BothBlockSyntaxes} {PM_NotInOldSyntax} {PM_MisalignedIndentation} {PM_RunOnsInTabbedRoutine} {PM_EmptyIndentedBlock}
+## Grouping phrases together {PM_BeginWithoutEnd} {PM_BlockNestingTooDeep} {PM_EndWithoutBegin} {PM_WrongEnd} {PM_CantUseOutsideStructure} {PM_BothBlockSyntaxes} {PM_NotInOldSyntax} {PM_MisalignedIndentation} {PM_RunOnsInTabbedRoutine} {PM_EmptyIndentedBlock}
 
 ^^{(begin), in phrases+sourcepart+} ^^{(end), in phrases+sourcepart+} ^^{|end if} ^^{Inform 6 equivalent: code blocks} ^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+} ^^{punctuation: colon} ^^{|:}
 
-In practice it is not enough to apply "if" to a single phrase alone: we want to give a whole list of phrases to be followed repeatedly, or to be followed only if a condition holds.
+In practice it is not enough to apply `if` to a single phrase alone: we want to give a whole list of phrases to be followed if a condition holds.
 
-We do this by grouping them together, and there are two ways to do this. One is as follows:
+We do this by grouping them together. This is the standard way to do that:
 
 	To comment upon (whatever - a thing):
 		if whatever is transparent, say "I see right through this!";
@@ -5495,9 +5491,11 @@ We do this by grouping them together, and there are two ways to do this. One is 
 			say "Oh look, an open door!";
 			if whatever is openable, say "But you could always shut it."
 
-Here we group two phrases together under the same "if". Note that the comma has been replaced by a colon, and that the indentation in the list of phrases shows how they are grouped together. In the example above, the source moves two tabs in from the margin; the maximum allowed is 25.
+Here we group two phrases together under the same `if`. Note that the comma after the condition `whatever is an open door` has become a colon, and that the indentation in the list of phrases shows how they are grouped together.
 
-Indentation is the convention used in this manual and in the examples, but not everybody likes this Pythonesque syntax. So Inform also recognises a more explicit form, in which the beginning and ending are marked with the words "begin" and "end":
+In the example above, the source moves two tabs in from the margin; the maximum allowed is 25.
+
+Indentation is the convention used in this manual and in the examples, but in the very early days of Inform a more explicit notation using the words `begin` and `end` was also allowed:
 
 	To comment upon (whatever - a thing):
 		if whatever is transparent, say "I see right through this!";
@@ -5507,7 +5505,7 @@ Indentation is the convention used in this manual and in the examples, but not e
 			if whatever is openable, say "But you could always shut it.";
 		end if.
 
-(Pythonesque because it's a style popularised by the programming language Python, named in turn after "^{Monty Python}'s Flying Circus".)
+While this syntax is still allowed for the time being, to keep old source text working, it is more cumbersome and reads less naturally, so authors are advised not to write new source text this way.
 
 ## Otherwise {PM_NonCaseInIf} {PM_MisalignedOtherwise} {PM_MisalignedCase} {PM_MisarrangedOtherwise} {PM_DoubleOtherwise} {PM_OtherwiseIfAfterOtherwise} {PM_CaseValueNonConstant} {PM_CaseValueMismatch} {PM_OtherwiseWithoutIf} {PM_OtherwiseInNonIf}
 
@@ -5522,11 +5520,11 @@ We often need code which does one thing in one circumstance, and another the res
 
 but this is not very elegant, and besides, what if the action we take when N is 2 changes N so that it becomes something else?
 
-Instead we use "otherwise":
+Instead we use `otherwise`:
 
 > phrase: {ph_otherwise} otherwise if (a condition) & otherwise unless (a condition) & otherwise (a phrase) & else if (a condition) & else unless (a condition) & else (a phrase)
 >
-> This phrase can only be used as part of an "if ...:" or "unless: ...", and provides an alternative block of phrases to follow if the first block isn't followed. Example:
+> This phrase can only be used as part of an `if ...:` or `unless: ...`, and provides an alternative block of phrases to follow if the first block isn't followed. Example:
 >
 >     if N is 2:
 >     	...
@@ -5547,7 +5545,7 @@ Instead we use "otherwise":
 >     otherwise if N is greater than 4:
 >     	...
 >
-> At most one of the "..." clauses is ever reached – the first which works out.
+> At most one of the `...` clauses is ever reached – the first which works out.
 
 If the chain of conditions being tried consists of checking the same value over and over, we can use a convenient abbreviated form:
 
@@ -5561,20 +5559,20 @@ If the chain of conditions being tried consists of checking the same value over 
 >     	-- the silver spoon:
 >     		say "Steer clear of the cutlery drawer."
 >
-> One alternative is allowed to be "otherwise", which is used only if none of the other cases apply, and which therefore guarantees that in any situation exactly one of the blocks will be followed.
+> One alternative is allowed to be `otherwise`, which is used only if none of the other cases apply, and which therefore guarantees that in any situation exactly one of the blocks will be followed.
 >
 >     if N is:
 >     	-- 1: say "1.";
 >     	-- 2: say "2.";
 >     	-- otherwise: say "Neither 1 nor 2.";
 
-This form of "if" layout is not allowed to use "begin" and "end" instead of indentation: it would look too messy, and would scarcely be an abbreviation. It is also not allowed to use "unless" instead of "if", because the result would be too tangled to follow.
+This form of `if` layout is not allowed to use `begin` and `end` instead of indentation: it would look too messy, and would scarcely be an abbreviation. It is also not allowed to use `unless` instead of `if`, because the result would be too tangled to follow.
 
 ## While
 
 ^^{loops: in phrases} ^^{(begin), in phrases+sourcepart+} ^^{(end), in phrases+sourcepart+} ^^{|end while} ^^{indentation+ofsource+} ^^{tabs, for indentation+ofsource+} ^^{Inform 6 equivalent: |while}
 
-The next control phrase is "while", which has the form:
+The next control phrase is `while`, which has the form:
 
 > phrase: {ph_while} while (a condition):
 >
@@ -5595,24 +5593,15 @@ which, as sure as eggs is eggs (which is very sure indeed), writes out
 
 forever. (Inform won't prevent this: we will find out the hard way when the story is played.) While we would probably never write anything so blatant as that, the mistake is all too easy to commit in disguised form. We should never design a loop, as repetitions like this are called, without worrying about if and when it will finish.
 
-As with "if", we can use "begin" and "end" instead of a tabulated layout if we want to –
-
-	while ...
-	begin;
-		...
-	end while.
-
-(The "begin" of an "if" must of course match an "end if", not an "end while", and so on.)
-
-Experience shows that it is much more legible to lay out "while" loops as blocks, even in these rare cases when only a single phrase forms the body of the block.
+Experience shows that it is much more legible to lay out `while` loops as blocks, even in these rare cases when only a single phrase forms the body of the block.
 
 ## Repeat {PM_CalledInRepeat}
 
 ^^{loops: counted} ^^{loops: through values} ^^{counted loops} ^^{(running from), looping through values+sourcepart+} ^^{Inform 6 equivalent: |for} ^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits}
 
-The other kind of loop in Inform is "repeat". The trouble with "while" is that it's not obvious at a glance when or whether the loop will finish, and nor is there any book-keeping to measure progress. A "repeat" loop is much more predictable, and is more or less certain to finish.
+The other kind of loop in Inform is `repeat`. The trouble with `while` is that it's not obvious at a glance when or whether the loop will finish, and nor is there any book-keeping to measure progress. A `repeat` loop is much more predictable, and is more or less certain to finish.
 
-There are several forms of "repeat", of which the simplest is similar to the old `for / next` loop from the home-computer programming language BASIC, for those with long memories:
+There are several forms of `repeat`, of which the simplest is similar to the old "FOR ... NEXT" loop from the home-computer programming language BASIC, for those with long memories:
 
 > phrase: {ph_repeat} repeat with (a name not so far used) running from (arithmetic value) to (arithmetic value) & repeat with (a name not so far used) running from (enumerated value) to (enumerated value):
 >
@@ -5621,7 +5610,7 @@ There are several forms of "repeat", of which the simplest is similar to the old
 >     repeat with counter running from 1 to 10:
 >     	...
 >
-> This, and runs through the given phrases ten times. Within those phrases, a special value called "counter" has the value 1 the first time through, then the value 2, then 3 and so on up to 10. (It can of course be called whatever we like: this is only an example.) The range can be from any kind where ranges make sense – anything on which arithmetic can be done, so for instance
+> This, and runs through the given phrases ten times. Within those phrases, a special value called `counter` has the value 1 the first time through, then the value 2, then 3 and so on up to 10. (It can of course be called whatever we like: this is only an example.) The range can be from any kind where ranges make sense – anything on which arithmetic can be done, so for instance
 >
 >     repeat with moment running from 4 PM to 4:07 PM:
 >     	...
@@ -5657,7 +5646,7 @@ Row 4: 1 2 3 4 5.
 Row 5: 1 2 3 4 5.
 ```
 
-Thus the innermost phrase, the say which mentions "y", happens 25 times.
+Thus the innermost phrase, the say which mentions `y`, happens 25 times.
 
 Whenever dealing with numbers in Inform we may need to remember that if the Settings for the project are set to use the Z-machine, the range is restricted to -32768 up to 32767. Repeating with a counter up to exactly 32767 is hazardous, because the counter can never break through this barrier: it's infinity, so far as Inform is concerned, and that can cause the repetitions to go on forever. (On Glulx, numbers can be very much larger.)
 
@@ -5686,7 +5675,7 @@ Inform is not used very much for numerical work, so the kind of repeat loop desc
 >
 > which repeats 1440 times, starting with T at midnight and finishing at 11:59 PM. See the Kinds index for which kinds of value can be repeated through.
 
-As with counting the "number of ..." objects satisfying some property, we can run through a wide variety of possibilities – any description whose range is possible for Inform to search. For example:
+As with counting the `number of ...` objects satisfying some property, we can run through a wide variety of possibilities – any description whose range is possible for Inform to search. For example:
 
 	repeat with dinner guest running through the people in the Dining Room:
 		...
@@ -5702,43 +5691,43 @@ The following lists the whereabouts of all men in lighted rooms:
 	{*}repeat with suspect running through the men who are in a lighted room:
 		say "[The suspect] is in [the location of the suspect].";
 
-One small note of caution: if what the "repeat" loop does is to change the things being repeated through, changing in particular whether items not yet reached will qualify to be repeated through, the results can be unexpected. Rather than writing "repeat with X running through D", it may be safer to try "while there is D (called X)", though note that this will only finish if X is always changed so that it no longer qualifies.
+One small note of caution: if what the `repeat` loop does is to change the things being repeated through, changing in particular whether items not yet reached will qualify to be repeated through, the results can be unexpected. Rather than writing `repeat with X running through D`, it may be safer to try `while there is D (called X)`, though note that this will only finish if X is always changed so that it no longer qualifies.
 
 ## Next and break {PM_CantUseOutsideLoop}
 
 ^^{Inform 6 equivalent: |continue} ^^{Inform 6 equivalent: |break} ^^{loops: interrupting}
 
-So "repeat" and "while" phrases cause a block of other phrases to be repeated, over and over. The number of repetitions and the flow of "control" has so far been controlled only by the way the original loop was described.
+So `repeat` and `while` phrases cause a block of other phrases to be repeated, over and over. The number of repetitions and the flow of "control" has so far been controlled only by the way the original loop was described.
 
 But in fact it's also possible to change this from inside the block being repeated, using these:
 
 > phrase: {ph_next} next
 >
-> This phrase can only be used inside a "repeat" or "while" block, and causes the current repetition of the block to finish immediately. That either means the next repetition begins, or (if we are already at the last one) the loop ends too. Example:
+> This phrase can only be used inside a `repeat` or `while` block, and causes the current repetition of the block to finish immediately. That either means the next repetition begins, or (if we are already at the last one) the loop ends too. Example:
 >
 >     repeat with X running from 1 to 10:
 >     	if X is 4, next;
 >     	say "[X] ".
 >
-> produces the text "1 2 3 5 6 7 8 9 10 ", with no "4" because the "say" phrase was never reached on the fourth repetition.
+> produces the text "1 2 3 5 6 7 8 9 10 ", with no "4" because the `say` phrase was never reached on the fourth repetition.
 
-In Monopoly terms, "next" is "Advance to Go" rather than "go directly, do not pass Go, do not collect $200" – the next iteration begins with the variable, if there is one, having cleanly moved on to the next value, just as if the loop had been run through in the normal way. ("Next" is called "continue" in a fair number of programming languages, so Inform issues a specific problem message to help people who forget this.)
+In Monopoly terms, `next` is "Advance to Go" rather than "go directly, do not pass Go, do not collect $200" – the next iteration begins with the variable, if there is one, having cleanly moved on to the next value, just as if the loop had been run through in the normal way. (`Next` is called `continue` in a fair number of programming languages, so Inform issues a specific problem message to help people who forget this.)
 
 > phrase: {ph_break} break
 >
-> This phrase can only be used inside "repeat", "while" block, and causes both the current repetition and the entire loop to finish immediately. Example:
+> This phrase can only be used inside `repeat`, `while` block, and causes both the current repetition and the entire loop to finish immediately. Example:
 >
 >     repeat with X running from 1 to 10:
 >     	if X is 7, break;
 >     	say "[X] ".
 >
-> produces the text "1 2 3 4 5 6 ", with nothing after "6" because the loop was broken at that point. The "say" wasn't reached on the 7th repetition, and the 8th, 9th and 10th never happened.
+> produces the text "1 2 3 4 5 6 ", with nothing after "6" because the loop was broken at that point. The `say` wasn't reached on the 7th repetition, and the 8th, 9th and 10th never happened.
 
 ## Stop
 
 ^^{phrases: interrupting} ^^{Inform 6 equivalent: |return}
 
-Now that it's possible to define phrases where different things are done in different circumstances, we sometimes want to halt early. This is what "stop" is for.
+Now that it's possible to define phrases where different things are done in different circumstances, we sometimes want to halt early. This is what `stop` is for.
 
 > phrase: {ph_stop} stop
 >
@@ -5748,9 +5737,9 @@ Now that it's possible to define phrases where different things are done in diff
 >     	if the score is 0, stop;
 >     	say "The score is [score in words] more than it was a half-hour ago."
 >
-> In the case when the score is 0, the "stop" ends the phrase immediately, so that the subsequent text is printed only if the score is not 0.
+> In the case when the score is 0, the `stop` ends the phrase immediately, so that the subsequent text is printed only if the score is not 0.
 >
-> "Stop" can also be used in action rules, though this is not very good style – it's clearer to use "stop the action", which is exactly equivalent.
+> `Stop` can also be used in action rules, though this is not very good style – it's clearer to use `stop the action`, which is exactly equivalent.
 
 ## Phrase options {PM_TooManyPhraseOptions} {PM_PhraseOptionsExclusive} {PM_NotAPhraseOption} {PM_NotTheOnlyPhraseOption} {PM_SayWithPhraseOptions}
 
@@ -5788,21 +5777,21 @@ A more substantial example from the Standard Rules is given by a phrase used mos
 >
 > Where this is possible, it's generally better to use `"[list of things in ...]"` instead, which produces the same result in an acceptable way for the middle of a sentence.
 
-Note that this phrase is allowed to have multiple options specified, whereas "go hiking" above was not: this is because it was defined thus:
+Note that this phrase is allowed to have multiple options specified, whereas `go hiking` above was not: this is because it was defined thus:
 
 	To list the contents of (something - an object), with newlines, indented, as a sentence, including contents, including all contents, giving inventory information, giving brief inventory information, using the definite article, listing marked items only, prefacing with is/are, not listing concealed items, suppressing all articles and/or with extra indentation: ...
 
-The significant difference is the word "and/or" instead of "or", which signals that more than one option can apply at a time.
+The significant difference is the word `and/or` instead of `or`, which signals that more than one option can apply at a time.
 
 ## Let and temporary variables
 
 ^^{variables: temporary} ^^{variables: changing temporary variables} ^^{temporary variables <-- local variables} ^^{defining: temporary variables} ^^{phrases: temporary variables in phrases} ^^{Inform 6 equivalent: local variables} ^^{type-checking: for temporary variables} ^^{+to+now (a condition): changing temporary variables}
 
-A variable, as we have seen, is a name for a value which changes, though always remaining of the same kind. For instance, if "target" is a number variable (or "number that varies") then it may change value from 2 to 4, but not from 2 to "fishknife".
+A variable, as we have seen, is a name for a value which changes, though always remaining of the same kind. For instance, if `target` is a number variable (or `number that varies`) then it may change value from 2 to 4, but not from 2 to `"fishknife"`.
 
-To make complicated decisions, phrases often need to remember values on a temporary basis. We have already seen this for the counter in a "repeat" loop, which exists only inside that loop, and then is no longer needed.
+To make complicated decisions, phrases often need to remember values on a temporary basis. We have already seen this for the counter in a `repeat` loop, which exists only inside that loop, and then is no longer needed.
 
-We can also make temporary variables using "let":
+We can also make temporary variables using `let`:
 
 > phrase: {ph_let} let (a name not so far used) be (value) & let (a temporary named value) be (value)
 >
@@ -5825,7 +5814,7 @@ We can also make temporary variables using "let":
 >     let outer bull be 25;
 >     let outer bull be 50;
 >
-> is a legal combination, because the second "let" simply changes the value of the existing "outer bull" variable to a different number.
+> is a legal combination, because the second `let` simply changes the value of the existing `outer bull` variable to a different number.
 
 > phrase: {ph_letdefault} let (a name not so far used) be (name of kind)
 >
@@ -5837,40 +5826,40 @@ We can also make temporary variables using "let":
 >
 >     let the conveyance be a vehicle;
 >
-> because temporary variables aren't allowed to have kinds more specific than "object". (This is a good thing: suppose there are no vehicles in the world?) It's quite safe in such cases to use
+> because temporary variables aren't allowed to have kinds more specific than `object`. (This is a good thing: suppose there are no vehicles in the world?) It's quite safe in such cases to use
 >
 >     let the conveyance be an object;
 >
-> instead, which creates it as the special object value "nothing".
+> instead, which creates it as the special object value `nothing`.
 
-Temporary variables made by "let" are only temporarily in existence while a phrase is being carried out. Their values often change: we could say
+Temporary variables made by `let` are only temporarily in existence while a phrase is being carried out. Their values often change: we could say
 
 	let x be 10;
 	now x is 11;
 
-for instance, or indeed we could "let x be 10" and then "let x be 11". But although we are allowed to change the value, we are not allowed to change the kind of value. The name "x" must always have the same kind of value throughout the phrase to which it belongs, so the following will not be allowed:
+for instance, or indeed we could `let x be 10` and then `let x be 11`. But although we are allowed to change the value, we are not allowed to change the kind of value. The name `x` must always have the same kind of value throughout the phrase to which it belongs, so the following will not be allowed:
 
 	let x be 45;
 	now x is "Norway";
 
-(The difference between using "let" and "now" here is that "let" can create a new temporary variable, whereas "now" can only alter things already existing: on the other hand, "now" can change many other things as well, whereas "let" applies only to temporary variables.)
+(The difference between using `let` and `now` here is that `let` can create a new temporary variable, whereas `now` can only alter things already existing: on the other hand, `now` can change many other things as well, whereas `let` applies only to temporary variables.)
 
 ## New conditions, new adjectives
 
 ^^{phrases: deciding a condition} ^^{to decide whether/if+assert+} ^^{adjectives: defining: with (to decide whether)+sourcepart+} ^^{defining: adjectives: with (to decide whether)+sourcepart+} ^^{conditions: defining with (to decide whether)+sourcepart+} ^^{definition+assert+: with phrase logic} ^^{(it), in source text+sourcepart+} ^^{pronouns: (it), in source text+sourcepart+} ^^{punctuation: colon} ^^{|:} ^^{Inform 6 equivalent: |rtrue/rfalse}
 
-We can create new conditions by defining a phrase with "to decide whether" (or equivalently "to decide if"):
+We can create new conditions by defining a phrase with `to decide whether` (or equivalently `to decide if`):
 
 	To decide whether danger lurks:
 		if in darkness, decide yes;
 		if the Control Room has been visited, decide no;
 		decide yes.
 
-If the player is indeed in darkness, the decision is "yes" because the "decide yes" stops the process right there. We can now write, for instance,
+If the player is indeed in darkness, the decision is "yes" because the `decide yes` stops the process right there. We can now write, for instance,
 
 	if danger lurks, ...
 
-In fact, "danger lurks" is now a condition as good as any other, and can be used wherever a condition would be given. Rules can apply only "when danger lurks", for instance.
+In fact, `danger lurks` is now a condition as good as any other, and can be used wherever a condition would be given. Rules can apply only `when danger lurks`, for instance.
 
 > phrase: {ph_yes} yes & decide yes
 >
@@ -5891,7 +5880,7 @@ If we want to give a definition which involves more complex logic, we can use a 
 		if something is on it, decide yes;
 		decide no.
 
-Here "it" refers to the supporter in question. Note that there are now two colons in this sentence, one after "Definition", the other after the clause being defined. But that apart, it's a phrase like any other: it must end in "yes" or "no" just as the "danger lurks" example must. "Decide no" and "decide yes" are needed so often that they can be abbreviated by leaving out "decide":
+Here `it` refers to the supporter in question. Note that there are now two colons in this sentence, one after `Definition`, the other after the clause being defined. But that apart, it's a phrase like any other: it must end in `yes` or `no` just as the `danger lurks` example must. `Decide no` and `decide yes` are needed so often that they can be abbreviated by leaving out `decide`:
 
 	Definition: a supporter is occupied:
 		if it is undescribed, no;
@@ -5908,7 +5897,7 @@ A condition is a yes/no decision, but we can also take decisions where the resul
 		if the Dark Room has been visited, decide on the silver bars;
 		decide on the plover's egg.
 
-Note that we have to say what kind the answer will be: here it's a kind of thing called "treasure" (which we're supposing has already been created), and as it turns out only two treasures are ever eligible anyway (we're also supposing that the plover's egg and the silver bars are treasures already created, of course). And note also that the phrase must in all cases end with a "decide on ..." to say what the answer is:
+Note that we have to say what kind the answer will be: here it's a kind of thing called `treasure` (which we're supposing has already been created), and as it turns out only two treasures are ever eligible anyway (we're also supposing that the plover's egg and the silver bars are treasures already created, of course). And note also that the phrase must in all cases end with a `decide on ...` to say what the answer is:
 
 > phrase: {ph_decideon} decide on (value)
 >
@@ -5918,22 +5907,22 @@ Note that we have to say what kind the answer will be: here it's a kind of thing
 >     	let D be N times N;
 >     	decide on D.
 
-Now that we have "grand prize" created, we can use it just as we would use any other value, so for instance:
+Now that we have `grand prize` created, we can use it just as we would use any other value, so for instance:
 
 	if taking the grand prize, ...
 
-As this is something of a dialect difference between English speakers, "what" and "which" are synonymous here, i.e., we could equally well write something like:
+As this is something of a dialect difference between English speakers, `what` and `which` are synonymous here, i.e., we could equally well write something like:
 
 	To decide what number is the target score: ...
 
-(A phrase to decide if something-or-other is exactly the same thing as a phrase to decide a truth state, and indeed, if we want to then we can use "decide on T", where T is a truth state, in its definition. For instance:
+(A phrase to decide if something-or-other is exactly the same thing as a phrase to decide a truth state, and indeed, if we want to then we can use `decide on T`, where T is a truth state, in its definition. For instance:
 
 	To decide if time is short:
 		if the time of day is after 10 PM, decide on true;
 		...
 		decide on whether or not Jennifer is hurried.
 
-"Decide on true" is exactly equivalent to the more normally used "decide yes", and of course it is optional. The last line is more interesting since it effectively delegates the answer to another condition.)
+`Decide on true` is exactly equivalent to the more normally used `decide yes`, and of course it is optional. The last line is more interesting since it effectively delegates the answer to another condition.)
 
 ## The value after and the value before
 
@@ -5943,7 +5932,7 @@ A point which has come up several times in recent chapters is that enumerated ki
 
 	Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 
-...then we not only have seven possible values, we have put them into a sequence, in order of their naming. We can't perform arithmetic on colours, of course, but we can perform comparisons on them. Thus "red < yellow" is true, while "green >= violet" is not. (More on comparisons in the chapter on [Numbers and Equations], which also covers arithmetic.)
+...then we not only have seven possible values, we have put them into a sequence, in order of their naming. We can't perform arithmetic on colours, of course, but we can perform comparisons on them. Thus `red < yellow` is true, while `green >= violet` is not. (More on comparisons in the chapter on [Numbers and Equations], which also covers arithmetic.)
 
 It's also sometimes useful to get at the sequence directly. First, the two ends:
 
@@ -5953,7 +5942,7 @@ It's also sometimes useful to get at the sequence directly. First, the two ends:
 >
 >     Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 >
-> then "first value of colour" is red.
+> then `first value of colour` is red.
 
 > phrase: {ph_enumlast} last value of (name of kind) ... value
 >
@@ -5961,7 +5950,7 @@ It's also sometimes useful to get at the sequence directly. First, the two ends:
 >
 >     Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 >
-> then "last value of colour" is violet.
+> then `last value of colour` is violet.
 
 And now how to step forward and back:
 
@@ -5971,7 +5960,7 @@ And now how to step forward and back:
 >
 >     Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 >
-> then "colour after orange" is yellow.
+> then `colour after orange` is yellow.
 
 > phrase: {ph_enumbefore} (name of kind) before (enumerated value) ... value
 >
@@ -5979,7 +5968,7 @@ And now how to step forward and back:
 >
 >     Colour is a kind of value. The colours are red, orange, yellow, green, blue, indigo and violet.
 >
-> then "colour before blue" is green.
+> then `colour before blue` is green.
 
 # Advanced Actions
 
@@ -5998,7 +5987,7 @@ Every action either succeeds or fails, though failure may not be a bad thing (so
 	That doesn't seem to fit the lock.
 	[unlocking cage with watermelon - failed the can't unlock without the correct key rule]
 
-Actions generated by "try" phrases are allowed to run "silently", which means that if nothing out of the way happens and they succeed, then nothing is printed. For instance:
+Actions generated by `try` phrases are allowed to run `silently`, which means that if nothing out of the way happens and they succeed, then nothing is printed. For instance:
 
 	Before examining the tapestry: say "(Switching on the lamp first.)"; silently try switching the ultraviolet light on.
 
@@ -6008,27 +5997,27 @@ There are many ways to impose extra rules on actions, and we have seen three mai
 
 ^^{actions: processing sequence} ^^{actions: rules for actions found in rulebooks} ^^{rules: for actions found in rulebooks} ^^{rulebooks: for actions} ^^{failure: for actions} ^^{success: for actions} ^^{visibility+rel+: in action processing sequence} ^^{touchability+rel+: in action processing sequence} ^^{before (action)+rb+: in action processing sequence} ^^{rules: before rules} ^^{instead of (action)+rb+: in action processing sequence} ^^{rules: instead rules} ^^{after (action)+rb+: in action processing sequence} ^^{rules: after rules} ^^{check (action)+rb+} ^^{carry out (action)+rb+} ^^{report (action)+rb+}
 
-The following flow chart shows the natural course of events when Inform deals with a new action – a "taking" action in the case drawn. For quite a long time, the action may still fail, and it may be that nothing actually happens: but eventually a deciding line is crossed, and once that happens the action will certainly succeed.
+The following flow chart shows the natural course of events when Inform deals with a new action – a `taking` action in the case drawn. For quite a long time, the action may still fail, and it may be that nothing actually happens: but eventually a deciding line is crossed, and once that happens the action will certainly succeed.
 
 ![achart](doc_images/achart.png)
 
 The coloured boxes on this chart represent "rulebooks", that is, collections of rules with a common purpose. The orange boxes for Before, Instead and After were covered in the chapter on [Basic Actions], but the blue boxes are new. The orange boxes are where we put rules to handle unusual situations, or unexpected events: special rules to cover the opening of a container which happens to be booby-trapped, or walking through a doorway into a room where a surprise party is about to be sprung.
 
-Blue boxes hold the mundane, everyday rules – the generic ways that particular actions behave. Every action provides these: "Check" rules, to see if it makes sense – for instance, to see that the player is not trying to take their own body, or a whole room, or something they already have; then "Carry out" rules, to actually do what the action is supposed to do – in the case of taking, to move an object into the player's possession; and finally "Report" rules, which tell the player what has happened – perhaps printing up "Taken."
+Blue boxes hold the mundane, everyday rules – the generic ways that particular actions behave. Every action provides these: `Check` rules, to see if it makes sense – for instance, to see that the player is not trying to take their own body, or a whole room, or something they already have; then `Carry out` rules, to actually do what the action is supposed to do – in the case of taking, to move an object into the player's possession; and finally `Report` rules, which tell the player what has happened – perhaps printing up "Taken."
 
-When we create a new action, we add a new column to the blue rows in this diagram. As we shall see, we can also put new rules into the existing blue boxes: for instance, if we wanted to increase physical realism by forbidding the player to carry more than a certain weight, we would want to add a new "check taking" rule, and this is entirely legal.
+When we create a new action, we add a new column to the blue rows in this diagram. As we shall see, we can also put new rules into the existing blue boxes: for instance, if we wanted to increase physical realism by forbidding the player to carry more than a certain weight, we would want to add a new `check taking` rule, and this is entirely legal.
 
 In subsequent chapters, we will see ways to intervene at almost every point in the above diagram – from how "Can we see or touch things?" is reckoned, to each and every individual rule in all of these books. In fact, the full system is still more elaborate than the diagram above: see the `action-processing rules` rulebook in the Index of a project for the full picture.
 
-Action-processing may be the single most important thing Inform does, so the system is designed to be immensely flexible. On the other hand, that does make it a lot to take in at one look. Newcomers should probably concentrate on "Instead" and "After" as the basic tools for designing the situations turning up routinely in interactive fiction. There are guidelines at the end of this chapter offering advice on which tricks to use when it comes to more complicated needs.
+Action-processing may be the single most important thing Inform does, so the system is designed to be immensely flexible. On the other hand, that does make it a lot to take in at one look. Newcomers should probably concentrate on `Instead` and `After` as the basic tools for designing the situations turning up routinely in interactive fiction. There are guidelines at the end of this chapter offering advice on which tricks to use when it comes to more complicated needs.
 
 ## Giving instructions to other people {var_person_asked}
 
 ^^{actions: instructing other people}^^^{characters (people) <-- actors <-- other people}^^^{characters (people) <-- NPC <-- people}^^^{characters (people) <-- person+kind+: characters} ^^{characters (people): giving instructions to other characters} ^^{instructing other characters} ^^{ordering other characters} ^^{asking (actor) to try+action+ <-- +to+try (action): in (asking) action+sourcepart+} ^^{person asked (- object)+glob+} ^^{actor (- person)+actvar+} ^^{player: as opposed to the actor}
 
-So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the "person" kind, that is, which includes all the men, women and animals in the story, and not only the player.
+So far, all actions have been carried out by the player: which is fine for exploring the passive world of an empty warehouse, but less good for a drama in which other characters have to be contended with. In fact, an action can be carried out by anybody – by any instance of the `person` kind, that is, which includes all the men, women and animals in the story, and not only the player.
 
-In interactive fiction, players conventionally ask other characters to do something with commands like ``WILL, GO WEST``. Clearly this should not produce the same action as ``GO WEST``, because a different person will be trying it: this person is called the "actor", and while the actor is ordinarily the player, here it is the character called Will. Inform distinguishes these two actions like so:
+In interactive fiction, players conventionally ask other characters to do something with commands like ``WILL, GO WEST``. Clearly this should not produce the same action as ``GO WEST``, because a different person will be trying it: this person is called the `actor`, and while the actor is ordinarily the player, here it is the character called Will. Inform distinguishes these two actions like so:
 
 	going west
 	asking Will to try going west
@@ -6039,17 +6028,17 @@ As a result, we can write rules like so:
 
 	Instead of asking Will to try going west, say "Will scratches his head, baffled by this talk of westward. Is not the ocean without bound?"
 
-To write rules like this, we sometimes want to generalise about who is supposed to do the deed. To do this we can refer to "person asked", just as the "noun" stands for whatever noun was typed:
+To write rules like this, we sometimes want to generalise about who is supposed to do the deed. To do this we can refer to `person asked`, just as the `noun` stands for whatever noun was typed:
 
 	Instead of asking somebody to try taking something, say "I don't think we ought to tempt [the person asked] into theft, surely?"
 
-So if the player types ``ALGY, TAKE SANDWICH``, the "person asked" would be Algy; the "noun" would be the sandwich; and there would be no "second noun".
+So if the player types ``ALGY, TAKE SANDWICH``, the `person asked` would be Algy; the `noun` would be the sandwich; and there would be no `second noun`.
 
 ## Persuasion {rules_per}
 
 ^^{actions: instructing other characters: persuasion rules} ^^{persuasion+rb+} ^^{+toout+persuasion succeeds / fails (persuasion rules)} ^^{rules: persuasion rules for instructing characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{success: for persuasion} ^^{failure: for persuasion} ^^{paragraph breaks: for fooling persuasion refusal} ^^{instead of (action)+rb+: as failure of persuasion} ^^{rules: instead rules} ^^{characters (people): persuading}
 
-"Asking ... to try ..." actions run through their Before and Instead rules like any other actions, but then (if no rule has intervened) something different happens: Inform has to decide whether the person asked consents to try the action or not. By default, the answer is always no, and text like the following will be printed:
+`Asking ... to try ...` actions run through their Before and Instead rules like any other actions, but then (if no rule has intervened) something different happens: Inform has to decide whether the person asked consents to try the action or not. By default, the answer is always no, and text like the following will be printed:
 
 	> WILL, GO WEST
 	Will has better things to do.
@@ -6059,7 +6048,7 @@ However, we can intervene to make the answer "yes", using a special kind of rule
 	Persuasion rule for asking people to try going: persuasion succeeds.
 	Persuasion rule for asking Will to try going west: persuasion succeeds.
 
-Such a rule can either declare that "persuasion succeeds", or that "persuasion fails", or make no decision and leave it to another rule to say. If it decides that persuasion fails, it is also allowed to say something, describing why: in that event, the standard message ("Will has better things to do.") is suppressed. For example,
+Such a rule can either declare that `persuasion succeeds`, or that `persuasion fails`, or make no decision and leave it to another rule to say. If it decides that persuasion fails, it is also allowed to say something, describing why: in that event, the standard message ("Will has better things to do.") is suppressed. For example,
 
 	Persuasion rule for asking Will to try going:
 		say "Will looks put out, and mutters under his breath.";
@@ -6077,9 +6066,9 @@ and this is then subject to all of the usual action machinery. For instance, we 
 
 	Instead of Will going west, say "He runs out into the waves, but soon returns, rueful."
 
-So in this case the new action ("Will going west") failed: but the original action, "asking Will to try going west", is still deemed to have succeeded – after all, Will *did* try. To put it more formally, "asking X to try A" succeeds if the persuasion rules succeed, and otherwise fails.
+So in this case the new action (`Will going west`) failed: but the original action, `asking Will to try going west`, is still deemed to have succeeded – after all, Will *did* try. To put it more formally, `asking X to try A` succeeds if the persuasion rules succeed, and otherwise fails.
 
-Note also that "Instead of..." rules written for other people will be treated by Inform as failures, even if we write something like
+Note also that `Instead of...` rules written for other people will be treated by Inform as failures, even if we write something like
 
 	Instead of Will pulling the cord:
 		say "The bell rings."
@@ -6104,7 +6093,7 @@ Suppose, finally, that Will not only consents to try the action, but it also sur
 	> WILL, GO EAST
 	Will leaves to the east.
 
-If on the other hand Will's attempt is frustrated because one of the checking rules stops him, then Will's action fails. For instance, if Will tries going northeast but there is no room to northeast, one of the rules checking the "going" action will stop him. We will then see this:
+If on the other hand Will's attempt is frustrated because one of the checking rules stops him, then Will's action fails. For instance, if Will tries going northeast but there is no room to northeast, one of the rules checking the `going` action will stop him. We will then see this:
 
 	> WILL, GO NORTHEAST
 	Will is unable to do that.
@@ -6113,7 +6102,7 @@ This is rather a generic message, and we may want something more interesting. We
 
 	Unsuccessful attempt by Will going: say "Will blunders around going nowhere, as usual."
 
-Even that is still a little generic, though, because it treats all of the various ways that "going" can fail as the same. If we have ``ACTIONS`` switched on, we can see what goes on behind the scenes when we ask Will to walk into a door:
+Even that is still a little generic, though, because it treats all of the various ways that `going` can fail as the same. If we have ``ACTIONS`` switched on, we can see what goes on behind the scenes when we ask Will to walk into a door:
 
 	> WILL, GO WEST
 	[asking Will to try going west]
@@ -6122,13 +6111,13 @@ Even that is still a little generic, though, because it treats all of the variou
 	Will blunders around going nowhere, as usual.
 	[asking Will to try going west - succeeded]
 
-(The "(1)" lets us know that a new action is starting during the old one, and before the old one finishes: sometimes we go up to three or four deep, though seldom more in practical cases.) We can now rewrite the "unsuccessful attempt" rule like so:
+(The "(1)" lets us know that a new action is starting during the old one, and before the old one finishes: sometimes we go up to three or four deep, though seldom more in practical cases.) We can now rewrite the `unsuccessful attempt` rule like so:
 
 	Unsuccessful attempt by Will going:
 		if the reason the action failed is the can't go through closed doors rule, say "Will looks doubtful and mumbles about doors.";
 		otherwise say "Will blunders around going nowhere, as usual."
 
-The value "reason the action failed" is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory – at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored – and can be found out either using ``ACTIONS`` or by consulting the Actions index:
+The value `reason the action failed` is set to whichever checking rule threw out the action which Will tried. The names of these rules try to be self-explanatory – at any rate, those with gnomic names are not useful for this sort of thing, and can be ignored – and can be found out either using ``ACTIONS`` or by consulting the Actions index:
 
 	> ACTIONS
 	Actions listing on.
@@ -6137,13 +6126,13 @@ The value "reason the action failed" is set to whichever checking rule threw out
 	You are always self-possessed.
 	[taking yourself - failed the can't take yourself rule]
 
-Finally, note that "unsuccessful attempt" rules apply only when the person in question is being asked to perform the action by somebody else – as in the examples above.
+Finally, note that `unsuccessful attempt` rules apply only when the person in question is being asked to perform the action by somebody else – as in the examples above.
 
 ## Spontaneous actions by other people
 
 ^^{actions: spontaneous by other people} ^^{actions: performing with (try)+sourcepart+} ^^{+to+try (actor) trying (action)} ^^{characters (people): acting spontaneously} ^^{unsuccessful attempt by+rb+: not used for spontaneous actions}
 
-The player's actions happen not only when they type a command, but can also happen spontaneously as a result of a "try" phrase.
+The player's actions happen not only when they type a command, but can also happen spontaneously as a result of a `try` phrase.
 
 	try going west
 	try asking Will to try going west
@@ -6152,11 +6141,11 @@ The latter might, of course, result in Will trying going west: or it might not �
 
 	try Will going west
 
-Nobody in the simulated world requested this: it is an impulse felt by Will alone, so that – from the player's point of view – Will is acting spontaneously. The player need not be anywhere nearby, and may never know what happened. Recall that when actions work their way down through the flow-chart, they are stopped before reaching the "report" stage – when the player is told about them – if they are running "silently". This is also where Inform stops an action which is not witnessed by the player.
+Nobody in the simulated world requested this: it is an impulse felt by Will alone, so that – from the player's point of view – Will is acting spontaneously. The player need not be anywhere nearby, and may never know what happened. Recall that when actions work their way down through the flow-chart, they are stopped before reaching the `report` stage – when the player is told about them – if they are running `silently`. This is also where Inform stops an action which is not witnessed by the player.
 
-To repeat a point in the previous section: "unsuccessful attempt" rules do not apply to actions which the author has caused to happen, using "try". When such actions fail, they invoke no special set of rules. Indeed, when "try" causes somebody other than the player to try an action, nothing will be printed to report back on success or failure. If Will can't go west, that's his problem.
+To repeat a point in the previous section: `unsuccessful attempt` rules do not apply to actions which the author has caused to happen, using `try`. When such actions fail, they invoke no special set of rules. Indeed, when `try` causes somebody other than the player to try an action, nothing will be printed to report back on success or failure. If Will can't go west, that's his problem.
 
-Note that the text "try Will going west" involves the actor's name immediately placed next to the action he is to try, which in a very few cases might cause ambiguities. If the actor's name contains a participle like "going" – say, if Will's full name turned out to be Mr Will Going – then we would have to write out the action name in full, using "trying" to clarify matters:
+Note that the text `try Will going west` involves the actor's name immediately placed next to the action he is to try, which in a very few cases might cause ambiguities. If the actor's name contains a participle like `going` – say, if Will's full name turned out to be Mr Will Going – then we would have to write out the action name in full, using `trying` to clarify matters:
 
 	try Will Going trying going west
 
@@ -6172,21 +6161,21 @@ It is not often that we need to create new actions, but a large work of interact
 
 In theory that text is already sufficient to make the new action, but what we have so far is rudimentary to say the least. The two qualifications give Inform the useful information that we cannot photograph in the dark, and that we need to be photographing something – not, as in the case of waiting or taking inventory, acting without reference to any particular thing external to ourselves.
 
-The word "visible" here tells Inform that we do not need to be able to touch the thing in question: a line of sight is good enough. These two stipulations were necessary because the default arrangement is that any object must be in touching range, and that most actions can be performed in darkness. (Also, note that if you invent an action which needs to apply to directions like "north" or "south", you need to make this apply to visible things, because the object used inside Inform to represent the idea of "north" can be seen but not touched. So for understanding purposes, "visible thing" is understood as meaning any visible thing or direction: it's more general than "thing", not more specific.)
+The word `visible` here tells Inform that we do not need to be able to touch the thing in question: a line of sight is good enough. These two stipulations were necessary because the default arrangement is that any object must be in touching range, and that most actions can be performed in darkness. (Also, note that if you invent an action which needs to apply to directions like `north` or `south`, you need to make this apply to visible things, because the object used inside Inform to represent the idea of `north` can be seen but not touched. So for understanding purposes, `visible thing` is understood as meaning any visible thing or direction: it's more general than `thing`, not more specific.)
 
 Occasionally, when writing general rules about actions, it can be useful to find out what the current action's requirements are: the following conditions do what they suggest.
 
 > phrase: {ph_requirestouch} if action requires a touchable noun:
 >
-> This condition is true if the action being processed is one whose (first) noun is an object which needs to be touchable by the actor. For example, it's true for "taking", but false for "examining".
+> This condition is true if the action being processed is one whose (first) noun is an object which needs to be touchable by the actor. For example, it's true for `taking`, but false for `examining`.
 
 > phrase: {ph_requirestouch2} if action requires a touchable second noun:
 >
-> This condition is true if the action being processed is one whose second noun is an object which needs to be touchable by the actor. For example, it's true for "putting the brick in the sack", but false for "throwing the brick at the window".
+> This condition is true if the action being processed is one whose second noun is an object which needs to be touchable by the actor. For example, it's true for `putting the brick in the sack`, but false for `throwing the brick at the window`.
 
 > phrase: {ph_requirescarried} if action requires a carried noun:
 >
-> This condition is true if the action being processed is one whose (first) noun is an object which needs to be carried by the actor. For example, it's true for "dropping", but false for "taking".
+> This condition is true if the action being processed is one whose (first) noun is an object which needs to be carried by the actor. For example, it's true for `dropping`, but false for `taking`.
 
 > phrase: {ph_requirescarried2} if action requires a carried second noun:
 >
@@ -6194,7 +6183,7 @@ Occasionally, when writing general rules about actions, it can be useful to find
 
 > phrase: {ph_requireslight} if action requires light:
 >
-> This condition is true if the action being processed is one which can only be performed if the actor has light to see by. For example, it's true for "examining", but false for "dropping".
+> This condition is true if the action being processed is one which can only be performed if the actor has light to see by. For example, it's true for `examining`, but false for `dropping`.
 
 Here are two further examples, one involving no nouns, and one involving two:
 
@@ -6271,7 +6260,7 @@ Inform does risk automatically generating the past participle of an action. (Man
 
 ^^{actions: rules for new actions} ^^{rules: for new actions} ^^{rulebooks: for new actions} ^^{check (action)+rb+} ^^{carry out (action)+rb+} ^^{report (action)+rb+} ^^{(instead), to stop the action+sourcepart+}
 
-The normal behaviour of an action is specified by its three associated rulebooks – check, carry out and report. In the case of our "photographing" example, these rulebooks will be:
+The normal behaviour of an action is specified by its three associated rulebooks – check, carry out and report. In the case of our `photographing` example, these rulebooks will be:
 
 1) **Check photographing**. Here, for instance, we need to verify that the player has the camera. If any of our checks fail, we should say why and stop the action. If they succeed, we say nothing.
 
@@ -6285,7 +6274,7 @@ So far we have not really gone into the business of what rulebooks are, and we d
 		if the camera is not carried:
 			say "You can hardly photograph without a camera, now can you?" instead.
 
-In fact, writing "a check photographing rule" is over-formal. We can more simply label our rules like so:
+In fact, writing `a check photographing rule` is over-formal. We can more simply label our rules like so:
 
 	Check photographing:
 		if we have photographed the noun:
@@ -6293,7 +6282,7 @@ In fact, writing "a check photographing rule" is over-formal. We can more simply
 	
 	Report photographing: say "Click!"
 
-For the sake of brevity, photography has no interesting consequence (no points to be won, no film to use up), so there are no carry out rules here. Note the way we used the word "instead" once again to stop actions in their tracks.
+For the sake of brevity, photography has no interesting consequence (no points to be won, no film to use up), so there are no carry out rules here. Note the way we used the word `instead` once again to stop actions in their tracks.
 
 We can continue to add rules at any point, and a classic thing that happens when testing a new work is that the designer realises there is a case which has not been thought of:
 
@@ -6311,7 +6300,7 @@ As it happens, it is _also_ legal to write `Check scraping something with`, or `
 
 ^^{actions: variables for actions} ^^{variables: for actions} ^^{defining: action variables} ^^{(matched as), in describing action variables+sourcepart+} ^^{|called: in defining action variables} ^^{setting action variables+rb+}
 
-For some complex situations, it can be useful to keep track of a few values throughout the processing of the action. This is not an everyday occurrence: in the Standard Rules, for instance, only two or three out of 90 actions need to do this. But suppose we want to write a more deluxe version of our "photographing" action. This time, rather than having a single thing called the "camera", we will provide a whole range of possible cameras, varying in quality:
+For some complex situations, it can be useful to keep track of a few values throughout the processing of the action. This is not an everyday occurrence: in the Standard Rules, for instance, only two or three out of 90 actions need to do this. But suppose we want to write a more deluxe version of our `photographing` action. This time, rather than having a single thing called the "camera", we will provide a whole range of possible cameras, varying in quality:
 
 	Photographing is an action applying to one visible thing and requiring light. Understand "photograph [something]" as photographing.
 	
@@ -6323,14 +6312,14 @@ And we will want the photographing action to have the player use the best-qualit
 
 	The photographing action has an object called the camera photographed with.
 
-Every action's variables must be named differently from those of all other actions, because there are some "before" rules (for instance) which take effect for many different actions, and which might need access to any of their variables. So action variables should be named in a way marking out to which action they belong. The best way to do this is to include the past participle of the action name – just as "camera photographed with" contains the past participle "photographed" of the action "photographing".
+Every action's variables must be named differently from those of all other actions, because there are some `before` rules (for instance) which take effect for many different actions, and which might need access to any of their variables. So action variables should be named in a way marking out to which action they belong. The best way to do this is to include the past participle of the action name – just as `camera photographed with` contains the past participle `photographed` of the action `photographing`.
 
-This value is created when the action begins, and disappears when the action ends. (If the action should happen a second time before the first time was completed, a second copy of the value is created, leaving the original undisturbed.) When the action begins, the value starts out as something neutral – so if it is a number, it starts out as 0, if a text, it starts out as the blank text "", and so on. Here it is an object, so it starts out as nothing – the value meaning no object at all. But of course we want to give it a value ourselves. We can do that using the "setting action variables" rulebook. For instance:
+This value is created when the action begins, and disappears when the action ends. (If the action should happen a second time before the first time was completed, a second copy of the value is created, leaving the original undisturbed.) When the action begins, the value starts out as something neutral – so if it is a number, it starts out as 0, if a text, it starts out as the blank text `""`, and so on. Here it is an object, so it starts out as nothing – the value meaning no object at all. But of course we want to give it a value ourselves. We can do that using the `setting action variables` rulebook. For instance:
 
 	Setting action variables for photographing:
 		now the camera photographed with is the sharpest camera which is carried by the actor.
 
-The "setting action variables" rulebook is run through before even the before rules, and it has no power to stop or change the action. Its rules should say nothing and do nothing other than to set rulebook variables like this one. Note that it is intended to work for any actor, not only the player: so rather than referring to the player as the performer of the action, we need to write "the actor", as in the example above. (See subsequent sections for more on actors.)
+The `setting action variables` rulebook is run through before even the before rules, and it has no power to stop or change the action. Its rules should say nothing and do nothing other than to set rulebook variables like this one. Note that it is intended to work for any actor, not only the player: so rather than referring to the player as the performer of the action, we need to write `the actor`, as in the example above. (See subsequent sections for more on actors.)
 
 We can now write rules such as:
 
@@ -6355,13 +6344,13 @@ A further elaboration allows us to make rules about photographing neater to writ
 	Report photographing something using a sharp camera:
 		say "You feel cool and important as the shutter clicks."
 
-(This is the method used by the Standard Rules to attach optional clauses such as 'to', 'with' and 'through' to the going action.)
+(This is the method used by the Standard Rules to attach optional clauses such as `to`, `with` and `through` to the going action.)
 
 ## Making actions work for other people
 
 ^^{rules: for new actions for other characters} ^^{rules: for other characters} ^^{actions: rules for other characters} ^^{player: as opposed to the actor}
 
-The "photographing" action now works very nicely when the player does it. But not when others try. Suppose that neither the player, nor Clark Gable, is holding the camera:
+The `photographing` action now works very nicely when the player does it. But not when others try. Suppose that neither the player, nor Clark Gable, is holding the camera:
 
 	> PHOTOGRAPH CLARK
 	You can hardly photograph without a camera, now can you?
@@ -6375,7 +6364,7 @@ An uncanny silence. What has happened is that the rules written so far are all i
 		if the camera is not carried:
 			say "You can hardly photograph without a camera, now can you?" instead.
 
-the action is "photographing", not "Clark photographing". In the next few sections we shall see how to make the rules work nicely for everybody. This is a little bit harder, so it should be noted right away that in many projects there is no need. In a story which has no other characters who succumb to persuasion, for instance, only the player will ever try the action.
+the action is `photographing`, not `Clark photographing`. In the next few sections we shall see how to make the rules work nicely for everybody. This is a little bit harder, so it should be noted right away that in many projects there is no need. In a story which has no other characters who succumb to persuasion, for instance, only the player will ever try the action.
 
 ## Check rules for actions by other people {PM_DuplicateRuleName} {PM_RuleWithComma}
 
@@ -6385,12 +6374,12 @@ If we want to impose the restriction about carrying the camera on other people, 
 
 	Check someone photographing: if the person asked does not carry the camera, stop the action.
 
-Implicitly, that "someone" excludes the player. Note that we say nothing in this rule, stopping the action without a word: after all, Clark might well be out of sight when trying this. If he is within sight, then we read:
+Implicitly, that `someone` excludes the player. Note that we say nothing in this rule, stopping the action without a word: after all, Clark might well be out of sight when trying this. If he is within sight, then we read:
 
 	> CLARK, PHOTOGRAPH ME
 	Clark Gable is unable to do that.
 
-We saw before that Inform's built-in rules all have handy names (the "can't drop what's already dropped rule", and such), and that these are useful when writing better "unable to..." messages. So for a deluxe version, we end up with:
+We saw before that Inform's built-in rules all have handy names (the `can't drop what's already dropped rule`, and such), and that these are useful when writing better "unable to..." messages. So for a deluxe version, we end up with:
 
 	Check someone trying photographing (this is the other people can't photograph without the camera rule): if the person asked does not carry the camera, stop the action.
 
@@ -6418,7 +6407,7 @@ Report rules for the player's actions are easy to write, and for many actions, t
 	Report photographing: say "Click!"
 	Report someone photographing: say "Click! [The person asked] takes a snapshot of [the noun]."
 
-But once other people are involved, we have to go to some trouble to get all of the possibilities right. Here is a case which did not immediately occur to the author of the "going" action, for instance:
+But once other people are involved, we have to go to some trouble to get all of the possibilities right. Here is a case which did not immediately occur to the author of the `going` action, for instance:
 
 	> GET IN CAGE
 	You get into the cage.
@@ -6430,7 +6419,7 @@ But once other people are involved, we have to go to some trouble to get all of 
 	**The Lot** (in the cage)
 	In the Lot you can see an automobile (in which is Clark Gable).
 
-We said before that report rules are skipped if the action is running "silently", or if the action is one that the player does not witness. But that is also a tricky concept. Inform's doctrine is that you witness an action if you can see any of the actor, the noun or the second noun at either the beginning or the end of the action; except that being able to see a backdrop does not count. Thus if Clark Gable, in Beverly Hills, photographs the Hollywood sign then we do not witness this from Sunset Boulevard merely because we, too, can see the Hollywood sign.
+We said before that report rules are skipped if the action is running `silently`, or if the action is one that the player does not witness. But that is also a tricky concept. Inform's doctrine is that you witness an action if you can see any of the actor, the noun or the second noun at either the beginning or the end of the action; except that being able to see a backdrop does not count. Thus if Clark Gable, in Beverly Hills, photographs the Hollywood sign then we do not witness this from Sunset Boulevard merely because we, too, can see the Hollywood sign.
 
 While the report rules for actions by the player must actually report something, report rules for other people's actions are under no such obligation. For instance, if Clark unlocks a door from the other side to the player, then this counts as an action that the player witnesses – and after all, it could be argued that the player should hear the key turning in the lock – but in fact the standard rules for reporting locking choose to say nothing.
 
@@ -6458,7 +6447,7 @@ Here the rule applies to anyone who tries taking a container, player or not. Ins
 
 ^^{|out of world} ^^{actions: |out of world} ^^{Inform 6 equivalent: |meta} ^^{every turn+rb+: not for (out of world) actions+sourcepart+} ^^{time: not passing for (out of world) actions+sourcepart+} ^^{turns: not passing for (out of world) actions+sourcepart+} ^^{before (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: before rules} ^^{instead of (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: instead rules} ^^{after (action)+rb+: not used for (out of world) actions+sourcepart+} ^^{rules: after rules}
 
-The actions seen so far are all impulses causing the protagonist inside the fictional world to do something, or at least try to. But when the player types "quit" or "save", that is not a request for anything to happen in the fictional world: it is an instruction to the program simulating that world. In fact, just the same, such requests are treated as actions, but of a special category called "out of world" actions. They do not cause time to pass by, so the turn counter does not advance, nor does this command cycle count as a turn at all; and they are altogether exempt from "Before", "Instead" and "After" rules. Only the player is allowed to try them.
+The actions seen so far are all impulses causing the protagonist inside the fictional world to do something, or at least try to. But when the player types ``QUIT`` or ``SAVE``, that is not a request for anything to happen in the fictional world: it is an instruction to the program simulating that world. In fact, just the same, such requests are treated as actions, but of a special category called "out of world" actions. They do not cause time to pass by, so the turn counter does not advance, nor does this command cycle count as a turn at all; and they are altogether exempt from `Before`, `Instead` and `After` rules. Only the player is allowed to try them.
 
 We can also create new out-of-world actions. Suppose we want a dialogue like so:
 
@@ -6471,7 +6460,7 @@ Here is a complete implementation:
 	Report requesting the room tally: say "You have been to [number of visited rooms] out of [number of rooms] room[s]."
 	Understand "rooms" as requesting the room tally.
 
-It is important not to use "out of world" actions for anything affecting what goes on in the fictional world, or realism will collapse, and action-processing may also fail to work in the usual way. "Out of world" actions should be reserved for providing commands like ``ROOMS``, which monitor events rather than participate in them.
+It is important not to use `out of world` actions for anything affecting what goes on in the fictional world, or realism will collapse, and action-processing may also fail to work in the usual way. `Out of world` actions should be reserved for providing commands like ``ROOMS``, which monitor events rather than participate in them.
 
 ## Reaching inside and reaching outside rules {rules_ri}
 
@@ -6482,20 +6471,20 @@ The flow chart back at the start of this chapter shows that, early on in process
 	Photographing is an action applying to one visible thing and requiring light.
 	Scraping it with is an action applying to two things.
 
-Seeing and touching are two different questions, which Inform answers in different ways. We shall see ways to modify or entirely alter what can be seen using the "deciding the scope of something" activity when we get to the Understanding and chapter on [Activities]s, and later in this chapter we will change the definition of touchability. What both have in common is that they are complicated questions, affected by the circumstances. We cannot simply declare that the player can touch a given lever, or can see in a given room: we must arrange for there to be no barriers between the player and the lever, or for there to be a light source in the room.
+Seeing and touching are two different questions, which Inform answers in different ways. We shall see ways to modify or entirely alter what can be seen using the `deciding the scope of something` activity when we get to the Understanding and chapter on [Activities]s, and later in this chapter we will change the definition of touchability. What both have in common is that they are complicated questions, affected by the circumstances. We cannot simply declare that the player can touch a given lever, or can see in a given room: we must arrange for there to be no barriers between the player and the lever, or for there to be a light source in the room.
 
 An example of rules applying to given objects is provided by the way that Inform decides whether the player can reach something or not. For instance, suppose the following:
 
 	{*}The Laboratory is a room. In the Laboratory is a conical flask. The flask is closed and transparent. In the flask is an antibumping granule.
 
-The player will be able to examine the granule but not to take it, as that would require reaching through glass. Suppose the player does type ``TAKE GRANULE``: then Inform looks for potential barriers between the player and the granule, and of course finds the conical flask. If, as in this case, the thing to be touched is on the inside, then Inform asks the "reaching inside" rules for permission. There are two reaching inside rules built in to Inform:
+The player will be able to examine the granule but not to take it, as that would require reaching through glass. Suppose the player does type ``TAKE GRANULE``: then Inform looks for potential barriers between the player and the granule, and of course finds the conical flask. If, as in this case, the thing to be touched is on the inside, then Inform asks the `reaching inside` rules for permission. There are two reaching inside rules built in to Inform:
 
 - `can't reach inside rooms rule`
 - `can't reach inside closed containers rule`
 
 and in fact the second of these rules will cause the taking action to fail, because the conical flask is a closed container. (The other rule has to do with a player in one room able to see another room through, say, a telescope – merely having a line of sight doesn't give the ability to reach into the frame.)
 
-Symmetrically, Inform also has "reaching outside" rules, used if the player is inside something and wants to reach an object in the wider room. (From a bed, probably yes; from a cage, probably no.) This ordinarily contains just one rule:
+Symmetrically, Inform also has `reaching outside` rules, used if the player is inside something and wants to reach an object in the wider room. (From a bed, probably yes; from a cage, probably no.) This ordinarily contains just one rule:
 
 	can't reach outside closed containers rule
 
@@ -6515,7 +6504,7 @@ But some actions are impossible for spatial reasons. For example, if the Mona Li
 
 So Inform provides a common system, shared by all actions, to check on this. Under this system, every thing involved in an action is subject to one of three possible levels of restriction:
 
-1) `visible`. This is the weakest level of restriction — no restriction at all. The word "visible" is used very loosely here, and refers to the fact that typed commands only normally understand the names of things the player can see. Because of that almost all actions involve visible things, and so it's not a stringent requirement. But to reiterate: `visible` here actually means unrestricted. There is no requirement for the actor to be `able to see` the item in the sense of the `visibility relation`.
+1) `visible`. This is the weakest level of restriction — no restriction at all. The word `visible` is used very loosely here, and refers to the fact that typed commands only normally understand the names of things the player can see. Because of that almost all actions involve visible things, and so it's not a stringent requirement. But to reiterate: `visible` here actually means unrestricted. There is no requirement for the actor to be `able to see` the item in the sense of the `visibility relation`.
 
 2) `touchable`. Here the actor must be `able to touch` the thing, as decided by the `touchability relation`. A full definition of that can be found in [The built-in verbs and their meanings], but roughly speaking it means the actor is in the same room as the object, and there are no physical barriers in between.
 
@@ -6535,17 +6524,17 @@ then trigger an action with the command ``WAVE MAGIC WAND AT BANYAN TREE``, the 
 
 ^^{rules: reaching inside / outside} ^^{rules: access to things referred to in actions} ^^{actions: reaching inside / outside rules} ^^{reaching inside / outside+rb+} ^^{actions: requirements for actions} ^^{touchability+rel+: requirement in defining actions} ^^{understanding: requirements for objects in actions} ^^{Inform 6 equivalent: scope rules} ^^{person reaching (- object)+glob+} ^^{container in question (- object)+glob+} ^^{supporter in question (- object)+glob+} ^^{+toout+deny access (reaching inside / outside)} ^^{+toout+allow access (reaching inside / outside)} ^^{+toout+access, deny / allow access (reaching inside / outside)}
 
-The question of what the player can, and cannot, reach to touch is important in interactive fiction. It contains some of the subtlest ideas in the model world, though they often go unnoticed. For instance, if a key is on a shelf which is part of a closed box, can we reach for the key? This comes down to whether the shelf, described only as "part of" the box, is on the inside or the outside: and in fact, because it cannot know which is the case, Inform allows either. So in general it is best to regard "parts" as being exterior parts, but to avoid having parts on containers that might in the course of play be closed up with the player inside.
+The question of what the player can, and cannot, reach to touch is important in interactive fiction. It contains some of the subtlest ideas in the model world, though they often go unnoticed. For instance, if a key is on a shelf which is part of a closed box, can we reach for the key? This comes down to whether the shelf, described only as `part of` the box, is on the inside or the outside: and in fact, because it cannot know which is the case, Inform allows either. So in general it is best to regard `parts` as being exterior parts, but to avoid having parts on containers that might in the course of play be closed up with the player inside.
 
 We can, if we wish, change the principles of what can be touched by writing new reaching inside or reaching outside rules. Returning to the example of the conical flask:
 
 	A rule for reaching inside the flask: say "Your hand passes through the glass as if it were not there, chilling you to the bone."; allow access.
 
-(Or this could equally be called "a reaching inside rule for the flask".) More generally, we could give the usual flexible description of what the rule applies to:
+(Or this could equally be called `a reaching inside rule for the flask`.) More generally, we could give the usual flexible description of what the rule applies to:
 
 	A rule for reaching inside open containers: say "Your hands seem enigmatically too large for [the container in question]."; deny access.
 
-The "container in question" is the one to which the rule is being applied. Note that a reaching inside rule can "deny access" (stopping with failure), or "allow access" (stopping with success), or neither, in which case the decision is left up to any subsequent rules in the rulebook to make. If none of them decide, access is allowed.
+The `container in question` is the one to which the rule is being applied. Note that a reaching inside rule can `deny access` (stopping with failure), or `allow access` (stopping with success), or neither, in which case the decision is left up to any subsequent rules in the rulebook to make. If none of them decide, access is allowed.
 
 If it seems possible that these rules will be employed by people other than the player, then we need to write them a little more carefully, and in particular we need to ensure that they print nothing for other people. In the first case below, anybody can reach through the glass; in the second case, only the player cannot reach into open containers.
 
@@ -6558,7 +6547,7 @@ If it seems possible that these rules will be employed by people other than the 
 			say "Your hands seem enigmatically too large for [the container in question].";
 			deny access.
 
-The "person reaching" is, as its name suggests, the person trying to reach through the barrier in question.
+The `person reaching` is, as its name suggests, the person trying to reach through the barrier in question.
 
 ## Changing visibility {visibility}
 
@@ -6566,9 +6555,9 @@ The "person reaching" is, as its name suggests, the person trying to reach throu
 
 Ordinarily, Inform has a simple model for visibility: it is either fully light or it is fully dark, and certain actions are impossible in the dark, such as examining something.
 
-We first need to remember that darkness affects what actions are even tried, as far as the player's typed commands go. If the player is in a dark room, and there is a screwdriver on the floor, the command ``EXAMINE SCREWDRIVER`` will not try any action: the screwdriver is not "in scope", which means that the parser thinks the player does not have any means of knowing it exists. (The rules for scope can be modified – see the chapter on [Activities].) But let's suppose that the player types ``EXAMINE BOOK``, and is holding the book in question. The book is now "in scope", so the action "examining the book" is tried.
+We first need to remember that darkness affects what actions are even tried, as far as the player's typed commands go. If the player is in a dark room, and there is a screwdriver on the floor, the command ``EXAMINE SCREWDRIVER`` will not try any action: the screwdriver is not "in scope", which means that the parser thinks the player does not have any means of knowing it exists. (The rules for scope can be modified – see the chapter on [Activities].) But let's suppose that the player types ``EXAMINE BOOK``, and is holding the book in question. The book is now "in scope", so the action `examining the book` is tried.
 
-Some actions require light to be present, and "examining" is one of those. So Inform consults the visibility rules to see if it can go ahead. By default, there is only one visibility rule, which says "yes" in the light and "no" in darkness. Here, though, we create another one:
+Some actions require light to be present, and `examining` is one of those. So Inform consults the visibility rules to see if it can go ahead. By default, there is only one visibility rule, which says `yes` in the light and `no` in darkness. Here, though, we create another one:
 
 	Visibility rule when in darkness:
 		if examining the book:
@@ -6576,16 +6565,16 @@ Some actions require light to be present, and "examining" is one of those. So In
 			there is sufficient light;
 		there is insufficient light.
 
-A visibility rule must always conclude "there is sufficient light", or "there is insufficient light", or else do nothing and leave it to other rules to decide.
+A visibility rule must always conclude `there is sufficient light`, or `there is insufficient light`, or else do nothing and leave it to other rules to decide.
 
-It is a possibly unexpected fact that "looking" does not require light, but instead behaves differently in darkness – it prints a pseudo-room-description such as
+It is a possibly unexpected fact that `looking` does not require light, but instead behaves differently in darkness – it prints a pseudo-room-description such as
 
 ``` transcript
 **Darkness**
 It is pitch dark, and you can't see a thing.
 ```
 
-instead of printing the description of the player's current room. This means that the "looking" action is unaffected by visibility rules. All the same, what "looking" does in the dark can be changed by using the two activities "printing the name of a dark room" and "printing the description of a dark room" (see the chapter on [Activities] for details).
+instead of printing the description of the player's current room. This means that the `looking` action is unaffected by visibility rules. All the same, what `looking` does in the dark can be changed by using the two activities `printing the name of a dark room` and `printing the description of a dark room` (see the chapter on [Activities] for details).
 
 ## Stored actions {kind_storedaction}
 
@@ -6593,17 +6582,17 @@ instead of printing the description of the player's current room. This means tha
 
 As we have seen, to describe an action fully takes a complicated little bundle of information – we need to know what is to be done, who will do it, and what it will be done to. There are times when we would like to remember an action and look back on it later (perhaps many turns later, after many other actions have taken effect) – but this is not easy to do with only the techniques we have seen so far. There are quite a few cases to get right, and it would be easy to not store quite enough of the details.
 
-Fortunately, Inform provides a kind of value called "action" which can do all of this automatically. (In older versions of Inform this was called "stored action", but the word "stored" is now unnecessary, and makes no difference.) As with most other kinds of value, actions can be held in variables, "let" values, properties or table columns. For example:
+Fortunately, Inform provides a kind of value called `action` which can do all of this automatically. (In older versions of Inform this was called `stored action`, but the word `stored` is now unnecessary, and makes no difference.) As with most other kinds of value, actions can be held in variables, `let` values, properties or table columns. For example:
 
 	The best idea yet is an action that varies.
 
-creates a variable called "the best idea yet" which holds an action.
+creates a variable called `the best idea yet` which holds an action.
 
 This will normally be created holding the default value – the player waiting. We really only have two ways to make more interesting actions. One is by typing them out explicitly, like so:
 
 	now the best idea yet is pushing the button;
 
-Here "pushing the button" is a constant of the kind "action", so it goes into happily into "best idea yet" in the same way that a number like 3 could go into a number that varies. The action must be specific in every respect, so "taking something" or "doing something" will not work – "taking something" is really a general description of many possible actions, not an action in its own right.
+Here `pushing the button` is a constant of the kind `action`, so it goes into happily into `best idea yet` in the same way that a number like 3 could go into a number that varies. The action must be specific in every respect, so `taking something` or `doing something` will not work – `taking something` is really a general description of many possible actions, not an action in its own right.
 
 The other way to produce a useful action is:
 
@@ -6614,9 +6603,9 @@ The other way to produce a useful action is:
 >     let the present whim be the current action;
 >     say "How you would like to be [current action].";
 >
-> This only makes sense if an action is currently going on, so it shouldn't be used in "every turn" rules, for instance.
+> This only makes sense if an action is currently going on, so it shouldn't be used in `every turn` rules, for instance.
 
-So much for making actions: now for making use of them. The first obvious idea is to store up an action for several turns and then have it take effect later. That's easily done: just as we can "try" any action written out explicitly, so we can also try a stored one. The phrase to do this has exactly the same wording either way, since it does the same thing either way.
+So much for making actions: now for making use of them. The first obvious idea is to store up an action for several turns and then have it take effect later. That's easily done: just as we can `try` any action written out explicitly, so we can also try a stored one. The phrase to do this has exactly the same wording either way, since it does the same thing either way.
 
 But actions can still be useful even if we never intend to try them. For one thing, we can say them, and this produces a fairly natural description of what the action is:
 
@@ -6625,14 +6614,14 @@ But actions can still be useful even if we never intend to try them. For one thi
 will produce text such as:
 
 ``` transcript
-"So, the subject vishes to engage in rubbing the fireman's pole. Zis is very interesting."
+"Zo, the subject vishes to engage in rubbing the fireman's pole. Zis is very interesting."
 ```
 
 One of Inform's most convenient features is its ability to test if the action being processed matches vague or complicated descriptions of whole classes of actions. For example,
 
 	if the best idea yet is taking something, ...
 
-works even though "taking something" is not a single action; it's a description which could apply to many different actions (taking a box, taking a ball, and so on). What Inform tests is whether the "best idea yet" value, a single action, fits this description or not. We can be even vaguer:
+works even though `taking something` is not a single action; it's a description which could apply to many different actions (taking a box, taking a ball, and so on). What Inform tests is whether the `best idea yet` value, a single action, fits this description or not. We can be even vaguer:
 
 	if the best idea yet is doing something to the lever, ...
 
@@ -6640,15 +6629,15 @@ Just occasionally, this can lead to ambiguities. For instance,
 
 	if the current action is wearing something, ...
 
-fails because Inform thinks "wearing" is meant in the sense of the current action having clothes on, so it produces a problem message. To avoid this, simply write:
+fails because Inform thinks `wearing` is meant in the sense of the current action having clothes on, so it produces a problem message. To avoid this, simply write:
 
 	if the current action is trying wearing something, ...
 
-which can't be misunderstood. Something else to be aware of is that the terms "actor", "noun" and so on will refer to that action: for instance, in
+which can't be misunderstood. Something else to be aware of is that the terms `actor`, `noun` and so on will refer to that action: for instance, in
 
 	if the best idea yet is taking the noun, ...
 
-"noun" here refers to the noun in "best idea yet", not to its meaning outside of this phrase (if indeed it has such a meaning).
+`noun` here refers to the noun in `best idea yet`, not to its meaning outside of this phrase (if indeed it has such a meaning).
 
 When dealing with actions, we sometimes want to know what they are dealing with. We can extract this information using the following phrases:
 
@@ -6664,7 +6653,7 @@ When dealing with actions, we sometimes want to know what they are dealing with.
 >
 >     noun part of the current action = the brick
 >
-> If the noun is something other than an object, this produces just "nothing", the non-object.
+> If the noun is something other than an object, this produces just `nothing`, the non-object.
 
 > phrase: {ph_secondpart} second noun part of (action) ... object
 >
@@ -6672,7 +6661,7 @@ When dealing with actions, we sometimes want to know what they are dealing with.
 >
 >     second noun part of the current action = Biggles
 >
-> If the second noun is something other than an object (for instance for the command ``SET DIAL TO 3417`` it would be the number 3417), this produces just "nothing", the non-object.
+> If the second noun is something other than an object (for instance for the command ``SET DIAL TO 3417`` it would be the number 3417), this produces just `nothing`, the non-object.
 
 > phrase: {ph_actorpart} actor part of (action) ... object
 >
@@ -6688,7 +6677,7 @@ The following phrase is a convenient shorthand form:
 >
 >     if the current action involves Algy
 >
-> would be true for "give revolver to Algy", "Algy trying flying the Sopwith Camel", "examine Algy" and so on, but false for "ask Raymond about secret airfield".
+> would be true for `give revolver to Algy`, `Algy trying flying the Sopwith Camel`, `examine Algy` and so on, but false for `asking Raymond about secret airfield`.
 
 > phrase: {ph_actionof} action of (an action) ... action
 >
@@ -6696,7 +6685,7 @@ The following phrase is a convenient shorthand form:
 >
 >     now the best idea yet is the action of pushing the button;
 >
-> Nowadays in most contexts we can just type "pushing the button" as a value, and that will work fine, so this phrase is retained only to keep old code working.
+> Nowadays in most contexts we can just type `pushing the button` as a value, and that will work fine, so this phrase is retained only to keep old code working.
 
 ## Guidelines on how to write rules about actions
 
@@ -6715,7 +6704,7 @@ So which should we use? Of course, we could decide that it really doesn't matter
 
 **1. Are we just trying to correct the player's typing?**
 
-For instance, responding to the command ``STEAL GOLDEN EAGLE`` with a reply like "To steal something, just try to ``TAKE IT``." It is bad style to make a special action for this, which does nothing except to print up this text: better is to use the "Understand ... as a mistake" technique, which will come up in the chapter on [Understanding].
+For instance, responding to the command ``STEAL GOLDEN EAGLE`` with a reply like ``To steal something, just try to TAKE IT.`` It is bad style to make a special action for this, which does nothing except to print up this text: better is to use the `Understand ... as a mistake` technique, which will come up in the chapter on [Understanding].
 
 **2. Does the effect apply only to a particular situation, or is it a general phenomenon?**
 
@@ -6723,39 +6712,39 @@ In other words, does the effect apply only to particular people, things or place
 
 Rules like the one saying that photography is only possible if one holds the camera are, by convention, also counted as generic rules of play: they are not really special rules about the camera, but apply to all possible acts of photography anywhere, so are actually generic.
 
-Sometimes we can choose our own answer to this question, and go either way. Suppose we want a certain place to be muddy-floored, affecting things that happen there. One way would be to write exceptional rules applying to that one room. But we could alternatively create a general concept of muddiness ("A room can be clean or muddy. A room is usually clean.") and then regard the new behaviour as being a set of generic rules applying in muddy rooms. We could then, of course, create a second muddy room with much greater ease, or transplant these rules to other works and have muddy rooms in those too.
+Sometimes we can choose our own answer to this question, and go either way. Suppose we want a certain place to be muddy-floored, affecting things that happen there. One way would be to write exceptional rules applying to that one room. But we could alternatively create a general concept of muddiness (`A room can be clean or muddy. A room is usually clean.`) and then regard the new behaviour as being a set of generic rules applying in muddy rooms. We could then, of course, create a second muddy room with much greater ease, or transplant these rules to other works and have muddy rooms in those too.
 
 **3. Particular situations: use Instead or After (or sometimes Before).**
 
-The next question is: does the effect kick in after the hoped-for action has taken place, or not? In the case of the land mine, to answer that means deciding whether we think the detonator is sensitive to the slightest touch – in which case the explosion would happen at the first touch, and should be in an "Instead" rule – or whether one must actually pick up and disturb the mine – in which case an "After" should be used.
+The next question is: does the effect kick in after the hoped-for action has taken place, or not? In the case of the land mine, to answer that means deciding whether we think the detonator is sensitive to the slightest touch – in which case the explosion would happen at the first touch, and should be in an `Instead` rule – or whether one must actually pick up and disturb the mine – in which case an `After` should be used.
 
-That leaves us a choice of two rulebooks if the effect takes place when the merest impulse towards the action is felt: "Before" and "Instead". Which to use? In cases of doubt, choose "Instead". But if the effect is intended to absolutely suppress all such impulses – for instance, in a silent examination room there must be no talking – then "Before" might be more appropriate. We could imagine that someone about to say something first has a mental impulse to speak, then opens their mouth so that it becomes visible to others that some talking is about to go on, and finally utters words. Here are three possible responses:
+That leaves us a choice of two rulebooks if the effect takes place when the merest impulse towards the action is felt: `Before` and `Instead`. Which to use? In cases of doubt, choose `Instead`. But if the effect is intended to absolutely suppress all such impulses – for instance, in a silent examination room there must be no talking – then `Before` might be more appropriate. We could imagine that someone about to say something first has a mental impulse to speak, then opens their mouth so that it becomes visible to others that some talking is about to go on, and finally utters words. Here are three possible responses:
 
-- "You cannot contemplate breaking this smothering silence." (*Before*)
-- "The invigilator stares you down through her horn-rimmed glasses." (*Instead*)
-- "Everyone turns, appalled, as the silence is broken like the surface of a swimming pool by a falling elephant." (*After*)
+- ``You cannot contemplate breaking this smothering silence.`` (*Before*)
+- ``The invigilator stares you down through her horn-rimmed glasses.`` (*Instead*)
+- ``Everyone turns, appalled, as the silence is broken like the surface of a swimming pool by a falling elephant.`` (*After*)
 
 **4. Generic situations: work with action rules (or sometimes Before).**
 
-(a) If the effect takes place only when an action is definitely being tried, then we should use one of the action's three rulebooks: check, carry out or report. Check rules should do nothing, and should say nothing either unless they block the action (in which case, they should say why).
+(a) If the effect takes place only when an action is definitely being tried, then we should use one of the action's three rulebooks: `check`, `carry out` or `report`. Check rules should do nothing, and should say nothing either unless they block the action (in which case, they should say why).
 
 Carry out rules must not block the action – it is too late for that – and should not say anything – that hasn't happened yet. (There are a few exceptions: if the action is to look at something, then carrying it out is in a sense the same thing as reporting it. But in all cases of doubt, a carry out rule should say nothing.) Adding a carry out rule to an existing action can make it do something extra.
 
-Report rules must neither block the action nor do anything. Working with new report rules is a way to make more natural-seeming, or more informative, messages appear. For instance, an effect where we want to be able to see through a door when it is first opened ("You open the panelled door, through which is the Board Room.") would be a case for a report rule.
+Report rules must neither block the action nor do anything. Working with new report rules is a way to make more natural-seeming, or more informative, messages appear. For instance, an effect where we want to be able to see through a door when it is first opened (``You open the panelled door, through which is the Board Room.``) would be a case for a report rule.
 
 In all cases, it is good style to write check, carry out or report rules in such a way that they could be used in other works too, or in situations that could conceivably have happened in this one (even if in fact it never does). We may one day want to put our new rules into an extension to be used by other people or in other projects, after all.
 
-In this chapter, we have only seen the addition of new rules. We could add a new "check taking" rule, for instance, with the techniques seen so far. But what if the effect we want is not a matter of adding a rule but taking away, or restricting the applicability, of an existing one? In that case, we will need to say that the rule "does nothing" under certain circumstances (see the chapter on [Rulebooks]). The check, carry out and report rules for all of the built-in actions are named, and they appear in the Actions index.
+In this chapter, we have only seen the addition of new rules. We could add a new `check taking` rule, for instance, with the techniques seen so far. But what if the effect we want is not a matter of adding a rule but taking away, or restricting the applicability, of an existing one? In that case, we will need to say that the rule `does nothing` under certain circumstances (see the chapter on [Rulebooks]). The check, carry out and report rules for all of the built-in actions are named, and they appear in the Actions index.
 
-(b) If the effect takes place to divert or supplement an action, before that action actually takes place, then this should be done with a "Before" rule. This is the biggest practical use of "Before" rules: to try other actions, either instead or as well as the one just getting under way.
+(b) If the effect takes place to divert or supplement an action, before that action actually takes place, then this should be done with a `Before` rule. This is the biggest practical use of `Before` rules: to try other actions, either instead or as well as the one just getting under way.
 
-For example, if we want an automatic mechanism to try opening a container before taking something inside it, that would be a classic case for "Before". Indeed, that is the only way it could work – "Before" rules have a chance to get in before the touchability conditions are tested.
+For example, if we want an automatic mechanism to try opening a container before taking something inside it, that would be a classic case for `Before`. Indeed, that is the only way it could work – `Before` rules have a chance to get in before the touchability conditions are tested.
 
-If we wanted a special "stealing" action for the act of taking another person's possessions, we might want to divert any taking action for such items into our new "stealing" action – that too would be a "Before". This would ensure that any "Instead" rules to do with taking do not apply.
+If we wanted a special `stealing` action for the act of taking another person's possessions, we might want to divert any taking action for such items into our new `stealing` action – that too would be a `Before`. This would ensure that any `Instead` rules to do with taking do not apply.
 
 **5. Changing the behaviour of out-of-world actions.**
 
-Remember that "Instead", "Before" and "After" do not apply: so use "check" rules to forbid certain out-of-world activities, or specify that their rules do nothing (see the chapter on [Rulebooks]).
+Remember that `Instead`, `Before` and `After` do not apply: so use `check` rules to forbid certain out-of-world activities, or specify that their rules do nothing (see the chapter on [Rulebooks]).
 
 **Finally...**
 
@@ -6767,7 +6756,9 @@ These are only guidelines. The system is designed to be flexible in order to giv
 
 ^^{sentence verbs <-- verbs: sentence verbs} ^^{|is} ^^{relations: used in sentences}
 
-Descriptions of things – "open door", "people in the Drawing Room" – have already had a whole chapter to themselves. But descriptions are only half of the story of Inform's highly flexible language for talking about places, things and circumstances: this chapter is the other half, and is about the "sentence". Of course all text is made up of sentences, but Inform has a more specific meaning than that. Consider the following pieces of source text:
+Descriptions of things – `open door`, `people in the Drawing Room` – have already had a whole chapter to themselves. But descriptions are only half of the story of Inform's highly flexible language for talking about places, things and circumstances, using adjectives and nouns: this chapter is the other half, and brings in verbs.
+
+Consider the following pieces of source text:
 
 	The mouse is in the teapot.
 	
@@ -6777,7 +6768,7 @@ Descriptions of things – "open door", "people in the Drawing Room" – have al
 		say "The mouse slips from your hand and disappears into the teapot!";
 		now the mouse is in the teapot.
 
-What these three extracts have in common is the sentence "the mouse is in the teapot". Such a sentence can be used in three different ways: to declare the original state of the world, to ask during play if the world currently has that state, or to change things during play so that it does.
+What these three extracts have in common is the sentence `the mouse is in the teapot`. Such a sentence can be used in three different ways: to declare the original state of the world, to ask during play if the world currently has that state, or to change things during play so that it does.
 
 Actually, though, only definite sentences about the present can be used in all three ways. A vague instruction like
 
@@ -6796,7 +6787,7 @@ Verbs also turn up inside the more complicated descriptions. For instance,
 
 are both descriptions, not sentences, but they contain "to be" and "to be able to see" respectively.
 
-This chapter is about the verbs which can be used in sentences and descriptions. Inform involves many other features which use verbs – the action "taking the mouse" and the phrase "end the story" both use forms of verbs (to take and to end) – but this chapter has nothing to do with them: so for the sake of clarity, we will call verbs that occur in sentences "sentence verbs".
+This chapter is about the verbs which can be used in sentences and descriptions. Inform involves many other features which use verbs – the action `taking the mouse` and the phrase `end the story` both use forms of verbs (to take and to end) – but this chapter has nothing to do with them: so for the sake of clarity, we will call verbs that occur in sentences _sentence verbs_.
 
 ## What sentences are made up from
 
@@ -6806,31 +6797,33 @@ A sentence consists of two nouns with a verb between them. Usually, the two noun
 
 	Mr Collins is in a lighted room.
 
-Here "Mr Collins" and "a lighted room" are descriptions. But there are sentences where one or both of the nouns is a value of some other kind. For instance, in
+Here `Mr Collins` and `a lighted room` are descriptions. But there are sentences where one or both of the nouns is a value of some other kind. For instance, in
 
 	if the score is greater than 10, ...
 
-the sentence "the score is greater than 10" consists of two number values ("the score" and "10") connected by a verb part ("is greater than").
+the sentence `the score is greater than 10` consists of two number values (`the score` and `10`) connected by a verb part (`is greater than`).
 
-This chapter is about getting the most out of sentences by defining new verbs to express ideas not already built in to Inform. Before we can define a new sentence verb, however, we must first look at the meanings of verbs: which Inform calls "relations".
+This chapter is about getting the most out of sentences by defining new verbs to express ideas not already built in to Inform. Before we can define a new sentence verb, however, we must first look at the meanings of verbs: which Inform calls _relations_.
 
 ## What are relations? {RELATIONS}
 
 ^^{relations} ^^{sentence verbs: difference from relations} ^^{relations: difference from sentence verbs}
 
-Relations are what sentences express. They are yes/no questions about pairs of things: for example, to say that the coin is in the purse is to say that a particular relation ("being in") is true about a specific pair of things (the coin, the purse). It is neither a fact about the coin nor about the purse, but about the two together.
+Relations are what sentences express. They are yes/no questions about pairs of things: for example, to say that the coin is in the purse is to say that a particular relation (containment) is true about a specific pair of things (the purse, the coin). It is neither a fact about the coin nor about the purse, but about the two together.
 
 Inform comes with a number of relations built in, almost all of which have been used in previous chapters already. The following table names some of the more useful ones, giving examples of sentences to bring them about:
 
-- **containment** relation - `The coin is in the purse.`
-- **support** relation - `The coin is on the table.`
-- **incorporation** relation - `The coin is part of the sculpture.`
-- **carrying** relation - `The coin is carried by Peter.`
-- **wearing** relation - `The jacket is worn by Peter.`
-- **possession** relation - `if Mr Darcy has a rapier...`
-- **adjacency** relation - `The Study is east of the Hallway.`
-- **visibility** relation - `if Darcy can see Elizabeth...`
-- **touchability** relation - `if Darcy can touch Elizabeth...`
+Relation        | Example
+--------------- | ---------------
+`containment`   | `The coin is in the purse.`
+`support`       | `The coin is on the table.`
+`incorporation` | `The coin is part of the sculpture.`
+`carrying`      | `The coin is carried by Peter.`
+`wearing`       | `The jacket is worn by Peter.`
+`possession`    | `if Mr Darcy has a rapier...`
+`adjacency`     | `The Study is east of the Hallway.`
+`visibility`    | `if Darcy can see Elizabeth...`
+`touchability`  | `if Darcy can touch Elizabeth...`
 
 These relation names do not trip off the tongue, but they relatively seldom need to be referred to.
 
@@ -6861,7 +6854,7 @@ This is why we cannot have
 
 simultaneously, and it is a rare exception to the general rule that having one relation does not affect having another.
 
-But there is also a sixth relation used in Inform for these meanings: the possession relation, which is the meaning of the verb "to have". At first sight this looks the same as the carrying relation, but in fact it is a convenient shorthand for "carrying or wearing", provided for conditions rather than assertions:
+But there is also a sixth relation used in Inform for these meanings: the possession relation, which is the meaning of the verb "to have". At first sight this looks the same as the carrying relation, but in fact it is a convenient shorthand for `carrying or wearing`, provided for conditions rather than assertions:
 
 	if Mr Darcy has a wet shirt ...
 
@@ -6879,13 +6872,13 @@ We can create new relations like so:
 
 	Loving relates various people to one person.
 
-Every relation has a name which ends with the word "relation", and in this case the name is "loving relation". While the name is often just two words long, as here, it doesn't have to be:
+Every relation has a name which ends with the word `relation`, and in this case the name is `loving relation`. While the name is often just two words long, as here, it doesn't have to be:
 
 	Adept sensitivity relates one person to one vehicle.
 
-makes the "adept sensitivity relation". (The limit is 32 words.)
+makes the `adept sensitivity relation`. (The limit is 32 words.)
 
-In such a definition, we have to say what kind of thing appears on the left and right of any relation, and also whether "one" or "various" possibilities can exist. In the example
+In such a definition, we have to say what kind of thing appears on the left and right of any relation, and also whether `one` or `various` possibilities can exist. In the example
 
 	Loving relates various people to one person.
 
@@ -6893,7 +6886,7 @@ what we are saying is that only people love; that they only love people; and tha
 
 Suppose, just in this discussion, we write "X ❤️ Y" to mean that X is related by the loving relation to Y. (This isn't Inform syntax: that comes later. It's just to explain relationships.)
 
-The "various" part comes in because, for instance, we might have:
+The `various` part comes in because, for instance, we might have:
 
 - Verenka ❤️ Stankevich
 - Liubov ❤️ Stankevich
@@ -6906,11 +6899,11 @@ It is sometimes convenient to give a name to the other side of a relationship, s
 
 	Pet-ownership relates various animals to one person (called the owner).
 
-It would then make sense to talk about "the owner of Loulou", and we could have phrases like "now Flaubert is the owner of Loulou" or "if the owner of Loulou is a woman..." and so forth. This, however, would not be allowed:
+It would then make sense to talk about `the owner of Loulou`, and we could have phrases like `now Flaubert is the owner of Loulou` or `if the owner of Loulou is a woman...` and so forth. This, however, would not be allowed:
 
 	Pet-ownership relates various animals (called the pet) to one person.
 
-because "the pet of Flaubert" would be ambiguous: he might have owned dozens.
+because `the pet of Flaubert` would be ambiguous: he might have owned dozens.
 
 ## Making symmetric relations
 
@@ -6934,7 +6927,7 @@ In this case, we can again give a name to the partner under a relation:
 
 and now, for instance, if the spouse of John is Yoko then the spouse of Yoko is automatically John, and they have no other spouses.
 
-Since many of these examples have involved people, it might be worth mentioning again that any kind can be involved, not just the "person" kind.
+Since many of these examples have involved people, it might be worth mentioning again that any kind can be involved, not just the `person` kind.
 
 ## Relations in groups
 
@@ -7241,11 +7234,11 @@ Creating a new verb is easy:
 
 	To admire is a verb.
 
-But this is of limited use because it doesn't give "to admire" a meaning. Better is to write something like this:
+But this is of limited use because it doesn't give `to admire` a meaning. Better is to write something like this:
 
 	The verb to sport means the wearing relation.
 
-That creates the verb "to sport", if it doesn't exist already, and gives it a meaning, all in one sentence. Inform can now use sentences like `Mr Wickham sports a Tory rosette.`, whereas it remains helpless to act on `Mr Darcy admires Miss Elizabeth.`, because it doesn't know what "admires" means.
+That creates the verb `to sport`, if it doesn't exist already, and gives it a meaning, all in one sentence. Inform can now use sentences like `Mr Wickham sports a Tory rosette.`, whereas it remains helpless to act on `Mr Darcy admires Miss Elizabeth.`, because it doesn't know what `admires` means.
 
 Occasionally it's convenient to have the relation the other way around. For instance:
 
@@ -7263,7 +7256,7 @@ Inform uses the regular rules of English grammar to work out the many forms it c
 
 Inform's system of "adaptive text" allows a still wider range of linguistic tricks with verbs, which is why people sometimes create verbs without giving them meanings, just to be able to print them back in interesting ways (though, again, see the notes below on multi-word verbs). See [More on adapting verbs] for more.
 
-1) Only a single-word verb like "to sport" can be used for adaptive text, in texts like `"[The noun] [sport] the rosette."`. If we create the verb "to run amok in", then `"[The noun] [run amok in] the Spice Bazaar."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Spice Bazaar."`
+1) Only a single-word verb like `to sport` can be used for adaptive text, in texts like `"[The noun] [sport] the rosette."`. If we create the verb `to run amok in`, then `"[The noun] [run amok in] the Spice Bazaar."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Spice Bazaar."`
 
 2) Multiple-word verbs do not pick up the two `to be ...` forms mentioned above. So whereas `to sport` allowed `to be sporting` and `to be sported by`, `to run amok in` does not allow `to be running amok in` and `to be run amok in by`. Inform takes the view that multiple-word "verbs" may be grammatically complicated already (often having a preposition — in this case, `in`) and that it runs some risk of producing nonsense.
 
@@ -7324,13 +7317,13 @@ are exactly equivalent, and so are these two descriptions:
 	somebody who suspects Colonel Hotchkiss
 	somebody suspicious of Colonel Hotchkiss
 
-While most prepositions are short ("in", "part of", "suspicious of"), they're free to be longer if need be ("inordinately far away from"): the limit is 30 words, which should be ample.
+While most prepositions are short (`in`, `part of`, `suspicious of`), they're free to be longer if need be (`inordinately far away from`): the limit is 30 words, which should be ample.
 
 We can also define verbs as auxiliaries, like so:
 
 	The verb to be able to approach means the approachability relation.
 
-Now we can ask if Poirot "can approach" Hotchkiss, and so on.
+Now we can ask if Poirot `can approach` Hotchkiss, and so on.
 
 ## Verbs which mean properties
 
@@ -7364,7 +7357,7 @@ This is a nice way to make descriptions and conditions more expressive. We could
 
 ^^{relations: indirect} ^^{relations: paths through} ^^{relations: distance through} ^^{pathfinding: arbitrary relations} ^^{route-finding, fast/slow} ^^{fast route-finding+useopt+: for particular relations} ^^{slow route-finding+useopt+: for particular relations} ^^{distance: measuring with (number of steps)+sourcepart+} ^^{counting: steps in an indirect relation}
 
-We have already seen, in the chapter on [Descriptions] which is a forerunner of this one, that Inform provides not only "adjacent" as a way of seeing if one room is directly connected to another, but also "the best route from A to B", which allows us to see if any sequence of moves connects them.
+We have already seen, in the chapter on [Descriptions] which is a forerunner of this one, that Inform provides not only `adjacent` as a way of seeing if one room is directly connected to another, but also `the best route from A to B`, which allows us to see if any sequence of moves connects them.
 
 Something similar – in fact, simpler – is allowed for any relation between objects. Suppose we would like to go sledging: we can go downhill, but not up. Some quite distant places may be reachable, while others close by may not be, even if lower than us, because they would involve climbing again at some point. The following would implement this:
 
@@ -7388,7 +7381,7 @@ Here we're making use of:
 >
 >     next step via the overlooking relation from the Folly to the Chinese Lake
 >
-> The result is the special object value "nothing" if the two endpoints are the same or if no route exists.
+> The result is the special object value `nothing` if the two endpoints are the same or if no route exists.
 
 > phrase: {ph_numbersteps} number of steps via (relation of values to values) from (object) to (object) ... number
 >
@@ -7465,13 +7458,13 @@ Vitaly Zholobov
   who flew with Edward White.
 ```
 
-As with route-finding through the map, finding `the next step via` a relation can be slow. Once again there is a choice of algorithms: "fast" and "slow", where "fast" needs much more memory. To make route-finding for a given relation "fast", we have to declare it that way:
+As with route-finding through the map, finding `the next step via` a relation can be slow. Once again there is a choice of algorithms: `fast` and `slow`, where `fast` needs much more memory. To make route-finding for a given relation `fast`, we have to declare it that way:
 
 	Joint-crewing relates various astronauts to various astronauts with fast route-finding.
 
-Otherwise, the "slow" method will be used.
+Otherwise, the `slow` method will be used.
 
-This `with fast route-finding` note can only be added to various-to-various relations. (Although route-finding through various-to-one and one-to-various relations is fully supported, it exploits the relative simplicity of these problems to use a more efficient algorithm than either "fast" or "slow".)
+This `with fast route-finding` note can only be added to various-to-various relations. (Although route-finding through various-to-one and one-to-various relations is fully supported, it exploits the relative simplicity of these problems to use a more efficient algorithm than either `fast` or `slow`.)
 
 ### See Also
 
@@ -7519,7 +7512,7 @@ And here is a mathematical one:
 	The verb to divide means the divisibility relation.
 	The verb to be a factor of means the divisibility relation.
 
-We now find that "2 divides 12", "5 is not a factor of 12" and "12 is divisible by 3" are all true. Again, we are only really gaining a nice form of words, but improving the clarity of the source text is never a bad thing.
+We now find that `2 divides 12`, `5 is not a factor of 12` and `12 is divisible by 3` are all true. Again, we are only really gaining a nice form of words, but improving the clarity of the source text is never a bad thing.
 
 ## Relations involving values
 
@@ -7540,7 +7533,7 @@ How might we make use of this? Clearly it would be impractical to keep trying:
 	if "caviar" belongs with "abacuses", ...
 	...
 
-to find out what "caviar" belongs with. It's still harder to find out if it belongs with anything at all – in theory we would have to try every possibility, which of course is impossible. Instead we have these phrases:
+to find out what `"caviar"` belongs with. It's still harder to find out if it belongs with anything at all – in theory we would have to try every possibility, which of course is impossible. Instead we have these phrases:
 
 > phrase: {ph_ifleft} if (value) relates to (name of kind) by (relation of values to values):
 >
@@ -7562,7 +7555,7 @@ If a partner does exist, then we can find it with:
 >
 >     the text to which "chalk" relates by the partnership relation
 >
-> which might be, say, "cheese". It's a run-time problem to use this if no such Y exists.
+> which might be, say, `"cheese"`. It's a run-time problem to use this if no such Y exists.
 
 > phrase: {ph_leftlookup} (name of kind) that/which/who relates to (value) by (relation of values to values) ... value
 >
@@ -7570,7 +7563,7 @@ If a partner does exist, then we can find it with:
 >
 >     the text which relates to "cheese" by the partnership relation
 >
-> which might be, say, "chalk". It's a run-time problem to use this if no such X exists.
+> which might be, say, `"chalk"`. It's a run-time problem to use this if no such X exists.
 
 Of course, there might be many answers to this question, so perhaps these are neater:
 
@@ -7580,7 +7573,7 @@ Of course, there might be many answers to this question, so perhaps these are ne
 >
 >     list of texts which relate to "cheese" by the partnership relation
 >
-> which might be, say, { "chalk", "grapes", "macaroni" }. The answer might be the empty set, but that's not a problem.
+> which might be, say, `{ "chalk", "grapes", "macaroni" }`. The answer might be the empty set, but that's not a problem.
 
 > phrase: {ph_rightlookuplist} list of (name of kind) to which/whom (value) relates by (relation of values to values) ... value & list of (name of kind) that/which/whom (value) relates to by (relation of values to values) ... list of values
 >
@@ -7588,7 +7581,7 @@ Of course, there might be many answers to this question, so perhaps these are ne
 >
 >     list of texts to which "chalk" relates by the partnership relation
 >
-> which might be, say, { "cheese", "blackboard", "cliffs" }. The answer might be the empty set, but that's not a problem.
+> which might be, say, `{ "cheese", "blackboard", "cliffs" }`. The answer might be the empty set, but that's not a problem.
 
 Finally, it's sometimes useful to get at the list of all values which can appear on the left or right hand side of a relation. We need tongue-twister like wording to do it, but:
 
@@ -7610,13 +7603,13 @@ For efficiency reasons, there are no guarantees about what order these lists hav
 
 ^^{kinds: of relation} ^^{relations: kinds of relation} ^^{relations: used as values} ^^{values: relations as values} ^^{type-checking: of relation types} ^^{(relates), for arbitrary relation conditions+sourcepart+} ^^{empty / non-empty+adj+: for relations} ^^{non-empty / empty+adj+: for relations} ^^{relations: empty / non-empty+adj+} ^^{symmetric (relation)+adj+} ^^{equivalence (relation)+adj+} ^^{one-to-one (relation)+adj+} ^^{one-to-various (relation)+adj+} ^^{various-to-one (relation)+adj+} ^^{various-to-various (relation)+adj+}
 
-As we've seen, most relations have names – "containment relation", for instance. These are themselves values in Inform, though those values are not all of the same kind, because there is no single `relation` kind. Consider these two examples:
+As we've seen, most relations have names – `containment relation`, for instance. These are themselves values in Inform, though those values are not all of the same kind, because there is no single `relation` kind. Consider these two examples:
 
 	Parity relates a number (called N) to a number (called M) when N minus M is even.
 	
 	Joint magnitude relates a number (called N) to a number (called M) when N plus M is greater than 7.
 
-Here "parity relation" and "joint magnitude relation" are both values of the same kind: "relation of numbers to numbers". In general, every relation is a value of kind "relation of K to L", for the appropriate kinds K and L. So the parity relation doesn't have the same kind as the containment relation, for example. Because it often happens that K and L are the same, we can just say "relation of K" in this case, so we could equally say that the kind of the parity relation is "relation of numbers".
+Here `parity relation` and `joint magnitude relation` are both values of the same kind: `relation of numbers to numbers`. In general, every relation is a value of kind `relation of K to L`, for the appropriate kinds K and L. So the parity relation doesn't have the same kind as the containment relation, for example. Because it often happens that K and L are the same, we can just say `relation of K` in this case, so we could equally say that the kind of the parity relation is `relation of numbers`.
 
 This is useful to know when writing phrases like so:
 
@@ -7626,7 +7619,7 @@ This is useful to know when writing phrases like so:
 				if R relates N to M, say "[N] <=> [M]   ";
 			say "[line break]";
 
-and now "chart parity relation" will work nicely, but "chart visibility relation" will be rejected (as it should be, because it relates things, not numbers).
+and now `chart parity relation` will work nicely, but `chart visibility relation` will be rejected (as it should be, because it relates things, not numbers).
 
 That last example used a powerful trick: if `R` is any relation, we can write
 
@@ -7677,7 +7670,7 @@ A surprisingly useful adjective for relations is `empty`, which means that in th
 
 	now R is empty;
 
-The exceptions where "empty" can't be used are those which can't be changed at all, like the parity relation above, and a few built-in cases such as the support, containment and incorporation relations, where emptying would dissolve the model world in a disastrous way.
+The exceptions where `empty` can't be used are those which can't be changed at all, like the parity relation above, and a few built-in cases such as the support, containment and incorporation relations, where emptying would dissolve the model world in a disastrous way.
 
 With temporary relations (see the next section), it's even possible to change their valencies (one-to-one vs. one-to-various, etc.) using `now`, but only when they are `empty`.
 
@@ -7695,11 +7688,11 @@ In fact, though, we can also create relations to be dynamic data structures, lik
 >
 >     let the password dictionary be a relation of texts;
 >
-> This makes a purely temporary various-to-various relation between texts, which lasts as long as the temporary value "password dictionary" lasts. By default, relations are various-to-various, but we could instead write, say:
+> This makes a purely temporary various-to-various relation between texts, which lasts as long as the temporary value `password dictionary` lasts. By default, relations are various-to-various, but we could instead write, say:
 >
 >     let the nicknames catalogue be a various-to-one relation of texts;
 
-Such a relation exists only in the current phrase, and is destroyed when the phrase finishes, like any other "let". Of course there's no verb whose meaning is this relation, but that's no obstacle, because we can manipulate it using "relates":
+Such a relation exists only in the current phrase, and is destroyed when the phrase finishes, like any other `let`. Of course there's no verb whose meaning is this relation, but that's no obstacle, because we can manipulate it using `relates`:
 
 	now the nicknames catalogue relates "Trudy" to "Snake-eyes";
 
@@ -7745,7 +7738,7 @@ control the style of the text produced. The story viewpoint has to be one of the
 	second person plural
 	third person plural
 
-(which are actually the six possible values of a kind called "narrative viewpoint"), while the story tense must be one of:
+(which are actually the six possible values of a kind called `narrative viewpoint`), while the story tense must be one of:
 
 	past tense
 	present tense
@@ -7753,7 +7746,7 @@ control the style of the text produced. The story viewpoint has to be one of the
 	perfect tense
 	past perfect tense
 
-(from a kind called "grammatical tense"). Combining these gives 30 possibilities in all, though only a few are at all commonly used.
+(from a kind called `grammatical tense`). Combining these gives 30 possibilities in all, though only a few are at all commonly used.
 
 It's important to make a very large caveat here: Inform uses these settings in producing the replies ("responses") by the built-in actions, but the only way for all of our own text to have a particular tense or narrative viewpoint is to write it that way. If we write:
 
@@ -7773,7 +7766,7 @@ You stand and admire the Taj Mahal.
 We couldn't go that way.
 ```
 
-That's because the response ("We couldn't go that way") was constructed to follow the settings for viewpoint and tense, but the fixed text of the room description wasn't. In fact there are ways to write the room description so that it would adapt itself automatically, as we'll see, but it takes a fair amount of work. More simply:
+That's because the response (``We couldn't go that way.``) was constructed to follow the settings for viewpoint and tense, but the fixed text of the room description wasn't. In fact there are ways to write the room description so that it would adapt itself automatically, as we'll see, but it takes a fair amount of work. More simply:
 
 	The Taj Mahal is a room. "I stood and admired the Taj Mahal."
 	
@@ -7787,11 +7780,11 @@ If we want to write text which will work in whatever the current tense is, the f
 
 > phrase: {phs_here} say "[here]"
 >
-> Produces "here" if the story tense is the present tense, and "there" otherwise.
+> Produces ``here`` if the story tense is the present tense, and ``there`` otherwise.
 
 > phrase: {phs_now} say "[now]"
 >
-> Produces "now" if the story tense is the present tense, and "then" otherwise.
+> Produces ``now`` if the story tense is the present tense, and ``then`` otherwise.
 
 ## Adaptive text
 
@@ -7801,7 +7794,7 @@ Paying attention to the tense and viewpoint is one reason why text might need to
 
 	Instead of taking: say "[The noun] is pinned down by Dr Zarkov's force field."
 
-Most of the time it's fine ("The V-ray is pinned down by Dr Zarkov's force field"), but then:
+Most of the time it's fine (``The V-ray is pinned down by Dr Zarkov's force field``), but then:
 
 	> GET ME
 	You is pinned down by Dr Zarkov's force field.
@@ -7812,27 +7805,27 @@ Which is a little unfortunate. But the correction is very easy:
 
 	Instead of taking: say "[The noun] [are] pinned down by Dr Zarkov's force field."
 
-The result is much better: "The V-ray is pinned down..."; "You are..."; "The condensers are...". In fact, it's also convenient because it adapts to the story viewpoint and story tense: "The condensers will be pinned down..."; "He was pinned down...".
+The result is much better: ``The V-ray is pinned down...``; ``You are...``; ``The condensers are...``. In fact, it's also convenient because it adapts to the story viewpoint and story tense: ``The condensers will be pinned down...``; ``He was pinned down...``.
 
 How does Inform do this? The answer is not that `"[are]"` is a specially-written text substitution. In fact Inform can do this with any verb that it has a definition of. For example,
 
 	"[The noun] [carry] too much static charge."
 
-would also adapt itself – "The V-ray carries too much static charge", and so on. There aren't many verbs built in to Inform, but `"[have]"` and `"[carry]"` and `"[wear]"` and `"[can]"` may be useful, and `"[can see]"` and `"[can touch]"`. Negative forms like `"[are not]"` are also available:
+would also adapt itself – ``The V-ray carries too much static charge``, and so on. There aren't many verbs built in to Inform, but `"[have]"` and `"[carry]"` and `"[wear]"` and `"[can]"` may be useful, and `"[can see]"` and `"[can touch]"`. Negative forms like `"[are not]"` are also available:
 
 	"[The noun] [cannot touch] the ionizer terminal."
 
-might produce "The V-ray will not be able to touch the ionizer terminal.", for example.
+might produce ``The V-ray will not be able to touch the ionizer terminal.``, for example.
 
 As these examples hint, the verb adapts itself to the most recently printed object name. All of this only works if the previous object's name is printed from a substitution. So:
 
 	"[The condensers] [are] working."
 
-will work – correctly forming "The condensers are working.", "The condensers will be working." or "The condensers were working.", according to the story tense – but
+will work – correctly forming ``The condensers are working.``, ``The condensers will be working.`` or ``The condensers were working.``, according to the story tense – but
 
 	"The condensers [are] working."
 
-probably won't work. Inform doesn't have any way to understand the raw text outside of the text substitution marks `"[" and "]"`, and it doesn't recognise "The condensers" as being something's name.
+probably won't work. Inform doesn't have any way to understand the raw text outside of the text substitution marks `"[" and "]"`, and it doesn't recognise `The condensers` as being something's name.
 
 Something else to be careful with is the use of lists. If we write this:
 
@@ -7844,11 +7837,11 @@ then Inform is likely to print:
 The condensers and the V-ray is smashed by Voltan's birdmen.
 ```
 
-because it looks at the most recently named object – the V-ray, singular – to decide whether to use "is" or "are". On the other hand, Inform gets this right:
+because it looks at the most recently named object – the V-ray, singular – to decide whether to use ``is`` or ``are``. On the other hand, Inform gets this right:
 
 	"[The list of things on the bench] [are] smashed by Voltan's birdmen."
 
-Because Inform constructs the list itself, it's able to appreciate that the things listed are jointly the subject of the verb, and it uses that information to decide on "is" or "are". So:
+Because Inform constructs the list itself, it's able to appreciate that the things listed are jointly the subject of the verb, and it uses that information to decide on ``is`` or ``are``. So:
 
 ``` transcript
 The condensers and the V-ray are smashed by Voltan's birdmen.
@@ -7867,11 +7860,11 @@ defines a verb without telling Inform what it means. Inform will throw a Problem
 
 	Flash retrofits the meteor beam.
 
-because, after all, it doesn't know what "retrofit" means. But it does still know how to print it, so this works:
+because, after all, it doesn't know what `retrofit` means. But it does still know how to print it, so this works:
 
 	"[The actor] [retrofit] the Mecha-Mole."
 
-which might come out as "Dale retrofits the Mecha-Mole", or "Barin's archers retrofitted the Mecha-Mole", and so on.
+which might come out as ``Dale retrofits the Mecha-Mole``, or ``Barin's archers retrofitted the Mecha-Mole``, and so on.
 
 This is especially neat for writing a single response to an action which works regardless of who the actor was. For example, the Standard Rules include:
 
@@ -7884,19 +7877,13 @@ You put the Bill-signing pen on the table.
 President Obama puts the Bill-signing pen on the table.
 ```
 
-Only a single-word verb can be used for adaptive text. If we create the verb "to run amok in", then `"[The noun] [run amok in] the Furnace Room."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Furnace Room."`
+Only a single-word verb can be used for adaptive text. If we create the verb `to run amok in`, then `"[The noun] [run amok in] the Furnace Room."` will not be allowed. The trick would be to create `To run is a verb.`, and then use `"[The noun] [run] amok in the Furnace Room."`
 
 ## Adapting text about the player
 
 ^^{+to+say "[we]"} ^^{+tosay+"[we]" --> we} ^^{+to+say "[us]"} ^^{+tosay+"[us]" --> us} ^^{+to+say "[our]"} ^^{+tosay+"[our]" --> our} ^^{case sensitivity: in text substitutions with pronouns} ^^{plurals: plural convention for adaptive pronouns} ^^{pronouns: adaptive pronouns in displayed text} ^^{adaptive displayed text: pronouns} ^^{you, adaptive pronouns in displayed text} ^^{actor (- person)+actvar+}
 
-In second-person-singular IF, the player is always "you". Many messages look like so:
-
-``` transcript
-"You have twenty minutes remaining."
-```
-
-where the subject, or the object, of the sentence is "you". But what if we want to have this text adapt itself to different narrative viewpoints?
+In second-person-singular IF, the player is always ``you``. Many messages look like so: ``You have twenty minutes remaining.`` The subject, or the object, of the sentence is ``you``. But what if we want to have this text adapt itself to different narrative viewpoints?
 
 The solution is to use the following:
 
@@ -7923,7 +7910,7 @@ The family in the previous section – `"[we]"`, `"[us]"`, `"[our]"`, `"[ours]"`
 	> EXAMINE TREE
 	It has no clear outline in this misty netherworld.
 
-We can easily make the verb adapt – change the "has" to `"[have]"` – but the trick here is to make the "It" adapt to cases where what's examined is plural, or animate. What we want is:
+We can easily make the verb adapt – change the "has" to `"[have]"` – but the trick here is to make the ``It`` adapt to cases where what's examined is plural, or animate. What we want is:
 
 	Instead of examining in the Netherworld:
 		say "[regarding the noun][They] [have] no clear outline in this misty netherworld."
@@ -7969,7 +7956,7 @@ These look pointless – but consider the two texts
 	"[We] [take] [the noun]. It [rain] harder."
 	"[We] [take] [the noun]. [It] [rain] harder."
 
-The first one risks printing "We took the scissors. It rain harder.", because it makes `"[rain]"` agree with "scissors", which are plural. But the second text makes `"[rain]"` agree with `"[it]"`. And, as a convenience:
+The first one risks printing ``We took the scissors. It rain harder.``, because it makes `"[rain]"` agree with "scissors", which are plural. But the second text makes `"[rain]"` agree with `"[it]"`. And, as a convenience:
 
 - `"[It's]"` or `"[it's]"`
 - `"[There's]"` or `"[there's]"`
@@ -7989,7 +7976,7 @@ Consider the following message: how might we make this adaptive?
 	> MEASURE TOP SHELF
 	You really are not tall enough to reach that.
 
-The verbal part is easy enough, but "that" needs a new feature.
+The verbal part is easy enough, but ``that`` needs a new feature.
 
 	"[We] really [are not] tall enough to reach [regarding the noun][those]."
 
@@ -8044,7 +8031,7 @@ In fact `"[Those]"` and `"[those]"` do subtly different things, besides the capi
 	"[regarding the noun][Those] is unacceptable."
 	"You've never liked [regarding the noun][those]."
 
-would come out as "She is unacceptable" – so `"[Those]"` becomes "She" – but "You've never liked her" – so `"[those]"` becomes "her". If we need these in different cases, we can explicitly ask for that:
+would come out as ``She is unacceptable`` – so `"[Those]"` becomes ``She`` – but ``You've never liked her`` – so `"[those]"` becomes ``her``. If we need these in different cases, we can explicitly ask for that:
 
 - `"[those in the nominative]"`
 - `"[Those in the accusative]"`
@@ -8059,7 +8046,7 @@ Inform supports the use of modal verbs in text substitutions. For example,
 
 	"[Fred] [might go] to school."
 
-would in the present tense come out as "Fred might go to school.", but could alternatively be "Fred might have gone to school." As this example shows, all that's needed is to take a verb we'll call V – this case, "go" – and we can write any of these:
+would in the present tense come out as ``Fred might go to school.``, but could alternatively be ``Fred might have gone to school.`` As this example shows, all that's needed is to take a verb we'll call V – this case, "go" – and we can write any of these:
 
  `"[can V]"` or `"[cannot V]"` or `"[can't V]"`
  `"[could V]"` or `"[could not V]"` or `"[couldn't V]"`
@@ -8069,11 +8056,11 @@ would in the present tense come out as "Fred might go to school.", but could alt
  `"[should V]"` or `"[should not V]"` or `"[shouldn't V]"`
  `"[would V]"` or `"[would not V]"` or `"[wouldn't V]"`
 
-That helps us to handle informal usages like "You can't go that way.". To make this message adaptive, we write:
+That helps us to handle informal usages like ``You can't go that way.``. To make this message adaptive, we write:
 
 	"[We] [can't go] that way."
 
-which can adapt in surprising ways – "They won't be able to go that way.", for example.
+which can adapt in surprising ways – ``They won't be able to go that way.``, for example.
 
 Note that the verb V has to be one that Inform knows. But that's easy:
 
@@ -8083,7 +8070,7 @@ and then
 
 	"[Fred] [might not discombobulate] so easily."
 
-could produce "Fred might not have discombobulated so easily", for example.
+could produce ``Fred might not have discombobulated so easily``, for example.
 
 ## Adapting contractions
 
@@ -8095,13 +8082,13 @@ The English verbs "to be" and "to have" are unique in having contracted forms, w
 
 	"[We]['ve] got rhythm. [We]['re] cool."
 
-which might produce, say, "I've got rhythm. I'm cool.", or "He'll have rhythm. He'll be cool.", or "You had got rhythm. You were cool." (The contractions don't appear in the past tense; but the spacing fixes itself automatically.)
+which might produce, say, ``I've got rhythm. I'm cool.``, or ``He'll have rhythm. He'll be cool.``, or ``You had got rhythm. You were cool.`` (The contractions don't appear in the past tense; but the spacing fixes itself automatically.)
 
 The Standard Rules often use a special text substitution for responses like this one:
 
 	"[They're] hardly portable."
 
-This is exactly like "[Those]['re] hardly portable" except that if the plural is needed, Inform prints "They're hardly portable" rather than the correct, but not quite idiomatic, "Those're hardly portable". (If we wrote "[They]['re] ...", that would get the plural form right, but then the singular would be "It's hardly portable" not "That's hardly portable".)
+This is exactly like `"[Those]['re] hardly portable"` except that if the plural is needed, Inform prints ``They're hardly portable`` rather than the correct, but not quite idiomatic, ``Those're hardly portable``. (If we wrote `"[They]['re] ..."`, that would get the plural form right, but then the singular would be ``It's hardly portable`` not ``That's hardly portable``.)
 
 Only a few English verbs have contracted negative forms, beyond those already mentioned. Inform knows these informal forms:
 
@@ -8127,7 +8114,7 @@ You were pinned down by Dr Zarkov's force field. You weren't free to move. You c
 
 ^^{sentence verbs: as values} ^^{verbs: as values} ^^{verbs: meaningful / meaningless+adj+} ^^{verbs: modal / non-modal+adj+} ^^{modal / non-modal (verb)+adj+} ^^{non-modal / modal (verb)+adj+} ^^{meaningful / meaningless (verb)+adj+} ^^{meaning+rel+} ^^{meaning+relcat+}
 
-Each verb known to Inform is actually a value of the kind "verb". To refer to this value, we put the word `verb` in front of its first-person plural. So for example:
+Each verb known to Inform is actually a value of the kind `verb`. To refer to this value, we put the word `verb` in front of its first-person plural. So for example:
 
 - `the verb contain`
 - `the verb might`
@@ -8135,9 +8122,9 @@ Each verb known to Inform is actually a value of the kind "verb". To refer to th
 
 For irregular verbs this might be different from the infinitive form, but to avoid confusion Inform accepts either. Thus `the verb are` and `the verb be` are both ways to write the same value — the verb "to be" in value form.
 
-Two adjectives are provided for use with verbs: "modal" (or "non-modal") to pick out verbs like might, could, should, and so on; and "meaningful" (or "meaningless") to pick out verbs which have a defined meaning as an Inform relation. For example, in the Standard Rules, the verb contain is meaningful, the verb might is modal, and the verb provoke is meaningless.
+Two adjectives are provided for use with verbs: `modal` (or `non-modal`) to pick out verbs like might, could, should, and so on; and `meaningful` (or `meaningless`) to pick out verbs which have a defined meaning as an Inform relation. For example, in the Standard Rules, the verb contain is meaningful, the verb might is modal, and the verb provoke is meaningless.
 
-If V has a meaning as a relation of objects, then "meaning of V" produces that relation. For example,
+If V has a meaning as a relation of objects, then `meaning of V` produces that relation. For example,
 
 	showme the meaning of the verb contain;
 	showme the meaning of the verb provoke;
@@ -8151,7 +8138,7 @@ produces:
 
 As this demonstrates, if a verb has no meaning, or its meaning doesn't relate to objects, we get just the equality relation.
 
-In fact, Inform even defines a verb "to mean": it's meaningful, and its meaning is the meaning relation. Thus:
+In fact, Inform even defines a verb `to mean`: it's meaningful, and its meaning is the meaning relation. Thus:
 
 	if the verb mean means the meaning relation...
 
@@ -8173,7 +8160,7 @@ with the story already started, so this will produce a problem message.
 
 > phrase: {phs_adapt} say "[adapt (verb)]"
 >
-> Adapts the given verb to the current story tense and story viewpoint. For example, "you [adapt the verb provoke]" might produce "you provoke".
+> Adapts the given verb to the current story tense and story viewpoint. For example, `"you [adapt the verb provoke]"` might produce ``you provoke``.
 
 > phrase: {phs_adaptv} say "[adapt (verb) from (narrative viewpoint)]"
 >
@@ -8181,27 +8168,27 @@ with the story already started, so this will produce a problem message.
 
 > phrase: {phs_adaptt} say "[adapt (verb) in (grammatical tense)]"
 >
-> Adapts the given verb to the given tense but the current story viewpoint. For example, "you [adapt the verb provoke in the past tense]" might produce "you provoked".
+> Adapts the given verb to the given tense but the current story viewpoint. For example, `"you [adapt the verb provoke in the past tense]"` might produce ``you provoked``.
 
 > phrase: {phs_adaptvt} say "[adapt (verb) in (grammatical tense) from (narrative viewpoint)]"
 >
-> Adapts the given verb to the given tense and viewpoint. For example, "we [adapt the verb provoke in the future tense from the first person plural]" might produce "we will provoke".
+> Adapts the given verb to the given tense and viewpoint. For example, `"we [adapt the verb provoke in the future tense from the first person plural]"` might produce ``we will provoke``.
 
 > phrase: {phs_negate} say "[negate (verb)]"
 >
-> Adapts the given verb to the current story tense and story viewpoint, giving it a negative sense. For example, "you [negate the verb provoke]" might produce "you do not provoke".
+> Adapts the given verb to the current story tense and story viewpoint, giving it a negative sense. For example, `"you [negate the verb provoke]"` might produce ``you do not provoke``.
 
 > phrase: {phs_negatev} say "[negate (verb) from (narrative viewpoint)]"
 >
-> Adapts the given verb to the current story tense but the given viewpoint, giving it a negative sense. For example, "she [negate the verb provoke from the third person singular]" might produce "she does not provoke".
+> Adapts the given verb to the current story tense but the given viewpoint, giving it a negative sense. For example, `"she [negate the verb provoke from the third person singular]"` might produce ``she does not provoke``.
 
 > phrase: {phs_negatet} say "[negate (verb) in (grammatical tense)]"
 >
-> Adapts the given verb to the given tense but the current story viewpoint, giving it a negative sense. For example, "you [negate the verb provoke in the past tense]" might produce "you did not provoke".
+> Adapts the given verb to the given tense but the current story viewpoint, giving it a negative sense. For example, `"you [negate the verb provoke in the past tense]"` might produce ``you did not provoke``.
 
 > phrase: {phs_negatevt} say "[negate (verb) in (grammatical tense) from (narrative viewpoint)]"
 >
-> Adapts the given verb to the given tense and viewpoint, giving it a negative sense. For example, "we [negate the verb provoke in the future tense from the first person plural]" might produce "we will not provoke".
+> Adapts the given verb to the given tense and viewpoint, giving it a negative sense. For example, `"we [negate the verb provoke in the future tense from the first person plural]"` might produce ``we will not provoke``.
 
 Note that the verb doesn't have to be named explicitly for use by the adapt or negate phrases, so for example:
 
@@ -8221,15 +8208,15 @@ Lastly, we can get at three other useful parts of a verb, too. These aren't adap
 
 > phrase: {phs_infinitive} say "[infinitive of (verb)]"
 >
-> Produces the infinitive of the given verb. Note that this is without a "to": for example, `"[infinitive of the verb carry]"` is "carry", not "to carry".
+> Produces the infinitive of the given verb. Note that this is without a ``to``: for example, `"[infinitive of the verb carry]"` is ``carry``, not ``to carry``.
 
 > phrase: {phs_pastpart} say "[past participle of (verb)]"
 >
-> Produces the past participle of the given verb. For example, `"[past participle of the verb carry]"` is "carried". Warning: because modal verbs like "should" or "might" are defective in English, this will produce odd results on them – "shoulded" and "mighted", for example.
+> Produces the past participle of the given verb. For example, `"[past participle of the verb carry]"` is ``carried``. Warning: because modal verbs like "should" or "might" are defective in English, this will produce odd results on them – ``shoulded`` and ``mighted``, for example.
 
 > phrase: {phs_prespart} say "[present participle of (verb)]"
 >
-> Produces the present participle of the given verb. For example, `"[present participle of the verb carry]"` is "carrying". Warning: because modal verbs like "should" or "might" are defective in English, this will produce odd results on them – "shoulding" and "mighting", for example.
+> Produces the present participle of the given verb. For example, `"[present participle of the verb carry]"` is ``carrying``. Warning: because modal verbs like "should" or "might" are defective in English, this will produce odd results on them – ``shoulding`` and ``mighting``, for example.
 
 ## Responses
 
@@ -8243,17 +8230,17 @@ Most of the text which the player sees is drawn from the source, but mixed in wi
 	> JUMP
 	You jump on the spot.
 
-Responses like this, which don't appear anywhere in the source text, come from one of the extensions being used; most often from the Standard Rules, the "extension" which is automatically included in every project. The SR contain many small rules, and almost all of these are capable of producing one or two standard responses. These are labelled with the rule's name and then a bracketed letter – (A), (B), (C), ... as needed so that every response has its own unique name. There's nothing very mysterious about how this is done. For example, here is a rule with one response:
+Responses like this, which don't appear anywhere in the source text, come from one of the extensions being used; most often from the Standard Rules, the "extension" which is automatically included in every project. The SR contain many small rules, and almost all of these are capable of producing one or two standard responses. These are labelled with the rule's name and then a bracketed letter – `(A)`, `(B)`, `(C)`, ... as needed so that every response has its own unique name. There's nothing very mysterious about how this is done. For example, here is a rule with one response:
 
 	Carry out taking inventory (this is the print empty inventory rule):
 		if the first thing held by the player is nothing,
 			say "[We] [are] carrying nothing." (A) instead.
 
-which makes the familiar text "You are carrying nothing." a response named:
+which makes the familiar text ``You are carrying nothing.`` a response named:
 
 	print empty inventory rule response (A)
 
-These names are actually values, belonging to the kind "response". Because of that, if we try this:
+These names are actually values, belonging to the kind `response`. Because of that, if we try this:
 
 	say "Hmm: [print empty inventory rule response (A)]"
 
@@ -8273,11 +8260,7 @@ Thus,
 
 	say "Hmm: [text of print empty inventory rule response (A)]"
 
-produces
-
-``` transcript
-Hmm: You are carrying nothing.
-```
+produces ``Hmm: You are carrying nothing.``
 
 ## Changing the text of responses
 
@@ -8329,15 +8312,15 @@ Inform lets us use plain numbers if we want to, but it also allows us to create 
 
 	A distance is a kind of value. 5 miles specifies a distance.
 
-That kind of definition, and the consequences, will be the subject of this chapter. But we will first look a little harder at the two numerical kinds of value we get for free: "number" and "real number".
+That kind of definition, and the consequences, will be the subject of this chapter. But we will first look a little harder at the two numerical kinds of value we get for free: `number` and `real number`.
 
 ## Numbers and real numbers {kind_number} {kind_real_number} {PM_InequalityFailed} {PM_CantEquateValues} {PM_EvenOverflow-G} {PM_ZMachineOverflow} {PM_ElementOverflow} {PM_LiteralOverflow}
 
 ^^{numbers <-- integers} ^^{real numbers <-- floating-point <-- decimals} ^^{numbers: real numbers} ^^{Z-machine: real numbers not available} ^^{Glulx: real numbers available} ^^{limits: of numeric values} ^^{numbers: limits of numeric values} ^^{Z-machine: numeric limits} ^^{Glulx: numeric limits} ^^{virtual machine: numeric limits} ^^{real numbers: limits of numeric values} ^^{scientific notation} ^^{pi (- real number)+const+} ^^{e (- real number)+const+} ^^{case sensitivity: in real number constants} ^^{use options: catalogue: |engineering notation} ^^{engineering notation+useopt+}
 
-Inform uses two different kinds of numerical quantity: "number" and "real number". Neither is better than the other: they're different approaches, each good for a different purpose.
+Inform uses two different kinds of numerical quantity: `number` and `real number`. Neither is better than the other: they're different approaches, each good for a different purpose.
 
-What Inform calls a "number" is a whole number, positive, negative or zero. The range of numbers we can hold is not unlimited – if the format Setting for a project is the Z-machine, then we have:
+What Inform calls a `number` is a whole number, positive, negative or zero. The range of numbers we can hold is not unlimited – if the format Setting for a project is the Z-machine, then we have:
 
 	-32768, -32767, ..., -3, -2, -1, 0, 1, 2, 3, ..., 32767
 
@@ -8345,9 +8328,9 @@ and if it is set to Glulx, then we have:
 
 	-2147483648, -2147483647, ..., -3, -2, -1, 0, 1, 2, 3, ..., 2147483647
 
-Numbers from zero to twelve may be written out, but larger ones must be written as numerals. So "twelve" or "12", but "13" only.
+Numbers from zero to twelve may be written out, but larger ones must be written as numerals. So `twelve` or `12`, but `13` only.
 
-If we're using Glulx, Inform also has "real numbers" such as
+If we're using Glulx, Inform also has `real numbers` such as
 
 	2.1718, 4.0, -1633.9
 
@@ -8371,7 +8354,7 @@ is equivalent to typing
 
 	let Avogadro's number be 602214100000000000000000.0;
 
-The "x 10^23" part tells Inform that the decimal point belongs 23 places to the left of where it's written. (In scientific papers, the 23 would be printed as a superscript – it's 10 to the power 23 – but that's not convenient to type in to the source text, so we use the "^" symbol to indicate superscript.) The range we can hold is roughly:
+The `x 10^23` part tells Inform that the decimal point belongs 23 places to the left of where it's written. (In scientific papers, the 23 would be printed as a superscript – it's 10 to the power 23 – but that's not convenient to type in to the source text, so we use the `^` symbol to indicate superscript.) The range we can hold is roughly:
 
 > 1.18 x 10^−38 to 3.4 x 10^38
 
@@ -8379,7 +8362,7 @@ It's hard to convey just how enormously different these two numbers are: if we u
 
 ^^{@Leonhard Euler}
 
-Inform also allows the two most famous real numbers in mathematics to be given by their names, `pi` and `e`, which are close to 3.14159265 and 2.7182818 respectively. (Lower case letters must be used: these can't be written "Pi" or "E". Euler's constant gamma, always in the bronze medal position, will have to be written out longhand as 0.5772156649.)
+Inform also allows the two most famous real numbers in mathematics to be given by their names, `pi` and `e`, which are close to 3.14159265 and 2.7182818 respectively. (Lower case letters must be used: these can't be written `Pi` or `E`. Euler's constant gamma, always in the bronze medal position, will have to be written out longhand as 0.5772156649.)
 
 Most computer programming languages traditionally write floating-point numbers using the E notation, like so:
 
@@ -8403,7 +8386,7 @@ is read as if it were
 
 and produces -0.41615 either way. This conversion goes from exactness to approximation, so we may lose a little accuracy: real numbers measure to an accuracy of about 1 part in 16000000, so they'll have trouble telling the difference between 16000000 and 16000001. But this is unlikely to matter, since real numbers are used only for approximate calculations anyway.
 
-The ordinary arithmetic operations work on both numbers and real numbers, so the meaning of "N plus M" depends on the kinds of N and M. In general the rule is that if either is a real number then the other one is automatically converted, and real arithmetic is used. So:
+The ordinary arithmetic operations work on both numbers and real numbers, so the meaning of `N plus M` depends on the kinds of N and M. In general the rule is that if either is a real number then the other one is automatically converted, and real arithmetic is used. So:
 
 	3 divided by 2 = 1
 	3 divided by 2.0 = 1.5
@@ -8424,11 +8407,11 @@ makes no sense. But we can explicitly convert them:
 >     1.6 to the nearest whole number = 2
 >     -1.6 to the nearest whole number = -2
 >
-> We probably ought to bear in mind that the limited range of "number" means that the nearest whole number might not be all that near. For example:
+> We probably ought to bear in mind that the limited range of `number` means that the nearest whole number might not be all that near. For example:
 >
 >     6 x 10^23 to the nearest whole number = 2147483647
 >
-> because 2147483647 is the highest value a "number" can have.
+> because 2147483647 is the highest value a `number` can have.
 
 Finally, real number can also store two interesting not-really-number sorts of value. First, we have
 
@@ -8443,17 +8426,17 @@ doesn't throw a run-time problem the way that
 
 	showme 1 divided by 0;
 
-does. Instead, it produces `plus infinity`. Infinity behaves roughly the way we might expect — for example, "2 divided by plus infinity" produces 0.0 – but once it comes into a calculation the result probably lies on some extreme and won't be very useful. Amusingly, the following is correct Inform syntax:
+does. Instead, it produces `plus infinity`. Infinity behaves roughly the way we might expect — for example, `2 divided by plus infinity` produces 0.0 – but once it comes into a calculation the result probably lies on some extreme and won't be very useful. Amusingly, the following is correct Inform syntax:
 
 	plus infinity to the nearest whole number
 
-and evaluates of course to 2147483647. We can use the adjectives "infinite" and "finite" to talk about these numbers: plus infinity and minus infinity are infinite, everything else is finite.
+and evaluates of course to 2147483647. We can use the adjectives `infinite` and `finite` to talk about these numbers: plus infinity and minus infinity are infinite, everything else is finite.
 
-The same problem occurs for calculations like square roots. It's impossible to take the square root of a negative number, but we don't want to throw a run-time problem, because approximation means we can't always guarantee to stay the right side of 0. So for a few calculations like this, Inform generates what's called a "nonexistent" real number. We can use the adjectives nonexistent or existent to talk about this. Every number mentioned on this page so far is "existent", including the infinities. The only way to get a nonexistent number is to carry out an impossible mathematical operation such as
+The same problem occurs for calculations like square roots. It's impossible to take the square root of a negative number, but we don't want to throw a run-time problem, because approximation means we can't always guarantee to stay the right side of 0. So for a few calculations like this, Inform generates what's called a `nonexistent` real number. We can use the adjectives nonexistent or existent to talk about this. Every number mentioned on this page so far is `existent`, including the infinities. The only way to get a nonexistent number is to carry out an impossible mathematical operation such as
 
 	logarithm of -10
 
-(The design of "real number" here follows well established trade-offs for scientific computing. Inform follows the IEEE-754 binary32 standard for floating-point arithmetic, so Inform's "real number" behaves very like the "float" type in C, C++, Java and similar programming languages. A "nonexistent" number is what's often called a NaN – a Not-a-Number.)
+(The design of `real number` here follows well established trade-offs for scientific computing. Inform follows the IEEE-754 binary32 standard for floating-point arithmetic, so Inform's `real number` behaves very like the ```float``` type in C, C++, Java and similar programming languages. A `nonexistent` number is what's often called a NaN – a Not-a-Number.)
 
 ## Printing real numbers
 
@@ -8465,15 +8448,15 @@ The same problem occurs for calculations like square roots. It's impossible to t
 >
 >     "The semicircle is roughly [pi to 3 decimal places] paces around."
 >
-> produces "The semicircle is roughly 3.142 paces around." The number of places can only usefully be from 1 to 8. Note that, for example, `"[1.235 x 10^-7 to 3 decimal places]"` produces 0.0; `"[1.235678 x 10^8 to 3 decimal places]"` produces "1.236 x 10^8".
+> produces ``The semicircle is roughly 3.142 paces around.`` The number of places can only usefully be from 1 to 8. Note that, for example, `"[1.235 x 10^-7 to 3 decimal places]"` produces ``0.0``; `"[1.235678 x 10^8 to 3 decimal places]"` produces ``1.236 x 10^8``.
 
 > phrase: {phs_decimal} say "[(real number) in decimal notation]"
 >
-> This text substitution writes out the number in decimal form, that is, avoiding "x 10^n" even for very large or very small quantities. For example,
+> This text substitution writes out the number in decimal form, that is, avoiding ``x 10^n`` even for very large or very small quantities. For example,
 >
 >     "[1.23457 x 10^8 in decimal notation]"
 >
-> produces 123457000.0 rather than 1.23457 x 10^8. This can look pretty extreme: for example, `"[1.8983 x 10^27 in decimal notation]"`, the mass of the planet Jupiter in kilograms, produces 1898296960000000000000000000.0.
+> produces ``123457000.0`` rather than ``1.23457 x 10^8``. This can look pretty extreme: for example, `"[1.8983 x 10^27 in decimal notation]"`, the mass of the planet Jupiter in kilograms, produces ``1898296960000000000000000000.0``.
 
 > phrase: {phs_decimalplaces} say "[(real number) to (number) decimal places in decimal notation]"
 >
@@ -8481,11 +8464,11 @@ The same problem occurs for calculations like square roots. It's impossible to t
 
 > phrase: {phs_scientific} say "[(real number) in scientific notation]"
 >
-> This text substitution writes out the number in scientific form, that is, using "x 10^n" even for easy-to-judge quantities. For example,
+> This text substitution writes out the number in scientific form, that is, using ``x 10^n`` even for easy-to-judge quantities. For example,
 >
 >     "[the reciprocal of 137 in scientific notation]"
 >
-> produces 7.29927 x 10^-3 rather than 0.0073. This can look odd: for example, `"[pi in scientific notation]"` comes out as 3.14159 x 10^0 rather than 3.14159.
+> produces ``7.29927 x 10^-3`` rather than ``0.0073``. This can look odd: for example, `"[pi in scientific notation]"` comes out as ``3.14159 x 10^0`` rather than ``3.14159``.
 
 > phrase: {phs_scientificplaces} say "[(real number) to (number) decimal places in scientific notation]"
 >
@@ -8495,7 +8478,7 @@ The same problem occurs for calculations like square roots. It's impossible to t
 
 ^^{numbers: arithmetic} ^^{real numbers: arithmetic} ^^{calculation: arithmetic} ^^{calculation: rounding to the nearest multiple} ^^{comparisons: of numbers} ^^{greater than+relverb+} ^^{less than+relverb+} ^^{at least+relverb+} ^^{at most+relverb+} ^^{roots, of numbers}^^^{+to+(arithmetic value) plus (arithmetic value) --> plus}^^^{+to+(arithmetic value) + (arithmetic value) --> +}^^^{+to+(arithmetic value) minus (arithmetic value) --> minus}^^^{+to+(arithmetic value) - (arithmetic value) --> -}^^^{+to+(arithmetic value) multiplied by (arithmetic value) --> multiplied by}^^^{+to+(arithmetic value) times (arithmetic value) --> times}^^^{+to+(arithmetic value) * (arithmetic value) --> *}^^^{+to+(arithmetic value) divided by (arithmetic value) --> divided by}^^^{+to+(arithmetic value) / (arithmetic value) --> /}^^^{+to+(arithmetic value) to the nearest (arithmetic value) --> to the nearest} ^^{nearest: (arithmetic value) to the nearest (arithmetic value)+phr+}
 
-We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, +, -, \* and /, or can spell them out in words as "plus", "minus", "times" (or "multiplied by"), and "divided by".
+We are allowed to perform about the same operations on numbers as are provided by a simple office calculator, starting with addition, subtraction, multiplication and division. We can use the traditional typewriter symbols for these, `+`, `-`, `*` and `/`, or can spell them out in words as `plus`, `minus`, `times` (or `multiplied by`), and `divided by`.
 
 English sentences are not a great way to write complex formulae: [Equations] are provided for that. But simple calculations do work, and Inform does have a basic idea that multiplication and division take precedence over addition and subtraction:
 
@@ -8600,7 +8583,7 @@ We can compare numbers using either the traditional computer-programming symbols
 	if the score is less than 10
 	if the score < 10
 
-and similarly for "greater than", "at least" and "at most", with the symbols ">", ">=" and "<=". But we are not allowed the equals sign: for that we need only use "is" –
+and similarly for `greater than`, `at least` and `at most`, with the symbols `>`, `>=` and `<=`. But we are not allowed the equals sign: for that we need only use `is` –
 
 	if the score is 10
 
@@ -8659,15 +8642,15 @@ Now for taking powers. In general we have:
 >     7 to the power -1 = 0.14286
 >     pi to the power 0 = 1.0
 >
-> In the words of the Glulx specification document (section 2.12), "the special cases are breathtaking": if you need to know exactly what, say, "minus infinity to the power Y" will do for different cases of Y, refer to the details of the "pow" opcode.
+> In the words of the Glulx specification document (section 2.12), "the special cases are breathtaking": if you need to know exactly what, say, `minus infinity to the power Y` will do for different cases of Y, refer to the details of the ```pow``` opcode.
 
-To compute square roots, it's more efficient to use "real square root of X" function than "X to the power 0.5", though both work. To obtain the Nth root of X, we might use:
+To compute square roots, it's more efficient to use `real square root of X` function than `X to the power 0.5`, though both work. To obtain the Nth root of X, we might use:
 
 	X to the power (reciprocal of N)
 
-being careful to use "reciprocal of N" rather than "1 divided by N" to make sure we're using real and not integer arithmetic.
+being careful to use `reciprocal of N` rather than `1 divided by N` to make sure we're using real and not integer arithmetic.
 
-Similarly, the following is more efficient than "e to the power ...", but equivalent to it:
+Similarly, the following is more efficient than `e to the power ...`, but equivalent to it:
 
 > phrase: {ph_exp} exponential of (real number) ... real number
 >
@@ -8689,7 +8672,7 @@ The reverse of taking powers is taking logarithms.
 >     logarithm to base 10 of 350 = 2.54407
 >     logarithm to base 2 of 256 = 8.0
 >
-> Logarithms of zero or negative numbers are nonexistent. Note that "logarithm to base 10 of ..." is what most calculators call simply "log", but Inform doesn't: it uses "log" for natural logarithms.
+> Logarithms of zero or negative numbers are nonexistent. Note that `logarithm to base 10 of ...` is what most calculators call simply "log", but Inform doesn't: it uses "log" for natural logarithms.
 
 > phrase: {ph_logarithm} natural/-- logarithm of (real number) ... real number
 >
@@ -8784,13 +8767,13 @@ We have twelve functions left to cover, though they are all closely related.
 
 ^^^{units of measure <-- numbers: units of measure <-- real numbers: units of measure} ^^{units of measure: defining} ^^{defining: units of measure} ^^{text substitutions: units of measure} ^^{units of measure: displaying} ^^{kinds: of values with units of measure} ^^{(spec) specifies (a unit)+assert+ --> specifies} ^^{type-checking: of units of measure}
 
-Suppose we want to talk about how tall people are. We could just create a "number" property, like this:
+Suppose we want to talk about how tall people are. We could just create a `number` property, like this:
 
 	A person has a number called height.
 
-But then we would have to write lines like "Isabella has height 68", which nobody would naturally say. What we want is to be able to write "Isabella is 5 foot 8." Perhaps the computer will need to store that measurement as the number 68 in some register or other, but we don't want to know about that.
+But then we would have to write lines like `Isabella has height 68`, which nobody would naturally say. What we want is to be able to write `Isabella is 5 foot 8.` Perhaps the computer will need to store that measurement as the number 68 in some register or other, but we don't want to know about that.
 
-"5 foot 8" is a complicated notation in a way – it involves both feet and inches – so let's start with a simpler example:
+`5 foot 8` is a complicated notation in a way – it involves both feet and inches – so let's start with a simpler example:
 
 	A weight is a kind of value. 10kg specifies a weight.
 
@@ -8798,23 +8781,23 @@ This is a little different to the kinds of value seen so far, which were all cre
 
 	A colour is a kind of value. The colours are red, green and blue.
 
-We can't mix the two styles: a new kind of value will either be numerical at heart ("10kg") or verbal at heart ("blue").
+We can't mix the two styles: a new kind of value will either be numerical at heart (`10kg`) or verbal at heart (`blue`).
 
-The effect of "10kg specifies a weight" is to tell Inform that this is the notation for writing a constant "weight". So, for instance,
+The effect of `10kg specifies a weight` is to tell Inform that this is the notation for writing a constant `weight`. So, for instance,
 
 	The maximum load is a weight that varies. The maximum load is 8000kg.
 	
 	if the maximum load is greater than 8000kg, ...
 
-Inform is then careful not to allow weights to be mixed up with other numerical values. For instance, it won't allow "if the maximum load is 400", because 400 is a number, not a weight.
+Inform is then careful not to allow weights to be mixed up with other numerical values. For instance, it won't allow `if the maximum load is 400`, because 400 is a number, not a weight.
 
 More or less anything we can do with numbers, we can now do with weights. For instance, we can write:
 
 	The Weighbridge is a room. "A sign declares that the maximum load is [maximum load]."
 
-...which will produce the text "A sign declares that the maximum load is 8000kg."
+...which will produce the text ``A sign declares that the maximum load is 8000kg.``
 
-Numerical kinds of value are sometimes called "units", because one of their main uses is to allow us to write quantities using scientific units such as kilograms. But they have other uses too. We have a great deal of freedom in creating notations like "10kg", or "4 foot 10" – the main thing is that new notations must not already mean a value. So "10 specifies a weight" will not be allowed, because 10 specifies a number already.
+Numerical kinds of value are sometimes called "units", because one of their main uses is to allow us to write quantities using scientific units such as kilograms. But they have other uses too. We have a great deal of freedom in creating notations like `10kg`, or `4 foot 10` – the main thing is that new notations must not already mean a value. So `10 specifies a weight` will not be allowed, because 10 specifies a number already.
 
 **By default we can only write whole-number values.** As we've seen, Inform can handle both integer (whole-number) and real arithmetic, and they each have their advantages. The default here is to use whole numbers, so
 
@@ -8824,7 +8807,7 @@ will store only whole numbers of kilograms (unless clever scaling tricks are use
 
 	1.0 kg specifies a weight.
 
-Here Inform can see from the ".0" in the prototype number that real numbers will be involved. (It needs to be ".0" not, say, ".5" because that could be read as a different sort of notation.) We can still write "8000kg", but we can now also write "1.9885 x 10^30 kg" (the mass of the Sun) or "9.109383 x 10^−31 kg" (the mass of an electron). On the other hand, any calculations we do will be limited in accuracy to about 6 to 9 decimal places, exactly as for real numbers.
+Here Inform can see from the `.0` in the prototype number that real numbers will be involved. (It needs to be `.0` not, say, `.5` because that could be read as a different sort of notation.) We can still write `8000kg`, but we can now also write `1.9885 x 10^30 kg` (the mass of the Sun) or `9.109383 x 10^−31 kg` (the mass of an electron). On the other hand, any calculations we do will be limited in accuracy to about 6 to 9 decimal places, exactly as for real numbers.
 
 **By default we can only write positive values when whole numbers are used.** Sometimes it is unnatural to write negative values, and so Inform will issue a Problem message if this is tried – for instance, Inform would not allow us to write a weight of -4 kg. (This doesn't mean that arithmetic on units is forbidden to get a negative result: we may want to work out the difference between two weights. Inform's Problem message is simply to try to prevent the accidental writing of incorrect values.) If we do want the ability to write negative values in the source text, we signal that in the notation itself:
 
@@ -8842,7 +8825,7 @@ Going back to our weight example:
 
 	A weight is a kind of value. 10kg specifies a weight.
 
-The notation here is a single word, even if it contains digits as well as letters – "10kg". But it doesn't have to be one word. These would have worked, too:
+The notation here is a single word, even if it contains digits as well as letters – `10kg`. But it doesn't have to be one word. These would have worked, too:
 
 	10kg net specifies a weight.
 	10 kg specifies a weight.
@@ -8851,11 +8834,11 @@ In fact, we are allowed to have all three at once, as alternatives:
 
 	A weight is a kind of value. 10kg specifies a weight. 10kg net specifies a weight. 10 kg specifies a weight.
 
-If we often have to deal with large weights, it becomes a little cumbersome to keep on writing something like "80000kg". An engineer would write "80 tonnes" for this. Similarly, we wouldn't like road maps to use light years, or speed limit signs to use furlongs per fortnight. So it's sometimes useful to provide a spread of different notations, at different scale factors, for the same kind of value. Here's one way of setting up the tonne, that is, the metric ton:
+If we often have to deal with large weights, it becomes a little cumbersome to keep on writing something like `80000kg`. An engineer would write `80 tonnes` for this. Similarly, we wouldn't like road maps to use light years, or speed limit signs to use furlongs per fortnight. So it's sometimes useful to provide a spread of different notations, at different scale factors, for the same kind of value. Here's one way of setting up the tonne, that is, the metric ton:
 
 	1 tonne specifies a weight scaled up by 1000.
 
-This really is an alternative way to write the same thing: for instance, Inform will allow "25kg plus 3 tonne", the result being "3.025 tonne".
+This really is an alternative way to write the same thing: for instance, Inform will allow `25kg plus 3 tonne`, the result being `3.025 tonne`.
 
 That's all very well, but a value like "3 tonne" reads a little oddly, even if it's correct in theory. Outside of scientific journals with old-school copy editing, most people would write "3 tonnes", not "3 tonne". Here's a better try:
 
@@ -8872,20 +8855,20 @@ As we've seen, there are two ways to store values like lengths or weights: as wh
 
 	1 kg specifies a weight.
 
-we make this correspond to the whole number "1", and that means Inform can never handle weights smaller than 1 kg.
+we make this correspond to the whole number `1`, and that means Inform can never handle weights smaller than `1 kg`.
 
 But as we've seen, we can provide differently scaled notations for the same unit:
 
 	A length is a kind of value. 1m specifies a length.
 	1km specifies a length scaled up by 1000.
 
-And this allows us to write "0.45km" instead of "450m", if we want to, both having the same effect. "0.45km" doesn't make a real number, despite the decimal point – it's simply another way to write "450m", stored internally as the whole number 450.
+And this allows us to write `0.45km` instead of `450m`, if we want to, both having the same effect. `0.45km` doesn't make a real number, despite the decimal point – it's simply another way to write `450m`, stored internally as the whole number 450.
 
 Just as we can scale up, so we can also scale down:
 
 	1cm specifies a length scaled down by 100.
 
-Now we have a spread of three notations, so "3cm", "0.03m" and "0.00003km" all mean the same thing. But something quite interesting happened at the same time: Inform realised that we want to know lengths to a greater accuracy than just a whole number of meters.
+Now we have a spread of three notations, so `3cm`, `0.03m` and `0.00003km` all mean the same thing. But something quite interesting happened at the same time: Inform realised that we want to know lengths to a greater accuracy than just a whole number of meters.
 
 If we're using whole numbers, and we want to resolve down to very small values, that reduces the size of the largest value we can have. For instance, with the Glulx format setting, writing just
 
@@ -8901,19 +8884,19 @@ Left to itself, Inform chooses the scaling for a unit so that it can represent e
 
 	A length is a kind of value. 1m specifies a length scaled at 10000.
 
-Notice "scaled at", not "scaled down" or "scaled up" – this is now the first notation for length, so there's no existing notation which it could scale up or down. Anyway, now the range is 0.0001m, the width of a human hair, up to 214748.3647m, which is about 130 miles. (The Kinds index automatically keeps track of the range of values represented exactly.) The "scaled at" feature is meaningless if we're using real numbers, so it throws a Problem message.
+Notice `scaled at`, not `scaled down` or `scaled up` – this is now the first notation for length, so there's no existing notation which it could scale up or down. Anyway, now the range is 0.0001m, the width of a human hair, up to 214748.3647m, which is about 130 miles. (The Kinds index automatically keeps track of the range of values represented exactly.) The `scaled at` feature is meaningless if we're using real numbers, so it throws a Problem message.
 
-Finally, for a really deluxe kind of value, we can also provide "equivalent" notations. The idea here is that we might want both miles and kilometers to work, even though they aren't direct scalings of each other. We can only do this approximately, but:
+Finally, for a really deluxe kind of value, we can also provide `equivalent` notations. The idea here is that we might want both miles and kilometers to work, even though they aren't direct scalings of each other. We can only do this approximately, but:
 
 	1 mile specifies a length equivalent to 1609m.
 
-Equivalent notations are never normally used in printing values back (but see the next section) – we wouldn't want Inform to print a sequence of values such as "1.6km", "1.65km", "1.056 miles", ... in an effort to be helpful.
+Equivalent notations are never normally used in printing values back (but see the next section) – we wouldn't want Inform to print a sequence of values such as ``1.6km``, ``1.65km``, ``1.056 miles``, ... in an effort to be helpful.
 
 ## Named notations
 
 ^^{text substitutions: units of measure} ^^{units of measure: displaying} ^^{units of measure: multiple notations for a unit}
 
-When it has a variety of notations to choose from, Inform will normally use the neatest one given the size of the value it is printing. Suppose we've set up "weight", with three notations:
+When it has a variety of notations to choose from, Inform will normally use the neatest one given the size of the value it is printing. Suppose we've set up `weight`, with three notations:
 
 	A weight is a kind of value. 10kg specifies a weight.
 	1 tonne (singular) specifies a weight scaled up by 1000.
@@ -8921,12 +8904,12 @@ When it has a variety of notations to choose from, Inform will normally use the 
 
 Inform will then print back values like so:
 
-	45kg -> "45kg"
-	1000kg -> "1 tonne"
-	2500kg -> "2.5 tonnes"
-	80000kg -> "80 tonnes"
+- `45kg` -> ``45kg``
+- `1000kg` -> ``1 tonne``
+- `2500kg` -> ``2.5 tonnes``
+- `80000kg` -> ``80 tonnes``
 
-Note the way Inform goes into decimal places in order to talk about 2500kg in terms of tonnes rather than kilograms – it is minimising the integer part of the unit, but trying to keep it non-zero. So Inform prefers "45kg" to "0.045 tonnes".
+Note the way Inform goes into decimal places in order to talk about 2500kg in terms of tonnes rather than kilograms – it is minimising the integer part of the unit, but trying to keep it non-zero. So Inform prefers ``45kg`` to ``0.045 tonnes``.
 
 Although Inform's habit of choosing the best notation available is usually just what we want, we sometimes want to make the choice ourselves. For instance, if we were printing out a table of different weights, we might want to give all of them in kilograms, whatever their size. In that case we can, if we want, give names to our different notations:
 
@@ -8937,7 +8920,7 @@ Now we could write, for instance:
 
 	"The weighbridge warns you not to exceed [the maximum load in tonnes]."
 
-And the figure will always use tonnes now, even if Inform would normally think it odd: "The weighbridge warns you not to exceed 0.001 tonnes." But it will still correctly use "tonne" or "tonnes" as appropriate – what has changed is that instead of choosing from all of the weight notations, Inform now chooses from the notations labelled as "in tonnes".
+And the figure will always use tonnes now, even if Inform would normally think it odd: ``The weighbridge warns you not to exceed 0.001 tonnes.`` But it will still correctly use ``tonne`` or ``tonnes`` as appropriate – what has changed is that instead of choosing from all of the weight notations, Inform now chooses from the notations labelled as ``in tonnes``.
 
 ## Making the verb "to weigh"
 
@@ -8951,13 +8934,13 @@ And that allows us to write:
 
 	The lead pig is in the Salt Mine. The weight of the lead pig is 45kg.
 
-But nobody would say it that way: they'd say "The lead pig weighs 45kg." So what we really need to complete our setup is a verb "to weigh".
+But nobody would say it that way: they'd say "The lead pig weighs 45kg." So what we really need to complete our setup is a verb `to weigh`.
 
 We have already created new verbs, but none of those methods are quite convenient for this. We want to relate something tangible (the lead pig) to something intangible (45kg), and there's no convenient relation to express this; if we set it up as a condition, we'd get something we couldn't assert, only test. Instead, we'll do something different this time:
 
 	The verb to weigh means the weight property.
 
-Previous definitions like this ended "means the ... relation", rather than "means the ... property", but the idea is the same. The meaning of "X weighs Y" is that the weight property of X is equal to Y. So we can now write:
+Previous definitions like this ended `means the ... relation`, rather than `means the ... property`, but the idea is the same. The meaning of `X weighs Y` is that the weight property of X is equal to Y. So we can now write:
 
 	A thing usually weighs 1kg. The lead pig weighs 45kg.
 	something weighing 20kg
@@ -8967,7 +8950,7 @@ And as we saw in the chapter on [Descriptions], we can also set up adjectives, c
 
 	Definition: A thing is heavy if its weight is 20kg or more.
 
-which creates "heavy", "heavier" and "heaviest".
+which creates `heavy`, `heavier` and `heaviest`.
 
 ## The Metric Units extension
 
@@ -8981,9 +8964,9 @@ In addition we might want equivalents for the inch, the yard and the mile; and v
 
 Fortunately the whole set is indeed available in a presentation box, and at no extra charge.
 
-(a) The built-in extension "Metric Units by Graham Nelson" sets up a whole range of scientific units, with all the notations we are likely to want. Real numbers are used throughout, so large and small-scale calculations can be carried out quite accurately. Like the other built-in extensions, it has its own documentation and examples.
+(a) The built-in extension `Metric Units by Graham Nelson` sets up a whole range of scientific units, with all the notations we are likely to want. Real numbers are used throughout, so large and small-scale calculations can be carried out quite accurately. Like the other built-in extensions, it has its own documentation and examples.
 
-(b) The built-in extension "Approximate Metric Units by Graham Nelson" does the same but using whole numbers, scaled about right for human situations. This won't be much use for extensive calculations, and won't be as accurate, but it will work reasonably well if real arithmetic isn't available.
+(b) The built-in extension `Approximate Metric Units by Graham Nelson` does the same but using whole numbers, scaled about right for human situations. This won't be much use for extensive calculations, and won't be as accurate, but it will work reasonably well if real arithmetic isn't available.
 
 ## Notations including more than one number {PM_LPWithoutElement} {PM_LPElementTooLarge} {PM_LPTooManyElements} {PM_LPTooComplicated} {PM_LPNotAllNamed}
 
@@ -8993,7 +8976,7 @@ We've seen quite enough scientific notation for the time being. There are plenty
 
 	A running time is a kind of value. 3'59 specifies a running time.
 
-The choice of "3" here makes no difference, much as the choice of "10" in the weight examples was arbitrary. But the "59" is significant. Numbers after the first one are expected to range from 0 up to the value we quote – so in this case, the number of seconds can be anything from 0 to 59. Or, for instance:
+The choice of `3` here makes no difference, much as the choice of `10` in the weight examples was arbitrary. But the `59` is significant. Numbers after the first one are expected to range from 0 up to the value we quote – so in this case, the number of seconds can be anything from 0 to 59. Or, for instance:
 
 	A height is a kind of value. 5 foot 11 specifies a height.
 
@@ -9021,7 +9004,7 @@ We often need to break up a number specification into its pieces. For instance, 
 
 	A monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents.
 
-We can now find the relevant parts like so. Suppose that "sum" is a monetary value. Then:
+We can now find the relevant parts like so. Suppose that `sum` is a monetary value. Then:
 
 	dollars part of sum
 	cents part of sum
@@ -9034,7 +9017,7 @@ We can also go the other way:
 
 	monetary value with dollars part 4 cents part 72
 
-produces the monetary value $4.72. (Note the lack of commas or "and"s, and that the parts have to be given in the right order.) This is really intended to be useful when we manipulate such values in unusual ways:
+produces the monetary value $4.72. (Note the lack of commas or `and`s, and that the parts have to be given in the right order.) This is really intended to be useful when we manipulate such values in unusual ways:
 
 	An aspect ratio is a kind of value. 16:20 specifies an aspect ratio with parts width and height.
 	
@@ -9048,13 +9031,13 @@ Declaring the parts of a number specification individually also enables us to ta
 
 	A monetary value is a kind of value. $1.99 specifies a monetary value with parts dollars and cents (optional, preamble optional).
 
-This declares that the "cents" part is optional – it will be 0 if not specified – and that if omitted, the non-numeric "preamble" before it should also be omitted. Thus "$3" is now valid and equivalent to "$3.00": indeed it will be the preferred form when Inform prints out a monetary value which is an exact number of dollars. If we had said that "cents" was optional, but not said that the preamble was optional, then "$3." would have been the form – which is less satisfactory.
+This declares that the `cents` part is optional – it will be 0 if not specified – and that if omitted, the non-numeric "preamble" before it should also be omitted. Thus `$3` is now valid and equivalent to `$3.00`: indeed it will be the preferred form when Inform prints out a monetary value which is an exact number of dollars. If we had said that `cents` was optional, but not said that the preamble was optional, then `$3.` would have been the form – which is less satisfactory.
 
-There is only one other option: "without leading zeros", as in the following.
+There is only one other option: `without leading zeros`, as in the following.
 
 	An aspect ratio is a kind of value. 16:20 specifies an aspect ratio with parts width and height (without leading zeros).
 
-This ensures that when the ratio 4:3 is printed, it will be printed as "4:3" and not "4:03" as would otherwise happen.
+This ensures that when the ratio 4:3 is printed, it will be printed as `4:3` and not `4:03` as would otherwise happen.
 
 ## Understanding specified numbers
 
@@ -9085,11 +9068,11 @@ Suppose we invent the idea of weight, and give everything a weight of its own. M
 	Definition: A thing is light if its weight is 3kg or less.
 	Definition: A thing is heavy if its weight is 10kg or more.
 
-and this provides us with "lighter", "lightest", "heavier" and "heaviest" as before. Now we could say "if Peter is heavier than Paul", or even "if Peter is heavier than 75kg", and so forth. We need one more tool:
+and this provides us with `lighter`, `lightest`, `heavier` and `heaviest` as before. Now we could say `if Peter is heavier than Paul`, or even `if Peter is heavier than 75kg`, and so forth. We need one more tool:
 
 > phrase: {ph_total} total (arithmetic values valued property) of (description of values) ... value
 >
-> This phrase produces the total of some property held by all of the values matching the description. A problem message is produced if the values in question can't have that property ("the total carrying capacity of scenes"), or if it holds a kind of value which can't meaningfully be added up ("the total description of open doors"). Example:
+> This phrase produces the total of some property held by all of the values matching the description. A problem message is produced if the values in question can't have that property (`the total carrying capacity of scenes`), or if it holds a kind of value which can't meaningfully be added up (`the total description of open doors`). Example:
 >
 >     total carrying capacity of people in the Deep Pool
 
@@ -9097,7 +9080,7 @@ That gives us everything we need for a working balance platform:
 
 	The balance platform is a supporter in the Weighbridge. "The balance platform is currently weighing [the list of things on the platform]. The scale alongside reads: [total weight of things on the platform]."
 
-Note that this only works because we said that "everything has a weight": otherwise it would make no sense to add up the weights of things.
+Note that this only works because we said that `everything has a weight`: otherwise it would make no sense to add up the weights of things.
 
 This enables us to get the average weight of a group of things, too:
 
@@ -9108,7 +9091,7 @@ But we should be careful that this does not accidentally divide by zero, which i
 	the weight of the heaviest thing on the platform
 	the weight of the lightest thing on the platform
 
-We should remember that "the heaviest thing on the platform" may be ambiguous, because there may be several equally heavy things there. That means
+We should remember that `the heaviest thing on the platform` may be ambiguous, because there may be several equally heavy things there. That means
 
 	if the lead pig is the heaviest thing on the platform
 
@@ -9136,7 +9119,7 @@ To a Renaissance scientist, typically living in a walled European town, a cannon
 
 	{**}Laboratory is a room. The cannon ball is in the Laboratory. "A cannon ball perches delicately on a lab bench." The mass of the cannon ball is 2kg.
 
-And now we're ready for the three equations. These will all have names, but we could just as easily have numbered them, calling them (say) "Equation 1", "Equation 2" and "Equation 3".
+And now we're ready for the three equations. These will all have names, but we could just as easily have numbered them, calling them (say) `Equation 1`, `Equation 2` and `Equation 3`.
 
 	{**}Equation - Newton's Second Law
 		F=ma
@@ -9150,11 +9133,11 @@ And now we're ready for the three equations. These will all have names, but we c
 		v = gt
 	where g is the acceleration due to gravity, v is a velocity, and t is an elapsed time.
 
-An equation has to take the form of one formula equals another, where each formula is made up from symbols defined afterwards. The symbols can be defined as definite values (as "g" is defined in the Galilean Equation), or just by telling Inform their kinds of value (as "v" and "t" are defined).
+An equation has to take the form of one formula equals another, where each formula is made up from symbols defined afterwards. The symbols can be defined as definite values (as `g` is defined in the Galilean Equation), or just by telling Inform their kinds of value (as `v` and `t` are defined).
 
-Equations are read using standard mathematical conventions. So "x + yz" means that we multiply y and z, then add that to x; "ab/cd" divides the product of a and b by the product of c and d. Multiplication signs can be omitted, just as science books normally do (though we can always write them if we want to, using the asterisk \*, as usual in computing). The need for brackets is minimised, with any luck, but we can use them if we need to: "x(y+ab)" is legal, for instance.
+Equations are read using standard mathematical conventions. So `x + yz` means that we multiply y and z, then add that to x; `ab/cd` divides the product of a and b by the product of c and d. Multiplication signs can be omitted, just as science books normally do (though we can always write them if we want to, using the asterisk \*, as usual in computing). The need for brackets is minimised, with any luck, but we can use them if we need to: `x(y+ab)` is legal, for instance.
 
-One difference between Inform's conventions and mathematical ones, though, is that Inform generally ignores upper-versus-lower-case when reading variable names, so it wouldn't be a good idea to write "F = gMm/r^2" and expect "M" and "m" to be different from each other.
+One difference between Inform's conventions and mathematical ones, though, is that Inform generally ignores upper-versus-lower-case when reading variable names, so it wouldn't be a good idea to write `F = gMm/r^2` and expect `M` and `m` to be different from each other.
 
 Here is the calculation:
 
@@ -9174,7 +9157,7 @@ And the result is:
 
 Not all that fast-moving – it's only about 10 mph, ten times slower than one fired by a Renaissance cannon – but half a second wouldn't give you long to get your foot out of the way.
 
-How was that done? The crucial lines are the ones in the form "let X be given by E...", which is a new form of "let".
+How was that done? The crucial lines are the ones in the form `let X be given by E...`, which is a new form of `let`.
 
 > phrase: {ph_letequation} let (a name not so far used) be given by (equation name) & let (a temporary named value) be given by (equation name)
 >
@@ -9186,17 +9169,17 @@ How was that done? The crucial lines are the ones in the form "let X be given by
 >
 >     let KE be given by KE = mv^2/2 where KE is an energy;
 
-When we solve with "let", then, all of the other symbols should either already have values (because they exist as "let" values already made) or else be specified in the line. For instance,
+When we solve with `let`, then, all of the other symbols should either already have values (because they exist as `let` values already made) or else be specified in the line. For instance,
 
 	let F be given by Newton's Second Law where a is the acceleration due to gravity;
 
-is allowed because "F" is one of the symbols in "F = ma"; of the other two symbols, we have a "let" variable called "m" already – it's the mass of the cannon ball – and we declare exactly what "a" is.
+is allowed because `F` is one of the symbols in `F = ma`; of the other two symbols, we have a `let` variable called `m` already – it's the mass of the cannon ball – and we declare exactly what `a` is.
 
 The next calculation is more interesting:
 
 	let v be given by the Principle of Conservation of Energy;
 
-Since the equation here is "mgh = mv^2/2", Inform has to do some algebra to work out "v" in terms of the other unknowns – it's the square root of 2gh, but we don't need to work that out. Inform can't always solve implicit equations – for instance, it can't deduce "m" from this equation – but it's correct on all the easy cases which occur in basic physics, and that enables us to write equations in their most natural form, which is easier to read and understand.
+Since the equation here is `mgh = mv^2/2`, Inform has to do some algebra to work out `v` in terms of the other unknowns – it's the square root of 2gh, but we don't need to work that out. Inform can't always solve implicit equations – for instance, it can't deduce `m` from this equation – but it's correct on all the easy cases which occur in basic physics, and that enables us to write equations in their most natural form, which is easier to read and understand.
 
 The advantage of setting out an equation formally is that it can be used in many places – we could use Newton's Second Law again for something quite different, for example. But it's a little cumbersome for something simple which we only need once, so this is neater:
 
@@ -9218,7 +9201,7 @@ As an example, here's the definition of arcsinh given in the Standard Rules:
 		let x be given by x = log(R + root(R^2 + 1)) where x is a real number;
 		decide on x.
 
-Something to be a little cautious of: brackets are used in equations to group terms together, and do not mean function application, as they would in a C-like programming language. For example, "sin(1+x)/2" takes the sine of "(1+x)/2": if we want to halve the sine of "1+x", we have to write "(sin(1+x))/2".
+Something to be a little cautious of: brackets are used in equations to group terms together, and do not mean function application, as they would in a C-like programming language. For example, `sin(1+x)/2` takes the sine of `(1+x)/2`: if we want to halve the sine of `1+x`, we have to write `(sin(1+x))/2`.
 
 ## Arithmetic with units
 
@@ -9240,13 +9223,15 @@ Of course, there's plenty we can still do without any need for such instructions
 
 	{*}The Weighbridge is a room. "A sign declares that the maximum load is [100kg multiplied by 3]."
 
-...will produce the text "A sign declares that the maximum load is 300kg." Here Inform knows that it makes sense to multiply a weight by 3, and that the result will be a weight. Similarly, Inform allows us to add and subtract weights, and several different forms of division are allowed:
+...will produce the text ``A sign declares that the maximum load is 300kg.`` Here Inform knows that it makes sense to multiply a weight by 3, and that the result will be a weight. Similarly, Inform allows us to add and subtract weights, and several different forms of division are allowed:
 
 	{*}The blackboard is in the Weighbridge. "A blackboard propped against one wall reads: '122 / 10 is [122 divided by 10] remainder [remainder after dividing 122 by 10]; but 122kg / 10kg is [122kg divided by 10kg] remainder [remainder after dividing 122kg by 10kg]; and 122kg / 10 is [122kg divided by 10] remainder [remainder after dividing 122kg by 10].'"
 
 When we visit the Weighbridge, we find:
 
-	A blackboard propped against one wall reads: "122 / 10 is 12 remainder 2; but 122kg / 10kg is 12 remainder 2kg; and 122kg / 10 is 12kg remainder 2kg."
+``` transcript
+A blackboard propped against one wall reads: "122 / 10 is 12 remainder 2; but 122kg / 10kg is 12 remainder 2kg; and 122kg / 10 is 12kg remainder 2kg."
+```
 
 Whereas we are not allowed to divide 122 by 10kg: that would make no sense, since 122 is a number and not made up of kilograms. Inform will produce a problem message if we try. Similarly, Inform won't normally allow us to multiply two weights together – but see the next section.
 
@@ -9268,7 +9253,7 @@ which will turn up as:
 
 And having told Inform that lengths multiply to area, we could also divide an area by a length to get a length: no further instructions would be needed.
 
-The built-in "Metric Units" extension includes all of the standard ways that physical quantities are multiplied, and a good way to see these is to try out one of the Metric Units examples and look at the Kinds index, which includes a table showing how all of this works.
+The `Metric Units by Graham Nelson` extension includes all of the standard ways that physical quantities are multiplied, and a good way to see these is to try out one of the Metric Units examples and look at the Kinds index, which includes a table showing how all of this works.
 
 # Tables
 
@@ -9287,15 +9272,15 @@ When printed books need to display detailed information in a systematic way, the
 
 After the two titling lines, each line represents one row in the table, and entries on a line must be separated by at least one tab character. A table must occupy a single whole paragraph, with no skipped lines or missing entries.
 
-The top line is a title, the first word of which must be the word 'Table'. We can then either give a table number (this need not actually be a number: Table C2, or some such, would be fine), or give a name, or both – as in this case. The possible titling formats are:
+The top line is a title, the first word of which must be the word `Table`. We can then either give a table number (this need not actually be a number: `Table C2`, or some such, would be fine), or give a name, or both – as in this case. The possible titling formats are:
 
 	Table 2.3
 	Table of Population Statistics
 	Table 2.3 - Population Statistics
 
-In the last example we could call the table either "Table 2.3" or "Table of Population Statistics".
+In the last example we could call the table either `Table 2.3` or `Table of Population Statistics`.
 
-Each column then has a name, and the contents must all be the same kind of value. In the elements table the "Symbol" column contains only text, for instance, and the "Atomic weight" column contains only numbers. Any kinds of value will do, so long as all the entries in the column are mutually compatible. (For instance, mixing rooms and things in a single column would be fine, as these can be reconciled, but mixing numbers and rooms would not.)
+Each column then has a name, and the contents must all be the same kind of value. In the elements table the `Symbol` column contains only text, for instance, and the `Atomic weight` column contains only numbers. Any kinds of value will do, so long as all the entries in the column are mutually compatible. (For instance, mixing rooms and things in a single column would be fine, as these can be reconciled, but mixing numbers and rooms would not.)
 
 ## Looking up entries
 
@@ -9314,7 +9299,7 @@ we can write the following description:
 
 	symbol in row 3 of the Table of Selected Elements
 
-to produce the value "Zn". Or the following will run off some chemical data:
+to produce the value `"Zn"`. Or the following will run off some chemical data:
 
 	{*}repeat with N running from 1 to the number of rows in the Table of Selected Elements:
 		say "The atomic weight of [element in row N of the Table of Selected Elements] is [atomic weight in row N of the Table of Selected Elements]."
@@ -9355,7 +9340,7 @@ This results in 26, and similarly
 
 	the symbol corresponding to an atomic number of 26 in the Table of Selected Elements
 
-results in "Fe". But we have to be careful:
+results in `"Fe"`. But we have to be careful:
 
 	the element corresponding to an atomic number of 27 in the Table of Selected Elements
 
@@ -9367,7 +9352,7 @@ Or more simply:
 
 	if there is an atomic number of 27 in the Table of Selected Elements ...
 
-The condition "if there is..." can be used with any reference to a table entry: for instance, "if there is a symbol in row 5 of the Table of Selected Elements" would be false, because there are only four rows.
+The condition `if there is...` can be used with any reference to a table entry: for instance, `if there is a symbol in row 5 of the Table of Selected Elements` would be false, because there are only four rows.
 
 ## Changing entries
 
@@ -9390,7 +9375,7 @@ Here is another rather definitive, immutable-looking table:
 	"George VI"		1936		Windsor
 	"Elizabeth II"	1952		Windsor
 
-But table entries can be changed as freely as variables: that is, any value can be entered so long as it has the right kind. We cannot put a dynasty into the "Name" column, or text in the "Accession" column. The phrase needed is "now ... is ...", just as it is for properties or variables:
+But table entries can be changed as freely as variables: that is, any value can be entered so long as it has the right kind. We cannot put a dynasty into the `Name` column, or text in the `Accession` column. The phrase needed is `now ... is ...`, just as it is for properties or variables:
 
 	{**}Dynasty is a kind of value. The dynasties are Stuart, Hanover, Saxe-Coburg-Gotha and Windsor.
 	
@@ -9458,7 +9443,7 @@ That allows us to improve the loop:
 
 Actually, as we'll see in the next section, this kind of loop is needed so often that there's a shorthand wording for it.
 
-Note that since "accession" is a column name, "accession entry" means the entry in that column of the currently chosen row. This notation can only be used if a "choose" has certainly already happened, and it is a good idea to make that choice somewhere close by in the source code (and certainly in the same rule or phrase definition) for the sake of avoiding errors. We can also choose rows by specifying something about them, like so:
+Note that since `accession` is a column name, `accession entry` means the entry in that column of the currently chosen row. This notation can only be used if a `choose` has certainly already happened, and it is a good idea to make that choice somewhere close by in the source code (and certainly in the same rule or phrase definition) for the sake of avoiding errors. We can also choose rows by specifying something about them, like so:
 
 > phrase: {ph_chooserowwith} choose a/the/-- row with (table column) of (value) in/from (table name)
 >
@@ -9470,7 +9455,7 @@ Note that since "accession" is a column name, "accession entry" means the entry 
 
 There can of course be any number of rows where a given column entry has the same value. In our example table of monarchs, there were six rows with a `family` of `Hanover`, and two with an `accession` of 1936. On the other hand, the `name` entries were all unique. It is very much up to an author what sort of data is stored in a table, how the data is sorted, and whether it has repeats.
 
-Sometimes it will happen that a column's name clashes with the name of something else: for instance, if we call a column "apples" but we also have a kind called "apple", so that the word "apples" could mean either some fruit or the column. Inform will generally prefer the former meaning as more likely. In case of such trouble, we can simply refer to "the apples column" rather than just "the apples": for instance, "choose row with an apples column of..." rather than "choose row with an apples of..."
+Sometimes it will happen that a column's name clashes with the name of something else: for instance, if we call a column `apples` but we also have a kind called `apple`, so that the word `apples` could mean either some fruit or the column. Inform will generally prefer the former meaning as more likely. In case of such trouble, we can simply refer to `the apples column` rather than just `the apples`: for instance, `choose row with an apples column of...` rather than `choose row with an apples of...`
 
 We can also choose a row quite at random:
 
@@ -9505,7 +9490,7 @@ We can simply use this instead:
 >     	repeat through the Table of Recent Monarchs:
 >     		say "[accession entry]: [name entry] ([family entry])."
 
-Note that there is no loop variable here, unlike in other forms of "repeat", because it's the choice of row which keeps track of how far we have got. Note also that it's `repeat through...`, not `repeat running through...`
+Note that there is no loop variable here, unlike in other forms of `repeat`, because it's the choice of row which keeps track of how far we have got. Note also that it's `repeat through...`, not `repeat running through...`
 
 We can alternatively go backwards:
 
@@ -9531,7 +9516,7 @@ More often we want a sequence which is neither forwards nor backwards, but which
 >     repeat through the Table of Recent Monarchs in reverse name order: ...
 >     repeat through the Table of Recent Monarchs in reverse accession order: ...
 >
-> work through the same table in rather different orders. The sequence is higher to lower (high numbers to small numbers, Z to A, and so on); delete the "reverse" after "in" to reverse this.
+> work through the same table in rather different orders. The sequence is higher to lower (high numbers to small numbers, Z to A, and so on); delete the `reverse` after `in` to reverse this.
 
 In a loop like this, the data is not searched very efficiently, which is fine for modest-sized tables like the examples in this chapter, but might be a problem for much larger tables: see the later section on sorting.
 
@@ -9545,7 +9530,7 @@ These definitions mentioned blankness several times, and that's the topic to cov
 
 ^^{tables: blank entries <-- blank entries in tables} ^^{(--), as a blank table entry+sourcepart+}
 
-We are allowed to leave certain entries blank (perhaps to be filled in later, perhaps not) by writing "--" instead of the relevant value:
+We are allowed to leave certain entries blank (perhaps to be filled in later, perhaps not) by writing `--` instead of the relevant value:
 
 	{*}Table 2.1 - Selected Elements
 	Element		Symbol	Atomic number	Atomic weight
@@ -9554,7 +9539,7 @@ We are allowed to leave certain entries blank (perhaps to be filled in later, pe
 	"Zinc"		--		30				65
 	"Uranium"	"U"		92				238
 
-In effect, blank entries don't exist. "--" is not a value, but only a hole where a value might be. Attempting to read a blank entry throws a run-time problem message, so if there is ever any doubt about whether an entry might be blank or not, it is essential to check for this:
+In effect, blank entries don't exist. `--` is not a value, but only a hole where a value might be. Attempting to read a blank entry throws a run-time problem message, so if there is ever any doubt about whether an entry might be blank or not, it is essential to check for this:
 
 > phrase: {ph_thereis} if there is (a table entry):
 >
@@ -9586,7 +9571,7 @@ Where `TC` is the name of a table column, `N` is a row number (counting from 1 a
 
 ^^{tables: blank columns}
 
-An entire column of blank entries "--" is problematic:
+An entire column of blank entries `--` is problematic:
 
 	{*}Table 2 - Selected Elements
 	Element		Symbol	Atomic number	Atomic weight
@@ -9595,7 +9580,7 @@ An entire column of blank entries "--" is problematic:
 	"Zinc"		"Zn"	30				--
 	"Uranium"	"U"		92				--
 
-Inform is unable to work out what kind of value should go into the "atomic weight" column here, since it has no examples to guess from. We can get around this by writing in the name of a kind of value:
+Inform is unable to work out what kind of value should go into the `atomic weight` column here, since it has no examples to guess from. We can get around this by writing in the name of a kind of value:
 
 	{*}Table 2 - Selected Elements
 	Element		Symbol	Atomic number	Atomic weight
@@ -9604,9 +9589,9 @@ Inform is unable to work out what kind of value should go into the "atomic weigh
 	"Zinc"		"Zn"	30				--
 	"Uranium"	"U"		92				--
 
-That top entry in the "atomic weight" column is also blank, but now Inform knows that anything put into the column in future will be a number.
+That top entry in the `atomic weight` column is also blank, but now Inform knows that anything put into the column in future will be a number.
 
-If there are many rows, and perhaps several blank columns, it would become very tedious to have to keep typing out "--". So this is optional *at the end of a row*: it remains compulsory for a blank value appearing in between two values which aren't blank. This is the general idea:
+If there are many rows, and perhaps several blank columns, it would become very tedious to have to keep typing out `--`. So this is optional *at the end of a row*: it remains compulsory for a blank value appearing in between two values which aren't blank. This is the general idea:
 
 	{*}Table 2 - Selected Elements
 	Element		Symbol	Atomic number	Density		Specific gravity
@@ -9619,7 +9604,7 @@ If there are many rows, and perhaps several blank columns, it would become very 
 
 ^^{tables: blank rows} ^^{empty / non-empty+adj+: for tables} ^^{non-empty / empty+adj+: for tables} ^^{tables: empty / non-empty+adj+}
 
-There is no difficulty about entirely blank rows: or rather, the only difficulty is once again that they are boring to type out. We can avoid the necessity by appending "with ... blank rows" at the foot of the table:
+There is no difficulty about entirely blank rows: or rather, the only difficulty is once again that they are boring to type out. We can avoid the necessity by appending `with ... blank rows` at the foot of the table:
 
 	{*}Table 2 - Selected Elements
 	Element		Symbol	Atomic number	Atomic weight
@@ -9640,13 +9625,13 @@ Blank rows are useful because they enable us to add new data to a table. In effe
 	repeat through Table 3:
 		...
 
-automatically skips blank rows, so it would initially do nothing at all. Similarly, choosing a "random" row will never choose a blank one.
+automatically skips blank rows, so it would initially do nothing at all. Similarly, choosing a `random` row will never choose a blank one.
 
-A convenient way to test if a table contains non-blank rows is to use the built-in adjectives "empty" and "non-empty". So:
+A convenient way to test if a table contains non-blank rows is to use the built-in adjectives `empty` and `non-empty`. So:
 
 	if the Undiscovered Periodic Table is empty, ...
 
-tests whether all of its rows are blank; if even one cell contains a value then the table is "non-empty".
+tests whether all of its rows are blank; if even one cell contains a value then the table is `non-empty`.
 
 ## Adding and removing rows
 
@@ -9674,14 +9659,14 @@ To avoid problem messages, it can be important to worry about free space. To tha
 >
 > This phrase produces the number of rows in the given table which are not entirely blank (that is, at least one column has a value in this row).
 
-"Filled" here really means "non-blank": a row can be filled in this sense even if only one of its values exists. Since every row is either blank or filled, it must be true that:
+`Filled` here really means `non-blank`: a row can be filled in this sense even if only one of its values exists. Since every row is either blank or filled, it must be true that:
 
 	the number of blank rows in Table 3
 	the number of filled rows in Table 3
 
-add up to "the number of rows in Table 3".
+add up to `the number of rows in Table 3`.
 
-We've seen that blank entries can be filled with values using "now":
+We've seen that blank entries can be filled with values using `now`:
 
 	now symbol entry is "F";
 
@@ -9747,11 +9732,11 @@ Secondly:
 >
 > Descending order means 10 down to 1, say, or Z down to A, with blank values coming last.
 
-How sorting is done depends on the contents of the column being sorted on. If it holds numbers then numerical order is used, with 2 coming before 7, and so on. (And similarly for real numbers, though the existence of infinities makes this more interesting.) If times are sorted then they are sorted from midnight to midnight, following the "is greater than" relation, not with 4 AM as the zero point, as with "is after".
+How sorting is done depends on the contents of the column being sorted on. If it holds numbers then numerical order is used, with 2 coming before 7, and so on. (And similarly for real numbers, though the existence of infinities makes this more interesting.) If times are sorted then they are sorted from midnight to midnight, following the `is greater than` relation, not with 4 AM as the zero point, as with `is after`.
 
 If text is sorted then alphabetical order is used, though this doesn't always come out the way you might expect, because upper case and lower case letters are treated as different: A-Z come before a-z, and accented letters such as é come after the regular alphabet. (What's happening here is that Inform is sorting on raw  character values, not performing the full Unicode collation algorithm, which would be too slow at run-time.)
 
-Note that blank values will always be placed below non-blank ones, and entirely blank rows last of all. This is true even if we use "reverse".
+Note that blank values will always be placed below non-blank ones, and entirely blank rows last of all. This is true even if we use `reverse`.
 
 The method of sorting is "stable", that is, if two rows have the same value then they will stay the same way round in the sorted table, rather than being swapped over. For example, if we sort this into reverse index order:
 
@@ -9781,13 +9766,13 @@ As a result note that repeating through this sorted table goes through the origi
 
 ^^{tables: describing things listed in tables} ^^{descriptions (references to things): listed in table}
 
-Tables are especially useful for combining a run of basically similar rules in a simple and concise way. The "listed in" condition, as in
+Tables are especially useful for combining a run of basically similar rules in a simple and concise way. The `listed in` condition, as in
 
 	if the newfound object is an item listed in the Table of Treasures...
 
-looks through a given table (here "table of treasures"), in a given column ("item"), to see if a given value is present ("the newfound object"). If this is successful, the row where it was found is automatically chosen; but if not, note that any existing row selection will be lost, so make use of the row only if the test succeeds.
+looks through a given table (here `table of treasures`), in a given column (`item`), to see if a given value is present (`the newfound object`). If this is successful, the row where it was found is automatically chosen; but if not, note that any existing row selection will be lost, so make use of the row only if the test succeeds.
 
-We can similarly use "... listed in ..." in a description used when specifying an action. Thus:
+We can similarly use `... listed in ...` in a description used when specifying an action. Thus:
 
 	{*}After taking an item listed in the Table of Treasures:
 		if there is no time entry:
@@ -9893,7 +9878,7 @@ The first time we record "gluttony" as achieved, 2 points will be awarded and th
 
 ^^{tables: used as values} ^^{values: tables as values} ^^{|table name}
 
-So far, we have always used fixed table names when referring to tables: for instance in source like "sort the Table of Recent Monarchs in accession order", we refer to the "Table of Recent Monarchs", a definite and explicitly named table.
+So far, we have always used fixed table names when referring to tables: for instance in source like `sort the Table of Recent Monarchs in accession order`, we refer to the `Table of Recent Monarchs`, a definite and explicitly named table.
 
 With a little care, however, we are allowed to have variables which themselves hold the names of tables. This opens up the possibility of more elaborate ways of storing and interconnecting information in table form, but is probably best avoided until it becomes necessary.
 
@@ -9912,7 +9897,7 @@ We could then record which one of these tables to use in a variable:
 
 	{**}The lexicon is a table name that varies. The lexicon is Table 1.
 
-Note that for this purpose, the kind of value is a special kind called "table name", not "table". (The word "table" already has too many meanings and we must be careful to avoid ambiguities here.) We could make use of this as follows, for instance:
+Note that for this purpose, the kind of value is a special kind called `table name`, not `table`. (The word `table` already has too many meanings and we must be careful to avoid ambiguities here.) We could make use of this as follows, for instance:
 
 	{**}To flip tables:
 		say "You exchange dictionaries, lexically crossing the Atlantic. ";
@@ -9952,9 +9937,9 @@ And so on. Instead, we can use a table to abbreviate all of this:
 	a green jersey		1953				"highest point scorer on sprints"
 	a white jersey		1975				"best cyclist aged 25 or less"
 
-The first column provides names for the new things to be created. Subsequent columns provide property values. Note that we did not need to say that jerseys have a number called "year established" because Inform is able to infer this from the column heading and the presence of numbers in the column; similarly for "citation". An entry can be left blank (written `--`), and the result is then that the property is set to an appropriate default value: for `year established` this would be 0, for `citation` a blank text, and so on.
+The first column provides names for the new things to be created. Subsequent columns provide property values. Note that we did not need to say that jerseys have a number called `year established` because Inform is able to infer this from the column heading and the presence of numbers in the column; similarly for `citation`. An entry can be left blank (written `--`), and the result is then that the property is set to an appropriate default value: for `year established` this would be 0, for `citation` a blank text, and so on.
 
-Note that Inform reads articles such as "the" or "a" in the first column just as it would when something is created with any other sentence.
+Note that Inform reads articles such as `the` or `a` in the first column just as it would when something is created with any other sentence.
 
 It's even possible to define kinds this way. It's rare to need to create many kinds at once, and really only sensible when for some reason a host of very similar subkinds are needed.
 
@@ -10007,18 +9992,18 @@ We can give these new values properties, too. For example:
 	Neptune		30 AU
 	Pluto		39 AU
 
-creates five values of the kind "planet", but it also makes a property called "semimajor axis" which belongs only to these five values. Thus:
+creates five values of the kind `planet`, but it also makes a property called `semimajor axis` which belongs only to these five values. Thus:
 
 	say "Pluto orbits at [semimajor axis of Pluto]."
 
-produces "Pluto orbits at 39 AU." We can both use and change this value:
+produces `Pluto orbits at 39 AU.` We can both use and change this value:
 
 	Praying is an action applying to nothing. Understand "pray" as praying.
 	Instead of praying:
 		now the semimajor axis of Pluto is 1 AU;
 		say "Your prayers are answered, and the Almighty moves Pluto in closer to the fire."
 
-Similar properties would be made for each column of the table after the first (there can be any number of properties, including none). Because the values are created first, before the rest of the table is gone through, we can even use "planet" as one of the values of properties:
+Similar properties would be made for each column of the table after the first (there can be any number of properties, including none). Because the values are created first, before the rest of the table is gone through, we can even use `planet` as one of the values of properties:
 
 	Table of Outer Planets
 	planet		semimajor axis	centre of government
@@ -10028,9 +10013,9 @@ Similar properties would be made for each column of the table after the first (t
 	Neptune		30 AU			Pluto
 	Pluto		39 AU			Pluto
 
-All of this is intended to be closely parallel to defining a whole run of things, such as the coloured jerseys, using a table, but there are two important restrictions: firstly, when a kind of value is defined by table, the table must contain all of its possible values; and secondly, the column names (after the first) cannot coincide with names of any properties held by any other value (or thing, for that matter). So it is a good idea to give the columns very specific names ("centre of government") rather than vague names which might cause clashes elsewhere ("owner").
+All of this is intended to be closely parallel to defining a whole run of things, such as the coloured jerseys, using a table, but there are two important restrictions: firstly, when a kind of value is defined by table, the table must contain all of its possible values; and secondly, the column names (after the first) cannot coincide with names of any properties held by any other value (or thing, for that matter). So it is a good idea to give the columns very specific names (`centre of government`) rather than vague names which might cause clashes elsewhere (`owner`).
 
-Two technical footnotes. In a table used to define a kind of value, blank entries are not left blank: they are filled in with suitable default values. For instance, if the semimajor axis column had been all "--"s except for listing Neptune at "30 AU", say, Inform would deduce that the column was meant to hold a value of kind "solar distance", and would set the solar distances for all of the other planets to be "0 AU". It does this to ensure that "solar distance of P" exists for any planet P.
+Two technical footnotes. In a table used to define a kind of value, blank entries are not left blank: they are filled in with suitable default values. For instance, if the semimajor axis column had been all `--`s except for listing Neptune at `30 AU`, say, Inform would deduce that the column was meant to hold a value of kind `solar distance`, and would set the solar distances for all of the other planets to be `0 AU`. It does this to ensure that `solar distance of P` exists for any planet P.
 
 The second technical note is that we must not sort such a table, because it is used during play to store the properties, and if it were to get rearranged then so would the properties be – with probably disastrous results.
 
@@ -10059,7 +10044,7 @@ But then someone in Chile with a telescope the size of ^{God's own teacup} notic
 
 This may seem unnecessary – why not simply add extra rows to the original table? – but it allows us to split the table between different parts of the source text, if we want to, or to continue a table which exists only in an extension. (Thus if we were using an extension which involved the planets, and had a table like this one, we would be able to add new planets without changing the extension.)
 
-The name for the continuation must be identical to the original. The continuation has no existence in its own right: Inform simply splices the two (or more) pieces together, exactly as if the table were all in one piece at the place where it first occurred. Thus the above creates only one table, the "Table of Outer Planets", with nine rows. Each column in the continuation must exist in the original, but not every column need be given: those omitted are filled with blank entries. The columns need not be in the same order. Both original and continuations are allowed to quote a number of blank rows: if so, the combined total is used.
+The name for the continuation must be identical to the original. The continuation has no existence in its own right: Inform simply splices the two (or more) pieces together, exactly as if the table were all in one piece at the place where it first occurred. Thus the above creates only one table, the `Table of Outer Planets`, with nine rows. Each column in the continuation must exist in the original, but not every column need be given: those omitted are filled with blank entries. The columns need not be in the same order. Both original and continuations are allowed to quote a number of blank rows: if so, the combined total is used.
 
 At time of writing the International Astronomical Union has not yet consented to name 2003 UB313 after Xena, the Warrior Princess, but this is surely only a bureaucratic delay. (Footnote: on 24 August 2006 it was demoted to dwarf planet status, like the luckless Pluto, and on 13 September renamed Eris; though its moon's official name, Dysnomia, is an ingenious double-meaning to do with the name of Xena's actress, Lucy Lawless.)
 
@@ -10081,7 +10066,7 @@ The amendment table must have exactly the columns of the original and in the sam
 	moment		outcome
 	11:45 AM	"volcanic cave production doubled"
 
-creates a three-row Table of Plans, with reference to the chocolate bars struck out.
+creates a three-row `Table of Plans`, with reference to the chocolate bars struck out.
 
 Amendment rows may be given in any order. The process of matching a row begins at the left-most column: Inform tries to see if any single row in the original table has a matching entry. If none does, a Problem is issued. If more than one do, Inform then looks at the second column, and so on. For instance:
 
@@ -10098,7 +10083,7 @@ Amendment rows may be given in any order. The process of matching a row begins a
 	feeling	extent	consequence
 	pumped	2		"you feel able to run for the Nebraska State Legislature"
 
-Here the amendment is made to the second row of the original table. The value in the leftmost column, "pumped", matches two rows in the original, so Inform moves on to the next column, reads "2", and finds that only one row in the original still qualifies – so that is the one replaced.
+Here the amendment is made to the second row of the original table. The value in the leftmost column, `pumped`, matches two rows in the original, so Inform moves on to the next column, reads `2`, and finds that only one row in the original still qualifies – so that is the one replaced.
 
 For the present, at least, the columns used for matching may only contain: numbers, times, objects, action names, activities, figure names, sound names, truth states and any new kinds of value or units which have been declared.
 
@@ -10126,7 +10111,7 @@ Like a rule or a phrase, a **table** has its own syntax and occupies a single pa
     - `Topic`
     - `Question (a topic)`
 
-    Exceptionally, the heading `Topic` is read as if it were `Topic (a topic)`, i.e., giving both the name and the kind of this column as "topic".
+    Exceptionally, the heading `Topic` is read as if it were `Topic (a topic)`, i.e., giving both the name and the kind of this column as `topic`.
 
 * Optionally, one or more **entry rows**, similarly divided up into one or more entries with tab characters. The first entry is in column 1, the second is in column 2, and so on.
 
@@ -10190,17 +10175,17 @@ In the photography example, we are providing entirely new grammar for an action 
 
 	Understand "deposit [something] in [an open container]" as inserting it into.
 
-The inserting action is built in to Inform, but the command "deposit" is not, so this is created as new. It is occasionally useful to put a twist on this:
+The inserting action is built in to Inform, but the command ``DEPOSIT`` is not, so this is created as new. It is occasionally useful to put a twist on this:
 
 	Understand "fill [an open container] with [something]" as inserting it into (with nouns reversed).
 
-The clause "(with nouns reversed)" tells Inform to exchange the two nouns parsed, which is necessary because the inserting action expects the noun to be the item and the second noun to be the container, not vice versa.
+The clause `(with nouns reversed)` tells Inform to exchange the two nouns parsed, which is necessary because the inserting action expects the noun to be the item and the second noun to be the container, not vice versa.
 
 The following example:
 
 	Understand "access [something]" as opening.
 
-might look as if it makes "access" behave just like "open" when the player types it, but that's not so: "open" can also be used in constructions like "open the door with the brass key", in which case it is understood as the unlocking action. We could add another line to make "access" behave this way too, but if what we really want is to make "access" behave just like "open", it's easier simply to say so:
+might look as if it makes ``ACCESS`` behave just like "open" when the player types it, but that's not so: ``OPEN`` can also be used in constructions like "open the door with the brass key", in which case it is understood as the unlocking action. We could add another line to make ``ACCESS`` behave this way too, but if what we really want is to make ``ACCESS`` behave just like ``OPEN``, it's easier simply to say so:
 
 	Understand the command "access" as "open".
 
@@ -10208,23 +10193,23 @@ This is very useful when adding a new command which needs synonyms:
 
 	Understand the commands "snap" and "picture" as "photograph".
 
-We can check the current stock of commands by looking at the table in the Actions index: for instance, before making "snap" synonymous with "photograph", it might be wise to check that it is not already defined as a command for breaking something.
+We can check the current stock of commands by looking at the table in the Actions index: for instance, before making ``SNAP`` synonymous with ``PHOTOGRAPH``, it might be wise to check that it is not already defined as a command for breaking something.
 
 ## Overriding existing commands
 
 ^^{understand (verb) as (action)+assert+} ^^{understanding: verbs} ^^{understand (verb) as something new+assert+} ^^{understanding: removing existing definitions of verbs} ^^{understand nothing as (action)+assert+} ^^{understanding: removing existing definitions of verbs} ^^{|as something new} ^^{(something new), in understanding actions+sourcepart+} ^^{|nothing: in understanding actions} ^^{Actions page of Index panel+ui+} ^^{user interface: Index panel: Actions page} ^^{Index panel+ui+: Actions page}
 
-Suppose we are devising specialist commands for a game of whist, and we want "discard" as one of them. Looking at the table of commands in the Action index, we find that, inconveniently enough, "discard" already has a meaning: it is synonymous with "drop", and while that might be sensible most of the time, it is perfectly wrong now. We need a way to free up "discard" for our own use. We can do that by:
+Suppose we are devising specialist commands for a game of whist, and we want ``DISCARD`` as one of them. Looking at the table of commands in the Action index, we find that, inconveniently enough, ``DISCARD`` already has a meaning: it is synonymous with ``DROP``, and while that might be sensible most of the time, it is perfectly wrong now. We need a way to free up ``DISCARD`` for our own use. We can do that by:
 
 	Understand the command "discard" as something new.
 
-This cuts it loose, so to speak, and ready to be given new meanings. If we check the Actions index again, we find no mention of "discard" – it is now a blank slate – but "drop" is still exactly as it was. We could now say something like:
+This cuts it loose, so to speak, and ready to be given new meanings. If we check the Actions index again, we find no mention of ``DISCARD`` – it is now a blank slate – but ``DROP`` is still exactly as it was. We could now say something like:
 
 	Understand "discard [something]" as discarding.
 
-(If we had declared that "drop" was something new, the whole thing would have happened in reverse, with "discard" retaining all of the original grammar. Inform does not distinguish between a command and its synonym.)
+(If we had declared that ``DROP`` was something new, the whole thing would have happened in reverse, with ``DISCARD`` retaining all of the original grammar. Inform does not distinguish between a command and its synonym.)
 
-The "... as something new" sentence works even for a command which did not exist anyway, for instance with:
+The `... as something new` sentence works even for a command which did not exist anyway, for instance with:
 
 	Understand the command "zylqix" as something new.
 
@@ -10234,13 +10219,13 @@ It is also possible to clear out all the commands leading to a given action:
 
 	Understand nothing as taking.
 
-The commands "take" and "get" will still exist, but now they'll only have their other senses (for taking off clothes, for getting out of boxes).
+The commands ``TAKE`` and ``GET`` will still exist, but now they'll only have their other senses (for taking off clothes, for getting out of boxes).
 
 ## Standard tokens of grammar {things_token} {TOKENS}
 
 ^^{understanding: arbitrary objects} ^^{grammar tokens <-- tokens of grammar <-- understanding: grammar tokens} ^^{someone+token+} ^^{something+token+} ^^{something preferably held+token+} ^^{things+token+} ^^{things inside+token+} ^^{other things+token+} ^^{punctuation: slash: separating synonymous words in grammar} ^^{|/: separating synonymous words in grammar} ^^{actions: applying to multiple objects}
 
-The square-bracketed parts of `Understand` grammar are called "tokens". Rather than matching a single specific word, they will normally match a range of possibilities. For example, the grammar `"[number]"` will match ``SIX`` or ``1935``, whereas `"number"` only matches the word ``NUMBER``.
+The square-bracketed parts of `Understand` grammar are called _tokens_. Rather than matching a single specific word, they will normally match a range of possibilities. For example, the grammar `"[number]"` will match ``SIX`` or ``1935``, whereas `"number"` only matches the word ``NUMBER``.
 
 Any description of an object can be used as a token: `"[a door]"` matches the name of any door in scope, for example, and `"[an open door]"` matches only those which are currently open. But it is usually not a good idea to write overly specific tokens like this. The command ``DETONATE`` might be intended to be used only with things of the kind `bomb`, for example, but we would still want to _understand_ the command ``DETONATE BANANA``, in order to reject it with a better reply than just ``You can't see any such thing.``
 
@@ -10326,11 +10311,11 @@ The issue of "scope" does not arise for values which are not objects. Scope is a
 
 In the previous section, we saw that `"[number]"` matches any number, and so on for many other kinds of value. So it's natural to wonder: how about text?
 
-The answer is that there is indeed `"[text]"` token, but that it does _not_ produce a text value, despite the name. Instead, it produces a value which represents a so-called "snippet" of a full command. For example, if the player types ``ASK SYBIL ABOUT HELEN OF TROY``, the `"[text]"` token in the grammar for the ``ASK`` command produces the snippet ``HELEN OF TROY``.
+The answer is that there is indeed `"[text]"` token, but that it does _not_ produce a text value, despite the name. Instead, it produces a value which represents a so-called _snippet_ of a full command. For example, if the player types ``ASK SYBIL ABOUT HELEN OF TROY``, the `"[text]"` token in the grammar for the ``ASK`` command produces the snippet ``HELEN OF TROY``.
 
 What can we do with that? In effect the command is only partially parsed: this snippet of the final three words is being left to us to parse later.
 
-Here is an example of an action applying to a "topic":
+Here is an example of an action applying to a `topic`:
 
 	{*}The Enigmatic Void is a room.
 
@@ -10341,7 +10326,7 @@ Here is an example of an action applying to a "topic":
 	Carry out getting help about:
 		showme the topic understood.
 
-The word "topic" here is used rather loosely, but is traditional in interactive fiction. If we try the above example, we might see:
+The word `topic` here is used rather loosely, but is traditional in interactive fiction. If we try the above example, we might see:
 
 	>HELP ON SPACE TIME CONTINUUM
 	"topic understood" = snippet: SPACE TIME CONTINUUM
@@ -10574,7 +10559,7 @@ In particular, any newly created kind of value can always be understood. We make
 	
 	Test me with "get camera / photograph left leg of model".
 
-Note the way we can refer to the limb mentioned by the player as the "limb understood". Similarly, we could talk about the "number understood" if the value parsed had been a number, and so on.
+Note the way we can refer to the limb mentioned by the player as the `limb understood`. Similarly, we could talk about the `number understood` if the value parsed had been a number, and so on.
 
 One of the built-in kinds of value is worth special note: time. A time can hold either a specific time of day, such as 10:23 PM, or a duration of something, such as 21 minutes. The `"[a time]"` token matches times of day, such as ``10:15 AM`` or ``MIDNIGHT``. But ``10 minutes`` wouldn't be recognised by `"[a time]"` since it isn't a specific moment in the day. To get around this, an alternative version called `"[a time period]"` is available. So:
 
@@ -10590,11 +10575,11 @@ In every example so far, and in almost all practical cases, the first word in a 
 
 	Understand "photograph [something]" as photographing.
 
-we are saying that the first word of such a command will always be "photograph". Occasionally, though, we would like to understand a noun as a command, perhaps in a situation where the command is obvious. If we say:
+we are saying that the first word of such a command will always be ``PHOTOGRAPH``. Occasionally, though, we would like to understand a noun as a command, perhaps in a situation where the command is obvious. If we say:
 
 	Understand "[something]" as examining.
 
-then the command "examine" will be implicit when the player types a bare noun:
+then the command ``EXAMINE`` will be implicit when the player types a bare noun:
 
 ``` transcript
 A red box and a blue ball are here.
@@ -10603,32 +10588,32 @@ A red box and a blue ball are here.
 The blue ball is plaited from many small leather patches.
 ```
 
-so that the command "ball" has resulted in the action "examining the blue ball".
+so that the command ``BALL`` has resulted in the action `examining the blue ball`.
 
 This is a feature which should be used sparingly, since it could easily lead to confusion if not carefully explained to the player. By default, it is not used at all.
 
-It also has what may be a serious limitation: verbless commands like this work only when typed by the player as actions to follow – they do not work as instructions for other people. So for instance ``SVEN, BALL`` would not ask Sven to try examining the ball – instead it would generate the action "answering ball to Sven". (This is because the Inform parser decides whether ``PERSON, SOME TEXT`` is a request or just conversation by looking at the first word after the comma to see if it's a command.)
+It also has what may be a serious limitation: verbless commands like this work only when typed by the player as actions to follow – they do not work as instructions for other people. So for instance ``SVEN, BALL`` would not ask Sven to try examining the ball – instead it would generate the action `answering ball to Sven`. (This is because the Inform parser decides whether ``PERSON, SOME TEXT`` is a request or just conversation by looking at the first word after the comma to see if it's a command.)
 
 ## Understanding values {PM_UnderstandAsQualified} {PM_UnderstandPluralValue}
 
 ^^{understand (nouns) as (thing)+assert+} ^^{understanding: values} ^^{understanding: kinds of things} ^^{understanding: things: kinds of things} ^^{understanding: synonyms: for things and values} ^^{grammar tokens: for kinds of value}
 
-"Understand" can be used to supply new ways to talk about both things and other values. For instance, if we create:
+`Understand` can be used to supply new ways to talk about both things and other values. For instance, if we create:
 
 	A brass lantern is in the Building.
 
-then it can be called "brass", or "lantern", but not "lamp": Inform does not really know what these words mean, and has no grasp of synonyms. We can arrange for "lamp" to work as well like so:
+then it can be called ``BRASS``, or ``LANTERN``, but not ``LAMP``: Inform does not really know what these words mean, and has no grasp of synonyms. We can arrange for ``LAMP`` to work as well like so:
 
 	Understand "lamp" as the lantern.
 	Understand "old lamp" as the lantern.
 
-It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called "April", but not "woman". (The exception is when we do not specify any name for her – in that case, Inform will give up and call her just "woman". Also, Inform _does_ allow the plural name of a kind to be used. ``TAKE THREE COINS`` would pick up three different things of the kind `coin`, if that were a kind, and if there were three of them to hand.)
+It is not ordinarily the case that a thing can be called by the name of its kind: if we put a woman called April into a room, then she can usually be called ``APRIL``, but not ``WOMAN``. (The exception is when we do not specify any name for her – in that case, Inform will give up and call her just ``WOMAN``. Also, Inform _does_ allow the plural name of a kind to be used. ``TAKE THREE COINS`` would pick up three different things of the kind `coin`, if that were a kind, and if there were three of them to hand.)
 
 With care, we can do the same trick for entire kinds of thing at once. So there is not usually any form of words which can refer to anything of a given kind. If we should want this, we have to say so explicitly:
 
 	Understand "machine" as a device.
 
-Device is a kind, so now the word "machine" can be used to refer to any device: if there are two in the same place, the result might play out like so:
+Device is a kind, so now the word ``MACHINE`` can be used to refer to any device: if there are two in the same place, the result might play out like so:
 
 	> SWITCH MACHINE ON
 	Which do you mean, the bale twiner or the grain thresher?
@@ -10650,7 +10635,7 @@ will fail because Inform, working left to right, needs to look for every possibl
 
 ^^{understanding: synonyms} ^^{punctuation: slash: separating synonymous words in grammar} ^^{|/: separating synonymous words in grammar} ^^{punctuation: double-dash: optional words in Understand grammar} ^^{|--: optional words in Understand grammar}
 
-We have already seen "or" used in "Understand" sentences:
+We have already seen `or` used in `Understand` sentences:
 
 	Understand "scarlet" or "crimson" as red.
 
@@ -10658,7 +10643,7 @@ For convenience, `and` can also be used instead of `or` here:
 
 	Understand "scarlet" and "crimson" as red.
 
-In general, any number of alternative forms can be given which are to be understood as the same thing (in this case the colour red). When the alternatives are in any way complicated, "or" should always be used, but a shorthand form is allowed for simple cases where it is only a matter of a single word having several possibilities:
+In general, any number of alternative forms can be given which are to be understood as the same thing (in this case the colour red). When the alternatives are in any way complicated, `or` should always be used, but a shorthand form is allowed for simple cases where it is only a matter of a single word having several possibilities:
 
 	Understand "reach underneath/under/beneath [something]" as looking under.
 
@@ -10674,9 +10659,9 @@ It's possible also to make that second word optional:
 
 	Understand "reach underneath/under/beneath/-- [something]" as looking under.
 
-because "--" is read by Inform as "no word at all". If "--" is an option, it can only be given once and at the end of the list of possibilities.
+because `--` is read by Inform as "no word at all". If `--` is an option, it can only be given once and at the end of the list of possibilities.
 
-To recapitulate: the slash `/` can only be used between single, literal words, or between the next to last word and `--`. It is best for the wayward prepositions of English ("in/into/inside", and so forth). For anything more complex, always use "or".
+To recapitulate: the slash `/` can only be used between single, literal words, or between the next to last word and `--`. It is best for the wayward prepositions of English (`in/into/inside`, and so forth). For anything more complex, always use `or`.
 
 ## New tokens {PM_MixedOutcome} {PM_TwoValuedToken} {NEWTOKENS}
 
@@ -10724,7 +10709,7 @@ The examples just seen were tokens which simply matched specific words typed by 
 
 	Colour is a kind of value. The colours are red, green and blue. Understand "colour [a colour]" or "[a colour] shade" as "[tint]".
 
-Here the `"[tint]"` token matches, for instance, "colour red" and "blue shade", which would result in the values red and blue, respectively.
+Here the `"[tint]"` token matches, for instance, `colour red` and `blue shade`, which would result in the values red and blue, respectively.
 
 Tokens are not allowed to produce more than one value, and if several patterns are given to define them then those patterns have to be compatible. That means the following is disallowed, since it might work out to a colour, or to an object, leaving Inform unable to judge whether an action can safely be applied to the result.
 
@@ -10738,7 +10723,7 @@ Items are ordinarily understood only by their original given names. For instance
 
 	In the Herb Garden is a china pot.
 
-then the player could refer to this as "pot", "china pot" or "china". We can embellish this by adding extra forms:
+then the player could refer to this as ``POT``, ``CHINA POT`` or ``CHINA``. We can embellish this by adding extra forms:
 
 	Understand "chinese pot" or "chinese vase" as the china pot.
 
@@ -10751,11 +10736,11 @@ But suppose the pot changes its nature in the course of play? If we have:
 		now the china pot is broken;
 		now the printed name of the pot is "broken pot".
 
-So now the player would reasonably expect to call it "broken pot", a wording which would have been rejected before. We can achieve this by writing:
+So now the player would reasonably expect to call it ``BROKEN POT``, a wording which would have been rejected before. We can achieve this by writing:
 
 	Understand the unbroken property as describing the pot.
 
-which allows "unbroken" or "broken" to describe the pot, depending on its state. And, since the player might well use a different adjective but with the same idea in mind, we can even add:
+which allows ``UNBROKEN`` or ``BROKEN`` to describe the pot, depending on its state. And, since the player might well use a different adjective but with the same idea in mind, we can even add:
 
 	Understand "shattered" or "cracked" or "smashed" as broken. Understand "pristine" as unbroken.
 
@@ -10802,7 +10787,7 @@ There are in fact two slightly different forms of this kind of sentence:
 	Understand the broken property as describing a flowerpot.
 	Understand the broken property as referring to a flowerpot.
 
-The only difference is that in the "describing" case, the property's name alone can mean the thing in question – so "take unbroken" will work; whereas, in the "referring to", the property's name can only be used as an adjective preceding the name of thing itself – so "take unbroken flowerpot" will work but "take unbroken" will not.
+The only difference is that in the `describing` case, the property's name alone can mean the thing in question – so ``TAKE UNBROKEN`` will work; whereas, in the `referring to`, the property's name can only be used as an adjective preceding the name of thing itself – so ``TAKE UNBROKEN FLOWERPOT`` will work but ``TAKE UNBROKEN`` will not.
 
 ## Understanding things by their relations {PM_GrammarObjectlessRelation} {PM_GrammarBadRelation} {PM_GrammarValueRelation}
 
@@ -10852,7 +10837,7 @@ works fine, because now the parser trying to match a name will look first for ``
 
 ^^{when (condition)+sourcearg+: arbitrary conditions for (understand)+sourcepart+} ^^{understanding: conditionally} ^^{understanding: limiting cases where understand rules apply} ^^{understanding: (when) clauses for+sourcepart+} ^^{conditions: for (understand)+sourcepart+} ^^{publicly-named / privately-named (object)+adj+} ^^{privately-named / publicly-named (object)+adj+} ^^{item described (- object)+glob+}
 
-We have now seen several different forms of "Understand" sentence: for instance,
+We have now seen several different forms of `Understand` sentence: for instance,
 
 	Understand the colour property as describing a building block.
 	Understand "mix [colour] paint" as mixing paint.
@@ -10864,7 +10849,7 @@ Any of these may optionally have a condition tacked on: for instance,
 	Understand "mix [colour] paint" as mixing paint when the location is the Workshop.
 	Understand "rouge" as red when the make-up set is visible.
 
-In principle, "when ..." can take in any condition at all. In practice a little care should be exercised not to do anything too slow, or which might have side-effects. (For instance, referring the decision to a phrase which then printed text up would be a bad idea.) Moreover, we must remember that the "noun" and "second noun" are not known yet, nor do we know what the action will be. So we cannot safely say "when the noun is the fir cone", for instance, or refer to things like "the number understood". (We aren't done understanding yet.) If we want more sophisticated handling of such cases, we need to write checking rules and so on in the usual way.
+In principle, `when ...` can take in any condition at all. In practice a little care should be exercised not to do anything too slow, or which might have side-effects. (For instance, referring the decision to a phrase which then printed text up would be a bad idea.) Moreover, we must remember that the `noun` and `second noun` are not known yet, nor do we know what the action will be. So we cannot safely say `when the noun is the fir cone`, for instance, or refer to things like `the number understood`. (We aren't done understanding yet.) If we want more sophisticated handling of such cases, we need to write checking rules and so on in the usual way.
 
 Contexts can be useful to make sense of things having different names depending on who is being spoken to, as here:
 
@@ -10922,7 +10907,7 @@ Now suppose the player types ``GET TOWER``. The response will be:
 Which do you mean, the great Eiffel Tower or the souvenir model Eiffel Tower?
 ```
 
-Which is a silly question, exposing our work of IF as something artificial. It's obvious to the author of the source text, and to the player, that the souvenir must be what is meant: but this is not obvious to the computer program running the story. Works of IF gain a subtle feeling of quality from being able to understand ambiguous references of the kind above, and Inform provides us with a way to do this by giving the parser clues in the form of "Does the player mean..." rules. For instance, if we add:
+Which is a silly question, exposing our work of IF as something artificial. It's obvious to the author of the source text, and to the player, that the souvenir must be what is meant: but this is not obvious to the computer program running the story. Works of IF gain a subtle feeling of quality from being able to understand ambiguous references of the kind above, and Inform provides us with a way to do this by giving the parser clues in the form of `Does the player mean...` rules. For instance, if we add:
 
 	Does the player mean taking the great Eiffel Tower: it is very unlikely.
 
@@ -10933,7 +10918,7 @@ then the response to ``GET TOWER`` will now be:
 Taken.
 ```
 
-"Does the player mean..." rules look at the actions which are possible interpretations of what the player typed, and grade them according to how likely they seem. (Note that these rules are only ever used to handle ambiguities: if the player unambiguously types ``GET GREAT EIFFEL TOWER``, that will be the action. And the rules are only used where they are able to make a decision: if there are still multiple equally plausible meanings, the parser will ask about all possibilities, not just the most likely ones.) Rules in this rulebook can either decide nothing, or come up with one of the following verdicts:
+`Does the player mean...` rules look at the actions which are possible interpretations of what the player typed, and grade them according to how likely they seem. (Note that these rules are only ever used to handle ambiguities: if the player unambiguously types ``GET GREAT EIFFEL TOWER``, that will be the action. And the rules are only used where they are able to make a decision: if there are still multiple equally plausible meanings, the parser will ask about all possibilities, not just the most likely ones.) Rules in this rulebook can either decide nothing, or come up with one of the following verdicts:
 
 - `it is very likely`
 - `it is likely`
@@ -10941,7 +10926,7 @@ Taken.
 - `it is unlikely`
 - `it is very unlikely`
 
-If there are no "does the player mean" rules, or the rules make no decision on a given possible action, it will be ranked as `it is possible`.
+If there are no `does the player mean` rules, or the rules make no decision on a given possible action, it will be ranked as `it is possible`.
 
 We may use these rules to affect all sorts of interaction with a specific object or kind of object, as in
 
@@ -10966,23 +10951,23 @@ But there is a caveat. There are some cases where this mechanism will not in fac
 
 may not work if the player types ``THROW POLISH AT TREE`` and ``POLISH`` is ambiguous, because when the parser is trying to understand ``POLISH``, it hasn't yet seen to the end of the command and realised that the second noun will be the tree; so the second noun is unset and the rule won't match.
 
-As a caveat to the caveat, the "inserting it into", "removing it from" and "putting it on" actions have this slightly back to front. These are parsed using the (little-used) `"[other things]"` or `"[things inside]"` tokens, and the Inform parser tries to detect the second noun before the first one, since the identity of the first has to depend on the second. So for instance if the situation contains "an oak tree" and also "an oak chest", we could write:
+As a caveat to the caveat, the `inserting it into`, `removing it from` and `putting it on` actions have this slightly back to front. These are parsed using the (little-used) `"[other things]"` or `"[things inside]"` tokens, and the Inform parser tries to detect the second noun before the first one, since the identity of the first has to depend on the second. So for instance if the situation contains `an oak tree` and also `an oak chest`, we could write:
 
 	Does the player mean inserting into the oak chest: it is very likely.
 
-which would successfully make ``PUT COIN IN OAK`` mean the chest, not the tree. (Note the way we write "inserting into" without saying anything about what's being inserted, not even that it's "something".)
+which would successfully make ``PUT COIN IN OAK`` mean the chest, not the tree. (Note the way we write `inserting into` without saying anything about what's being inserted, not even that it's `something`.)
 
 ## Multiple action processing
 
 ^^{lists: the multiple object list} ^^{actions: multiple action processing} ^^{rulebooks: multiple action processing rules}
 
-When the player types a command like ``DROP ALL``, this is (usually) a request to carry out more than one action. After the command parser has decided what constitutes ``ALL`` (a process which can be influenced using the "deciding whether all includes" activity), it forms up a list and then runs through it, starting an action for each in turn. The result usually looks something like this:
+When the player types a command like ``DROP ALL``, this is (usually) a request to carry out more than one action. After the command parser has decided what constitutes ``ALL`` (a process which can be influenced using the `deciding whether all includes` activity), it forms up a list and then runs through it, starting an action for each in turn. The result usually looks something like this:
 
 	> GET ALL
 	foxglove: Taken.
 	snake's head fritillary: Taken.
 
-However, by adding rules to the `multiple action processing rulebook`, we can take a look at the actions intended, and rearrange or indeed change them before they take effect. To do that, we have to deal with a special list of objects. For two technical reasons this isn't stored as a "list of objects that varies" – first because it needs to exist even in low-memory situations where we can't afford full list-processing, and second because there are times when changing it might be hazardous. Instead, two phrases are provided to read the list and to write it back:
+However, by adding rules to the `multiple action processing rulebook`, we can take a look at the actions intended, and rearrange or indeed change them before they take effect. To do that, we have to deal with a special list of objects. For two technical reasons this isn't stored as a `list of objects that varies` – first because it needs to exist even in low-memory situations where we can't afford full list-processing, and second because there are times when changing it might be hazardous. Instead, two phrases are provided to read the list and to write it back:
 
 > phrase: {ph_multipleobjectlist} multiple object list ... list of objects
 >
@@ -10990,7 +10975,7 @@ However, by adding rules to the `multiple action processing rulebook`, we can ta
 
 > phrase: {ph_altermultipleobjectlist} alter the multiple object list to (list of objects)
 >
-> This phrase sets the multiple object list to the given value. The list is ordinarily the collection of objects found to match a plural noun like ``ALL`` in the most recent command typed by the player, but using this phrase at the right moment (before the "generate action rule" in the turn sequence rules takes effect).
+> This phrase sets the multiple object list to the given value. The list is ordinarily the collection of objects found to match a plural noun like ``ALL`` in the most recent command typed by the player, but using this phrase at the right moment (before the `generate action rule` in the turn sequence rules takes effect).
 
 ## Understanding mistakes
 
@@ -11000,7 +10985,7 @@ When inspiration strikes the player, they can usually be relied upon to make a g
 
 Nevertheless it is sometimes good practice to nudge the player towards the right wording – particularly if the player has the right idea but is not explicit enough: for instance, typing ``TALK TO JUDGE`` when we really want to know what is to be said (``JUDGE``, ``GUILTY``); or if the player tries something like ``PLAY CHESS`` rather than ``MOVE PAWN TO KING 4``. Similarly, if we make a casual reference such as "In your childhood days, you loved sliding in stocking feet across this hallway", a player might type ``SLIDE IN STOCKING FEET``: a nice idea, and which deserves a nice response, even though it asks to do something beyond the scope of the story.
 
-Inform provides a simple mechanism for recognising a command but at the same time recognising that *it does not properly specify an action*. Such commands are called "mistakes", for the sake of a memorable term, but the player has not really behaved badly, and should be helped rather than reproved. For instance:
+Inform provides a simple mechanism for recognising a command but at the same time recognising that *it does not properly specify an action*. Such commands are called _mistakes_, for the sake of a memorable term, but the player has not really behaved badly, and should be helped rather than reproved. For instance:
 
 	Understand "act" as a mistake.
 
@@ -11032,9 +11017,9 @@ It's sneaky but possible to use mistakes to implement out-of-world commands in a
 
 As another example, the following can be useful when beta-testing of a new work, though we would not want it in the final published edition. Many authors like to ask their testers not to try anything in particular, simply to play naturally: but to record the transcript of the session, and email it back to the author. The following command is a device to allow the tester to type a comment in to the transcript:
 
-	Understand "* [text]" as a mistake ("Noted.").
+	Understand "but [text]" as a mistake ("Noted.").
 
-For instance, the tester might type "\* ``DIDN'T WE SAY DARCY WAS TALL?``", to which the story would reply "Noted." – and the author can search for such comments when receiving the transcript.
+For instance, the tester might type ``BUT DIDN'T WE SAY DARCY WAS TALL?``, to which the story would reply "Noted." – and the author can search for such comments when receiving the transcript.
 
 If we are careful, we can make the reply depend on what was typed in the mistaken command:
 
@@ -11042,7 +11027,7 @@ If we are careful, we can make the reply depend on what was typed in the mistake
 
 The care comes in because Inform applies much less checking to mistakes than to other actions, and odd errors will result if we try to refer to (say) "the second noun" in a command which did not have a second noun.
 
-It's probably wise to take particular care if using "as a mistake" with any command which might include the mistake among what the player calls ``ALL``: for example, if "take [sydney harbour bridge]" is understood as a mistake, then ``TAKE ALL`` will may result in this, even though the player doesn't intend any such thing.
+It's probably wise to take particular care if using `as a mistake` with any command which might include the mistake among what the player calls ``ALL``: for example, if `"take [sydney harbour bridge]"` is understood as a mistake, then ``TAKE ALL`` will may result in this, even though the player doesn't intend any such thing.
 
 ## Precedence
 
@@ -11054,7 +11039,7 @@ When several different lines of grammar are supplied to meet the same circumstan
 	
 	Understand "photograph [an open door]" as photographing.
 
-The second line is more specific than the first, so Inform takes these grammar lines the other way around: it checks for "open door" before it checks for "door". That didn't matter here, since both lines came out with the same result (the action of photographing), but it matters very much in the next example:
+The second line is more specific than the first, so Inform takes these grammar lines the other way around: it checks for `open door` before it checks for `door`. That didn't matter here, since both lines came out with the same result (the action of photographing), but it matters very much in the next example:
 
 	Understand "employ [a door]" as opening.
 	
@@ -11064,7 +11049,7 @@ More subtle is a line already seen:
 
 	Understand "on/in/inside" or "on top of" as "[within]".
 
-Here Inform puts "on top of" before "on/in/inside", since otherwise only the "on" of "on top of" will be recognised.
+Here Inform puts `on top of` before `on/in/inside`, since otherwise only the `on` of ``ON TOP OF`` will be recognised.
 
 Mistakes always take precedence over non-mistakes: this is intended to make sure that
 
@@ -11076,7 +11061,7 @@ will take precedence over
 
 even if there is, in fact, a character called Mr Nimbus Umbrage so that the command could conceivably make sense.
 
-Finally, there are a few grammars where the number of values produced is different in different lines. For example, the Standard Rules include these among the possible "put" commands:
+Finally, there are a few grammars where the number of values produced is different in different lines. For example, the Standard Rules include these among the possible ``PUT`` commands:
 
 	Understand "put [something preferably held] on" as wearing.
 	Understand "put [other things] on/onto [something]" as putting it on.
@@ -11093,7 +11078,7 @@ It is poor form to define with negatives, but the first thing to say about activ
 
 	Before printing the name of a woman, say "Ms ".
 
-With this rule in place, someone called "Daphne" will always be described as "Ms Daphne", and so on. The language looks as if we were imposing a rule on an action called "printing the name of", but there is no such action: instead, it is an "activity". To spell out the difference:
+With this rule in place, someone called "Daphne" will always be described as ``Ms Daphne``, and so on. The language looks as if we were imposing a rule on an action called `printing the name of`, but there is no such action: instead, it is an _activity_. To spell out the difference:
 
 > **An *action* is a simulated task for a character in the story, such as the protagonist.**
 >
@@ -11111,7 +11096,7 @@ As an example of that nesting, suppose the following is printed as part of the d
 
 	You can see a banana, an apple and a star-fruit here.
 
-At the moment when Inform prints "apple", two activities are under way: "listing contents of the Grocery", and "printing the name of the apple". The sequence of events was in fact:
+At the moment when Inform prints ``apple``, two activities are under way: `listing contents of the Grocery`, and `printing the name of the apple`. The sequence of events was in fact:
 
 	say "You can see "
 	[ start listing contents of the Grocery ]
@@ -11137,13 +11122,13 @@ If we ever need to find out, we can always test:
 	if the printing the name activity is going on, ...
 	if the printing the name activity is not going on, ...
 
-but as we shall see, it's usually simpler to attach "while printing the name" provisos to rules.
+but as we shall see, it's usually simpler to attach `while printing the name` provisos to rules.
 
 ## Rules applied to activities
 
 ^^{activities: rules for activities} ^^{before (activity)+rb+} ^^{rules: before rules} ^^{after (activity)+rb+} ^^{rules: after rules} ^^{for (activity)+rb+} ^^{rules: for activities} ^^{rulebooks: for actitivies}
 
-The activity "printing the name of something" is the process of printing up the name of something on screen: ordinarily, this means saying the text in the object's "printed name" property.
+The activity `printing the name of something` is the process of printing up the name of something on screen: ordinarily, this means saying the text in the object's `printed name` property.
 
 Actions very often break off and finish midway through their processing stages, because something happens in the story, or because it turns out that the action was impossible. A taking action might end at the before, instead or check stage, for example. Activities are easier to understand because they have just three rulebooks — before, for and after — and because they generally work through all three right to the end of processing, and thus finish in an orderly way.
 
@@ -11190,11 +11175,11 @@ Why is this what "normally" happens, not what "always" happens?
 
 ^^{rules: arbitrary conditions for rules, using (while)+sourcepart+} ^^{while (condition)+sourcearg+: arbitrary conditions for rules} ^^{conditions: for activity rules} ^^{rules: applying only while performing activities} ^^{activities: checking for ongoing activities in rules}
 
-Rules applied to actions can become baroque ("after going through a door in the presence of an animal when -" and so on and so forth), but activities are again simpler: they only have one possible clause attached, which is called "while". For instance, the following would provide a fairly sledgehammer hint that the sack should not lightly be thrown away:
+Rules applied to actions can become baroque (`after going through a door in the presence of an animal when` and so on and so forth), but activities are again simpler: they only have one possible clause attached, which is called `while`. For instance, the following would provide a fairly sledgehammer hint that the sack should not lightly be thrown away:
 
 	The sack is a player's holdall. The sack is carried. Rule for printing the name of the sack while the sack is not carried: say "your abandoned sack".
 
-Any condition can be given after the "while", and we can also specify that another activity has to be going on. Thus:
+Any condition can be given after the `while`, and we can also specify that another activity has to be going on. Thus:
 
 	Rule for printing the name of the lemon sherbet while listing contents: say "curious sort of lemon sherbet sweet".
 
@@ -11220,9 +11205,9 @@ There are two kinds of activity: those which relate to a specific value (usually
 	Analysing something is an activity.
 	Announcing something is an activity on numbers.
 
-These names are all present participles (note the "-ing"s), which emphasises that they are about an ongoing process. This naming convention is good style, and all of the built-in activities follow it, but it is not actually compulsory. `Barbra Streisand is an activity.` would be quite legal.
+These names are all present participles (note the `-ing`s), which emphasises that they are about an ongoing process. This naming convention is good style, and all of the built-in activities follow it, but it is not actually compulsory. `Barbra Streisand is an activity.` would be quite legal.
 
-Inform looks for the clue "something" (or "of something") after the activity's name to see if it will work on a value: so analysing and announcing will do, but assaying won't. If we don't specify a kind, Inform assumes the value will be an object, as if we had written:
+Inform looks for the clue `something` (or `of something`) after the activity's name to see if it will work on a value: so analysing and announcing will do, but assaying won't. If we don't specify a kind, Inform assumes the value will be an object, as if we had written:
 
 	Analysing something is an activity on objects.
 
@@ -11232,7 +11217,7 @@ As always in Inform, the names of activities are themselves values.
 - `analysing activity` has kind `activity on objects`
 - `announcing activity` has kind `activity on numbers`
 
-Creating an activity is like creating an action: it automatically makes new rulebooks – "before analysing", "for analysing" and "after analysing" – but they start out empty, so the activity does nothing yet. Just as it does for rulebooks, Inform defines the adjectives "empty" and "non-empty" for activities to test this state:
+Creating an activity is like creating an action: it automatically makes new rulebooks – `before analysing`, `for analysing` and `after analysing` – but they start out empty, so the activity does nothing yet. Just as it does for rulebooks, Inform defines the adjectives `empty` and `non-empty` for activities to test this state:
 
 	if the analysing activity is empty, ...
 
@@ -11253,20 +11238,20 @@ A newly created activity never happens unless we take steps to make it do so. We
 >     carry out the analysing activity with the pitchblende;
 >     carry out the announcing activity with the score;
 
-To make the activity do something useful, we need to put a rule into its "for" rulebook:
+To make the activity do something useful, we need to put a rule into its `for` rulebook:
 
 	Rule for announcing a number (called N): say "Ladies and gentlemen, [N]."
 	
 	The last for assaying rule:
 		say "Professionally, you cast an eye around mineral deposits nearby, noticing [list of rocks in the location]."
 
-"The last" is a technicality about rulebooks (see the next chapter, [Rulebooks]) which, put briefly, guarantees that this rule comes last among all possible "for assaying" rules. This is good form because the whole point of an activity is to make it easy for further rules to interfere – so we deliberately hang back to last place, giving precedence to anybody else who wants it.
+`The last` is a technicality about rulebooks (see the next chapter, [Rulebooks]) which, put briefly, guarantees that this rule comes last among all possible `for assaying` rules. This is good form because the whole point of an activity is to make it easy for further rules to interfere – so we deliberately hang back to last place, giving precedence to anybody else who wants it.
 
-The "for" rulebook is one where rules stop the activity, by default, when they take effect – in the same way that the "instead" rules stop actions by default. If this causes problems, we can use:
+The `for` rulebook is one where rules stop the activity, by default, when they take effect – in the same way that the `instead` rules stop actions by default. If this causes problems, we can use:
 
 > phrase: {ph_continueactivity} continue the activity
 >
-> This phrase should be used only in rules in activity rulebooks. It causes the current rule to end, but without result, so that the activity continues rather than stopping as a result of the rule. This is useful for rulebooks (like the "for" rulebook of an activity) where the default is that a rule does stop the activity.
+> This phrase should be used only in rules in activity rulebooks. It causes the current rule to end, but without result, so that the activity continues rather than stopping as a result of the rule. This is useful for rulebooks (like the `for` rulebook of an activity) where the default is that a rule does stop the activity.
 
 Activities are more useful than they first appear. Every new one provides a context which other activities can observe. We could, for instance, define
 
@@ -11280,7 +11265,7 @@ so that during assays more technical names are used.
 
 Just as actions can have variables, which are created when the action starts and disappear when it finishes, so activities can also have variables. They are visible to the rules for that activity, and nowhere else. (If the activity should happen a second time within its first run, that second occurrence gets its own copy of the variable, leaving the original untouched.)
 
-Typically it will be useful to set a variable to some default value at the "before" stage, calculate some interesting value for it in the "for" stage, and make use of the outcome during the "after" stage. For instance:
+Typically it will be useful to set a variable to some default value at the `before` stage, calculate some interesting value for it in the `for` stage, and make use of the outcome during the `after` stage. For instance:
 
 	Analysing something is an activity. The analysing activity has a text called first impression.
 	
@@ -11297,7 +11282,7 @@ Typically it will be useful to set a variable to some default value at the "befo
 
 ^^{activities: beginning/ending by hand} ^^{activities: abandoning by hand}
 
-If we have declared a new activity, like "analysing", what we should almost always use to run the activity is the standard phrase `carry out`, like so:
+If we have declared a new activity, like `analysing`, what we should almost always use to run the activity is the standard phrase `carry out`, like so:
 
 	carry out the analysing activity with the pitchblende;
 
@@ -11309,37 +11294,37 @@ But with that said, here goes.
 
 > phrase: {ph_beginactivity} begin the (activity) activity
 >
-> This phrase causes the named activity to become active, and runs its "before" rulebook. The activity must be one which applies to nothing. Example:
+> This phrase causes the named activity to become active, and runs its `before` rulebook. The activity must be one which applies to nothing. Example:
 >
 >     begin the assaying activity;
 >
-> It is the user's responsibility to ensure that in all cases a matching "end the ... activity" or else "abandon the ... activity" phrase is subsequently reached.
+> It is the user's responsibility to ensure that in all cases a matching `end the ... activity` or else `abandon the ... activity` phrase is subsequently reached.
 
 > phrase: {ph_beginactivitywith} begin the (activity on values) activity with (value)
 >
-> This phrase causes the named activity to become active, and runs its "before" rulebook. The activity must be one which applies to a value of a matching kind. Example:
+> This phrase causes the named activity to become active, and runs its `before` rulebook. The activity must be one which applies to a value of a matching kind. Example:
 >
 >     begin the analysing activity with the pitchblende;
 >
-> It is the user's responsibility to ensure that in all cases a matching "end the ... activity" or else "abandon the ... activity" phrase is subsequently reached.
+> It is the user's responsibility to ensure that in all cases a matching `end the ... activity` or else `abandon the ... activity` phrase is subsequently reached.
 
 And when we are done:
 
 > phrase: {ph_endactivity} end the (activity) activity
 >
-> This phrase runs the "after" rulebook of the activity and then causes it to become inactive. The activity must be one which applies to nothing. Example:
+> This phrase runs the `after` rulebook of the activity and then causes it to become inactive. The activity must be one which applies to nothing. Example:
 >
 >     end the assaying activity;
 >
-> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier "begin the ... activity" phrase.
+> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier `begin the ... activity` phrase.
 
 > phrase: {ph_endactivitywith} end the (activity on values) activity with (value)
 >
-> This phrase runs the "after" rulebook of the activity and then causes it to become inactive. The activity must be one which applies to a value of a matching kind. Example:
+> This phrase runs the `after` rulebook of the activity and then causes it to become inactive. The activity must be one which applies to a value of a matching kind. Example:
 >
 >     end the analysing activity with the pitchblende;
 >
-> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier "begin the ... activity" phrase.
+> It is the user's responsibility to ensure that this only ever happens in a way which matches an earlier `begin the ... activity` phrase.
 
 So the usual structure is like so:
 
@@ -11347,9 +11332,9 @@ So the usual structure is like so:
 	...
 	end the analysing activity with the pitchblende;
 
-This time the activity is ongoing throughout as many phrases as we care to write between the "begin" and "end". The before rules are considered at the time of the "begin ..." phrase; the after rules at the "end ...".
+This time the activity is ongoing throughout as many phrases as we care to write between the `begin` and `end`. The before rules are considered at the time of the `begin ...` phrase; the after rules at the `end ...`.
 
-What, then, of the "for" rules? In the above setup, they would simply be ignored. But we can make them effectual thus
+What, then, of the `for` rules? In the above setup, they would simply be ignored. But we can make them effectual thus
 
 	begin the analysing activity with the pitchblende;
 	...
@@ -11358,7 +11343,7 @@ What, then, of the "for" rules? In the above setup, they would simply be ignored
 	...
 	end the analysing activity with the pitchblende;
 
-We place the activity's normal behaviour inside the "if"; the condition, "if handling...", is true only if no rule has intervened. This means that we (or other authors using our activity) can create their own for rules to substitute here. If we elsewhere write
+We place the activity's normal behaviour inside the `if`; the condition, `if handling...`, is true only if no rule has intervened. This means that we (or other authors using our activity) can create their own for rules to substitute here. If we elsewhere write
 
 	Rule for handling the analysing activity with the pitchblende when the player is not sober:
 		say "You can't seem to focus."
@@ -11367,23 +11352,23 @@ that rule will intervene and take the place of whatever we have placed inside th
 
 > phrase: {ph_handlingactivity} if handling (activity) activity:
 >
-> This should be used only where the given activity has been started with "begin ..." and will be finished with "end ...". It runs the "for" rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The activity must be one which doesn't apply to any value.)
+> This should be used only where the given activity has been started with `begin ...` and will be finished with `end ...`. It runs the `for` rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The activity must be one which doesn't apply to any value.)
 
 > phrase: {ph_handlingactivitywith} if handling (activity on values) activity with (value):
 >
-> This should be used only where the given activity has been started with "begin ..." and will be finished with "end ...". It runs the "for" rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The given value must be the one it is being applied to.)
+> This should be used only where the given activity has been started with `begin ...` and will be finished with `end ...`. It runs the `for` rules for the activity, and then comes out true if none of those for rules intervened in the handling of that activity. (The given value must be the one it is being applied to.)
 
 It is also legal to force an early end to an activity with:
 
 > phrase: {ph_abandonactivity} abandon the (activity) activity
 >
-> This phrase ends an activity at once (without consulting any further rulebooks, including its "after" rulebook). It can only be used with an activity which has had its "begin" but not yet its "end" phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.
+> This phrase ends an activity at once (without consulting any further rulebooks, including its `after` rulebook). It can only be used with an activity which has had its `begin` but not yet its `end` phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.
 >
 >     abandon the assaying activity;
 
 > phrase: {ph_abandonactivitywith} abandon the (activity on values) activity with (value)
 >
-> This phrase ends an activity at once (without consulting any further rulebooks, including its "after" rulebook). It can only be used with an activity which has had its "begin" but not yet its "end" phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.
+> This phrase ends an activity at once (without consulting any further rulebooks, including its `after` rulebook). It can only be used with an activity which has had its `begin` but not yet its `end` phrase; it is a drastic remedy best taken only if it is clear that circumstances have changed so that the activity now seems inappropriate. It must not be used during one of the rules for the activity: it can only be used between the begin and for stages, or between the for and end stages.
 >
 >     abandon the analysing activity with the pitchblende;
 
@@ -11415,7 +11400,7 @@ The rest of this chapter covers every activity built in to Inform, with one sect
 
 **1. When it happens.** Frequently – whenever Inform needs to check whether something is visible or not. Nothing should be printed, and the activity needs to run quickly, so it should not (for instance) calculate best routes through complicated maps before getting an answer.
 
-**2. The default behaviour.** There is no concealment. The ordinary rules still apply, though: the contents of a closed opaque container are invisible because there is a barrier in the way which cannot be seen through, even though nobody is "concealing" anything.
+**2. The default behaviour.** There is no concealment. The ordinary rules still apply, though: the contents of a closed opaque container are invisible because there is a barrier in the way which cannot be seen through, even though nobody is `concealing` anything.
 
 **3. Examples.** To repeat a number of brief examples given at the end of the chapter on [Things], where this activity made an early appearance:
 
@@ -11423,11 +11408,11 @@ The rest of this chapter covers every activity built in to Inform, with one sect
 	
 	The coin is in the Roman Villa. The face and inscription are parts of the coin. Rule for deciding the concealed possessions of the coin: if the coin is carried, no; otherwise yes.
 
-The value "particular possession" is the one whose concealment is in question, of course. We can ignore this if someone is invariably secretive:
+The value `particular possession` is the one whose concealment is in question, of course. We can ignore this if someone is invariably secretive:
 
 	Rule for deciding the concealed possessions of the furtive ghost: yes.
 
-In general a rule for deciding the concealed possessions of something will decide "yes" if finishes without making a decision, but it's better style to write such a rule in such a way that it always makes a decision.
+In general a rule for deciding the concealed possessions of something will decide `yes` if finishes without making a decision, but it's better style to write such a rule in such a way that it always makes a decision.
 
 ## Printing the name of something {act_pn}
 
@@ -11435,13 +11420,13 @@ In general a rule for deciding the concealed possessions of something will decid
 
 **1. When it happens.** Whenever the name of a thing or room is printed, either as part of text visible to the player, or sometimes internally in order to determine something about that name.
 
-**2. The default behaviour.** For items other than the current player, the "printed name" property is printed out; but for the current player, "you" or "yourself" is printed. (That doesn't necessarily mean that the "printed name" of the player is never used. Suppose there are two people, Alice and Bob, and the narrative switches between them: when Alice is the player, she appears as "yourself" but Bob is "Bob"; but when Bob is the player, he is "yourself" and Alice is "Alice".)
+**2. The default behaviour.** For items other than the current player, the `printed name` property is printed out; but for the current player, ``you`` or ``yourself`` is printed. (That doesn't necessarily mean that the `printed name` of the player is never used. Suppose there are two people, Alice and Bob, and the narrative switches between them: when Alice is the player, she appears as ``yourself`` but Bob is ``Bob``; but when Bob is the player, he is ``yourself`` and Alice is ``Alice``.)
 
 **3. Examples.** (a) A pen which is described differently in inventories:
 
 	Rule for printing the name of the pen while taking inventory: say "useful pen".
 
-"Taking inventory" is a condition which is true if that's the current action and not otherwise, so the effect is that the pen is called "a useful pen" only in inventory listings. "While looking" is a similarly useful one.
+`Taking inventory` is a condition which is true if that's the current action and not otherwise, so the effect is that the pen is called `a useful pen` only in inventory listings. `While looking` is a similarly useful one.
 
 (b) Italicising the names of novels:
 
@@ -11462,31 +11447,31 @@ This example makes use of a special phrase:
 
 > phrase: {ph_omit} omit contents in listing
 >
-> This phrase changes the form of an inventory listing, room description, etc., so that it will simply list "a bottle of sand" or "an empty bottle", rather than "a bottle (in which is sand)" or "a bottle (which is empty)". It should be used only when the listing is imminent, and does not have permanent effect.
+> This phrase changes the form of an inventory listing, room description, etc., so that it will simply list ``a bottle of sand`` or ``an empty bottle``, rather than ``a bottle (in which is sand)`` or ``a bottle (which is empty)``. It should be used only when the listing is imminent, and does not have permanent effect.
 
-The clause about not inserting or removing is to prevent messages like "You put the sand in the bottle of sand.", where it's confusing to refer to the bottle as anything other than "the bottle".
+The clause about not inserting or removing is to prevent messages like ``You put the sand in the bottle of sand.``, where it's confusing to refer to the bottle as anything other than ``the bottle``.
 
 ## Printing the plural name of something {act_ppn}
 
 ^^{printing the plural name of something+descactivity+} ^^{names: printing the plural name of something+activity+} ^^{printed plural name of (object)+prop+} ^^{printed plural name of (object)+propcat+} ^^{plurals: printing the plural name of something+activity+}
 
-**1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like "You can see five gold rings here." The activity happens after "five" and before "here." (See the activity "printing a number of something" if the whole phrase needs to be altered.)
+**1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like ``You can see five gold rings here.`` The activity happens after ``five`` and before ``here.`` (See the activity `printing a number of something` if the whole phrase needs to be altered.)
 
-**2. The default behaviour.** The plural name – in this case "gold rings" – is printed out.
+**2. The default behaviour.** The plural name – in this case ``gold rings`` – is printed out.
 
 **3. Examples.**  (a) Suppose we want to emphasise how nice it is to have more than one gold ring:
 
 	{*}Rule for printing the plural name of a gold ring: say "gleaming gold rings".
 
-(b) If the number needs changing as well, it's necessary to use the "printing a number of something" activity instead.
+(b) If the number needs changing as well, it's necessary to use the `printing a number of something` activity instead.
 
 ## Printing a number of something {act_pan}
 
 ^^{printing a number of something+descactivity+} ^^{numbers: printing a number of something+activity+} ^^{listing group size (- number)+glob+}
 
-**1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like "You can see five gold rings here." The activity prints the "five gold rings" part. The variable "listing group size" contains the number, which in this example would be 5, and is always at least 2.
+**1. When it happens.** Only when a group of identical items is present in the same place, and are being described jointly with text like ``You can see five gold rings here.`` The activity prints the ``five gold rings`` part. The variable `listing group size` contains the number, which in this example would be 5, and is always at least 2.
 
-**2. The default behaviour.** The number of items is printed, in words ("five") and then the "printing the plural name" activity is run ("gold rings").
+**2. The default behaviour.** The number of items is printed, in words (``five``) and then the `printing the plural name` activity is run (``gold rings``).
 
 **3. Examples.** (a) Using this activity is for perfectionists, because the normal behaviour is almost always fine. Still:
 
@@ -11496,15 +11481,15 @@ The clause about not inserting or removing is to prevent messages like "You put 
 
 	{*}Rule for printing a number of ants: say "altogether [listing group size in words] ants".
 
-(c) If the only part needing variation is the plural name, it's simpler and tidier to use the "printing the plural name of something" activity instead.
+(c) If the only part needing variation is the plural name, it's simpler and tidier to use the `printing the plural name of something` activity instead.
 
 ## Listing contents of something {act_lc}
 
 ^^{listing contents of something+descactivity+} ^^{listing rules: for listing contents} ^^{together: group (description of objects) together+phr+}
 
-**1. When it happens.** When taking inventory, the list is produced by the activity "listing contents of yourself"; when looking, a list of items which do not deserve their own paragraphs is produced by "listing contents of" the location.
+**1. When it happens.** When taking inventory, the list is produced by the activity `listing contents of yourself`; when looking, a list of items which do not deserve their own paragraphs is produced by `listing contents of` the location.
 
-**And when it doesn't happen.** (a) If the Storage Room contains a sideboard and an open shoe box, then "listing contents of the Storage Room" is used to produce the part of the room description mentioning sideboard and box. But if the box in turn contains a pair of brogues, then "listing contents of the shoe box" is not used to say that part. So this works:
+**And when it doesn't happen.** (a) If the Storage Room contains a sideboard and an open shoe box, then `listing contents of the Storage Room` is used to produce the part of the room description mentioning sideboard and box. But if the box in turn contains a pair of brogues, then `listing contents of the shoe box` is not used to say that part. So this works:
 
 	Rule for printing the name of the brogues while listing contents of a room: ...
 
@@ -11516,15 +11501,15 @@ But this won't affect room descriptions:
 
 **2. The default behaviour.** The list is printed out.
 
-**3. Examples.** (a) We have already seen that it can be elegant to elaborate on a description in the context of a list. Here we add "discarded" to a sweet wrapper which is found on the ground.
+**3. Examples.** (a) We have already seen that it can be elegant to elaborate on a description in the context of a list. Here we add ``discarded`` to a sweet wrapper which is found on the ground.
 
 	Rule for printing the name of the wrapper while listing contents of a room: say "discarded sweet wrapper".
 
-(b) Lists can be considerably shortened and tidied up if similar items are grouped together. We do this by specifying what should be grouped together before listing contents, using the special phrase "group ... together":
+(b) Lists can be considerably shortened and tidied up if similar items are grouped together. We do this by specifying what should be grouped together before listing contents, using the special phrase `group ... together`:
 
 	Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together as "utensils".
 
-The result will be, say, "two utensils (knife and spoon)", if both are found in the same place.
+The result will be, say, ``two utensils (knife and spoon)``, if both are found in the same place.
 
 (c) We can less obtrusively group items together like so:
 
@@ -11538,7 +11523,7 @@ Three special phrases exist for this kind of list organisation:
 >
 >     Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together.
 >
-> This might produce the list item "fork and spoon".
+> This might produce the list item ``fork and spoon``.
 
 > phrase: {ph_groupart} group (description of objects) together giving articles
 >
@@ -11546,7 +11531,7 @@ Three special phrases exist for this kind of list organisation:
 >
 >     Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together giving articles.
 >
-> This might produce the list item "a fork and a spoon".
+> This might produce the list item ``a fork and a spoon``.
 
 > phrase: {ph_grouptext} group (description of objects) together as (text)
 >
@@ -11554,19 +11539,19 @@ Three special phrases exist for this kind of list organisation:
 >
 >     Utensil is a kind of thing. The knife, the fork and the spoon are utensils. Before listing contents: group utensils together as "utensils".
 >
-> This might produce the list item "two utensils (fork and spoon)".
+> This might produce the list item ``two utensils (fork and spoon)``.
 
 ## Grouping together something {act_gt}
 
 ^^{grouping together something+descactivity+} ^^{listing rules: for grouping together} ^^{listing group size (- number)+glob+}
 
-**1. When it happens.** Only while listing contents, and only when a collection of items to be grouped together is reached. This in turn happens only if a "before listing contents" rule has chosen it (see previous section). The first item in the group is the one to which the activity formally applies.
+**1. When it happens.** Only while listing contents, and only when a collection of items to be grouped together is reached. This in turn happens only if a `before listing contents` rule has chosen it (see previous section). The first item in the group is the one to which the activity formally applies.
 
-The variable "listing group size" usually gives the number of items grouped together in this way, but care is needed if the "something" covers multiple groups, because then this will all be working on a list of groups, not of items. For example, in a "grouping together things" rule, where "things" is such a broad description that it can apply to multiple kinds of thing all appearing in the list, the list-maker is likely to set "listing group size" to the number of groups. If the list contains five men and six women, for example, "listing group size" might be 2 rather than 11.
+The variable `listing group size` usually gives the number of items grouped together in this way, but care is needed if the `something` covers multiple groups, because then this will all be working on a list of groups, not of items. For example, in a `grouping together things` rule, where `things` is such a broad description that it can apply to multiple kinds of thing all appearing in the list, the list-maker is likely to set `listing group size` to the number of groups. If the list contains five men and six women, for example, `listing group size` might be 2 rather than 11.
 
-**2. The default behaviour.** The items grouped together are printed in an English phrase, such as "egg, chicken and farmer". In particular, they are not split onto separate lines even if the rest of the list is. (See previous section.)
+**2. The default behaviour.** The items grouped together are printed in an English phrase, such as ``egg, chicken and farmer``. In particular, they are not split onto separate lines even if the rest of the list is. (See previous section.)
 
-**3. Examples.** (a) Here are Scrabble pieces which are described as "the tile W from a Scrabble set" or similar outside of lists, but which, when they turn up together in lists, are rolled together into "the tiles A, B and D from a Scrabble set".
+**3. Examples.** (a) Here are Scrabble pieces which are described as ``the tile W from a Scrabble set`` or similar outside of lists, but which, when they turn up together in lists, are rolled together into ``the tiles A, B and D from a Scrabble set``.
 
 	{*}A Scrabble piece is a kind of thing. The X, the Y and the Z are Scrabble pieces.
 	
@@ -11595,7 +11580,7 @@ The variable "listing group size" usually gives the number of items grouped toge
 
 ^^{responses (library messages): issuing the response text of something+activity+}
 
-**1. When it happens.** When Inform prints a text marked with a response letter (A), (B), (C), ..., in a rule making use of them. For example, in this rule:
+**1. When it happens.** When Inform prints a text marked with a response letter `(A)`, `(B)`, `(C)`, ..., in a rule making use of them. For example, in this rule:
 
 	Carry out taking inventory (this is the print empty inventory rule):
 		if the first thing held by the player is nothing,
@@ -11654,7 +11639,7 @@ With that in place,
 You can also see Po and a cage (empty) here.
 ```
 
-The " (empty)" (note initial space) was added by this activity. (Note that this activity is not responsible for describing further items visible because of the item in question: that is, it does not print the text such as "(in which is a notepad)" which would appear if there were contents. If we want to remove such text, we should use "omit contents in listing": see the activity "for printing the name of something".)
+The `` (empty)`` (note initial space) was added by this activity. (Note that this activity is not responsible for describing further items visible because of the item in question: that is, it does not print the text such as ``(in which is a notepad)`` which would appear if there were contents. If we want to remove such text, we should use `omit contents in listing`: see the activity `for printing the name of something`.)
 
 **3. Examples.** (a) To get rid of such addenda entirely, try:
 
@@ -11679,7 +11664,7 @@ If both examples (a) and (b) are in place at once, we might now read:
 
 	a flaming branch (providing light)
 
-The " (providing light)" (note initial space) was added by this activity.
+The `` (providing light)`` (note initial space) was added by this activity.
 
 **3. Examples.** (a) To get rid of such addenda entirely, try:
 
@@ -11696,7 +11681,7 @@ The " (providing light)" (note initial space) was added by this activity.
 
 **1. When it happens.** When an action which requires light is tried, and the visibility rules decide that not enough light is present.
 
-**2. The default behaviour.** To print "It is pitch dark, and you can't see a thing."
+**2. The default behaviour.** To print ``It is pitch dark, and you can't see a thing.``
 
 **3. Examples.** (a) This might do for some twilit, penumbral room:
 
@@ -11708,7 +11693,7 @@ The " (providing light)" (note initial space) was added by this activity.
 
 **1. When it happens.** Inform frequently calculates to see if the player is in light or darkness: this activity happens on the change from light to darkness.
 
-**2. The default behaviour.** To print "It is now pitch dark in here!".
+**2. The default behaviour.** To print ``It is now pitch dark in here!``.
 
 **3. Examples.** (a) The most obvious use is to change the text:
 
@@ -11741,13 +11726,13 @@ The " (providing light)" (note initial space) was added by this activity.
 
 **1. When it happens.** When looking in darkness, or writing the (default) status line in darkness.
 
-**2. The default behaviour.** To print "Darkness".
+**2. The default behaviour.** To print ``Darkness``.
 
 **3. Examples.** (a) One might modify the darkness with some adjective:
 
 	Before printing the name of a dark room, say "Near ".
 
-(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at "printing the name of a dark room", and we are not allowed to substitute particular dark rooms or assign a "(called ...)" onto the mention of the dark room.)
+(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at `printing the name of a dark room`, and we are not allowed to substitute particular dark rooms or assign a `(called ...)` onto the mention of the dark room.)
 
 ## Printing the description of a dark room {act_darkdesc}
 
@@ -11755,7 +11740,7 @@ The " (providing light)" (note initial space) was added by this activity.
 
 **1. When it happens.** When looking in darkness.
 
-**2. The default behaviour.** To print "It is pitch dark, and you can't see a thing."
+**2. The default behaviour.** To print ``It is pitch dark, and you can't see a thing.``
 
 **3. Examples.** (a) A simple variation of wording:
 
@@ -11770,7 +11755,7 @@ which produces, for instance,
 	Darkness
 	You hear nothing unexpected.
 
-(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at "printing the description of a dark room", and we are not allowed to substitute particular dark rooms or assign a "(called ...)" onto the mention of the dark room.)
+(Note that this activity does not come in different forms for different dark rooms: the wording is fixed at `printing the description of a dark room`, and we are not allowed to substitute particular dark rooms or assign a `(called ...)` onto the mention of the dark room.)
 
 ## Constructing the status line {act_csl}
 
@@ -11778,7 +11763,7 @@ which produces, for instance,
 
 **1. When it happens.** Just before input is accepted from the keyboard, Inform constructs a "status line" at the top of the window which is normally displayed in reverse colours (white on black instead of black on white, say).
 
-**2. The default behaviour.** Makes the status line up out of two pieces, the "left hand status line" and the "right hand status line". Since these can freely be changed, note that the status line is already very customisable without using rules applied to this activity.
+**2. The default behaviour.** Makes the status line up out of two pieces, the `left hand status line` and the `right hand status line`. Since these can freely be changed, note that the status line is already very customisable without using rules applied to this activity.
 
 **3. Examples.** (a) The most useful thing about this activity is that it allows us to vary descriptions in the status line. This is especially helpful to abbreviate unduly long room names, which might not otherwise fit:
 
@@ -11796,16 +11781,16 @@ which produces, for instance,
 
 **2. The default behaviour.** Is to do nothing. However, if a rule is supplied which prints something up, then this replaces the paragraph which would otherwise have been printed. Moreover, any items whose names are said in the course of this rule – for instance, by being listed – are then excluded from the remainder of the room description, because they are considered as having been described sufficiently already.
 
-Warning: because we often want a "for" rule for this activity to make some calculation and then possibly choose to do nothing (see the example [Otranto]), Inform suppresses the usual paragraph not when a "for" rule took effect but when it detected a paragraph having been printed. This can get confused if a text substitution affecting paragraph breaks, say `"[line break]"`, is within the final "say" of a "for writing a paragraph about" rule.
+Warning: because we often want a `for` rule for this activity to make some calculation and then possibly choose to do nothing (see the example [Otranto]), Inform suppresses the usual paragraph not when a `for` rule took effect but when it detected a paragraph having been printed. This can get confused if a text substitution affecting paragraph breaks, say `"[line break]"`, is within the final `say` of a `for writing a paragraph about` rule.
 
 **3. Examples.** (a) This is a neat way to wrap several things together into the same paragraph:
 
 	{*}Rule for writing a paragraph about Mr Wickham:
 		say "Mr Wickham looks speculatively at [list of women in the location]."
 
-because now "Mr Wickham looks speculatively at Velma and Daphne" will now prevent the appearance of the subsequent text "You can also see Velma and Daphne."
+because now ``Mr Wickham looks speculatively at Velma and Daphne.`` will now prevent the appearance of the subsequent text ``You can also see Velma and Daphne.``
 
-Inform keeps track of which objects have already been named with an either/or property called "mentioned", which it assigns whenever the name of an object has been automatically printed. So in this case, Velma and Daphne are now mentioned. Note "automatically printed", though: if the text printed had just been "Mr Wickham looks speculatively at Velma and Daphne", rather than the text-substitution list used above, then Inform would not know that Velma and Daphne have been described.
+Inform keeps track of which objects have already been named with an either/or property called `mentioned`, which it assigns whenever the name of an object has been automatically printed. So in this case, Velma and Daphne are now mentioned. Note "automatically printed", though: if the text printed had just been `"Mr Wickham looks speculatively at Velma and Daphne"`, rather than the text-substitution list used above, then Inform would not know that Velma and Daphne have been described.
 
 If we ever need to override this – say, we want to list all the women but make sure that Velma gets another paragraph anyway – we could change Velma to unmentioned again after the listing.
 
@@ -11813,9 +11798,9 @@ If we ever need to override this – say, we want to list all the women but make
 
 ^^{listing nondescript items of something+descactivity+} ^^{descriptions (displayed): miscellaneous things in room} ^^{marked for listing / unmarked for listing (thing)+prop+} ^^{unmarked for listing / marked for listing (thing)+prop+} ^^{marked for listing (thing)+propcat+} ^^{unmarked for listing (thing)+propcat+} ^^{nondescript items: listing nondescript items of something+activity+} ^^{activities: abandoning}
 
-**1. When it happens.** This activity prints up the also-ran paragraph at the end of a room description. These are nondescript items because they don't merit paragraphs of their own: if, as sometimes happens, there are none in the room, then no such paragraph is printed and this activity does not happen. (So to add a further paragraph to a room description, a simpler "after looking" rule should be used, not an "after listing nondescript items" rule.)
+**1. When it happens.** This activity prints up the also-ran paragraph at the end of a room description. These are nondescript items because they don't merit paragraphs of their own: if, as sometimes happens, there are none in the room, then no such paragraph is printed and this activity does not happen. (So to add a further paragraph to a room description, a simpler `after looking` rule should be used, not an `after listing nondescript items` rule.)
 
-**2. The default behaviour.** The paragraph ordinarily reads as "You can also see a cask and a clock." or similar. Before the activity begins, those objects which are nondescript – in this case the cask and the clock – are given the property of being "marked for listing".
+**2. The default behaviour.** The paragraph ordinarily reads as ``You can also see a cask and a clock.`` or similar. Before the activity begins, those objects which are nondescript – in this case the cask and the clock – are given the property of being `marked for listing`.
 
 If it turns out that nothing is marked for listing, because of before rules like the one in the example below, then nothing is printed and **the activity is abandoned**, so that the rules for and after are never reached.
 
@@ -11841,9 +11826,9 @@ If it turns out that nothing is marked for listing, because of before rules like
 
 **1. When it happens.** A "locale description" is Inform jargon for the part of a room description which catalogues the visible items in the room. When looking, Inform will normally print the description of the room itself, followed by a locale description for the room. But if the player is in a cage in the room, there will be two locale descriptions: one for the room, then another for the cage. This activity is used to write the locale description for a single domain, and the "something" can be either a room, an enterable container, or an enterable supporter.
 
-**2. The default behaviour.** Is quite complicated, and is written up in full in the typeset form of the Standard Rules downloadable from the Inform website. Briefly, though: we first run the "choosing notable locale objects" activity to find out what ought to be mentioned here. That assembles a list of things to mention, sorted into priority order. Items with priority 1 go first, then those with priority 2, and so on. The "printing a locale paragraph" activity is run for each, and in practice that usually hands the job over to "writing a paragraph about". Sometimes a paragraph will indeed be written, but not always. Sometimes there is nothing interesting to say, and an item is left until a final, single paragraph which gathers up the leftovers ("You can also see a scarlet fish, a harmonium and a kite here."), the printing of which is done by the "listing nondescript items of" activity. As soon as any item picks up the either/or property "mentioned", by having its name printed, it is struck out so that it will not appear subsequently, whatever its priority.
+**2. The default behaviour.** Is quite complicated, and is written up in full in the typeset form of the Standard Rules downloadable from the Inform website. Briefly, though: we first run the `choosing notable locale objects` activity to find out what ought to be mentioned here. That assembles a list of things to mention, sorted into priority order. Items with priority 1 go first, then those with priority 2, and so on. The `printing a locale paragraph` activity is run for each, and in practice that usually hands the job over to `writing a paragraph about`. Sometimes a paragraph will indeed be written, but not always. Sometimes there is nothing interesting to say, and an item is left until a final, single paragraph which gathers up the leftovers (``You can also see a scarlet fish, a harmonium and a kite here.``), the printing of which is done by the `listing nondescript items of` activity. As soon as any item picks up the either/or property `mentioned`, by having its name printed, it is struck out so that it will not appear subsequently, whatever its priority.
 
-**3. Examples.** As general advice: if the effect wanted can be got using "writing a paragraph about" and "listing nondescript items of" alone, use those; if it's necessary to meddle further, use "choosing notable locale objects" and "printing a locale paragraph" to alter the normal processes; use the all-powerful "printing the locale description" activity only when the whole process needs to be altered, not the item-by-item workings.
+**3. Examples.** As general advice: if the effect wanted can be got using `writing a paragraph about` and `listing nondescript items of` alone, use those; if it's necessary to meddle further, use `choosing notable locale objects` and `printing a locale paragraph` to alter the normal processes; use the all-powerful `printing the locale description` activity only when the whole process needs to be altered, not the item-by-item workings.
 
 (a) In the Very Misty Moorlands, nothing on the ground can ordinarily be seen through the swirling mist, so the locale description is suppressed entirely:
 
@@ -11866,9 +11851,9 @@ If it turns out that nothing is marked for listing, because of before rules like
 
 ^^{choosing notable locale objects for something+descactivity+} ^^{notable locale objects: choosing notable locale objects for something+activity+} ^^{descriptions (displayed): room contents} ^^{rooms+kind+: printing the room contents} ^^{precedence: of displayed items} ^^{+to+set the locale priority of (object) to (number)}
 
-**1. When it happens.** See "printing the locale description". This activity is expected to decide which items ought to be mentioned in a locale description for a given room, enterable container or enterable supporter, and to give each item a priority, which is a number ranging upwards from 1 (which is the top priority). The lower the priority number, the earlier the mention, or at least, the earlier the opportunity to be mentioned: it's up to other activities whether to give it a paragraph of its own or not. This activity only makes something a candidate, and decides what order the candidates will be tried in.
+**1. When it happens.** See `printing the locale description`. This activity is expected to decide which items ought to be mentioned in a locale description for a given room, enterable container or enterable supporter, and to give each item a priority, which is a number ranging upwards from 1 (which is the top priority). The lower the priority number, the earlier the mention, or at least, the earlier the opportunity to be mentioned: it's up to other activities whether to give it a paragraph of its own or not. This activity only makes something a candidate, and decides what order the candidates will be tried in.
 
-**2. The default behaviour.** By default, this activity contains only the "standard notable locale objects rule". This chooses exactly those items directly contained by the locale, assigning all of them priority 5. Note that this includes scenery, and other probably unwanted items – those will be excluded later.
+**2. The default behaviour.** By default, this activity contains only the `standard notable locale objects rule`. This chooses exactly those items directly contained by the locale, assigning all of them priority 5. Note that this includes scenery, and other probably unwanted items – those will be excluded later.
 
 **3. Examples.** (a) In the Misty Moorlands, only large items on the ground are visible through the mist:
 
@@ -11893,25 +11878,25 @@ It's best to avoid situations where an item has a locale priority which is highe
 
 ^^{printing a locale paragraph about something+descactivity+} ^^{locale paragraph: printing a locale paragraph about something+activity+} ^^{descriptions (displayed): room contents} ^^{rooms+kind+: printing the room contents} ^^{mentioned / unmentioned (thing)+prop+} ^^{unmentioned / mentioned (thing)+prop+} ^^{mentioned (thing)+propcat+} ^^{unmentioned (thing)+propcat+}
 
-**1. When it happens.** See "printing the locale description". By this point, the locale description process has identified a number of items as candidates to be described, and worked out a priority order. This activity is then called for each candidate in turn, starting with the highest priority items and working downwards. It can either print some text or not, and can either mark the item as "mentioned" or not: if it does, then the item won't appear subsequently in the locale description. If the activity does nothing, the item becomes "nondescript" and falls through into the final "You can also see..." paragraph, unless another rule mentions it in the mean time.
+**1. When it happens.** See `printing the locale description`. By this point, the locale description process has identified a number of items as candidates to be described, and worked out a priority order. This activity is then called for each candidate in turn, starting with the highest priority items and working downwards. It can either print some text or not, and can either mark the item as `mentioned` or not: if it does, then the item won't appear subsequently in the locale description. If the activity does nothing, the item becomes "nondescript" and falls through into the final ``You can also see...`` paragraph, unless another rule mentions it in the mean time.
 
 **2. The default behaviour.** Is provided by a sequence of seven rules:
 
-1. The "don't mention player's supporter in room descriptions rule" excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like "Boudoir (on the four-poster bed)", so the player can't be unaware of this item.
+1. The `don't mention player's supporter in room descriptions rule` excludes anything the player is directly or indirectly standing on or, less frequently, in. The header of the room description has probably already said something like ``Boudoir (on the four-poster bed)``, so the player can't be unaware of this item.
 
-2. The "don't mention scenery in room descriptions rule" excludes scenery.
+2. The `don't mention scenery in room descriptions rule` excludes scenery.
 
-3. The "don't mention undescribed items in room descriptions rule" excludes the player object. (It's redundant to say "You can also see yourself here.") At present nothing else in I7 is "undescribed" in this sense.
+3. The `don't mention undescribed items in room descriptions rule` excludes the player object. (It's redundant to say ``You can also see yourself here.``) At present nothing else in I7 is `undescribed` in this sense.
 
-4. The "set pronouns from items in room descriptions rule" adjusts the meaning of pronouns like IT and HER to pick up items mentioned. Thus if a room description ends "Mme Tourmalet glares at you.", then HER would be adjusted to mean Mme Tourmalet.
+4. The `set pronouns from items in room descriptions rule` adjusts the meaning of pronouns like ``IT`` and ``HER`` to pick up items mentioned. Thus if a room description ends ``Mme Tourmalet glares at you.``, then ``HER`` would be adjusted to mean Mme Tourmalet.
 
-5. The "offer items to writing a paragraph about rule" gives the "writing a paragraph about" activity a chance to intervene. We detect whether it does intervene or not by looking to see if it has printed any text.
+5. The `offer items to writing a paragraph about rule` gives the `writing a paragraph about` activity a chance to intervene. We detect whether it does intervene or not by looking to see if it has printed any text.
 
-6. The "use initial appearance in room descriptions rule" prints the "initial appearance" property of an item which has never been handled as a paragraph, if it has one.
+6. The `use initial appearance in room descriptions rule` prints the `initial appearance` property of an item which has never been handled as a paragraph, if it has one.
 
-7. The "describe what's on scenery supporters in room descriptions rule" is somewhat controversial. It prints text such as "On the mantelpiece is a piece of chalk." for items which, like the mantelpiece, are scenery mentioned - we assume - in the main room description. (It is assumed that scenery supporters make their contents more prominently visible than scenery containers, which we do not announce the contents of.)
+7. The `describe what's on scenery supporters in room descriptions rule` is somewhat controversial. It prints text such as ``On the mantelpiece is a piece of chalk.`` for items which, like the mantelpiece, are scenery mentioned - we assume - in the main room description. (It is assumed that scenery supporters make their contents more prominently visible than scenery containers, which we do not announce the contents of.)
 
-**3. Examples.** If all that's required is to supply an interesting paragraph of room description about something then it's always better to use the "writing a paragraph about" activity, not this one. This activity should only be used when the mechanism itself needs to be adjusted.
+**3. Examples.** If all that's required is to supply an interesting paragraph of room description about something then it's always better to use the `writing a paragraph about` activity, not this one. This activity should only be used when the mechanism itself needs to be adjusted.
 
 (a) The following excludes doors from room descriptions:
 
@@ -11920,7 +11905,7 @@ It's best to avoid situations where an item has a locale priority which is highe
 		set the locale priority of the item to 0;
 		continue the activity.
 
-(It's usually a good idea to "continue the activity" at the end of rules for this activity, since usually they all need to take effect for a happy outcome to the process. Here it doesn't really matter, since we were trying to stop anything from happening about the door, but it doesn't do any harm either.)
+(It's usually a good idea to `continue the activity` at the end of rules for this activity, since usually they all need to take effect for a happy outcome to the process. Here it doesn't really matter, since we were trying to stop anything from happening about the door, but it doesn't do any harm either.)
 
 (b) Here's how to abolish what may be the most contentious rule in the whole Standard Rules:
 
@@ -11943,16 +11928,16 @@ Two different phrases enable us to place unusual items in scope:
 
 > phrase: {ph_placeinscope} place (object) in scope
 >
-> This phrase should only be used in rules for the "deciding the scope of..." activity. It places the given object in scope, making it accessible to the player's commands, regardless of where it is in the model world. Examples:
+> This phrase should only be used in rules for the `deciding the scope of...` activity. It places the given object in scope, making it accessible to the player's commands, regardless of where it is in the model world. Examples:
 >
 >     place the distant volcano in scope;
 >     place the lacquered box in scope, but not its contents;
 >
-> Ordinarily if something is placed in scope, then so are its parts and (in the case of a supporter or a transparent or open container) its contents; using the "but not its contents" option we can place just the box itself in scope.
+> Ordinarily if something is placed in scope, then so are its parts and (in the case of a supporter or a transparent or open container) its contents; using the `but not its contents` option we can place just the box itself in scope.
 
 > phrase: {ph_placecontentsinscope} place the/-- contents of (object) in scope
 >
-> This phrase should only be used in rules for the "deciding the scope of..." activity. It places the things inside or on top of the given object in scope, making them accessible to the player's commands, but it does nothing to place the object itself in scope. (It might of course be in scope anyway, and if it is then this phrase won't remove it.) Example:
+> This phrase should only be used in rules for the `deciding the scope of...` activity. It places the things inside or on top of the given object in scope, making them accessible to the player's commands, but it does nothing to place the object itself in scope. (It might of course be in scope anyway, and if it is then this phrase won't remove it.) Example:
 >
 >     place the contents of the lacquered box in scope;
 >     place the contents of the Marbled Steps in scope;
@@ -11967,13 +11952,13 @@ Two different phrases enable us to place unusual items in scope:
 	
 	The Beyond is a room. Johnny Depp is a man in the Beyond.
 
-(This must, however, also be a mirage, as at time of writing Mr Depp is alive and as well as can be expected following the reviews of "Charlie and the Chocolate Factory".) Note that `place the Ballroom in scope` doesn't just allow the player to talk about the dancers, the chamber musicians and so forth, also allows, say, ``EXAMINE BALLROOM``. To get one but not the other, use `place the contents of the Ballroom in scope` or `place the Ballroom in scope, but not its contents`.
+(This must, however, also be a mirage, as at time of writing Mr Depp is alive and as well as can be expected following the reviews of _Charlie and the Chocolate Factory_.) Note that `place the Ballroom in scope` doesn't just allow the player to talk about the dancers, the chamber musicians and so forth, also allows, say, ``EXAMINE BALLROOM``. To get one but not the other, use `place the contents of the Ballroom in scope` or `place the Ballroom in scope, but not its contents`.
 
 (c) In darkness, the scope of someone is ordinarily restricted to their possessions (and body), but we can override that:
 
 	After deciding the scope of the player while in darkness: place the location in scope.
 
-**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows the action it would be taking if the current line of command grammar were to be accepted, but it does not yet know to what objects that command would be applied. That means attaching a proviso like "... while taking a container" to a rule for this activity will cause the rule to have no effect – whereas "... while taking" would be fine.
+**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows the action it would be taking if the current line of command grammar were to be accepted, but it does not yet know to what objects that command would be applied. That means attaching a proviso like `... while taking a container` to a rule for this activity will cause the rule to have no effect – whereas `... while taking` would be fine.
 
 ## Clarifying the parser's choice of something {act_clarify}
 
@@ -11981,15 +11966,15 @@ Two different phrases enable us to place unusual items in scope:
 
 **1. When it happens.** When the player has typed an ambiguous noun reference, and Inform has made a decision about what was meant, and it matters what this decision is. (If the decision is between three identical gold coins, say, then it doesn't matter, and this activity does not take place.) There are a couple of limitations on this: the activity applies only to the first noun, and only if it's an object. So for a command like ``SELECT BLUE``, where ``BLUE`` is a noun referring to a colour value, say, this activity isn't used. But the simple case where the activity does play a part is nevertheless very useful.
 
-**2. The default behaviour.** Text in brackets such as "(the laminated mahogany box)" is printed, on its own line.
+**2. The default behaviour.** Text in brackets such as ``(the laminated mahogany box)`` is printed, on its own line.
 
-**3. Examples.** (a) In the following, asking to ``TAKE TOWER`` results in the parser choosing the souvenir model (because of the "does the player mean..." rule making the alternative unlikely), and then explaining itself by saying "(The little one, obviously.)" instead of "(the souvenir model Eiffel Tower)".
+**3. Examples.** (a) In the following, asking to ``TAKE TOWER`` results in the parser choosing the souvenir model (because of the `does the player mean...` rule making the alternative unlikely), and then explaining itself by saying ``(The little one, obviously.)`` instead of ``(the souvenir model Eiffel Tower)``.
 
 	The Champs du Mars is a room. The great Eiffel Tower is here. "The great Tower stands high over you." The souvenir model Eiffel Tower is here. "Comparatively tiny is the souvenir version." The great Eiffel Tower is fixed in place. Does the player mean taking the great Eiffel Tower: it is very unlikely.
 	
 	Rule for clarifying the parser's choice of the model tower: say "(The little one, obviously.)"
 
-**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like "... while taking a container" to a rule for this activity will cause the rule to have no effect – whereas "... while taking" would be fine.
+**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like `... while taking a container` to a rule for this activity will cause the rule to have no effect – whereas `... while taking` would be fine.
 
 ## Asking which do you mean {act_which}
 
@@ -11997,9 +11982,9 @@ Two different phrases enable us to place unusual items in scope:
 
 **1. When it happens.** When the player has typed an ambiguous noun reference, and Inform has not been able to decide what was meant.
 
-**2. The default behaviour.** A question such as "Which do you mean, the laminated mahogany box or the boom box?" is printed. (This activity shapes the question: it is not responsible for parsing the answer. It would be very mysterious to write rules for this activity such that nothing is printed, because the player would then have no idea what to type.)
+**2. The default behaviour.** A question such as ``Which do you mean, the laminated mahogany box or the boom box?`` is printed. (This activity shapes the question: it is not responsible for parsing the answer. It would be very mysterious to write rules for this activity such that nothing is printed, because the player would then have no idea what to type.)
 
-**3. Examples.** The question is harder to print than may first appear, since one must not simply list the options, but also take into account collections of plural objects ("Which do you mean, the gold-tipped pen or a gold coin?"). It is probably better not to try to rewrite this.
+**3. Examples.** The question is harder to print than may first appear, since one must not simply list the options, but also take into account collections of plural objects (``Which do you mean, the gold-tipped pen or a gold coin?``). It is probably better not to try to rewrite this.
 
 (a) But we can place notes before or after: here is a verbose explanation for beginners to IF.
 
@@ -12013,27 +11998,27 @@ Two different phrases enable us to place unusual items in scope:
 	
 	Rule for printing the name of the great Tower while asking which do you mean: say "actual Tower". Rule for printing the name of the souvenir tower while asking which do you mean: say "souvenir".
 
-causes ``TAKE TOWER`` (for instance) to produce a nice tidy question in reply: "Which do you mean, the actual Tower or the souvenir?"
+causes ``TAKE TOWER`` (for instance) to produce a nice tidy question in reply: ``Which do you mean, the actual Tower or the souvenir?``
 
-**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like "... while taking a container" to a rule for this activity will cause the rule to have no effect – whereas "... while taking" would be fine.
+**4. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like `... while taking a container` to a rule for this activity will cause the rule to have no effect – whereas `... while taking` would be fine.
 
 ## Supplying a missing noun/second noun {act_smn}
 
 ^^{missing noun: supplying a missing noun/second noun+activity+}
 
-**1. When it happens.** (Two different activities here, but identical except for applying to different nouns.) This happens when an Understand sentence fails to supply a noun for an action which requires one. For example, in the sentence `Understand "seize" as taking.`, the "taking" action is incompletely specified, because it requires a noun, and there's no noun in the command to be understood.
+**1. When it happens.** (Two different activities here, but identical except for applying to different nouns.) This happens when an Understand sentence fails to supply a noun for an action which requires one. For example, in the sentence `Understand "seize" as taking.`, the `taking` action is incompletely specified, because it requires a noun, and there's no noun in the command to be understood.
 
-Note that this is not what happens if it's the player who fails to supply the noun. That is, suppose the player types a half-finished command like ``TAKE``, which can't be matched against (for example) `Understand "take [things]" as taking.` because the player didn't name any thing(s). Typically a story will reply to such a command with a question asking for clarification, but sometimes it makes guesses about what was meant. The "supplying a missing noun" activity plays no part in this guesswork, and can't influence it: that's the task of the "does the player mean" rulebook.
+Note that this is not what happens if it's the player who fails to supply the noun. That is, suppose the player types a half-finished command like ``TAKE``, which can't be matched against (for example) `Understand "take [things]" as taking.` because the player didn't name any thing(s). Typically a story will reply to such a command with a question asking for clarification, but sometimes it makes guesses about what was meant. The `supplying a missing noun` activity plays no part in this guesswork, and can't influence it: that's the task of the `does the player mean` rulebook.
 
-Suppose we do have the first of these cases, then. "Supplying a missing noun" takes place to remedy the problem. It can either:
+Suppose we do have the first of these cases, then. `Supplying a missing noun` takes place to remedy the problem. It can either:
 
-(i) Set a noun, printing text like "(presumably the black bag)" if it wants, in which case the action goes forward, though it is still subject to the full rules on accessibility exactly as any other action would be; or
+(i) Set a noun, printing text like ``(presumably the black bag)`` if it wants, in which case the action goes forward, though it is still subject to the full rules on accessibility exactly as any other action would be; or
 
-(ii) Make no choice, in which case no action takes place and the player's command is rejected. If the activity printed nothing, Inform will produce a generic reply to the player that "You must supply a noun.".
+(ii) Make no choice, in which case no action takes place and the player's command is rejected. If the activity printed nothing, Inform will produce a generic reply to the player that ``You must supply a noun.``.
 
-**2. The default behaviour.** In the default grammar for Inform, only three such half-finished actions are ever Understood. One is "going" with no direction, for which this activity simply prints a refusal. The other two are the two undirected senses, "smelling" and "listening". In each case, the "supplying a missing noun" activity sets the noun to the current location: so, for instance, typing the bare command "listen" might generate the action "listening to the Shoreline".
+**2. The default behaviour.** In the default grammar for Inform, only three such half-finished actions are ever Understood. One is `going` with no direction, for which this activity simply prints a refusal. The other two are the two undirected senses, `smelling` and `listening`. In each case, the `supplying a missing noun` activity sets the noun to the current location: so, for instance, typing the bare command ``LISTEN`` might generate the action `listening to the Shoreline`.
 
-**3. Examples.** (a) This is the definition Inform uses to make "listen" work as outlined above:
+**3. Examples.** (a) This is the definition Inform uses to make ``LISTEN`` work as outlined above:
 
 	Rule for supplying a missing noun while listening (this is the ambient sound rule):
 		now the noun is the location.
@@ -12046,7 +12031,7 @@ Suppose we do have the first of these cases, then. "Supplying a missing noun" ta
 		if the skeleton key is carried, now the second noun is the skeleton key;
 		otherwise say "You will have to specify what to unlock [the noun] with."
 
-Note that, in order for our activity to succeed, we do need to supply a grammar line allowing the player to try "unlocking it with" using only one noun. Otherwise, the command "unlock something" will still produce the question "What do you want to unlock the door with?"
+Note that, in order for our activity to succeed, we do need to supply a grammar line allowing the player to try `unlocking it with` using only one noun. Otherwise, the command ``UNLOCK SOMETHING`` will still produce the question ``What do you want to unlock the door with?``
 
 ## Reading a command {act_reading} {var_command} {kind_snippet}
 
@@ -12054,7 +12039,7 @@ Note that, in order for our activity to succeed, we do need to supply a grammar 
 
 **1. When it happens.** When reading a command from the keyboard.
 
-**2. The default behaviour.** Print the prompt text; wait for the player to type something and press return. Reject an entirely blank line, and treat a command beginning "oops" as a correction to the previous one. This is a fairly complicated business, so it is probably best not to change the "for" rules for this activity: "before", and especially "after", are another matter. (Note, however, that if Inform does reject a blank line and ask for another then this all happens inside the "for" rules: no "after" occurs after the blank line, nor does a "before" happen before the second attempt by the player. It is all a single round of the activity, not two.)
+**2. The default behaviour.** Print the prompt text; wait for the player to type something and press return. Reject an entirely blank line, and treat a command beginning ``OOPS`` as a correction to the previous one. This is a fairly complicated business, so it is probably best not to change the `for` rules for this activity: `before`, and especially `after`, are another matter. (Note, however, that if Inform does reject a blank line and ask for another then this all happens inside the `for` rules: no `after` occurs after the blank line, nor does a `before` happen before the second attempt by the player. It is all a single round of the activity, not two.)
 
 **3. Examples.** (a) To lead absolute beginners in gently:
 
@@ -12097,45 +12082,45 @@ Lastly, we took drastic action with another new phrase:
 
 > phrase: {ph_rejectcommand} reject the player's command
 >
-> This phrase should be used only in rules for the "reading a command" activity. It tells Inform not to bother analysing the text further, but to go back to the keyboard. (No time passes; no turn elapses; nothing happens in the simulated world.)
+> This phrase should be used only in rules for the `reading a command` activity. It tells Inform not to bother analysing the text further, but to go back to the keyboard. (No time passes; no turn elapses; nothing happens in the simulated world.)
 
-(c) An improved version takes commands like ``PLEASE DROP THE COIN`` and strips "please" from them, but then allows them to proceed normally:
+(c) An improved version takes commands like ``PLEASE DROP THE COIN`` and strips ``PLEASE`` from them, but then allows them to proceed normally:
 
 	{*}After reading a command:
 		if the player's command includes "please":
 			say "(Quelle politesse! But no need to say please.)";
 			cut the matched text.
 
-"Matched text" is a snippet containing the words which matched against the pattern in the most recent "includes" condition, so in this case it contains just the single word "please". Two phrases allow snippets to be altered:
+`Matched text` is a snippet containing the words which matched against the pattern in the most recent `includes` condition, so in this case it contains just the single word ``PLEASE``. Two phrases allow snippets to be altered:
 
 > phrase: {ph_replacesnippet} replace (snippet) with (text)
 >
-> This phrase should be used only in "after" rules for the "reading a command" activity; it replaces the snippet of command, usually the "matched text" found immediately before, with the given text. Example:
+> This phrase should be used only in `after` rules for the `reading a command` activity; it replaces the snippet of command, usually the `matched text` found immediately before, with the given text. Example:
 >
 >     if the player's command includes "room [number]":
 >     	replace the matched text with "office".
 
 > phrase: {ph_cutsnippet} cut (snippet)
 >
-> This phrase should be used only in "after" rules for the "reading a command" activity; it removes the snippet of command. Example:
+> This phrase should be used only in `after` rules for the `reading a command` activity; it removes the snippet of command. Example:
 >
 >     if the player's command includes "or else":
 >     	cut the matched text.
 
-Note that "replace" and "cut" can only be used in "after reading a command" rules: not when an action has been chosen and has gone ahead into its rulebooks. Once the "reading a command" activity has finished, the command is final.
+Note that `replace` and `cut` can only be used in `after reading a command` rules: not when an action has been chosen and has gone ahead into its rulebooks. Once the `reading a command` activity has finished, the command is final.
 
-(d) To make the word "grab" an abbreviation for "take all":
+(d) To make the word ``GRAB`` an abbreviation for ``TAKE ALL``:
 
 	{*}After reading a command:
 		if the player's command matches "grab", replace the player's command with "take all".
 
-("Snippet" is actually a kind of value, so we could say "Ah, you typed '[the player's command]'!" or some such if we liked. But in practice only three snippets are likely to be useful: the two mentioned above, `player's command` and `matched text`, and the `topic understood`, used when matching the `"[text]"` token in command grammar.)
+(`Snippet` is actually a kind of value, so we could say `"Ah, you typed '[the player's command]'!"` or some such if we liked. But in practice only three snippets are likely to be useful: the two mentioned above, `player's command` and `matched text`, and the `topic understood`, used when matching the `"[text]"` token in command grammar.)
 
 (e) Finally, we can make still more detailed alterations to the text of the command using the techniques presented in the chapter on [Advanced Text]. For instance:
 
 > phrase: {ph_changecommand} change the text of the player's command to (text)
 >
-> This phrase should be used only in "after" rules for the "reading a command" activity; it replaces the current command text entirely. Example:
+> This phrase should be used only in `after` rules for the `reading a command` activity; it replaces the current command text entirely. Example:
 >
 >     After reading a command:
 >     	let T be "[the player's command]";
@@ -12150,9 +12135,9 @@ Note that "replace" and "cut" can only be used in "after reading a command" rule
 
 **1. When it happens.** When an action is tried which requires the actor (normally the player, of course) to be carrying something, but which is not in fact carried by that person. For instance, if the player types ``WEAR OVERCOAT`` in reference to a Moroccan overcoat currently draped over a chair.
 
-**2. The default behaviour.** To print text such as "(first taking the Moroccan overcoat)" and then silently try taking the object in question (the overcoat). If the take succeeds, the silence means that nothing else is printed: if it fails, it will say why.
+**2. The default behaviour.** To print text such as ``(first taking the Moroccan overcoat)`` and then silently try taking the object in question (the overcoat). If the take succeeds, the silence means that nothing else is printed: if it fails, it will say why.
 
-No matter what rules are written for this activity, it is impossible to use it to allow the action to go ahead even without the item. The activity allows us to change how, or if, an implicit take will happen, but not to change the consequences of failure. (To do that, we would need to say that "The carrying requirements rule does nothing", but this kind of unstitching of the action machinery needs to be done with caution.)
+No matter what rules are written for this activity, it is impossible to use it to allow the action to go ahead even without the item. The activity allows us to change how, or if, an implicit take will happen, but not to change the consequences of failure. (To do that, we would need to say that `The carrying requirements rule does nothing`, but this kind of unstitching of the action machinery needs to be done with caution.)
 
 **3. Examples.** (a) Forbidding implicit takes for certain dangerous items. (This seems especially fair if taking such items might cause death: the player will not wish to be killed on the strength only of our guess as to what they might be intending to do.)
 
@@ -12195,7 +12180,7 @@ Note that if the activity doesn't succeed in taking the item, it's expected to p
 	> BIFURCATE TREE
 	That's not a verb I recognise.
 
-There are more than twenty possible messages. The one which the parser wants to say is stored in the variable "latest parser error", which has the convenient kind "command parser error". This has the following possible values:
+There are more than twenty possible messages. The one which the parser wants to say is stored in the variable `latest parser error`, which has the convenient kind `command parser error`. This has the following possible values:
 
 - didn't understand error
 - only understood as far as error
@@ -12248,15 +12233,15 @@ There are more than twenty possible messages. The one which the parser wants to 
 
 ^^{understanding: deciding whether (ALL) includes something+commandpart+} ^^{+toout+it does / it does not (deciding whether all includes)} ^^{(ALL), including things in+commandpart+}
 
-**1. When it happens.** When parsing a command such as "take all", where the player uses "all" to signify everything within reach.
+**1. When it happens.** When parsing a command such as ``TAKE ALL``, where the player uses ``ALL`` to signify everything within reach.
 
-**2. The default behaviour.** The actual method used is complicated, as "all" is not as simple as it seems – "take all" would not include the player's own body, for instance, or the crescent moon. The point of this activity is to allow the normal method to be changed for given objects, or given kinds of object.
+**2. The default behaviour.** The actual method used is complicated, as ``ALL`` is not as simple as it seems – ``TAKE ALL`` would not include the player's own body, for instance, or the crescent moon. The point of this activity is to allow the normal method to be changed for given objects, or given kinds of object.
 
-**3. Examples.** (a) Removing scenery from "all" (but see (4) below):
+**3. Examples.** (a) Removing scenery from ``ALL`` (but see (4) below):
 
 	{*}Rule for deciding whether all includes scenery: it does not.
 
-The phrases "it does" and "it does not" make a decision.
+The phrases `it does` and `it does not` make a decision.
 
 (b) Ensuring that a given thing, which might otherwise be excluded, is included:
 
@@ -12268,7 +12253,7 @@ The phrases "it does" and "it does not" make a decision.
 	exclude people from take all rule
 	exclude fixed in place things from take all rule
 
-**5. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like "... while taking a container" to a rule for this activity will cause the rule to have no effect – whereas "... while taking" would be fine.
+**5. A note about actions.** This activity takes place during the process of understanding the player's command, when the action that will take place is not fully known. So if the player types ``TAKE SHOEBOX``, this activity would happen when ``SHOEBOX`` is being examined for meaning. Inform knows that the action will be taking, but nothing else. That means attaching a proviso like `... while taking a container` to a rule for this activity will cause the rule to have no effect – whereas `... while taking` would be fine.
 
 ## Printing the banner text {act_banner}
 
@@ -12283,7 +12268,7 @@ The phrases "it does" and "it does not" make a decision.
 	
 	Release 1 / Serial number 050630 / Inform 7 build 2U98 (I6/v6.30 lib 6/10N) SD
 
-(The serial and build numbers are those applying when the story file was last made: these ones are from the mid-2000s.) The banner is printed at the start of play, and when the player types "version" at the command line, and when say `"[banner text]"` occurs.
+(The serial and build numbers are those applying when the story file was last made: these ones are from the mid-2000s.) The banner is printed at the start of play, and when the player types ``VERSION`` at the command line, and when say `"[banner text]"` occurs.
 
 > phrase: {phs_banner} say "[the/-- banner text]"
 >
@@ -12303,7 +12288,7 @@ The phrases "it does" and "it does not" make a decision.
 
 ^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story} ^^{when play ends+rb+: printing the player's obituary+activity+}
 
-**1. When it happens.** The obituary is the text "\*\*\* You have died \*\*\*" or similar, sometimes followed by a final score, if the appropriate use option ("Use scoring.") is in force.
+**1. When it happens.** The obituary is the text `"*** You have died ***"` or similar, sometimes followed by a final score, if the appropriate use option (`Use scoring.`) is in force.
 
 **2. The default behaviour.** Printing the aforementioned text, then the final score, and reducing the status line to a largely blank state.
 
@@ -12315,9 +12300,9 @@ The phrases "it does" and "it does not" make a decision.
 
 ^^{when play ends+rb+: amusing a victorious player+activity+} ^^{end of story} ^^{victory} ^^{death} ^^{winning the story} ^^{losing the story} ^^{(finally), ending the story+sourcepart+} ^^{>AMUSING}
 
-**1. When it happens.** When the player chooses ``AMUSING`` from the short menu of choices after a story has been won. Traditionally, this is where the author gets to point out quirky by-ways of the story, or make some final acknowledgements, or simply salute the player's perseverance. Note that the ``AMUSING`` option is only offered when the story has ended finally, and that it is only offered if there is at least one rule present in the "for amusing a victorious player" rulebook.
+**1. When it happens.** When the player chooses ``AMUSING`` from the short menu of choices after a story has been won. Traditionally, this is where the author gets to point out quirky by-ways of the story, or make some final acknowledgements, or simply salute the player's perseverance. Note that the ``AMUSING`` option is only offered when the story has ended finally, and that it is only offered if there is at least one rule present in the `for amusing a victorious player` rulebook.
 
-**2. The default behaviour.** None. The "for amusing a victorious player" rulebook is empty by default, and no amusement is available.
+**2. The default behaviour.** None. The `for amusing a victorious player` rulebook is empty by default, and no amusement is available.
 
 **3. Examples.** The format would be like so:
 
@@ -12327,7 +12312,7 @@ The phrases "it does" and "it does not" make a decision.
 
 ^^{virtual machine: starting the virtual machine+activity+}
 
-**1. When it happens.** This activity is provided as a "hook" for any low-level tasks which need to be performed when the virtual computer which runs Inform story files is starting up. This happens much earlier than "when play begins" rules, and contains a lot of critical low-level code; most authors will not need to delve into its details, but if necessary it can be controlled like any other activity. Extension authors however may find it to be a useful place to put their code.
+**1. When it happens.** This activity is provided as a "hook" for any low-level tasks which need to be performed when the virtual computer which runs Inform story files is starting up. This happens much earlier than `when play begins` rules, and contains a lot of critical low-level code; most authors will not need to delve into its details, but if necessary it can be controlled like any other activity. Extension authors however may find it to be a useful place to put their code.
 
 It should be remembered that Inform can produce story files for several different virtual computers. On some of these, it may not be safe to print any text during this activity, as the windows which would display such text do not yet exist. In Glulx, Inform's default format, you can safely print text in the after rules, but not the before or for rules. In general, the three rulebooks of the activity should be used in this manner:
 
@@ -12351,7 +12336,7 @@ Many extensions would most appropriately put their rules in the after rulebook, 
 
 When we open the casing and look inside the machinery of Inform, what we see are rules and rulebooks. We seldom need to know how this machinery works, but every once in a while we want to replace components, or even install new mechanisms of our own. And as we shall see, creating new rulebooks can be a neat way to tackle complicated simulations full of exceptions and special cases.
 
-So far we have seen many rules, and the term "rulebook" has frequently but vaguely been used. Here is a summary of the rulebooks seen so far:
+So far we have seen many rules, and the term _rulebook_ has frequently but vaguely been used. Here is a summary of the rulebooks seen so far:
 
 - before
 - instead
@@ -12391,14 +12376,14 @@ Which makes around 340 rulebooks before we even start to write. All the same, no
 
 ^^{rules: in rulebooks} ^^{rulebooks} ^^{names: of rules} ^^{rules: order in rulebooks} ^^{rulebooks: order of rules} ^^{precedence: of rules} ^^{disambiguation: of source text: precedence of rules}
 
-Most of the rules built into Inform have names. For instance, a rule called "the advance time rule" is the one which increments the number of turns and advances the clock, values which are usually not visible, but are ticking away behind the scenes.
+Most of the rules built into Inform have names. For instance, a rule called `the advance time rule` is the one which increments the number of turns and advances the clock, values which are usually not visible, but are ticking away behind the scenes.
 
-A rulebook is a list of rules to be followed in sequence until one of them makes a decision. For instance, when actions get to the "instead" stage, each "instead" rule is tried until one of them chooses to do something. If the source text contains the rules
+A rulebook is a list of rules to be followed in sequence until one of them makes a decision. For instance, when actions get to the `instead` stage, each `instead` rule is tried until one of them chooses to do something. If the source text contains the rules
 
 	Instead of taking something: say "You have no particular need just now."
 	Instead of taking a fish: say "It's all slimy."
 
-and a command to ``TAKE`` something is tried, then only one of these rules will have any effect. The "instead" rulebook contains:
+and a command to ``TAKE`` something is tried, then only one of these rules will have any effect. The `instead` rulebook contains:
 
 - Rule (1) to be applied if the action matches "taking a fish"
 - Rule (2) to be applied if the action matches "taking something"
@@ -12409,7 +12394,7 @@ Only some rules have names — rules (1) and (2) are nameless — but every rule
 
 Rulebook names similarly end in `rulebook`, but Inform also recognises the name with `rules` at the end. So `instead rules` means the same thing as `instead rulebook`.
 
-The names of built-in rules have been chosen as descriptively as possible: the "can't go through closed doors rule", for instance. Names for rules tend to be verbose, but this is a situation where clarity is very much better than brevity.
+The names of built-in rules have been chosen as descriptively as possible: the `can't go through closed doors rule`, for instance. Names for rules tend to be verbose, but this is a situation where clarity is very much better than brevity.
 
 ## New rules {PM_BadRulePreambleWhen} {PM_BadRulePreamble} {PM_RuleWithDefiniteArticle} {PM_RuleWithoutColon}
 
@@ -12419,19 +12404,19 @@ Stretching a point seasonally, we might write:
 
 	Every turn, say "The summer breeze shakes the apple-blossom."
 
-This rule is nameless. It needs no name because it will never need to be referred to: by identifying it as an every turn rule we have already said enough to lodge it in the "every turn" rulebook. In fact, though, it is easy to create a named rule:
+This rule is nameless. It needs no name because it will never need to be referred to: by identifying it as an every turn rule we have already said enough to lodge it in the `every turn` rulebook. In fact, though, it is easy to create a named rule:
 
 	This is the blossom shaking rule: say "The summer breeze shakes the apple-blossom."
 
-The name of a rule must always end with the word "rule", for clarity's sake. (The phrasing "This is the ... rule" is used because "The ... rule" would be open to misinterpretation.)
+The name of a rule must always end with the word `rule`, for clarity's sake. (The phrasing `This is the ... rule` is used because `The ... rule` would be open to misinterpretation.)
 
-Previously we had a rule which had no name, but belonged to a rulebook: now we have the opposite, because although the "blossom shaking rule" has a name, it has not been placed in any rulebook. That means it will probably never be applied, unless we give specific instructions for that.
+Previously we had a rule which had no name, but belonged to a rulebook: now we have the opposite, because although the `blossom shaking rule` has a name, it has not been placed in any rulebook. That means it will probably never be applied, unless we give specific instructions for that.
 
 Alternatively, it is possible to both name and place a rule in a single sentence:
 
 	Every turn (this is the alternative blossom rule): say "The summer breeze shakes the apple-blossom."
 
-Now the "alternative blossom rule" is a named rule in the "every turn" rulebook.
+Now the `alternative blossom rule` is a named rule in the `every turn` rulebook.
 
 ## Listing rules explicitly {RLISTING} {PM_ImproperRulePlacement} {PM_BadRulePlacementNegation} {PM_UnspecifiedRulebookPlacement} {PM_NoSuchRuleExists} {PM_PlaceWithMissingRule}
 
@@ -12439,7 +12424,7 @@ Now the "alternative blossom rule" is a named rule in the "every turn" rulebook.
 
 If rules can manage perfectly well without, why bother to have names for rules?
 
-The answer is that although Inform contains an elaborate mechanism for placing rules into the correct rulebook at the correct position, and this happens automatically, Inform will sometimes get it wrong. It will use a rule we do not want, or place them in an order which does not suit us. To put this right, we can give explicit instructions which take precedence over Inform's normal practice. This is done with the "to list" verb, as in the following examples.
+The answer is that although Inform contains an elaborate mechanism for placing rules into the correct rulebook at the correct position, and this happens automatically, Inform will sometimes get it wrong. It will use a rule we do not want, or place them in an order which does not suit us. To put this right, we can give explicit instructions which take precedence over Inform's normal practice. This is done with the `to list` verb, as in the following examples.
 
 1. The simplest usage is to place a named rule, which currently has no home, in any rulebook of our choice. (This looks redundant, but just occasionally we want the same rule to appear in two different rulebooks.)
 
@@ -12451,15 +12436,15 @@ A rule can appear in more than one rulebook, but within any single rulebook it c
 
 	The collapsing bridge rule is listed before the moving doorways rule in the instead rules.
 
-Instead of being placed in specificity order in the whole "instead" rulebook, the "collapsing bridge" rule would now be placed in specificity order only in the first half of the "instead" rulebook – the rules from the start up to (but not including) the "moving doorways" rule. To reiterate: that doesn't necessarily mean it will be immediately before the "moving doorways" rule; it will be placed according to Inform's usual sorting rules within that range.
+Instead of being placed in specificity order in the whole `instead` rulebook, the `collapsing bridge` rule would now be placed in specificity order only in the first half of the `instead` rulebook – the rules from the start up to (but not including) the `moving doorways` rule. To reiterate: that doesn't necessarily mean it will be immediately before the `moving doorways` rule; it will be placed according to Inform's usual sorting rules within that range.
 
-"Listed" sentences are obeyed by Inform in sequence, so if later ones issue instructions contradicting earlier ones, it's the later ones which win out. Thus if we say "A is listed before B in X" and then "B is listed before A in X", the result is that B comes before A.
+`Listed` sentences are obeyed by Inform in sequence, so if later ones issue instructions contradicting earlier ones, it's the later ones which win out. Thus if we say `A is listed before B in X` and then `B is listed before A in X`, the result is that B comes before A.
 
 3. We can specify that a rule needs to appear first or last in a given rulebook:
 
 	The collapsing bridge rule is listed first in the instead rules.
 
-Again, if we make several such instructions about the same rulebook then the most recent one wins: "A is listed first in X. B is listed first in X. C is listed first in X." causes rulebook X to begin C, B, A.
+Again, if we make several such instructions about the same rulebook then the most recent one wins: `A is listed first in X. B is listed first in X. C is listed first in X.` causes rulebook X to begin C, B, A.
 
 4. We can also substitute one rule for another:
 
@@ -12636,33 +12621,33 @@ The creation of the rulebook is all very well, but without the final sentence it
 >     follow the advance time rule;
 >     follow the appraisal rulebook;
 
-Like "number" or "text", "rule" and "rulebook" are kinds of value built into Inform: "the blossom rule" is a value whose kind is "rule", whereas "the every turn rules" is a value whose kind is "rulebook". In fact, Inform considers a rulebook to be a special case of a rule, so that whenever a rule is required it is legal to name a rulebook instead, but not vice versa. The "follow" phrase here...
+Like `number` or `text`, `rule` and `rulebook` are kinds of value built into Inform: `the blossom rule` is a value whose kind is `rule`, whereas `the every turn rules` is a value whose kind is `rulebook`. In fact, Inform considers a rulebook to be a special case of a rule, so that whenever a rule is required it is legal to name a rulebook instead, but not vice versa. The `follow` phrase here...
 
 	Instead of switching on the machine, follow the appraisal rules.
 
-...expects to be applied to a value of kind "rule"; "the appraisal rules" is in fact a rulebook, but since that counts as a rule the phrase makes sense to Inform. To follow a rulebook means to run through all its rules in turn, stopping when one rule reaches an outcome; to follow a single rule means just that one, of course.
+...expects to be applied to a value of kind `rule`; `the appraisal rules` is in fact a rulebook, but since that counts as a rule the phrase makes sense to Inform. To follow a rulebook means to run through all its rules in turn, stopping when one rule reaches an outcome; to follow a single rule means just that one, of course.
 
-When created, a rulebook starts out with no rules in it – in this example, of course, we quickly defined a couple of rules to go into it. But it's often the case in Inform that a rulebook exists without ever being stocked up, especially if the rulebook is for some obscure purpose never needed. The built-in adjectives "empty" and "non-empty", applied to a rulebook, test whether any rule is present or not.
+When created, a rulebook starts out with no rules in it – in this example, of course, we quickly defined a couple of rules to go into it. But it's often the case in Inform that a rulebook exists without ever being stocked up, especially if the rulebook is for some obscure purpose never needed. The built-in adjectives `empty` and `non-empty`, applied to a rulebook, test whether any rule is present or not.
 
 ## Basis of a rulebook
 
 ^^{basis of rulebook} ^^{rulebooks: basis of rulebook} ^^{rulebooks: rulebook parameters} ^^{parameters: of rulebooks} ^^{values: basis of rulebooks}
 
-Every rulebook works on a value supplied to it, though it doesn't always look that way. The kind of the value is called its "basis"; for example, if a rulebook works on a number, it's called a "number based rulebook". Most of the rulebooks seen up to now have been action based rulebooks:
+Every rulebook works on a value supplied to it, though it doesn't always look that way. The kind of the value is called its "basis"; for example, if a rulebook works on a number, it's called a `number based rulebook`. Most of the rulebooks seen up to now have been action based rulebooks:
 
 	Instead of eating the cake: ...
 
-"Instead" is an action based rulebook, and the action it works on is the one currently being processed. Besides before, after and instead, other action based rulebooks include the check, carry out, and report rules; general rulebooks such as every turn rules, the visibility rules, the turn sequence rules; and rules specially for dealing with the actions of other characters, such as the persuasion and unsuccessful attempt rules. But we have also seen object based rulebooks:
+`Instead` is an action based rulebook, and the action it works on is the one currently being processed. Besides before, after and instead, other action based rulebooks include the check, carry out, and report rules; general rulebooks such as every turn rules, the visibility rules, the turn sequence rules; and rules specially for dealing with the actions of other characters, such as the persuasion and unsuccessful attempt rules. But we have also seen object based rulebooks:
 
 	Rule for reaching inside the flask: ...
 
-"Reaching inside" is an object based rulebook, and here we're giving it a rule which applies if the object is the flask. Inform would reject something like:
+`Reaching inside` is an object based rulebook, and here we're giving it a rule which applies if the object is the flask. Inform would reject something like:
 
 	Rule for reaching inside 100: ...
 
-because 100 has the wrong kind to fit – it's a number, not an object. There are many object based rulebooks, because most activities built-in to Inform act on objects. For example, the "printing the name of" activity has three rulebooks attached to it: before printing the name of, for printing the name of, after printing the name of. All of these are object based rulebooks.
+because 100 has the wrong kind to fit – it's a number, not an object. There are many object based rulebooks, because most activities built-in to Inform act on objects. For example, the `printing the name of` activity has three rulebooks attached to it: before printing the name of, for printing the name of, after printing the name of. All of these are object based rulebooks.
 
-Finally, we've also seen scene based rulebooks (which is how rules like "when a recurring scene ends" worked, in the chapter on [Scenes]).
+Finally, we've also seen scene based rulebooks (which is how rules like `when a recurring scene ends` worked, in the chapter on [Scenes]).
 
 If a rulebook is declared like so:
 
@@ -12693,7 +12678,7 @@ which produces:
 	Grading 9: There's something odd about 9.
 	Grading 10: Just 10.
 
-Here we needed a variation on "follow" which supplies the value to apply to:
+Here we needed a variation on `follow` which supplies the value to apply to:
 
 > phrase: {ph_followfor} follow (values based rule producing values) for (value)
 >
@@ -12744,7 +12729,7 @@ And we had better do something with the result:
 
 	The last aptitude rule: say "Your aptitude rating is [aptitude mark]."
 
-A rulebook can have any number of variables like this. They behave much like "let" values except that they last for a whole rulebook, not an individual rule or To phrase definition. (Well, strictly speaking they are accessible not just to the rules which belong to the rulebook, but also to any rules which previously belonged to the rulebook but were kicked out by means of an explicit rule-listing sentence. This is good because otherwise they will suddenly cause problem messages when unlisted.)
+A rulebook can have any number of variables like this. They behave much like `let` values except that they last for a whole rulebook, not an individual rule or To phrase definition. (Well, strictly speaking they are accessible not just to the rules which belong to the rulebook, but also to any rules which previously belonged to the rulebook but were kicked out by means of an explicit rule-listing sentence. This is good because otherwise they will suddenly cause problem messages when unlisted.)
 
 ## Success and failure {PM_DefaultOutcomeTwice} {PM_BadDefaultOutcome}
 
@@ -12754,7 +12739,7 @@ Though we have blurred over this point so far, each rule must ordinarily end wit
 
 When a rulebook is followed, what happens is that each of its rules is followed in turn **until one of them ends in success or failure** – if ever: it is possible that each rule is tried and each ends with no outcome, so that the rulebook simply runs out of rules to try.
 
-For some rulebooks, these are not useful ideas: "every turn" rules, for instance, by default never produce an outcome, which is why the "every turn" rulebook normally runs through all its rules at the end of each turn. (Use of the phrases below can change that, so it's best not to use them in "every turn" rules.) But for other rulebooks, such as "check taking", it's important that a rule which fails will stop the whole rulebook. For instance, we might find that the "can't take yourself rule" produces no outcome (because we aren't trying to do that), and then likewise the "can't take other people rule" (ditto) but that the "can't take component parts rule" prints up a complaint, and fails the action: the rulebook stops, and never goes on to (for instance) the "can't take scenery rule". This is good, because an impossible action often fails for several reasons at once, and we only want to print up one objection, not a whole list.
+For some rulebooks, these are not useful ideas: `every turn` rules, for instance, by default never produce an outcome, which is why the `every turn` rulebook normally runs through all its rules at the end of each turn. (Use of the phrases below can change that, so it's best not to use them in `every turn` rules.) But for other rulebooks, such as `check taking`, it's important that a rule which fails will stop the whole rulebook. For instance, we might find that the `can't take yourself rule` produces no outcome (because we aren't trying to do that), and then likewise the `can't take other people rule` (ditto) but that the `can't take component parts rule` prints up a complaint, and fails the action: the rulebook stops, and never goes on to (for instance) the `can't take scenery rule`. This is good, because an impossible action often fails for several reasons at once, and we only want to print up one objection, not a whole list.
 
 To follow the working of this mechanism, we need to be able to predict the outcome of any given rule. Sometimes this is easy to spot. For instance, in a rule which works on actions:
 
@@ -12766,7 +12751,7 @@ To follow the working of this mechanism, we need to be able to predict the outco
 
 	Before taking something: say "The sentry won't let you!" instead.
 
-ends in failure, and therefore stops the "before" rulebook. Another easy-to-spot case is when a rule makes use of the explicit phrases:
+ends in failure, and therefore stops the `before` rulebook. Another easy-to-spot case is when a rule makes use of the explicit phrases:
 
 > phrase: {ph_succeeds} rule succeeds
 >
@@ -12784,13 +12769,13 @@ But what happens if a rule simply doesn't say whether it succeeds, fails or has 
 
 	Before taking something: say "The sentry looks at you anxiously!"
 
-This rule, if it takes effect, ends with no outcome – so the action continues. But other rulebooks have a different convention: the most important is "instead", where a rule making no explicit choice is deemed to end in failure. For instance:
+This rule, if it takes effect, ends with no outcome – so the action continues. But other rulebooks have a different convention: the most important is `instead`, where a rule making no explicit choice is deemed to end in failure. For instance:
 
 	Instead of taking something: say "The sentry prods you with his rifle!"
 
 This rule, if it takes effect, ends in failure and therefore stops the action.
 
-We call this the **default outcome** of a rulebook. The default outcome of "before" (and of almost all rulebooks, in fact) is no outcome; the default outcome of "instead" is failure; the default outcome of "after" is success. The few exceptional cases with default outcome success or failure are marked as such in the Rules index.
+We call this the **default outcome** of a rulebook. The default outcome of `before` (and of almost all rulebooks, in fact) is no outcome; the default outcome of `instead` is failure; the default outcome of `after` is success. The few exceptional cases with default outcome success or failure are marked as such in the Rules index.
 
 When we create a rulebook, it will default to "no outcome". But we can specify otherwise with sentences like so:
 
@@ -12810,7 +12795,7 @@ We can test the latest outcome like so:
 >
 > But if some text had been produced between the `follow` and the text, and if that text had named an object, for example, then an activity would have been run to perform the naming, and that involves rules running.
 >
-> Note that this is not the opposite of "rule failed", because there's a third possibility: that it ended with no outcome.
+> Note that this is not the opposite of `rule failed`, because there's a third possibility: that it ended with no outcome.
 
 > phrase: {ph_failed} if rule failed:
 >
@@ -12822,13 +12807,13 @@ We can test the latest outcome like so:
 >
 > But if some text had been produced between the `follow` and the text, and if that text had named an object, for example, then an activity would have been run to perform the naming, and that involves rules running.
 >
-> Note that this is not the opposite of "rule succeeded", because there's a third possibility: that it ended with no outcome.
+> Note that this is not the opposite of `rule succeeded`, because there's a third possibility: that it ended with no outcome.
 
 ## Named outcomes {PM_MisplacedRulebookOutcome} {PM_WrongEndToPhrase} {PM_BadOutcomeClarification} {PM_DefaultNamedOutcomeTwice} {PM_DefaultOutcomeAlready} {PM_DuplicateOutcome} {PM_NonOutcomeProperty}
 
 ^^{rulebooks: outcomes} ^^{default outcome of a rulebook}
 
-We have seen that the terms "success" and "failure" can be misleading – after all, it might be a good thing for a particular rulebook to "fail". At any rate, these are vague terms, and we don't want to have to remember the conventions used by every rulebook. This is why certain rulebooks have explicitly named outcomes instead. For instance, the "visibility" rules are allowed to have the outcomes:
+We have seen that the terms "success" and "failure" can be misleading – after all, it might be a good thing for a particular rulebook to "fail". At any rate, these are vague terms, and we don't want to have to remember the conventions used by every rulebook. This is why certain rulebooks have explicitly named outcomes instead. For instance, the `visibility` rules are allowed to have the outcomes:
 
 - `there is sufficient light;`
 - `there is insufficient light;`
@@ -12839,7 +12824,7 @@ There can be any number of named outcomes. For instance, the Standard Rules defi
 
 	The does the player mean rules are a rulebook. The does the player mean rules have outcomes it is very likely, it is likely, it is possible, it is unlikely and it is very unlikely.
 
-which makes five possible outcomes. Five outcomes seems to contradict the principle that there are only three possible outcomes for a rule: in fact, though, the five are counted as five different forms of "success", and any of them will cause a "does the player mean" rule to succeed. If we do not want this, we can instead specify explicitly how the named outcomes correspond to success, failure or "no outcome":
+which makes five possible outcomes. Five outcomes seems to contradict the principle that there are only three possible outcomes for a rule: in fact, though, the five are counted as five different forms of "success", and any of them will cause a `does the player mean` rule to succeed. If we do not want this, we can instead specify explicitly how the named outcomes correspond to success, failure or "no outcome":
 
 	Visibility rules have outcomes there is sufficient light (failure) and there is insufficient light (success).
 
@@ -12859,7 +12844,7 @@ After a rulebook using named outcomes has run, we can test which outcome occurre
 >     if the outcome of the rulebook is the absolute silence outcome:
 >     	say "You could hear a pin drop in here."
 
-Each named outcome is a value if followed by the word "outcome", which is how "absolute silence" has become "the absolute silence outcome". Named outcomes can be said, so we could use the text substitution `"[outcome of the rulebook]"`, for instance. A final caveat: it is perfectly legal to create a named outcome which means "no outcome", but if so then this will never be "the outcome of the rulebook" because "no outcome" is not an outcome.
+Each named outcome is a value if followed by the word `outcome`, which is how `absolute silence` has become `the absolute silence outcome`. Named outcomes can be said, so we could use the text substitution `"[outcome of the rulebook]"`, for instance. A final caveat: it is perfectly legal to create a named outcome which means "no outcome", but if so then this will never be `the outcome of the rulebook` because "no outcome" is not an outcome.
 
 ## Rulebooks producing values
 
@@ -12885,7 +12870,7 @@ As we've seen, every rulebook has one kind of value as its basis, and it also ha
 - `rulebook producing L`
 - `K based rulebook producing L`
 
-If we don't mention `K`, Inform assumes the rulebook is action based. If we don't mention `L`, Inform assumes `L` is "nothing", that is, Inform assumes no value is ever produced. Thus
+If we don't mention `K`, Inform assumes the rulebook is action based. If we don't mention `L`, Inform assumes `L` is `nothing`, that is, Inform assumes no value is ever produced. Thus
 
 	Drum summons rules is a rulebook.
 
@@ -12938,7 +12923,7 @@ which accesses the value this rulebook produces. In general, we write:
 
 ^^{rules: invoking a rule: and abiding by its outcome} ^^{rulebooks: invoking a rulebook: and abiding by its outcome} ^^{reason the action failed (- rule)+glob+}
 
-It often happens that one rule needs to invoke another one. Most of the time, the best way to do this is with "follow":
+It often happens that one rule needs to invoke another one. Most of the time, the best way to do this is with `follow`:
 
 	follow the magical mystery tour rule;
 
@@ -12954,7 +12939,7 @@ More often, though, we want not only to invoke another rule, but also to be guid
 >     	abide by the third rule;
 >     	abide by the fourth rule.
 >
-> This duplicates the effect of a rulebook of four rules: the "omnibus rule" tries each in turn, and stops as soon as any of them stop.
+> This duplicates the effect of a rulebook of four rules: the `omnibus rule` tries each in turn, and stops as soon as any of them stop.
 
 > phrase: {ph_abidefor} abide by (values based rule producing values) for (value)
 >
@@ -12966,15 +12951,15 @@ Abide might be used in examples like this one:
 	This is the can't handle fragile things roughly rule: if the noun is fragile, say "[The noun] is too fragile for such rough handling." instead.
 	A check dropping rule: abide by the can't handle fragile things roughly rule. A check throwing it at rule: abide by the can't handle fragile things roughly rule.
 
-Had we used "follow" instead of "abide by", then in the event of the player typing "drop angel" the text "The glass angel is too fragile for such rough handling" would be printed, which is correct – but then the action would continue as though no difficulty had occurred, which is definitely not correct.
+Had we used `follow` instead of `abide by`, then in the event of the player typing ``DROP ANGEL`` the text ``The glass angel is too fragile for such rough handling`` would be printed, which is correct – but then the action would continue as though no difficulty had occurred, which is definitely not correct.
 
-Finally, we can "anonymously abide":
+Finally, we can `anonymously abide`:
 
 > phrase: {ph_abideanon} anonymously abide by (rule) & anonymously abide by (values based rule producing values) for (value)
 >
 > This phrase applies the given rule, and makes its result the result of the present rule. If the rule being abided by succeeds or fails then the original rule also stops, at once and without going on to any further instructions. However, the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding.
 
-This is only useful in complicated situations where one rulebook uses another which... and so on. Its effect is exactly the same as "abide", except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it's used as the source of the value "reason the action failed" (see the chapter on [Advanced Actions]).
+This is only useful in complicated situations where one rulebook uses another which... and so on. Its effect is exactly the same as `abide`, except that the rule deemed to have decided the outcome is the one abided by, not the one doing the abiding. It thus allows a rule or rulebook to act purely as a middle-man, never getting the blame or the credit for what happens. The rule which made the decision is often not very relevant anyway, but it's used as the source of the value `reason the action failed` (see the chapter on [Advanced Actions]).
 
 ## The internal rulebooks which keep stories running {rules_internal}
 
@@ -13123,45 +13108,45 @@ So we will now see what happens if the normal ordering is _not_ changed.
 
 As sketched above, sorting is done by comparing rules in pairs to decide which is more specific. We shall call these rules X and Y. The Laws are tried in sequence; the first Law to distinguish X and Y gets to decide which is more specific. If no Law is able to decide, X and Y go into the rulebook in order of their appearance in the source text – that is, whichever is defined first appears earlier in the rulebook and therefore takes priority.
 
-**Law I – Number of aspects constrained**. For action-based rulebooks, rules are scored from 0 to 6 according to whether they constrain any of: (i) the exotic "going" clauses (pushing, by and through), (ii) the location of the action (in, from and to), (iii) the things directly involved (actor, noun, second noun, "nowhere" in the case of "going"), (iv) the presence of others (in the presence of...), (v) the time at which the action occurs (when, or "for the nth time" or "for the nth turn"), and/or (vi) the scene the action occurs in (during). For value based rulebooks, rules are scored from 0 to 3 according to whether they constrain: (i) the value parameter, (ii) the scene in which the rulebook is followed (when, during), and/or (iii) any condition which must hold or activities going on at the same time (when/while). A higher score is more specific than a lower one.
+**Law I – Number of aspects constrained**. For action-based rulebooks, rules are scored from 0 to 6 according to whether they constrain any of: (i) the exotic `going` clauses (pushing, by and through), (ii) the location of the action (in, from and to), (iii) the things directly involved (actor, noun, second noun, `nowhere` in the case of `going`), (iv) the presence of others (in the presence of...), (v) the time at which the action occurs (when, or `for the nth time` or `for the nth turn`), and/or (vi) the scene the action occurs in (during). For value based rulebooks, rules are scored from 0 to 3 according to whether they constrain: (i) the value parameter, (ii) the scene in which the rulebook is followed (when, during), and/or (iii) any condition which must hold or activities going on at the same time (when/while). A higher score is more specific than a lower one.
 
 **Law II – When/while requirement**. A rule with a when/while restriction beats one without.
 
 **Law III – Action requirement**. A rule with a more specific action requirement beats one with a more general action requirement. (Or similarly, for value based rulebooks, a rule with a more specific parameter requirement beats a more general one.) Details are given below.
 
-**Law IV – Scene requirement**. A rule with a scene restriction ("during") beats one without.
+**Law IV – Scene requirement**. A rule with a scene restriction (`during`) beats one without.
 
 Details of Law III now follow:
 
 **Law III.1 – Object To Which Rule Applies**. For value based rulebooks only: the more specific value requirement wins.
 
-**Law III.2.1 – Action/Where/Going In Exotic Ways**. A more specific combination of "...pushing...", "... by ...", and "... through ..." clauses in a "going" action beats a less specific. (Placing conditions on all three of these clauses beats placing conditions on any two, which beats any one, which beats none at all.) In cases where X and Y each place, let's say, two such conditions, they are considered in the order "...pushing...", "...by..." and then "...through..." until one wins. (The idea here is that pushing something from room to room is rarer than travelling in a vehicle, which in turn is rarer than going through a door. The rarer action goes first, as more specific.)
+**Law III.2.1 – Action/Where/Going In Exotic Ways**. A more specific combination of `...pushing...`, `... by ...`, and `... through ...` clauses in a `going` action beats a less specific. (Placing conditions on all three of these clauses beats placing conditions on any two, which beats any one, which beats none at all.) In cases where X and Y each place, let's say, two such conditions, they are considered in the order `...pushing...`, `...by...` and then `...through...` until one wins. (The idea here is that pushing something from room to room is rarer than travelling in a vehicle, which in turn is rarer than going through a door. The rarer action goes first, as more specific.)
 
-**Law III.2.2 – Action/Where/Room Where Action Takes Place**. A more specific combination of conditions on the room in which the action starts, and in which it ends, beats a less specific. For all actions other than "going", there is no combination to be considered, and what we do is to look at the specificity of the "... in ..." clause. (So "Before looking in the Taj Mahal" beats "Before looking".)
+**Law III.2.2 – Action/Where/Room Where Action Takes Place**. A more specific combination of conditions on the room in which the action starts, and in which it ends, beats a less specific. For all actions other than `going`, there is no combination to be considered, and what we do is to look at the specificity of the `... in ...` clause. (So `Before looking in the Taj Mahal` beats `Before looking`.)
 
-For "going" actions, there are strictly speaking three possible room clauses: "... in ...", "... from ..." and "... to ...". However, "... in ..." and "... from ..." cannot both be present, so that in practice a "going" rule constraining two rooms beats a "going" rule constraining only one.
+For `going` actions, there are strictly speaking three possible room clauses: `... in ...`, `... from ...` and `... to ...`. However, `... in ...` and `... from ...` cannot both be present, so that in practice a `going` rule constraining two rooms beats a `going` rule constraining only one.
 
-If both the room gone from (the "...in..." or "...from..." room, whichever is given) and the room gone to (the "... to..." room) are constrained, then the constraints are looked at in the order from-room followed by to-room, since an action which goes to room Z could start in many different places and thus is likely to be more general.
+If both the room gone from (the `...in...` or `...from...` room, whichever is given) and the room gone to (the `... to...` room) are constrained, then the constraints are looked at in the order from-room followed by to-room, since an action which goes to room Z could start in many different places and thus is likely to be more general.
 
 Giving a place as a specific room beats giving only the name of a region; if region R is entirely within region S, then a rule applying in R beats a rule applying in S. (Note that regions can only overlap if one is contained in the other, so this does not lead to ambiguity.)
 
-**Law III.2.3 – Action/Where/In The Presence Of**. A more specific "...in the presence of..." clause beats a less specific one. (This is again a constraint on where the action can take place, but it's now a potentially a constraint which could be passed in many different places at different times, so it's the most likely to be achieved and therefore the last to be considered of the Laws on Where.)
+**Law III.2.3 – Action/Where/In The Presence Of**. A more specific `...in the presence of...` clause beats a less specific one. (This is again a constraint on where the action can take place, but it's now a potentially a constraint which could be passed in many different places at different times, so it's the most likely to be achieved and therefore the last to be considered of the Laws on Where.)
 
-**Law III.3.1 – Action/What/Second Thing Acted On**. A more specific constraint on the second noun beats a less specific. Thus "putting something in the wooden box" beats "putting something in a container".
+**Law III.3.1 – Action/What/Second Thing Acted On**. A more specific constraint on the second noun beats a less specific. Thus `putting something in the wooden box` beats `putting something in a container`.
 
-**Law III.3.2 – Action/What/Thing Acted On**. A more specific constraint on the first noun beats a less specific. Thus "taking a container which is on a supporter" beats "taking a container".
+**Law III.3.2 – Action/What/Thing Acted On**. A more specific constraint on the first noun beats a less specific. Thus `taking a container which is on a supporter` beats `taking a container`.
 
-In the case of "going" actions, the first noun is a direction. The special constraint "going nowhere" (which means: a direction in which the actor's location has no map connection) is considered more general than any other constraint placed on the first noun, but more specific than having no constraint at all. Thus "Instead of going north" beats "Instead of going nowhere" which beats "Instead of going".
+In the case of `going` actions, the first noun is a direction. The special constraint `going nowhere` (which means: a direction in which the actor's location has no map connection) is considered more general than any other constraint placed on the first noun, but more specific than having no constraint at all. Thus `Instead of going north` beats `Instead of going nowhere` which beats `Instead of going`.
 
 **Law III.3.3 – Action/What/Actor Performing Action**. A more specific constraint on the actor beats a less specific.
 
-**Law III.4.1 – Action/How/What Happens**. A more specific set of actions beats a less specific. For instance, "taking" beats "taking or dropping" beats "doing something other than looking" beats "doing something". A named kind of action (such as "behaving badly") is more specific than "doing something", but considered less specific than any explicitly spelled out list of actions.
+**Law III.4.1 – Action/How/What Happens**. A more specific set of actions beats a less specific. For instance, `taking` beats `taking or dropping` beats `doing something other than looking` beats `doing something`. A named kind of action (such as `behaving badly`) is more specific than `doing something`, but considered less specific than any explicitly spelled out list of actions.
 
-**Law III.5.1 – Action/When/Duration**. An action with a constraint on its history ("for the fifth time", say, or "for the fifth turn") beats one without. If both rules place constraints on history, then the one occurring on the smaller number of possible turns wins (thus "for the third to seventh time" – 5 possible turns of applicability – beats "for less than the tenth turn" – 9 possible turns).
+**Law III.5.1 – Action/When/Duration**. An action with a constraint on its history (`for the fifth time`, say, or `for the fifth turn`) beats one without. If both rules place constraints on history, then the one occurring on the smaller number of possible turns wins (thus `for the third to seventh time` – 5 possible turns of applicability – beats `for less than the tenth turn` – 9 possible turns).
 
-**Law III.5.2 – Action/When/Circumstances**. A more specific condition under "...when..." beats a less specific one. These conditions could potentially be complex: Inform judges how specific they are by counting the clauses found in them. The more clauses, the more specific the condition, it is assumed.
+**Law III.5.2 – Action/When/Circumstances**. A more specific condition under `...when...` beats a less specific one. These conditions could potentially be complex: Inform judges how specific they are by counting the clauses found in them. The more clauses, the more specific the condition, it is assumed.
 
-**Law III.6.1 – Action/Name/Is This Named**. A rule with a name ("the apple blossom rule", say) beats a rule without.
+**Law III.6.1 – Action/Name/Is This Named**. A rule with a name (`the apple blossom rule`, say) beats a rule without.
 
 # Advanced Text
 
@@ -13309,7 +13294,7 @@ We now live in a world where computers routinely handle a super-alphabet called 
 
 ^^{text: counting characters / words / paragraphs / lines} ^^{characters (letters): counting} ^^{counting: characters / words / paragraphs / lines} ^^{punctuation: in counting words} ^^{line breaks: counting lines in text} ^^{paragraph breaks: counting paragraphs in text} ^^{empty / non-empty+adj+: for texts} ^^{non-empty / empty+adj+: for texts} ^^{text: empty / non-empty+adj+}
 
-Inform can get at the contents of text in a variety of ways. The lowest-level is by character – a character is a letter, digit, punctuation symbol, space or other letter-form. (We use the term "character" rather than "letter" because otherwise we would have to call "5" a letter, and so on.) Characters number upwards from 1: character number 1, to repeat that, starts the text. We can get the Nth character with:
+Inform can get at the contents of text in a variety of ways. The lowest-level is by character – a character is a letter, digit, punctuation symbol, space or other letter-form. (We use the term `character` rather than `letter` because otherwise we would have to call `5` a letter, and so on.) Characters number upwards from 1: character number 1, to repeat that, starts the text. We can get the Nth character with:
 
 > phrase: {ph_charnum} character number (number) in (text) ... text
 >
@@ -13317,7 +13302,7 @@ Inform can get at the contents of text in a variety of ways. The lowest-level is
 >
 >     character number 8 in "numberless projects of social reform"
 >
-> produces "e". If the index is less than 1 or more than the length of the text, the result is an empty text, "".
+> produces `"e"`. If the index is less than 1 or more than the length of the text, the result is an empty text, `""`.
 
 The maximum character number varies with the current length of the text, and can be evaluated as:
 
@@ -13330,7 +13315,7 @@ The maximum character number varies with the current length of the text, and can
 >
 > produce 13 and 0 respectively.
 
-We can also use the adjective "empty":
+We can also use the adjective `empty`:
 
 	if the description of the location is empty, ...
 
@@ -13344,7 +13329,7 @@ We can also extract the contents by word, again numbered from 1. Thus:
 >
 >     word number 3 in "ice-hot, don't you think?"
 >
-> produces "don't". If the index is less than 1 or more than the number of words in the text, the result is an empty text, "".
+> produces `"don't"`. If the index is less than 1 or more than the number of words in the text, the result is an empty text, `""`.
 
 > phrase: {ph_numwords} number of words in (text) ... number
 >
@@ -13352,9 +13337,9 @@ We can also extract the contents by word, again numbered from 1. Thus:
 >
 >     number of words in "ice-hot, don't you think?"
 >
-> produces 5.
+> produces `5`.
 
-Note that the contraction apostrophe in "don't" doesn't count as punctuation. Because this is not always quite what we want, Inform offers two variations:
+Note that the contraction apostrophe in `"don't"` doesn't count as punctuation. Because this is not always quite what we want, Inform offers two variations:
 
 > phrase: {ph_pwordnum} punctuated word number (number) in (text) ... text
 >
@@ -13362,7 +13347,7 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 >
 >     punctuated word number 2 in "ice-hot, don't you think?"
 >
-> produces "-". The punctuated words here are "ice", "-", "hot", ",", "don't", "you", "think", "?". If two or more punctuation marks are adjacent, they are counted as different words, except for runs of dashes or periods: thus ",," has two punctuated words, but "--" and "..." have only one each. If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, "".
+> produces `"-"`. The punctuated words here are `"ice"`, `"-"`, `"hot"`, `","`, `"don't"`, `"you"`, `"think"`, `"?"`. If two or more punctuation marks are adjacent, they are counted as different words, except for runs of dashes or periods: thus `",,"` has two punctuated words, but `"--"` and `"..."` have only one each. If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, `""`.
 
 > phrase: {ph_numpwords} number of punctuated words in (text) ... number
 >
@@ -13370,7 +13355,7 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 >
 >     number of punctuated words in "ice-hot, don't you think?"
 >
-> produces 8; see if you can find them all.
+> produces `8`; see if you can find them all.
 
 > phrase: {ph_upwordnum} unpunctuated word number (number) in (text) ... text
 >
@@ -13378,7 +13363,7 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 >
 >     unpunctuated word number 1 in "ice-hot, don't you think?"
 >
-> produces "ice-hot,". The unpunctuated words in "ice-hot, don't you think?" are "ice-hot,", "don't", "you", "think?". If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, "".
+> produces `"ice-hot,"`. The unpunctuated words in `"ice-hot, don't you think?"` are `"ice-hot,"`, `"don't"`, `"you"`, `"think?"`. If the index is less than 1 or more than the number of punctuated words in the text, the result is an empty text, `""`.
 
 > phrase: {ph_numupwords} number of unpunctuated words in (text) ... number
 >
@@ -13386,13 +13371,13 @@ Note that the contraction apostrophe in "don't" doesn't count as punctuation. Be
 >
 >     number of unpunctuated words in "ice-hot, don't you think?"
 >
-> produces just 4.
+> produces just `4`.
 
 Finally, on the larger scale still, we also have:
 
 > phrase: {ph_linenum} line number (number) in (text) ... text
 >
-> This phrase produces the Nth line from the text, counting from 1. Unless explicit use is made of line-breaking, lines and paragraphs will be the same – it doesn't refer to lines as visible on screen, because we have no way of knowing what size screen the player might have. Note that white space is trimmed from both sides of what Inform considers a "line" here.
+> This phrase produces the Nth line from the text, counting from 1. Unless explicit use is made of line-breaking, lines and paragraphs will be the same – it doesn't refer to lines as visible on screen, because we have no way of knowing what size screen the player might have. Note that white space is trimmed from both sides of what Inform considers a `line` here.
 
 > phrase: {ph_numlines} number of lines in (text) ... number
 >
@@ -13400,7 +13385,7 @@ Finally, on the larger scale still, we also have:
 >
 >     "Sensational news just in![paragraph break]The Martians have invaded Miranda.[line break](One of the moons of Uranus, that is.)"
 >
-> is 3.
+> is `3`.
 
 > phrase: {ph_paranum} paragraph number (number) in (text) ... text
 >
@@ -13412,7 +13397,7 @@ Finally, on the larger scale still, we also have:
 >
 >     "Sensational news just in![paragraph break]The Martians have invaded Miranda.[line break](One of the moons of Uranus, that is.)"
 >
-> is 2.
+> is `2`.
 
 (Attempting to make large enough texts to have a serious paragraph count is slightly risky if there is not much memory to play with, as on the Z-machine. But the facilities do exist.)
 
@@ -13428,7 +13413,7 @@ We can test whether text is in either case like so:
 
 > phrase: {ph_inlower} if (text) is in lower case:
 >
-> This condition is true if every character in the text is a lower case letter. Examples: this is true for "wax", but false for "wax seal" or "eZ mOnEy".
+> This condition is true if every character in the text is a lower case letter. Examples: this is true for `"wax"`, but false for `"wax seal"` or `"eZ mOnEy"`.
 
 > phrase: {ph_inupper} if (text) is in upper case:
 >
@@ -13438,25 +13423,25 @@ We can change the casing of text using:
 
 > phrase: {ph_lowercase} (text) in lower case ... text
 >
-> This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: "a ticket to Tromsø via Østfold" becomes
+> This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: `"a ticket to Tromsø via Østfold"` becomes
 >
 >     "a ticket to tromsø via østfold"
 
 > phrase: {ph_uppercase} (text) in upper case ... text
 >
-> This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: "a ticket to Tromsø via Østfold" becomes
+> This phrase produces a new version of the given text, but with all upper case letters reduced to lower case. Example: `"a ticket to Tromsø via Østfold"` becomes
 >
 >     "A TICKET TO TROMSØ VIA ØSTFOLD"
 
 > phrase: {ph_titlecase} (text) in title case ... text
 >
-> This phrase produces a new version of the given text, but with casing of words changed to title casing: this capitalises the first letter of each word, and lowers the rest. Example: "a ticket to Tromsø via Østfold" becomes
+> This phrase produces a new version of the given text, but with casing of words changed to title casing: this capitalises the first letter of each word, and lowers the rest. Example: `"a ticket to Tromsø via Østfold"` becomes
 >
 >     "A Ticket To Tromsø Via Østfold"
 
 > phrase: {ph_sentencecase} (text) in sentence case ... text
 >
-> This phrase produces a new version of the given text, but with casing of words changed to sentence casing: this capitalises the first letter of each sentence and reduces the rest to lower case. Example: "a ticket to Tromsø via Østfold" becomes
+> This phrase produces a new version of the given text, but with casing of words changed to sentence casing: this capitalises the first letter of each sentence and reduces the rest to lower case. Example:` "a ticket to Tromsø via Østfold"` becomes
 >
 >     "A ticket to tromsø via østfold"
 
@@ -13476,7 +13461,7 @@ by raising them proudly up like so:
 Ὃς Ἦν Ἂν Ἡμῖν Σκυτίνη "Πικουρία.
 ```
 
-Title and sentence casing can only be approximate if done by computer. Inform looks at the letters, but is blind to the words and sentences they make up. (Note the way sentence casing did not realise "Tromsø" and "Østfold" were proper nouns.) If asked to put the name `"mckay"` into title casing, Inform will opt for `"Mckay"`, not recognising this as the Scottish patronymic surname "McKay". Given `"baym dnieper"`, the title of David Bergelson's great Yiddish novel of 1932, it will opt for `"Baym Dnieper"`: but properly speaking Yiddish does not have upper case lettering at all, though nowadays it is sometimes printed as if it did. And conventions are very variable about which words should be capitalised in titles: English publishers mostly agree that connectives, articles and prepositions should be in lower case, but in France almost anything goes, with Académie Française rules giving way to avant-garde book design. In short, we cannot rely on Inform's title casing to produce a result which a human reader will always think perfect.
+Title and sentence casing can only be approximate if done by computer. Inform looks at the letters, but is blind to the words and sentences they make up. (Note the way sentence casing did not realise `"Tromsø"` and `"Østfold"` were proper nouns.) If asked to put the name `"mckay"` into title casing, Inform will opt for `"Mckay"`, not recognising this as the Scottish patronymic surname "McKay". Given `"baym dnieper"`, the title of David Bergelson's great Yiddish novel of 1932, it will opt for `"Baym Dnieper"`: but properly speaking Yiddish does not have upper case lettering at all, though nowadays it is sometimes printed as if it did. And conventions are very variable about which words should be capitalised in titles: English publishers mostly agree that connectives, articles and prepositions should be in lower case, but in France almost anything goes, with Académie Française rules giving way to avant-garde book design. In short, we cannot rely on Inform's title casing to produce a result which a human reader will always think perfect.
 
 This discussion has all been about how Inform prints, not about how it reads commands from the keyboard, because the latter is done case-insensitively. The virtual machines for which Inform creates programs normally flatten all command input to lower case, and in any case Understand comparison ignores casing. Thus
 
@@ -13488,7 +13473,7 @@ One more caution, though it will affect hardly anyone. For projects using the Z-
 
 	"ÿ" in upper case
 
-produces "Ÿ" in Glulx but "ÿ" in the Z-machine. This will come as a blow to Queensrÿche fans, but in all other respects any result on the Z-machine should agree with its counterpart on Glulx.
+produces `"Ÿ"` in Glulx but `"ÿ"` in the Z-machine. This will come as a blow to Queensrÿche fans, but in all other respects any result on the Z-machine should agree with its counterpart on Glulx.
 
 ## Matching and exactly matching
 
@@ -13506,7 +13491,7 @@ Up to now, we have only been able to judge two texts by seeing if they are equal
 >
 >     if the printed name of the location matches the text "the", ...
 >
-> tests to see whether "the" can be found anywhere in the current room's name. Note that the location "Smotheringly Hot Jungle" would pass this test – it's there if you look. On the other hand, "The Orangery" would not, because "The" does not match against "the". We can get around this in a variety of ways, one of which is to tell Inform to be insensitive to the case (upper or lower) of letters:
+> tests to see whether `"the"` can be found anywhere in the current room's name. Note that the location `"Smotheringly Hot Jungle"` would pass this test – it's there if you look. On the other hand, `"The Orangery"` would not, because `"The"` does not match against `"the"`. We can get around this in a variety of ways, one of which is to tell Inform to be insensitive to the case (upper or lower) of letters:
 >
 >     if the printed name of the location matches the text "the", case insensitively: ...
 >
@@ -13529,7 +13514,7 @@ We can also find exactly *where* in the text the match occurred.
 >     if "vacation" matches the text "cat":
 >             let x be the first index of the text match;
 >
-> assigns 3 to x.
+> assigns `3` to `x`.
 >
 > If you're interested in these results, get and store them immediately after the match: the values will
 >
@@ -13543,7 +13528,7 @@ We can also find exactly *where* in the text the match occurred.
 >
 >     last index of "cat" in "vacation"
 >
-> produces 5.
+> produces `5`.
 >
 > As noted above, always test for success before using this phrase, and store or act on the
 >
@@ -13551,13 +13536,13 @@ We can also find exactly *where* in the text the match occurred.
 
 > phrase: {ph_textlength} length of the/-- text match ... number
 >
-> Finally, we can get the length of the match, i.e., 3 for the "cat" example, again with
+> Finally, we can get the length of the match, i.e., `3` for the `"cat"` example, again with
 >
 > the caveats above regarding testing for a successful match and using or storing the result
 >
 > promptly.
 
-Every text (including "") matches the text "". In this case, the first index, last index, and length are all 0. Matching against "" is the *only* time any of these values will be 0 after a successful text match.
+Every text (including `""`) matches the text `""`. In this case, the first index, last index, and length are all 0. Matching against `""` is the *only* time any of these values will be 0 after a successful text match.
 
 We can also see how many times something matches:
 
@@ -13579,11 +13564,11 @@ There's no `number of times ... exactly matches the text ...` phrase since this 
 
 ^^{regular expressions} ^^{text: regular expressions} ^^{comparisons: with regular expressions} ^^{characters (letters): special meanings in regular expressions} ^^{case sensitivity: in regular expressions}
 
-When playing around with text, we tend to get into longer and trickier wrangles of matching – we find that we want to look not for simple text like "gold", but for "gold" used only as a separate word, or for a date in YYYY-MM-DD format, or for a seemingly endless range of other possibilities. What we need is not just for Inform to provide a highly flexible matching program, but also a good notation in which to describe what we want.
+When playing around with text, we tend to get into longer and trickier wrangles of matching – we find that we want to look not for simple text like `"gold"`, but for `"gold"` used only as a separate word, or for a date in YYYY-MM-DD format, or for a seemingly endless range of other possibilities. What we need is not just for Inform to provide a highly flexible matching program, but also a good notation in which to describe what we want.
 
 Fortunately, such a notation already exists. This is the "regular expression" notation, named for a 1950s mathematical model by the logician ^{@Stephen Kleene}, applied to computing in the late 60s by ^{@Ken Thompson}, borrowed almost at once by the early Unix tools of the 70s, and developed further by ^{@Henry Spencer} in the 80s and ^{@Philip Hazel} in the 90s. The glue holding the Internet together – the Apache web-server, the scripting languages Perl and Python, and so forth – makes indispensable use of regular expressions.
 
-As might be expected from the previous section, we simply have to describe the "find" text as "regular expression" rather than "text" and then the same facilities are available:
+As might be expected from the previous section, we simply have to describe the "find" text as `regular expression` rather than `text` and then the same facilities are available:
 
 > phrase: {ph_matchesre} if (text) matches the regular expression (text):
 >
@@ -13591,11 +13576,11 @@ As might be expected from the previous section, we simply have to describe the "
 >
 >     if "taramasalata" matches the regular expression "a.\*l", ...
 >
-> is true, since this looks for a part of "taramasalata" which begins with "a", continues with any number of characters, and finishes with "l"; so it matches "aramasal". (Not "asal", because it makes the leftmost match it can.) The option "case insensitively" causes lower and upper case letters to be treated as equivalent.
+> is true, since this looks for a part of `"taramasalata"` which begins with `"a"`, continues with any number of characters, and finishes with `"l"`; so it matches `"aramasal"`. (Not `"asal"`, because it makes the leftmost match it can.) The option `case insensitively` causes lower and upper case letters to be treated as equivalent.
 
 > phrase: {ph_exactlymatchesre} if (text) exactly matches the regular expression (text):
 >
-> This condition is true if the whole text (starting from the beginning and finishing at the end) can be matched against the given regular expression. The option "case insensitively" causes lower and upper case letters to be treated as equivalent.
+> This condition is true if the whole text (starting from the beginning and finishing at the end) can be matched against the given regular expression. The option `case insensitively` causes lower and upper case letters to be treated as equivalent.
 
 And once again:
 
@@ -13603,7 +13588,7 @@ And once again:
 >
 > This produces the number of times that contiguous pieces of the text can be matched against the regular expression, without allowing them to overlap.
 
-Since a regular expression can match quite a variety of possibilities (for instance "b\w+t" could match "boast", "boat", "bonnet" and so on), it's sometimes useful to find what the match actually was:
+Since a regular expression can match quite a variety of possibilities (for instance `"b\w+t"` could match `"boast"`, `"boat"`, `"bonnet"` and so on), it's sometimes useful to find what the match actually was:
 
 > phrase: {ph_matchtext} text matching regular expression ... text
 >
@@ -13612,128 +13597,128 @@ Since a regular expression can match quite a variety of possibilities (for insta
 >     if "taramasalata" matches the regular expression "m.\*l":
 >     	say "[text matching regular expression].";
 >
-> says "masal."
+> says ``masal.``
 
 Perhaps fairly, perhaps not, regular expressions have a reputation for being inscrutable. The basic idea is that although alphanumeric characters (letters, numbers and spaces) mean just what they look like, punctuation characters are commands with sometimes dramatic effects. Thus:
 
 	if WHATEVER matches the regular expression "fish", ...
 	if WHATEVER matches the regular expression "f.*h", ...
 
-behave very differently. The first is just like matching the text "fish", but the second matches on any sequence of characters starting with an "f" and ending with an "h". This is not at all obvious at first sight: reading regular expressions is a skill which must be learned, like reading a musical score. A really complex regular expression can look like a soup of punctuation and even an expert will blink for a few minutes before telling you what it does – but a beginner can pick up the basics very quickly. Newcomers might like to try out and become comfortable with the features a few at a time, reading down the following list.
+behave very differently. The first is just like matching the text `"fish"`, but the second matches on any sequence of characters starting with an "f" and ending with an "h". This is not at all obvious at first sight: reading regular expressions is a skill which must be learned, like reading a musical score. A really complex regular expression can look like a soup of punctuation and even an expert will blink for a few minutes before telling you what it does – but a beginner can pick up the basics very quickly. Newcomers might like to try out and become comfortable with the features a few at a time, reading down the following list.
 
-**1. Golden rule**. Don't try to remember all the characters with weird effects. Instead, if you actually mean any symbol other than a letter, digit or space to be taken literally, place a backslash "\" in front of it. For instance, matching the regular expression
+**1. Golden rule**. Don't try to remember all the characters with weird effects. Instead, if you actually mean any symbol other than a letter, digit or space to be taken literally, place a backslash `\` in front of it. For instance, matching the regular expression
 
-	"\*A\* of the Galactic Patrol"
+	"*A* of the Galactic Patrol"
 
-is the same as matching the text "\*A\* of the ^{Galactic Patrol}", because the asterisks are robbed of their normal powers. This includes backslash itself: "\\" means a literal backslash. (Don't backslash letters or digits – that turns out to have a meaning all its own, but anyway, there is never any need.)
+is the same as matching the text `"*A* of the Galactic Patrol"`, because the asterisks are robbed of their normal powers. This includes backslash itself: `\` means a literal backslash. (Don't backslash letters or digits – that turns out to have a meaning all its own, but anyway, there is never any need.)
 
-**2. Alternatives**. The vertical stroke "|" – not a letter I or L, nor the digit 1 – divides alternatives. Thus
+**2. Alternatives**. The vertical stroke `|` – not a letter I or L, nor the digit 1 – divides alternatives. Thus
 
 	"the fish|fowl|crawling thing"
 
-is the same as saying match "the fish", or "fowl", or "crawling thing".
+is the same as saying match `"the fish"`, or `"fowl"`, or `"crawling thing"`.
 
-**3. Dividing with brackets**. Round brackets "(" and ")" group parts of the expression together.
+**3. Dividing with brackets**. Round brackets `(` and `)` group parts of the expression together.
 
 	"the (fish|fowl|crawling thing) in question"
 
-is the same as saying match "the fish in question", or "the fowl in question", or "the crawling thing in question". Note that the "|" ranges outwards only as far as the group it is in.
+is the same as saying match `"the fish in question"`, or `"the fowl in question"`, or `"the crawling thing in question"`. Note that the `|` ranges outwards only as far as the group it is in.
 
-**4. Any character**. The period "." means any single character. So
+**4. Any character**. The period `.` means any single character. So
 
 	"a...z"
 
 matches on any sequence of five characters so long as the first is "a" and the last is "z".
 
-**5. Character alternatives**. The angle brackets "<" and ">" are a more concise way of specifying alternatives for a single character. Thus
+**5. Character alternatives**. The angle brackets `<` and `>` are a more concise way of specifying alternatives for a single character. Thus
 
 	"b<aeiou>b"
 
-matches on "bab", "beb", "bib", "bob" or "bub", but not "baob" or "beeb" – any single character within the angle brackets is accepted. Beginning the range with "^" means "any single character so long as it is not one of these": thus
+matches on `"bab"`, `"beb"`, `"bib"`, `"bob"` or `"bub"`, but not `"baob"` or `"beeb"` – any single character within the angle brackets is accepted. Beginning the range with `^` means "any single character so long as it is not one of these": thus
 
 	"b<^aeiou>b"
 
-matches on "blb" but not "bab", "beb", etc., nor on "blob" or "bb". Because long runs like this can be a little tiresome, we are also allowed to use "-" to indicate whole ranges. Thus
+matches on `"blb"` but not `"bab"`, `"beb"`, etc., nor on `"blob"` or `"bb"`. Because long runs like this can be a little tiresome, we are also allowed to use `-` to indicate whole ranges. Thus
 
 	"b<a-z>b"
 
 matches a "b", then any lower case English letter, then another "b".
 
-In traditional regular expression language, square brackets rather than angle brackets are used for character ranges. In fact Inform does understand this notation if there are actual square brackets `"[" and "]"` in the pattern text, but in practice this would be tiresome to achieve, since Inform uses those to achieve text substitutions. So Inform allows "b<a-z>b" rather than making us type something like
+In traditional regular expression language, square brackets rather than angle brackets are used for character ranges. In fact Inform does understand this notation if there are actual square brackets `[` and `]` in the pattern text, but in practice this would be tiresome to achieve, since Inform uses those to achieve text substitutions. So Inform allows `"b<a-z>b"` rather than making us type something like
 
 	"b[bracket]a-z[close bracket]b"
 
-to create the text "b[a-z]b".
+to create the text `"b[a-z]b"`.
 
-**6. Popular character ranges**. The range "<0-9>", matching any decimal digit, is needed so often that it has an abbreviation: "\d". Thus
+**6. Popular character ranges**. The range `<0-9>`, matching any decimal digit, is needed so often that it has an abbreviation: `\d`. Thus
 
 	"\d\d\d\d-\d\d-\d\d"
 
-matches, say, "2006-12-03". Similarly, "\s" means "any spacing character" – a space, tab or line break. "\p" is a punctuation character, in the same sense used for word division in the previous section: it actually matches any of
+matches, say, `"2006-12-03"`. Similarly, `\s` means "any spacing character" – a space, tab or line break. `\p` is a punctuation character, in the same sense used for word division in the previous section: it actually matches any of
 
 	. , ! ? - / " : ; ( ) [ ] { }
 
-"\w" means "any character appearing in a word", and Inform defines it as anything not matching "\s" or "\p".
+`\w` means "any character appearing in a word", and Inform defines it as anything not matching `\s` or `\p`.
 
-"\l" and "\u" match lower and upper case letters, respectively. These are much stronger than "<a-z>" and "<A-Z>", since they use the complete definition in the Unicode 4.0.0 standard, so that letter-forms from all languages are catered for: for example "δ" matches "\l" and "Δ" matches "\u".
+`\l` and `\u` match lower and upper case letters, respectively. These are much stronger than `<a-z>` and `<A-Z>`, since they use the complete definition in the Unicode 4.0.0 standard, so that letter-forms from all languages are catered for: for example `δ` matches `\l` and `Δ` matches `\u`.
 
-The reverse of these is achieved by capitalising the letter. So "\D" means "anything not a digit", "\P" means "anything not punctuation", "\W" means "anything not a word character", "\L" means "anything not a lower case letter" and so on.
+The reverse of these is achieved by capitalising the letter. So `\D` means "anything not a digit", `\P` means "anything not punctuation", `\W` means "anything not a word character", `\L` means "anything not a lower case letter" and so on.
 
-**7. Positional restrictions**. The notation "^" does not match anything, as such, but instead requires that we be positioned at the start of the text. Thus
+**7. Positional restrictions**. The notation `^` does not match anything, as such, but instead requires that we be positioned at the start of the text. Thus
 
 	"^fish"
 
-matches only "fish" at the start of the text, not occurring anywhere later on. Similarly, "$" requires that the position be the end of the text. So
+matches only `"fish"` at the start of the text, not occurring anywhere later on. Similarly, `$` requires that the position be the end of the text. So
 
 	"fish$"
 
-matches only if the last four characters are "fish". Matching "^fish$" is the same thing as what Inform calls exactly matching "fish".
+matches only if the last four characters are `"fish"`. Matching `"^fish$"` is the same thing as what Inform calls exactly matching `"fish"`.
 
-Another useful notation is "\b", which matches a word boundary: that is, it matches no actual text, but requires the position to be a junction between a word character and a non-word character (a "\w" and a "\W") or vice versa. Thus
+Another useful notation is `\b`, which matches a word boundary: that is, it matches no actual text, but requires the position to be a junction between a word character and a non-word character (a `\w` and a `\W`) or vice versa. Thus
 
 	"\bfish\b"
 
-matches "fish" in "some fish" and also "some fish, please!", but not in "shellfish". (The regular expression "\w\*fish\b" catches all words ending in "fish", as we will see below.) As usual, the capitalised version "\B" negates this, and means "not at a word boundary".
+matches `"fish"` in `"some fish"` and also `"some fish, please!"`, but not in `"shellfish"`. (The regular expression `"\w\*fish\b"` catches all words ending in `"fish"`, as we will see below.) As usual, the capitalised version `\B` negates this, and means "not at a word boundary".
 
-**8. Line break and tab**. The notations "\n" and "\t" are used for a line break ("n" for "new line") and tab, respectively. Tabs normally do not occur in Inform strings, but can do when reading from files. It makes no sense to reverse these, so "\N" and "\T" produce errors.
+**8. Line break and tab**. The notations `\n` and `\t` are used for a line break ("n" for "new line") and tab, respectively. Tabs normally do not occur in Inform strings, but can do when reading from files. It makes no sense to reverse these, so `\N` and `\T` produce errors.
 
-**9. Repetition**. Placing a number in braces "{" and "}" after something says that it should be repeated that many times. Thus
+**9. Repetition**. Placing a number in braces `{` and `}` after something says that it should be repeated that many times. Thus
 
 	"ax{25}"
 
-matches only on "axxxxxxxxxxxxxxxxxxxxxxxxx". More usefully, perhaps, we can specify a range of the number of repetitions:
+matches only on `"axxxxxxxxxxxxxxxxxxxxxxxxx"`. More usefully, perhaps, we can specify a range of the number of repetitions:
 
 	"ax{2,6}"
 
-matches only on "axx", "axxx", "axxxx", "axxxxx", "axxxxxx". And we can leave the top end open: "ax{2,}" means "a" followed by at least two "x"s.
+matches only on `"axx"`, `"axxx"`, `"axxxx"`, `"axxxxx"`, `"axxxxxx"`. And we can leave the top end open: `ax{2,}` means `a` followed by at least two `x`s.
 
-Note that the braces attach only to most recent thing – so "ax{2}" means "a" followed by two of "x" – but, as always, we can use grouping brackets to change that. So "(ax){2,}" matches "axax", "axaxax", "axaxaxax",...
+Note that the braces attach only to most recent thing – so `ax{2}` means `a` followed by two of `x` – but, as always, we can use grouping brackets to change that. So `(ax){2,}` matches `"axax"`, `"axaxax"`, `"axaxaxax"`,...
 
-(It's probably best not to use Inform to try to match the human genome against `"<acgt>{3000000000}"`, but one of the most important practical uses of regular expression matching in science is in treating DNA as a string of nucleotides represented by the letters "a", "c", "g", "t", and looking for patterns.)
+(It's probably best not to use Inform to try to match the human genome against `"<acgt>{3000000000}"`, but one of the most important practical uses of regular expression matching in science is in treating DNA as a string of nucleotides represented by the letters `a`, `c`, `g`, `t`, and looking for patterns.)
 
 **10. Popular repetitions.** Three cases are so often needed that they have standard short forms:
 
-"{0,1}", which means 0 or 1 repetition of something – in other words, doesn't so much repeat it as make it optional – is written "?". Thus "ax?y" matches only on "ay" or "axy".
+`{0,1}`, which means 0 or 1 repetition of something – in other words, doesn't so much repeat it as make it optional – is written `?`. Thus `"ax?y"` matches only on `"ay"` or `"axy"`.
 
-"{0,}", which means 0 or more repetitions – in other words, any number at all – is written "\*". Thus "ax\*y" matches on "ay", "axy", "axxy", "axxxy", ... and the omnivorous ".\*" – which means "anything, any number of times" – matches absolutely every text. (Perhaps unexpectedly, replacing ".\*" in a text with "X" will produce "XX", not "X", because the ".\*" first matches the text, then matches the empty gap at the end. To match the entire text just once, try "^.\*$".)
+`{0,}`, which means 0 or more repetitions – in other words, any number at all – is written `*`. Thus `"ax*y"` matches on `"ay"`, `"axy"`, `"axxy"`, `"axxxy"`, ... and the omnivorous `".*"` – which means "anything, any number of times" – matches absolutely every text. (Perhaps unexpectedly, replacing `".*"` in a text with `X` will produce `"XX"`, not `"X"`, because the `".*"` first matches the text, then matches the empty gap at the end. To match the entire text just once, try `"^.*$"`.)
 
-"{1,}", which means 1 or more repetitions, is written "+". So "\d+" matches any run of digits, for instance.
+`{1,}`, which means 1 or more repetitions, is written `+`. So `\d+` matches any run of digits, for instance.
 
-**11. Greedy vs lazy.** Once we allow things to repeat an unknown number of times, we run into an ambiguity. Sure, "\d+" matches the text "16339b". But does it look only as far as the "1", then reason that it now has one or more digits in a row, and stop? Or does it run onward devouring digits until it can do so no longer, so matching the "16339" part? These two strategies are called "lazy" and "greedy" respectively.
+**11. Greedy vs lazy.** Once we allow things to repeat an unknown number of times, we run into an ambiguity. Sure, `\d+` matches the text `"16339b"`. But does it look only as far as the `1`, then reason that it now has one or more digits in a row, and stop? Or does it run onward devouring digits until it can do so no longer, so matching the `"16339"` part? These two strategies are called "lazy" and "greedy" respectively.
 
 Do we care? Well, the strategy used makes no difference to whether there is a match, but it does affect what part of the text is matched, and the number of matches there are. Unless we mark for it, all repetitions are greedy. Usually this is good, but it means that, for instance,
 
 	"-.+-"
 
-applied to "-alpha- -beta- -gamma-" will match the whole text, because ".+" picks up all of "alpha- -beta- -gamma". To get around this, we can mark any of the repetition operators as lazy by adding a question mark "?". Thus:
+applied to `"-alpha- -beta- -gamma-"` will match the whole text, because `.+` picks up all of `"alpha- -beta- -gamma"`. To get around this, we can mark any of the repetition operators as lazy by adding a question mark `?`. Thus:
 
 	"-.+?-"
 
-applied to "-alpha- -beta- -gamma-" matches three times, producing "-alpha-" then "-beta-" then "-gamma-".
+applied to `"-alpha- -beta- -gamma-"` matches three times, producing `"-alpha-"` then `"-beta-"` then `"-gamma-"`.
 
-A logical but sometimes confusing consequence is that a doubled question mark "??" means "repeat 0 or 1 times, but prefer 0 matches to 1 if both are possibilities": whereas a single question mark "?", being greedy, means "repeat 0 or 1 times, but prefer 1 match to 0 if both are possibilities".
+A logical but sometimes confusing consequence is that a doubled question mark `??` means "repeat 0 or 1 times, but prefer 0 matches to 1 if both are possibilities": whereas a single question mark `?`, being greedy, means "repeat 0 or 1 times, but prefer 1 match to 0 if both are possibilities".
 
-**12. Numbered groups.** We have already seen that round brackets are useful to clump together parts of the regular expression – to choose within them, or repeat them. In fact, Inform numbers these from 1 upwards as they are used from left to right, and we can subsequently refer back to their contents with the notation "\1", "\2", ... After a successful match, we can find the results of these subexpressions with:
+**12. Numbered groups.** We have already seen that round brackets are useful to clump together parts of the regular expression – to choose within them, or repeat them. In fact, Inform numbers these from 1 upwards as they are used from left to right, and we can subsequently refer back to their contents with the notation `\1`, `\2`, ... After a successful match, we can find the results of these subexpressions with:
 
 > phrase: {ph_subexpressiontext} text matching subexpression (number) ... text
 >
@@ -13741,13 +13726,13 @@ A logical but sometimes confusing consequence is that a doubled question mark "?
 >
 >     if "taramasalata" matches the regular expression "a(r.\*l)a(.)":
 >
-> the "text matching regular expression" is "aramasalat", the "text matching subexpression 1" is "ramasal", and "text matching subexpression 2" is "t".
+> the `text matching regular expression` is `"aramasalat"`, the `text matching subexpression 1` is `"ramasal"`, and `text matching subexpression 2` is `"t"`.
 
 For instance:
 
 	"(\w)\w*\1"
 
-matches any run of two or more word-characters, subject to the restriction that the last one has to be the same as the first – so it matches "xerox" but not "alphabet". When Inform matches this against "xerox", first it matches the initial "x" against the group "(\w)". It then matches "\w\*" ("any number of word-characters") against "ero", so that the "\*" runs up to 3 repetitions. It then matches "\1" against the final "x", because "\1" requires it to match against whatever last matched in sub-expression 1 – which was an "x".
+matches any run of two or more word-characters, subject to the restriction that the last one has to be the same as the first – so it matches `"xerox"` but not `"alphabet"`. When Inform matches this against `"xerox"`, first it matches the initial `x` against the group `(\w)`. It then matches `\w*` ("any number of word-characters") against `ero`, so that the `*` runs up to 3 repetitions. It then matches "\1" against the final `x`, because `\1` requires it to match against whatever last matched in sub-expression 1 – which was an `x`.
 
 Similar to the situation with text matches, we can find the starting and ending character numbers of where a given subexpression occurred in the original text, as well as the length.
 
@@ -13758,9 +13743,9 @@ Similar to the situation with text matches, we can find the starting and ending 
 >     if "ham sandwich" matches the regular expression "a(.+)\b(.+)":
 >     	let x be the start index of subexpression 2;
 >
-> would set x to 5. For the first index of the match as a whole, including what is outside any groups, use "subexpression 0". For the example above, the start index of subexpression 0 would be 2.
+> would set x to 5. For the first index of the match as a whole, including what is outside any groups, use `subexpression 0`. For the example above, the start index of subexpression 0 would be 2.
 >
-> As with the text case, use or store the result promptly. And as before, results are undefined in case of failure, but with an important additional caveat: even when a match succeeds, results are not guaranteed to be meaningful *for a given subexpression* if the text that matched that subexpression was empty. For instance, adding "(.\*)" to the end of a regular expression won't make any of the texts that currently match it fail to match, but the results for first index, last index, and length for the corresponding subexpression number might not be meaningful.
+> As with the text case, use or store the result promptly. And as before, results are undefined in case of failure, but with an important additional caveat: even when a match succeeds, results are not guaranteed to be meaningful *for a given subexpression* if the text that matched that subexpression was empty. For instance, adding `(.*)` to the end of a regular expression won't make any of the texts that currently match it fail to match, but the results for first index, last index, and length for the corresponding subexpression number might not be meaningful.
 
 > phrase: {ph_relastindex} last index of subexpression (number) ... number
 >
@@ -13768,7 +13753,7 @@ Similar to the situation with text matches, we can find the starting and ending 
 >
 >     last index of subexpression 1
 >
-> would be 4 (".+" matches "ham" *and* the following space). The same caveats noted above apply.
+> would be 4 (`.+` matches `"ham"` *and* the following space). The same caveats noted above apply.
 
 > phrase: {ph_relength} length of subexpression  (number) ... number
 >
@@ -13776,45 +13761,33 @@ Similar to the situation with text matches, we can find the starting and ending 
 >
 >     length of subexpression 2
 >
-> would be 8 (for "sandwich").
+> would be 8 (for `"sandwich"`).
 
-Similar to the text case, any time the empty string ("") matches a regular expression, the values of all of first index, last index, and length for subexpression 0 would be 0.
+Similar to the text case, any time the empty string `""` matches a regular expression, the values of all of first index, last index, and length for subexpression 0 would be 0.
 
 Numbered groups allow wicked tricks in matching, it's true, but really come into their own when it comes to replacing – as we shall see.
 
-**13. Switching case sensitivity on and off.** The special notations "(?i)" and "(?-i)" switch sensitivity to upper vs. lower case off and on, mid-expression. Thus "a(?i)bcd(?-i)e" matches "abcde", "aBcDe", etc., but not "Abcde" or "abcdE".
+**13. Switching case sensitivity on and off.** The special notations `(?i)` and `(?-i)` switch sensitivity to upper vs. lower case off and on, mid-expression. Thus `"a(?i)bcd(?-i)e"` matches `"abcde"`, `"aBcDe"`, etc., but not `"Abcde"` or `"abcdE"`.
 
-**14. Groups with special meanings.** This is the last of the special syntaxes: but it's a doozy. A round-bracketed group can be marked to behave in a special way by following the open bracket by a symbol with a special meaning. Groups like this have no number and are not counted as part of \1, \2, and so forth – they are intended not to gather up material but to have some effect of their own.
+**14. Groups with special meanings.** This is the last of the special syntaxes: but it's a doozy. A round-bracketed group can be marked to behave in a special way by following the open bracket by a symbol with a special meaning. Groups like this have no number and are not counted as part of `\1`, `\2`, and so forth – they are intended not to gather up material but to have some effect of their own.
 
-	"(# ...)"
+* `"(# ...)"` is a comment, that is, causes the group to do nothing and match against anything.
 
-Is a comment, that is, causes the group to do nothing and match against anything.
+* `"(?= ...)"` is a lookahead: it is a form of positional requirement, like `\b` or `^`, but one which requires that the text ahead of us matches whatever is in the brackets. (It doesn't consume that text – only checks to see that it's there.) For instance `"\w+(?=;)"` matches a word followed by a semicolon, but does not match the semicolon itself.
 
-	"(?= ...)"
+* `"(?! ...)"` is the same but negated: it requires that the text ahead of us does not match the material given. For instance, `"a+(?!z)"` matches any run of "a"s not followed by a "z".
 
-Is a lookahead: it is a form of positional requirement, like "\b" or "^", but one which requires that the text ahead of us matches whatever is in the brackets. (It doesn't consume that text – only checks to see that it's there.) For instance "\w+(?=;)" matches a word followed by a semicolon, but does not match the semicolon itself.
+* `"(?<= ...)"` and `"(?<! ...)"` are the same but looking behind (hence the `<`), not forward. These are restricted to cases where Inform can determine that the material to be matched has a definite known width. For instance, `"(?<!shell)fish"` matches any `"fish"` not occurring in `"shellfish"`.
 
-	"(?! ...)"
+* `"(> ...)"` is a possessive, that is, causes the material to be matched and, once matched, never lets go. No matter what subsequently turns out to be convenient, it will never change its match. For instance, `\d+8` matches against `"768"` because Inform realises that `\d+` cannot be allowed to eat the `8` if there is to be a match, and stops it. But `(>\d+)8` does not match against `"768"` because now the `\d+`, which initially eats `"768"`, is possessive and refuses to give up the `8` once taken.
 
-Is the same but negated: it requires that the text ahead of us does not match the material given. For instance, "a+(?!z)" matches any run of "a"s not followed by a "z".
+* `"(?(1)...)"` and `"(?(1)...|...)"` are conditionals. These require us to match the material given if `\1` has successfully matched already; in the second version, the material after the `|` must be matched if `\1` has not successfully matched yet. And the same for 2, 3, ..., 9, of course.
 
-	"(?<= ...)" and "(?<! ...)"
+* Finally, conditionals can also use lookaheads or lookbehinds as their conditions. So for instance:
 
-Are the same but looking behind (hence the "<"), not forward. These are restricted to cases where Inform can determine that the material to be matched has a definite known width. For instance, "(?<!shell)fish" matches any "fish" not occurring in "shellfish".
+	  "(?(?=\d)\d\d\d\d|AY-\d\d\d\d)"
 
-	"(> ...)"
-
-Is a possessive, that is, causes the material to be matched and, once matched, never lets go. No matter what subsequently turns out to be convenient, it will never change its match. For instance, "\d+8" matches against "768" because Inform realises that "\d+" cannot be allowed to eat the "8" if there is to be a match, and stops it. But "(>\d+)8" does not match against "768" because now the "\d+", which initially eats "768", is possessive and refuses to give up the "8" once taken.
-
-	"(?(1)...)" and "(?(1)...|...)"
-
-Are conditionals. These require us to match the material given if \1 has successfully matched already; in the second version, the material after the "|" must be matched if \1 has not successfully matched yet. And the same for 2, 3, ..., 9, of course.
-
-Finally, conditionals can also use lookaheads or lookbehinds as their conditions. So for instance:
-
-	"(?(?=\d)\d\d\d\d|AY-\d\d\d\d)"
-
-means if you start with a digit, match four digits; otherwise match "AY-" followed by four digits. There are easier ways to do this, of course, but the really juicy uses of conditionals are only borderline legible and make poor examples – perhaps this is telling us something.
+  means if you start with a digit, match four digits; otherwise match `AY-` followed by four digits. There are easier ways to do this, of course, but the really juicy uses of conditionals are only borderline legible and make poor examples – perhaps this is telling us something.
 
 ## Making new text with text substitutions
 
@@ -13833,7 +13806,7 @@ makes
 
 	let the Gerard Kenny reference be "NewYork" doubled;
 
-set this temporary variable to "NewYorkNewYork".
+set this temporary variable to `"NewYorkNewYork"`.
 
 There is, however, a subtlety here. A text with a substitution in it, like:
 
@@ -13847,18 +13820,18 @@ If all we do with text is to print it, there's nothing to worry about. But if we
 
 	now the left hand status line is "[time of day]";
 
-Just copying `"[time of day]"` to the "left hand status line" variable doesn't make it substitute – which is just as well, or the top of the screen would perpetually show "9:00 AM".
+Just copying `"[time of day]"` to the "left hand status line" variable doesn't make it substitute – which is just as well, or the top of the screen would perpetually show `"9:00 AM"`.
 
 On the other hand, looking back at the phrase example:
 
 	To decide what text is (T - text) doubled:
 		decide on "[T][T]".
 
-"[T][T]" is substituted as soon as it is formed. That's also a good thing, because "T" loses its meaning the moment the phrase finishes, which would make "[T][T]" meaningless anywhere else.
+`"[T][T]"` is substituted as soon as it is formed. That's also a good thing, because `T` loses its meaning the moment the phrase finishes, which would make `"[T][T]"` meaningless anywhere else.
 
-What's going on here is this: Inform substitutes text immediately if it contains references to a temporary value such as "T", and otherwise only if it needs to access the contents. This is why `"[time of day]"` isn't substituted until we need to print it out (or, say, access the third character): "time of day" is a value which always exists, not a temporary one.
+What's going on here is this: Inform substitutes text immediately if it contains references to a temporary value such as `T`, and otherwise only if it needs to access the contents. This is why `"[time of day]"` isn't substituted until we need to print it out (or, say, access the third character): `time of day` is a value which always exists, not a temporary one.
 
-Another case where that might be important is if we want to set a text to an elaborated version of itself. For example, suppose there is a variable (not a temporary one) called "the accumulated tally", and consider this:
+Another case where that might be important is if we want to set a text to an elaborated version of itself. For example, suppose there is a variable (not a temporary one) called `the accumulated tally`, and consider this:
 
 	now the accumulated tally is "[the accumulated tally]X";
 
@@ -13866,12 +13839,12 @@ The intention of the writer here was to add an "X" each time this happens. But t
 
 	now the accumulated tally is the substituted form of "[the accumulated tally]X";
 
-Using the adjectives "substituted" and "unsubstituted", it's always possible to test whether a given text is in either state, should this ever be useful. For example,
+Using the adjectives `substituted` and `unsubstituted`, it's always possible to test whether a given text is in either state, should this ever be useful. For example,
 
 	now the left hand status line is "[time of day]";
 	if the left hand status line is unsubstituted, say "Yes!";
 
-will say "Yes!": the `left hand status line` is like a bomb waiting to go off. Speaking of which:
+will say ``Yes!``: the `left hand status line` is like a bomb waiting to go off. Speaking of which:
 
 	The player is holding a temporal bomb.
 	
@@ -13890,19 +13863,19 @@ This is making use of:
 >
 >     substituted form of "time of death, [time of day]"
 >
-> produces something like "time of death, 9:15 AM" rather than "time of death, [time of day]". It's entirely legal to apply this to text which never had any substitutions in, so
+> produces something like `"time of death, 9:15 AM"` rather than `"time of death, [time of day]"`. It's entirely legal to apply this to text which never had any substitutions in, so
 >
 >     substituted form of "balloon"
 >
-> produces "balloon".
+> produces `"balloon"`.
 
-Note that there's no analogous phrase for "unsubstituted form of...", because once text has substituted, there's no way to go back.
+Note that there's no analogous phrase for `unsubstituted form of...`, because once text has substituted, there's no way to go back.
 
 ## Replacements
 
 ^^{text: replacing parts of a text} ^^{punctuation: in counting words} ^^{characters (letters): replacing in text} ^^{regular expressions} ^^{text: regular expressions}
 
-Suppose V is a text which varies – perhaps a property of something, or a variable defined everywhere, or a temporary "let"-named value. How do we change its contents? The easiest way is simply to assign text to it. Thus:
+Suppose V is a text which varies – perhaps a property of something, or a variable defined everywhere, or a temporary `let`-named value. How do we change its contents? The easiest way is simply to assign text to it. Thus:
 
 	let V be "It is now [the time of the day in words]."
 
@@ -13910,9 +13883,9 @@ And, for instance,
 
 	let V be "[V]!"
 
-adds an exclamation mark at the end of V.
+adds an exclamation mark at the end of `V`.
 
-Otherwise, it is more useful (also a little faster) to modify V by changing its characters, words and so on. Thus:
+Otherwise, it is more useful (also a little faster) to modify `V` by changing its characters, words and so on. Thus:
 
 > phrase: {ph_replacechar} replace character number (number) in (text) with (text)
 >
@@ -13922,7 +13895,7 @@ Otherwise, it is more useful (also a little faster) to modify V by changing its 
 >     replace character number 3 in V with "lecul";
 >     say V;
 >
-> says "molecule".
+> says ``molecule``.
 
 > phrase: {ph_replaceword} replace word number (number) in (text) with (text)
 >
@@ -13932,7 +13905,7 @@ Otherwise, it is more useful (also a little faster) to modify V by changing its 
 >     replace word number 3 in V with "jogger";
 >     say V;
 >
-> says "Does the jogger run dry?".
+> says ``Does the jogger run dry?``.
 
 > phrase: {ph_replacepword} replace punctuated word number (number) in (text) with (text)
 >
@@ -13942,7 +13915,7 @@ Otherwise, it is more useful (also a little faster) to modify V by changing its 
 >     replace punctuated word number 2 in V with ":";
 >     say V;
 >
-> says "Frankly: yes, I agree.".
+> says ``Frankly: yes, I agree.``.
 
 > phrase: {ph_replaceupword} replace unpunctuated word number (number) in (text) with (text)
 >
@@ -13952,7 +13925,7 @@ Otherwise, it is more useful (also a little faster) to modify V by changing its 
 >     replace unpunctuated word number 2 in V with "of course";
 >     say V;
 >
-> says "Frankly, of course I agree.".
+> says ``Frankly, of course I agree.``.
 
 > phrase: {ph_replaceline} replace line number (number) in (text) with (text)
 >
@@ -13970,13 +13943,13 @@ Last, but not least, we can replace text wherever it occurs:
 >
 >     replace the text "a" in V with "z"
 >
-> changes every lower-case "a" to "z": the same thing done with the "case insensitively" option would change each "a" or "A" to "z".
+> changes every lower-case "a" to "z": the same thing done with the `case insensitively` option would change each "a" or "A" to "z".
 
 All very well for letters, but it can be unfortunate to try
 
 	replace the text "Bob" in V with "Robert"
 
-if V happens to contain, say "The Olympic Bobsleigh Team": it would become "The Olympic Robertsleigh Team". What we want, of course, is for Bob to become Robert only when it's a whole word. We can get that with:
+if V happens to contain, say `"The Olympic Bobsleigh Team"`: it would become `"The Olympic Robertsleigh Team"`. What we want, of course, is for Bob to become Robert only when it's a whole word. We can get that with:
 
 > phrase: {ph_replacewordin} replace the word (text) in (text) with (text)
 >
@@ -13984,7 +13957,7 @@ if V happens to contain, say "The Olympic Bobsleigh Team": it would become "The 
 >
 >     replace the word "Bob" in V with "Robert"
 >
-> changes "Bob got on the Bobsleigh" to "Robert got on the Bobsleigh".
+> changes `"Bob got on the Bobsleigh"` to `"Robert got on the Bobsleigh"`.
 
 > phrase: {ph_replacepwordin} replace the punctuated word (text) in (text) with (text)
 >
@@ -13998,17 +13971,17 @@ But these are all just special cases of the grand-daddy of all replacement phras
 >
 >     replace the regular expression "\d+" in V with "..."
 >
-> changes "The Battle of Waterloo, 1815, rivalled Trafalgar, 1805" to "The Battle of Waterloo, ..., rivalled Trafalgar, ...". The "case insensitively" causes lower and upper case letters to be treated as if the same letter.
+> changes `"The Battle of Waterloo, 1815, rivalled Trafalgar, 1805"` to `"The Battle of Waterloo, ..., rivalled Trafalgar, ..."`. The `case insensitively` causes lower and upper case letters to be treated as if the same letter.
 >
-> When replacing a regular expression, the replacement text also has a few special meanings (though, thankfully, many fewer than for the expression itself). Once again "\n" and "\t" can be used for line break and tab characters, and "\\" must be used for an actual backslash. But, very usefully, "\1" to "\9" expand as the contents of groups numbered 1 to 9, and "\0" to the exact text matched. So:
+> When replacing a regular expression, the replacement text also has a few special meanings (though, thankfully, many fewer than for the expression itself). Once again `\n` and `\t` can be used for line break and tab characters, and `\\` must be used for an actual backslash. But, very usefully, `\1` to `\9` expand as the contents of groups numbered 1 to 9, and `\0` to the exact text matched. So:
 >
 >     replace the regular expression "\d+" in V with "roughly \0"
 >
-> adds the word "roughly" in front of any run of digits in V, because \0 becomes in turn whichever run of digits matched. And
+> adds the word ``roughly`` in front of any run of digits in V, because `\0` becomes in turn whichever run of digits matched. And
 >
 >     replace the regular expression "(\w+) (.\*)" in V with "\2, \1"
 >
-> performs the transformation "Frank Booth" to "Booth, Frank".
+> performs the transformation `"Frank Booth"` to `"Booth, Frank"`.
 >
 > Finally, prefixing the number by "l" or "u" forces the text it represents into lower or upper case, respectively. For instance:
 >
@@ -14096,26 +14069,24 @@ But these are all just special cases of the grand-daddy of all replacement phras
 
 Many sections in this book begin by introducing a new kind of value. Reading through in order, the possibilities mount up: numbers, times, texts, and so on. (See the Kinds page of the Index for a convenient list of the options.) This section is a little different: rather than showing a single new kind of value, it shows how to make a new kind out of any existing one.
 
-If K is any kind of value, then "list of K" is also a kind of value. For instance, we could write:
+If K is any kind of value, then `list of K` is also a kind of value. For instance, we could write:
 
 	let L be a list of numbers;
 
-and this would create a new "let" variable, called L, whose kind of value is "list of numbers". On the other hand, we are not allowed to write:
+and this would create a new `let` variable, called `L`, whose kind of value is `list of numbers`. On the other hand, we are not allowed to write:
 
 	let L be a list;
 
-because "list" by itself is not a kind of value. (Inform always needs to know what kinds the values entered in a list are going to have.)
+because `list` by itself is not a kind of value. (Inform always needs to know what kinds the values entered in a list are going to have.)
 
 Lists are like flexible-length table columns, but that probably makes them sound more mysterious than they really are. A list is simply a sequence of values, called its "entries", numbered from 1 upwards. The number of entries is called its "length". If we try
 
 	let L be a list of numbers;
 	say "L has [the number of entries in L] entries.";
 
-then we find
+then we find ``L has 0 entries.``
 
-	L has 0 entries.
-
-This is because all lists start out empty when created: that is, they initially have 0 entries. Inform has two built-in adjectives "empty" and "non-empty" which can apply to lists, and they mean just what they ought to mean: a list is empty if its length is 0, and otherwise non-empty.
+This is because all lists start out empty when created: that is, they initially have 0 entries. Inform has two built-in adjectives `empty` and `non-empty` which can apply to lists, and they mean just what they ought to mean: a list is empty if its length is 0, and otherwise non-empty.
 
 We can add entries very easily:
 
@@ -14125,31 +14096,27 @@ We can now, for instance, try saying the list:
 
 	say "L is now [L].";
 
-with the result
+with the result ``L is now 2, 3 and 5.``
 
-	L is now 2, 3 and 5.
-
-Note that only numbers can be added to L: if we try
+Note that only numbers can be added to `L`: if we try
 
 	add "clock" to L;
 
-Inform will produce a problem message, because L has kind "list of numbers", whereas "clock" is text. In this way, Inform ensures that a list always contains values of the same kind throughout. So it's not possible to construct a list whose entries are:
-
-	2, "fish", 4 and the Entire Game
+Inform will produce a problem message, because `L` has kind `list of numbers`, whereas `"clock"` is text. In this way, Inform ensures that a list always contains values of the same kind throughout. So it's not possible to construct a list whose entries are `2`, `"fish"`, `4` and `Entire Game`.
 
 Such a list would be very hazardous to deal with, in any case. If what we need is a combination of different kinds of values, tables are a better option.
 
-Finally, note that since "list of numbers" is a kind of value in its own right, so is "list of lists of numbers", and so on – though such lists are trickier to deal with, they are sometimes handy.
+Finally, note that since `list of numbers` is a kind of value in its own right, so is `list of lists of numbers`, and so on – though such lists are trickier to deal with, they are sometimes handy.
 
 ## Constant lists {PM_CantLetEmptyList} {PM_BadConstantListEntry} {PM_NonconstantConstantListEntry} {PM_IncompatibleConstantListEntry}
 
 ^^{lists: creating} ^^{defining: lists} ^^{lists: constant lists} ^^{empty / non-empty+adj+: for lists} ^^{non-empty / empty+adj+: for lists} ^^{lists: empty / non-empty+adj+} ^^{kinds: of list}^^^{punctuation: curly braces <-- braces <-- curly braces } ^^{punctuation: curly braces: for constant lists} ^^{|{ \}: for constant lists} ^^{punctuation: comma: in list constants, requiring spaces} ^^{spaces, in list constants, after commas} ^^{|,: in list constants, requiring spaces}
 
-It is convenient to have a concise way to write down a constant list. Just as we could write "231", say, or "7:01 AM" to refer to particular number and time constants, so we can write list constants:
+It is convenient to have a concise way to write down a constant list. Just as we could write `231`, say, or `7:01 AM` to refer to particular number and time constants, so we can write list constants:
 
 	let L be {1, 2, 3, 4};
 
-Inform recognises that "{1, 2, 3, 4}" is a list because of the braces, and looks at the entries inside, sees that they are numbers, and deduces that it is a constant whose kind of value is "list of numbers". L is then a temporary list variable and we can add to it, remove things, and so on as we please – {1, 2, 3, 4} is merely its initial value.
+Inform recognises that `{1, 2, 3, 4}` is a list because of the braces, and looks at the entries inside, sees that they are numbers, and deduces that it is a constant whose kind of value is `list of numbers`. `L` is then a temporary list variable and we can add to it, remove things, and so on as we please – `{1, 2, 3, 4}` is merely its initial value.
 
 When constructing lists, it is worth noting that Inform requires spaces after the commas (which seems a little harsh, but is necessary because otherwise many sensible literal specifications for units would be impossible – anyway, the reason isn't important here). So
 
@@ -14157,19 +14124,19 @@ When constructing lists, it is worth noting that Inform requires spaces after th
 
 would produce problem messages. But Inform does not require spaces round its braces.
 
-We call this way of writing a list "brace notation". In mathematics, braces are usually used for sets, and properly speaking these are sequences not sets – so that "{1, 2, 3, 4}" is different from "{4, 3, 2, 1}" – but it is still a familiar notation. Similarly,
+We call this way of writing a list "brace notation". In mathematics, braces are usually used for sets, and properly speaking these are sequences not sets – so that `{1, 2, 3, 4}` is different from `{4, 3, 2, 1}` – but it is still a familiar notation. Similarly,
 
 	let L be {"apple", "pear", "loganberry"};
 
-makes L a list of texts; and
+makes `L` a list of texts; and
 
 	The marshmallow, the firework and the stink bomb are in the Scout Hut. The list of prohibited items is a list of objects that varies. The list of prohibited items is {the firework, the stink bomb}.
 
-makes a global variable ("list of prohibited items") with kind of value "list of objects", and whose initial value is to contain two things: the firework and the stink bomb. More exotically, if we need to make lists of lists:
+makes a global variable (`list of prohibited items`) with kind of value `list of objects`, and whose initial value is to contain two things: the firework and the stink bomb. More exotically, if we need to make lists of lists:
 
 	let L be {{1, 2}, {6, 7, 8}};
 
-gives L the kind of value "list of lists of numbers", with (initially) two entries: the list {1, 2} (a list of numbers), then the list {6, 7, 8} (ditto).
+gives `L` the kind of value `list of lists of numbers`, with (initially) two entries: the list `{1, 2}` (a `list of numbers`), then the list `{6, 7, 8}` (ditto).
 
 Constant lists are convenient, too, when a column in a table needs to contain lists:
 
@@ -14181,21 +14148,21 @@ Constant lists are convenient, too, when a column in a table needs to contain li
 	
 	"spiced cider"		{the cider, the cinnamon, the orange}
 
-A special word about the constant list "{ }". This means the list with no entries – the empty list. If we try to create a new "let" variable M with
+A special word about the constant list `{ }`. This means the list with no entries – the empty list. If we try to create a new `let` variable `M` with
 
 	let M be { };
 
-then Inform will produce a problem message, because it cannot tell what sort of list M will be: a list of numbers, or texts, or times, or...? On the other hand, writing
+then Inform will produce a problem message, because it cannot tell what sort of list `M` will be: a list of numbers, or texts, or times, or...? On the other hand, writing
 
 	now M is { };
 
-is fine if M already exists, and then does the obvious thing – empties M. Similarly, a table column in which every entry is "{ }" produces a problem message unless the heading for that column spells out the kind of value stored within it: for instance, "ingredients (list of texts)".
+is fine if `M` already exists, and then does the obvious thing – empties `M`. Similarly, a table column in which every entry is `{ }` produces a problem message unless the heading for that column spells out the kind of value stored within it: for instance, `ingredients (list of texts)`.
 
 All of this is a notation for constant lists only, not some sort of gluing-things-together operation. So this, for instance:
 
 	let L be {100, the turn count};
 
-is not allowed, even though "the turn count" is a number: because it is a number that varies, the braces do not contain constants, and therefore this is not a list constant.
+is not allowed, even though `the turn count` is a number: because it is a number that varies, the braces do not contain constants, and therefore this is not a list constant.
 
 ## Saying lists of values
 
@@ -14206,24 +14173,24 @@ Any list L can be said, provided that its contents can be said. For example:
 	let L1 be {2, 3, 5, 7, 11};
 	say L1;
 
-produces the text "2, 3, 5, 7 and 11" – unless we have "Use serial comma." set, in which case a comma appears after the 7. We also have the option of using the more formal notation:
+produces the text ``2, 3, 5, 7 and 11`` – unless we have `Use serial comma.` set, in which case a comma appears after the 7. We also have the option of using the more formal notation:
 
 > phrase: {phs_listbraced} say "[(list of values) in brace notation]"
 >
-> This text substitution produces the list in the form of "{", then a comma-separated list, and then "}", which looks less like an English sentence but more mathematical. Example:
+> This text substitution produces the list in the form of `{`, then a comma-separated list, and then `}`, which looks less like an English sentence but more mathematical. Example:
 >
 >     "[list of people in brace notation]"
 >
-> might produce "{ yourself, Mr Darcy, Flashman }".
+> might produce ``{ yourself, Mr Darcy, Flashman }``.
 
 If we say a list of lists, then the individual entry lists are always printed in brace notation: the ordinary sentence way would be incomprehensible.
 
-Of course, the values in L1 are written out in number form because L1 is a list of numbers: we could alternatively try
+Of course, the values in `L1` are written out in number form because `L1` is a list of numbers: we could alternatively try
 
 	let L2 be {the piano, the music stand};
 	say L2;
 
-which produces "piano and music stand". Lists of objects can be said in two additional ways:
+which produces ``piano and music stand``. Lists of objects can be said in two additional ways:
 
 > phrase: {phs_listdef} say "[(list of objects) with definite articles]"
 >
@@ -14232,7 +14199,7 @@ which produces "piano and music stand". Lists of objects can be said in two addi
 >     let L be {the piano, the music stand};
 >     say "[L with definite articles]";
 >
-> says "the piano and the music stand".
+> says ``the piano and the music stand``.
 
 > phrase: {phs_listindef} say "[(list of objects) with indefinite articles]"
 >
@@ -14241,13 +14208,13 @@ which produces "piano and music stand". Lists of objects can be said in two addi
 >     let L be {the piano, the music stand};
 >     say "[L with definite articles]";
 >
-> says "a piano and a music stand".
+> says ``a piano and a music stand``.
 
 ## Testing and iterating over lists
 
 ^^{lists: finding entries} ^^{lists: repeating through} ^^{limits: on changing lists being repeated through}
 
-If L is a list, we can interrogate it to see whether it does or does not contain (at least one instance of) any compatible value V:
+If `L` is a list, we can interrogate it to see whether it does or does not contain (at least one instance of) any compatible value `V`:
 
 > phrase: {ph_islistedin} if (value) is listed in (list of values):
 >
@@ -14267,7 +14234,7 @@ We can also repeat running through a list (just as we can with table rows). Thus
 >     repeat with prime running through L:
 >     	...
 >
-> If the list is empty, nothing happens: the "..." phrase(s) are never tried.
+> If the list is empty, nothing happens: the `...` phrase(s) are never tried.
 
 In the next sections, we shall see that it is possible to change, reorder and resize lists. But it's important never to change a list that's being repeated through. The following:
 
@@ -14275,13 +14242,13 @@ In the next sections, we shall see that it is possible to change, reorder and re
 	repeat with n running through L1:
 		remove n from L1;
 
-leaves L1 containing {2, 4}, since the removals from the list cause it to shuffle back even while we repeat through it – a bad, bad idea.
+leaves `L1` containing `{2, 4}`, since the removals from the list cause it to shuffle back even while we repeat through it – a bad, bad idea.
 
 ## Building lists
 
 ^^{lists: adding entries} ^^{lists: removing entries}
 
-We have already seen "add... to...". This in fact comes in two forms:
+We have already seen `add... to...`. This in fact comes in two forms:
 
 > phrase: {ph_addtolist} add (value) to (list of values)
 >
@@ -14290,7 +14257,7 @@ We have already seen "add... to...". This in fact comes in two forms:
 >     let L be {60, 168};
 >     add 360 to L;
 >
-> results in L being {60, 168, 360}. Note that the value is added even if it already occurs somewhere in L; this can be avoided with "if absent". So:
+> results in `L` being `{60, 168, 360}`. Note that the value is added even if it already occurs somewhere in `L`; this can be avoided with `if absent`. So:
 >
 >     add 168 to L, if absent;
 >
@@ -14303,7 +14270,7 @@ We have already seen "add... to...". This in fact comes in two forms:
 >     let L be {2, 3, 5, 7};
 >     add {11, 13, 17, 19} to L;
 >
-> results in L being {2, 3, 5, 7, 11, 13, 17, 19}.
+> results in `L` being `{2, 3, 5, 7, 11, 13, 17, 19}`.
 
 If we don't want to add new entries at the end, we can instead say where they should go:
 
@@ -14314,7 +14281,7 @@ If we don't want to add new entries at the end, we can instead say where they sh
 >     let L be {1, 2, 3, 4, 8, 24};
 >     add 12 at entry 6 in L;
 >
-> sets L to {1, 2, 3, 4, 8, 12, 24}. If there are N entries in L, then we can add at any of entries 1 up to N+1: adding at entry N+1 means adding at the end. The phrase option "if absent" makes the phrase do nothing if the value already exists anywhere in L.
+> sets `L` to `{1, 2, 3, 4, 8, 12, 24}`. If there are N entries in `L`, then we can add at any of entries 1 up to N+1: adding at entry N+1 means adding at the end. The phrase option `if absent` makes the phrase do nothing if the value already exists anywhere in `L`.
 
 > phrase: {ph_addlistatentry} add (list of values) at entry (number) in/from (list of values)
 >
@@ -14329,11 +14296,11 @@ A list is allowed to contain duplicates, and the order matters. For instance:
 
 	let L be {2, 2, 3};
 
-makes L into "2, 2 and 3". This is a different list to the one made by:
+makes `L` into what a human would read as "2, 2 and 3". This is a different list to the one made by:
 
 	let M be {2, 3, 2};
 
-even though L and M have the same values, repeated the same number of times – for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.
+even though `L` and `M` have the same values, repeated the same number of times – for two lists to be equal, they must have the same kind of entry, the same number of entries, and the same entries in each position.
 
 We can also strike out values:
 
@@ -14344,7 +14311,7 @@ We can also strike out values:
 >     let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
 >     remove 1 from L;
 >
-> results in L being {3, 4, 5, 9, 2, 6, 5, 3}. Ordinarily "remove 7 from L" would produce a run-time problem, since L does not contain the value 7, but using the "if present" option lets us off this: the phrase then does nothing if L does not contain the value to be removed.
+> results in `L` being `{3, 4, 5, 9, 2, 6, 5, 3}`. Ordinarily `remove 7 from L` would produce a run-time problem, since `L` does not contain the value 7, but using the `if present` option lets us off this: the phrase then does nothing if `L` does not contain the value to be removed.
 
 > phrase: {ph_remlistfromlist} remove (list of values) in/from (list of values)
 >
@@ -14353,7 +14320,7 @@ We can also strike out values:
 >     let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
 >     remove {0, 2, 4, 6, 8} from L;
 >
-> results in L being {3, 1, 1, 5, 9, 5, 3}. If both lists are large, this can be a slow process, and we might do better by sorting them and trying a more sophisticated method. But this is convenient for anything reasonable-sized.
+> results in `L` being `{3, 1, 1, 5, 9, 5, 3}`. If both lists are large, this can be a slow process, and we might do better by sorting them and trying a more sophisticated method. But this is convenient for anything reasonable-sized.
 
 Again, we can also remove from specific positions:
 
@@ -14364,7 +14331,7 @@ Again, we can also remove from specific positions:
 >     let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
 >     remove entry 3 from L;
 >
-> results in L being {3, 1, 1, 5, 9, 2, 6, 5, 3}.
+> results in `L` being `{3, 1, 1, 5, 9, 2, 6, 5, 3}`.
 
 > phrase: {ph_rementries} remove entries (number) to (number) in/from (list of values)
 >
@@ -14373,7 +14340,7 @@ Again, we can also remove from specific positions:
 >     let L be {3, 1, 4, 1, 5, 9, 2, 6, 5, 3};
 >     remove entries 3 to 6 from L;
 >
-> results in L being {3, 1, 2, 6, 5, 3}.
+> results in `L` being `{3, 1, 2, 6, 5, 3}`.
 
 ## Lists of objects
 
@@ -14387,9 +14354,9 @@ But it is usually easier and clearer to use descriptions.
 
 > phrase: {ph_listofdesc} list of (description of values) ... list of values
 >
-> This phrase produces the list of all values matching the given description. Inform will issue a problem message if the result would be an infinite list, or one which is impractical to test: for instance "list of even numbers" is not feasible.
+> This phrase produces the list of all values matching the given description. Inform will issue a problem message if the result would be an infinite list, or one which is impractical to test: for instance `list of even numbers` is not feasible.
 
-While that works nicely for many kinds of value ("list of recurring scenes", say), it's particularly useful for objects:
+While that works nicely for many kinds of value (`list of recurring scenes`, say), it's particularly useful for objects:
 
 	let L be the list of open containers;
 	add the list of open doors to L;
@@ -14417,7 +14384,7 @@ where P is any value property. In all other respects, lists of objects are no di
 
 ^^{lists: creating: by description} ^^{defining: lists: by description}
 
-The useful "list of ..." syntax can also be used to produce lists of the values matching a description, too. Thus:
+The useful `list of ...` syntax can also be used to produce lists of the values matching a description, too. Thus:
 
 	let L be the list of non-recurring scenes;
 	let C be the list of colours;
@@ -14426,7 +14393,7 @@ There is little to say here except for the usual warning that some kinds of valu
 
 	let N be the list of even numbers;
 
-It would just be too large to hold. In general, if we can repeat through, or find the number of, values matching a description, then we can also use "list of" to bring them all together. See the chart of kinds of value in the Kinds index for a project for which kinds of value allow this.
+It would just be too large to hold. In general, if we can repeat through, or find the number of, values matching a description, then we can also use `list of` to bring them all together. See the chart of kinds of value in the Kinds index for a project for which kinds of value allow this.
 
 ## Sorting, reversing and rotating lists
 
@@ -14506,7 +14473,7 @@ Lists of objects can also be sorted in property value order. For instance,
 >
 > would arrange people with titans first, weaklings last.
 
-Rotating a list means moving all of its entries along by one place, and then moving the one on the end back to the start. For instance, if L is {1, 2, 3, 4}, then
+Rotating a list means moving all of its entries along by one place, and then moving the one on the end back to the start. For instance, if `L` is `{1, 2, 3, 4}`, then
 
 > phrase: {ph_rotatelist} rotate (list of values)
 >
@@ -14524,7 +14491,7 @@ Rotating a list means moving all of its entries along by one place, and then mov
 >     let L be { "cow", "heifer", "bullock" };
 >     rotate L backwards;
 >
-> results in L being { "heifer", "bullock", "cow"}. (This achieves the same effect as "reverse L; rotate L; reverse L;" but is a little faster, and a lot less effort to read.)
+> results in `L` being { "heifer", "bullock", "cow"}. (This achieves the same effect as `reverse L; rotate L; reverse L;` but is a little faster, and a lot less effort to read.)
 
 ## Accessing entries in a list
 
@@ -14550,11 +14517,11 @@ refers to the second entry of L: it can be used as a value, or changed, just as 
 	now entry 7 of L is "Spain";
 	say "The rain in [entry 7 of L] stays mainly in the plain.";
 
-which would (untruthfully) print "The rain in Spain stays mainly in the plain", but only if L had an entry 7 to make use of: if L were a list of 5 entries, say, then a run-time problem results. (And if L cannot hold text, a problem message means that we never get as far as run-time.) Because entries number from 1, this is always incorrect:
+which would (untruthfully) print ``The rain in Spain stays mainly in the plain.``, but only if `L` had an entry 7 to make use of: if `L` were a list of 5 entries, say, then a run-time problem results. (And if `L` cannot hold text, a problem message means that we never get as far as run-time.) Because entries number from 1, this is always incorrect:
 
 	entry 0 of L
 
-and if L is currently empty, then there is no entry which can be accessed, so that any use of "entry ... of L" would produce a run-time problem. There are programming languages in the world where accessing entry 100 in a 7-entry list automatically extends it to be 100 entries long: Inform is not one of them. But see the next section for how to change list lengths explicitly.
+and if `L` is currently empty, then there is no entry which can be accessed, so that any use of `entry ... of L` would produce a run-time problem. There are programming languages in the world where accessing entry 100 in a 7-entry list automatically extends it to be 100 entries long: Inform is not one of them. But see the next section for how to change list lengths explicitly.
 
 ## Lengthening or shortening a list
 
@@ -14568,7 +14535,7 @@ We can explicitly change the length of a list like so:
 >
 >     change L to have 21 entries;
 >
-> If L previously had more than 21 entries, they are thrown away (and lost forever); if L previously had fewer, then new entries are created, using the default value for whatever kind of value L holds. So extending a list of numbers will pad it out with 0s, but extending a list of texts will pad it out with the empty text "", and so on.
+> If `L` previously had more than 21 entries, they are thrown away (and lost forever); if `L` previously had fewer, then new entries are created, using the default value for whatever kind of value `L` holds. So extending a list of numbers will pad it out with 0s, but extending a list of texts will pad it out with the empty text `""`, and so on.
 
 We can also write the equivalent phrases:
 
@@ -14578,11 +14545,11 @@ We can also write the equivalent phrases:
 >
 >     truncate L to 8 entries;
 >
-> shortens L to length 8 if it is currently longer than that, trimming entries from the end, but would (for instance) leave a list of length 3 unchanged. Note that
+> shortens `L` to length 8 if it is currently longer than that, trimming entries from the end, but would (for instance) leave a list of length 3 unchanged. Note that
 >
 >     truncate L to 0 entries;
 >
-> empties it to { }, the list with nothing in.
+> empties it to `{ }`, the list with nothing in.
 
 > phrase: {ph_truncatefirst} truncate (list of values) to the first (number) entries/entry
 >
@@ -14590,7 +14557,7 @@ We can also write the equivalent phrases:
 >
 >     truncate L to the first 4 entries;
 >
-> turns {1, 3, 5, 7, 9, 11} to {1, 3, 5, 7}.
+> turns `{1, 3, 5, 7, 9, 11}` to `{1, 3, 5, 7}`.
 
 > phrase: {ph_truncatelast} truncate (list of values) to the last (number) entries/entry
 >
@@ -14598,7 +14565,7 @@ We can also write the equivalent phrases:
 >
 >     truncate L to the last 4 entries;
 >
-> turns {1, 3, 5, 7, 9, 11} to {5, 7, 9, 11}.
+> turns `{1, 3, 5, 7, 9, 11}` to `{5, 7, 9, 11}`.
 
 But we don't have to truncate: we can also –
 
@@ -14608,7 +14575,7 @@ But we don't have to truncate: we can also –
 >
 >     extend L to 80 entries;
 >
-> lengthens L to length 80 if it is currently shorter than that.
+> lengthens `L` to length 80 if it is currently shorter than that.
 
 For example,
 
@@ -14623,13 +14590,15 @@ For example,
 		sort L;
 		say "L in ascending order is [L]."
 
-builds a list of N numbers (initially all 0), fills it with the numbers 1, 2, 3, ..., N, then randomly reorders them, then sorts them back again, recovering the original order. The text produced by "check sorting 10" depends partly on chance but might for instance be:
+builds a list of `N` numbers (initially all 0), fills it with the numbers `1`, `2`, `3`, ..., `N`, then randomly reorders them, then sorts them back again, recovering the original order. The text produced by `check sorting 10` depends partly on chance but might for instance be:
 
-	L unrandomised is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.
-	L randomised is 6, 2, 9, 3, 10, 1, 7, 4, 8 and 5.
-	L in ascending order is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.
+``` transcript
+L unrandomised is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.
+L randomised is 6, 2, 9, 3, 10, 1, 7, 4, 8 and 5.
+L in ascending order is 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10.
+```
 
-As with text in the previous chapter, [Advanced Text], a project which needs really long lists should use the Glulx virtual machine – "check sorting 10000", for instance, would break the default memory environment on the Z-machine, which is very tight, but works fine (if not very rapidly) on Glulx.
+As with text in the previous chapter, [Advanced Text], a project which needs really long lists should use the Glulx virtual machine – `check sorting 10000`, for instance, would break the default memory environment on the Z-machine, which is very tight, but works fine (if not very rapidly) on Glulx.
 
 ## Variations: arrays, logs, queues, stacks, sets, sieves and rings
 
@@ -14656,7 +14625,7 @@ Queues typically form when two independent processes are at work, but going at d
 
 	The queue is a list of objects that varies.
 
-(Invariably people, in what follows, but we'll make it a "list of objects" to allow for other possibilities too.) Once we identify a "new customer", we can join them to the queue thus:
+(Invariably people, in what follows, but we'll make it a `list of objects` to allow for other possibilities too.) Once we identify a `new customer`, we can join them to the queue thus:
 
 	add the new customer to the queue;
 
@@ -14671,7 +14640,7 @@ Of course queues can also be constructed which empty from other positions, rathe
 
 4. A **stack** is like a queue except that values arrive at, and are removed from, the same end. Stacks are slightly faster if the active end is the back rather than the front, though this will only be noticeable if they grow quite large.
 
-To put a value V onto a stack S (which is known as "pushing") is simple:
+To put a value `V` onto a stack `S` (which is known as "pushing") is simple:
 
 	add V to S;
 
@@ -14681,7 +14650,7 @@ And to remove a value from the top of the stack (which is known as "pulling"):
 	let V be entry N of S;
 	remove entry N from S;
 
-Note that the middle line, accessing entry N, will fail if N = 0, that is, if the stack is empty: Inform's list routines will produce a run-time problem message.
+Note that the middle line, accessing entry `N`, will fail if `N` is 0, that is, if the stack is empty: Inform's list routines will produce a run-time problem message.
 
 Stacks are useful if some long-term process is constantly being interrupted by newer and more urgent demands, but they can also be used in planning. If a character has a long-term goal, which needs various short-term goals to be achieved along the way, then a stack can represent the goals currently being pursued. The top of the stack represents what the character is trying to achieve now. If the character realises that it needs to achieve something else first, we put that new goal onto the top of the stack, and it becomes the new current goal. When the character completes a task, it can be removed, and we can go back to trying to finish whatever is now on top. When the stack is empty, the character has achieved the original goal.
 
@@ -14692,37 +14661,37 @@ The trick here is to maintain the principle that, at all times, our list is sort
 	let S be {2, 4, 8, 16, 32, 64};
 	let T be {2, 4, 6, 10};
 
-Here we add an element to T:
+Here we add an element to `T`:
 
 	add 8 to T, if absent; sort T;
 
-The "if absent" clause ensures that no duplicate can occur, and by sorting T afterwards, we maintain the principle that a set must remain in order – so T is now {2, 4, 6, 8, 10}, not {2, 4, 6, 10, 8}. (Inform's sorting algorithm is fast on nearly-sorted lists, so frequent sorting is not as inefficient as it might look.)
+The `if absent` clause ensures that no duplicate can occur, and by sorting `T` afterwards, we maintain the principle that a set must remain in order – so `T` is now `{2, 4, 6, 8, 10}`, not `{2, 4, 6, 10, 8}`. (Inform's sorting algorithm is fast on nearly-sorted lists, so frequent sorting is not as inefficient as it might look.)
 
-We next take the union of T and S, that is, the set containing everything which is in either or both:
+We next take the union of `T` and `S`, that is, the set containing everything which is in either or both:
 
 	let U be S; add T to U, if absent; sort U;
 
-This makes U = {2, 4, 6, 8, 10, 16, 32, 64}, and once again no duplicates occur and we preserve the sorting. The intersection of T and S, the set of elements in both of them, is a little trickier:
+This makes `U` equal to `{2, 4, 6, 8, 10, 16, 32, 64}`, and once again no duplicates occur and we preserve the sorting. The intersection of `T` and `S`, the set of elements in both of them, is a little trickier:
 
 	let I be T;
 	repeat with the element running through T:
 		if the element is not listed in S, remove the element from I.
 
-(Faster methods could be devised which exploit the sortedness of T and S, but are not worth it for shortish lists.) This produces I = {2, 4, 8}. Lastly, we can form the set difference, consisting of those elements which are in S but not in T:
+(Faster methods could be devised which exploit the sortedness of `T` and `S`, but are not worth it for shortish lists.) This results in `I` set to `{2, 4, 8}`. Lastly, we can form the set difference, consisting of those elements which are in `S` but not in `T`:
 
 	let D be S; remove T from D, if present;
 
-Here, as with intersection, since all we do is to strike out unwanted elements, the surviving ones remain in order and there is no need to sort when we are finished. This produces D = {16, 32, 64}.
+Here, as with intersection, since all we do is to strike out unwanted elements, the surviving ones remain in order and there is no need to sort when we are finished. This sets `D` to `{16, 32, 64}`.
 
 6. A **sieve** is used to make a complicated choice where there are many constraints, by ruling out impossible cases to see what is left. The term derives from the kitchen utensil (for sieving fine grains of flour), but via the name of the "sieve of Eratosthenes", an ancient Greek method for determining the prime numbers.
 
 Using a sieve is much like using a set, and the difference is mainly one of outlook – we are interested in what does not belong, rather than what does.
 
-7. A **ring** is not so much a row of values, more a circle, with the last and first entries thought of as adjacent. One position is usually thought of as special, and is the place where new items are added: this may as well be entry 1. For instance, to add "new item" to the ring:
+7. A **ring** is not so much a row of values, more a circle, with the last and first entries thought of as adjacent. One position is usually thought of as special, and is the place where new items are added: this may as well be entry 1. For instance, to add `new item` to the ring:
 
 	add the item at entry 1 in the ring;
 
-To set "item" to the frontmost value and extract it from the ring:
+To set `item` to the frontmost value and extract it from the ring:
 
 	let the item be entry 1 of the ring;
 	remove entry 1 from the ring;
@@ -14742,7 +14711,7 @@ does nothing, in practice. If given a list, it adds 7 to the list, but then thro
 	To mess with (N - a number):
 		now N is 3.
 
-which can never affect anything other than its own temporary value "N", which expires almost immediately in any case.
+which can never affect anything other than its own temporary value `N`, which expires almost immediately in any case.
 
 If we want a phrase which changes a list in a useful way and gives it back to us, we need a phrase which both takes in and gives back:
 
@@ -14774,7 +14743,7 @@ Inform's language of kinds has four ingredients: base kinds, constructions, kind
 
 	object, number, real number, time, truth state, text, snippet, Unicode character, action, scene, table name, equation name, use option, action name, figure name, sound name, external file, rulebook outcome, parser error
 
-together with a few others, such as "response" and "verb", to do with linguistic features.
+together with a few others, such as `response` and `verb`, to do with linguistic features.
 
 And Inform allows us to create new base kinds either by making more specialised kinds of object:
 
@@ -14786,7 +14755,7 @@ Or by making new enumerations or arithmetical kinds:
 	Distance is a kind of value. 10km specifies a distance.
 	Colour is a kind of value. Red, green and blue are colours.
 
-**2. Constructions.** These are ways to make new kinds from existing ones.  The construction most often used is "list of...". For any kind K, there is a kind called list of K. So the range of possible kinds in Inform is actually infinite, because:
+**2. Constructions.** These are ways to make new kinds from existing ones.  The construction most often used is `list of...`. For any kind `K`, there is a kind called list of `K`. So the range of possible kinds in Inform is actually infinite, because:
 
 	number
 	list of numbers
@@ -14806,7 +14775,7 @@ are all different from each other. Inform has nine constructions, as follows:
 	K valued property
 	K valued table column
 
-Some of these have appeared in previous chapters, but in abbreviated form. For example, "rulebook" abbreviates "action based rulebook producing nothing", and "either/or property" is a synonym for "truth state valued property". The kinds of descriptions and phrases haven't been covered yet, but are coming up in the sections following.
+Some of these have appeared in previous chapters, but in abbreviated form. For example, `rulebook` abbreviates `action based rulebook producing nothing`, and `either/or property` is a synonym for `truth state valued property`. The kinds of descriptions and phrases haven't been covered yet, but are coming up in the sections following.
 
 These constructions can of course be combined:
 
@@ -14829,13 +14798,13 @@ allows us to describe the kinds acceptable in a phrase so that a wide range of p
 	hunt for 4 in { 2, 3, 4, 5 };
 	hunt for "fish" in { "lemon sauce", "fish", "garden peas" };
 
-The letter K in the definition stood for any kind; in the first use of "hunt" here, K turned out to be "number", and in the second it was "text". On the other hand Inform would reject:
+The letter `K` in the definition stood for any kind; in the first use of `hunt` here, `K` turned out to be `number`, and in the second it was `text`. On the other hand Inform would reject:
 
 	hunt for 4 in { containment relation, support relation };
 
-because there is no kind K which can make this match the definition.
+because there is no kind `K` which can make this match the definition.
 
-There are potentially 26 kind variables, A to Z, though it's customary to use them in the order K, L, M, ..., and it's very rare to need more than two at a time.
+There are potentially 26 kind variables, `A` to `Z`, though it's customary to use them in the order `K`, `L`, `M`, ..., and it's very rare to need more than two at a time.
 
 **4. Kinds of kind.** Inform understands several names which look as if they are kinds, but actually aren't:
 
@@ -14845,15 +14814,15 @@ There are potentially 26 kind variables, A to Z, though it's customary to use th
 
 	To announce (X - sayable value): say "I declare that [X] has arrived."
 
-This makes "announce X" work for any value X which can be said. All the same, "sayable value" is not a kind. It could never be safe for this to be the kind of a variable, because Inform would never know what could be done with the contents (except that it could be printed out).
+This makes `announce X` work for any value `X` which can be said. All the same, `sayable value` is not a kind. It could never be safe for this to be the kind of a variable, because Inform would never know what could be done with the contents (except that it could be printed out).
 
-**5. Secret inner workings.** There isn't a fifth ingredient, but if there were, it would be a handful of names used in matching some of the core built-in phrases of Inform which have so-called inline I6 definitions. These are not intended for anyone else to use, and are just an internal convenience; they aren't publicly documented and might change without notice. They don't describe kinds at all, because they tell the matcher to look for something else instead. For instance, there's one called "condition", which means "match a condition rather than a value". They appear in red ink in the Phrasebook index.
+**5. Secret inner workings.** There isn't a fifth ingredient, but if there were, it would be a handful of names used in matching some of the core built-in phrases of Inform which have so-called inline I6 definitions. These are not intended for anyone else to use, and are just an internal convenience; they aren't publicly documented and might change without notice. They don't describe kinds at all, because they tell the matcher to look for something else instead. For instance, there's one called `condition`, which means `match a condition rather than a value`. They appear in red ink in the Phrasebook index.
 
 ## Descriptions as values {kind_description}
 
 ^^{values: descriptions as values} ^^{descriptions (references to things): as values} ^^{kinds: of description} ^^{member of (description)+sourcearg+}
 
-In the chapter on [Descriptions], we saw that a description can be any source text which describes one or more objects: it might be as simple as "the Corn Market", or as complicated as "open containers which are in dark rooms". More or less the only restriction is that it must be unambiguous as to what counts and what does not: "three containers" is ambiguous as a description because it does not say which three.
+In the chapter on [Descriptions], we saw that a description can be any source text which describes one or more objects: it might be as simple as `the Corn Market`, or as complicated as `open containers which are in dark rooms`. More or less the only restriction is that it must be unambiguous as to what counts and what does not: `three containers` is ambiguous as a description because it does not say which three.
 
 We've now seen several interesting tricks with descriptions. In fact, if D is a description, then
 
@@ -14868,15 +14837,15 @@ are all standard things to do. These examples make it look as if it must be poss
 	even numbers
 	open containers which are in dark rooms
 
-are values of kind "description of numbers" and "description of objects" respectively. In general, if K is any kind then "description of K" is also a kind. Here is how we might make use of that:
+are values of kind `description of numbers` and `description of objects` respectively. In general, if `K` is any kind then `description of K` is also a kind. Here is how we might make use of that:
 
 	To enumerate (collection - a description of objects):
 		repeat with the item running through the collection:
 			say "-- [The item]."
 
-This makes "enumerate lighted rooms" run off a list of lighted rooms in a textual format different from the standard one produced by "say the list of lighted rooms". Inside the definition, "collection" can be used wherever a description might be used: here, for instance, we use it as the range for the repeat loop. (That's only possible because the range is limited in size: Inform wouldn't have allowed us to range through, say, all texts.)
+This makes `enumerate lighted rooms` run off a list of lighted rooms in a textual format different from the standard one produced by `say the list of lighted rooms`. Inside the definition, `collection` can be used wherever a description might be used: here, for instance, we use it as the range for the repeat loop. (That's only possible because the range is limited in size: Inform wouldn't have allowed us to range through, say, all texts.)
 
-Purely as a convenience, we can also write "member of" or "members of" in this context. For instance, in the enumerate definition, it would have been just as good to write "...running through the members of the collection..." in the repeat. (Similarly, we could write "number of members of the collection" or "a random member of the collection", which looks grammatically tidier than writing "number of the collection" or "random of the collection" – though in fact both of these do work.)
+Purely as a convenience, we can also write `member of` or `members of` in this context. For instance, in the enumerate definition, it would have been just as good to write `...running through the members of the collection...` in the repeat. (Similarly, we could write `number of members of the collection` or `a random member of the collection`, which looks grammatically tidier than writing `number of the collection` or `random of the collection` – though in fact both of these do work.)
 
 Finally, it's sometimes useful in an abstract situation to test
 
@@ -14896,30 +14865,30 @@ Finally, it's sometimes useful in an abstract situation to test
 
 ^^{values: phrases as values} ^^{phrases: as values} ^^{kinds: of phrase} ^^{(->), in phrase kinds+sourcepart+} ^^{phrases: named phrases} ^^{names: of phrases} ^^{(this is), in naming phrases+sourcepart+}^^^{+to+(phrase nothing -> value) applied --> applied}^^^{+to+(phrase value -> value) applied to (value) --> applied to}^^^{+to+(phrase (value, value) -> value) applied to (value) and (value) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> applied to}^^^{+to+(phrase (value, value, value) -> value) applied to (value) and (value) and (value) --> applied to}
 
-Given any two kinds K and L, the kind "phrase K -> L" is now a kind. (This is meant to look like a mathematical function arrow.) For example, the phrase defined by
+Given any two kinds `K` and `L`, the kind `phrase K -> L` is now a kind. (This is meant to look like a mathematical function arrow.) For example, the phrase defined by
 
 	To decide which number is the square of (N - a number): ...
 
-has the kind "phrase number -> number". Brackets and commas are used if the phrase combines several values, so
+has the kind `phrase number -> number`. Brackets and commas are used if the phrase combines several values, so
 
 	To decide which text is (T - text) repeated (N - a number) times: ...
 
-has the kind "phrase (text, number) -> text". The word "nothing" is used if there are no values in, or no value out – thus
+has the kind `phrase (text, number) -> text`. The word `nothing` is used if there are no values in, or no value out – thus
 
 	To decide which number is the magic target: ...
 
-has kind "phrase nothing -> number", and
+has kind `phrase nothing -> number`, and
 
 	To dig (eastward - length) by (northward - length): ...
 
-has the kind "phrase (length, length) -> nothing".
+has the kind `phrase (length, length) -> nothing`.
 
 But how are we to get at these values? The answer is that we need to give a phrase a name in order to do so. For example:
 
 	To decide what number is double (N - a number) (this is doubling):
 		decide on N plus N.
 
-This is the same syntax used to name rules, and the idea is the same. If we try "showme doubling", the result is
+This is the same syntax used to name rules, and the idea is the same. If we try `showme doubling`, the result is
 
 	phrase number -> number: doubling
 
@@ -14933,7 +14902,7 @@ produces
 "doubling applied to 2" = number: 4
 ```
 
-There are versions of "applied to" for phrases applied to 0 to 3 values:
+There are versions of `applied to` for phrases applied to 0 to 3 values:
 
 > phrase: {ph_applied0} (phrase nothing -> value) applied ... value
 >
@@ -14958,7 +14927,7 @@ So for example:
 	F applied to V and W
 	F applied to V and W and X
 
-For phrases which do not produce a value, we use "apply":
+For phrases which do not produce a value, we use `apply`:
 
 > phrase: {ph_apply0} apply (phrase nothing -> nothing)
 >
@@ -14987,17 +14956,17 @@ Thus:
 
 ^^{kinds: of phrase: default values for} ^^{kinds: default values of kinds} ^^{phrases: as values: default values}
 
-The default value for "phrase K -> nothing" is a phrase which does nothing. For example, if we write:
+The default value for `phrase K -> nothing` is a phrase which does nothing. For example, if we write:
 
 	let S be a phrase numbers -> nothing;
 
-then S is created holding the default phrase numbers -> nothing, and if we then try it out with:
+then S is created holding the default `phrase numbers -> nothing`, and if we then try it out with:
 
 	apply S to 17;
 
 we will indeed find that nothing happens.
 
-The default value for "phrase K -> L" is a phrase which, no matter what value of K it applies to, always produces the default value of L. (It's a sort of equivalent of the zero function in mathematics – indeed that's exactly what it is, if L is "number".) So:
+The default value for `phrase K -> L` is a phrase which, no matter what value of `K` it applies to, always produces the default value of `L`. (It's a sort of equivalent of the zero function in mathematics – indeed that's exactly what it is, if `L` is `number`.) So:
 
 	let Q be a phrase numbers -> times;
 	showme Q;
@@ -15012,9 +14981,9 @@ produces:
 "q applied to -7" = time: 9:00 am
 ```
 
-Here Q is set to the default phrase because we didn't give it any other value; it has the name we might expect ("default value of phrase number -> time") and it works as advertised, producing 9:00 am no matter what number is fed in.
+Here `Q` is set to the default phrase because we didn't give it any other value; it has the name we might expect (`default value of phrase number -> time`) and it works as advertised, producing `9:00 am` no matter what number is fed in.
 
-More ambitiously, and supposing that we have a kind called "colour" whose first possible value is "red":
+More ambitiously, and supposing that we have a kind called `colour` whose first possible value is `red`:
 
 	let R be a phrase numbers -> (phrase numbers -> colours);
 	showme R;
@@ -15035,9 +15004,9 @@ number -> (phrase number -> colour)
 
 ^^{lists: mapping (with a phrase)} ^^{lists: filtering (with a phrase or description)} ^^{lists: reducing (with a phrase, to a value)}^^^{+to+(phrase value -> value) applied to (list of values) --> applied to}^^^{+to+(phrase (value, value) -> value) reduction of (list of values) --> reduction of}
 
-When a mass of computations has to be done, the traditional approach is to work through them in a "repeat" loop. One modern alternative, growing in popularity, is to form a list of inputs; then apply the same computation to each input in turn to form a list of results (this is called "mapping"); throw out any bad or unwanted results ("filtering"); and then combine the surviving results into a single composite answer ("reducing", though some programming languages call this "folding" or "accumulation"; it's a much-reinvented idea).
+When a mass of computations has to be done, the traditional approach is to work through them in a `repeat` loop. One modern alternative, growing in popularity, is to form a list of inputs; then apply the same computation to each input in turn to form a list of results (this is called "mapping"); throw out any bad or unwanted results ("filtering"); and then combine the surviving results into a single composite answer ("reducing", though some programming languages call this "folding" or "accumulation"; it's a much-reinvented idea).
 
-Inform provides all three of these fundamental list-processing operations. There is no special term for a "map", because Inform treats it as another case of "applied to".
+Inform provides all three of these fundamental list-processing operations. There is no special term for a "map", because Inform treats it as another case of `applied to`.
 
 > phrase: {ph_appliedlist} (phrase value -> value) applied to (list of values) ... list of values
 >
@@ -15046,12 +15015,12 @@ Inform provides all three of these fundamental list-processing operations. There
 >     To decide what number is double (N - a number) (this is doubling):
 >     	decide on N plus N.
 >
-> Then "doubling applied to 2" produces 4, by the simpler definition of "applied to", but also:
+> Then `doubling applied to 2` produces 4, by the simpler definition of `applied to`, but also:
 >
 >     doubling applied to {2, 3, 4}
 
 >
-> produces the list {4, 6, 8}.
+> produces the list `{4, 6, 8}`.
 
 More divertingly, suppose we define:
 
@@ -15068,7 +15037,7 @@ Then we can write a chain of three maps in succession:
 
 	txtng applied to spelling out applied to doubling applied to {3, 8, 4, 19, 7}
 
-to produce the value {"sx", "sxtn", "ght", "thrty-ght", "frtn"}.
+to produce the value `{"sx", "sxtn", "ght", "thrty-ght", "frtn"}`.
 
 Next, filtering. Here we make use of descriptions, in order to say what values will be allowed through the filter. So:
 
@@ -15079,7 +15048,7 @@ Next, filtering. Here we make use of descriptions, in order to say what values w
 >     filter to even numbers of {3, 8, 4, 19, 7}
 
 >
-> produces {8, 4}, with the values 3, 19, and 7 failing to make it through. A sufficiently fine filter may well thin out a list to a single entry, or even no entries at all, but the result is always a list.
+> produces `{8, 4}`, with the values `3`, `19`, and `7` failing to make it through. A sufficiently fine filter may well thin out a list to a single entry, or even no entries at all, but the result is always a list.
 
 To get the full effect of filtering, we probably need to define an adjective or two. For example:
 
@@ -15090,7 +15059,7 @@ We can then write, for example:
 	let L be the filter to lengthy texts of spelling out applied to {15, 2, 20, 29, -4};
 	showme L;
 
-which produces the list {"fifteen", "twenty-nine", "minus four"}.
+which produces the list `{"fifteen", "twenty-nine", "minus four"}`.
 
 Lastly, reduction. In order to combine a whole list of values, we need a phrase to combine any two. Here are some samples:
 
@@ -15109,7 +15078,7 @@ And here are some sample reductions:
 	let Y be the concatenation reduction of txtng applied to spelling out
 		applied to doubling applied to {3, 8, 4, 19, 7};
 
-sets X to 19, the highest of the values, and Y to the text "sxsxtnghtthrty-ghtfrtn". In each case a list has been reduced to a single value which somehow combines the contents.
+sets `X` to `19`, the highest of the values, and `Y` to the text `"sxsxtnghtthrty-ghtfrtn"`. In each case a list has been reduced to a single value which somehow combines the contents.
 
 > phrase: {ph_reduction} (phrase (value, value) -> value) reduction of (list of values) ... value
 >
@@ -15119,15 +15088,11 @@ sets X to 19, the highest of the values, and Y to the text "sxsxtnghtthrty-ghtfr
 >     	(this is summing):
 >     	decide on N + M.
 >
-> then the summing reduction of {3, 8, 4, 19, 7} is the number 41, obtained by
->
->     (((3 + 8) + 4) + 19) + 7
->
-> so that the summing phrase has been used four times.
+> then the summing reduction of `{3, 8, 4, 19, 7}` is the number `41`, obtained by (((3 + 8) + 4) + 19) + 7, so that the `summing` phrase has been used four times.
 
 Is map/filter/reduce always a good idea? Devotees point out that almost any computation can be thought of in this way, and in systems where the work has to be distributed around multiple processors it can be a very powerful tool. (There are programming languages without loops where it's essentially the only tool.) At its best, it reads very elegantly: one assembles all of the tools needed – definitions of doubling, lengthy, spelling out, concatenation and so on – and then each actual task is expressed in a single line at the end.
 
-On the other hand, there are also times when this is a needlessly complicated disguise for what could more easily be done with a "repeat" loop, and also more efficiently since assembling and dismantling lists in memory does take some overhead time. So these list operations are not a panacea, but it's good to have them available.
+On the other hand, there are also times when this is a needlessly complicated disguise for what could more easily be done with a `repeat` loop, and also more efficiently since assembling and dismantling lists in memory does take some overhead time. So these list operations are not a panacea, but it's good to have them available.
 
 ## Generic phrases
 
@@ -15137,29 +15102,27 @@ The following looks quite innocent:
 
 	To say (V - value) twice: say "[V]. [V], I say!"
 
-It's clear at a glance what this is intended to do, but at a second glance things aren't so straightforward. "Value" is not itself a kind – it's too big and unspecific. For instance, if we were to allow a variable to be just "a value", we could freely set it to 12 one minute and to "dahlias" the next, and such a variable would be dangerous since we would never know what could safely be done with its contents. A phrase like this one is called "generic", because it's not so much a single, actual phrase as a recipe to make phrases. (Inform automatically works out which kinds we need the phrase for, and creates a version of the phrase for those kinds.)
+It's clear at a glance what this is intended to do, but at a second glance things aren't so straightforward. "Value" is not itself a kind – it's too big and unspecific. For instance, if we were to allow a variable to be just `a value`, we could freely set it to `12` one minute and to `"dahlias"` the next, and such a variable would be dangerous since we would never know what could safely be done with its contents. A phrase like this one is called _generic_, because it's not so much a single, actual phrase as a recipe to make phrases. (Inform automatically works out which kinds we need the phrase for, and creates a version of the phrase for those kinds.)
 
-So "value" is not a kind, but a kind of kind. Inform has several of these:
+So `value` is not a kind, but a kind of kind. Inform has several of these:
 
 ```
 value, arithmetic value, enumerated value, sayable value
 ```
 
-These act as ways to say "a value of any kind matching this can go here". For example, "value" is a way to say "any kind at all"; "arithmetic value" is any kind which arithmetic can be performed on (any kind with the little calculator icon in the Arithmetic part of the Kinds index); and so on. If we write:
+These act as ways to say "a value of any kind matching this can go here". For example, `value` is a way to say "any kind at all"; `arithmetic value` is any kind which arithmetic can be performed on (any kind with the little calculator icon in the Arithmetic part of the Kinds index); and so on. If we write:
 
 	To double (V - arithmetic value): say "[V times 2]."
 
-the restriction to "arithmetic value" means that although "double 3", "double 6 kg", etc., would be matched, "double the Entire Game" would not – you can't perform arithmetic on scenes. Similarly, it would have been tidier to write:
+the restriction to `arithmetic value` means that although `double 3`, `double 6 kg`, etc., would be matched, `double the Entire Game` would not – you can't perform arithmetic on scenes. Similarly, it would have been tidier to write:
 
 	To say (V - sayable value) twice: say "[V]. [V], I say!"
 
-because then Inform will make it clearer why "say X twice" won't work if X is one of those rare values which it can't say (an activity, for instance).
+because then Inform will make it clearer why `say X twice` won't work if `X` is one of those rare values which it can't say.
 
-The Kinds index shows which kinds match against which of these "kinds of kind". For instance, it shows that "time"
+The Kinds index shows which kinds match against which of these "kinds of kind". For instance, it shows that `time`
 
-```
-Matches: value, arithmetic value, sayable value
-```
+> Matches: value, arithmetic value, sayable value
 
 which means that time is something we can do arithmetic on, and can say.
 
@@ -15171,14 +15134,14 @@ The examples of generic phrases in the previous section were really only toy exa
 
 	To triple (V - arithmetic value): say "[V times 3]."
 
-But this only prints the answer. Suppose we want to be given the value back, instead: how can we write the phrase? The trouble is that, not knowing the kind of V, we can't say what kind will be produced. We need a way of saying "the same kind comes out as went in". Inform expresses that using kind variables:
+But this only prints the answer. Suppose we want to be given the value back, instead: how can we write the phrase? The trouble is that, not knowing the kind of `V`, we can't say what kind will be produced. We need a way of saying "the same kind comes out as went in". Inform expresses that using kind variables:
 
 	To decide which K is triple (original - arithmetic value of kind K):
 		decide on 3 times the original.
 
-Here, K stands for any kind which matches "arithmetic value". Inform supports exactly 26 of these symbols, which are written A to Z, but it's customary to use K and L. (They can be written in the plural if we like: e.g., "list of Ks". But they must always use a capital letter: "list of k" is not allowed.)
+Here, `K` stands for any kind which matches `arithmetic value`. Inform supports exactly 26 of these symbols, which are written `A` to `Z`, but it's customary to use `K` and `L`. (They can be written in the plural if we like: e.g., `list of Ks`. But they must always use a capital letter: `list of k` is not allowed.)
 
-Each symbol we use has to be declared in exactly one of the bracketed ingredients for the phrase – here, the declaration is "arithmetic value of kind K". That creates K and says that it has to be arithmetic; if we'd just said "value of kind K", it could have been anything. (Alternatively, we could use any of the kinds of kind in the previous section.)
+Each symbol we use has to be declared in exactly one of the bracketed ingredients for the phrase – here, the declaration is `arithmetic value of kind K`. That creates `K` and says that it has to be arithmetic; if we'd just said `value of kind K`, it could have been anything. (Alternatively, we could use any of the kinds of kind in the previous section.)
 
 For a more ambitious example, here is one way to define the mapping operation described earlier in the chapter:
 
@@ -15190,22 +15153,22 @@ For a more ambitious example, here is one way to define the mapping operation de
 			add the mapped item to the result;
 		decide on the result.
 
-Here we need two symbols to explain the complicated way that the values going in and out have to match up to each other. Note also the way that the temporary variable "result" is created:
+Here we need two symbols to explain the complicated way that the values going in and out have to match up to each other. Note also the way that the temporary variable `result` is created:
 
 	let the result be a list of Ls;
 
-Ordinarily, of course, "L" is not a kind. But within the body of a phrase definition, it means whatever kind L matched against.
+Ordinarily, of course, `L` is not a kind. But within the body of a phrase definition, it means whatever kind `L` matched against.
 
 When a symbol occurs several times in the same definition, subtle differences can arise according to which appearance is the declaration. These are not quite the same:
 
 	To hunt for (V - value of kind K) in (L - list of Ks): ...
 	To hunt for (V - K) in (L - list of values of kind K): ...
 
-The difference arises – though very rarely – if V has some different kind compared to the list entries, but which can be used as if it were of that kind. For example,
+The difference arises – though very rarely – if `V` has some different kind compared to the list entries, but which can be used as if it were of that kind. For example,
 
 	hunt for the player's command in {"take all", "wait"};
 
-Here V is a snippet, but L is a list of texts; and a snippet can be used in place of a text, but not vice versa. So this will match the second definition, because K is set to "text", but it won't match the first, where K is set to "snippet".
+Here `V` is a `snippet`, but `L` is a `list of texts`; and a `snippet` can be used in place of a `text`, but not vice versa. So this will match the second definition, because `K` is set to `text`, but it won't match the first, where `K` is set to `snippet`.
 
 ## Matching the names of kinds
 
@@ -15218,16 +15181,16 @@ Sometimes a phrase needs to know what kind it's to work on, but isn't going to b
 			say "There's [item].";
 		say "But the default is [default value of K].";
 
-Note that there's no hyphen, and no name for the bracketed token – it only sets K. We can then have, say:
+Note that there's no hyphen, and no name for the bracketed token – it only sets `K`. We can then have, say:
 
 	assay colours;
 	assay vehicles;
 
-But "assay texts" would throw a problem message, because we can't repeat through all possible texts. For a different reason,
+But `assay texts` would throw a problem message, because we can't repeat through all possible texts. For a different reason,
 
 	assay open doors;
 
-would not be allowed – "open doors" is a description which applies to some doors and not others; it isn't a kind. It would make no sense to talk about "default value of open door", for example.
+would not be allowed – `open doors` is a description which applies to some doors and not others; it isn't a kind. It would make no sense to talk about `default value of open door`, for example.
 
 ## In what order?
 
@@ -15237,13 +15200,13 @@ Recall the definition:
 
 	To slam shut (box - an open container): say "With great panache, you slam shut [the box].".
 
-Suppose we then try to "slam shut the wall safe" at a time during play when the wall safe is already closed. An error message will then be printed during play, since there must be a mistake in the design. The combination of checking both when Inform builds the story file and then continuously when the story file is played guarantees that, in all cases, a varying item such as "box" in the definition of "To slam shut (box – open container)" always satisfies the condition laid down.
+Suppose we then try to `slam shut the wall safe` at a time during play when the wall safe is already closed. An error message will then be printed during play, since there must be a mistake in the design. The combination of checking both when Inform builds the story file and then continuously when the story file is played guarantees that, in all cases, a varying item such as `box` in the definition of `To slam shut (box – open container)` always satisfies the condition laid down.
 
 Instead suppose we also have the following definition:
 
 	To slam shut (box - a container): say "You are unable to slam shut [the box], which is already closed.".
 
-We now have two definitions of "slam shut". Sometimes the box it's applied to will be closed, in which case only the second definition fits, and will be the one used. But if the box is open, both definitions fit. Which will happen? The rule is:
+We now have two definitions of `slam shut`. Sometimes the box it's applied to will be closed, in which case only the second definition fits, and will be the one used. But if the box is open, both definitions fit. Which will happen? The rule is:
 
 1. A narrower condition takes precedence over a broader one;
 
@@ -15251,7 +15214,7 @@ We now have two definitions of "slam shut". Sometimes the box it's applied to wi
 
 3. Except that if the phrase is being used in the definition of phrase P, then P is always last in precedence order, so that recursion is always the very last possibility considered. This allows more specific or later definitions to make use of less specific or earlier ones in a natural way.
 
-Rule 1 ensures that a definition involving "open container" takes priority over one which merely involves "container", for instance.
+Rule 1 ensures that a definition involving `open container` takes priority over one which merely involves `container`, for instance.
 
 And therefore when the box is open, it's the more specific phrase to do with open containers which is invoked: so, with great panache, the box is slammed shut.
 
@@ -15277,7 +15240,7 @@ could be construed as a usage of either of these cases:
 
 These of course have different effects – one produces the name with a definite article, the other just the name, so the difference is important.
 
-The rule here is that whichever possibility contains the most words, in this case "say the (...)", takes precedence, because it's assumed to be a more specific form of the less wordy version.
+The rule here is that whichever possibility contains the most words, in this case `say the (...)`, takes precedence, because it's assumed to be a more specific form of the less wordy version.
 
 # Figures, Sounds and Files
 
@@ -15319,11 +15282,11 @@ The different formats of story file are programs for different virtual machines.
 
 Inform provides basic support for displaying pictures and leaves more exotic effects for Extensions to provide. But either way, for reasons explained in the previous section, **we can only have pictures if the Settings for the project are set to the Glulx story file format**.
 
-Inform calls these pictures "figures", following the usual Inform analogy with books. We will think of our work of IF as being like a mostly textual book which in broken up with illustrations here and there – Figure 1, Figure 2, and so on. These might be used to mark each new chapter of the plot, or each new location: whatever the author would like. So the first thing we need to do is decide when pictures should appear.
+Inform calls these pictures _figures_, following the usual Inform analogy with books. We will think of our work of IF as being like a mostly textual book which in broken up with illustrations here and there – Figure 1, Figure 2, and so on. These might be used to mark each new chapter of the plot, or each new location: whatever the author would like. So the first thing we need to do is decide when pictures should appear.
 
 The second thing to do is to get hold of the pictures we want to use. These might be photographs, or artwork, or diagrams: anything, really, but we will need them to be in either JPEG or PNG format. Inform does not itself try to be an image editor, or an artwork program – there are many such programs already which do these things much better than Inform could.
 
-The pictures then need to be put in a special place where Inform can reach them. Suppose the Inform project is called Example.inform. Then we need to create a folder alongside it called "Example.materials", and create a further folder inside that called "Figures". The actual images go inside "Figures". So we might then have files like so:
+The pictures then need to be put in a special place where Inform can reach them. Suppose the Inform project is called Example.inform. Then we need to create a folder alongside it called `Example.materials`, and create a further folder inside that called `Figures`. The actual images go inside `Figures`. So we might then have files like so:
 
 ```
 Example.inform
@@ -15334,7 +15297,7 @@ Example.materials
 		Red Admiral Butterfly.png
 ```
 
-The ".materials" folder for an Inform project will turn out to have many other uses in the chapter on [Publishing], and will be explained further there.
+The `.materials` folder for an Inform project will turn out to have many other uses in the chapter on [Publishing], and will be explained further there.
 
 ## Declaring and previewing the figures {PM_PictureDuplicate} {PM_PictureNotTextual}
 
@@ -15347,7 +15310,7 @@ We do this by declaring each figure with a sentence like the following examples:
 	Figure of Woodlands is the file "Woodlands.png".
 	Figure 2 is the file "Red Admiral Butterfly.png".
 
-Figure names can consist of any text provided that text starts with the word "Figure". So "Figure 3 – Woodlands", for instance, or even "Figure W" would have been just as good as "Figure of Woodlands". Books tend to number figures, but then, in a book the order in which they appear is known in advance – which might not be true in IF.
+Figure names can consist of any text provided that text starts with the word `Figure`. So `Figure 3 – Woodlands`, for instance, or even `Figure W` would have been just as good as `Figure of Woodlands`. Books tend to number figures, but then, in a book the order in which they appear is known in advance – which might not be true in IF.
 
 The file names must be exactly those used in the Figures folder. We need not declare every image kept there, but those we don't declare – remember Blackberry.jpg? – cannot be displayed.
 
@@ -15367,11 +15330,11 @@ we would use:
 
 > phrase: {ph_displayfigure} display (figure name)
 >
-> This phrase causes the figure to be displayed in a way visible to the player. If the option "one time only" is used, it will have no effect if the figure has been displayed before. Example:
+> This phrase causes the figure to be displayed in a way visible to the player. If the option `one time only` is used, it will have no effect if the figure has been displayed before. Example:
 >
 >     display the Figure of Woodlands;
 
-Once again, note that the "display" phrase does nothing unless the Settings for the project are set to the Glulx story file format. When a Glulx work is released as a blorb (the default setting for the way releases occur: see the chapter on [Publishing]), all the images used are automatically included.
+Once again, note that the `display` phrase does nothing unless the Settings for the project are set to the Glulx story file format. When a Glulx work is released as a blorb (the default setting for the way releases occur: see the chapter on [Publishing]), all the images used are automatically included.
 
 ## Recorded sounds {kind_soundname} {SOUNDS}
 
@@ -15393,7 +15356,7 @@ Lastly, it must be remembered that recording industry bodies are very hostile to
 
 ^^{sounds: declaring} ^^{defining: sounds} ^^{sounds: placing in materials folder} ^^{materials folder: sounds}
 
-Sound effects are accommodated on the same basis as illustrations. The relevant media files need to be placed in a subfolder of the project's ".materials" folder, but this time called Sounds rather than Figures, so for instance:
+Sound effects are accommodated on the same basis as illustrations. The relevant media files need to be placed in a subfolder of the project's `.materials` folder, but this time called Sounds rather than Figures, so for instance:
 
 ```
 Example.inform
@@ -15414,7 +15377,7 @@ And they can be played using a special phrase:
 
 > phrase: {ph_playsf} play (sound name)
 >
-> This phrase causes the sound effect to be played. If the option "one time only" is used, it will have no effect if the sound effect has been played before. Example:
+> This phrase causes the sound effect to be played. If the option `one time only` is used, it will have no effect if the sound effect has been played before. Example:
 >
 >     play the sound of rustling leaves;
 
@@ -15438,7 +15401,7 @@ And also for sounds:
 
 ^^{blorb file} ^^{values: figures as values} ^^{figures: as values} ^^{|figure name} ^^{values: sounds as values} ^^{sounds: as values} ^^{|sound name} ^^{resource IDs}
 
-(i) Names for figures, such as "Figure of Woodlands", are values for a special kind of value called "figure name". This can in turn be used to define variables, properties and phrases:
+(i) Names for figures, such as `Figure of Woodlands`, are values for a special kind of value called `figure name`. This can in turn be used to define variables, properties and phrases:
 
 	The turn card image is a figure name that varies.
 	
@@ -15446,7 +15409,7 @@ And also for sounds:
 	
 	To place (F - a figure name) in the gallery: [...]
 
-(ii) Similarly, names for sound effects, such as "Sound of rustling leaves", are values for the kind of value "sound name".
+(ii) Similarly, names for sound effects, such as `Sound of rustling leaves`, are values for the kind of value `sound name`.
 
 (iii) In the released, blorbed-up Glulx file, figures and sound effects are internally given resource ID numbers which count upwards from 2 in order of their declaration. (Figure and sound numbers can thus be intermingled, if their declarations are.) Resource ID number 1 is reserved for the image of the cover art, if there is any. (See the chapter on [Publishing].) To obtain these numbers, if we need them, we can use:
 
@@ -15458,7 +15421,7 @@ And also for sounds:
 >
 > This phrase produces the ID number used in the eventual Glulx file for the given sound effect.
 
-(iv) Glulx hackers may also like to know that whenever Inform 7 builds a project for Glulx, the Inform 6 code it generates always contains a full copy of ^{@John Cater}'s definitive header file "infglk.h".
+(iv) Glulx hackers may also like to know that whenever Inform 7 builds a project for Glulx, the Inform 6 code it generates always contains a full copy of ^{@John Cater}'s definitive header file `infglk.h`.
 
 ## Files {EFILES}
 
@@ -15481,9 +15444,9 @@ Like figures and sounds, files must be declared before they can be used. For ins
 
 	The File of Glaciers is called "ice".
 
-This creates a new named constant "File of Glaciers" to refer to the file, throughout the source text. We use this name for it whether or not the actual disc file exists yet: it might be one that will only be created if something unusual happens in play, for instance.
+This creates a new named constant `File of Glaciers` to refer to the file, throughout the source text. We use this name for it whether or not the actual disc file exists yet: it might be one that will only be created if something unusual happens in play, for instance.
 
-Quoted filenames should contain only letters and digits, should be 23 characters or fewer, and should begin with a letter. (In particular they can contain no slashes or dots – no subfolders or extensions can be indicated.) The actual filename this translates to will vary from platform to platform, but "ice.glkdata" is typical, stored in some sensible folder.
+Quoted filenames should contain only letters and digits, should be 23 characters or fewer, and should begin with a letter. (In particular they can contain no slashes or dots – no subfolders or extensions can be indicated.) The actual filename this translates to will vary from platform to platform, but `ice.glkdata` is typical, stored in some sensible folder.
 
 Every file has an "owner" – not a person, but the project which normally writes to it. This is nothing to do with ownership or permission rules about files which the host computer might have, where a file might be owned by another user account or by the system itself, and so on. It's simply that when Inform writes a file, it marks it with the identity of the story which caused this to happen. Ownership in the Inform sense is used to prevent one story from reading a file which only makes sense to a different story, because that won't end well.
 
@@ -15496,7 +15459,7 @@ Inform uses ownership to make sure that we do not accidentally read in a file wh
 
 Files are indexed in the Contents index, alongside figures and sound effects.
 
-Two technicalities. First, constants such as "File of Glaciers" are of a kind of value called "external file" (compare "figure name" and "sound name"). Second, Inform's file-handling is provided for the Glulx machine, which in turn uses the Glk interface. This allows for either text or binary files. Inform's higher-level phrases to do with files, described in this chapter, all use text files, and all declared files are text files by default. But we can optionally add the keyword "binary" to declare a binary file, if needed:
+Two technicalities. First, constants such as `File of Glaciers` are of a kind of value called `external file` (compare `figure name` and `sound name`). Second, Inform's file-handling is provided for the Glulx machine, which in turn uses the Glk interface. This allows for either text or binary files. Inform's higher-level phrases to do with files, described in this chapter, all use text files, and all declared files are text files by default. But we can optionally add the keyword `binary` to declare a binary file, if needed:
 
 	The binary File of Glaciation Data is called "icedata".
 
@@ -15538,7 +15501,7 @@ We can check if a file already exists using:
 >
 >     if the File of Glaciation Data exists, ...
 >
-> then Inform would search for a file called "icedata". (The arrangements for where this might be stored, and its filename extension, vary from platform to platform.)
+> then Inform would search for a file called `icedata`. (The arrangements for where this might be stored, and its filename extension, vary from platform to platform.)
 
 One unfortunate restriction must be kept in mind. Some of what is stored in tables is solid information whose meaning never changes: the number 342, for instance, means the same to everyone. But other information depends entirely on the current location of certain structures in memory – for instance, a rule is internally referred to by its memory location. This potentially changes each time Go or Replay is clicked, and so it is not safe to pass it from one copy to another, or from one project to another. The only tables which Inform allows us to write into files are those containing "safe" data: numbers, units, times of day and kinds of value with named alternatives. Scenes, rules or rulebooks, in particular, are not allowed.
 
@@ -15662,7 +15625,7 @@ and we are free to have as many of these tests as we would like. Test commands c
 
 	Test megatest with "test me / test eo".
 
-A word of warning: if the first command in the test is "again", that will likely repeat the ``TEST`` command, sending Inform round in circles forever.
+A word of warning: if the first command in the test is ``AGAIN``, that will likely repeat the ``TEST`` command, sending Inform round in circles forever.
 
 For complicated objects and commands, sometimes it's a good idea to develop the test commands at the same time that we're writing the source code itself. Each time we add a new rule or piece of behaviour, we also add to that object's special test command something that will put that new feature to the test. This means that we can keep running the test command as we work and verify that everything is behaving as expected.
 
@@ -15675,7 +15638,7 @@ For instance, suppose we have a phrase like this:
 		if count is greater than 2 and the player is timid:
 			say "You're still missing a lot of keys, bucko!"
 
-Now, we expect this to print something, but perhaps it's not doing so when we had anticipated that it would. At some point when we think the count is greater than 2 and the player is timid, at least one of those things is not true. An easy way to check up on this is to add a showme line to the source, like so:
+Now, we expect this to print something, but perhaps it's not doing so when we had anticipated that it would. At some point when we think the `count` is greater than 2 and the player is `timid`, at least one of those things is not true. An easy way to check up on this is to add a showme line to the source, like so:
 
 	To say key score:
 		let count be the number of keys which are not carried by the player;
@@ -15689,7 +15652,7 @@ and this will then check the relevant number and print it to screen when this ph
 "count" = number: 1
 ```
 
-In this case, it looks like the count is not high enough to trigger the text, so we can concentrate on working out why that might be. Maybe we didn't correctly define something as a key, for instance.
+In this case, it looks like the `count` is not high enough to trigger the text, so we can concentrate on working out why that might be. Maybe we didn't correctly define something as a `key`, for instance.
 
 ## High-level debugging commands
 
@@ -15756,7 +15719,7 @@ Sometimes, however, the action is being correctly understood, but the action rul
 	[Rule "notify score changes rule" applies.]
 	>
 
-As we can see, ``RULES`` produces a lot of output, much of which is probably irrelevant to whatever problem we're tracking down. Nonetheless, knowing exactly which rule is printing undesirable output is helpful, especially if that rule comes out of an extension or some other source that we did not write ourselves: this output has told us that the text we saw came from the "report jumping rule".
+As we can see, ``RULES`` produces a lot of output, much of which is probably irrelevant to whatever problem we're tracking down. Nonetheless, knowing exactly which rule is printing undesirable output is helpful, especially if that rule comes out of an extension or some other source that we did not write ourselves: this output has told us that the text we saw came from the `report jumping rule`.
 
 To find out more about what is going on in specific rules, we can also turn to the Index tab under Actions and click through to that specific action. From there we will be able to see which rules are included, what responses they're writing, and where they were defined in the source text.
 
@@ -15785,9 +15748,9 @@ There are also several debugging commands going back to the early days of intera
 	You are carrying:
 	  a table
 
-Note that purloin does not consider the usual rules about whether something can be taken. In this case, we've just moved the table to our inventory even though it is a fixed in place supporter that could not be taken in the normal course of events.
+Note that ``PURLOIN`` does not consider the usual rules about whether something can be taken. In this case, we've just moved the table to our inventory even though it is a `fixed in place supporter` that could not be taken in the normal course of events.
 
-Because purloin works on things that are far away as well as things that are close, it has to do a lot of extra parsing work and may take a moment or two to complete if we try it in a very large story. It is generally more efficient to give the player the relevant object using a testing command, like this:
+Because ``PURLOIN`` works on things that are far away as well as things that are close, it has to do a lot of extra parsing work and may take a moment or two to complete if we try it in a very large story. It is generally more efficient to give the player the relevant object using a testing command, like this:
 
 	Test me with "drop table" holding the table.
 
@@ -15832,13 +15795,13 @@ You can see a table here.
 2: a table (574759)
 ```
 
-The following numbers are object IDs for these objects, which can distinguish items with identical names. It is likely that the output of this will not be terribly interesting or different from checking ``SHOWME``, except in cases where the author is deliberately changing the scope to be something other than "the set of things that are visible in the room with the player right now". This usually involves the Deciding the scope of something activity (see the chapter on [Activities]).
+The following numbers are object IDs for these objects, which can distinguish items with identical names. It is likely that the output of this will not be terribly interesting or different from checking ``SHOWME``, except in cases where the author is deliberately changing the scope to be something other than `the set of things that are visible in the room with the player right now`. This usually involves the Deciding the scope of something activity (see the chapter on [Activities]).
 
 ``SHOWHEAP`` shows how many bytes are currently free. This can sometimes to be helpful to tell when memory is slowly leaking due to a bug.
 
 ``SHOWVERB`` (verbname) lists the Understand information associated with a particular verb. Similar information, in a vastly more palatable form, is available in Index / Actions / Commands, so the one time ``SHOWVERB`` becomes useful is when Inform is considering the understand lines in the wrong order and producing a result we didn't want: ``SHOWVERB`` will show us the order in which the lines are being assessed. The challenge will then be to add conditions to the Understand lines to move them into the correct order.
 
-Finally, ``TRACE`` (and its more advanced stages ``TRACE 2``, ``TRACE 3`` and so on up to 6) will reveal things, more things than we ever wanted to know, about the assumptions being made by the parser when it takes in a command. In practice this information is almost never useful to an Inform 7 author.
+Finally, ``TRACE`` (and its more advanced stages ``TRACE 2``, ``TRACE 3`` and so on up to 6) will reveal things, more things than we ever wanted to know, about the assumptions being made by the parser when it takes in a command. In practice this information is almost never useful to an Inform author.
 
 There is no guarantee that any of these commands will make life better or that they won't crash the story or put it into an unwinnable state. There is also no absolute guarantee that they won't be withdrawn entirely from future versions of Inform. Consider them as Old High Magic, and treat accordingly.
 
@@ -15846,15 +15809,15 @@ There is no guarantee that any of these commands will make life better or that t
 
 ^^{testing commands: defining} ^^{test version (of the story) <-- debug version (of the story)} ^^{omitting code, for release version} ^^{|not for release}
 
-As we saw in the chapter on [Source Text], we can mark some of our source text so that it will not be included in a finished story. This means that we can add special testing commands available to the author but not available to our eventual players. This is a good way to add our own suite of testing verbs to a story beyond the "Test me with..." features already described.
+As we saw in the chapter on [Source Text], we can mark some of our source text so that it will not be included in a finished story. This means that we can add special testing commands available to the author but not available to our eventual players. This is a good way to add our own suite of testing verbs to a story beyond the `Test me with...` features already described.
 
 Here are some types of testing verbs that can be useful to add:
 
-Chapter jumps. We might create test commands that took us to a later stage of the story (perhaps doing more setup than "Test me..." alone can handle).
+Chapter jumps. We might create test commands that took us to a later stage of the story (perhaps doing more setup than `Test me...` alone can handle).
 
 Status information. We might create a test command that would show us status information beyond what's covered in the Standard Rules. For instance, if we had a story that heavily modeled the moods of other characters and we wanted to be able to check those moods at any time, we might add a ``SHOWMOOD`` command that would tell us about a character's emotional state.
 
-Puzzle satisfaction lists. Some simulation-rich stories offer puzzles that can be solved in a variety of ways: for instance, a sealed glass box that can be smashed with any object that has been marked with the properties "hard" and "heavy". Later, we might want to be able to check which in-story objects would work as a solution to this puzzle, so we might create a command like
+Puzzle satisfaction lists. Some simulation-rich stories offer puzzles that can be solved in a variety of ways: for instance, a sealed glass box that can be smashed with any object that has been marked with the properties `hard` and `heavy`. Later, we might want to be able to check which in-story objects would work as a solution to this puzzle, so we might create a command like
 
 	Listing hammers is an action out of world applying to nothing.
 	
@@ -15869,7 +15832,7 @@ so that we can review that there are enough objects available and that the list 
 
 Just occasionally, we might also want to build a version of a story that will allow beta-testers access to the debugging commands. This is especially relevant for long stories: if we're testing a story with a lot of playtime and the testers have already thoroughly reviewed the first portion of the story, we might want to let them have access to testing commands that fast-forward to later sections.
 
-To do this, we can use the "Release for Testing" feature. Release for testing builds a version of the story that *does* include testing commands and any sections labelled "Not for release".
+To do this, we can use the Release for Testing feature. Release for testing builds a version of the story that *does* include testing commands and any sections labelled `Not for release`.
 
 To sum up these three methods for compiling:
 
@@ -15902,7 +15865,7 @@ There are also some extensions that are designed to assist with this, notably th
 
 ^^{>TRANSCRIPT ON/OFF <-- >SCRIPT ON/OFF} ^^{testing commands: comments in transcripts from beta testers} ^^{comments: in transcripts from beta testers}
 
-Inform includes a command that is especially designed to help beta-testers report flaws: namely, ``TRANSCRIPT``. A tester can type ``TRANSCRIPT`` (or just ``SCRIPT``) at the beginning of the story in order to start generating a recording of everything that happens. She can then add her own annotations when something buggy or otherwise notable occurs (for instance by typing a standard symbol, such as \*, followed by a note).
+Inform includes a command that is especially designed to help beta-testers report flaws: namely, ``TRANSCRIPT``. A tester can type ``TRANSCRIPT`` (or just ``SCRIPT``) at the beginning of the story in order to start generating a recording of everything that happens. She can then add her own annotations when something buggy or otherwise notable occurs.
 
 When she then sends us the completed transcript, we can look through for these symbols and note the problems the tester found in the context of the rest of the story's behaviour. Having information about how she reached that position typically makes it much easier to reproduce the problem than if she gave only a general account of it.
 
@@ -15946,13 +15909,13 @@ These can be set as follows:
 	The story description is "In Miss Austen's new interactive novella, Miss Henrietta Pollifax is adopted by the tempestuous landowner Sir Tankerley Mordant, and must make a new life for herself on the rugged moors."
 	The story creation year is 2005.
 
-Most of these are self-explanatory. The "story creation year" is provided so that if we need to revise the work to fix some bugs a year later – by no means an uncommon occurrence – then we can make sure it is correctly identified as still being basically a 2005 work. (Just as a book which has had innumerable revised printings may say "First published 1988" on its imprint page.) The "story description" is a piece of text, analogous to the back cover blurb on a book: it might be two or three paragraphs long, so the example above is rather minimal, but it should not be epic in length.
+Most of these are self-explanatory. The `story creation year` is provided so that if we need to revise the work to fix some bugs a year later – by no means an uncommon occurrence – then we can make sure it is correctly identified as still being basically a 2005 work. (Just as a book which has had innumerable revised printings may say "First published 1988" on its imprint page.) The `story description` is a piece of text, analogous to the back cover blurb on a book: it might be two or three paragraphs long, so the example above is rather minimal, but it should not be epic in length.
 
 As we have already seen, a convenient abbreviation provides that if the first sentence of the source text consists solely of text in quotation marks, then that is considered the title. Thus if the source begins:
 
 	"Mansfield Perk"
 
-then that will be the "story title". Further, we can write
+then that will be the `story title`. Further, we can write
 
 	"Mansfield Perk" by Janet Austen
 
@@ -15972,7 +15935,7 @@ The other exception is that the `"[unicode ...]"` text substitution works, so fo
 
 	The story description is "This is a sentence[unicode 8212]with a parenthetical in dashes[unicode 8212]because 8212 is the Unicode number for an em-dash. But for example, 'pawn to [unicode black chess bishop]4' draws in a black chess bishop, so it works with names, too."
 
-If the bibliographic named values are not set by the source text, Inform will still need to say something. Unset text and number variables evaluate to "" and 0 respectively, but this would make for a very unhelpful record. So Inform uses the following table instead of any value which is unset:
+If the bibliographic named values are not set by the source text, Inform will still need to say something. Unset text and number variables evaluate to `""` and `0` respectively, but this would make for a very unhelpful record. So Inform uses the following table instead of any value which is unset:
 
 	Story title: Untitled
 	Story author: Anonymous
@@ -15984,7 +15947,7 @@ If the bibliographic named values are not set by the source text, Inform will st
 
 ^^{genre+biblio+}
 
-The "story genre" is not used in the banner at all, and exists purely to help librarians. If it is at all possible to do so, authors are asked to use one of the following standard categories:
+The `story genre` is not used in the banner at all, and exists purely to help librarians. If it is at all possible to do so, authors are asked to use one of the following standard categories:
 
 	Comedy, Erotica, Fairy Tale, Fantasy, Fiction, Historical, Horror, Mystery, Non-Fiction, Other, Romance, Science Fiction, Surreal
 
@@ -16006,7 +15969,7 @@ The "library card" is not of course a physical card, but a small "metadata" file
 
 Authors are asked to play fair, in return, by writing sensible and useful bibliographic information for any work which is likely to circulate to other people; by being honest (writing under a pseudonym is fine, but not impersonating other people); and by conforming to standard practice.
 
-The Settings panel of each project contains a tick-box called "Bind up into a Blorb archive on release", and by default this is ticked. "Blorb" is a nonsense word from a popular early 1980s work of IF called "Enchanter", where it was the name of a magic spell whose purpose was to "safely protect a small object as though in a strong box". In the late 1990s, the name was borrowed for a standard format for what might be called the wrapping and packaging of IF. A typical Blorb archive produced by Inform contains the "story file" – the actual program for the story – together with its library card and cover art.
+The Settings panel of each project contains a tick-box called "Bind up into a Blorb archive on release", and by default this is ticked. "Blorb" is a nonsense word from a popular early 1980s work of IF called _Enchanter_, where it was the name of a magic spell whose purpose was to "safely protect a small object as though in a strong box". In the late 1990s, the name was borrowed for a standard format for what might be called the wrapping and packaging of IF. A typical Blorb archive produced by Inform contains the "story file" – the actual program for the story – together with its library card and cover art.
 
 Modern IF interpreters such as Zoom for Mac OS X and Unix, and Windows Frotz, can play blorb archives directly, and the authors of Inform hope to make this the normal practice in future. Still, some interpreters cannot read blorbs directly and have to be given the actual story file: so by unchecking the above tick-box, we can insist that Inform creates only that. The disadvantage with this, of course, is that the library card (with all its bibliographic data) and any cover art is lost in the process.
 
@@ -16030,9 +15993,9 @@ In particular, be aware that using "Save as..." in the Inform apps generally sav
 
 Inform's Release button does two things: it makes a stand-alone, public version of the current project – a "story file" – and it gathers up, or creates, whatever material we want to go with it.
 
-The release version of the project can be played by anyone with an "interpreter" – they do not need the Inform application installed on their computers, and they will not be able to see the source text. Released versions differ slightly from the versions playable in the Story panel of Inform, because debugging commands such as ``ACTIONS`` are not included with them. (As we've seen, also excluded is any material in the source text under a heading including the words "not for release".) In some cases, if we release along with an interpreter, we can even make the project playable from a web browser, so that the player doesn't need to install any software at all, not even a browser plugin.
+The release version of the project can be played by anyone with an "interpreter" – they do not need the Inform application installed on their computers, and they will not be able to see the source text. Released versions differ slightly from the versions playable in the Story panel of Inform, because debugging commands such as ``ACTIONS`` are not included with them. (As we've seen, also excluded is any material in the source text under a heading including the words `not for release`.) In some cases, if we release along with an interpreter, we can even make the project playable from a web browser, so that the player doesn't need to install any software at all, not even a browser plugin.
 
-The Release button also creates a ".materials" folder for the project, if one doesn't exist already. (On some platforms, the Inform user interface creates it automatically alongside the project.) Inform adopts the convention: the files associated with the project "Whatever.inform" should all be kept in a subfolder called "Whatever.materials" in the same folder that contains the project.
+The Release button also creates a `.materials` folder for the project, if one doesn't exist already. (On some platforms, the Inform user interface creates it automatically alongside the project.) Inform adopts the convention: the files associated with the project `Whatever.inform` should all be kept in a subfolder called `Whatever.materials` in the same folder that contains the project.
 
 For example, if we have a project filenamed Magician.inform which lives in a folder called "Works in Progress", then files might be arranged like so:
 
@@ -16044,9 +16007,9 @@ Works in Progress
 		Mating Wyverns.mp3
 ```
 
-Of course "Magician" might not actually be the title of the project – it might be an abbreviation, or a working title. The name of the .materials folder has to match the name of the .inform file, not the title.
+Of course "Magician" might not actually be the title of the project – it might be an abbreviation, or a working title. The name of the `.materials` folder has to match the name of the `.inform` file, not the title.
 
-Several advanced features of Inform make use of the materials folder, and the "Release" button is one of them. It creates a further subfolder called "Release" within the materials folder. This is where it will always place the story file it creates, together with anything released "along with" the story – Inform will not need to put up a dialogue box asking us where to save the story file, because there is already a natural place. For instance, after a successful click on Release, we might then see:
+Several advanced features of Inform make use of the `.materials` folder, and the "Release" button is one of them. It creates a further subfolder called "Release" within the materials folder. This is where it will always place the story file it creates, together with anything released "along with" the story – Inform will not need to put up a dialogue box asking us where to save the story file, because there is already a natural place. For instance, after a successful click on Release, we might then see:
 
 ```
 Works in Progress
@@ -16060,7 +16023,7 @@ Works in Progress
 			Mating Wyverns.mp3
 ```
 
-where "Magician.zblorb" is the actual story file produced by Inform. Note that Inform has made copies of the files to be released with it – the idea is that the Release subfolder contains only what Inform makes, and everything in the Release subfolder can be thrown away at any time.
+where `Magician.zblorb` is the actual story file produced by Inform. Note that Inform has made copies of the files to be released with it – the idea is that the Release subfolder contains only what Inform makes, and everything in the Release subfolder can be thrown away at any time.
 
 This is especially useful if we're releasing along with a website (see below), as then the Release subfolder will be exactly what needs to be uploaded to a server to be shown to the world. Equally, the Release subfolder is what can be zipped up and uploaded to archives or (if small enough) emailed out.
 
@@ -16068,7 +16031,7 @@ This is especially useful if we're releasing along with a website (see below), a
 
 ^^{feelies} ^^{materials folder: feelies} ^^{blorb file} ^^{release along with...+assert+: a file of (description) called (filename)+sourcearg+}
 
-"Feelie" is a slang word, again going back to the early days of IF, for something tactile included with commercially sold copies of IF games. For instance, ^{Infocom}'s "Wishbringer" was not just a diskette in a pretty box: the box also contained a map, a letter, an envelope, a magic stone (well, a stone) and a booklet. Most of this was purely for fun, and to flesh out background to the story, but there would usually be clues sneaked into the text or artwork as well.
+"Feelie" is a slang word, again going back to the early days of IF, for something tactile included with commercially sold copies of IF games. For instance, ^{Infocom}'s _Wishbringer_ was not just a diskette in a pretty box: the box also contained a map, a letter, an envelope, a magic stone (well, a stone) and a booklet. Most of this was purely for fun, and to flesh out background to the story, but there would usually be clues sneaked into the text or artwork as well.
 
 Today's IF is usually not supplied in physical packaging, and not accompanied by physical objects. But authors do sometimes want to include extraneous matter, whether it's a simple read-me file of instructions or a multimedia extravaganza. Inform does not provide facilities to make artwork, movies, soundscapes, booklets, etc.: there are plenty of programs out there to do all of that already.
 
@@ -16076,13 +16039,13 @@ But Inform does help with the collation and packaging-together. For instance, by
 
 	Release along with a file of "Collegio magazine" called "Collegio.pdf" and a file of "The mating call of the green wyvern" called "Mating Wyverns.mp3".
 
-...we tell Inform that we will also be providing two additional files. Note that in each case we supply a brief description and a filename. The filename should always have a standard file extension for a well-known and thoroughly standardised file format – ".pdf" and ".mp3" are pretty safe: so for instance are ".txt", ".png", ".jpg", ".html". The filename should not include punctuation marks other than the full stop dividing name from extension, and should not exceed 30 characters in length.
+...we tell Inform that we will also be providing two additional files. Note that in each case we supply a brief description and a filename. The filename should always have a standard file extension for a well-known and thoroughly standardised file format – `.pdf` and `.mp3` are pretty safe: so for instance are `.txt`, `.png`, `.jpg`, `.html`. The filename should not include punctuation marks other than the full stop dividing name from extension, and should not exceed 30 characters in length.
 
 It is also possible to supply a feelie which is not a single file, but is a mini-website: that is, a collection of interlinked HTML (and perhaps other) files. The convention here would be:
 
 	Release along with a file of "Baltrazar's Guide to Magic" called "Guide".
 
-The absence of a file extension on the filename "Guide" tells Inform that the feelie in question is a mini-website: it is expected to sit inside a folder called "Guide", with its home page being "Guide/index.html". However, a mini-website like this must be created by hand: Inform does not copy it into place, it only creates links to the place where it ought to be put.
+The absence of a file extension on the filename `Guide` tells Inform that the feelie in question is a mini-website: it is expected to sit inside a folder called `Guide`, with its home page being `Guide/index.html`. However, a mini-website like this must be created by hand: Inform does not copy it into place, it only creates links to the place where it ought to be put.
 
 We have seen that Inform takes the story file, which is analogous to the pages of a book, and places it into a Blorb archive, analogous to the binding. These new additional files are not placed in the Blorb, because that would make the Blorb archive rather large (and would hide them from the player, which defeats the purpose). But references to them do appear in the Blorb, so that any interpreter playing the Blorb would be able to tell that there are supposed to be additional files available. Similarly, references are entered onto the library card.
 
@@ -16090,7 +16053,7 @@ We have seen that Inform takes the story file, which is analogous to the pages o
 
 ^^{materials folder: cover art} ^^{figures: cover art} ^^{cover art} ^^{release along with...+assert+: |cover art} ^^{IFDB+web+}
 
-Accompanying files are not the only things which can be included in a "release along with" sentence: for instance, we could
+Accompanying files are not the only things which can be included in a `release along with` sentence: for instance, we could
 
 	Release along with cover art ("A stone gargoyle"), a file of "Collegio magazine" called "Collegio.pdf" and a file of "The mating call of the green wyvern" called "Mating Wyverns.mp3".
 
@@ -16098,7 +16061,7 @@ Cover art can not only be used to advertise a work of IF, it is also displayed t
 
 ![coverflow](doc_images/coverflow.png)
 
-Cover art for a work should be prepared in either JPEG (".jpg") or PNG (".png") format, and we recommend that it should be square, like a music album cover. Programs which notice the cover art for a work of IF are likely to scale this up or down as convenient for their own display purposes, but it would be helpful to provide the original art at 960 by 960 resolution. The cover art must not be smaller than 120 pixels in either dimension.
+Cover art for a work should be prepared in either JPEG (`.jpg`) or PNG (`.png`) format, and we recommend that it should be square, like a music album cover. Programs which notice the cover art for a work of IF are likely to scale this up or down as convenient for their own display purposes, but it would be helpful to provide the original art at 960 by 960 resolution. The cover art must not be smaller than 120 pixels in either dimension.
 
 To provide cover art, we should create an image file called Cover.jpg, or else Cover.png, and place it in the project's .materials folder. For instance, we might have:
 
@@ -16111,7 +16074,7 @@ Works in Progress
 		Mating Wyverns.mp3
 ```
 
-(supposing that, as in the previous examples, "Collegio.pdf" and "Mating Wyverns.mp3" are the filenames of two feelies that accompany the release).
+(supposing that, as in the previous examples, `Collegio.pdf` and `Mating Wyverns.mp3` are the filenames of two feelies that accompany the release).
 
 The text in brackets after the release instruction...
 
@@ -16125,7 +16088,7 @@ The text in brackets after the release instruction...
 
 When IF is aimed particularly at people who have never played IF before, there are certain conventions which it's a good idea to explain, or players will simply not know what to do. It can become a chore writing a clear set of instructions, and then there is the further nuisance of explaining about the need for an interpreter program to play the IF story file.
 
-To alleviate this, Inform can "Release along with an introductory booklet", as for instance in this example:
+To alleviate this, Inform can `Release along with an introductory booklet`, as for instance in this example:
 
 	Release along with cover art, the introductory booklet, a file of "Collegio magazine" called "Collegio.pdf" and a file of "The mating call of the green wyvern" called "Mating Wyverns.mp3".
 
@@ -16147,7 +16110,7 @@ Inform is able to manufacture such a website automatically. We request this by w
 
 	Release along with cover art, a website, a file of "Collegio magazine" called "Collegio.pdf" and a file of "The mating call of the green wyvern" called "Mating Wyverns.mp3".
 
-where the list of ingredients now includes "a website". In fact, Inform makes only a single web page, called "index.html", which it places in the materials folder (as set up in the previous section): this then contains suitable links to all the other material, such as the cover art images, if they are also provided. For instance:
+where the list of ingredients now includes `a website`. In fact, Inform makes only a single web page, called `index.html`, which it places in the materials folder (as set up in the previous section): this then contains suitable links to all the other material, such as the cover art images, if they are also provided. For instance:
 
 ![sampleweb](doc_images/sampleweb.jpg)
 
@@ -16169,7 +16132,7 @@ Works in Progress
 			Small Cover.jpg
 ```
 
-("Release/Small Cover.jpg" is a form of the cover image intended for display at a smaller size. In earlier versions of Inform, the author had to provide this: there is now no need.)
+(`Release/Small Cover.jpg` is a form of the cover image intended for display at a smaller size. In earlier versions of Inform, the author had to provide this: there is now no need.)
 
 ## A playable web page {release_interpreter}
 
@@ -16181,13 +16144,13 @@ To make such a page, we must:
 
 	Release along with an interpreter.
 
-This automatically releases along with a website as well, since we need the website in order to house the new page, which will be called "play.html". This page will be bundled up with a customised copy of a story file interpreter coded in Javascript – in effect, a program for a web browser to follow – and a suitably encoded version of the story file. The practical effect should be that anyone visiting the page with any modern browser can just play.
+This automatically releases along with a website as well, since we need the website in order to house the new page, which will be called `play.html`. This page will be bundled up with a customised copy of a story file interpreter coded in Javascript – in effect, a program for a web browser to follow – and a suitably encoded version of the story file. The practical effect should be that anyone visiting the page with any modern browser can just play.
 
 Inform ships with the "Parchment" and "Quixe" interpreters built in. By default Inform will use Parchment if the format (on the project's Settings panel) is set to Z-code, and Quixe if the format is Glulx. In fact, though, Parchment works with either format, and some users prefer using it. If we want to have Parchment even for a Glulx project, we can write:
 
 	Release along with the "Parchment" interpreter.
 
-...and that's just what will happen. In fact, Inform also supports the use of any other interpreter the author wants to try. If we have access to an exotic Javascript-based interpreter called, let's say, "Urbzig", then we can install it by putting it into the "Templates" subfolder of the ".materials" folder for the project:
+...and that's just what will happen. In fact, Inform also supports the use of any other interpreter the author wants to try. If we have access to an exotic Javascript-based interpreter called, let's say, "Urbzig", then we can install it by putting it into the `Templates` subfolder of the `.materials` folder for the project:
 
 	Release along with the "Urbzig" interpreter.
 
@@ -16207,24 +16170,24 @@ Web pages are very idiosyncratic things and Inform will almost certainly not pro
 
 ![sampleweb2](doc_images/sampleweb2.jpg)
 
-The template ordinarily used by Inform is called "Standard" and comes built in. (A second built-in template, "Classic", imitates the look used in 2005-08. The word "classic" here is to be understood in the sense of Classic Mac OS, the classic Doctor Who adventure "Time and the Rani", classic Mayan civilisation, and so forth – really pretty awful.)
+The template ordinarily used by Inform is called `Standard` and comes built in. (A second built-in template, `Classic`, imitates the look used in 2005-08. The word "classic" here is to be understood in the sense of Classic Mac OS, the classic Doctor Who adventure _Time and the Rani_, classic Mayan civilisation, and so forth – really pretty awful.)
 
-Any other templates we must make ourselves, giving each one a different name, by convention a single word. In this section, we'll make a new one called "Platinum".
+Any other templates we must make ourselves, giving each one a different name, by convention a single word. In this section, we'll make a new one called `Platinum`.
 
 Suppose we write:
 
 	Release along with cover art, a "Platinum" website, a file of "Collegio magazine" called "Collegio.pdf" and a file of "The mating call of the green wyvern" called "Mating Wyverns.mp3".
 
-This is identical to the previous version except for the "Platinum": note the quotation marks. When it needs to find a template, Inform searches the following places in sequence:
+This is identical to the previous version except for the `Platinum`: note the quotation marks. When it needs to find a template, Inform searches the following places in sequence:
 
-1) the "Templates" subfolder of the project's own .materials folder, if this subfolder should exist;
-2) the "Templates" folder in the user's own library:
+1) the `Templates` subfolder of the project's own `.materials` folder, if this subfolder should exist;
+2) the `Templates` folder in the user's own library:
    - on MacOS, this is `~/Library/Inform/Templates`
    - on Windows, `My Documents\Inform\Templates`
    - or on Linux, `/Inform/Templates`
-(c) the built-in stock of templates, currently only "Standard" and "Classic".
+(c) the built-in stock of templates, currently only `Standard` and `Classic`.
 
-What Inform looks for is a folder name matching that of the template – so in our case we need to provide a folder called "Platinum", and put it in either location (a) or (b).
+What Inform looks for is a folder name matching that of the template – so in our case we need to provide a folder called `Platinum`, and put it in either location (a) or (b).
 
 The template folder is expected to contain some combination of the following files:
 
@@ -16236,16 +16199,16 @@ Platinum
 	(extras).txt
 ```
 
-There are two HTML pages here, one for the main front page, the other for pages of displayed source text (if we release along with the source text – see later in the chapter). The CSS file defines styles of text – sizes, fonts, colours, and so on – and positions material on the page. The "(extras).txt" – which is optional, of course – allows additional HTML pages, images, movies and so on to be added.
+There are two HTML pages here, one for the main front page, the other for pages of displayed source text (if we release along with the source text – see later in the chapter). The CSS file defines styles of text – sizes, fonts, colours, and so on – and positions material on the page. The `(extras).txt` – which is optional, of course – allows additional HTML pages, images, movies and so on to be added.
 
-If any of these is missing, Inform uses the one in "Standard" instead. In practice, this means the easiest way to create a new template is to supply just a new CSS file, which can change the colour, font, type size, and position of more or less everything in the site:
+If any of these is missing, Inform uses the one in `Standard` instead. In practice, this means the easiest way to create a new template is to supply just a new CSS file, which can change the colour, font, type size, and position of more or less everything in the site:
 
 ```
 Platinum
 	style.css
 ```
 
-We probably want to start from the "Standard" version of "style.css" and edit in a few changes; the easiest way to get a clean copy of "Standard"'s CSS file to work on is to release the project with a "Standard" template, which causes this default "style.css" to appear in the "Release" subfolder of the project's .materials folder. (But it's wise to move the file out of "Release" before starting to edit it – files in "Release" are overwritten by Inform whenever a release is made.)
+We probably want to start from the `Standard` version of `style.css` and edit in a few changes; the easiest way to get a clean copy of `Standard`'s CSS file to work on is to release the project with a `Standard` template, which causes this default `style.css` to appear in the `Release` subfolder of the project's .materials folder. (But it's wise to move the file out of `Release` before starting to edit it – files in `Release` are overwritten by Inform whenever a release is made.)
 
 This is not the place to describe how CSS works. CSS is a more or less universal format today for describing how web pages should look – their style rather than their content. A dazzling variety of possibilities can be seen at the excellent [CSS Zen Garden](http://csszengarden.com/), but of course there are many, many other textbooks and websites which describe CSS.
 
@@ -16255,18 +16218,18 @@ This is not the place to describe how CSS works. CSS is a more or less universal
 
 The following describes how Inform uses the extras file and the two HTML pages in a template, and will only be needed if a new template has to make changes so radical that altering the CSS alone won't be enough.
 
-The optional "(extras).txt" file – note brackets – is a text file which contains a list of named extras to throw in. For instance:
+The optional `(extras).txt` file – note brackets – is a text file which contains a list of named extras to throw in. For instance:
 
 ```
 easter.html
 egg.png
 ```
 
-These named files need to be present in the template folder. Files with the extension ".html" go through the placeholder expansion process just like the index and source pages; all other files are copied verbatim.
+These named files need to be present in the template folder. Files with the extension `.html` go through the placeholder expansion process just like the index and source pages; all other files are copied verbatim.
 
-HTML templates like "index.html" and "source.html" are fully valid HTML pages in their own right, though they have placeholder text where Inform will substitute the project's bibliographic data (see below). The "<head>" element should include a reference to "style.css", which of course will mean the CSS file given in the template (or the one from "Standard" if no CSS file is given) – for instance,
+HTML templates like `index.html` and `source.html` are fully valid HTML pages in their own right, though they have placeholder text where Inform will substitute the project's bibliographic data (see below). The `<head>` element should include a reference to `style.css`, which of course will mean the CSS file given in the template (or the one from `Standard` if no CSS file is given) – for instance,
 
-```
+``` html
 <link rel="stylesheet" href="style.css" type="text/css" media="all" />
 ```
 
@@ -16283,7 +16246,7 @@ Placeholder    | Becomes
 `[DOWNLOAD]`   | the download link
 `[AUXILIARY]`  | the list of feelie-like files, if any
 `[IFID]`       | the IFID
-`[STORYFILE]`  | the "leafname" of the story file, e.g., "Bronze.gblorb"
+`[STORYFILE]`  | the "leafname" of the story file, e.g., `Bronze.gblorb`
 `[TEMPLATE]`   | the name of the template used to make the page
 `[SMALLCOVER]` | the filename of the cover when used at a smaller size
 `[BIGCOVER]`   | the filename of the cover when used at full size
@@ -16300,7 +16263,7 @@ Placeholder     | Becomes
 `[PAGENUMBER]`  | the first number in "page 2 of 7"-like page counts
 `[PAGEEXTENT]`  | the second number in "page 2 of 7"-like page counts
 
-Both [SOURCE] and [SOURCENOTES] must exist on the page, and [SOURCENOTES] must appear after [SOURCE] does in the file. (Of course the CSS in "style.css" might move the copy around on screen, but that's another matter.)
+Both [SOURCE] and [SOURCENOTES] must exist on the page, and [SOURCENOTES] must appear after [SOURCE] does in the file. (Of course the CSS in `style.css` might move the copy around on screen, but that's another matter.)
 
 ## Republishing existing works of IF {PM_RoomInIgnoredSource}
 
@@ -16312,7 +16275,7 @@ To help with this, today's Inform can republish an Inform 6 project by combining
 
 	Release along with an existing story file.
 
-We then place the story file in the ".materials" folder. By default this will be called "Story.z8", but we can alternatively name it:
+We then place the story file in the `.materials` folder. By default this will be called `Story.z8`, but we can alternatively name it:
 
 	Release along with an existing story file called "Zork1_sg.z5".
 
@@ -16346,7 +16309,7 @@ Few authors publish solutions of their own works, but many supply their testers 
 
 	Release along with a solution.
 
-Inform will then place a file called "solution.txt" inside the "Release" folder. The solution might look like so (although probably much longer):
+Inform will then place a file called `solution.txt` inside the `Release` folder. The solution might look like so (although probably much longer):
 
 ```
 Solution to "Memoirs of India" by Graham Nelson
@@ -16366,11 +16329,11 @@ GIVE MANUSCRIPT TO THOMAS
 
 Inform does not, of course, know how to solve IF all by itself, but derives the solution from the project's Skein. Since the Skein will have been used in testing the story, it will very likely contain a perfect solution – or several different ones, taking the story to a variety of possible endings. In the example above, there are two possible winning lines, which diverge right from the first move. (There can be further divergences: for instance, if branch (2) splits, it will split into branches called (2.1), (2.2), (2.3) and so on.)
 
-But the Skein will also contain plenty of unwanted diversions, so Inform does not rewrite the entire Skein as a solution. Instead, it looks for knots in the Skein which have been annotated. Any knot whose annotation begins "\*\*\*" (three asterisks) is considered to be a final, winning move. (It is probably a good idea to lock such a knot once it has been annotated thus, too.) We can mark any number of knots "\*\*\*" since, after all, we can declare any number of lines of play as possible solutions. Inform then constructs the solution out of all lines of play in the Skein which lead to "\*\*\*" endings, and ignores other threads.
+But the Skein will also contain plenty of unwanted diversions, so Inform does not rewrite the entire Skein as a solution. Instead, it looks for knots in the Skein which have been annotated. Any knot whose annotation begins "***" (three asterisks) is considered to be a final, winning move. (It is probably a good idea to lock such a knot once it has been annotated thus, too.) We can mark any number of knots "***" since, after all, we can declare any number of lines of play as possible solutions. Inform then constructs the solution out of all lines of play in the Skein which lead to "***" endings, and ignores other threads.
 
 ![annots](doc_images/annots.png)
 
-Annotations other than "\*\*\*" in the Skein are turned automatically into comments in the solution text. For instance, the knot for the ``INVENTORY`` command in the second branch above was annotated "Always a good idea", and this was transcribed into the solution. (If an ending knot is annotated with, say, "\*\*\* Happy ending!" then the "\*\*\*" marks it as an ending, and "Happy ending!" is added as an annotation to that ending.)
+Annotations other than "***" in the Skein are turned automatically into comments in the solution text. For instance, the knot for the ``INVENTORY`` command in the second branch above was annotated "Always a good idea", and this was transcribed into the solution. (If an ending knot is annotated with, say, "*** Happy ending!" then the "***" marks it as an ending, and "Happy ending!" is added as an annotation to that ending.)
 
 By default, the solution text is not linked from our webpage, on the assumption that we may want to generate a walkthrough but not immediately advertise it to players. If we wish to change this, we may write instead
 
@@ -16386,7 +16349,7 @@ Most authors will not want to publish the source text alongside the work itself,
 
 	Release along with the source text.
 
-If Inform is not also generating a website, this produces a plain text file called "source.txt" in the "Release" folder, and there is nothing more to be said.
+If Inform is not also generating a website, this produces a plain text file called `source.txt` in the `Release` folder, and there is nothing more to be said.
 
 However, if a website is also being released, the source is also converted to a suite of web pages which are linked to and from the home page. (Each heading with substantive content is placed on its own web page, with the opening page containing a contents list.)
 
@@ -16419,19 +16382,19 @@ which releases a stand-alone XML file in 'iFiction' format for the bibliographic
 
 ^^{materials folder: map} ^^{index map: customising for release <-- |EPS file} ^^{Map page of Index panel+ui+} ^^{user interface: Index panel: Map page} ^^{Index panel+ui+: Map page}
 
-As we have seen, "Release along with..." allows us to package up a work of IF with all manner of extra materials. But what are these to be? One popular option is to produce a map – sometimes partial, sometimes obfuscated – and supply that with the story: besides, there are some IF competitions where the rules require that the referee is supplied with a map even if the players are not, and failing that, it is sometimes nice to be able to print out a map of a work in progress.
+As we have seen, `Release along with...` allows us to package up a work of IF with all manner of extra materials. But what are these to be? One popular option is to produce a map – sometimes partial, sometimes obfuscated – and supply that with the story: besides, there are some IF competitions where the rules require that the referee is supplied with a map even if the players are not, and failing that, it is sometimes nice to be able to print out a map of a work in progress.
 
 The World map in the Index tab is heavily stylised and cartoonish, intended to be clicked on or moused over, and viewed in a browser: although it is, in fact, possible to print it, the results are not very good. Fortunately, the same underlying map mechanism can be used to output something more useful and very much more customisable, as we shall see.
 
-The map-maker is one of the most complex parts of Inform, even though it actually contributes nothing to the final story file: the problem of how to draw up a "correct" map from the source text is by no means easy to solve. Inform tries, but it often gets things wrong. Its general practice is to place rooms on a square grid (actually a cubic lattice, as it works in three dimensions), but not all conceptual maps fit well onto this, and Inform often annoyingly puts a particular room in the "wrong" place. For instance, suppose Inform puts "Didcot" east of "Abingdon" and this makes the geometry look different to what we had in mind. We can correct with:
+The map-maker is one of the most complex parts of Inform, even though it actually contributes nothing to the final story file: the problem of how to draw up a "correct" map from the source text is by no means easy to solve. Inform tries, but it often gets things wrong. Its general practice is to place rooms on a square grid (actually a cubic lattice, as it works in three dimensions), but not all conceptual maps fit well onto this, and Inform often annoyingly puts a particular room in the "wrong" place. For instance, suppose Inform puts `Didcot` east of `Abingdon` and this makes the geometry look different to what we had in mind. We can correct with:
 
 	Index map with Didcot mapped southeast of Abingdon.
 
-Note that this says nothing about exits from any room to any other room, and changes the final work of IF not at all: it simply helps Inform to draw the map index. (Instructions like this one are treated as being almost certainly true, but Inform does not quite always obey: it will never allow two rooms to be superimposed at the same grid position, no matter what we have asked in "Index map with..." instructions.) The same trick is useful if we have a situation like so:
+Note that this says nothing about exits from any room to any other room, and changes the final work of IF not at all: it simply helps Inform to draw the map index. (Instructions like this one are treated as being almost certainly true, but Inform does not quite always obey: it will never allow two rooms to be superimposed at the same grid position, no matter what we have asked in `Index map with...` instructions.) The same trick is useful if we have a situation like so:
 
 	Inside of Sweeping Sands is Beach Hut Interior.
 
-"Beach Hut Interior" is a single room which does not connect to the rest of the map by any of the ten spatial directions, so Inform does not place it on the main map but instead moves it off out of the way in a map of its own. Given that it's just a single room, however, we might prefer to put into a convenient otherwise empty grid position like so:
+`Beach Hut Interior` is a single room which does not connect to the rest of the map by any of the ten spatial directions, so Inform does not place it on the main map but instead moves it off out of the way in a map of its own. Given that it's just a single room, however, we might prefer to put into a convenient otherwise empty grid position like so:
 
 	Index map with Beach Hut Interior mapped west of Sweeping Sands.
 
@@ -16439,7 +16402,7 @@ Finally, note that this trick also ensures that the two locations are mapped on 
 
 ## Producing an EPS format map {EPSMAP}
 
-The "Index map with..." instruction is a much more varied thing than hinted at in the previous section, and its general form is
+The `Index map with...` instruction is a much more varied thing than hinted at in the previous section, and its general form is
 
 	Index map with [instruction] and [instruction] and ... and [instruction].
 
@@ -16454,11 +16417,11 @@ We have already seen the first of these instructions. The second is short and ha
 
 	EPS file
 
-so can be invoked by typing "Index map with EPS file.", for instance. EPS stands for Encapsulated PostScript, which is a standard file format for line art. EPS files can be edited with sophisticated graphics programs such as Adobe Illustrator, and can be used as illustrations in many word-processors and page layout programs. They can also be converted to PDF by Mac OS X Preview, or used in Linux or Windows with the open-source Evince viewer. We need a line-art format because the map produced will never be exactly what we want: we are probably going to end up hacking it to change the fonts, add some drawings, tidy up the spacing and so on. A really large map will end up using quite a large "canvas", in EPS terms; it may be necessary to shrink it down in order to get it onto an A4 page, or to adjust whatever editing software is used to "custom paper size".
+so can be invoked by typing `Index map with EPS file.`, for instance. EPS stands for Encapsulated PostScript, which is a standard file format for line art. EPS files can be edited with sophisticated graphics programs such as Adobe Illustrator, and can be used as illustrations in many word-processors and page layout programs. They can also be converted to PDF by Mac OS X Preview, or used in Linux or Windows with the open-source Evince viewer. We need a line-art format because the map produced will never be exactly what we want: we are probably going to end up hacking it to change the fonts, add some drawings, tidy up the spacing and so on. A really large map will end up using quite a large "canvas", in EPS terms; it may be necessary to shrink it down in order to get it onto an A4 page, or to adjust whatever editing software is used to "custom paper size".
 
-When the map-maker has been given the `EPS file` instruction, it writes an attempt to draw the current project's map in EPS format as a file in the project's ".materials" folder, with the filename "Inform Map.eps".
+When the map-maker has been given the `EPS file` instruction, it writes an attempt to draw the current project's map in EPS format as a file in the project's `.materials` folder, with the filename `Inform Map.eps`.
 
-Note that Inform will over-write any existing file of this name: but that is intentional, because one usually ends up tweaking and rebuilding the project over and over to get the map just so, and it would be tiresome for Inform to produce endless copies "Inform Map 19.eps", etc.
+Note that Inform will over-write any existing file of this name: but that is intentional, because one usually ends up tweaking and rebuilding the project over and over to get the map just so, and it would be tiresome for Inform to produce endless copies `Inform Map 19.eps`, etc.
 
 (The reason the EPS file is not placed in the Release subfolder is that it is not going to releasable to the public as it stands: for one thing it will be too raw, and for another, EPS is not a format everyone can read. It is provided as raw materials.)
 
@@ -16468,15 +16431,15 @@ The map-maker has altogether 35 named settings, and tweaking these can affect th
 
 Moreover, not only does the whole map have its 35 settings, but each level has its own independent collection of those 35 settings, and so does each individual room. So the actual number of variables in our example is 1+3+67 = 71 times 35, which is a lot. The convention is that setting the value of S (some setting, let's say) for something affects not only that thing, but also everything inside it, unless they have their own individual settings for S.
 
-For example: one of the settings is called "room-size", and is the size of the little square boxes representing a room, measured in points. (One point is 1/72 of an inch, so 72 points equals 1 inch: it's a traditional printer's measure.) Suppose we write:
+For example: one of the settings is called `room-size`, and is the size of the little square boxes representing a room, measured in points. (One point is 1/72 of an inch, so 72 points equals 1 inch: it's a traditional printer's measure.) Suppose we write:
 
 	Index map with room-size set to 36
 		and room-size of level 2 set to 28
 		and room-size of the Hall of Kings set to 52.
 
-The first instruction sets the value of "room-size" for the whole map (note the lack of an "of..."); the second for level 2 of the map, and the last for a single room only. The result is that the Hall of Kings is drawn as 52x52 point box, all rooms on level 2 are 28x28 (except the Hall of Kings, if it's on level 2), and all others are 36x36, half an inch square.
+The first instruction sets the value of `room-size` for the whole map (note the lack of an `of...`); the second for level 2 of the map, and the last for a single room only. The result is that the Hall of Kings is drawn as 52x52 point box, all rooms on level 2 are 28x28 (except the Hall of Kings, if it's on level 2), and all others are 36x36, half an inch square.
 
-The setting instruction also allows three other useful forms. A setting "of the first room" applies to the room in which the story begins: we might for instance write
+The setting instruction also allows three other useful forms. A setting `of the first room` applies to the room in which the story begins: we might for instance write
 
 	Index map with room-outline-thickness of the first room set to 2.
 
@@ -16494,7 +16457,7 @@ Lastly, we can apply settings to all rooms in a given region:
 
 ## Table of map-maker settings
 
-Note that all map-maker settings have single word names, though many are hyphenated, and that "colour" is always given the English and Canadian spelling, not the American form "color".
+Note that all map-maker settings have single word names, though many are hyphenated, and that `colour` is always given the English and Canadian spelling, not the American form `color`.
 
 |Setting|Specification|
 |---|---|
@@ -16535,17 +16498,17 @@ Note that all map-maker settings have single word names, though many are hyphena
 
 ## Kinds of value accepted by the map-maker
 
-**Integer** values are typed in the usual way: 3, -72, etc.
+**Integer** values are typed in the usual way: `3`, `-72`, etc.
 
-**Text** is in double-quotes: "Map of Lower Delta", etc.
+**Text** is in double-quotes: `"Map of Lower Delta"`, etc.
 
-**Font** names are in double-quotes: "Helvetica", etc. Note that Inform makes no effort to look for such fonts: if we give the name of a font we haven't got, the result will probably be that the map's ``EPS`` file will be displayed in various applications with Courier (which looks like bad typewriting) substituted. All fonts are by default equal to the global "font" setting (by default equal to "Helvetica"), so changing "font" for the whole map affects everything not explicitly specified as having a different font.
+**Font** names are in double-quotes: `"Helvetica"`, etc. Note that Inform makes no effort to look for such fonts: if we give the name of a font we haven't got, the result will probably be that the map's ``EPS`` file will be displayed in various applications with Courier (which looks like bad typewriting) substituted. All fonts are by default equal to the global `font` setting (by default equal to `"Helvetica"`), so changing `font` for the whole map affects everything not explicitly specified as having a different font.
 
-**Shape** names are in double-quotes with lower case. At present, the only legal shapes are "circle", "square" and "rectangle".
+**Shape** names are in double-quotes with lower case. At present, the only legal shapes are `circle`, `square` and `rectangle`.
 
 **On/off** values are written just thus: on, off. No quotation marks.
 
-**Offset** values are actually pairs, and are written as two numbers (possibly negative numbers) joined by an ampersand, as in the example: "Index map with room-offset of Botley set to 10&-30." Note lack of spaces around the ampersand. This means that Botley's room is displaced from its correct grid position on the ``EPS`` map by 10% of the grid size eastwards, and 30% southwards. (The grid size is the distance between one grid position and the next: displacing Botley by -200&0 would move it two whole grid positions westwards.)
+**Offset** values are actually pairs, and are written as two numbers (possibly negative numbers) joined by an ampersand, as in the example: `Index map with room-offset of Botley set to 10&-30.` Note lack of spaces around the ampersand. This means that Botley's room is displaced from its correct grid position on the ``EPS`` map by 10% of the grid size eastwards, and 30% southwards. (The grid size is the distance between one grid position and the next: displacing Botley by -200&0 would move it two whole grid positions westwards.)
 
 The **route-stiffness** setting is used when drawing routes between two rooms. These are drawn as Bezier curves, a standard way to make a smooth curve not only travel from A to B but also from pointing in a given direction at A to ending up pointing in a given direction at B. Thus a Bezier curve may turn a route round so that it leaves A pointing west, but curves around to enter B from the south. (Most routes involve leaving in one direction and arriving in the opposite direction, of course, and in those cases a Bezier curve is just a straight line.)
 
@@ -16553,153 +16516,153 @@ The stiffness factor for a given room measures how much the curves are allowed t
 
 **Colour** values are named and in double-quotes. These names are the same as those for the traditional set of web-page-safe colour chips, as follows:
 
-- "Alice Blue"
-- "Antique White"
-- "Aqua"
-- "Aquamarine"
-- "Azure"
-- "Beige"
-- "Bisque"
-- "Black"
-- "Blanched Almond"
-- "Blue"
-- "Blue Violet"
-- "Brown"
-- "Burly Wood"
-- "Cadet Blue"
-- "Chartreuse"
-- "Chocolate"
-- "Coral"
-- "Cornflower Blue"
-- "Cornsilk"
-- "Crimson"
-- "Cyan"
-- "Dark Blue"
-- "Dark Cyan"
-- "Dark Golden Rod"
-- "Dark Gray"
-- "Dark Green"
-- "Dark Khaki"
-- "Dark Magenta"
-- "Dark Olive Green"
-- "Dark Orange"
-- "Dark Orchid"
-- "Dark Red"
-- "Dark Salmon"
-- "Dark Sea Green"
-- "Dark Slate Blue"
-- "Dark Slate Gray"
-- "Dark Turquoise"
-- "Dark Violet"
-- "Deep Pink"
-- "Deep Sky Blue"
-- "Dim Gray"
-- "Dodger Blue"
-- "Feldspar"
-- "Fire Brick"
-- "Floral White"
-- "Forest Green"
-- "Fuchsia"
-- "Gainsboro"
-- "Ghost White"
-- "Gold"
-- "Golden Rod"
-- "Gray"
-- "Green"
-- "Green Yellow"
-- "Honey Dew"
-- "Hot Pink"
-- "Indian Red"
-- "Indigo"
-- "Ivory"
-- "Khaki"
-- "Lavender"
-- "Lavender Blush"
-- "Lawn Green"
-- "Lemon Chiffon"
-- "Light Blue"
-- "Light Coral"
-- "Light Cyan"
-- "Light Golden Rod Yellow"
-- "Light Grey"
-- "Light Green"
-- "Light Pink"
-- "Light Salmon"
-- "Light Sea Green"
-- "Light Sky Blue"
-- "Light Slate Blue"
-- "Light Slate Gray"
-- "Light Steel Blue"
-- "Light Yellow"
-- "Lime"
-- "Lime Green"
-- "Linen"
-- "Magenta"
-- "Maroon"
-- "Medium Aquamarine"
-- "Medium Blue"
-- "Medium Orchid"
-- "Medium Purple"
-- "Medium Sea Green"
-- "Medium Slate Blue"
-- "Medium Spring Green"
-- "Medium Turquoise"
-- "Medium Violet Red"
-- "Midnight Blue"
-- "Mint Cream"
-- "Misty Rose"
-- "Moccasin"
-- "Navajo White"
-- "Navy"
-- "Old Lace"
-- "Olive"
-- "Olive Drab"
-- "Orange"
-- "Orange Red"
-- "Orchid"
-- "Pale Golden Rod"
-- "Pale Green"
-- "Pale Turquoise"
-- "Pale Violet Red"
-- "Papaya Whip"
-- "Peach Puff"
-- "Peru"
-- "Pink"
-- "Plum"
-- "Powder Blue"
-- "Purple"
-- "Red"
-- "Rosy Brown"
-- "Royal Blue"
-- "Saddle Brown"
-- "Salmon"
-- "Sandy Brown"
-- "Sea Green"
-- "Sea Shell"
-- "Sienna"
-- "Silver"
-- "Sky Blue"
-- "Slate Blue"
-- "Slate Gray"
-- "Snow"
-- "Spring Green"
-- "Steel Blue"
-- "Tan"
-- "Teal"
-- "Thistle"
-- "Tomato"
-- "Turquoise"
-- "Violet"
-- "Violet Red"
-- "Wheat"
-- "White"
-- "White Smoke"
-- "Yellow"
-- "Yellow Green"
+- `"Alice Blue"`
+- `"Antique White"`
+- `"Aqua"`
+- `"Aquamarine"`
+- `"Azure"`
+- `"Beige"`
+- `"Bisque"`
+- `"Black"`
+- `"Blanched Almond"`
+- `"Blue"`
+- `"Blue Violet"`
+- `"Brown"`
+- `"Burly Wood"`
+- `"Cadet Blue"`
+- `"Chartreuse"`
+- `"Chocolate"`
+- `"Coral"`
+- `"Cornflower Blue"`
+- `"Cornsilk"`
+- `"Crimson"`
+- `"Cyan"`
+- `"Dark Blue"`
+- `"Dark Cyan"`
+- `"Dark Golden Rod"`
+- `"Dark Gray"`
+- `"Dark Green"`
+- `"Dark Khaki"`
+- `"Dark Magenta"`
+- `"Dark Olive Green"`
+- `"Dark Orange"`
+- `"Dark Orchid"`
+- `"Dark Red"`
+- `"Dark Salmon"`
+- `"Dark Sea Green"`
+- `"Dark Slate Blue"`
+- `"Dark Slate Gray"`
+- `"Dark Turquoise"`
+- `"Dark Violet"`
+- `"Deep Pink"`
+- `"Deep Sky Blue"`
+- `"Dim Gray"`
+- `"Dodger Blue"`
+- `"Feldspar"`
+- `"Fire Brick"`
+- `"Floral White"`
+- `"Forest Green"`
+- `"Fuchsia"`
+- `"Gainsboro"`
+- `"Ghost White"`
+- `"Gold"`
+- `"Golden Rod"`
+- `"Gray"`
+- `"Green"`
+- `"Green Yellow"`
+- `"Honey Dew"`
+- `"Hot Pink"`
+- `"Indian Red"`
+- `"Indigo"`
+- `"Ivory"`
+- `"Khaki"`
+- `"Lavender"`
+- `"Lavender Blush"`
+- `"Lawn Green"`
+- `"Lemon Chiffon"`
+- `"Light Blue"`
+- `"Light Coral"`
+- `"Light Cyan"`
+- `"Light Golden Rod Yellow"`
+- `"Light Grey"`
+- `"Light Green"`
+- `"Light Pink"`
+- `"Light Salmon"`
+- `"Light Sea Green"`
+- `"Light Sky Blue"`
+- `"Light Slate Blue"`
+- `"Light Slate Gray"`
+- `"Light Steel Blue"`
+- `"Light Yellow"`
+- `"Lime"`
+- `"Lime Green"`
+- `"Linen"`
+- `"Magenta"`
+- `"Maroon"`
+- `"Medium Aquamarine"`
+- `"Medium Blue"`
+- `"Medium Orchid"`
+- `"Medium Purple"`
+- `"Medium Sea Green"`
+- `"Medium Slate Blue"`
+- `"Medium Spring Green"`
+- `"Medium Turquoise"`
+- `"Medium Violet Red"`
+- `"Midnight Blue"`
+- `"Mint Cream"`
+- `"Misty Rose"`
+- `"Moccasin"`
+- `"Navajo White"`
+- `"Navy"`
+- `"Old Lace"`
+- `"Olive"`
+- `"Olive Drab"`
+- `"Orange"`
+- `"Orange Red"`
+- `"Orchid"`
+- `"Pale Golden Rod"`
+- `"Pale Green"`
+- `"Pale Turquoise"`
+- `"Pale Violet Red"`
+- `"Papaya Whip"`
+- `"Peach Puff"`
+- `"Peru"`
+- `"Pink"`
+- `"Plum"`
+- `"Powder Blue"`
+- `"Purple"`
+- `"Red"`
+- `"Rosy Brown"`
+- `"Royal Blue"`
+- `"Saddle Brown"`
+- `"Salmon"`
+- `"Sandy Brown"`
+- `"Sea Green"`
+- `"Sea Shell"`
+- `"Sienna"`
+- `"Silver"`
+- `"Sky Blue"`
+- `"Slate Blue"`
+- `"Slate Gray"`
+- `"Snow"`
+- `"Spring Green"`
+- `"Steel Blue"`
+- `"Tan"`
+- `"Teal"`
+- `"Thistle"`
+- `"Tomato"`
+- `"Turquoise"`
+- `"Violet"`
+- `"Violet Red"`
+- `"Wheat"`
+- `"White"`
+- `"White Smoke"`
+- `"Yellow"`
+- `"Yellow Green"`
 
 ## Titling and abbreviation
 
-The main title of the map is the value of "title" for the whole map, so for instance we might write:
+The main title of the map is the value of `title` for the whole map, so for instance we might write:
 
 	Index map with title set to "Oxford and its Environs".
 
@@ -16711,9 +16674,9 @@ Names of individual rooms can be controlled with:
 
 	Index map with name of Radcliffe Camera set to "Library".
 
-(By default, the name of a room is its name in the main IF project, of course.) The smallest writing on the map is normally that used to label unorthodox or unclear exits (in particular, those going from one layer to another): this is what the "annotation" size, font and colour are used for.
+(By default, the name of a room is its name in the main IF project, of course.) The smallest writing on the map is normally that used to label unorthodox or unclear exits (in particular, those going from one layer to another): this is what the `annotation` size, font and colour are used for.
 
-For most ways to set up the map, it's a practical necessity to abbreviate names of rooms, or they will spill out all over each other. Inform does this using the "room-name-length" setting. (The "annotation-name-length" is analogous.) For instance, if this setting is 5, then Inform will reduce the text of a name to at most 5 characters. It does this by successively throwing out spaces, lower case vowels, then other lower case letters, punctuation marks and finally upper case letters, always starting at the back of the name and working inwards: the process stops as soon as the name is short enough. For instance, "Reading" is abbreviated to "Redng", "Shangri-La" to "Shn-La" and "Cloud-Cuckoo-Land" to "C-C-L". The result can be a little comical, but is surprisingly unambiguous in practice. Abbreviation can effectively be abolished by raising the "room-name-length" to 128 (the highest permitted level), and note that the setting can be changed for individual rooms, so it is possible to have some room names abbreviated and others not, or in different degrees.
+For most ways to set up the map, it's a practical necessity to abbreviate names of rooms, or they will spill out all over each other. Inform does this using the `room-name-length` setting. (The `annotation-name-length` is analogous.) For instance, if this setting is 5, then Inform will reduce the text of a name to at most 5 characters. It does this by successively throwing out spaces, lower case vowels, then other lower case letters, punctuation marks and finally upper case letters, always starting at the back of the name and working inwards: the process stops as soon as the name is short enough. For instance, "Reading" is abbreviated to "Redng", "Shangri-La" to "Shn-La" and "Cloud-Cuckoo-Land" to "C-C-L". The result can be a little comical, but is surprisingly unambiguous in practice. Abbreviation can effectively be abolished by raising the `room-name-length` to 128 (the highest permitted level), and note that the setting can be changed for individual rooms, so it is possible to have some room names abbreviated and others not, or in different degrees.
 
 ## Rubrics
 
@@ -16721,7 +16684,7 @@ Lastly, we can add our own arbitrary text to the map: perhaps to annotate points
 
 	Index map with rubric "Here Be Wyverns" size 16 font "Helvetica-Oblique" colour "Thistle" at 150&0 from Cloud-Cuckoo-Land.
 
-This gives rather more detailed information than is needed: "size 16" could have been omitted, giving us 12-point type by default, and similarly there is no need to specify a font unless it differs from the main "font" setting for the whole map; and the colour will be black if unspecified. The "at" position does need to be given, though. Note that it is relative to a given room on the map, and that the position specified is that of the centre-point of the text. (If we had written just "at 100&100", say, that would specify a position relative to the bottom left hand corner of the map.) So, for instance:
+This gives rather more detailed information than is needed: `size 16` could have been omitted, giving us 12-point type by default, and similarly there is no need to specify a font unless it differs from the main `font` setting for the whole map; and the colour will be black if unspecified. The `at` position does need to be given, though. Note that it is relative to a given room on the map, and that the position specified is that of the centre-point of the text. (If we had written just `at 100&100`, say, that would specify a position relative to the bottom left hand corner of the map.) So, for instance:
 
 	Index map with rubric "trapped door" size 8 at -60&-60 from Longwall.
 
@@ -16865,7 +16828,7 @@ Between 1993 and 2006, quite a range of "library extensions" for Inform's predec
 
 Inform 7 has a more organised idea of extensions, as we shall see. But anyone is free to write an extension on any terms or for any reason. Writers may wish to use the techniques in this chapter to develop private extensions of their own, used in several projects, or to share them with associates but not more widely.
 
-But most writers of extensions do so to contribute to the Inform community, and for the satisfaction of solving a problem. Inform does not recognise anyone's approach to a particular need as "the official solution" – for instance, although the standard Inform distribution includes a copy of Locksmith by Emily Short, that is not the "official" way to make automatically unlocking doors, and anyone is welcome to try a better one.
+But most writers of extensions do so to contribute to the Inform community, and for the satisfaction of solving a problem. Inform does not recognise anyone's approach to a particular need as "the official solution" – for instance, although this manual sometimes recommends `Locksmith by Emily Short`, that is not the "official" way to make automatically unlocking doors, and anyone is welcome to try a better one.
 
 However, the Inform project does recognise some extensions as "public". Public extensions are the ones archived on the Inform website for the free use of all Inform writers. Those who wish to contribute an extension as a public one are obliged to follow a number of guidelines, which are mostly stylistic points intended to make the range of extensions easier to work with. Extension writers are asked to join in the spirit of these rules and help make the whole cooperative enterprise work harmoniously. Extensions which do play by these rules are also accepted into the Public Library, which makes them easy for all Inform users everywhere to find and obtain them.
 
@@ -16887,7 +16850,7 @@ The "Standard Rules" file contains the definitions of the basic kinds, phrases, 
 
 ...without which Inform would be lost. Although including the Standard Rules is compulsory, it is treated internally as if it were any other "extension".
 
-What happens when an "Include" sentence is reached is that the sentence is replaced with the whole text of the file in question, often many paragraphs long.
+What happens when an `Include` sentence is reached is that the sentence is replaced with the whole text of the file in question, often many paragraphs long.
 
 If the file has already been included, then the sentence is simply ignored. This is so that we can have two extensions, each of which needs the other: if A says to include B, and B says to include A, the result is that including one automatically includes the other, so we always get both which ever we ask for – not that there is a hideous infinite regress.
 
@@ -16897,7 +16860,7 @@ If the file has already been included, then the sentence is simply ignored. This
 
 To recap: Inform builds projects from both the source text typed by the author and from Extensions; one of these, the Standard Rules, is always included; others are added as authors please. About 20 are "built-in" to Inform, meaning that they are stored inside the application and always available. Others must be "installed", and each Inform user will have a folder somewhere on their computer which contains these. Users typically obtain these from the Public Library feature in the Inform application, but can also download them directly from the extension writer's website and then use an Install Extension menu option in the application. Either way, the application then squirrels the file away, and it becomes available to any projects that that user may be working on.
 
-It is also possible to have extensions available to just one project. These must be stored in the Extensions subfolder of the project's ".materials" folder, but otherwise are arranged the same as installed extensions – there's an outer folder for each author's name, and extensions are named with a ".i7x" extension within. For example:
+It is also possible to have extensions available to just one project. These must be stored in the Extensions subfolder of the project's `.materials` folder, but otherwise are arranged the same as installed extensions – there's an outer folder for each author's name, and extensions are named with a `.i7x` extension within. For example:
 
 ```
 Mourning Hypercritical.inform
@@ -16907,7 +16870,7 @@ Mourning Hypercritical.materials
 			Fixing The Finder.i7x
 ```
 
-When Inform needs to find an extension, it looks here first, then in the installed area, then in its built-in area. That means that we can make our own revised or hacked version of an extension, put it in the ".materials" area, and then have it take precedence over the installed or built-in one. We could even have our own private version of the Standard Rules here.
+When Inform needs to find an extension, it looks here first, then in the installed area, then in its built-in area. That means that we can make our own revised or hacked version of an extension, put it in the `.materials` area, and then have it take precedence over the installed or built-in one. We could even have our own private version of the Standard Rules here.
 
 (This has a number of possible uses – for example, to provide a convenient test-bed when working on an experimental version of an extension.)
 
@@ -16915,7 +16878,7 @@ When Inform needs to find an extension, it looks here first, then in the install
 
 ^^{extensions: writing: author+biblio+} ^^{author+biblio+: of an extension}
 
-Extensions are identified by author and by name, so that a given author can produce their own range of extensions, and need only ensure that these are named differently from each other. If John Smith and Mary Brown each want to write an extension called "Following People", there is no conflict.
+Extensions are identified by author and by name, so that a given author can produce their own range of extensions, and need only ensure that these are named differently from each other. If John Smith and Mary Brown each want to write an extension called `Following People`, there is no conflict.
 
 The name of an extension, and of an author, should be written in Sentence Capitalisation: that is, upper case for the first letter in each word. (Inform uses this to minimise problems on machines where filenames are read with case sensitivity.) It is permitted for author names to include upper-case letters within words, as with the "G" in "^{@Tara McGrew}". In general it is best to avoid accented or unusual letters in titles and author names, but the standard ISO Latin-1 characters should be allowed – for instance,
 
@@ -16949,7 +16912,7 @@ Extensions look very much like passages of Inform source, because except for a s
 
 Not a useful or interesting extension, but those few words add a whole new action and everything needed to make it work. It is Inform's ability to mix up rooms, things, kinds, grammar, phrases and rules, in more or less any order, which makes it possible for extensions to work.
 
-The introductory sentence must be placed as the only content of line 1 of the file, which must not contain comments, and has to be written in exactly the correct form. Inform checks this very carefully when performing its census of installed extensions, on each translation of the text. (In case the extension's title is a plural, we are allowed to write "begin" and "end" instead of "begins" and "ends". For instance, the last line of the standard rules is "The Standard Rules end here.")
+The introductory sentence must be placed as the only content of line 1 of the file, which must not contain comments, and has to be written in exactly the correct form. Inform checks this very carefully when performing its census of installed extensions, on each translation of the text. (In case the extension's title is a plural, we are allowed to write `begin` and `end` instead of `begins` and `ends`. For instance, the last line of the standard rules is `The Standard Rules end here.`)
 
 The "one convention" mentioned above is that if a double-quoted text is placed immediately after the beginning sentence (and with no intervening comments), then it is taken to be a short description of the extension's content called the "rubric". Hence the line:
 
@@ -16977,7 +16940,7 @@ As we have seen, extensions are referred to by name and author, but they can als
 	
 	Version 1.2.4 of the Ducking Action by Beatrix Potter begins here.
 
-Version numbers should consist of one to three whole numbers divided by dots, with no negative numbers allowed. Thus "5", "3.3" and "2.1.71652" are all valid as version numbers, but "-4" and "3.1.2.5" are not. Any numbers not specified are taken to be 0: thus "3.3" means the same as "3.3.0", and "5" means the same as "5.0.0".
+Version numbers should consist of one to three whole numbers divided by dots, with no negative numbers allowed. Thus `5`, `3.3` and `2.1.71652` are all valid as version numbers, but `-4` and `3.1.2.5` are not. Any numbers not specified are taken to be 0: thus `3.3` means the same as `3.3.0`, and `5` means the same as `5.0.0`.
 
 In versions of Inform before 2022, versions of extensions were also allowed to be written in the form "N/YYMMDD, as in this example:
 
@@ -16993,7 +16956,7 @@ For full details see [semver.org](https://semver.org), but for Inform purposes t
 
 In this system, the three possible numbers X.Y.Z are called the "major", "minor" and "patch" numbers. Every time an extension is changed and re-released, even just informally among friends but certainly if posted somewhere on the Internet, X, Y or Z should change. The rules are:
 
-(X) If the extension has changed so much that Inform projects using it will need to be changed in order to keep on working – for example, if a "To..." phrase has been taken out, or the name of a kind changed – then X should be increased. Y and Z then usually go back to 0. This is a "major version".
+(X) If the extension has changed so much that Inform projects using it will need to be changed in order to keep on working – for example, if a `To...` phrase has been taken out, or the name of a kind changed – then X should be increased. Y and Z then usually go back to 0. This is a "major version".
 
 (Y) If the extension provides new features but doesn't do anything to change the way its existing features are used, then X can stay the same but Y should increase, and Z then usually rolls around to 0. This is a "minor version".
 
@@ -17001,7 +16964,7 @@ In this system, the three possible numbers X.Y.Z are called the "major", "minor"
 
 So, for example, a user who currently has version 3.2.7 can update to 3.2.8 without really investigating. That same user can update to 3.3, 3.4, ... without any trouble, choosing either to use or ignore whatever new features they are presenting. But the user knows that moving up to version 4 might well require some work – a project using version 3.Y.Z will likely need writing to adopt version 4.
 
-Now let's turn to "Include" sentences. A request like:
+Now let's turn to `Include` sentences. A request like:
 
 	Include the Ducking Action by Beatrix Potter.
 
@@ -17015,7 +16978,7 @@ During play of any story compiled by Inform 7, typing ``VERSION`` lists various 
 
 > phrase: {phs_extcredits} say "[the/-- list of extension credits]"
 >
-> This text substitution expands to one or more lines of text crediting each of the extensions used by the current source text, along with their version numbers and authors. Extensions whose authors have chosen the "use authorial modesty" option are missed out.
+> This text substitution expands to one or more lines of text crediting each of the extensions used by the current source text, along with their version numbers and authors. Extensions whose authors have chosen the `use authorial modesty` option are missed out.
 
 If we want our extension to go uncredited – perhaps if it is a low-level enabling sort of thing, for instance – we can place the following sentence inside the definition of the extension:
 
@@ -17027,21 +16990,21 @@ A complete list, undiluted by modesty, can always be obtained using:
 
 > phrase: {phs_compextcredits} say "[the/-- complete list of extension credits]"
 >
-> This text substitution expands to one or more lines of text crediting each of the extensions used by the current source text, along with their version numbers and authors. Every extension is included, even those whose authors have opted for "use authorial modesty".
+> This text substitution expands to one or more lines of text crediting each of the extensions used by the current source text, along with their version numbers and authors. Every extension is included, even those whose authors have opted for `use authorial modesty`.
 
 ## Extensions and story file formats
 
 ^^{extensions: writing: for a specific virtual machine} ^^{Glulx: extensions for Glulx only} ^^{Z-machine: extensions for Z-machine only} ^^{virtual machine: extensions for Z-machine / Glulx only} ^^{Basic Screen Effects+ext+} ^^{extensions: specific extensions: Basic Screen Effects}
 
-Inform compiles to several different story file formats, and in each case uses only a small part of their abilities – especially when it comes to fancy tricks with the keyboard or screen. So people may well want to write extensions which provide access to some of these tricks (like "Basic Screen Effects", included in the standard Inform distribution, but more so). Unfortunately, these tricks are very likely to fail to compile – or fail to work – on some of the possible story file formats, so the resulting extension would probably go wrong (and mysteriously wrong) for users who have chosen a different format.
+Inform compiles to several different story file formats, and in each case uses only a small part of their abilities – especially when it comes to fancy tricks with the keyboard or screen. So people may well want to write extensions which provide access to some of these tricks. Unfortunately, these tricks are very likely to fail to compile – or fail to work – on some of the possible story file formats, so the resulting extension would probably go wrong (and mysteriously wrong) for users who have chosen a different format.
 
 Inform therefore provides a way for extensions to declare the formats they are compatible with. All that is required is to add a proviso in brackets after the title is declared:
 
 	Version 2 of Basic Screen Effects (for Z-Machine version 8 only) by ^{@Emily Short} begins here.
 
-Other examples might be "(for Glulx only)", or "(for Z-machine only)". If no such proviso is given, the extension is assumed to be compatible with every story file format.
+Other examples might be `(for Glulx only)`, or `(for Z-machine only)`. If no such proviso is given, the extension is assumed to be compatible with every story file format.
 
-Extensions are also able to include material which is only used on some story file formats and not others – in principle, this might allow the same facilities to be provided to the author whatever story file format is used, but to achieve these effects differently depending on the current Settings. The convention here is exactly like "not for release": if a heading or subheading in the source text contains a bracketed proviso, then the material under that heading (and under its dependent subheadings) will be ignored if the current story file format does not match. For example:
+Extensions are also able to include material which is only used on some story file formats and not others – in principle, this might allow the same facilities to be provided to the author whatever story file format is used, but to achieve these effects differently depending on the current Settings. The convention here is exactly like `not for release`: if a heading or subheading in the source text contains a bracketed proviso, then the material under that heading (and under its dependent subheadings) will be ignored if the current story file format does not match. For example:
 
 	Section 2.3G (for Glulx only)
 	
@@ -17053,7 +17016,7 @@ Extensions are also able to include material which is only used on some story fi
 	To reveal the explosion:
 		[...the Z-machine way...]
 
-would ensure that "reveal the explosion" works nicely whichever story file format is used.
+would ensure that `reveal the explosion` works nicely whichever story file format is used.
 
 The terms `Glulx` and `Z-machine` above are used a little loosely, for historical reasons. They really mean to choose between a 32-bit architecture, as exemplified by the Glulx virtual machine for interactive fiction devised around 2000, and a 16-bit architecture, as exemplified by the Z-machine from around 1980. The difference is partly in the size of numbers which can be stored, but affects many other things as well, as all modern IF uses the default `Glulx` setting, that is, 32-bit.
 
@@ -17063,7 +17026,7 @@ However, it is now possible to compile Inform projects to C programs too, in whi
 
 ^^{extensions: writing: including other extensions}
 
-Extensions can themselves contain "Include..." sentences asking for other extensions to be included. An extension might, for example, start like this:
+Extensions can themselves contain `Include...` sentences asking for other extensions to be included. An extension might, for example, start like this:
 
 	Version 1 of Basic Help Menu by Emily Short begins here.
 	
@@ -17071,19 +17034,19 @@ Extensions can themselves contain "Include..." sentences asking for other extens
 	
 	...
 
-A project which asks to include "Basic Help Menu" will then also include "Menus", even though the author might never even realise that. Indeed, the author could also have asked to include "Menus", not realising that "Basic Help Menu" was going to ask for the same thing.
+A project which asks to include `Basic Help Menu` will then also include `Menus`, even though the author might never even realise that. Indeed, the author could also have asked to include `Menus`, not realising that `Basic Help Menu` was going to ask for the same thing.
 
 So the same extension is often requested multiple times. This is fine if the version numbers in the requests are compatible, but they might not be. For instance, suppose the main source text asks to include version 2 of extension X, and also to include extension Y. Suppose further that Y contains a request to include version 4 of X. We now have two different requests for X, and they contradict each other – the major version of X cannot be both 2 and 4 at the same time. So Inform will produce a problem message in this case.
 
 But in cases where it is possible for everyone to be satisfied, Inform will try to find a solution. If one extension asks for version 2.3 of X, and another asks just for X, and a third asks for version 2.7.2 of X, then Inform will work out that any version number in the range 2.7.2 up to (but not including) 3 will be fine. If it can in fact find such an extension, it will then use it. So if the user has version 2.8.17 installed, everything is fine.
 
-If an extension does include other extensions, it is good style to place the "Include..." sentence(s) as early as possible after the introductory sentence, just so that human readers looking at the text of the extension can see these dependencies easily.
+If an extension does include other extensions, it is good style to place the `Include...` sentence(s) as early as possible after the introductory sentence, just so that human readers looking at the text of the extension can see these dependencies easily.
 
 ## Extensions can interact with other extensions {PM_HeadingInPlaceOfUnincluded} {PM_HeadingInPlaceOfUnknown} {PM_UnequalHeadingInPlaceOf}
 
 ^^{extensions: writing: including other extensions} ^^{extensions: writing: modifying other extensions} ^^{headings: in extensions}
 
-When one extension is being used, it's probably only one among several. A really general-purpose extension might want to behave differently depending on which other extensions are also present. This can be achieved using headings which are "for use with" (or "without") other extensions. For instance:
+When one extension is being used, it's probably only one among several. A really general-purpose extension might want to behave differently depending on which other extensions are also present. This can be achieved using headings which are `for use with` (or `without`) other extensions. For instance:
 
 	Chapter 2a (for use with Locksmith by Emily Short)
 
@@ -17109,7 +17072,7 @@ places the source text under the new heading in the place of the old (which is t
 
 and we don't include Locksmith, then the replacement of Section 4 of Marbles is not made, because Section 1 – Hacked marbles is subordinate to the Chapter 2a heading which we've told Inform to ignore.
 
-If the name of the heading to replace contains the word "in", it's a good idea to use quotation marks for clarity:
+If the name of the heading to replace contains the word `in`, it's a good idea to use quotation marks for clarity:
 
 	Section - Hacked questions (in place of "Section 4 - Phrase used to ask questions in closed mode" in Questions by Michael Callaghan)
 
@@ -17123,7 +17086,7 @@ The Kinds index aims to give the reader a brief note of what each kind is intend
 
 	The specification of player's holdall is "Represents a container which the player can carry around as a sort of rucksack, into which spare items are automatically stowed away."
 
-There is no need to specify the properties which apply: that is all done automatically. "Specification" is a sort of pseudo-property used just for this: we can also give specifications to kinds of value and to actions, and these are similarly used in the Index pages.
+There is no need to specify the properties which apply: that is all done automatically. `Specification` is a sort of pseudo-property used just for this: we can also give specifications to kinds of value and to actions, and these are similarly used in the Index pages.
 
 Every extension has the right to its own set of headings and subheadings, independently of those used by the main source for the work or by any other extension which may be included. (So if the extension is divided into four sections and finishes on Section D, say, that doesn't mean that Section D will continue outside the extension as the main source of the story runs on.)
 
@@ -17135,7 +17098,7 @@ The half-dozen phrases defined in this section of the Standard Rules are then in
 
 If an extension contains no headings, its phrases (or actions) are indexed simply as "Miscellaneous".
 
-Finally, any phrase or variable defined immediately under a heading whose name ends in the word "unindexed" will be omitted from the Phrasebook or Contents index respectively. (That won't apply to definitions under subheadings of the heading.) This is intended so that technical apparatus used only inside the extensions can be concealed from the outside user's immediate view. Inform as it is presently constituted does not allow extensions to make fully private definitions, but this feature at least allows them to make unadvertised ones.
+Finally, any phrase or variable defined immediately under a heading whose name ends in the word `unindexed` will be omitted from the Phrasebook or Contents index respectively. (That won't apply to definitions under subheadings of the heading.) This is intended so that technical apparatus used only inside the extensions can be concealed from the outside user's immediate view. Inform as it is presently constituted does not allow extensions to make fully private definitions, but this feature at least allows them to make unadvertised ones.
 
 ## Extension documentation
 
@@ -17149,7 +17112,7 @@ In order to be recognised as documentation, this text should appear at the foot 
 
 	---- Documentation ----
 
-For instance, the "Ducking Action" example might end:
+For instance, the `Ducking Action` example might end:
 
 	
 	[...]
@@ -17167,7 +17130,7 @@ We obtain indented code examples by beginning a line with a tab. A double indent
 
 Note that text in square brackets should be avoided in the documentation, because that's taken as being comment matter on the extension, and omitted.
 
-Tables should be similarly indented, and should begin with the word "Table ...": the top line is taken to be the name of the table, and subsequent lines are tab-divided columns. Inform will automatically group this into a table, like so:
+Tables should be similarly indented, and should begin with the word `Table ...`: the top line is taken to be the name of the table, and subsequent lines are tab-divided columns. Inform will automatically group this into a table, like so:
 
 	Table of Exemplariness
 	stellar object	example
@@ -17193,17 +17156,17 @@ Extensions with very large amounts of documentation can, if the author chooses, 
 
 Inform will then typeset them to stand out, will number them automatically, and will add a table of contents at the top of the page. (For most extensions, the documentation will be short and sweet, and this would just be clutter: headings and subheadings are best used only where the text would otherwise be difficult to read.)
 
-Any extension's documentation can contain Examples, just as the main Inform documentation does: these are automatically labelled A, B, C, ... rather than given numbers, to ensure that they do not clash with the numbering used in the built-in chapters. (The labels may be helpful in writing an extension's documentation: we can write, for instance, a note such as "see Example C below".)
+Any extension's documentation can contain Examples, just as the main Inform documentation does: these are automatically labelled `A`, `B`, `C`, ... rather than given numbers, to ensure that they do not clash with the numbering used in the built-in chapters. (The labels may be helpful in writing an extension's documentation: we can write, for instance, a note such as "see Example C below".)
 
 Examples must be given last in the documentation, and there can be up to 26 of them, though most extensions will need one example at the most, and some will have none at all. Each example must begin with a paragraph exactly like so:
 
 	Example: ** We Must Perform a Quirkafleeg - Ducking to avoid arrows as one proceeds east across battlements.
 
-Again, there must be a skipped line before and after. The row of asterisks must be \*, \*\*, \*\*\* or \*\*\*\*, just as in the main documentation, which we should follow on all points of style. The rest of the line contains the title, a hyphen, and then the description. The title should be given with Each Word except Prepositions and Similar Things Capitalised, while the description should look like a sentence, and end with a full stop.
+Again, there must be a skipped line before and after. The row of asterisks must be *, **, *** or ****, just as in the main documentation, which we should follow on all points of style. The rest of the line contains the title, a hyphen, and then the description. The title should be given with Each Word except Prepositions and Similar Things Capitalised, while the description should look like a sentence, and end with a full stop.
 
-The text of the example follows, of course, and continues until the end of the file, or the next "Example:" line, whichever comes first.
+The text of the example follows, of course, and continues until the end of the file, or the next `Example:` line, whichever comes first.
 
-Each example should (normally) contain one single, complete, story, long enough to demonstrate the use of the extension and to have a little flavour to it, but not so long that the reader gets lost. It should have a title, which should match the name of the example (in the case above, "We Must Perform a Quirkafleeg"). It should conclude with a paragraph defining a test:
+Each example should (normally) contain one single, complete, story, long enough to demonstrate the use of the extension and to have a little flavour to it, but not so long that the reader gets lost. It should have a title, which should match the name of the example (in the case above, `We Must Perform a Quirkafleeg`). It should conclude with a paragraph defining a test:
 
 	Test me with "east / duck / east / jump / east / duck / east / rescue esmerelda".
 
@@ -17225,7 +17188,7 @@ Extension documentation can provide "paste" buttons, much like the examples in t
 	
 		The coriander is a herb. Understand "cilantro" as the coriander.
 
-Note that the paste button, denoted "\*:", pastes in the text following it, but only as far as the next paragraph of unindented documentation – here, the one beginning "If we...". (But of course, an extension can have multiple paste buttons if desired.)
+Note that the paste button, denoted "*:", pastes in the text following it, but only as far as the next paragraph of unindented documentation – here, the one beginning `If we...`. (But of course, an extension can have multiple paste buttons if desired.)
 
 ## Implications {PM_ImplicationCertain} {PM_ImplicationValueProperty}
 
@@ -17233,23 +17196,23 @@ Note that the paste button, denoted "\*:", pastes in the text following it, but 
 
 Extensions often need to define new kinds or properties, which we want to make as helpful as possible for the user. In particular, we want them not to require additional work for the author just to obtain the effect which seems only natural.
 
-For example, consider Inform's built-in "locked" property. If a door is locked, then it cannot be opened, which seems fair enough. But if the player tries to unlock the door, they might then find the following response:
+For example, consider Inform's built-in `locked` property. If a door is locked, then it cannot be opened, which seems fair enough. But if the player tries to unlock the door, they might then find the following response:
 
 	That doesn't seem to be something you can unlock.
 
-Which does not seem right. In real life, almost all locked items have outwardly exposed locks which it is perfectly sensible to try to unlock, given a key. The problem is that our door has the "locked" property, but not the "lockable" one.
+Which does not seem right. In real life, almost all locked items have outwardly exposed locks which it is perfectly sensible to try to unlock, given a key. The problem is that our door has the `locked` property, but not the `lockable` one.
 
 The Standard Rules solve this problem by including the following line:
 
 	Something locked is usually lockable.
 
-This ensures that any door said by the author only to be "locked" will be "lockable" as well, and adds a small but worthwhile touch of realism.
+This ensures that any door said by the author only to be `locked` will be `lockable` as well, and adds a small but worthwhile touch of realism.
 
 Such a sentence is called an "implication", as it is in the form "Condition A implies Condition B". Note that the two conditions must consist of either/or properties with or without kinds attached. Thus:
 
 	A room in the Open Desert is usually lighted.
 
-will not work because "a room in the Open Desert" is a more complicated grammatical construction than, say, "lighted" or "a lighted room": it contains a relative clause. Inform can only deal with simple implications.
+will not work because `a room in the Open Desert` is a more complicated grammatical construction than, say, `lighted` or `a lighted room`: it contains a relative clause. Inform can only deal with simple implications.
 
 Inform never overrides certainties with mere implications, and is cautious about allowing them to build overly long chains of argument. This is to prevent the following kind of difficulty:
 
@@ -17263,7 +17226,7 @@ Implications work just the same for values which aren't objects, so:
 	
 	A bright colour is usually zesty.
 
-results in red being zesty, but blue and green being flat; blue because the source text explicitly says so (which trumps the "usually"), and green because this isn't a bright colour, so the implication doesn't arise.
+results in red being zesty, but blue and green being flat; blue because the source text explicitly says so (which trumps the `usually`), and green because this isn't a bright colour, so the implication doesn't arise.
 
 Implications have not been mentioned up to now since they are only really needed by extensions, but also because they can be tricky, with unforeseen consequences. We should handle them with care.
 
@@ -17287,13 +17250,13 @@ Moreover, the Basic Inform and Standard Rules extensions use a number of syntaxe
 
 ^^{Inform 6 inclusions: phrases} ^^{phrases: defining in Inform 6} ^^{((- -)), for including Inform 6 code in Inform 7+sourcepart+} ^^{punctuation: curly braces: for including Inform 7 expressions in Inform 6+sourcepart+} ^^{|{ \}: for including Inform 7 expressions in Inform 6}
 
-The phrases described in this documentation, such as "end the story", are all defined in the Standard Rules, and are for the most part defined not in terms of other I7 phrases but instead reduced to equivalents in I6. For instance:
+The phrases described in this documentation, such as `end the story`, are all defined in the Standard Rules, and are for the most part defined not in terms of other I7 phrases but instead reduced to equivalents in I6. For instance:
 
 	To end the story: (- deadflag=3; story_complete=false; -).
 
-The notation "(-" and "-)" indicates that what comes in between is I6 code. The minus sign is supposed to be a mnemonic for the decrease from 7 to 6: later we shall use "(+" and "+)" to go back up the other way, from 6 to 7.
+The notation `(-` and `-)` indicates that what comes in between is I6 code. The minus sign is supposed to be a mnemonic for the decrease from 7 to 6: later we shall use `(+` and `+)` to go back up the other way, from 6 to 7.
 
-When a phrase is defined as containing only a single command, and that command is defined using I6 – as here – it is compiled in-line. This means that the phrase "end the story" will always be translated as "deadflag=3; story_complete=false;", rather than being translated into a call to a suitable function whose only statement is "deadflag=3; story_complete=false;".
+When a phrase is defined as containing only a single command, and that command is defined using I6 – as here – it is compiled in-line. This means that the phrase `end the story` will always be translated as ```deadflag=3; story_complete=false;```, rather than being translated into a call to a suitable function whose only statement is ```deadflag=3; story_complete=false;```.
 
 This is an easy case since the wording never varies. More typical examples would be:
 
@@ -17311,17 +17274,17 @@ might be compiled to
 print O17_basket.capacity;
 ```
 
-because "{something}" is expanded to "capacity of the basket" (I7 code) and then translated to "O17_basket.capacity" (I6 code), which is then spliced into the original I6 definition "print {something};".
+because `{something}` is expanded to `capacity of the basket` (I7 code) and then translated to ```O17_basket.capacity``` (I6 code), which is then spliced into the original definition `"print {something};"`.
 
-Braces "{" are of course significant in I6. A real brace can be obtained by making the character following it a space, and then I7 will not attempt to read it as a request for substitution.
+Braces `{` are of course significant in I6. A real brace can be obtained by making the character following it a space, and then I7 will not attempt to read it as a request for substitution.
 
-It's also possible for the pair of characters "-)" to occur in I6 code, for example here:
+It's also possible for the pair of characters `-)` to occur in I6 code, for example here:
 
 ``` inform6
 for (i=3 : i>0 : i--)
 ```
 
-and I7 will read the "-)" as terminating the I6; we can get around this with an extra space:
+and I7 will read the `-)` as terminating the I6; we can get around this with an extra space:
 
 ``` inform6
 for (i=3 : i>0 : i-- )
@@ -17378,13 +17341,13 @@ This can be used by, say:
 
 	list the contents of O, as a sentence, using the definite article
 
-"{phrase options}" is a special substitution: it is a bitmap which assigns the given options one bit each, starting with the least significant bit for the first-mentioned option ("with newlines" above) and going up to the most significant bit for the last ("with extra indentation").
+`{phrase options}` is a special substitution: it is a bitmap which assigns the given options one bit each, starting with the least significant bit for the first-mentioned option (`with newlines` above) and going up to the most significant bit for the last (`with extra indentation`).
 
 ## Making and testing use options
 
 ^^{Inform 6 inclusions: use options} ^^{use options: defining in Inform 6} ^^{use options: active / inactive+adj+} ^^{active / inactive (use option)+adj+} ^^{inactive / active (use option)+adj+} ^^{translates as...+assert+: use options}
 
-Use options (see the chapter on [Source Text] above) manifest themselves in the I6 code generated by I7 as constants which are either defined, or not. For instance, the "use American dialect" option results in the constant ```DIALECT_US``` being defined, a constant which otherwise would not be. Some use options define the constant as a particular value, others simply define it (so that I6 gives this constant the value 0).
+Use options (see the chapter on [Source Text] above) manifest themselves in the I6 code generated by I7 as constants which are either defined, or not. For instance, the `use American dialect` option results in the constant ```DIALECT_US``` being defined, a constant which otherwise would not be. Some use options define the constant as a particular value, others simply define it (so that I6 gives this constant the value 0).
 
 New use options can be created as in the following examples, which are found in the Standard Rules:
 
@@ -17397,7 +17360,7 @@ To test for American dialect, we should ideally not use I6 to look for the const
 
 	if the American dialect option is active, ...
 
-and similarly for all other named use options. The adjectives "active" and "inactive" have the obvious meanings for use options. This means it's possible to describe the current options like so:
+and similarly for all other named use options. The adjectives `active` and `inactive` have the obvious meanings for use options. This means it's possible to describe the current options like so:
 
 	say "We're currently using: [list of active use options].";
 
@@ -17413,7 +17376,7 @@ Use options can also allow the writer to raise certain maximum values. If we wri
 
 	Use maximum presented footnotes of at least 100 translates as (- Constant MAX_PRESENTED_FOOTNOTES = {N}; -).
 
-With such a definition, the number given is the default value, and the I6 source is included whether or not anybody uses the option: the default value being given if nobody does. The text "{N}" is replaced with the value. So the above definition normally results in this being defined:
+With such a definition, the number given is the default value, and the I6 source is included whether or not anybody uses the option: the default value being given if nobody does. The text `{N}` is replaced with the value. So the above definition normally results in this being defined:
 
 	Constant MAX_PRESENTED_FOOTNOTES = 100;
 
@@ -17443,29 +17406,29 @@ Whole routines, object and class definitions (or any other directives) can be pa
 
 Such inclusions are pasted into the final compiled code at the end of the file, after the I6 grammar has been declared.
 
-In such extracts, we sometimes need to refer to objects, variables or values which can't be described using I6: or rather, which can be described, but we don't know how. To this end, any text in an inclusion written in "(+" and "+)" parentheses is treated as an I7 value, and compiled accordingly, with all type-checking waived for the occasion. For instance:
+In such extracts, we sometimes need to refer to objects, variables or values which can't be described using I6: or rather, which can be described, but we don't know how. To this end, any text in an inclusion written in `(+` and `+)` parentheses is treated as an I7 value, and compiled accordingly, with all type-checking waived for the occasion. For instance:
 
 	Include (-
 	Global my_global = (+ the tartan rucksack +);
 	-).
 
-Here "the tartan rucksack" is translated into "O18_tartan_rucksack", or something similar: the I6 object created to represent the rucksack. Thus the actual line of code produced is
+Here `the tartan rucksack` is translated into `O18_tartan_rucksack`, or something similar: the I6 object created to represent the rucksack. Thus the actual line of code produced is
 
 	Global my_global = O18_tartan_rucksack;
 
-The material between "(+" and "+)" is generally treated as a value, and thus compiles to the I6 form of that value. But it could also be a property name, which compiles to the I6 form in question, or a defined adjective, which compiles to the name of the routine to call which tests whether that adjective is true.
+The material between `(+` and `+)` is generally treated as a value, and thus compiles to the I6 form of that value. But it could also be a property name, which compiles to the I6 form in question, or a defined adjective, which compiles to the name of the routine to call which tests whether that adjective is true.
 
-**Three warnings.** The material in "(-" and "-)" is not quite treated as literal. Certain characters cause Inform to react:
+**Three warnings.** The material in `(-` and `-)` is not quite treated as literal. Certain characters cause Inform to react:
 
-1. Beware of accidental "(+" usage – for instance,
+1. Beware of accidental `(+` usage – for instance,
 
 	Include (-
 	[ MyCleverLoop i; for (++i; i<10; i++) print i; ]; ! Will fail to compile
 	-).
 
-looks reasonable, but contains "(+" and "+)". Spaces around the first "++" would have been enough to avoid this one; "+)" is only significant where it follows a "(+".
+looks reasonable, but contains `(+` and `+)`. Spaces around the first `++` would have been enough to avoid this one; `+)` is only significant where it follows a `(+`.
 
-2. Beware of placing an "@" character in the first column, that is, immediately following a new line. (In template code this marks off paragraph divisions.) So for instance,
+2. Beware of placing an `@` character in the first column, that is, immediately following a new line. (In template code this marks off paragraph divisions.) So for instance,
 
 	Include (-
 	[ Set_Stream ret;
@@ -17473,7 +17436,7 @@ looks reasonable, but contains "(+" and "+)". Spaces around the first "++" would
 	];
 	-).
 
-is tripped up by the Glulx assembly language opcode "@glk" because this occurs in column 1. Indenting it with a little space or a tab is enough to avoid the problem.
+is tripped up by the Glulx assembly language opcode `@glk` because this occurs in column 1. Indenting it with a little space or a tab is enough to avoid the problem.
 
 3. Be careful if you're creating an I6 variable holding initialised I7 text. For example,
 
@@ -17490,15 +17453,15 @@ looks as if it will work, but doesn't, for reference-counting reasons we needn't
 
 But it's far better to avoid initialising text variables from I6 entirely. The same problems arise with constant lists.
 
-It should also be noted that the I6 syntax recognised inside "Include (- ... -)" is slightly restricted compared to the full range recognised by the stand-alone Inform 6 compiler. In particular:
+It should also be noted that the I6 syntax recognised inside `Include (- ... -)` is slightly restricted compared to the full range recognised by the stand-alone Inform 6 compiler. In particular:
 
-1. Only new-style "for" loops with colons in the header are allowed, so that `for (i=0: i<10: i++ )` is okay but `for (i=0; i<10; i++ )` is not. Moreover, "for" loops cannot contain empty clauses.
+1. Only new-style `for` loops with colons in the header are allowed, so that `for (i=0: i<10: i++ )` is okay but `for (i=0; i<10; i++ )` is not. Moreover, `for` loops cannot contain empty clauses.
 
-2. Local variable names are not allowed to be the same as an I6 statement keyword: for example, "style" and "spaces" are not allowed.
+2. Local variable names are not allowed to be the same as an I6 statement keyword: for example, `style` and `spaces` are not allowed.
 
-3. The (undocumented) Inform 6 function "indirect()" is not supported. But since "indirect(A)" is equivalent to "A()", which does work, this is no real loss. Similarly, the "glk()" function is not supported: function calls to BasicInformKit should be used instead.
+3. The (undocumented) Inform 6 function `indirect()` is not supported. But since `indirect(A)` is equivalent to `A()`, which does work, this is no real loss. Similarly, the `glk()` function is not supported: function calls to BasicInformKit should be used instead.
 
-4. Conditional compilation cannot be placed around cases in a "switch" statement.
+4. Conditional compilation cannot be placed around cases in a `switch` statement.
 
 5. Compile-time constant expression evaluation can be used with arithmetic operations, so `Constant foo = bar + 1;` is okay, but not with bitwise or logical operations, so `Constant foo = (bar | 1);` does not work.
 
@@ -17518,7 +17481,7 @@ By writing a sentence like this:
 
 	The underground rule translates into I6 as "UNDERGROUND_R".
 
-we create a new rule, the "underground rule", and also notify Inform that it will have no definition as I7 source text: instead, it will be provided as an I6 routine called ```underground_r```. We can define this with an Include like so:
+we create a new rule, the `underground rule`, and also notify Inform that it will have no definition as I7 source text: instead, it will be provided as an I6 routine called ```underground_r```. We can define this with an Include like so:
 
 	Include (-
 	[ UNDERGROUND_R;
@@ -17555,7 +17518,7 @@ How to arrange this? One way is to create an ordinary I7 property, like so:
 
 	Include (- with before [; Go: return 1; ], -) when defining a vehicle.
 
-This glues in a new property to the class compiled to represent the I7 kind "vehicle". (See the DM4 for why. However, since the entire actions machinery is different in the I7 world, note that "after", "react_before" and "react_after" no longer have any effect, and nor does "before" for rooms.)
+This glues in a new property to the class compiled to represent the I7 kind `vehicle`. (See the DM4 for why. However, since the entire actions machinery is different in the I7 world, note that `after`, `react_before` and `react_after` no longer have any effect, and nor does `before` for rooms.)
 
 And similarly:
 
@@ -17566,7 +17529,7 @@ If we need a particular I7 object or kind to end up with a particular I6 name, w
 	The whatsit object translates into I6 as "whatsit".
 	The thingummy kind translates into I6 as "thingummy_class".
 
-**Warning:** The "Include (- ... -) when defining ..." usage still works for the moment (except in projects compiled to C at the command line, where it may fail), but it is deprecated and likely to be removed in later versions of Inform. Avoid it if at all possible.
+**Warning:** The `Include (- ... -) when defining ...` usage still works for the moment (except in projects compiled to C at the command line, where it may fail), but it is deprecated and likely to be removed in later versions of Inform. Avoid it if at all possible.
 
 ## Inform 6 variables, properties, actions, and attributes {PM_TranslatesNonAction} {PM_TranslatesActionAlready} {PM_TranslatedTwice} {PM_TranslatedUnknownCategory} {PM_TranslatedToNonIdentifier} {PM_NonPropertyTranslated} {PM_NonQuantityTranslated} {PM_QuantityTranslatedAlready}
 
@@ -17589,7 +17552,7 @@ I7's properties are compiled sometimes as I6 properties, sometimes as I6 attribu
 	The switched on property translates into I6 as "on".
 	The initial appearance property translates into I6 as "initial".
 
-We do not need to translate "switched off", the opposite to "switched on": I7 will now compile this to "~on".
+We do not need to translate `switched off`, the opposite to `switched on`: I7 will now compile this to `~on`.
 
 Lastly, actions can also be translated (though it's usually better to translate their rules instead and invent new I7 actions covering them):
 
@@ -17603,7 +17566,7 @@ The parser which deciphers the player's typed commands is written in I6, and man
 
 	The Understand token squiggle translates into I6 as "SQUIGGLE_TOKEN".
 
-We then have to include a routine of that name into I7's output using the "Include" instruction, on which more later.
+We then have to include a routine of that name into I7's output using the `Include` instruction, on which more later.
 
 This creates a token `"[squiggle]"`; so for instance if the source text contains:
 
@@ -17626,19 +17589,20 @@ Inform now actually tests if a number N is prime by calling ```primality_test(N)
 
 The text in brackets does nothing functional, but is the text used in the Lexicon dictionary part of the Phrasebook index for the user's benefit; it should be a brief definition. Extension authors are asked to provide these little definitions, so that their users won't be confused by blank lexicon entries.
 
-The second way makes a more capable adjective, since it can not only be tested, but also made true or false using "now". For example:
+The second way makes a more capable adjective, since it can not only be tested, but also made true or false using `now`. For example:
 
 	Definition: a scene is crucial if I6 routine "SceneCrucial" makes it so
 		(it is essential to winning).
 
-The difference here is "makes it so", not "says so", and as this implies, the routine has more power. "SceneCrucial" is called with two arguments: SceneCrucial(S, -1) tests whether the scene is crucial or not and returns true or false; SceneCrucial(S, true) must make it true; and SceneCrucial(S, false) must make it false. Another useful difference is that if the kind of value is one which is stored in block form (e.g. for an adjective applying to text), the routine is given a pointer to the block, not a fresh copy.
+The difference here is `makes it so`, not `says so`, and as this implies, the routine has more power. `SceneCrucial` is called with two arguments: z
+`SceneCrucial(S, -1)` tests whether the scene is crucial or not and returns true or false; `SceneCrucial(S, true)` must make it true; and `SceneCrucial(S, false)` must make it false. Another useful difference is that if the kind of value is one which is stored in block form (e.g. for an adjective applying to text), the routine is given a pointer to the block, not a fresh copy.
 
 A third way to define an adjective, which should be used only if speed is exceptionally important, is to provide a "schema" – a sort of I6 macro, like those provided by the C preprocessor. For example:
 
 	Definition: a rulebook is exciting if I6 condition
 		"excitement_array-->(*1)==1" says so (it is really wild).
 
-The escape "\*1" is expanded to the value on which the adjective is being tested. (This is usually faster than calling a routine, but in case of side-effects, the "\*1" should occur only once in the condition, just as with a C macro.) To repeat: if in doubt, use the I6 routine method above.
+The escape `*1` is expanded to the value on which the adjective is being tested. (This is usually faster than calling a routine, but in case of side-effects, the `*1` should occur only once in the condition, just as with a C macro.) To repeat: if in doubt, use the I6 routine method above.
 
 ## Naming Unicode characters
 
@@ -17664,17 +17628,17 @@ In fact, we have seen the necessary syntax already:
 
 	Include (- ... -).
 
-puts the given material "..." into the project. For example:
+puts the given material `...` into the project. For example:
 
 	Include (-
 		[ ExtraFunction a b; return a*b; ];
 	-).
 
-adds just a single function called "ExtraFunction".
+adds just a single function called `ExtraFunction`.
 
-And this works fine, but if we tried the same trick to create a function called "SquareRoot", for example, then the result would be a problem message – because BasicInformKit also defines a function of the same name. This problem message is useful, because it warns us about accidental name clashes.
+And this works fine, but if we tried the same trick to create a function called `SquareRoot`, for example, then the result would be a problem message – because BasicInformKit also defines a function of the same name. This problem message is useful, because it warns us about accidental name clashes.
 
-But what if the name clash was not an accident at all, and what we actually wanted to give our own definition of "SquareRoot", to be used instead of the one in BasicInformKit? This is also possible:
+But what if the name clash was not an accident at all, and what we actually wanted to give our own definition of `SquareRoot`, to be used instead of the one in BasicInformKit? This is also possible:
 
 	Include (-
 	[ SquareRoot num;
@@ -17684,21 +17648,21 @@ But what if the name clash was not an accident at all, and what we actually want
 
 And now whenever square roots are calculated, this snarky text will be printed, and the result will always be rather meaningless (since this I6 routine always returns 1). Unless one is very careful, the result of replacing kit definitions can be absolute chaos.
 
-An important historical note: between about 2010 and 2021, kits did not exist, and instead there were "template files" of Inform 6 code which served roughly then same purpose. These had names like "Relations.i6t" or "Mathematics.i6t" and were internally divided into named subsections; and Inform supported syntax like the following:
+An important historical note: between about 2010 and 2021, kits did not exist, and instead there were "template files" of Inform 6 code which served roughly then same purpose. These had names like `Relations.i6t` or `Mathematics.i6t` and were internally divided into named subsections; and Inform supported syntax like the following:
 
 	Include (- ... -) before "Relations.i6t".
 	Include (- ... -) instead of "Relations.i6t".
 	Include (- ... -) after "Symmetric One To One Relations" in "Relations.i6t".
 
-to allow new material to be placed at oddball positions in the final code. There is now no need to worry about the placement of code – Inform's final code generator manages things so that code-ordering issues do not arise; as a result, the "before" and "after" options are now unnecessary. For now, Inform ignores these usages, and just disregards the "before..." or "after..." parts. But in some later version of Inform they will begin to cause problem messages, so writers of extensions using these syntaxes should now please remove them.
+to allow new material to be placed at oddball positions in the final code. There is now no need to worry about the placement of code – Inform's final code generator manages things so that code-ordering issues do not arise; as a result, the `before` and `after` options are now unnecessary. For now, Inform ignores these usages, and just disregards the `before...` or `after...` parts. But in some later version of Inform they will begin to cause problem messages, so writers of extensions using these syntaxes should now please remove them.
 
-The "instead of" option now cannot work at all, and throws a problem message. The new way to substitute a fresh definition of something built-in is to use the "replacing" notation described above.
+The `instead of` option now cannot work at all, and throws a problem message. The new way to substitute a fresh definition of something built-in is to use the `replacing` notation described above.
 
 With the demise of the "template layer", as it was called, another form of so-called "template hacking" has gone with it – the special notation:
 
 	Include (- {-segment:MyStuff.i6t} -).
 
-to allow a whole extra file of Inform 6 code called "MyStuff.i6t" to be pasted in. The new way to do that is to create a new kit, say MyStuffKit, to hold the material in question. This is not hard to do, but beyond the scope of this book. See the documentation on the low-level Inform tool "inter".
+to allow a whole extra file of Inform 6 code called `MyStuff.i6t` to be pasted in. The new way to do that is to create a new kit, say MyStuffKit, to hold the material in question. This is not hard to do, but beyond the scope of this book. See the documentation on the low-level Inform tool "inter".
 
 ## Translating the language of play
 
@@ -17706,9 +17670,9 @@ to allow a whole extra file of Inform 6 code called "MyStuff.i6t" to be pasted i
 
 The "language of play" is the natural language used to communicate with the player at run-time: this is normally English.
 
-That means that it is difficult to write, say, Spanish-language IF using Inform 7, though heroic work by the Spanish IF community has overcome this. Inform 6 provided for translation by isolating its linguistic code in a part of the I6 library called the "language definition file", which was normally "English.h". Translations were gradually made to most major European languages, resulting in alternative language definition files called "French.h", "Italian.h" and so on. Full details on how to write a language definition file were given in the Translations chapter of the DM4, that is, the fourth edition of the [Inform 6 Designer's Manual](https://inform-fiction.org/manual/html/).
+That means that it is difficult to write, say, Spanish-language IF using Inform 7, though heroic work by the Spanish IF community has overcome this. Inform 6 provided for translation by isolating its linguistic code in a part of the I6 library called the "language definition file", which was normally `English.h`. Translations were gradually made to most major European languages, resulting in alternative language definition files called `French.h`, `Italian.h` and so on. Full details on how to write a language definition file were given in the Translations chapter of the DM4, that is, the fourth edition of the [Inform 6 Designer's Manual](https://inform-fiction.org/manual/html/).
 
-In I7 the system is different. We use the template, not a library. Instead of providing a language definition file such as "French.h", a translator should create an extension called something like "French Language by Jacques Mensonge". (The language should be named in English, so "French Language by ...", not "Langue français by ...") This extension should then contain broadly the same material as an I6 language definition file, but written in a mostly higher-level way. See the extension "English Language by Graham Nelson" supplied with I7, which is included automatically by default.
+In I7 the system is different. We use the template, not a library. Instead of providing a language definition file such as `French.h`, a translator should create an extension called something like `French Language by Jacques Mensonge`. (The language should be named in English, so `French Language by ...`, not `Langue français by ...`) This extension should then contain broadly the same material as an I6 language definition file, but written in a mostly higher-level way. See the extension `English Language by Graham Nelson` supplied with I7, which is included automatically by default.
 
 ## Segmented substitutions
 
@@ -17723,33 +17687,33 @@ To create such syntaxes, it is not enough just to define how each expands into I
 
 	"The hotel [at random] is on fire."
 
-because `"[at random]"` is only legal when closing a "[one of] ..." construction. But if `"[at random]"` had been defined as just another text substitution, Inform would not have been able to detect such problems.
+because `"[at random]"` is only legal when closing a `"[one of] ..."` construction. But if `"[at random]"` had been defined as just another text substitution, Inform would not have been able to detect such problems.
 
 Inform therefore allows us to mark text substitutions as being any of three special kinds: beginning, in the middle of, or ending a segmented substitution. There can be any number of alternative forms for each of these three variants. The syntax policed is that
 
 1. Any usage must lie entirely within a single say or piece of text.
-2. It must begin with exactly one of the substitutions marked as "beginning".
-3. It can contain any number, including none, of the substitutions marked as "continuing" (if there are any).
-4. It must end with exactly one of the substitutions marked as "ending".
+2. It must begin with exactly one of the substitutions marked as `beginning`.
+3. It can contain any number, including none, of the substitutions marked as `continuing` (if there are any).
+4. It must end with exactly one of the substitutions marked as `ending`.
 
 A simple example:
 
 	To say emphasis on -- beginning say_emphasis_on: (- style underline; -).
 	To say emphasis off -- ending say_emphasis_on: (- style roman; -).
 
-This creates `"[emphasis on]"` and `"[emphasis off]"` such that they can only be used as a pair. The keyword "say_emphasis_on", which must be a valid I6 identifier (and hence a single word), is never seen by the user: it is simply an ID token so that Inform can identify the construction to which these belong. (We recommend that anybody creating such constructions should choose an ID token which consists of the construction's name but with underscores in place of spaces: this means that the namespace for ID tokens will only clash if the primary definitions would have clashed in any case.)
+This creates `"[emphasis on]"` and `"[emphasis off]"` such that they can only be used as a pair. The keyword `say_emphasis_on`, which must be a valid I6 identifier (and hence a single word), is never seen by the user: it is simply an ID token so that Inform can identify the construction to which these belong. (We recommend that anybody creating such constructions should choose an ID token which consists of the construction's name but with underscores in place of spaces: this means that the namespace for ID tokens will only clash if the primary definitions would have clashed in any case.)
 
 ## Invocation labels, counters and storage {PM_LabelNamespaceTooLong}
 
 ^^{Inform 6 inclusions: phrase elements}
 
-The process of expanding the I6 code which represents a phrase is called "invocation". As we have seen, when a phrase is defined using a single piece of I6 code, invocation consists of copying out that I6 code, except that tokens in braces "{thus}" are replaced:
+The process of expanding the I6 code which represents a phrase is called _invocation_. As we have seen, when a phrase is defined using a single piece of I6 code, invocation consists of copying out that I6 code, except that tokens in braces `{thus}` are replaced:
 
 	To say (something - number): (- print {something}; -).
 
-Ordinarily the only token names allowed are those matching up with names in the prototype, as here, but we have already seen one special syntax: "{phrase options}", which expands as a bitmap of the options chosen. And in fact the invocation language is larger still, as a skim through the Standard Rules will show. The notes below deliberately cover only some of its features: those which are likely to remain part of the permanent design of Inform, and which are adaptable to many uses. **Please do not use any of the undocumented invocation syntaxes: they change frequently, without notice or even mention in the change log.**
+Ordinarily the only token names allowed are those matching up with names in the prototype, as here, but we have already seen one special syntax: `{phrase options}`, which expands as a bitmap of the options chosen. And in fact the invocation language is larger still, as a skim through the Standard Rules will show. The notes below deliberately cover only some of its features: those which are likely to remain part of the permanent design of Inform, and which are adaptable to many uses. **Please do not use any of the undocumented invocation syntaxes: they change frequently, without notice or even mention in the change log.**
 
-The first special syntaxes are textual tricks. {-delete} deletes the most recent character in the I6 expansion of the phrase so far. {-erase} erases the I6 expansion of the phrase so far. {-open-brace} and {-close-brace} produce literal "{" and "}" characters.
+The first special syntaxes are textual tricks. {-delete} deletes the most recent character in the I6 expansion of the phrase so far. {-erase} erases the I6 expansion of the phrase so far. {-open-brace} and {-close-brace} produce literal `{` and `}` characters.
 
 The following:
 
@@ -17783,15 +17747,15 @@ Lastly {-final-segment-marker} expands to the I6 identifier which marks the end 
 	To say with fixed space type -- ending say_emphasise with marker fixed:
 		(- style roman; -).
 
-The markers used for the tails here are "underline" and "fixed", and when the head is invoked, the marker for its tail is expanded into the argument of I6's "style" statement.
+The markers used for the tails here are `underline` and `fixed`, and when the head is invoked, the marker for its tail is expanded into the argument of I6's `style` statement.
 
-The examples above are all to do with segmented substitutions, which is where they are most useful, but most of the syntaxes above work equally well for ordinary "To..." phrase definitions.
+The examples above are all to do with segmented substitutions, which is where they are most useful, but most of the syntaxes above work equally well for ordinary `To...` phrase definitions.
 
 ## To say one of
 
 ^^{Inform 6 inclusions: phrase elements}
 
-Many of the invocation syntaxes described in the previous section are used in the definition by the Standard Rules of the "[one of] ... [or] ... [purely at random]" construction, so it makes a good example of how they can be used.
+Many of the invocation syntaxes described in the previous section are used in the definition by the Standard Rules of the `"[one of] ... [or] ... [purely at random]"` construction, so it makes a good example of how they can be used.
 
 First, this is a segmented substitution with a single possible beginning (`"[one of]"`), a single possible middle (`"[or]"`) but a choice of many possible endings. Almost everything is compiled by the invocation of the beginning:
 
@@ -17831,7 +17795,7 @@ switch((I7_ST_say_one_of-->2)%5 - 1) {
 }
 ```
 
-First, we notified Inform that it needs to allocate an array (```I7_st_say_one_of```) providing storage associated with the counter "say_one_of". This we used to count off individual invocations of `"[one of]"`, so that each would have its own word of storage – for the 3rd invocation, ```I7_st_say_one_of-->2```. We then call a state-changing routine, in this case ```I7_soo_par```, which is allowed to know the previous state and also the number of options available, and which returns the new state. The state is supposed to be the option chosen last time, but that means that there are not 4, but 5 possibilities: 0 for "there was no last time", then 1 to 4 for the possible outcomes. We reduce the state mod 5 to obtain the decision this time, and subtract 1 because it happens to be convenient to make the switch statement run from 0 to 3 rather than 1 to 4. (The reason we reduce the state mod 5 is to allow the state-changer to squirrel away secret information in the upper bits of the state, if it wants to. Note that subtracting one means that the switch value might be -1, which results in no text being printed: thus if the state-changer chooses 0, it can decide on none of the above.)
+First, we notified Inform that it needs to allocate an array (```I7_st_say_one_of```) providing storage associated with the counter `say_one_of`. This we used to count off individual invocations of `"[one of]"`, so that each would have its own word of storage – for the 3rd invocation, ```I7_st_say_one_of-->2```. We then call a state-changing routine, in this case ```I7_soo_par```, which is allowed to know the previous state and also the number of options available, and which returns the new state. The state is supposed to be the option chosen last time, but that means that there are not 4, but 5 possibilities: 0 for "there was no last time", then 1 to 4 for the possible outcomes. We reduce the state mod 5 to obtain the decision this time, and subtract 1 because it happens to be convenient to make the switch statement run from 0 to 3 rather than 1 to 4. (The reason we reduce the state mod 5 is to allow the state-changer to squirrel away secret information in the upper bits of the state, if it wants to. Note that subtracting one means that the switch value might be -1, which results in no text being printed: thus if the state-changer chooses 0, it can decide on none of the above.)
 
 In this design, the marker attached to the choice of ending substitution is the name of the I6 state-changer: here it's the ```I7_soo_par``` routine.
 
@@ -17841,6 +17805,6 @@ In this design, the marker attached to the choice of ending substitution is the 
 
 As it happens, this ignores the old value: after all, it is meant to be purely at random, and nothing could be less pure than taking the last outcome into consideration when choosing the next.
 
-Note that the counter say_one_of is advanced in invocation of the head. It might seem that the tidier design, somehow, would be to advance the counter in the invocation of the tails, but this is not a good idea. In general it is not safe to assume that the counter will have the same value when the tail is invoked that it had when the head was invoked, because segmented say constructions can legally be nested in Inform strings. Because of this, it is best to deal with a counter entirely in a single invocation, either of the beginning or the ending.
+Note that the counter `say_one_of` is advanced in invocation of the head. It might seem that the tidier design, somehow, would be to advance the counter in the invocation of the tails, but this is not a good idea. In general it is not safe to assume that the counter will have the same value when the tail is invoked that it had when the head was invoked, because segmented say constructions can legally be nested in Inform strings. Because of this, it is best to deal with a counter entirely in a single invocation, either of the beginning or the ending.
 
-Because "[one of] ... [or] ..." is such a useful construction – switching between alternative forms of text, which writers of IF very often do – the above implementation is intentionally left open for new endings to be added, and the examples below show how easily this can be done.
+Because `"[one of] ... [or] ..."` is such a useful construction – switching between alternative forms of text, which writers of IF very often do – the above implementation is intentionally left open for new endings to be added, and the examples below show how easily this can be done.

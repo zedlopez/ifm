@@ -13,7 +13,7 @@ Suppose we want to expand the function of the existing ``THROW SOMETHING AT`` co
 		check	an actor throwing something at	futile to throw things at inanimate objects rule
 		check	an actor throwing something at	block throwing at rule
 
-Some of those still look useful. We want to leave the "implicitly remove thrown clothing" rule, for instance – no fair having the player throw a hat that's on their head. On the other hand, the "futile to throw things at inanimate objects rule" is going to have to go, because that would prevent us from ever being able to complete the throwing command. So let's get rid of that:
+Some of those still look useful. We want to leave the `implicitly remove thrown clothing` rule, for instance – no fair having the player throw a hat that's on their head. On the other hand, the `futile to throw things at inanimate objects rule` is going to have to go, because that would prevent us from ever being able to complete the throwing command. So let's get rid of that:
 
 	{*}"Kyoto"
 	

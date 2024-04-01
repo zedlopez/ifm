@@ -7,7 +7,7 @@ For: Z-Machine
 
 By default, the description of a room is printed every time the player enters a room.
 
-On a device with very limited screen space, however, we might wish to supplant that behaviour with "brief" descriptions. In Brief mode, Inform prints room descriptions only when the player enters that room for the first time. Afterwards, the text is skipped, for brevity, though the player can see it again at any time by typing ``LOOK``.
+On a device with very limited screen space, however, we might wish to supplant that behaviour with `brief` descriptions. In Brief mode, Inform prints room descriptions only when the player enters that room for the first time. Afterwards, the text is skipped, for brevity, though the player can see it again at any time by typing ``LOOK``.
 
 As we saw in the previous chapter, we can set "use options" to control certain aspects of the player's experience. One of the use options is the option to
 

@@ -15,7 +15,7 @@ Suppose we want to let the player kill characters, leaving behind corpses.
 	
 	The description of Lydia's body is "Long, long legs and no attitude at all." The initial appearance of Lydia's body is "Lydia's corpse is sprawled at your feet."
 
-Using our "part of every person..." line, we've conveniently assigned one body per person. Since we're going to separate people from their bodies when the bodies die, though, we also want a more permanent relation that will help us keep track of which bodies used to belong to which people:
+Using our `part of every person...` line, we've conveniently assigned one body per person. Since we're going to separate people from their bodies when the bodies die, though, we also want a more permanent relation that will help us keep track of which bodies used to belong to which people:
 
 	{**}Spirit-possession relates one person to one body. The verb to be owner of means the spirit-possession relation.
 	
@@ -60,7 +60,7 @@ Now we define the attack itself, which should discard the body, move the spirit 
 		move the noun to the spirit-world;
 		say "With a single blow, you rid the world of [the noun]."
 
-And finally a trick borrowed from the chapter on [Understanding], so that we can refer to "Lydia's body" while Lydia is alive, but "Lydia's corpse" only after Lydia has died:
+And finally a trick borrowed from the chapter on [Understanding], so that we can refer to ``LYDIA'S BODY`` while Lydia is alive, but ``LYDIA'S CORPSE`` only after Lydia has died:
 
 	{**}Understand "corpse" as a body when the item described is not part of a person.
 	

@@ -26,7 +26,7 @@ We'll first invent a general system for writing text into notebooks, by creating
 	To read (pad - a jotter):
 		say "You read: [paragraph break][text of the text file of the pad]".
 
-This is all as might be expected, except perhaps for the business of the "currently erased jotter". Why copy "pad" into this–why not simply write `"[heading of the pad]"`? The answer is that "pad" is a temporary "let" value, and cannot be used inside other phrases, such as the "write ... to ..." phrase.
+This is all as might be expected, except perhaps for the business of the `currently erased jotter`. Why copy `pad` into this–why not simply write `"[heading of the pad]"`? The answer is that `pad` is a temporary `let` value, and cannot be used inside other phrases, such as the `write ... to ...` phrase.
 
 We want to erase any jotters when play begins, as otherwise text left over from any previous games will still be visible:
 
