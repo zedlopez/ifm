@@ -732,9 +732,14 @@ Regions can be put inside each other:
 
 but they are not allowed to overlap other than by one being entirely inside the other.
 
+The effect of writing `The Arboretum is in the Public Area.` is that the Arboretum has a _property_ called its `map region` set to the `Public Area`.
+(More on properties later.) Every room has a `map region` property, but this is just set to `nowhere` unless the source text explicitly says otherwise: that is, by default rooms are not in any region at all. Where a room is in multiple regions, as in the case of the `Arboretum` being in both the `Public Area` and the `University Parks`, its `map region` is the innermost region it belongs to: so, in this case, `map region of the Arboretum` evaluates during play as `Public Area`. But the tests `if the Arboretum is in the Public Area` and `if the Arboretum is in the University Parks` are both true.
+
 ### See Also
 
 - [Improving the index map] for ways to adjust the way the index map is drawn or exported for publication.
+
+- [A word about in] for a fuller explanation of how Inform decides whether something is or isn't `in` something else, which has some special cases to handle regions.
 
 ## Kinds {KINDS} {PM_BothRoomAndSupporter} {PM_CantContainAndSupport} {PM_MiseEnAbyme} {PM_KindsIncompatible}
 
@@ -848,8 +853,6 @@ Backdrops are ordinarily in the background: if the sky needed to be referred to 
 Backdrops can be put in regions as well as rooms, and if so, then they are present at every room in the given region (or regions), as well as any specific rooms they may also be put into. For instance:
 
 	The Outdoors Area is a region. The Moon is a backdrop. The Moon is in the Outdoors Area. The Moon is in the Skylight Room.
-
-The property `map region` for a room holds the region it is in, in case this is useful.
 
 The special place `everywhere` can be given as the location of a backdrop to make it omnipresent:
 
@@ -3064,9 +3067,9 @@ And we can also test non-existence:
 
 ^^{containment+rel+} ^^{containment+relcat+} ^^{regional-containment+rel+} ^^{regional-containment+relcat+} ^^{indirect containment} ^^{containment+rel+: indirect} ^^{regions+kind+: things in regions} ^^{regions+kind+: regional containment} ^^{rooms+kind+: grouping into regions}
 
-What does "in" mean? It's worth just a brief diversion to cover this, because "in" has two subtly different meanings.
+What does "in" mean? The literal answer is that it means containment, that is, `X is in Y` means that Y contains X. Containment is an idea which is itself a little complicated to unravel, though.
 
-**Meaning 1.** Usually, if X is "in" Y then this is because of containment. If Y contains X, then X is said to be in Y. A croquet ball is "in" a croquet box, which is "in" the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:
+**Meaning 1.** Usually, if X is "in" Y then this is because Y is either a room or a container, and X is immediately inside it. A croquet ball is "in" a croquet box, which is "in" the Summerhouse. This is the standard meaning, and is the one which happens if we write something like:
 
 	The croquet ball is in the box.
 
@@ -3086,13 +3089,13 @@ This is almost always the meaning of "in" that we intend. This is only one of a 
 
 ...then `if the bird feed is in the sundial` won't be true: the relationship here is one called support (being on top of, in effect), not containment. But there's no confusion because `on` and `in` are different words, so it's no problem that they have different meanings.
 
-**Meaning 2.** Much less common. If X is "in" Y and Y is a region, then the meaning is slightly different. Suppose the Garden Area is a region, and contains several rooms – the Croquet Lawn, the Terrace and so on. Then
+**Meaning 2.** Much less common. If X is `in` Y and Y is a region, then the meaning is slightly different. Suppose the Garden Area is a region, and contains several rooms – the Croquet Lawn, the Terrace and so on. Then
 
 	if the croquet box is in the Garden Area, ...
 	if the bird feed is in the Garden Area, ...
 	if the Terrace is in the Garden Area, ...
 
-are all true. This seems very natural, but in fact is quite different from the first meaning of "in". It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment. Note also that `if the Terrace is in R`, where `R` is a region, this is not the same thing as asking `if the map region of the Terrace is R`. The `map region` of a room is the region it is immediately in (if any). If the Terrace is in a region called Garden Area which in turn is in the region Middlesex, then `if the Terrace is in Middlesex` is true, but `if the map region of the Terrace is Middlesex` is false.
+are all true. This seems very natural, but in fact is quite different from the behaviour of "in" for non-regions. It allows rooms (and even other regions) to be "in" a region, and it allows indirect containment. Note also that `if the Terrace is in R`, where `R` is a region, this is not the same thing as asking `if the map region of the Terrace is R`. The `map region` of a room is the region it is immediately in (if any). If the Terrace is in a region called Garden Area which in turn is in the region Middlesex, then `if the Terrace is in Middlesex` is true, but `if the map region of the Terrace is Middlesex` is false.
 
 **How Inform decides.** So which meaning does Inform use, and when? Since these two meanings are so different, it clearly matters.
 
