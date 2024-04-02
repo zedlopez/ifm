@@ -7069,6 +7069,8 @@ Some footnotes:
 
 8) The `provision relation` is special in that it applies to any value and any property, even when this seems absurd. For example, `if 20 provides carrying capacity` is perfectly legal. (The answer is no.) But it is intended for coping with objects, where it often happens that a variable contains some object, but where the exact kind is not known in advance.
 
+   In principle the `provision relation` can be tested on any property, but because either/or properties behave adjectivally in Inform, it's difficult actually to write such tests. `if 20 provides lit` is interpreted as meaning `if 20 provides something lit`, which then throws a problem message. So in practice `provides` can only be used with value properties.
+
 9) These size comparison relations can be applied to a wide range of number-like quantities, not just numbers, but they can only be tested, not asserted by `now`.
 
 ### Built-in verbs from the Standard Rules
@@ -7124,6 +7126,8 @@ So then we have to say what these relations apply to, and what they mean. We wil
 
 1) The `possession relation` can also be used to talk about properties: see the Basic Inform table above. If `X` or `Y` are both objects, then the relation is true if either the `carrying relation` or the `wearing relation` holds; note that in either case, `X` has to be a person and `Y` has to be a thing. Asserting possession with `now` is equivalent to asserting the `carrying relation`. Thus, `now Watson has the revolver` causes him to be carrying it.
 
+   If Inform reads an assertion sentence like `Holmes has the deerstalker.`, it has to choose whether this means the deerstalker is carried or worn by Holmes. In general Inform always tries to make the simplest choice of meaning, and here it reads `has` as `carries`.
+
 2) The `containment relation` is converted automatically to `regional-containment relation` (see below) if `X` is a region. Otherwise `X` must be either a room or a container, and `Y` must be a thing. `X` must immediately contain `Y`: if a coin is in a box which is in a crate, then the crate contains the box but does not contain the coin.
 
    Beware that a backdrop, or a two-sided door, is only contained in a single room at a time, even though it is conceptually present in other places. Behind the scenes, these objects are moved as needed to preserve the illusion that they are in two places at once, but they are not. However, see the note on enclosure below.
@@ -7149,6 +7153,8 @@ So then we have to say what these relations apply to, and what they mean. We wil
    Note, however, that if a room is in a region, then it is _not_ held by that region. Thus containment, support, carrying, wearing and reverse incorporation all imply holding, but regional containment does not.
 
    `now X holds Y` is permitted only if `Y` is a thing, and `X` is a room, container, supporter, or person; or if both are regions.
+
+   If Inform reads an assertion sentence like `Maureen holds the rabbit.`, it has to choose which of the above six relationships is intended. Having nothing to go on, it chooses the `carrying relation`, so that this is equivalent to `Maureen carries the rabbit`. `Maureen` is then deduced to be a `person`, and the `rabbit` is deduced to be a `thing`.
 
    The `holding relation` holds for abstract objects if `Y` is in `X` and `now X holds Y` is permitted in all cases.
 
